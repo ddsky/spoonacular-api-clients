@@ -1,26 +1,27 @@
 # com.spoonacular.client\ProductsApi
 
-All URIs are relative to *https://api.spoonacular.com*
+All URIs are relative to https://api.spoonacular.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**autocompleteProductSearch**](ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search
-[**classifyGroceryProduct**](ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
-[**classifyGroceryProductBulk**](ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
-[**getComparableProducts**](ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
-[**getProductInformation**](ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
-[**productNutritionByIDImage**](ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
-[**productNutritionLabelImage**](ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
-[**productNutritionLabelWidget**](ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
-[**searchGroceryProducts**](ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
-[**searchGroceryProductsByUPC**](ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
-[**visualizeProductNutritionByID**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
+[**autocompleteProductSearch()**](ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search
+[**classifyGroceryProduct()**](ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
+[**classifyGroceryProductBulk()**](ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
+[**getComparableProducts()**](ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
+[**getProductInformation()**](ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
+[**productNutritionByIDImage()**](ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
+[**productNutritionLabelImage()**](ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
+[**productNutritionLabelWidget()**](ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
+[**searchGroceryProducts()**](ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
+[**searchGroceryProductsByUPC()**](ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
+[**visualizeProductNutritionByID()**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
 
 
+## `autocompleteProductSearch()`
 
-## autocompleteProductSearch
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20032 autocompleteProductSearch($query, $number)
+```php
+autocompleteProductSearch($query, $number): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteProductSearch200Response
+```
 
 Autocomplete Product Search
 
@@ -34,9 +35,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -54,11 +55,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->autocompleteProductSearch: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -67,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteProductSearch200Response**](../Model/AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -76,16 +75,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `classifyGroceryProduct()`
 
-## classifyGroceryProduct
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20033 classifyGroceryProduct($inline_object1, $locale)
+```php
+classifyGroceryProduct($classify_grocery_product_request, $locale): \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProduct200Response
+```
 
 Classify Grocery Product
 
@@ -99,9 +99,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -110,29 +110,27 @@ $apiInstance = new com.spoonacular.client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inline_object1 = new \com.spoonacular.client\com.spoonacular.client.model\InlineObject1(); // \com.spoonacular.client\com.spoonacular.client.model\InlineObject1 | 
+$classify_grocery_product_request = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductRequest
 $locale = en_US; // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try {
-    $result = $apiInstance->classifyGroceryProduct($inline_object1, $locale);
+    $result = $apiInstance->classifyGroceryProduct($classify_grocery_product_request, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->classifyGroceryProduct: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject1**](../Model/InlineObject1.md)|  |
+ **classify_grocery_product_request** | [**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductRequest**](../Model/ClassifyGroceryProductRequest.md)|  |
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProduct200Response**](../Model/ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -140,17 +138,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `classifyGroceryProductBulk()`
 
-## classifyGroceryProductBulk
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20033[] classifyGroceryProductBulk($inline_object, $locale)
+```php
+classifyGroceryProductBulk($classify_grocery_product_bulk_request_inner, $locale): \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulk200ResponseInner[]
+```
 
 Classify Grocery Product Bulk
 
@@ -164,9 +163,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -175,29 +174,27 @@ $apiInstance = new com.spoonacular.client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inline_object = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // \com.spoonacular.client\com.spoonacular.client.model\InlineObject[] | 
+$classify_grocery_product_bulk_request_inner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulkRequestInner[]
 $locale = en_US; // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try {
-    $result = $apiInstance->classifyGroceryProductBulk($inline_object, $locale);
+    $result = $apiInstance->classifyGroceryProductBulk($classify_grocery_product_bulk_request_inner, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->classifyGroceryProductBulk: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**\com.spoonacular.client\com.spoonacular.client.model\InlineObject[]**](../Model/array.md)|  |
+ **classify_grocery_product_bulk_request_inner** | [**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulkRequestInner[]**](../Model/ClassifyGroceryProductBulkRequestInner.md)|  |
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20033[]**](../Model/InlineResponse20033.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulk200ResponseInner[]**](../Model/ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -205,17 +202,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getComparableProducts()`
 
-## getComparableProducts
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20031 getComparableProducts($upc)
+```php
+getComparableProducts($upc): \com.spoonacular.client\com.spoonacular.client.model\GetComparableProducts200Response
+```
 
 Get Comparable Products
 
@@ -229,9 +227,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -248,11 +246,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->getComparableProducts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -260,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetComparableProducts200Response**](../Model/GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -269,16 +265,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getProductInformation()`
 
-## getProductInformation
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20030 getProductInformation($id)
+```php
+getProductInformation($id): \com.spoonacular.client\com.spoonacular.client.model\GetProductInformation200Response
+```
 
 Get Product Information
 
@@ -292,9 +289,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -311,11 +308,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->getProductInformation: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -323,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\GetProductInformation200Response**](../Model/GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -332,16 +327,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `productNutritionByIDImage()`
 
-## productNutritionByIDImage
-
-> object productNutritionByIDImage($id)
+```php
+productNutritionByIDImage($id): object
+```
 
 Product Nutrition by ID Image
 
@@ -355,9 +351,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -374,11 +370,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->productNutritionByIDImage: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -395,16 +389,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/png
+- **Accept**: `image/png`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `productNutritionLabelImage()`
 
-## productNutritionLabelImage
-
-> object productNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients)
+```php
+productNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): object
+```
 
 Product Nutrition Label Image
 
@@ -418,9 +413,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -440,11 +435,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->productNutritionLabelImage: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -464,16 +457,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/png
+- **Accept**: `image/png`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `productNutritionLabelWidget()`
 
-## productNutritionLabelWidget
-
-> string productNutritionLabelWidget($id, $default_css, $show_optional_nutrients, $show_zero_values, $show_ingredients)
+```php
+productNutritionLabelWidget($id, $default_css, $show_optional_nutrients, $show_zero_values, $show_ingredients): string
+```
 
 Product Nutrition Label Widget
 
@@ -487,9 +481,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -510,11 +504,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->productNutritionLabelWidget: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -535,16 +527,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/html
+- **Accept**: `text/html`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchGroceryProducts()`
 
-## searchGroceryProducts
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027 searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number)
+```php
+searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProducts200Response
+```
 
 Search Grocery Products
 
@@ -558,9 +551,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -588,11 +581,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->searchGroceryProducts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -611,7 +602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProducts200Response**](../Model/SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -620,16 +611,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `searchGroceryProductsByUPC()`
 
-## searchGroceryProductsByUPC
-
-> \com.spoonacular.client\com.spoonacular.client.model\InlineResponse20028 searchGroceryProductsByUPC($upc)
+```php
+searchGroceryProductsByUPC($upc): \com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProductsByUPC200Response
+```
 
 Search Grocery Products by UPC
 
@@ -643,9 +635,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -662,11 +654,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->searchGroceryProductsByUPC: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -674,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProductsByUPC200Response**](../Model/SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 
@@ -683,16 +673,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `visualizeProductNutritionByID()`
 
-## visualizeProductNutritionByID
-
-> string visualizeProductNutritionByID($id, $default_css, $accept)
+```php
+visualizeProductNutritionByID($id, $default_css, $accept): string
+```
 
 Product Nutrition by ID Widget
 
@@ -706,9 +697,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('apiKey', 'YOUR_API_KEY');
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('apiKey', 'Bearer');
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
 $apiInstance = new com.spoonacular.client\Api\ProductsApi(
@@ -727,11 +718,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->visualizeProductNutritionByID: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -750,9 +739,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/html
+- **Accept**: `text/html`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

@@ -25,16 +25,16 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :intolerances (String.t): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
   ## Returns
 
-  {:ok, [%InlineResponse20024{}, ...]} on success
-  {:error, info} on failure
+  {:ok, [%AutocompleteIngredientSearch200ResponseInner{}, ...]} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec autocomplete_ingredient_search(Tesla.Env.client, keyword()) :: {:ok, list(com.spoonacular.client.Model.InlineResponse20024.t)} | {:error, Tesla.Env.t}
+  @spec autocomplete_ingredient_search(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, list(com.spoonacular.client.Model.AutocompleteIngredientSearch200ResponseInner.t)} | {:error, Tesla.Env.t}
   def autocomplete_ingredient_search(connection, opts \\ []) do
     optional_params = %{
-      :"query" => :query,
-      :"number" => :query,
-      :"metaInformation" => :query,
-      :"intolerances" => :query
+      :query => :query,
+      :number => :query,
+      :metaInformation => :query,
+      :intolerances => :query
     }
     %{}
     |> method(:get)
@@ -43,7 +43,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%com.spoonacular.client.Model.InlineResponse20024{}]},
+      { 200, [%com.spoonacular.client.Model.AutocompleteIngredientSearch200ResponseInner{}]},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -64,24 +64,24 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :unit (String.t): The target unit.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.RecipesParseIngredientsNutritionWeightPerServing{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.ComputeIngredientAmount200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec compute_ingredient_amount(Tesla.Env.client, float(), String.t, float(), keyword()) :: {:ok, com.spoonacular.client.Model.RecipesParseIngredientsNutritionWeightPerServing.t} | {:error, Tesla.Env.t}
+  @spec compute_ingredient_amount(Tesla.Env.client, float(), String.t, float(), keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.ComputeIngredientAmount200Response.t} | {:error, Tesla.Env.t}
   def compute_ingredient_amount(connection, id, nutrient, target, opts \\ []) do
     optional_params = %{
-      :"unit" => :query
+      :unit => :query
     }
     %{}
     |> method(:get)
     |> url("/food/ingredients/#{id}/amount")
-    |> add_param(:query, :"nutrient", nutrient)
-    |> add_param(:query, :"target", target)
+    |> add_param(:query, :nutrient, nutrient)
+    |> add_param(:query, :target, target)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.RecipesParseIngredientsNutritionWeightPerServing{}},
+      { 200, %com.spoonacular.client.Model.ComputeIngredientAmount200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -101,14 +101,14 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :unit (String.t): The unit for the given amount.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20022{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetIngredientInformation200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_ingredient_information(Tesla.Env.client, integer(), keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20022.t} | {:error, Tesla.Env.t}
+  @spec get_ingredient_information(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetIngredientInformation200Response.t} | {:error, Tesla.Env.t}
   def get_ingredient_information(connection, id, opts \\ []) do
     optional_params = %{
-      :"amount" => :query,
-      :"unit" => :query
+      :amount => :query,
+      :unit => :query
     }
     %{}
     |> method(:get)
@@ -117,7 +117,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20022{}},
+      { 200, %com.spoonacular.client.Model.GetIngredientInformation200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -135,19 +135,19 @@ defmodule com.spoonacular.client.Api.Ingredients do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20026{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetIngredientSubstitutes200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_ingredient_substitutes(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20026.t} | {:error, Tesla.Env.t}
+  @spec get_ingredient_substitutes(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetIngredientSubstitutes200Response.t} | {:error, Tesla.Env.t}
   def get_ingredient_substitutes(connection, ingredient_name, _opts \\ []) do
     %{}
     |> method(:get)
     |> url("/food/ingredients/substitutes")
-    |> add_param(:query, :"ingredientName", ingredient_name)
+    |> add_param(:query, :ingredientName, ingredient_name)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20026{}},
+      { 200, %com.spoonacular.client.Model.GetIngredientSubstitutes200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -165,10 +165,10 @@ defmodule com.spoonacular.client.Api.Ingredients do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20026{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetIngredientSubstitutes200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_ingredient_substitutes_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20026.t} | {:error, Tesla.Env.t}
+  @spec get_ingredient_substitutes_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetIngredientSubstitutes200Response.t} | {:error, Tesla.Env.t}
   def get_ingredient_substitutes_by_id(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
@@ -176,7 +176,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20026{}},
+      { 200, %com.spoonacular.client.Model.GetIngredientSubstitutes200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -207,26 +207,26 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20025{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.IngredientSearch200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec ingredient_search(Tesla.Env.client, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20025.t} | {:error, Tesla.Env.t}
+  @spec ingredient_search(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.IngredientSearch200Response.t} | {:error, Tesla.Env.t}
   def ingredient_search(connection, opts \\ []) do
     optional_params = %{
-      :"query" => :query,
-      :"addChildren" => :query,
-      :"minProteinPercent" => :query,
-      :"maxProteinPercent" => :query,
-      :"minFatPercent" => :query,
-      :"maxFatPercent" => :query,
-      :"minCarbsPercent" => :query,
-      :"maxCarbsPercent" => :query,
-      :"metaInformation" => :query,
-      :"intolerances" => :query,
-      :"sort" => :query,
-      :"sortDirection" => :query,
-      :"offset" => :query,
-      :"number" => :query
+      :query => :query,
+      :addChildren => :query,
+      :minProteinPercent => :query,
+      :maxProteinPercent => :query,
+      :minFatPercent => :query,
+      :maxFatPercent => :query,
+      :minCarbsPercent => :query,
+      :maxCarbsPercent => :query,
+      :metaInformation => :query,
+      :intolerances => :query,
+      :sort => :query,
+      :sortDirection => :query,
+      :offset => :query,
+      :number => :query
     }
     %{}
     |> method(:get)
@@ -235,7 +235,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20025{}},
+      { 200, %com.spoonacular.client.Model.IngredientSearch200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -254,13 +254,13 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :measure (String.t): Whether the the measures should be 'us' or 'metric'.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.Map{}} on success
-  {:error, info} on failure
+  {:ok, map()} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec ingredients_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec ingredients_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def ingredients_by_id_image(connection, id, opts \\ []) do
     optional_params = %{
-      :"measure" => :query
+      :measure => :query
     }
     %{}
     |> method(:get)
@@ -269,7 +269,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, false},
+      { 200, %{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -283,23 +283,23 @@ defmodule com.spoonacular.client.Api.Ingredients do
   ## Parameters
 
   - connection (com.spoonacular.client.Connection): Connection to server
-  - inline_object2 (InlineObject2): 
+  - map_ingredients_to_grocery_products_request (MapIngredientsToGroceryProductsRequest): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, [%InlineResponse20034{}, ...]} on success
-  {:error, info} on failure
+  {:ok, [%MapIngredientsToGroceryProducts200ResponseInner{}, ...]} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec map_ingredients_to_grocery_products(Tesla.Env.client, com.spoonacular.client.Model.InlineObject2.t, keyword()) :: {:ok, list(com.spoonacular.client.Model.InlineResponse20034.t)} | {:error, Tesla.Env.t}
-  def map_ingredients_to_grocery_products(connection, inline_object2, _opts \\ []) do
+  @spec map_ingredients_to_grocery_products(Tesla.Env.client, com.spoonacular.client.Model.MapIngredientsToGroceryProductsRequest.t, keyword()) :: {:ok, nil} | {:ok, list(com.spoonacular.client.Model.MapIngredientsToGroceryProducts200ResponseInner.t)} | {:error, Tesla.Env.t}
+  def map_ingredients_to_grocery_products(connection, map_ingredients_to_grocery_products_request, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/food/ingredients/map")
-    |> add_param(:body, :body, inline_object2)
+    |> add_param(:body, :body, map_ingredients_to_grocery_products_request)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%com.spoonacular.client.Model.InlineResponse20034{}]},
+      { 200, [%com.spoonacular.client.Model.MapIngredientsToGroceryProducts200ResponseInner{}]},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -319,20 +319,21 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :accept (String.t): Accept header.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.String.t{}} on success
-  {:error, info} on failure
+  {:ok, String.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec visualize_ingredients(Tesla.Env.client, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec visualize_ingredients(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def visualize_ingredients(connection, opts \\ []) do
     optional_params = %{
       :"Content-Type" => :headers,
-      :"language" => :query,
-      :"Accept" => :headers
+      :language => :query,
+      :Accept => :headers
     }
     %{}
     |> method(:post)
     |> url("/recipes/visualizeIngredients")
     |> add_optional_params(optional_params, opts)
+    |> ensure_body()
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([

@@ -23,28 +23,28 @@ Method | HTTP request | Description
 
 
 # **autocomplete_product_search**
-> InlineResponse20032 autocomplete_product_search(query => $query, number => $number)
+> AutocompleteProductSearch200Response autocomplete_product_search(query => $query, number => $number)
 
 Autocomplete Product Search
 
 Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = chicke; # string | The (partial) search query.
 my $number = 10; # int | The number of results to return (between 1 and 25).
 
-eval { 
+eval {
     my $result = $api_instance->autocomplete_product_search(query => $query, number => $number);
     print Dumper($result);
 };
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -76,29 +76,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_grocery_product**
-> InlineResponse20033 classify_grocery_product(inline_object1 => $inline_object1, locale => $locale)
+> ClassifyGroceryProduct200Response classify_grocery_product(classify_grocery_product_request => $classify_grocery_product_request, locale => $locale)
 
 Classify Grocery Product
 
 This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $inline_object1 = WWW::OpenAPIClient::Object::InlineObject1->new(); # InlineObject1 | 
+my $classify_grocery_product_request = WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest->new(); # ClassifyGroceryProductRequest | 
 my $locale = en_US; # string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
-eval { 
-    my $result = $api_instance->classify_grocery_product(inline_object1 => $inline_object1, locale => $locale);
+eval {
+    my $result = $api_instance->classify_grocery_product(classify_grocery_product_request => $classify_grocery_product_request, locale => $locale);
     print Dumper($result);
 };
 if ($@) {
@@ -110,12 +110,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **classify_grocery_product_request** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  | 
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**ClassifyGroceryProduct200Response**](ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -129,29 +129,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_grocery_product_bulk**
-> ARRAY[InlineResponse20033] classify_grocery_product_bulk(inline_object => $inline_object, locale => $locale)
+> ARRAY[ClassifyGroceryProductBulk200ResponseInner] classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner => $classify_grocery_product_bulk_request_inner, locale => $locale)
 
 Classify Grocery Product Bulk
 
 Provide a set of product jsons, get back classified products.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $inline_object = [WWW::OpenAPIClient::Object::ARRAY[InlineObject]->new()]; # ARRAY[InlineObject] | 
+my $classify_grocery_product_bulk_request_inner = [WWW::OpenAPIClient::Object::ARRAY[ClassifyGroceryProductBulkRequestInner]->new()]; # ARRAY[ClassifyGroceryProductBulkRequestInner] | 
 my $locale = en_US; # string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
-eval { 
-    my $result = $api_instance->classify_grocery_product_bulk(inline_object => $inline_object, locale => $locale);
+eval {
+    my $result = $api_instance->classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner => $classify_grocery_product_bulk_request_inner, locale => $locale);
     print Dumper($result);
 };
 if ($@) {
@@ -163,12 +163,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**ARRAY[InlineObject]**](ARRAY.md)|  | 
+ **classify_grocery_product_bulk_request_inner** | [**ARRAY[ClassifyGroceryProductBulkRequestInner]**](ClassifyGroceryProductBulkRequestInner.md)|  | 
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**ARRAY[InlineResponse20033]**](InlineResponse20033.md)
+[**ARRAY[ClassifyGroceryProductBulk200ResponseInner]**](ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -182,27 +182,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comparable_products**
-> InlineResponse20031 get_comparable_products(upc => $upc)
+> GetComparableProducts200Response get_comparable_products(upc => $upc)
 
 Get Comparable Products
 
 Find comparable products to the given one.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $upc = 33698816271; # double | The UPC of the product for which you want to find comparable products.
 
-eval { 
+eval {
     my $result = $api_instance->get_comparable_products(upc => $upc);
     print Dumper($result);
 };
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**GetComparableProducts200Response**](GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -233,27 +233,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_product_information**
-> InlineResponse20030 get_product_information(id => $id)
+> GetProductInformation200Response get_product_information(id => $id)
 
 Get Product Information
 
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_product_information(id => $id);
     print Dumper($result);
 };
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**GetProductInformation200Response**](GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -290,21 +290,21 @@ Product Nutrition by ID Image
 
 Visualize a product's nutritional information as an image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 7657; # double | The id of the product.
 
-eval { 
+eval {
     my $result = $api_instance->product_nutrition_by_id_image(id => $id);
     print Dumper($result);
 };
@@ -341,16 +341,16 @@ Product Nutrition Label Image
 
 Get a product's nutrition label as an image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 22347; # double | The product id.
@@ -358,7 +358,7 @@ my $show_optional_nutrients = false; # boolean | Whether to show optional nutrie
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->product_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients);
     print Dumper($result);
 };
@@ -398,16 +398,16 @@ Product Nutrition Label Widget
 
 Get a product's nutrition label as an HTML widget.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 22347; # double | The product id.
@@ -416,7 +416,7 @@ my $show_optional_nutrients = false; # boolean | Whether to show optional nutrie
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->product_nutrition_label_widget(id => $id, default_css => $default_css, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients);
     print Dumper($result);
 };
@@ -451,22 +451,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_grocery_products**
-> InlineResponse20027 search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_product_information => $add_product_information, offset => $offset, number => $number)
+> SearchGroceryProducts200Response search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_product_information => $add_product_information, offset => $offset, number => $number)
 
 Search Grocery Products
 
 Search packaged food products, such as frozen pizza or Greek yogurt.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
@@ -482,7 +482,7 @@ my $add_product_information = true; # boolean | If set to true, you get more inf
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->search_grocery_products(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_product_information => $add_product_information, offset => $offset, number => $number);
     print Dumper($result);
 };
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**SearchGroceryProducts200Response**](SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -524,27 +524,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_grocery_products_by_upc**
-> InlineResponse20028 search_grocery_products_by_upc(upc => $upc)
+> SearchGroceryProductsByUPC200Response search_grocery_products_by_upc(upc => $upc)
 
 Search Grocery Products by UPC
 
 Get information about a packaged food using its UPC.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $upc = 41631000564; # double | The product's UPC.
 
-eval { 
+eval {
     my $result = $api_instance->search_grocery_products_by_upc(upc => $upc);
     print Dumper($result);
 };
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**SearchGroceryProductsByUPC200Response**](SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 
@@ -581,23 +581,23 @@ Product Nutrition by ID Widget
 
 Visualize a product's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::ProductsApi;
 my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $accept = application/json; # string | Accept header.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_product_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept);
     print Dumper($result);
 };

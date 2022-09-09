@@ -1,10 +1,10 @@
 package com.spoonacular;
 
 import com.spoonacular.client.ApiUtils
+import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response
 import java.math.BigDecimal
-import com.spoonacular.client.model.InlineResponse20032
-import com.spoonacular.client.model.InlineResponse20035
-import com.spoonacular.client.model.InlineResponse20036
+import com.spoonacular.client.model.GetMenuItemInformation200Response
+import com.spoonacular.client.model.SearchMenuItems200Response
 
 class MenuItemsApi {
     String basePath = "https://api.spoonacular.com"
@@ -37,7 +37,7 @@ class MenuItemsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20032.class )
+                    AutocompleteMenuItemSearch200Response.class )
 
     }
 
@@ -61,7 +61,7 @@ class MenuItemsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20036.class )
+                    GetMenuItemInformation200Response.class )
 
     }
 
@@ -210,7 +210,7 @@ class MenuItemsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    InlineResponse20035.class )
+                    SearchMenuItems200Response.class )
 
     }
 

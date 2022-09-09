@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## addMealPlanTemplate
 
-> InlineResponse20040 addMealPlanTemplate(username, hash, inlineObject6)
+> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
 
 Add Meal Plan Template
 
@@ -38,9 +38,9 @@ Add a meal plan template for a user.
 MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = 4b5v4398573406; // String | The private hash for the username.
-InlineObject6 inlineObject6 = new InlineObject6(); // InlineObject6 | 
+AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 try {
-    InlineResponse20040 result = apiInstance.addMealPlanTemplate(username, hash, inlineObject6);
+    AddMealPlanTemplate200Response result = apiInstance.addMealPlanTemplate(username, hash, addToMealPlanRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#addMealPlanTemplate");
@@ -55,11 +55,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  |
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**AddMealPlanTemplate200Response**](AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## addToMealPlan
 
-> Object addToMealPlan(username, hash, inlineObject4)
+> Object addToMealPlan(username, hash, addToMealPlanRequest)
 
 Add to Meal Plan
 
@@ -88,9 +88,9 @@ Add an item to the user&#39;s meal plan.
 MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = null; // String | The private hash for the username.
-InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
+AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 try {
-    Object result = apiInstance.addToMealPlan(username, hash, inlineObject4);
+    Object result = apiInstance.addToMealPlan(username, hash, addToMealPlanRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#addToMealPlan");
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  |
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ## addToShoppingList
 
-> InlineResponse20042 addToShoppingList(username, hash, inlineObject9)
+> GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
 
 Add to Shopping List
 
@@ -138,9 +138,9 @@ Add an item to the current shopping list of a user.
 MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = null; // String | The private hash for the username.
-InlineObject9 inlineObject9 = new InlineObject9(); // InlineObject9 | 
+AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 try {
-    InlineResponse20042 result = apiInstance.addToShoppingList(username, hash, inlineObject9);
+    GenerateShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToMealPlanRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#addToShoppingList");
@@ -155,11 +155,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  |
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  |
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## clearMealPlanDay
 
-> Object clearMealPlanDay(username, date, hash, inlineObject3)
+> Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
 
 Clear Meal Plan Day
 
@@ -189,9 +189,9 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
 String hash = null; // String | The private hash for the username.
-InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
+ClearMealPlanDayRequest clearMealPlanDayRequest = new ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
 try {
-    Object result = apiInstance.clearMealPlanDay(username, date, hash, inlineObject3);
+    Object result = apiInstance.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#clearMealPlanDay");
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **date** | **String**| The date in the format yyyy-mm-dd. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  |
+ **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  |
 
 ### Return type
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## connectUser
 
-> InlineResponse20043 connectUser(body)
+> ConnectUser200Response connectUser(body)
 
 Connect User
 
@@ -240,7 +240,7 @@ In order to call user-specific endpoints, you need to connect your app&#39;s use
 MealPlanningApi apiInstance = new MealPlanningApi();
 Object body = null; // Object | 
 try {
-    InlineResponse20043 result = apiInstance.connectUser(body);
+    ConnectUser200Response result = apiInstance.connectUser(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#connectUser");
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**ConnectUser200Response**](ConnectUser200Response.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## deleteFromMealPlan
 
-> Object deleteFromMealPlan(username, id, hash, inlineObject5)
+> Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
 
 Delete from Meal Plan
 
@@ -287,9 +287,9 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 BigDecimal id = 15678; // BigDecimal | The shopping list item id.
 String hash = null; // String | The private hash for the username.
-InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
+DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 try {
-    Object result = apiInstance.deleteFromMealPlan(username, id, hash, inlineObject5);
+    Object result = apiInstance.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#deleteFromMealPlan");
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **BigDecimal**| The shopping list item id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  |
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ## deleteFromShoppingList
 
-> Object deleteFromShoppingList(username, id, hash, inlineObject10)
+> Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
 
 Delete from Shopping List
 
@@ -339,9 +339,9 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 Integer id = 1; // Integer | The item's id.
 String hash = null; // String | The private hash for the username.
-InlineObject10 inlineObject10 = new InlineObject10(); // InlineObject10 | 
+DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 try {
-    Object result = apiInstance.deleteFromShoppingList(username, id, hash, inlineObject10);
+    Object result = apiInstance.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#deleteFromShoppingList");
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  |
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ## deleteMealPlanTemplate
 
-> Object deleteMealPlanTemplate(username, id, hash, inlineObject7)
+> Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
 
 Delete Meal Plan Template
 
@@ -391,9 +391,9 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 Integer id = 1; // Integer | The item's id.
 String hash = 4b5v4398573406; // String | The private hash for the username.
-InlineObject7 inlineObject7 = new InlineObject7(); // InlineObject7 | 
+DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 try {
-    Object result = apiInstance.deleteMealPlanTemplate(username, id, hash, inlineObject7);
+    Object result = apiInstance.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#deleteMealPlanTemplate");
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  |
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ## generateMealPlan
 
-> InlineResponse20037 generateMealPlan(timeFrame, targetCalories, diet, exclude)
+> GenerateMealPlan200Response generateMealPlan(timeFrame, targetCalories, diet, exclude)
 
 Generate Meal Plan
 
@@ -445,7 +445,7 @@ BigDecimal targetCalories = 2000; // BigDecimal | What is the caloric target for
 String diet = vegetarian; // String | Enter a diet that the meal plan has to adhere to. See a full list of supported diets.
 String exclude = shellfish, olives; // String | A comma-separated list of allergens or ingredients that must be excluded.
 try {
-    InlineResponse20037 result = apiInstance.generateMealPlan(timeFrame, targetCalories, diet, exclude);
+    GenerateMealPlan200Response result = apiInstance.generateMealPlan(timeFrame, targetCalories, diet, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#generateMealPlan");
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**GenerateMealPlan200Response**](GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ## generateShoppingList
 
-> InlineResponse20042 generateShoppingList(username, startDate, endDate, hash, inlineObject8)
+> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
 
 Generate Shopping List
 
@@ -496,9 +496,9 @@ String username = dsky; // String | The username.
 String startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 String endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 String hash = null; // String | The private hash for the username.
-InlineObject8 inlineObject8 = new InlineObject8(); // InlineObject8 | 
+GenerateShoppingListRequest generateShoppingListRequest = new GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
 try {
-    InlineResponse20042 result = apiInstance.generateShoppingList(username, startDate, endDate, hash, inlineObject8);
+    GenerateShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#generateShoppingList");
@@ -515,11 +515,11 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | [default to null]
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  |
+ **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  |
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanTemplate
 
-> InlineResponse20041 getMealPlanTemplate(username, id, hash)
+> GetMealPlanTemplate200Response getMealPlanTemplate(username, id, hash)
 
 Get Meal Plan Template
 
@@ -550,7 +550,7 @@ String username = dsky; // String | The username.
 Integer id = 1; // Integer | The item's id.
 String hash = null; // String | The private hash for the username.
 try {
-    InlineResponse20041 result = apiInstance.getMealPlanTemplate(username, id, hash);
+    GetMealPlanTemplate200Response result = apiInstance.getMealPlanTemplate(username, id, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#getMealPlanTemplate");
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**GetMealPlanTemplate200Response**](GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanTemplates
 
-> InlineResponse20039 getMealPlanTemplates(username, hash)
+> GetMealPlanTemplates200Response getMealPlanTemplates(username, hash)
 
 Get Meal Plan Templates
 
@@ -599,7 +599,7 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = null; // String | The private hash for the username.
 try {
-    InlineResponse20039 result = apiInstance.getMealPlanTemplates(username, hash);
+    GetMealPlanTemplates200Response result = apiInstance.getMealPlanTemplates(username, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#getMealPlanTemplates");
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**GetMealPlanTemplates200Response**](GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanWeek
 
-> InlineResponse20038 getMealPlanWeek(username, startDate, hash)
+> GetMealPlanWeek200Response getMealPlanWeek(username, startDate, hash)
 
 Get Meal Plan Week
 
@@ -648,7 +648,7 @@ String username = dsky; // String | The username.
 String startDate = 2020-06-01; // String | The start date of the meal planned week in the format yyyy-mm-dd.
 String hash = null; // String | The private hash for the username.
 try {
-    InlineResponse20038 result = apiInstance.getMealPlanWeek(username, startDate, hash);
+    GetMealPlanWeek200Response result = apiInstance.getMealPlanWeek(username, startDate, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#getMealPlanWeek");
@@ -667,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**GetMealPlanWeek200Response**](GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 ## getShoppingList
 
-> InlineResponse20042 getShoppingList(username, hash)
+> GetShoppingList200Response getShoppingList(username, hash)
 
 Get Shopping List
 
@@ -697,7 +697,7 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = null; // String | The private hash for the username.
 try {
-    InlineResponse20042 result = apiInstance.getShoppingList(username, hash);
+    GetShoppingList200Response result = apiInstance.getShoppingList(username, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#getShoppingList");
@@ -715,7 +715,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 

@@ -53,27 +53,27 @@ Method | HTTP request | Description
 
 
 # **analyze_a_recipe_search_query**
-> InlineResponse20018 analyze_a_recipe_search_query(q => $q)
+> AnalyzeARecipeSearchQuery200Response analyze_a_recipe_search_query(q => $q)
 
 Analyze a Recipe Search Query
 
 Parse a recipe search query to find out its intention.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $q = salmon with fusilli and no nuts; # string | The recipe search query.
 
-eval { 
+eval {
     my $result = $api_instance->analyze_a_recipe_search_query(q => $q);
     print Dumper($result);
 };
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**AnalyzeARecipeSearchQuery200Response**](AnalyzeARecipeSearchQuery200Response.md)
 
 ### Authorization
 
@@ -104,27 +104,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyze_recipe_instructions**
-> InlineResponse20016 analyze_recipe_instructions(content_type => $content_type)
+> AnalyzeRecipeInstructions200Response analyze_recipe_instructions(content_type => $content_type)
 
 Analyze Recipe Instructions
 
 This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 
-eval { 
+eval {
     my $result = $api_instance->analyze_recipe_instructions(content_type => $content_type);
     print Dumper($result);
 };
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**AnalyzeRecipeInstructions200Response**](AnalyzeRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -155,28 +155,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **autocomplete_recipe_search**
-> ARRAY[InlineResponse2007] autocomplete_recipe_search(query => $query, number => $number)
+> ARRAY[AutocompleteRecipeSearch200ResponseInner] autocomplete_recipe_search(query => $query, number => $number)
 
 Autocomplete Recipe Search
 
 Autocomplete a partial input to suggest possible recipe names.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->autocomplete_recipe_search(query => $query, number => $number);
     print Dumper($result);
 };
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse2007]**](InlineResponse2007.md)
+[**ARRAY[AutocompleteRecipeSearch200ResponseInner]**](AutocompleteRecipeSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -208,27 +208,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_cuisine**
-> InlineResponse20017 classify_cuisine(content_type => $content_type)
+> ClassifyCuisine200Response classify_cuisine(content_type => $content_type)
 
 Classify Cuisine
 
 Classify the recipe's cuisine.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 
-eval { 
+eval {
     my $result = $api_instance->classify_cuisine(content_type => $content_type);
     print Dumper($result);
 };
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**ClassifyCuisine200Response**](ClassifyCuisine200Response.md)
 
 ### Authorization
 
@@ -259,29 +259,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **compute_glycemic_load**
-> InlineResponse20023 compute_glycemic_load(inline_object => $inline_object, language => $language)
+> ComputeGlycemicLoad200Response compute_glycemic_load(compute_glycemic_load_request => $compute_glycemic_load_request, language => $language)
 
 Compute Glycemic Load
 
 Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $inline_object = WWW::OpenAPIClient::Object::InlineObject->new(); # InlineObject | 
+my $compute_glycemic_load_request = WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest->new(); # ComputeGlycemicLoadRequest | 
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
-eval { 
-    my $result = $api_instance->compute_glycemic_load(inline_object => $inline_object, language => $language);
+eval {
+    my $result = $api_instance->compute_glycemic_load(compute_glycemic_load_request => $compute_glycemic_load_request, language => $language);
     print Dumper($result);
 };
 if ($@) {
@@ -293,12 +293,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  | 
+ **compute_glycemic_load_request** | [**ComputeGlycemicLoadRequest**](ComputeGlycemicLoadRequest.md)|  | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**ComputeGlycemicLoad200Response**](ComputeGlycemicLoad200Response.md)
 
 ### Authorization
 
@@ -312,22 +312,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **convert_amounts**
-> InlineResponse20019 convert_amounts(ingredient_name => $ingredient_name, source_amount => $source_amount, source_unit => $source_unit, target_unit => $target_unit)
+> ConvertAmounts200Response convert_amounts(ingredient_name => $ingredient_name, source_amount => $source_amount, source_unit => $source_unit, target_unit => $target_unit)
 
 Convert Amounts
 
 Convert amounts like \"2 cups of flour to grams\".
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $ingredient_name = flour; # string | The ingredient which you want to convert.
@@ -335,7 +335,7 @@ my $source_amount = 2.5; # double | The amount from which you want to convert, e
 my $source_unit = cups; # string | The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
 my $target_unit = grams; # string | The unit to which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
 
-eval { 
+eval {
     my $result = $api_instance->convert_amounts(ingredient_name => $ingredient_name, source_amount => $source_amount, source_unit => $source_unit, target_unit => $target_unit);
     print Dumper($result);
 };
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**ConvertAmounts200Response**](ConvertAmounts200Response.md)
 
 ### Authorization
 
@@ -369,27 +369,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_recipe_card**
-> InlineResponse20015 create_recipe_card(content_type => $content_type)
+> CreateRecipeCard200Response create_recipe_card(content_type => $content_type)
 
 Create Recipe Card
 
 Generate a recipe card for a recipe.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 
-eval { 
+eval {
     my $result = $api_instance->create_recipe_card(content_type => $content_type);
     print Dumper($result);
 };
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**CreateRecipeCard200Response**](CreateRecipeCard200Response.md)
 
 ### Authorization
 
@@ -426,21 +426,21 @@ Equipment by ID Image
 
 Visualize a recipe's equipment list as an image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 44860; # double | The recipe id.
 
-eval { 
+eval {
     my $result = $api_instance->equipment_by_id_image(id => $id);
     print Dumper($result);
 };
@@ -471,22 +471,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_recipe_from_website**
-> InlineResponse2003 extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze, include_nutrition => $include_nutrition, include_taste => $include_taste)
+> GetRecipeInformation200Response extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze, include_nutrition => $include_nutrition, include_taste => $include_taste)
 
 Extract Recipe from Website
 
 This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; # string | The URL of the recipe page.
@@ -495,7 +495,7 @@ my $analyze = false; # boolean | If true, the recipe will be analyzed and classi
 my $include_nutrition = false; # boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 my $include_taste = false; # boolean | Whether taste data should be added to correctly parsed ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze, include_nutrition => $include_nutrition, include_taste => $include_taste);
     print Dumper($result);
 };
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -530,28 +530,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_analyzed_recipe_instructions**
-> InlineResponse20013 get_analyzed_recipe_instructions(id => $id, step_breakdown => $step_breakdown)
+> GetAnalyzedRecipeInstructions200Response get_analyzed_recipe_instructions(id => $id, step_breakdown => $step_breakdown)
 
 Get Analyzed Recipe Instructions
 
 Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $step_breakdown = true; # boolean | Whether to break down the recipe steps even more.
 
-eval { 
+eval {
     my $result = $api_instance->get_analyzed_recipe_instructions(id => $id, step_breakdown => $step_breakdown);
     print Dumper($result);
 };
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -583,29 +583,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_random_recipes**
-> InlineResponse2006 get_random_recipes(limit_license => $limit_license, tags => $tags, number => $number)
+> GetRandomRecipes200Response get_random_recipes(limit_license => $limit_license, tags => $tags, number => $number)
 
 Get Random Recipes
 
 Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 my $tags = "tags_example"; # string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->get_random_recipes(limit_license => $limit_license, tags => $tags, number => $number);
     print Dumper($result);
 };
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**GetRandomRecipes200Response**](GetRandomRecipes200Response.md)
 
 ### Authorization
 
@@ -638,27 +638,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_equipment_by_id**
-> InlineResponse2009 get_recipe_equipment_by_id(id => $id)
+> GetRecipeEquipmentByID200Response get_recipe_equipment_by_id(id => $id)
 
 Equipment by ID
 
 Get a recipe's equipment list.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_equipment_by_id(id => $id);
     print Dumper($result);
 };
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**GetRecipeEquipmentByID200Response**](GetRecipeEquipmentByID200Response.md)
 
 ### Authorization
 
@@ -689,28 +689,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_information**
-> InlineResponse2003 get_recipe_information(id => $id, include_nutrition => $include_nutrition)
+> GetRecipeInformation200Response get_recipe_information(id => $id, include_nutrition => $include_nutrition)
 
 Get Recipe Information
 
 Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $include_nutrition = false; # boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_information(id => $id, include_nutrition => $include_nutrition);
     print Dumper($result);
 };
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -742,28 +742,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_information_bulk**
-> ARRAY[InlineResponse2004] get_recipe_information_bulk(ids => $ids, include_nutrition => $include_nutrition)
+> ARRAY[GetRecipeInformationBulk200ResponseInner] get_recipe_information_bulk(ids => $ids, include_nutrition => $include_nutrition)
 
 Get Recipe Information Bulk
 
 Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $ids = 715538,716429; # string | A comma-separated list of recipe ids.
 my $include_nutrition = false; # boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_information_bulk(ids => $ids, include_nutrition => $include_nutrition);
     print Dumper($result);
 };
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse2004]**](InlineResponse2004.md)
+[**ARRAY[GetRecipeInformationBulk200ResponseInner]**](GetRecipeInformationBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -795,27 +795,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_ingredients_by_id**
-> InlineResponse20011 get_recipe_ingredients_by_id(id => $id)
+> GetRecipeIngredientsByID200Response get_recipe_ingredients_by_id(id => $id)
 
 Ingredients by ID
 
 Get a recipe's ingredient list.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_ingredients_by_id(id => $id);
     print Dumper($result);
 };
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**GetRecipeIngredientsByID200Response**](GetRecipeIngredientsByID200Response.md)
 
 ### Authorization
 
@@ -846,27 +846,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_nutrition_widget_by_id**
-> InlineResponse20012 get_recipe_nutrition_widget_by_id(id => $id)
+> GetRecipeNutritionWidgetByID200Response get_recipe_nutrition_widget_by_id(id => $id)
 
 Nutrition by ID
 
 Get a recipe's nutrition data.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_nutrition_widget_by_id(id => $id);
     print Dumper($result);
 };
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**GetRecipeNutritionWidgetByID200Response**](GetRecipeNutritionWidgetByID200Response.md)
 
 ### Authorization
 
@@ -897,27 +897,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_price_breakdown_by_id**
-> InlineResponse20010 get_recipe_price_breakdown_by_id(id => $id)
+> GetRecipePriceBreakdownByID200Response get_recipe_price_breakdown_by_id(id => $id)
 
 Price Breakdown by ID
 
 Get a recipe's price breakdown data.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_price_breakdown_by_id(id => $id);
     print Dumper($result);
 };
@@ -934,7 +934,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**GetRecipePriceBreakdownByID200Response**](GetRecipePriceBreakdownByID200Response.md)
 
 ### Authorization
 
@@ -948,28 +948,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_taste_by_id**
-> InlineResponse2008 get_recipe_taste_by_id(id => $id, normalize => $normalize)
+> GetRecipeTasteByID200Response get_recipe_taste_by_id(id => $id, normalize => $normalize)
 
 Taste by ID
 
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $normalize = true; # boolean | Normalize to the strongest taste.
 
-eval { 
+eval {
     my $result = $api_instance->get_recipe_taste_by_id(id => $id, normalize => $normalize);
     print Dumper($result);
 };
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
 
 ### Authorization
 
@@ -1001,29 +1001,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_similar_recipes**
-> ARRAY[InlineResponse2005] get_similar_recipes(id => $id, number => $number, limit_license => $limit_license)
+> ARRAY[GetSimilarRecipes200ResponseInner] get_similar_recipes(id => $id, number => $number, limit_license => $limit_license)
 
 Get Similar Recipes
 
 Find recipes which are similar to the given one.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
-eval { 
+eval {
     my $result = $api_instance->get_similar_recipes(id => $id, number => $number, limit_license => $limit_license);
     print Dumper($result);
 };
@@ -1042,7 +1042,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse2005]**](InlineResponse2005.md)
+[**ARRAY[GetSimilarRecipes200ResponseInner]**](GetSimilarRecipes200ResponseInner.md)
 
 ### Authorization
 
@@ -1056,27 +1056,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **guess_nutrition_by_dish_name**
-> InlineResponse20021 guess_nutrition_by_dish_name(title => $title)
+> GuessNutritionByDishName200Response guess_nutrition_by_dish_name(title => $title)
 
 Guess Nutrition by Dish Name
 
 Estimate the macronutrients of a dish based on its title.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $title = Spaghetti Aglio et Olio; # string | The title of the dish.
 
-eval { 
+eval {
     my $result = $api_instance->guess_nutrition_by_dish_name(title => $title);
     print Dumper($result);
 };
@@ -1093,7 +1093,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**GuessNutritionByDishName200Response**](GuessNutritionByDishName200Response.md)
 
 ### Authorization
 
@@ -1113,22 +1113,22 @@ Ingredients by ID Image
 
 Visualize a recipe's ingredient list.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
 my $measure = metric; # string | Whether the the measures should be 'us' or 'metric'.
 
-eval { 
+eval {
     my $result = $api_instance->ingredients_by_id_image(id => $id, measure => $measure);
     print Dumper($result);
 };
@@ -1160,28 +1160,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parse_ingredients**
-> ARRAY[InlineResponse20020] parse_ingredients(content_type => $content_type, language => $language)
+> ARRAY[ParseIngredients200ResponseInner] parse_ingredients(content_type => $content_type, language => $language)
 
 Parse Ingredients
 
 Extract an ingredient from plain text.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
-eval { 
+eval {
     my $result = $api_instance->parse_ingredients(content_type => $content_type, language => $language);
     print Dumper($result);
 };
@@ -1199,7 +1199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse20020]**](InlineResponse20020.md)
+[**ARRAY[ParseIngredients200ResponseInner]**](ParseIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1219,21 +1219,21 @@ Price Breakdown by ID Image
 
 Visualize a recipe's price breakdown.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
 
-eval { 
+eval {
     my $result = $api_instance->price_breakdown_by_id_image(id => $id);
     print Dumper($result);
 };
@@ -1264,27 +1264,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **quick_answer**
-> InlineResponse20050 quick_answer(q => $q)
+> QuickAnswer200Response quick_answer(q => $q)
 
 Quick Answer
 
 Answer a nutrition related natural language question.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $q = How much vitamin c is in 2 apples?; # string | The nutrition related question.
 
-eval { 
+eval {
     my $result = $api_instance->quick_answer(q => $q);
     print Dumper($result);
 };
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**QuickAnswer200Response**](QuickAnswer200Response.md)
 
 ### Authorization
 
@@ -1321,21 +1321,21 @@ Recipe Nutrition by ID Image
 
 Visualize a recipe's nutritional information as an image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1082038; # double | The recipe id.
 
-eval { 
+eval {
     my $result = $api_instance->recipe_nutrition_by_id_image(id => $id);
     print Dumper($result);
 };
@@ -1372,16 +1372,16 @@ Recipe Nutrition Label Image
 
 Get a recipe's nutrition label as an image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 641166; # double | The recipe id.
@@ -1389,7 +1389,7 @@ my $show_optional_nutrients = false; # boolean | Whether to show optional nutrie
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->recipe_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients);
     print Dumper($result);
 };
@@ -1429,16 +1429,16 @@ Recipe Nutrition Label Widget
 
 Get a recipe's nutrition label as an HTML widget.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 641166; # double | The recipe id.
@@ -1447,7 +1447,7 @@ my $show_optional_nutrients = false; # boolean | Whether to show optional nutrie
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->recipe_nutrition_label_widget(id => $id, default_css => $default_css, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients);
     print Dumper($result);
 };
@@ -1488,23 +1488,23 @@ Recipe Taste by ID Image
 
 Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 69095; # double | The recipe id.
 my $normalize = false; # boolean | Normalize to the strongest taste.
 my $rgb = 75,192,192; # string | Red, green, blue values for the chart color.
 
-eval { 
+eval {
     my $result = $api_instance->recipe_taste_by_id_image(id => $id, normalize => $normalize, rgb => $rgb);
     print Dumper($result);
 };
@@ -1537,22 +1537,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes**
-> InlineResponse200 search_recipes(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, add_recipe_nutrition => $add_recipe_nutrition, author => $author, tags => $tags, recipe_box_id => $recipe_box_id, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license)
+> SearchRecipes200Response search_recipes(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, add_recipe_nutrition => $add_recipe_nutrition, author => $author, tags => $tags, recipe_box_id => $recipe_box_id, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license)
 
 Search Recipes
 
 Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
@@ -1652,7 +1652,7 @@ my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
-eval { 
+eval {
     my $result = $api_instance->search_recipes(query => $query, cuisine => $cuisine, exclude_cuisine => $exclude_cuisine, diet => $diet, intolerances => $intolerances, equipment => $equipment, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, type => $type, instructions_required => $instructions_required, fill_ingredients => $fill_ingredients, add_recipe_information => $add_recipe_information, add_recipe_nutrition => $add_recipe_nutrition, author => $author, tags => $tags, recipe_box_id => $recipe_box_id, title_match => $title_match, max_ready_time => $max_ready_time, ignore_pantry => $ignore_pantry, sort => $sort, sort_direction => $sort_direction, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, limit_license => $limit_license);
     print Dumper($result);
 };
@@ -1764,7 +1764,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**SearchRecipes200Response**](SearchRecipes200Response.md)
 
 ### Authorization
 
@@ -1778,22 +1778,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes_by_ingredients**
-> ARRAY[InlineResponse2001] search_recipes_by_ingredients(ingredients => $ingredients, number => $number, limit_license => $limit_license, ranking => $ranking, ignore_pantry => $ignore_pantry)
+> ARRAY[SearchRecipesByIngredients200ResponseInner] search_recipes_by_ingredients(ingredients => $ingredients, number => $number, limit_license => $limit_license, ranking => $ranking, ignore_pantry => $ignore_pantry)
 
 Search Recipes by Ingredients
 
  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $ingredients = carrots,tomatoes; # string | A comma-separated list of ingredients that the recipes should contain.
@@ -1802,7 +1802,7 @@ my $limit_license = true; # boolean | Whether the recipes should have an open li
 my $ranking = 1; # double | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 my $ignore_pantry = false; # boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
-eval { 
+eval {
     my $result = $api_instance->search_recipes_by_ingredients(ingredients => $ingredients, number => $number, limit_license => $limit_license, ranking => $ranking, ignore_pantry => $ignore_pantry);
     print Dumper($result);
 };
@@ -1823,7 +1823,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse2001]**](InlineResponse2001.md)
+[**ARRAY[SearchRecipesByIngredients200ResponseInner]**](SearchRecipesByIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1837,22 +1837,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes_by_nutrients**
-> ARRAY[InlineResponse2002] search_recipes_by_nutrients(min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, random => $random, limit_license => $limit_license)
+> ARRAY[SearchRecipesByNutrients200ResponseInner] search_recipes_by_nutrients(min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, random => $random, limit_license => $limit_license)
 
 Search Recipes by Nutrients
 
 Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $min_carbs = 10; # double | The minimum amount of carbohydrates in grams the recipe must have.
@@ -1932,7 +1932,7 @@ my $number = 10; # int | The maximum number of items to return (between 1 and 10
 my $random = false; # boolean | If true, every request will give you a random set of recipes within the requested limits.
 my $limit_license = true; # boolean | Whether the recipes should have an open license that allows display with proper attribution.
 
-eval { 
+eval {
     my $result = $api_instance->search_recipes_by_nutrients(min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_calories => $min_calories, max_calories => $max_calories, min_fat => $min_fat, max_fat => $max_fat, min_alcohol => $min_alcohol, max_alcohol => $max_alcohol, min_caffeine => $min_caffeine, max_caffeine => $max_caffeine, min_copper => $min_copper, max_copper => $max_copper, min_calcium => $min_calcium, max_calcium => $max_calcium, min_choline => $min_choline, max_choline => $max_choline, min_cholesterol => $min_cholesterol, max_cholesterol => $max_cholesterol, min_fluoride => $min_fluoride, max_fluoride => $max_fluoride, min_saturated_fat => $min_saturated_fat, max_saturated_fat => $max_saturated_fat, min_vitamin_a => $min_vitamin_a, max_vitamin_a => $max_vitamin_a, min_vitamin_c => $min_vitamin_c, max_vitamin_c => $max_vitamin_c, min_vitamin_d => $min_vitamin_d, max_vitamin_d => $max_vitamin_d, min_vitamin_e => $min_vitamin_e, max_vitamin_e => $max_vitamin_e, min_vitamin_k => $min_vitamin_k, max_vitamin_k => $max_vitamin_k, min_vitamin_b1 => $min_vitamin_b1, max_vitamin_b1 => $max_vitamin_b1, min_vitamin_b2 => $min_vitamin_b2, max_vitamin_b2 => $max_vitamin_b2, min_vitamin_b5 => $min_vitamin_b5, max_vitamin_b5 => $max_vitamin_b5, min_vitamin_b3 => $min_vitamin_b3, max_vitamin_b3 => $max_vitamin_b3, min_vitamin_b6 => $min_vitamin_b6, max_vitamin_b6 => $max_vitamin_b6, min_vitamin_b12 => $min_vitamin_b12, max_vitamin_b12 => $max_vitamin_b12, min_fiber => $min_fiber, max_fiber => $max_fiber, min_folate => $min_folate, max_folate => $max_folate, min_folic_acid => $min_folic_acid, max_folic_acid => $max_folic_acid, min_iodine => $min_iodine, max_iodine => $max_iodine, min_iron => $min_iron, max_iron => $max_iron, min_magnesium => $min_magnesium, max_magnesium => $max_magnesium, min_manganese => $min_manganese, max_manganese => $max_manganese, min_phosphorus => $min_phosphorus, max_phosphorus => $max_phosphorus, min_potassium => $min_potassium, max_potassium => $max_potassium, min_selenium => $min_selenium, max_selenium => $max_selenium, min_sodium => $min_sodium, max_sodium => $max_sodium, min_sugar => $min_sugar, max_sugar => $max_sugar, min_zinc => $min_zinc, max_zinc => $max_zinc, offset => $offset, number => $number, random => $random, limit_license => $limit_license);
     print Dumper($result);
 };
@@ -2024,7 +2024,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[InlineResponse2002]**](InlineResponse2002.md)
+[**ARRAY[SearchRecipesByNutrients200ResponseInner]**](SearchRecipesByNutrients200ResponseInner.md)
 
 ### Authorization
 
@@ -2038,27 +2038,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **summarize_recipe**
-> InlineResponse20014 summarize_recipe(id => $id)
+> SummarizeRecipe200Response summarize_recipe(id => $id)
 
 Summarize Recipe
 
 Automatically generate a short description that summarizes key information about the recipe.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->summarize_recipe(id => $id);
     print Dumper($result);
 };
@@ -2075,7 +2075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**SummarizeRecipe200Response**](SummarizeRecipe200Response.md)
 
 ### Authorization
 
@@ -2095,22 +2095,22 @@ Equipment Widget
 
 Visualize the equipment used to make a recipe.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 my $accept = application/json; # string | Accept header.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_equipment(content_type => $content_type, accept => $accept);
     print Dumper($result);
 };
@@ -2148,23 +2148,23 @@ Price Breakdown Widget
 
 Visualize the price breakdown of a recipe.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 my $accept = application/json; # string | Accept header.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_price_breakdown(content_type => $content_type, accept => $accept, language => $language);
     print Dumper($result);
 };
@@ -2203,22 +2203,22 @@ Equipment by ID Widget
 
 Visualize a recipe's equipment list.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_equipment_by_id(id => $id, default_css => $default_css);
     print Dumper($result);
 };
@@ -2256,23 +2256,23 @@ Ingredients by ID Widget
 
 Visualize a recipe's ingredient list.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $measure = metric; # string | Whether the the measures should be 'us' or 'metric'.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_ingredients_by_id(id => $id, default_css => $default_css, measure => $measure);
     print Dumper($result);
 };
@@ -2311,23 +2311,23 @@ Recipe Nutrition Widget
 
 Visualize a recipe's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 my $accept = application/json; # string | Accept header.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_nutrition(content_type => $content_type, accept => $accept, language => $language);
     print Dumper($result);
 };
@@ -2366,23 +2366,23 @@ Recipe Nutrition by ID Widget
 
 Visualize a recipe's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $accept = application/json; # string | Accept header.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept);
     print Dumper($result);
 };
@@ -2421,22 +2421,22 @@ Price Breakdown by ID Widget
 
 Visualize a recipe's price breakdown.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_price_breakdown_by_id(id => $id, default_css => $default_css);
     print Dumper($result);
 };
@@ -2474,16 +2474,16 @@ Recipe Taste Widget
 
 Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
@@ -2492,7 +2492,7 @@ my $accept = application/json; # string | Accept header.
 my $normalize = null; # boolean | Whether to normalize to the strongest taste.
 my $rgb = 75,192,192; # string | Red, green, blue values for the chart color.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_taste(language => $language, content_type => $content_type, accept => $accept, normalize => $normalize, rgb => $rgb);
     print Dumper($result);
 };
@@ -2533,23 +2533,23 @@ Recipe Taste by ID Widget
 
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::RecipesApi;
 my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $normalize = true; # boolean | Whether to normalize to the strongest taste.
 my $rgb = 75,192,192; # string | Red, green, blue values for the chart color.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_recipe_taste_by_id(id => $id, normalize => $normalize, rgb => $rgb);
     print Dumper($result);
 };

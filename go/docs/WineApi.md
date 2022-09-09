@@ -13,22 +13,55 @@ Method | HTTP request | Description
 
 ## GetDishPairingForWine
 
-> InlineResponse20044 GetDishPairingForWine(ctx, wine)
+> GetDishPairingForWine200Response GetDishPairingForWine(ctx).Wine(wine).Execute()
+
 Dish Pairing for Wine
 
-Find a dish that goes well with a given wine.
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    wine := "malbec" // string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WineApi.GetDishPairingForWine(context.Background()).Wine(wine).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetDishPairingForWine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetDishPairingForWine`: GetDishPairingForWine200Response
+    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetDishPairingForWine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDishPairingForWineRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wine** | **string**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
+ **wine** | **string** | The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
 
 ### Return type
 
-[**InlineResponse20044**](inline_response_200_44.md)
+[**GetDishPairingForWine200Response**](GetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -46,22 +79,55 @@ Name | Type | Description  | Notes
 
 ## GetWineDescription
 
-> InlineResponse20046 GetWineDescription(ctx, wine)
+> GetWineDescription200Response GetWineDescription(ctx).Wine(wine).Execute()
+
 Wine Description
 
-Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    wine := "merlot" // string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WineApi.GetWineDescription(context.Background()).Wine(wine).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetWineDescription``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWineDescription`: GetWineDescription200Response
+    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetWineDescription`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWineDescriptionRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wine** | **string**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
+ **wine** | **string** | The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
 
 ### Return type
 
-[**InlineResponse20046**](inline_response_200_46.md)
+[**GetWineDescription200Response**](GetWineDescription200Response.md)
 
 ### Authorization
 
@@ -79,33 +145,57 @@ Name | Type | Description  | Notes
 
 ## GetWinePairing
 
-> InlineResponse20045 GetWinePairing(ctx, food, optional)
+> GetWinePairing200Response GetWinePairing(ctx).Food(food).MaxPrice(maxPrice).Execute()
+
 Wine Pairing
 
-Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    food := "steak" // string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
+    maxPrice := float32(50) // float32 | The maximum price for the specific wine recommendation in USD. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WineApi.GetWinePairing(context.Background()).Food(food).MaxPrice(maxPrice).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetWinePairing``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWinePairing`: GetWinePairing200Response
+    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetWinePairing`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWinePairingRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**food** | **string**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). | 
- **optional** | ***GetWinePairingOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GetWinePairingOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **maxPrice** | **optional.Float32**| The maximum price for the specific wine recommendation in USD. | 
+ **food** | **string** | The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). | 
+ **maxPrice** | **float32** | The maximum price for the specific wine recommendation in USD. | 
 
 ### Return type
 
-[**InlineResponse20045**](inline_response_200_45.md)
+[**GetWinePairing200Response**](GetWinePairing200Response.md)
 
 ### Authorization
 
@@ -123,35 +213,61 @@ Name | Type | Description  | Notes
 
 ## GetWineRecommendation
 
-> InlineResponse20047 GetWineRecommendation(ctx, wine, optional)
+> GetWineRecommendation200Response GetWineRecommendation(ctx).Wine(wine).MaxPrice(maxPrice).MinRating(minRating).Number(number).Execute()
+
 Wine Recommendation
 
-Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 
-### Required Parameters
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    wine := "merlot" // string | The type of wine to get a specific product recommendation for.
+    maxPrice := float32(50) // float32 | The maximum price for the specific wine recommendation in USD. (optional)
+    minRating := float32(0.7) // float32 | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
+    number := float32(3) // float32 | The number of wine recommendations expected (between 1 and 100). (optional) (default to 10)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WineApi.GetWineRecommendation(context.Background()).Wine(wine).MaxPrice(maxPrice).MinRating(minRating).Number(number).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetWineRecommendation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWineRecommendation`: GetWineRecommendation200Response
+    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetWineRecommendation`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWineRecommendationRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**wine** | **string**| The type of wine to get a specific product recommendation for. | 
- **optional** | ***GetWineRecommendationOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GetWineRecommendationOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **maxPrice** | **optional.Float32**| The maximum price for the specific wine recommendation in USD. | 
- **minRating** | **optional.Float32**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | 
- **number** | **optional.Float32**| The number of wine recommendations expected (between 1 and 100). | [default to 10]
+ **wine** | **string** | The type of wine to get a specific product recommendation for. | 
+ **maxPrice** | **float32** | The maximum price for the specific wine recommendation in USD. | 
+ **minRating** | **float32** | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | 
+ **number** | **float32** | The number of wine recommendations expected (between 1 and 100). | [default to 10]
 
 ### Return type
 
-[**InlineResponse20047**](inline_response_200_47.md)
+[**GetWineRecommendation200Response**](GetWineRecommendation200Response.md)
 
 ### Authorization
 

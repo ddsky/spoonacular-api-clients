@@ -23,23 +23,23 @@ defmodule com.spoonacular.client.Api.MenuItems do
     - :number (float()): The number of results to return (between 1 and 25).
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20032{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.AutocompleteMenuItemSearch200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec autocomplete_menu_item_search(Tesla.Env.client, String.t, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20032.t} | {:error, Tesla.Env.t}
+  @spec autocomplete_menu_item_search(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.AutocompleteMenuItemSearch200Response.t} | {:error, Tesla.Env.t}
   def autocomplete_menu_item_search(connection, query, opts \\ []) do
     optional_params = %{
-      :"number" => :query
+      :number => :query
     }
     %{}
     |> method(:get)
     |> url("/food/menuItems/suggest")
-    |> add_param(:query, :"query", query)
+    |> add_param(:query, :query, query)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20032{}},
+      { 200, %com.spoonacular.client.Model.AutocompleteMenuItemSearch200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -57,10 +57,10 @@ defmodule com.spoonacular.client.Api.MenuItems do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20036{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.GetMenuItemInformation200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec get_menu_item_information(Tesla.Env.client, integer(), keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20036.t} | {:error, Tesla.Env.t}
+  @spec get_menu_item_information(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.GetMenuItemInformation200Response.t} | {:error, Tesla.Env.t}
   def get_menu_item_information(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
@@ -68,7 +68,7 @@ defmodule com.spoonacular.client.Api.MenuItems do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20036{}},
+      { 200, %com.spoonacular.client.Model.GetMenuItemInformation200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -86,10 +86,10 @@ defmodule com.spoonacular.client.Api.MenuItems do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.Map{}} on success
-  {:error, info} on failure
+  {:ok, map()} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec menu_item_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec menu_item_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def menu_item_nutrition_by_id_image(connection, id, _opts \\ []) do
     %{}
     |> method(:get)
@@ -97,7 +97,7 @@ defmodule com.spoonacular.client.Api.MenuItems do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, false},
+      { 200, %{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -118,15 +118,15 @@ defmodule com.spoonacular.client.Api.MenuItems do
     - :show_ingredients (boolean()): Whether to show a list of ingredients.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.Map{}} on success
-  {:error, info} on failure
+  {:ok, map()} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec menu_item_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec menu_item_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def menu_item_nutrition_label_image(connection, id, opts \\ []) do
     optional_params = %{
-      :"showOptionalNutrients" => :query,
-      :"showZeroValues" => :query,
-      :"showIngredients" => :query
+      :showOptionalNutrients => :query,
+      :showZeroValues => :query,
+      :showIngredients => :query
     }
     %{}
     |> method(:get)
@@ -135,7 +135,7 @@ defmodule com.spoonacular.client.Api.MenuItems do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, false},
+      { 200, %{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -157,16 +157,16 @@ defmodule com.spoonacular.client.Api.MenuItems do
     - :show_ingredients (boolean()): Whether to show a list of ingredients.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.String.t{}} on success
-  {:error, info} on failure
+  {:ok, String.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec menu_item_nutrition_label_widget(Tesla.Env.client, float(), keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec menu_item_nutrition_label_widget(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def menu_item_nutrition_label_widget(connection, id, opts \\ []) do
     optional_params = %{
-      :"defaultCss" => :query,
-      :"showOptionalNutrients" => :query,
-      :"showZeroValues" => :query,
-      :"showIngredients" => :query
+      :defaultCss => :query,
+      :showOptionalNutrients => :query,
+      :showZeroValues => :query,
+      :showIngredients => :query
     }
     %{}
     |> method(:get)
@@ -204,24 +204,24 @@ defmodule com.spoonacular.client.Api.MenuItems do
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.InlineResponse20035{}} on success
-  {:error, info} on failure
+  {:ok, com.spoonacular.client.Model.SearchMenuItems200Response.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec search_menu_items(Tesla.Env.client, keyword()) :: {:ok, com.spoonacular.client.Model.InlineResponse20035.t} | {:error, Tesla.Env.t}
+  @spec search_menu_items(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, com.spoonacular.client.Model.SearchMenuItems200Response.t} | {:error, Tesla.Env.t}
   def search_menu_items(connection, opts \\ []) do
     optional_params = %{
-      :"query" => :query,
-      :"minCalories" => :query,
-      :"maxCalories" => :query,
-      :"minCarbs" => :query,
-      :"maxCarbs" => :query,
-      :"minProtein" => :query,
-      :"maxProtein" => :query,
-      :"minFat" => :query,
-      :"maxFat" => :query,
-      :"addMenuItemInformation" => :query,
-      :"offset" => :query,
-      :"number" => :query
+      :query => :query,
+      :minCalories => :query,
+      :maxCalories => :query,
+      :minCarbs => :query,
+      :maxCarbs => :query,
+      :minProtein => :query,
+      :maxProtein => :query,
+      :minFat => :query,
+      :maxFat => :query,
+      :addMenuItemInformation => :query,
+      :offset => :query,
+      :number => :query
     }
     %{}
     |> method(:get)
@@ -230,7 +230,7 @@ defmodule com.spoonacular.client.Api.MenuItems do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %com.spoonacular.client.Model.InlineResponse20035{}},
+      { 200, %com.spoonacular.client.Model.SearchMenuItems200Response{}},
       { 401, false},
       { 403, false},
       { 404, false}
@@ -250,14 +250,14 @@ defmodule com.spoonacular.client.Api.MenuItems do
     - :accept (String.t): Accept header.
   ## Returns
 
-  {:ok, %com.spoonacular.client.Model.String.t{}} on success
-  {:error, info} on failure
+  {:ok, String.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec visualize_menu_item_nutrition_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec visualize_menu_item_nutrition_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def visualize_menu_item_nutrition_by_id(connection, id, opts \\ []) do
     optional_params = %{
-      :"defaultCss" => :query,
-      :"Accept" => :headers
+      :defaultCss => :query,
+      :Accept => :headers
     }
     %{}
     |> method(:get)

@@ -1,9 +1,9 @@
 #import "OAIMenuItemsApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIInlineResponse20032.h"
-#import "OAIInlineResponse20035.h"
-#import "OAIInlineResponse20036.h"
+#import "OAIAutocompleteMenuItemSearch200Response.h"
+#import "OAIGetMenuItemInformation200Response.h"
+#import "OAISearchMenuItems200Response.h"
 
 
 @interface OAIMenuItemsApi ()
@@ -58,11 +58,11 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The number of results to return (between 1 and 25). (optional)
 ///
-///  @returns OAIInlineResponse20032*
+///  @returns OAIAutocompleteMenuItemSearch200Response*
 ///
 -(NSURLSessionTask*) autocompleteMenuItemSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20032* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIAutocompleteMenuItemSearch200Response* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
         NSParameterAssert(query);
@@ -117,10 +117,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20032*"
+                              responseType: @"OAIAutocompleteMenuItemSearch200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20032*)data, error);
+                                    handler((OAIAutocompleteMenuItemSearch200Response*)data, error);
                                 }
                             }];
 }
@@ -130,10 +130,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 /// Use a menu item id to get all available information about a menu item, such as nutrition.
 ///  @param _id The item's id. 
 ///
-///  @returns OAIInlineResponse20036*
+///  @returns OAIGetMenuItemInformation200Response*
 ///
 -(NSURLSessionTask*) getMenuItemInformationWithId: (NSNumber*) _id
-    completionHandler: (void (^)(OAIInlineResponse20036* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAIGetMenuItemInformation200Response* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -185,10 +185,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20036*"
+                              responseType: @"OAIGetMenuItemInformation200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20036*)data, error);
+                                    handler((OAIGetMenuItemInformation200Response*)data, error);
                                 }
                             }];
 }
@@ -466,7 +466,7 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
 ///
-///  @returns OAIInlineResponse20035*
+///  @returns OAISearchMenuItems200Response*
 ///
 -(NSURLSessionTask*) searchMenuItemsWithQuery: (NSString*) query
     minCalories: (NSNumber*) minCalories
@@ -480,7 +480,7 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
     addMenuItemInformation: (NSNumber*) addMenuItemInformation
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-    completionHandler: (void (^)(OAIInlineResponse20035* output, NSError* error)) handler {
+    completionHandler: (void (^)(OAISearchMenuItems200Response* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/menuItems/search"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -554,10 +554,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIInlineResponse20035*"
+                              responseType: @"OAISearchMenuItems200Response*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIInlineResponse20035*)data, error);
+                                    handler((OAISearchMenuItems200Response*)data, error);
                                 }
                             }];
 }

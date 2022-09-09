@@ -3,139 +3,158 @@
             [clojure.spec.alpha :as s]
             [spec-tools.core :as st]
             [orchestra.core :refer [defn-spec]]
-            [spoonacular-api.specs.inline-response-200-41-days :refer :all]
-            [spoonacular-api.specs.inline-response-200-31-comparable-products :refer :all]
-            [spoonacular-api.specs.inline-response-200-42-measures :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-days :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-nutrition :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-extended-ingredients :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-properties :refer :all]
-            [spoonacular-api.specs.inline-object-10 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-measures-metric :refer :all]
-            [spoonacular-api.specs.inline-response-200-42-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-ingredients-1 :refer :all]
-            [spoonacular-api.specs.inline-response-200-31-comparable-products-protein :refer :all]
-            [spoonacular-api.specs.inline-response-200-28-servings :refer :all]
-            [spoonacular-api.specs.inline-response-200-30-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-value :refer :all]
-            [spoonacular-api.specs.inline-response-200-40-value :refer :all]
-            [spoonacular-api.specs.inline-response-200-10-amount :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-caloric-breakdown :refer :all]
-            [spoonacular-api.specs.inline-response-200-9 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-wine-pairing :refer :all]
-            [spoonacular-api.specs.inline-response-200-8 :refer :all]
-            [spoonacular-api.specs.inline-response-200-7 :refer :all]
-            [spoonacular-api.specs.inline-response-200-6 :refer :all]
-            [spoonacular-api.specs.inline-response-200-5 :refer :all]
-            [spoonacular-api.specs.inline-response-200-4 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3 :refer :all]
-            [spoonacular-api.specs.inline-response-200 :refer :all]
-            [spoonacular-api.specs.inline-response-200-32-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-19 :refer :all]
-            [spoonacular-api.specs.inline-response-200-18 :refer :all]
-            [spoonacular-api.specs.inline-response-200-17 :refer :all]
-            [spoonacular-api.specs.inline-response-200-16 :refer :all]
-            [spoonacular-api.specs.inline-response-200-29-custom-foods :refer :all]
-            [spoonacular-api.specs.inline-response-200-15 :refer :all]
-            [spoonacular-api.specs.inline-response-200-14 :refer :all]
-            [spoonacular-api.specs.inline-response-200-13 :refer :all]
-            [spoonacular-api.specs.inline-response-200-12 :refer :all]
-            [spoonacular-api.specs.inline-response-200-10-amount-metric :refer :all]
-            [spoonacular-api.specs.inline-response-200-11 :refer :all]
-            [spoonacular-api.specs.inline-response-200-10 :refer :all]
-            [spoonacular-api.specs.inline-response-200-53-search-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-40-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-18-dishes :refer :all]
-            [spoonacular-api.specs.inline-response-200-6-recipes :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-parsed-instructions :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-nutrients :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-steps :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-measures :refer :all]
-            [spoonacular-api.specs.inline-response-200-53-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-recipes :refer :all]
-            [spoonacular-api.specs.inline-response-200-45-product-matches :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-nutrition-summary-nutrients :refer :all]
-            [spoonacular-api.specs.inline-response-200-41-value :refer :all]
-            [spoonacular-api.specs.inline-response-200-18-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-41-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-22-nutrition :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-estimated-cost :refer :all]
-            [spoonacular-api.specs.inline-response-200-21-calories :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition-weight-per-serving :refer :all]
-            [spoonacular-api.specs.inline-response-200-39 :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-nutrition-calories :refer :all]
-            [spoonacular-api.specs.inline-object :refer :all]
-            [spoonacular-api.specs.inline-response-200-38 :refer :all]
-            [spoonacular-api.specs.inline-response-200-37 :refer :all]
-            [spoonacular-api.specs.inline-response-200-3-wine-pairing-product-matches :refer :all]
-            [spoonacular-api.specs.inline-response-200-36 :refer :all]
-            [spoonacular-api.specs.inline-response-200-35 :refer :all]
-            [spoonacular-api.specs.inline-response-200-34 :refer :all]
-            [spoonacular-api.specs.inline-response-200-33 :refer :all]
-            [spoonacular-api.specs.inline-response-200-32 :refer :all]
-            [spoonacular-api.specs.inline-response-200-31 :refer :all]
-            [spoonacular-api.specs.inline-response-200-30 :refer :all]
-            [spoonacular-api.specs.inline-response-200-57-suggests :refer :all]
-            [spoonacular-api.specs.inline-response-200-37-nutrients :refer :all]
-            [spoonacular-api.specs.inline-response-200-11-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-38-nutrition-summary :refer :all]
-            [spoonacular-api.specs.inline-response-200-10-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-25-results :refer :all]
-            [spoonacular-api.specs.inline-response-200-13-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-nutrition-calories-confidence-range95-percent :refer :all]
-            [spoonacular-api.specs.inline-response-200-23-ingredients :refer :all]
-            [spoonacular-api.specs.inline-response-200-29 :refer :all]
-            [spoonacular-api.specs.inline-response-200-28 :refer :all]
-            [spoonacular-api.specs.inline-response-200-27 :refer :all]
-            [spoonacular-api.specs.inline-response-200-2 :refer :all]
-            [spoonacular-api.specs.inline-response-200-21-calories-confidence-range95-percent :refer :all]
-            [spoonacular-api.specs.inline-response-200-26 :refer :all]
-            [spoonacular-api.specs.inline-response-200-1 :refer :all]
-            [spoonacular-api.specs.inline-response-200-25 :refer :all]
-            [spoonacular-api.specs.inline-response-200-24 :refer :all]
-            [spoonacular-api.specs.inline-response-200-23 :refer :all]
-            [spoonacular-api.specs.inline-response-200-22 :refer :all]
-            [spoonacular-api.specs.inline-response-200-21 :refer :all]
-            [spoonacular-api.specs.inline-response-200-20 :refer :all]
-            [spoonacular-api.specs.-food-ingredients-map-products :refer :all]
-            [spoonacular-api.specs.inline-object-3 :refer :all]
-            [spoonacular-api.specs.inline-response-200-51 :refer :all]
-            [spoonacular-api.specs.-recipes-find-by-ingredients-missed-ingredients :refer :all]
-            [spoonacular-api.specs.inline-object-2 :refer :all]
-            [spoonacular-api.specs.inline-response-200-50 :refer :all]
-            [spoonacular-api.specs.inline-object-5 :refer :all]
-            [spoonacular-api.specs.inline-object-4 :refer :all]
-            [spoonacular-api.specs.inline-object-7 :refer :all]
-            [spoonacular-api.specs.inline-response-200-28-ingredients :refer :all]
-            [spoonacular-api.specs.inline-object-6 :refer :all]
-            [spoonacular-api.specs.inline-object-9 :refer :all]
-            [spoonacular-api.specs.inline-response-200-49-category :refer :all]
-            [spoonacular-api.specs.-recipes-parse-ingredients-nutrition :refer :all]
-            [spoonacular-api.specs.inline-object-8 :refer :all]
-            [spoonacular-api.specs.inline-object-1 :refer :all]
-            [spoonacular-api.specs.inline-response-200-54-videos :refer :all]
-            [spoonacular-api.specs.inline-response-200-28-nutrition :refer :all]
-            [spoonacular-api.specs.inline-response-200-57 :refer :all]
-            [spoonacular-api.specs.inline-response-200-56 :refer :all]
-            [spoonacular-api.specs.inline-response-200-55 :refer :all]
-            [spoonacular-api.specs.inline-response-200-54 :refer :all]
-            [spoonacular-api.specs.inline-response-200-53 :refer :all]
-            [spoonacular-api.specs.inline-response-200-52 :refer :all]
-            [spoonacular-api.specs.inline-response-200-40 :refer :all]
-            [spoonacular-api.specs.inline-response-200-35-menu-items :refer :all]
-            [spoonacular-api.specs.inline-response-200-42-aisles :refer :all]
-            [spoonacular-api.specs.inline-response-200-49 :refer :all]
-            [spoonacular-api.specs.inline-response-200-48 :refer :all]
-            [spoonacular-api.specs.inline-response-200-47 :refer :all]
-            [spoonacular-api.specs.inline-response-200-46 :refer :all]
-            [spoonacular-api.specs.inline-response-200-45 :refer :all]
-            [spoonacular-api.specs.inline-response-200-44 :refer :all]
-            [spoonacular-api.specs.inline-response-200-43 :refer :all]
-            [spoonacular-api.specs.inline-response-200-42 :refer :all]
-            [spoonacular-api.specs.inline-response-200-41 :refer :all]
-            [spoonacular-api.specs.inline-response-200-47-recommended-wines :refer :all]
+            [spoonacular-api.specs.get-product-information-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-ingredients-by-id-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.add-to-shopping-list-request :refer :all]
+            [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-good-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
+            [spoonacular-api.specs.talk-to-chatbot-200-response :refer :all]
+            [spoonacular-api.specs.connect-user-200-response :refer :all]
+            [spoonacular-api.specs.search-recipes-200-response-results-inner :refer :all]
+            [spoonacular-api.specs.get-wine-description-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-items-inner-value :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-estimated-cost :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response :refer :all]
+            [spoonacular-api.specs.get-a-random-food-joke-200-response :refer :all]
+            [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response :refer :all]
+            [spoonacular-api.specs.convert-amounts-200-response :refer :all]
+            [spoonacular-api.specs.generate-meal-plan-200-response :refer :all]
+            [spoonacular-api.specs.analyze-a-recipe-search-query-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing :refer :all]
+            [spoonacular-api.specs.get-similar-recipes-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-comparable-products-200-response-comparable-products-protein-inner :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-nutrition :refer :all]
+            [spoonacular-api.specs.delete-from-meal-plan-request :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner-steps-inner :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.search-recipes-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner :refer :all]
+            [spoonacular-api.specs.generate-shopping-list-200-response :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-recipes-inner :refer :all]
+            [spoonacular-api.specs.search-recipes-by-ingredients-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response :refer :all]
+            [spoonacular-api.specs.search-food-videos-200-response :refer :all]
+            [spoonacular-api.specs.get-ingredient-substitutes-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner :refer :all]
+            [spoonacular-api.specs.map-ingredients-to-grocery-products-request :refer :all]
+            [spoonacular-api.specs.search-all-food-200-response-search-results-inner :refer :all]
+            [spoonacular-api.specs.search-all-food-200-response-search-results-inner-results-inner :refer :all]
+            [spoonacular-api.specs.search-menu-items-200-response-menu-items-inner :refer :all]
+            [spoonacular-api.specs.compute-ingredient-amount-200-response :refer :all]
+            [spoonacular-api.specs.get-conversation-suggests-200-response-suggests-inner :refer :all]
+            [spoonacular-api.specs.search-custom-foods-200-response-custom-foods-inner :refer :all]
+            [spoonacular-api.specs.add-meal-plan-template-200-response-items-inner :refer :all]
+            [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response-calories :refer :all]
+            [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
+            [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
+            [spoonacular-api.specs.get-conversation-suggests-200-response :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response :refer :all]
+            [spoonacular-api.specs.search-recipes-by-nutrients-200-response-inner :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner :refer :all]
+            [spoonacular-api.specs.generate-shopping-list-request :refer :all]
+            [spoonacular-api.specs.compute-glycemic-load-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner :refer :all]
+            [spoonacular-api.specs.add-meal-plan-template-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner-measures :refer :all]
+            [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
+            [spoonacular-api.specs.get-product-information-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
+            [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
+            [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
+            [spoonacular-api.specs.search-recipes-by-ingredients-200-response-inner-missed-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
+            [spoonacular-api.specs.quick-answer-200-response :refer :all]
+            [spoonacular-api.specs.analyze-a-recipe-search-query-200-response :refer :all]
+            [spoonacular-api.specs.get-wine-pairing-200-response :refer :all]
+            [spoonacular-api.specs.search-custom-foods-200-response :refer :all]
+            [spoonacular-api.specs.clear-meal-plan-day-request :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner-measures :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-nutrients-inner :refer :all]
+            [spoonacular-api.specs.generate-meal-plan-200-response-nutrients :refer :all]
+            [spoonacular-api.specs.get-recipe-information-bulk-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-wine-pairing-200-response-product-matches-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-properties-inner :refer :all]
+            [spoonacular-api.specs.search-menu-items-200-response :refer :all]
+            [spoonacular-api.specs.detect-food-in-text-200-response-annotations-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-weight-per-serving :refer :all]
+            [spoonacular-api.specs.get-random-recipes-200-response :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-bulk-request-inner :refer :all]
+            [spoonacular-api.specs.get-wine-recommendation-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-equipment-by-id-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner-measures-metric :refer :all]
+            [spoonacular-api.specs.get-ingredient-information-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-taste-by-id-200-response :refer :all]
+            [spoonacular-api.specs.compute-glycemic-load-200-response :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-1-value :refer :all]
+            [spoonacular-api.specs.image-classification-by-url-200-response :refer :all]
+            [spoonacular-api.specs.create-recipe-card-200-response :refer :all]
+            [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response-calories-confidence-range95-percent :refer :all]
+            [spoonacular-api.specs.get-ingredient-information-200-response-nutrition :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.add-meal-plan-template-200-response-items-inner-value :refer :all]
+            [spoonacular-api.specs.detect-food-in-text-200-response :refer :all]
+            [spoonacular-api.specs.summarize-recipe-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-articles-inner :refer :all]
+            [spoonacular-api.specs.autocomplete-recipe-search-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-random-food-trivia-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-equipment-by-id-200-response-equipment-inner :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-bulk-200-response-inner :refer :all]
+            [spoonacular-api.specs.analyze-a-recipe-search-query-200-response-dishes-inner :refer :all]
+            [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner-items-inner-value :refer :all]
+            [spoonacular-api.specs.get-wine-recommendation-200-response-recommended-wines-inner :refer :all]
+            [spoonacular-api.specs.ingredient-search-200-response-results-inner :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-caloric-breakdown :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-1-value-ingredients-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner-amount-metric :refer :all]
+            [spoonacular-api.specs.connect-user-request :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
+            [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner :refer :all]
+            [spoonacular-api.specs.get-comparable-products-200-response-comparable-products :refer :all]
+            [spoonacular-api.specs.autocomplete-product-search-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary-nutrients-inner :refer :all]
+            [spoonacular-api.specs.get-random-recipes-200-response-recipes-inner :refer :all]
+            [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner :refer :all]
+            [spoonacular-api.specs.autocomplete-product-search-200-response-results-inner :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-1 :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-items-inner :refer :all]
+            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-servings :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition :refer :all]
+            [spoonacular-api.specs.get-meal-plan-templates-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response :refer :all]
+            [spoonacular-api.specs.compute-glycemic-load-request :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
+            [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories :refer :all]
+            [spoonacular-api.specs.ingredient-search-200-response :refer :all]
+            [spoonacular-api.specs.search-all-food-200-response :refer :all]
+            [spoonacular-api.specs.autocomplete-ingredient-search-200-response-inner :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response-category :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-200-response :refer :all]
+            [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner-amount :refer :all]
+            [spoonacular-api.specs.get-comparable-products-200-response :refer :all]
+            [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary :refer :all]
+            [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner-items-inner :refer :all]
+            [spoonacular-api.specs.image-analysis-by-url-200-response :refer :all]
+            [spoonacular-api.specs.search-food-videos-200-response-videos-inner :refer :all]
+            [spoonacular-api.specs.get-recipe-ingredients-by-id-200-response :refer :all]
+            [spoonacular-api.specs.get-dish-pairing-for-wine-200-response :refer :all]
+            [spoonacular-api.specs.get-menu-item-information-200-response :refer :all]
+            [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition :refer :all]
+            [spoonacular-api.specs.classify-grocery-product-request :refer :all]
             )
   (:import (java.io File)))
 
@@ -143,39 +162,39 @@
 (defn-spec add-meal-plan-template-with-http-info any?
   "Add Meal Plan Template
   Add a meal plan template for a user."
-  [username string?, hash string?, inline-object-6 inline-object-6]
-  (check-required-params username hash inline-object-6)
+  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
+  (check-required-params username hash add-to-meal-plan-request)
   (call-api "/mealplanner/{username}/templates" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-6
+             :body-param    add-to-meal-plan-request
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec add-meal-plan-template inline-response-200-40-spec
+(defn-spec add-meal-plan-template add-meal-plan-template-200-response-spec
   "Add Meal Plan Template
   Add a meal plan template for a user."
-  [username string?, hash string?, inline-object-6 inline-object-6]
-  (let [res (:data (add-meal-plan-template-with-http-info username hash inline-object-6))]
+  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
+  (let [res (:data (add-meal-plan-template-with-http-info username hash add-to-meal-plan-request))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-40-spec res st/string-transformer)
+       (st/decode add-meal-plan-template-200-response-spec res st/string-transformer)
        res)))
 
 
 (defn-spec add-to-meal-plan-with-http-info any?
   "Add to Meal Plan
   Add an item to the user's meal plan."
-  [username string?, hash string?, inline-object-4 inline-object-4]
-  (check-required-params username hash inline-object-4)
+  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
+  (check-required-params username hash add-to-meal-plan-request)
   (call-api "/mealplanner/{username}/items" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-4
+             :body-param    add-to-meal-plan-request
              :content-types ["" "application/json"]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
@@ -183,8 +202,8 @@
 (defn-spec add-to-meal-plan any?
   "Add to Meal Plan
   Add an item to the user's meal plan."
-  [username string?, hash string?, inline-object-4 inline-object-4]
-  (let [res (:data (add-to-meal-plan-with-http-info username hash inline-object-4))]
+  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
+  (let [res (:data (add-to-meal-plan-with-http-info username hash add-to-meal-plan-request))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -193,39 +212,39 @@
 (defn-spec add-to-shopping-list-with-http-info any?
   "Add to Shopping List
   Add an item to the current shopping list of a user."
-  [username string?, hash string?, inline-object-9 inline-object-9]
-  (check-required-params username hash inline-object-9)
+  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
+  (check-required-params username hash add-to-meal-plan-request)
   (call-api "/mealplanner/{username}/shopping-list/items" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-9
+             :body-param    add-to-meal-plan-request
              :content-types ["" "application/json"]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec add-to-shopping-list inline-response-200-42-spec
+(defn-spec add-to-shopping-list generate-shopping-list-200-response-spec
   "Add to Shopping List
   Add an item to the current shopping list of a user."
-  [username string?, hash string?, inline-object-9 inline-object-9]
-  (let [res (:data (add-to-shopping-list-with-http-info username hash inline-object-9))]
+  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
+  (let [res (:data (add-to-shopping-list-with-http-info username hash add-to-meal-plan-request))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-42-spec res st/string-transformer)
+       (st/decode generate-shopping-list-200-response-spec res st/string-transformer)
        res)))
 
 
 (defn-spec clear-meal-plan-day-with-http-info any?
   "Clear Meal Plan Day
   Delete all planned items from the user's meal plan for a specific day."
-  [username string?, date string?, hash string?, inline-object-3 inline-object-3]
-  (check-required-params username date hash inline-object-3)
+  [username string?, date string?, hash string?, clear-meal-plan-day-request clear-meal-plan-day-request]
+  (check-required-params username date hash clear-meal-plan-day-request)
   (call-api "/mealplanner/{username}/day/{date}" :delete
             {:path-params   {"username" username "date" date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-3
+             :body-param    clear-meal-plan-day-request
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
@@ -233,8 +252,8 @@
 (defn-spec clear-meal-plan-day any?
   "Clear Meal Plan Day
   Delete all planned items from the user's meal plan for a specific day."
-  [username string?, date string?, hash string?, inline-object-3 inline-object-3]
-  (let [res (:data (clear-meal-plan-day-with-http-info username date hash inline-object-3))]
+  [username string?, date string?, hash string?, clear-meal-plan-day-request clear-meal-plan-day-request]
+  (let [res (:data (clear-meal-plan-day-with-http-info username date hash clear-meal-plan-day-request))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -255,27 +274,27 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec connect-user inline-response-200-43-spec
+(defn-spec connect-user connect-user-200-response-spec
   "Connect User
   In order to call user-specific endpoints, you need to connect your app's users to spoonacular users."
   [body any?]
   (let [res (:data (connect-user-with-http-info body))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-43-spec res st/string-transformer)
+       (st/decode connect-user-200-response-spec res st/string-transformer)
        res)))
 
 
 (defn-spec delete-from-meal-plan-with-http-info any?
   "Delete from Meal Plan
   Delete an item from the user's meal plan."
-  [username string?, id float?, hash string?, inline-object-5 inline-object-5]
-  (check-required-params username id hash inline-object-5)
+  [username string?, id float?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
+  (check-required-params username id hash delete-from-meal-plan-request)
   (call-api "/mealplanner/{username}/items/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-5
+             :body-param    delete-from-meal-plan-request
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
@@ -283,8 +302,8 @@
 (defn-spec delete-from-meal-plan any?
   "Delete from Meal Plan
   Delete an item from the user's meal plan."
-  [username string?, id float?, hash string?, inline-object-5 inline-object-5]
-  (let [res (:data (delete-from-meal-plan-with-http-info username id hash inline-object-5))]
+  [username string?, id float?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
+  (let [res (:data (delete-from-meal-plan-with-http-info username id hash delete-from-meal-plan-request))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -293,14 +312,14 @@
 (defn-spec delete-from-shopping-list-with-http-info any?
   "Delete from Shopping List
   Delete an item from the current shopping list of the user."
-  [username string?, id int?, hash string?, inline-object-10 inline-object-10]
-  (check-required-params username id hash inline-object-10)
+  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
+  (check-required-params username id hash delete-from-meal-plan-request)
   (call-api "/mealplanner/{username}/shopping-list/items/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-10
+             :body-param    delete-from-meal-plan-request
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
@@ -308,8 +327,8 @@
 (defn-spec delete-from-shopping-list any?
   "Delete from Shopping List
   Delete an item from the current shopping list of the user."
-  [username string?, id int?, hash string?, inline-object-10 inline-object-10]
-  (let [res (:data (delete-from-shopping-list-with-http-info username id hash inline-object-10))]
+  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
+  (let [res (:data (delete-from-shopping-list-with-http-info username id hash delete-from-meal-plan-request))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -318,14 +337,14 @@
 (defn-spec delete-meal-plan-template-with-http-info any?
   "Delete Meal Plan Template
   Delete a meal plan template for a user."
-  [username string?, id int?, hash string?, inline-object-7 inline-object-7]
-  (check-required-params username id hash inline-object-7)
+  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
+  (check-required-params username id hash delete-from-meal-plan-request)
   (call-api "/mealplanner/{username}/templates/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-7
+             :body-param    delete-from-meal-plan-request
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
@@ -333,8 +352,8 @@
 (defn-spec delete-meal-plan-template any?
   "Delete Meal Plan Template
   Delete a meal plan template for a user."
-  [username string?, id int?, hash string?, inline-object-7 inline-object-7]
-  (let [res (:data (delete-meal-plan-template-with-http-info username id hash inline-object-7))]
+  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
+  (let [res (:data (delete-meal-plan-template-with-http-info username id hash delete-from-meal-plan-request))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -354,39 +373,39 @@
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
 
-(defn-spec generate-meal-plan inline-response-200-37-spec
+(defn-spec generate-meal-plan generate-meal-plan-200-response-spec
   "Generate Meal Plan
   Generate a meal plan with three meals per day (breakfast, lunch, and dinner)."
   ([] (generate-meal-plan nil))
   ([optional-params any?]
    (let [res (:data (generate-meal-plan-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode inline-response-200-37-spec res st/string-transformer)
+        (st/decode generate-meal-plan-200-response-spec res st/string-transformer)
         res))))
 
 
 (defn-spec generate-shopping-list-with-http-info any?
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?, inline-object-8 inline-object-8]
-  (check-required-params username start-date end-date hash inline-object-8)
+  [username string?, start-date string?, end-date string?, hash string?, generate-shopping-list-request generate-shopping-list-request]
+  (check-required-params username start-date end-date hash generate-shopping-list-request)
   (call-api "/mealplanner/{username}/shopping-list/{start-date}/{end-date}" :post
             {:path-params   {"username" username "start-date" start-date "end-date" end-date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    inline-object-8
+             :body-param    generate-shopping-list-request
              :content-types [""]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec generate-shopping-list inline-response-200-42-spec
+(defn-spec generate-shopping-list generate-shopping-list-200-response-spec
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?, inline-object-8 inline-object-8]
-  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash inline-object-8))]
+  [username string?, start-date string?, end-date string?, hash string?, generate-shopping-list-request generate-shopping-list-request]
+  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash generate-shopping-list-request))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-42-spec res st/string-transformer)
+       (st/decode generate-shopping-list-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -404,13 +423,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-meal-plan-template inline-response-200-41-spec
+(defn-spec get-meal-plan-template get-meal-plan-template-200-response-spec
   "Get Meal Plan Template
   Get information about a meal plan template."
   [username string?, id int?, hash string?]
   (let [res (:data (get-meal-plan-template-with-http-info username id hash))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-41-spec res st/string-transformer)
+       (st/decode get-meal-plan-template-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -428,13 +447,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-meal-plan-templates inline-response-200-39-spec
+(defn-spec get-meal-plan-templates get-meal-plan-templates-200-response-spec
   "Get Meal Plan Templates
   Get meal plan templates from user or public ones."
   [username string?, hash string?]
   (let [res (:data (get-meal-plan-templates-with-http-info username hash))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-39-spec res st/string-transformer)
+       (st/decode get-meal-plan-templates-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -452,13 +471,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-meal-plan-week inline-response-200-38-spec
+(defn-spec get-meal-plan-week get-meal-plan-week-200-response-spec
   "Get Meal Plan Week
   Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
   [username string?, start-date string?, hash string?]
   (let [res (:data (get-meal-plan-week-with-http-info username start-date hash))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-38-spec res st/string-transformer)
+       (st/decode get-meal-plan-week-200-response-spec res st/string-transformer)
        res)))
 
 
@@ -476,13 +495,13 @@
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
-(defn-spec get-shopping-list inline-response-200-42-spec
+(defn-spec get-shopping-list get-shopping-list-200-response-spec
   "Get Shopping List
   Get the current shopping list for the given user."
   [username string?, hash string?]
   (let [res (:data (get-shopping-list-with-http-info username hash))]
     (if (:decode-models *api-context*)
-       (st/decode inline-response-200-42-spec res st/string-transformer)
+       (st/decode get-shopping-list-200-response-spec res st/string-transformer)
        res)))
 
 

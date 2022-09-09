@@ -50,7 +50,7 @@ Method | HTTP request | Description
 
 ## analyzeARecipeSearchQuery
 
-> InlineResponse20018 analyzeARecipeSearchQuery(q)
+> AnalyzeARecipeSearchQuery200Response analyzeARecipeSearchQuery(q)
 
 Analyze a Recipe Search Query
 
@@ -65,7 +65,7 @@ Parse a recipe search query to find out its intention.
 RecipesApi apiInstance = new RecipesApi();
 String q = salmon with fusilli and no nuts; // String | The recipe search query.
 try {
-    InlineResponse20018 result = apiInstance.analyzeARecipeSearchQuery(q);
+    AnalyzeARecipeSearchQuery200Response result = apiInstance.analyzeARecipeSearchQuery(q);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#analyzeARecipeSearchQuery");
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**AnalyzeARecipeSearchQuery200Response**](AnalyzeARecipeSearchQuery200Response.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## analyzeRecipeInstructions
 
-> InlineResponse20016 analyzeRecipeInstructions(contentType)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(contentType)
 
 Analyze Recipe Instructions
 
@@ -111,7 +111,7 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 RecipesApi apiInstance = new RecipesApi();
 String contentType = application/json; // String | The content type.
 try {
-    InlineResponse20016 result = apiInstance.analyzeRecipeInstructions(contentType);
+    AnalyzeRecipeInstructions200Response result = apiInstance.analyzeRecipeInstructions(contentType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#analyzeRecipeInstructions");
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**AnalyzeRecipeInstructions200Response**](AnalyzeRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ## autocompleteRecipeSearch
 
-> List&lt;InlineResponse2007&gt; autocompleteRecipeSearch(query, number)
+> Set&lt;AutocompleteRecipeSearch200ResponseInner&gt; autocompleteRecipeSearch(query, number)
 
 Autocomplete Recipe Search
 
@@ -158,7 +158,7 @@ RecipesApi apiInstance = new RecipesApi();
 String query = burger; // String | The (natural language) search query.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    List<InlineResponse2007> result = apiInstance.autocompleteRecipeSearch(query, number);
+    Set<AutocompleteRecipeSearch200ResponseInner> result = apiInstance.autocompleteRecipeSearch(query, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#autocompleteRecipeSearch");
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse2007&gt;**](InlineResponse2007.md)
+[**Set&lt;AutocompleteRecipeSearch200ResponseInner&gt;**](AutocompleteRecipeSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ## classifyCuisine
 
-> InlineResponse20017 classifyCuisine(contentType)
+> ClassifyCuisine200Response classifyCuisine(contentType)
 
 Classify Cuisine
 
@@ -205,7 +205,7 @@ Classify the recipe&#39;s cuisine.
 RecipesApi apiInstance = new RecipesApi();
 String contentType = application/json; // String | The content type.
 try {
-    InlineResponse20017 result = apiInstance.classifyCuisine(contentType);
+    ClassifyCuisine200Response result = apiInstance.classifyCuisine(contentType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#classifyCuisine");
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**ClassifyCuisine200Response**](ClassifyCuisine200Response.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## computeGlycemicLoad
 
-> InlineResponse20023 computeGlycemicLoad(inlineObject, language)
+> ComputeGlycemicLoad200Response computeGlycemicLoad(computeGlycemicLoadRequest, language)
 
 Compute Glycemic Load
 
@@ -249,10 +249,10 @@ Retrieve the glycemic index for a list of ingredients and compute the individual
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-InlineObject inlineObject = new InlineObject(); // InlineObject | 
+ComputeGlycemicLoadRequest computeGlycemicLoadRequest = {"ingredients":["1 kiwi","2 cups rice","2 glasses of water"]}; // ComputeGlycemicLoadRequest | 
 String language = en; // String | The language of the input. Either 'en' or 'de'.
 try {
-    InlineResponse20023 result = apiInstance.computeGlycemicLoad(inlineObject, language);
+    ComputeGlycemicLoad200Response result = apiInstance.computeGlycemicLoad(computeGlycemicLoadRequest, language);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#computeGlycemicLoad");
@@ -265,12 +265,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+ **computeGlycemicLoadRequest** | [**ComputeGlycemicLoadRequest**](ComputeGlycemicLoadRequest.md)|  |
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**ComputeGlycemicLoad200Response**](ComputeGlycemicLoad200Response.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ## convertAmounts
 
-> InlineResponse20019 convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit)
+> ConvertAmounts200Response convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit)
 
 Convert Amounts
 
@@ -302,7 +302,7 @@ BigDecimal sourceAmount = 2.5; // BigDecimal | The amount from which you want to
 String sourceUnit = cups; // String | The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
 String targetUnit = grams; // String | The unit to which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
 try {
-    InlineResponse20019 result = apiInstance.convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit);
+    ConvertAmounts200Response result = apiInstance.convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#convertAmounts");
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**ConvertAmounts200Response**](ConvertAmounts200Response.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ## createRecipeCard
 
-> InlineResponse20015 createRecipeCard(contentType)
+> CreateRecipeCard200Response createRecipeCard(contentType)
 
 Create Recipe Card
 
@@ -351,7 +351,7 @@ Generate a recipe card for a recipe.
 RecipesApi apiInstance = new RecipesApi();
 String contentType = application/json; // String | The content type.
 try {
-    InlineResponse20015 result = apiInstance.createRecipeCard(contentType);
+    CreateRecipeCard200Response result = apiInstance.createRecipeCard(contentType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#createRecipeCard");
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**CreateRecipeCard200Response**](CreateRecipeCard200Response.md)
 
 ### Authorization
 
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## extractRecipeFromWebsite
 
-> InlineResponse2003 extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
+> GetRecipeInformation200Response extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
 
 Extract Recipe from Website
 
@@ -447,7 +447,7 @@ Boolean analyze = false; // Boolean | If true, the recipe will be analyzed and c
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 Boolean includeTaste = false; // Boolean | Whether taste data should be added to correctly parsed ingredients.
 try {
-    InlineResponse2003 result = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
+    GetRecipeInformation200Response result = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#extractRecipeFromWebsite");
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 ## getAnalyzedRecipeInstructions
 
-> InlineResponse20013 getAnalyzedRecipeInstructions(id, stepBreakdown)
+> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, stepBreakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -498,7 +498,7 @@ RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 Boolean stepBreakdown = true; // Boolean | Whether to break down the recipe steps even more.
 try {
-    InlineResponse20013 result = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown);
+    GetAnalyzedRecipeInstructions200Response result = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getAnalyzedRecipeInstructions");
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ## getRandomRecipes
 
-> InlineResponse2006 getRandomRecipes(limitLicense, tags, number)
+> GetRandomRecipes200Response getRandomRecipes(limitLicense, tags, number)
 
 Get Random Recipes
 
@@ -547,7 +547,7 @@ Boolean limitLicense = true; // Boolean | Whether the recipes should have an ope
 String tags = null; // String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse2006 result = apiInstance.getRandomRecipes(limitLicense, tags, number);
+    GetRandomRecipes200Response result = apiInstance.getRandomRecipes(limitLicense, tags, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRandomRecipes");
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**GetRandomRecipes200Response**](GetRandomRecipes200Response.md)
 
 ### Authorization
 
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeEquipmentByID
 
-> InlineResponse2009 getRecipeEquipmentByID(id)
+> GetRecipeEquipmentByID200Response getRecipeEquipmentByID(id)
 
 Equipment by ID
 
@@ -595,7 +595,7 @@ Get a recipe&#39;s equipment list.
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse2009 result = apiInstance.getRecipeEquipmentByID(id);
+    GetRecipeEquipmentByID200Response result = apiInstance.getRecipeEquipmentByID(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeEquipmentByID");
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**GetRecipeEquipmentByID200Response**](GetRecipeEquipmentByID200Response.md)
 
 ### Authorization
 
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformation
 
-> InlineResponse2003 getRecipeInformation(id, includeNutrition)
+> GetRecipeInformation200Response getRecipeInformation(id, includeNutrition)
 
 Get Recipe Information
 
@@ -642,7 +642,7 @@ RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 try {
-    InlineResponse2003 result = apiInstance.getRecipeInformation(id, includeNutrition);
+    GetRecipeInformation200Response result = apiInstance.getRecipeInformation(id, includeNutrition);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeInformation");
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformationBulk
 
-> List&lt;InlineResponse2004&gt; getRecipeInformationBulk(ids, includeNutrition)
+> Set&lt;GetRecipeInformationBulk200ResponseInner&gt; getRecipeInformationBulk(ids, includeNutrition)
 
 Get Recipe Information Bulk
 
@@ -690,7 +690,7 @@ RecipesApi apiInstance = new RecipesApi();
 String ids = 715538,716429; // String | A comma-separated list of recipe ids.
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 try {
-    List<InlineResponse2004> result = apiInstance.getRecipeInformationBulk(ids, includeNutrition);
+    Set<GetRecipeInformationBulk200ResponseInner> result = apiInstance.getRecipeInformationBulk(ids, includeNutrition);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeInformationBulk");
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse2004&gt;**](InlineResponse2004.md)
+[**Set&lt;GetRecipeInformationBulk200ResponseInner&gt;**](GetRecipeInformationBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeIngredientsByID
 
-> InlineResponse20011 getRecipeIngredientsByID(id)
+> GetRecipeIngredientsByID200Response getRecipeIngredientsByID(id)
 
 Ingredients by ID
 
@@ -737,7 +737,7 @@ Get a recipe&#39;s ingredient list.
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20011 result = apiInstance.getRecipeIngredientsByID(id);
+    GetRecipeIngredientsByID200Response result = apiInstance.getRecipeIngredientsByID(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeIngredientsByID");
@@ -754,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**GetRecipeIngredientsByID200Response**](GetRecipeIngredientsByID200Response.md)
 
 ### Authorization
 
@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeNutritionWidgetByID
 
-> InlineResponse20012 getRecipeNutritionWidgetByID(id)
+> GetRecipeNutritionWidgetByID200Response getRecipeNutritionWidgetByID(id)
 
 Nutrition by ID
 
@@ -783,7 +783,7 @@ Get a recipe&#39;s nutrition data.
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20012 result = apiInstance.getRecipeNutritionWidgetByID(id);
+    GetRecipeNutritionWidgetByID200Response result = apiInstance.getRecipeNutritionWidgetByID(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeNutritionWidgetByID");
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**GetRecipeNutritionWidgetByID200Response**](GetRecipeNutritionWidgetByID200Response.md)
 
 ### Authorization
 
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 
 ## getRecipePriceBreakdownByID
 
-> InlineResponse20010 getRecipePriceBreakdownByID(id)
+> GetRecipePriceBreakdownByID200Response getRecipePriceBreakdownByID(id)
 
 Price Breakdown by ID
 
@@ -829,7 +829,7 @@ Get a recipe&#39;s price breakdown data.
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20010 result = apiInstance.getRecipePriceBreakdownByID(id);
+    GetRecipePriceBreakdownByID200Response result = apiInstance.getRecipePriceBreakdownByID(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipePriceBreakdownByID");
@@ -846,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**GetRecipePriceBreakdownByID200Response**](GetRecipePriceBreakdownByID200Response.md)
 
 ### Authorization
 
@@ -860,7 +860,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeTasteByID
 
-> InlineResponse2008 getRecipeTasteByID(id, normalize)
+> GetRecipeTasteByID200Response getRecipeTasteByID(id, normalize)
 
 Taste by ID
 
@@ -876,7 +876,7 @@ RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 Boolean normalize = true; // Boolean | Normalize to the strongest taste.
 try {
-    InlineResponse2008 result = apiInstance.getRecipeTasteByID(id, normalize);
+    GetRecipeTasteByID200Response result = apiInstance.getRecipeTasteByID(id, normalize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeTasteByID");
@@ -894,7 +894,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
 
 ### Authorization
 
@@ -908,7 +908,7 @@ Name | Type | Description  | Notes
 
 ## getSimilarRecipes
 
-> List&lt;InlineResponse2005&gt; getSimilarRecipes(id, number, limitLicense)
+> Set&lt;GetSimilarRecipes200ResponseInner&gt; getSimilarRecipes(id, number, limitLicense)
 
 Get Similar Recipes
 
@@ -925,7 +925,7 @@ Integer id = 1; // Integer | The item's id.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    List<InlineResponse2005> result = apiInstance.getSimilarRecipes(id, number, limitLicense);
+    Set<GetSimilarRecipes200ResponseInner> result = apiInstance.getSimilarRecipes(id, number, limitLicense);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getSimilarRecipes");
@@ -944,7 +944,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse2005&gt;**](InlineResponse2005.md)
+[**Set&lt;GetSimilarRecipes200ResponseInner&gt;**](GetSimilarRecipes200ResponseInner.md)
 
 ### Authorization
 
@@ -958,7 +958,7 @@ Name | Type | Description  | Notes
 
 ## guessNutritionByDishName
 
-> InlineResponse20021 guessNutritionByDishName(title)
+> GuessNutritionByDishName200Response guessNutritionByDishName(title)
 
 Guess Nutrition by Dish Name
 
@@ -973,7 +973,7 @@ Estimate the macronutrients of a dish based on its title.
 RecipesApi apiInstance = new RecipesApi();
 String title = Spaghetti Aglio et Olio; // String | The title of the dish.
 try {
-    InlineResponse20021 result = apiInstance.guessNutritionByDishName(title);
+    GuessNutritionByDishName200Response result = apiInstance.guessNutritionByDishName(title);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#guessNutritionByDishName");
@@ -990,7 +990,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**GuessNutritionByDishName200Response**](GuessNutritionByDishName200Response.md)
 
 ### Authorization
 
@@ -1052,7 +1052,7 @@ Name | Type | Description  | Notes
 
 ## parseIngredients
 
-> List&lt;InlineResponse20020&gt; parseIngredients(contentType, language)
+> Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(contentType, language)
 
 Parse Ingredients
 
@@ -1068,7 +1068,7 @@ RecipesApi apiInstance = new RecipesApi();
 String contentType = application/json; // String | The content type.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
 try {
-    List<InlineResponse20020> result = apiInstance.parseIngredients(contentType, language);
+    Set<ParseIngredients200ResponseInner> result = apiInstance.parseIngredients(contentType, language);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#parseIngredients");
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20020&gt;**](InlineResponse20020.md)
+[**Set&lt;ParseIngredients200ResponseInner&gt;**](ParseIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1146,7 +1146,7 @@ Name | Type | Description  | Notes
 
 ## quickAnswer
 
-> InlineResponse20050 quickAnswer(q)
+> QuickAnswer200Response quickAnswer(q)
 
 Quick Answer
 
@@ -1161,7 +1161,7 @@ Answer a nutrition related natural language question.
 RecipesApi apiInstance = new RecipesApi();
 String q = How much vitamin c is in 2 apples?; // String | The nutrition related question.
 try {
-    InlineResponse20050 result = apiInstance.quickAnswer(q);
+    QuickAnswer200Response result = apiInstance.quickAnswer(q);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#quickAnswer");
@@ -1178,7 +1178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**QuickAnswer200Response**](QuickAnswer200Response.md)
 
 ### Authorization
 
@@ -1394,7 +1394,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipes
 
-> InlineResponse200 searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
 
 Search Recipes
 
@@ -1504,7 +1504,7 @@ Integer offset = null; // Integer | The number of results to skip (between 0 and
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    InlineResponse200 result = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    SearchRecipes200Response result = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#searchRecipes");
@@ -1616,7 +1616,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**SearchRecipes200Response**](SearchRecipes200Response.md)
 
 ### Authorization
 
@@ -1630,7 +1630,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByIngredients
 
-> List&lt;InlineResponse2001&gt; searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
+> Set&lt;SearchRecipesByIngredients200ResponseInner&gt; searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
 
 Search Recipes by Ingredients
 
@@ -1649,7 +1649,7 @@ Boolean limitLicense = true; // Boolean | Whether the recipes should have an ope
 BigDecimal ranking = 1; // BigDecimal | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 Boolean ignorePantry = false; // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 try {
-    List<InlineResponse2001> result = apiInstance.searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
+    Set<SearchRecipesByIngredients200ResponseInner> result = apiInstance.searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#searchRecipesByIngredients");
@@ -1670,7 +1670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse2001&gt;**](InlineResponse2001.md)
+[**Set&lt;SearchRecipesByIngredients200ResponseInner&gt;**](SearchRecipesByIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1684,7 +1684,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByNutrients
 
-> List&lt;InlineResponse2002&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
+> Set&lt;SearchRecipesByNutrients200ResponseInner&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
 
 Search Recipes by Nutrients
 
@@ -1774,7 +1774,7 @@ Integer number = 10; // Integer | The maximum number of items to return (between
 Boolean random = false; // Boolean | If true, every request will give you a random set of recipes within the requested limits.
 Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    List<InlineResponse2002> result = apiInstance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+    Set<SearchRecipesByNutrients200ResponseInner> result = apiInstance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#searchRecipesByNutrients");
@@ -1866,7 +1866,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse2002&gt;**](InlineResponse2002.md)
+[**Set&lt;SearchRecipesByNutrients200ResponseInner&gt;**](SearchRecipesByNutrients200ResponseInner.md)
 
 ### Authorization
 
@@ -1880,7 +1880,7 @@ Name | Type | Description  | Notes
 
 ## summarizeRecipe
 
-> InlineResponse20014 summarizeRecipe(id)
+> SummarizeRecipe200Response summarizeRecipe(id)
 
 Summarize Recipe
 
@@ -1895,7 +1895,7 @@ Automatically generate a short description that summarizes key information about
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20014 result = apiInstance.summarizeRecipe(id);
+    SummarizeRecipe200Response result = apiInstance.summarizeRecipe(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#summarizeRecipe");
@@ -1912,7 +1912,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**SummarizeRecipe200Response**](SummarizeRecipe200Response.md)
 
 ### Authorization
 

@@ -50,7 +50,7 @@ Method | HTTP request | Description
 
 ## analyzeARecipeSearchQuery
 
-> InlineResponse20018 analyzeARecipeSearchQuery(q)
+> AnalyzeARecipeSearchQuery200Response analyzeARecipeSearchQuery(q)
 
 Analyze a Recipe Search Query
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**AnalyzeARecipeSearchQuery200Response**](AnalyzeARecipeSearchQuery200Response.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ## analyzeRecipeInstructions
 
-> InlineResponse20016 analyzeRecipeInstructions(opts)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(opts)
 
 Analyze Recipe Instructions
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**AnalyzeRecipeInstructions200Response**](AnalyzeRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## autocompleteRecipeSearch
 
-> [InlineResponse2007] autocompleteRecipeSearch(opts)
+> [AutocompleteRecipeSearch200ResponseInner] autocompleteRecipeSearch(opts)
 
 Autocomplete Recipe Search
 
@@ -174,7 +174,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
   'query': burger, // String | The (natural language) search query.
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.autocompleteRecipeSearch(opts, (error, data, response) => {
   if (error) {
@@ -191,11 +191,11 @@ apiInstance.autocompleteRecipeSearch(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (natural language) search query. | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**[InlineResponse2007]**](InlineResponse2007.md)
+[**[AutocompleteRecipeSearch200ResponseInner]**](AutocompleteRecipeSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ## classifyCuisine
 
-> InlineResponse20017 classifyCuisine(opts)
+> ClassifyCuisine200Response classifyCuisine(opts)
 
 Classify Cuisine
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**ClassifyCuisine200Response**](ClassifyCuisine200Response.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ## computeGlycemicLoad
 
-> InlineResponse20023 computeGlycemicLoad(inlineObject, opts)
+> ComputeGlycemicLoad200Response computeGlycemicLoad(computeGlycemicLoadRequest, opts)
 
 Compute Glycemic Load
 
@@ -280,11 +280,11 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let inlineObject = new SpoonacularApi.InlineObject(); // InlineObject | 
+let computeGlycemicLoadRequest = {"ingredients":["1 kiwi","2 cups rice","2 glasses of water"]}; // ComputeGlycemicLoadRequest | 
 let opts = {
   'language': en // String | The language of the input. Either 'en' or 'de'.
 };
-apiInstance.computeGlycemicLoad(inlineObject, opts, (error, data, response) => {
+apiInstance.computeGlycemicLoad(computeGlycemicLoadRequest, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -298,12 +298,12 @@ apiInstance.computeGlycemicLoad(inlineObject, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **computeGlycemicLoadRequest** | [**ComputeGlycemicLoadRequest**](ComputeGlycemicLoadRequest.md)|  | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**ComputeGlycemicLoad200Response**](ComputeGlycemicLoad200Response.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ## convertAmounts
 
-> InlineResponse20019 convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit)
+> ConvertAmounts200Response convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit)
 
 Convert Amounts
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**ConvertAmounts200Response**](ConvertAmounts200Response.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ## createRecipeCard
 
-> InlineResponse20015 createRecipeCard(opts)
+> CreateRecipeCard200Response createRecipeCard(opts)
 
 Create Recipe Card
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**CreateRecipeCard200Response**](CreateRecipeCard200Response.md)
 
 ### Authorization
 
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 ## extractRecipeFromWebsite
 
-> InlineResponse2003 extractRecipeFromWebsite(url, opts)
+> GetRecipeInformation200Response extractRecipeFromWebsite(url, opts)
 
 Extract Recipe from Website
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 
 ## getAnalyzedRecipeInstructions
 
-> InlineResponse20013 getAnalyzedRecipeInstructions(id, opts)
+> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, opts)
 
 Get Analyzed Recipe Instructions
 
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 
 ## getRandomRecipes
 
-> InlineResponse2006 getRandomRecipes(opts)
+> GetRandomRecipes200Response getRandomRecipes(opts)
 
 Get Random Recipes
 
@@ -615,7 +615,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
   'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   'tags': "tags_example", // String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-  '_number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.getRandomRecipes(opts, (error, data, response) => {
   if (error) {
@@ -633,11 +633,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **tags** | **String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**GetRandomRecipes200Response**](GetRandomRecipes200Response.md)
 
 ### Authorization
 
@@ -651,7 +651,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeEquipmentByID
 
-> InlineResponse2009 getRecipeEquipmentByID(id)
+> GetRecipeEquipmentByID200Response getRecipeEquipmentByID(id)
 
 Equipment by ID
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**GetRecipeEquipmentByID200Response**](GetRecipeEquipmentByID200Response.md)
 
 ### Authorization
 
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformation
 
-> InlineResponse2003 getRecipeInformation(id, opts)
+> GetRecipeInformation200Response getRecipeInformation(id, opts)
 
 Get Recipe Information
 
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformationBulk
 
-> [InlineResponse2004] getRecipeInformationBulk(ids, opts)
+> [GetRecipeInformationBulk200ResponseInner] getRecipeInformationBulk(ids, opts)
 
 Get Recipe Information Bulk
 
@@ -798,7 +798,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[InlineResponse2004]**](InlineResponse2004.md)
+[**[GetRecipeInformationBulk200ResponseInner]**](GetRecipeInformationBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -812,7 +812,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeIngredientsByID
 
-> InlineResponse20011 getRecipeIngredientsByID(id)
+> GetRecipeIngredientsByID200Response getRecipeIngredientsByID(id)
 
 Ingredients by ID
 
@@ -849,7 +849,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**GetRecipeIngredientsByID200Response**](GetRecipeIngredientsByID200Response.md)
 
 ### Authorization
 
@@ -863,7 +863,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeNutritionWidgetByID
 
-> InlineResponse20012 getRecipeNutritionWidgetByID(id)
+> GetRecipeNutritionWidgetByID200Response getRecipeNutritionWidgetByID(id)
 
 Nutrition by ID
 
@@ -900,7 +900,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**GetRecipeNutritionWidgetByID200Response**](GetRecipeNutritionWidgetByID200Response.md)
 
 ### Authorization
 
@@ -914,7 +914,7 @@ Name | Type | Description  | Notes
 
 ## getRecipePriceBreakdownByID
 
-> InlineResponse20010 getRecipePriceBreakdownByID(id)
+> GetRecipePriceBreakdownByID200Response getRecipePriceBreakdownByID(id)
 
 Price Breakdown by ID
 
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**GetRecipePriceBreakdownByID200Response**](GetRecipePriceBreakdownByID200Response.md)
 
 ### Authorization
 
@@ -965,7 +965,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeTasteByID
 
-> InlineResponse2008 getRecipeTasteByID(id, opts)
+> GetRecipeTasteByID200Response getRecipeTasteByID(id, opts)
 
 Taste by ID
 
@@ -1006,7 +1006,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
 
 ### Authorization
 
@@ -1020,7 +1020,7 @@ Name | Type | Description  | Notes
 
 ## getSimilarRecipes
 
-> [InlineResponse2005] getSimilarRecipes(id, opts)
+> [GetSimilarRecipes200ResponseInner] getSimilarRecipes(id, opts)
 
 Get Similar Recipes
 
@@ -1040,7 +1040,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let id = 1; // Number | The item's id.
 let opts = {
-  '_number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'limitLicense': true // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 };
 apiInstance.getSimilarRecipes(id, opts, (error, data, response) => {
@@ -1058,12 +1058,12 @@ apiInstance.getSimilarRecipes(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The item&#39;s id. | 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
-[**[InlineResponse2005]**](InlineResponse2005.md)
+[**[GetSimilarRecipes200ResponseInner]**](GetSimilarRecipes200ResponseInner.md)
 
 ### Authorization
 
@@ -1077,7 +1077,7 @@ Name | Type | Description  | Notes
 
 ## guessNutritionByDishName
 
-> InlineResponse20021 guessNutritionByDishName(title)
+> GuessNutritionByDishName200Response guessNutritionByDishName(title)
 
 Guess Nutrition by Dish Name
 
@@ -1114,7 +1114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**GuessNutritionByDishName200Response**](GuessNutritionByDishName200Response.md)
 
 ### Authorization
 
@@ -1183,7 +1183,7 @@ Name | Type | Description  | Notes
 
 ## parseIngredients
 
-> [InlineResponse20020] parseIngredients(opts)
+> [ParseIngredients200ResponseInner] parseIngredients(opts)
 
 Parse Ingredients
 
@@ -1224,7 +1224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[InlineResponse20020]**](InlineResponse20020.md)
+[**[ParseIngredients200ResponseInner]**](ParseIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1289,7 +1289,7 @@ Name | Type | Description  | Notes
 
 ## quickAnswer
 
-> InlineResponse20050 quickAnswer(q)
+> QuickAnswer200Response quickAnswer(q)
 
 Quick Answer
 
@@ -1326,7 +1326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**QuickAnswer200Response**](QuickAnswer200Response.md)
 
 ### Authorization
 
@@ -1568,7 +1568,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipes
 
-> InlineResponse200 searchRecipes(opts)
+> SearchRecipes200Response searchRecipes(opts)
 
 Search Recipes
 
@@ -1681,7 +1681,7 @@ let opts = {
   'minZinc': 0, // Number | The minimum amount of zinc in milligrams the recipe must have.
   'maxZinc': 100, // Number | The maximum amount of zinc in milligrams the recipe can have.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'limitLicense': true // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 };
 apiInstance.searchRecipes(opts, (error, data, response) => {
@@ -1792,12 +1792,12 @@ Name | Type | Description  | Notes
  **minZinc** | **Number**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **maxZinc** | **Number**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**SearchRecipes200Response**](SearchRecipes200Response.md)
 
 ### Authorization
 
@@ -1811,7 +1811,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByIngredients
 
-> [InlineResponse2001] searchRecipesByIngredients(opts)
+> [SearchRecipesByIngredients200ResponseInner] searchRecipesByIngredients(opts)
 
 Search Recipes by Ingredients
 
@@ -1831,7 +1831,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
   'ingredients': carrots,tomatoes, // String | A comma-separated list of ingredients that the recipes should contain.
-  '_number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   'ranking': 1, // Number | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   'ignorePantry': false // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -1851,14 +1851,14 @@ apiInstance.searchRecipesByIngredients(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **ranking** | **Number**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
 ### Return type
 
-[**[InlineResponse2001]**](InlineResponse2001.md)
+[**[SearchRecipesByIngredients200ResponseInner]**](SearchRecipesByIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1872,7 +1872,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByNutrients
 
-> [InlineResponse2002] searchRecipesByNutrients(opts)
+> [SearchRecipesByNutrients200ResponseInner] searchRecipesByNutrients(opts)
 
 Search Recipes by Nutrients
 
@@ -1964,7 +1964,7 @@ let opts = {
   'minZinc': 0, // Number | The minimum amount of zinc in milligrams the recipe must have.
   'maxZinc': 100, // Number | The maximum amount of zinc in milligrams the recipe can have.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  '_number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'random': false, // Boolean | If true, every request will give you a random set of recipes within the requested limits.
   'limitLicense': true // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 };
@@ -2055,13 +2055,13 @@ Name | Type | Description  | Notes
  **minZinc** | **Number**| The minimum amount of zinc in milligrams the recipe must have. | [optional] 
  **maxZinc** | **Number**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
- **_number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **random** | **Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
-[**[InlineResponse2002]**](InlineResponse2002.md)
+[**[SearchRecipesByNutrients200ResponseInner]**](SearchRecipesByNutrients200ResponseInner.md)
 
 ### Authorization
 
@@ -2075,7 +2075,7 @@ Name | Type | Description  | Notes
 
 ## summarizeRecipe
 
-> InlineResponse20014 summarizeRecipe(id)
+> SummarizeRecipe200Response summarizeRecipe(id)
 
 Summarize Recipe
 
@@ -2112,7 +2112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**SummarizeRecipe200Response**](SummarizeRecipe200Response.md)
 
 ### Authorization
 

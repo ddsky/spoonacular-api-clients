@@ -1,13 +1,13 @@
 package com.spoonacular
 
 import java.io._
-import spoonacular._
+import org.openapitools._
 import com.spoonacular.client.model._
-import java.math.BigDecimal
-import com.spoonacular.client.model.InlineResponse20044
-import com.spoonacular.client.model.InlineResponse20045
-import com.spoonacular.client.model.InlineResponse20046
-import com.spoonacular.client.model.InlineResponse20047
+import com.spoonacular.client.model.BigDecimal
+import com.spoonacular.client.model.GetDishPairingForWine200Response
+import com.spoonacular.client.model.GetWineDescription200Response
+import com.spoonacular.client.model.GetWinePairing200Response
+import com.spoonacular.client.model.GetWineRecommendation200Response
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -19,6 +19,7 @@ import com.twitter.util.Future
 import com.twitter.io.Buf
 import io.finch._, items._
 import java.io.File
+import java.nio.file.Files
 import java.time._
 
 object WineApi {
@@ -55,10 +56,10 @@ object WineApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20044
+        * @return An endpoint representing a GetDishPairingForWine200Response
         */
-        private def getDishPairingForWine(da: DataAccessor): Endpoint[InlineResponse20044] =
-        get("food" :: "wine" :: "dishes" :: param("wine") :: param("apiKey")) { (wine: String, authParamapiKeyScheme: String) =>
+        private def getDishPairingForWine(da: DataAccessor): Endpoint[GetDishPairingForWine200Response] =
+        get("food" :: "wine" :: "dishes" :: param("wine") :: header("x-api-key")) { (wine: String, authParamapiKeyScheme: String) =>
           da.Wine_getDishPairingForWine(wine, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -69,10 +70,10 @@ object WineApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20046
+        * @return An endpoint representing a GetWineDescription200Response
         */
-        private def getWineDescription(da: DataAccessor): Endpoint[InlineResponse20046] =
-        get("food" :: "wine" :: "description" :: param("wine") :: param("apiKey")) { (wine: String, authParamapiKeyScheme: String) =>
+        private def getWineDescription(da: DataAccessor): Endpoint[GetWineDescription200Response] =
+        get("food" :: "wine" :: "description" :: param("wine") :: header("x-api-key")) { (wine: String, authParamapiKeyScheme: String) =>
           da.Wine_getWineDescription(wine, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -83,10 +84,10 @@ object WineApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20045
+        * @return An endpoint representing a GetWinePairing200Response
         */
-        private def getWinePairing(da: DataAccessor): Endpoint[InlineResponse20045] =
-        get("food" :: "wine" :: "pairing" :: param("food") :: paramOption("maxPrice").map(_.map(_.toBigDecimal)) :: param("apiKey")) { (food: String, maxPrice: Option[BigDecimal], authParamapiKeyScheme: String) =>
+        private def getWinePairing(da: DataAccessor): Endpoint[GetWinePairing200Response] =
+        get("food" :: "wine" :: "pairing" :: param("food") :: paramOption("maxPrice").map(_.map(_.toBigDecimal)) :: header("x-api-key")) { (food: String, maxPrice: Option[BigDecimal], authParamapiKeyScheme: String) =>
           da.Wine_getWinePairing(food, maxPrice, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -97,10 +98,10 @@ object WineApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20047
+        * @return An endpoint representing a GetWineRecommendation200Response
         */
-        private def getWineRecommendation(da: DataAccessor): Endpoint[InlineResponse20047] =
-        get("food" :: "wine" :: "recommendation" :: param("wine") :: paramOption("maxPrice").map(_.map(_.toBigDecimal)) :: paramOption("minRating").map(_.map(_.toBigDecimal)) :: paramOption("number").map(_.map(_.toBigDecimal)) :: param("apiKey")) { (wine: String, maxPrice: Option[BigDecimal], minRating: Option[BigDecimal], number: Option[BigDecimal], authParamapiKeyScheme: String) =>
+        private def getWineRecommendation(da: DataAccessor): Endpoint[GetWineRecommendation200Response] =
+        get("food" :: "wine" :: "recommendation" :: param("wine") :: paramOption("maxPrice").map(_.map(_.toBigDecimal)) :: paramOption("minRating").map(_.map(_.toBigDecimal)) :: paramOption("number").map(_.map(_.toBigDecimal)) :: header("x-api-key")) { (wine: String, maxPrice: Option[BigDecimal], minRating: Option[BigDecimal], number: Option[BigDecimal], authParamapiKeyScheme: String) =>
           da.Wine_getWineRecommendation(wine, maxPrice, minRating, number, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -121,7 +122,7 @@ object WineApi {
     }
 
     private def bytesToFile(input: Array[Byte]): java.io.File = {
-      val file = File.createTempFile("tmpWineApi", null)
+      val file = Files.createTempFile("tmpWineApi", null).toFile
       val output = new FileOutputStream(file)
       output.write(input)
       file

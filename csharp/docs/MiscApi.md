@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="detectfoodintext"></a>
 # **DetectFoodInText**
-> InlineResponse20051 DetectFoodInText (string contentType)
+> DetectFoodInText200Response DetectFoodInText (string contentType)
 
 Detect Food in Text
 
@@ -39,11 +39,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var contentType = application/json;  // string | The content type. (optional) 
@@ -51,7 +50,7 @@ namespace Example
             try
             {
                 // Detect Food in Text
-                InlineResponse20051 result = apiInstance.DetectFoodInText(contentType);
+                DetectFoodInText200Response result = apiInstance.DetectFoodInText(contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -71,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**DetectFoodInText200Response**](DetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -86,7 +85,7 @@ Name | Type | Description  | Notes
 
 <a name="getarandomfoodjoke"></a>
 # **GetARandomFoodJoke**
-> InlineResponse20055 GetARandomFoodJoke ()
+> GetARandomFoodJoke200Response GetARandomFoodJoke ()
 
 Random Food Joke
 
@@ -106,18 +105,17 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
 
             try
             {
                 // Random Food Joke
-                InlineResponse20055 result = apiInstance.GetARandomFoodJoke();
+                GetARandomFoodJoke200Response result = apiInstance.GetARandomFoodJoke();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -134,7 +132,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -149,7 +147,7 @@ This endpoint does not need any parameter.
 
 <a name="getconversationsuggests"></a>
 # **GetConversationSuggests**
-> InlineResponse20057 GetConversationSuggests (string query, decimal? number)
+> GetConversationSuggests200Response GetConversationSuggests (string query, decimal? number)
 
 Conversation Suggests
 
@@ -169,11 +167,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var query = tell;  // string | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
@@ -182,7 +179,7 @@ namespace Example
             try
             {
                 // Conversation Suggests
-                InlineResponse20057 result = apiInstance.GetConversationSuggests(query, number);
+                GetConversationSuggests200Response result = apiInstance.GetConversationSuggests(query, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -203,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20057**](InlineResponse20057.md)
+[**GetConversationSuggests200Response**](GetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -218,7 +215,7 @@ Name | Type | Description  | Notes
 
 <a name="getrandomfoodtrivia"></a>
 # **GetRandomFoodTrivia**
-> InlineResponse20055 GetRandomFoodTrivia ()
+> GetRandomFoodTrivia200Response GetRandomFoodTrivia ()
 
 Random Food Trivia
 
@@ -238,18 +235,17 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
 
             try
             {
                 // Random Food Trivia
-                InlineResponse20055 result = apiInstance.GetRandomFoodTrivia();
+                GetRandomFoodTrivia200Response result = apiInstance.GetRandomFoodTrivia();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -266,7 +262,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -281,7 +277,7 @@ This endpoint does not need any parameter.
 
 <a name="imageanalysisbyurl"></a>
 # **ImageAnalysisByURL**
-> InlineResponse20049 ImageAnalysisByURL (string imageUrl)
+> ImageAnalysisByURL200Response ImageAnalysisByURL (string imageUrl)
 
 Image Analysis by URL
 
@@ -301,11 +297,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg;  // string | The URL of the image to be analyzed.
@@ -313,7 +308,7 @@ namespace Example
             try
             {
                 // Image Analysis by URL
-                InlineResponse20049 result = apiInstance.ImageAnalysisByURL(imageUrl);
+                ImageAnalysisByURL200Response result = apiInstance.ImageAnalysisByURL(imageUrl);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -333,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**ImageAnalysisByURL200Response**](ImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -348,7 +343,7 @@ Name | Type | Description  | Notes
 
 <a name="imageclassificationbyurl"></a>
 # **ImageClassificationByURL**
-> InlineResponse20048 ImageClassificationByURL (string imageUrl)
+> ImageClassificationByURL200Response ImageClassificationByURL (string imageUrl)
 
 Image Classification by URL
 
@@ -368,11 +363,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg;  // string | The URL of the image to be classified.
@@ -380,7 +374,7 @@ namespace Example
             try
             {
                 // Image Classification by URL
-                InlineResponse20048 result = apiInstance.ImageClassificationByURL(imageUrl);
+                ImageClassificationByURL200Response result = apiInstance.ImageClassificationByURL(imageUrl);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -400,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**ImageClassificationByURL200Response**](ImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -415,7 +409,7 @@ Name | Type | Description  | Notes
 
 <a name="searchallfood"></a>
 # **SearchAllFood**
-> InlineResponse20053 SearchAllFood (string query, int? offset, int? number)
+> SearchAllFood200Response SearchAllFood (string query, int? offset, int? number)
 
 Search All Food
 
@@ -435,11 +429,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var query = apple;  // string | The search query.
@@ -449,7 +442,7 @@ namespace Example
             try
             {
                 // Search All Food
-                InlineResponse20053 result = apiInstance.SearchAllFood(query, offset, number);
+                SearchAllFood200Response result = apiInstance.SearchAllFood(query, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -471,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**SearchAllFood200Response**](SearchAllFood200Response.md)
 
 ### Authorization
 
@@ -486,7 +479,7 @@ Name | Type | Description  | Notes
 
 <a name="searchcustomfoods"></a>
 # **SearchCustomFoods**
-> InlineResponse20029 SearchCustomFoods (string username, string hash, string query, int? offset, int? number)
+> SearchCustomFoods200Response SearchCustomFoods (string username, string hash, string query, int? offset, int? number)
 
 Search Custom Foods
 
@@ -506,11 +499,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var username = dsky;  // string | The username.
@@ -522,7 +514,7 @@ namespace Example
             try
             {
                 // Search Custom Foods
-                InlineResponse20029 result = apiInstance.SearchCustomFoods(username, hash, query, offset, number);
+                SearchCustomFoods200Response result = apiInstance.SearchCustomFoods(username, hash, query, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -546,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**SearchCustomFoods200Response**](SearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -561,7 +553,7 @@ Name | Type | Description  | Notes
 
 <a name="searchfoodvideos"></a>
 # **SearchFoodVideos**
-> InlineResponse20054 SearchFoodVideos (string query, string type, string cuisine, string diet, string includeIngredients, string excludeIngredients, decimal? minLength, decimal? maxLength, int? offset, int? number)
+> SearchFoodVideos200Response SearchFoodVideos (string query, string type, string cuisine, string diet, string includeIngredients, string excludeIngredients, decimal? minLength, decimal? maxLength, int? offset, int? number)
 
 Search Food Videos
 
@@ -581,11 +573,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -602,7 +593,7 @@ namespace Example
             try
             {
                 // Search Food Videos
-                InlineResponse20054 result = apiInstance.SearchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
+                SearchFoodVideos200Response result = apiInstance.SearchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -631,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**SearchFoodVideos200Response**](SearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -646,7 +637,7 @@ Name | Type | Description  | Notes
 
 <a name="searchsitecontent"></a>
 # **SearchSiteContent**
-> InlineResponse20052 SearchSiteContent (string query)
+> SearchSiteContent200Response SearchSiteContent (string query)
 
 Search Site Content
 
@@ -666,11 +657,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var query = past;  // string | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
@@ -678,7 +668,7 @@ namespace Example
             try
             {
                 // Search Site Content
-                InlineResponse20052 result = apiInstance.SearchSiteContent(query);
+                SearchSiteContent200Response result = apiInstance.SearchSiteContent(query);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -698,7 +688,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**SearchSiteContent200Response**](SearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -713,7 +703,7 @@ Name | Type | Description  | Notes
 
 <a name="talktochatbot"></a>
 # **TalkToChatbot**
-> InlineResponse20056 TalkToChatbot (string text, string contextId)
+> TalkToChatbot200Response TalkToChatbot (string text, string contextId)
 
 Talk to Chatbot
 
@@ -733,11 +723,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi();
             var text = donut recipes;  // string | The request / question / answer from the user to the chatbot.
@@ -746,7 +735,7 @@ namespace Example
             try
             {
                 // Talk to Chatbot
-                InlineResponse20056 result = apiInstance.TalkToChatbot(text, contextId);
+                TalkToChatbot200Response result = apiInstance.TalkToChatbot(text, contextId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -767,7 +756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**TalkToChatbot200Response**](TalkToChatbot200Response.md)
 
 ### Authorization
 

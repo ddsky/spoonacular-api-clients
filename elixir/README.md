@@ -13,14 +13,22 @@ mix do deps.get, compile
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `spoonacular` to your list of dependencies in `mix.exs`:
+by adding `com/spoonacular/client` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:spoonacular, "~> 0.1.0"}]
+  [{:com/spoonacular/client, "~> 0.1.0"}]
 end
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/spoonacular](https://hexdocs.pm/spoonacular).
+be found at [https://hexdocs.pm/com/spoonacular/client](https://hexdocs.pm/com/spoonacular/client).
+
+
+## Configuration
+
+You can override the URL of your server (e.g. if you have a separate development and production server in your configuration files.
+```elixir
+config :spoonacular_api, base_url: "https://api.spoonacular.com"
+```

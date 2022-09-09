@@ -19,28 +19,28 @@ Method | HTTP request | Description
 
 
 # **autocomplete_menu_item_search**
-> InlineResponse20032 autocomplete_menu_item_search(query => $query, number => $number)
+> AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query => $query, number => $number)
 
 Autocomplete Menu Item Search
 
 Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = chicke; # string | The (partial) search query.
 my $number = 10; # double | The number of results to return (between 1 and 25).
 
-eval { 
+eval {
     my $result = $api_instance->autocomplete_menu_item_search(query => $query, number => $number);
     print Dumper($result);
 };
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -72,27 +72,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_menu_item_information**
-> InlineResponse20036 get_menu_item_information(id => $id)
+> GetMenuItemInformation200Response get_menu_item_information(id => $id)
 
 Get Menu Item Information
 
 Use a menu item id to get all available information about a menu item, such as nutrition.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 
-eval { 
+eval {
     my $result = $api_instance->get_menu_item_information(id => $id);
     print Dumper($result);
 };
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -129,21 +129,21 @@ Menu Item Nutrition by ID Image
 
 Visualize a menu item's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 424571; # double | The menu item id.
 
-eval { 
+eval {
     my $result = $api_instance->menu_item_nutrition_by_id_image(id => $id);
     print Dumper($result);
 };
@@ -180,16 +180,16 @@ Menu Item Nutrition Label Image
 
 Visualize a menu item's nutritional label information as an image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 342313; # double | The menu item id.
@@ -197,7 +197,7 @@ my $show_optional_nutrients = false; # boolean | Whether to show optional nutrie
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->menu_item_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients);
     print Dumper($result);
 };
@@ -237,16 +237,16 @@ Menu Item Nutrition Label Widget
 
 Visualize a menu item's nutritional label information as HTML including CSS.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 342313; # double | The menu item id.
@@ -255,7 +255,7 @@ my $show_optional_nutrients = false; # boolean | Whether to show optional nutrie
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
 
-eval { 
+eval {
     my $result = $api_instance->menu_item_nutrition_label_widget(id => $id, default_css => $default_css, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients);
     print Dumper($result);
 };
@@ -290,22 +290,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_menu_items**
-> InlineResponse20035 search_menu_items(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_menu_item_information => $add_menu_item_information, offset => $offset, number => $number)
+> SearchMenuItems200Response search_menu_items(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_menu_item_information => $add_menu_item_information, offset => $offset, number => $number)
 
 Search Menu Items
 
 Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
@@ -321,7 +321,7 @@ my $add_menu_item_information = true; # boolean | If set to true, you get more i
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->search_menu_items(query => $query, min_calories => $min_calories, max_calories => $max_calories, min_carbs => $min_carbs, max_carbs => $max_carbs, min_protein => $min_protein, max_protein => $max_protein, min_fat => $min_fat, max_fat => $max_fat, add_menu_item_information => $add_menu_item_information, offset => $offset, number => $number);
     print Dumper($result);
 };
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**SearchMenuItems200Response**](SearchMenuItems200Response.md)
 
 ### Authorization
 
@@ -369,23 +369,23 @@ Menu Item Nutrition by ID Widget
 
 Visualize a menu item's nutritional information as HTML including CSS.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MenuItemsApi;
 my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $accept = application/json; # string | Accept header.
 
-eval { 
+eval {
     my $result = $api_instance->visualize_menu_item_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept);
     print Dumper($result);
 };

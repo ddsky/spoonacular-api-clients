@@ -26,30 +26,30 @@ Method | HTTP request | Description
 
 
 # **add_meal_plan_template**
-> InlineResponse20040 add_meal_plan_template(username => $username, hash => $hash, inline_object6 => $inline_object6)
+> AddMealPlanTemplate200Response add_meal_plan_template(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request)
 
 Add Meal Plan Template
 
 Add a meal plan template for a user.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
-my $inline_object6 = WWW::OpenAPIClient::Object::InlineObject6->new(); # InlineObject6 | 
+my $add_to_meal_plan_request = WWW::OpenAPIClient::Object::AddToMealPlanRequest->new(); # AddToMealPlanRequest | 
 
-eval { 
-    my $result = $api_instance->add_meal_plan_template(username => $username, hash => $hash, inline_object6 => $inline_object6);
+eval {
+    my $result = $api_instance->add_meal_plan_template(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request);
     print Dumper($result);
 };
 if ($@) {
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**AddMealPlanTemplate200Response**](AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -81,30 +81,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_meal_plan**
-> object add_to_meal_plan(username => $username, hash => $hash, inline_object4 => $inline_object4)
+> object add_to_meal_plan(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request)
 
 Add to Meal Plan
 
 Add an item to the user's meal plan.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $inline_object4 = WWW::OpenAPIClient::Object::InlineObject4->new(); # InlineObject4 | 
+my $add_to_meal_plan_request = WWW::OpenAPIClient::Object::AddToMealPlanRequest->new(); # AddToMealPlanRequest | 
 
-eval { 
-    my $result = $api_instance->add_to_meal_plan(username => $username, hash => $hash, inline_object4 => $inline_object4);
+eval {
+    my $result = $api_instance->add_to_meal_plan(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request);
     print Dumper($result);
 };
 if ($@) {
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -136,30 +136,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_shopping_list**
-> InlineResponse20042 add_to_shopping_list(username => $username, hash => $hash, inline_object9 => $inline_object9)
+> GenerateShoppingList200Response add_to_shopping_list(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request)
 
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $inline_object9 = WWW::OpenAPIClient::Object::InlineObject9->new(); # InlineObject9 | 
+my $add_to_meal_plan_request = WWW::OpenAPIClient::Object::AddToMealPlanRequest->new(); # AddToMealPlanRequest | 
 
-eval { 
-    my $result = $api_instance->add_to_shopping_list(username => $username, hash => $hash, inline_object9 => $inline_object9);
+eval {
+    my $result = $api_instance->add_to_shopping_list(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request);
     print Dumper($result);
 };
 if ($@) {
@@ -173,11 +173,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
+ **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -191,31 +191,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clear_meal_plan_day**
-> object clear_meal_plan_day(username => $username, date => $date, hash => $hash, inline_object3 => $inline_object3)
+> object clear_meal_plan_day(username => $username, date => $date, hash => $hash, clear_meal_plan_day_request => $clear_meal_plan_day_request)
 
 Clear Meal Plan Day
 
 Delete all planned items from the user's meal plan for a specific day.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $date = 2020-06-01; # string | The date in the format yyyy-mm-dd.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $inline_object3 = WWW::OpenAPIClient::Object::InlineObject3->new(); # InlineObject3 | 
+my $clear_meal_plan_day_request = WWW::OpenAPIClient::Object::ClearMealPlanDayRequest->new(); # ClearMealPlanDayRequest | 
 
-eval { 
-    my $result = $api_instance->clear_meal_plan_day(username => $username, date => $date, hash => $hash, inline_object3 => $inline_object3);
+eval {
+    my $result = $api_instance->clear_meal_plan_day(username => $username, date => $date, hash => $hash, clear_meal_plan_day_request => $clear_meal_plan_day_request);
     print Dumper($result);
 };
 if ($@) {
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **date** | **string**| The date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **clear_meal_plan_day_request** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -248,27 +248,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connect_user**
-> InlineResponse20043 connect_user(body => $body)
+> ConnectUser200Response connect_user(body => $body)
 
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
 
-eval { 
+eval {
     my $result = $api_instance->connect_user(body => $body);
     print Dumper($result);
 };
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**ConnectUser200Response**](ConnectUser200Response.md)
 
 ### Authorization
 
@@ -299,31 +299,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_meal_plan**
-> object delete_from_meal_plan(username => $username, id => $id, hash => $hash, inline_object5 => $inline_object5)
+> object delete_from_meal_plan(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request)
 
 Delete from Meal Plan
 
 Delete an item from the user's meal plan.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $id = 15678; # double | The shopping list item id.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $inline_object5 = WWW::OpenAPIClient::Object::InlineObject5->new(); # InlineObject5 | 
+my $delete_from_meal_plan_request = WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest->new(); # DeleteFromMealPlanRequest | 
 
-eval { 
-    my $result = $api_instance->delete_from_meal_plan(username => $username, id => $id, hash => $hash, inline_object5 => $inline_object5);
+eval {
+    my $result = $api_instance->delete_from_meal_plan(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request);
     print Dumper($result);
 };
 if ($@) {
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **double**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object5** | [**InlineObject5**](InlineObject5.md)|  | 
+ **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -356,31 +356,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_shopping_list**
-> object delete_from_shopping_list(username => $username, id => $id, hash => $hash, inline_object10 => $inline_object10)
+> object delete_from_shopping_list(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request)
 
 Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $id = 1; # int | The item's id.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $inline_object10 = WWW::OpenAPIClient::Object::InlineObject10->new(); # InlineObject10 | 
+my $delete_from_meal_plan_request = WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest->new(); # DeleteFromMealPlanRequest | 
 
-eval { 
-    my $result = $api_instance->delete_from_shopping_list(username => $username, id => $id, hash => $hash, inline_object10 => $inline_object10);
+eval {
+    my $result = $api_instance->delete_from_shopping_list(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request);
     print Dumper($result);
 };
 if ($@) {
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
+ **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -413,31 +413,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_meal_plan_template**
-> object delete_meal_plan_template(username => $username, id => $id, hash => $hash, inline_object7 => $inline_object7)
+> object delete_meal_plan_template(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request)
 
 Delete Meal Plan Template
 
 Delete a meal plan template for a user.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $id = 1; # int | The item's id.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
-my $inline_object7 = WWW::OpenAPIClient::Object::InlineObject7->new(); # InlineObject7 | 
+my $delete_from_meal_plan_request = WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest->new(); # DeleteFromMealPlanRequest | 
 
-eval { 
-    my $result = $api_instance->delete_meal_plan_template(username => $username, id => $id, hash => $hash, inline_object7 => $inline_object7);
+eval {
+    my $result = $api_instance->delete_meal_plan_template(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request);
     print Dumper($result);
 };
 if ($@) {
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -470,22 +470,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_meal_plan**
-> InlineResponse20037 generate_meal_plan(time_frame => $time_frame, target_calories => $target_calories, diet => $diet, exclude => $exclude)
+> GenerateMealPlan200Response generate_meal_plan(time_frame => $time_frame, target_calories => $target_calories, diet => $diet, exclude => $exclude)
 
 Generate Meal Plan
 
 Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $time_frame = day; # string | Either for one \"day\" or an entire \"week\".
@@ -493,7 +493,7 @@ my $target_calories = 2000; # double | What is the caloric target for one day? T
 my $diet = vegetarian; # string | Enter a diet that the meal plan has to adhere to. See a full list of supported diets.
 my $exclude = shellfish, olives; # string | A comma-separated list of allergens or ingredients that must be excluded.
 
-eval { 
+eval {
     my $result = $api_instance->generate_meal_plan(time_frame => $time_frame, target_calories => $target_calories, diet => $diet, exclude => $exclude);
     print Dumper($result);
 };
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**GenerateMealPlan200Response**](GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -527,32 +527,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_shopping_list**
-> InlineResponse20042 generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, inline_object8 => $inline_object8)
+> GenerateShoppingList200Response generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, generate_shopping_list_request => $generate_shopping_list_request)
 
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $start_date = 2020-06-01; # string | The start date in the format yyyy-mm-dd.
 my $end_date = 2020-06-07; # string | The end date in the format yyyy-mm-dd.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $inline_object8 = WWW::OpenAPIClient::Object::InlineObject8->new(); # InlineObject8 | 
+my $generate_shopping_list_request = WWW::OpenAPIClient::Object::GenerateShoppingListRequest->new(); # GenerateShoppingListRequest | 
 
-eval { 
-    my $result = $api_instance->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, inline_object8 => $inline_object8);
+eval {
+    my $result = $api_instance->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, generate_shopping_list_request => $generate_shopping_list_request);
     print Dumper($result);
 };
 if ($@) {
@@ -568,11 +568,11 @@ Name | Type | Description  | Notes
  **start_date** | **string**| The start date in the format yyyy-mm-dd. | 
  **end_date** | **string**| The end date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **generate_shopping_list_request** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -586,29 +586,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meal_plan_template**
-> InlineResponse20041 get_meal_plan_template(username => $username, id => $id, hash => $hash)
+> GetMealPlanTemplate200Response get_meal_plan_template(username => $username, id => $id, hash => $hash)
 
 Get Meal Plan Template
 
 Get information about a meal plan template.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $id = 1; # int | The item's id.
 my $hash = "hash_example"; # string | The private hash for the username.
 
-eval { 
+eval {
     my $result = $api_instance->get_meal_plan_template(username => $username, id => $id, hash => $hash);
     print Dumper($result);
 };
@@ -627,7 +627,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**GetMealPlanTemplate200Response**](GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -641,28 +641,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meal_plan_templates**
-> InlineResponse20039 get_meal_plan_templates(username => $username, hash => $hash)
+> GetMealPlanTemplates200Response get_meal_plan_templates(username => $username, hash => $hash)
 
 Get Meal Plan Templates
 
 Get meal plan templates from user or public ones.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $hash = "hash_example"; # string | The private hash for the username.
 
-eval { 
+eval {
     my $result = $api_instance->get_meal_plan_templates(username => $username, hash => $hash);
     print Dumper($result);
 };
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**GetMealPlanTemplates200Response**](GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -694,29 +694,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_meal_plan_week**
-> InlineResponse20038 get_meal_plan_week(username => $username, start_date => $start_date, hash => $hash)
+> GetMealPlanWeek200Response get_meal_plan_week(username => $username, start_date => $start_date, hash => $hash)
 
 Get Meal Plan Week
 
 Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $start_date = 2020-06-01; # string | The start date of the meal planned week in the format yyyy-mm-dd.
 my $hash = "hash_example"; # string | The private hash for the username.
 
-eval { 
+eval {
     my $result = $api_instance->get_meal_plan_week(username => $username, start_date => $start_date, hash => $hash);
     print Dumper($result);
 };
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**GetMealPlanWeek200Response**](GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -749,28 +749,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_shopping_list**
-> InlineResponse20042 get_shopping_list(username => $username, hash => $hash)
+> GetShoppingList200Response get_shopping_list(username => $username, hash => $hash)
 
 Get Shopping List
 
 Get the current shopping list for the given user.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MealPlanningApi;
 my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
 my $hash = "hash_example"; # string | The private hash for the username.
 
-eval { 
+eval {
     my $result = $api_instance->get_shopping_list(username => $username, hash => $hash);
     print Dumper($result);
 };
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 

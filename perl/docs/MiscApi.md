@@ -23,27 +23,27 @@ Method | HTTP request | Description
 
 
 # **detect_food_in_text**
-> InlineResponse20051 detect_food_in_text(content_type => $content_type)
+> DetectFoodInText200Response detect_food_in_text(content_type => $content_type)
 
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $content_type = application/json; # string | The content type.
 
-eval { 
+eval {
     my $result = $api_instance->detect_food_in_text(content_type => $content_type);
     print Dumper($result);
 };
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**DetectFoodInText200Response**](DetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -74,26 +74,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_random_food_joke**
-> InlineResponse20055 get_a_random_food_joke()
+> GetARandomFoodJoke200Response get_a_random_food_joke()
 
 Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 
-eval { 
+eval {
     my $result = $api_instance->get_a_random_food_joke();
     print Dumper($result);
 };
@@ -107,7 +107,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -121,28 +121,28 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation_suggests**
-> InlineResponse20057 get_conversation_suggests(query => $query, number => $number)
+> GetConversationSuggests200Response get_conversation_suggests(query => $query, number => $number)
 
 Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = tell; # string | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 my $number = 5; # double | The number of suggestions to return (between 1 and 25).
 
-eval { 
+eval {
     my $result = $api_instance->get_conversation_suggests(query => $query, number => $number);
     print Dumper($result);
 };
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20057**](InlineResponse20057.md)
+[**GetConversationSuggests200Response**](GetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -174,26 +174,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_random_food_trivia**
-> InlineResponse20055 get_random_food_trivia()
+> GetRandomFoodTrivia200Response get_random_food_trivia()
 
 Random Food Trivia
 
 Returns random food trivia.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 
-eval { 
+eval {
     my $result = $api_instance->get_random_food_trivia();
     print Dumper($result);
 };
@@ -207,7 +207,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -221,27 +221,27 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **image_analysis_by_url**
-> InlineResponse20049 image_analysis_by_url(image_url => $image_url)
+> ImageAnalysisByURL200Response image_analysis_by_url(image_url => $image_url)
 
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; # string | The URL of the image to be analyzed.
 
-eval { 
+eval {
     my $result = $api_instance->image_analysis_by_url(image_url => $image_url);
     print Dumper($result);
 };
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**ImageAnalysisByURL200Response**](ImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -272,27 +272,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **image_classification_by_url**
-> InlineResponse20048 image_classification_by_url(image_url => $image_url)
+> ImageClassificationByURL200Response image_classification_by_url(image_url => $image_url)
 
 Image Classification by URL
 
 Classify a food image.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $image_url = https://spoonacular.com/recipeImages/635350-240x150.jpg; # string | The URL of the image to be classified.
 
-eval { 
+eval {
     my $result = $api_instance->image_classification_by_url(image_url => $image_url);
     print Dumper($result);
 };
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**ImageClassificationByURL200Response**](ImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -323,29 +323,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_all_food**
-> InlineResponse20053 search_all_food(query => $query, offset => $offset, number => $number)
+> SearchAllFood200Response search_all_food(query => $query, offset => $offset, number => $number)
 
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = apple; # string | The search query.
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->search_all_food(query => $query, offset => $offset, number => $number);
     print Dumper($result);
 };
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**SearchAllFood200Response**](SearchAllFood200Response.md)
 
 ### Authorization
 
@@ -378,22 +378,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_custom_foods**
-> InlineResponse20029 search_custom_foods(username => $username, hash => $hash, query => $query, offset => $offset, number => $number)
+> SearchCustomFoods200Response search_custom_foods(username => $username, hash => $hash, query => $query, offset => $offset, number => $number)
 
 Search Custom Foods
 
 Search custom foods in a user's account.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $username = dsky; # string | The username.
@@ -402,7 +402,7 @@ my $query = burger; # string | The (natural language) search query.
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->search_custom_foods(username => $username, hash => $hash, query => $query, offset => $offset, number => $number);
     print Dumper($result);
 };
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**SearchCustomFoods200Response**](SearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -437,22 +437,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_food_videos**
-> InlineResponse20054 search_food_videos(query => $query, type => $type, cuisine => $cuisine, diet => $diet, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, min_length => $min_length, max_length => $max_length, offset => $offset, number => $number)
+> SearchFoodVideos200Response search_food_videos(query => $query, type => $type, cuisine => $cuisine, diet => $diet, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, min_length => $min_length, max_length => $max_length, offset => $offset, number => $number)
 
 Search Food Videos
 
 Find recipe and other food related videos.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = burger; # string | The (natural language) search query.
@@ -466,7 +466,7 @@ my $max_length = 999; # double | Maximum video length in seconds.
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
-eval { 
+eval {
     my $result = $api_instance->search_food_videos(query => $query, type => $type, cuisine => $cuisine, diet => $diet, include_ingredients => $include_ingredients, exclude_ingredients => $exclude_ingredients, min_length => $min_length, max_length => $max_length, offset => $offset, number => $number);
     print Dumper($result);
 };
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**SearchFoodVideos200Response**](SearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -506,27 +506,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_site_content**
-> InlineResponse20052 search_site_content(query => $query)
+> SearchSiteContent200Response search_site_content(query => $query)
 
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $query = past; # string | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 
-eval { 
+eval {
     my $result = $api_instance->search_site_content(query => $query);
     print Dumper($result);
 };
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**SearchSiteContent200Response**](SearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -557,28 +557,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **talk_to_chatbot**
-> InlineResponse20056 talk_to_chatbot(text => $text, context_id => $context_id)
+> TalkToChatbot200Response talk_to_chatbot(text => $text, context_id => $context_id)
 
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
 
-### Example 
+### Example
 ```perl
 use Data::Dumper;
 use WWW::OpenAPIClient::MiscApi;
 my $api_instance = WWW::OpenAPIClient::MiscApi->new(
 
     # Configure API key authorization: apiKeyScheme
-    api_key => {'apiKey' => 'YOUR_API_KEY'},
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'apiKey' => 'Bearer'},
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
 my $text = donut recipes; # string | The request / question / answer from the user to the chatbot.
 my $context_id = 342938; # string | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
 
-eval { 
+eval {
     my $result = $api_instance->talk_to_chatbot(text => $text, context_id => $context_id);
     print Dumper($result);
 };
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**TalkToChatbot200Response**](TalkToChatbot200Response.md)
 
 ### Authorization
 

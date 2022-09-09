@@ -1,16 +1,16 @@
 package com.spoonacular
 
 import java.io._
-import spoonacular._
+import org.openapitools._
 import com.spoonacular.client.model._
-import java.math.BigDecimal
-import com.spoonacular.client.model.InlineObject2
-import com.spoonacular.client.model.InlineResponse20022
-import com.spoonacular.client.model.InlineResponse20024
-import com.spoonacular.client.model.InlineResponse20025
-import com.spoonacular.client.model.InlineResponse20026
-import com.spoonacular.client.model.InlineResponse20034
-import com.spoonacular.client.model.RecipesParseIngredientsNutritionWeightPerServing
+import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner
+import com.spoonacular.client.model.BigDecimal
+import com.spoonacular.client.model.ComputeIngredientAmount200Response
+import com.spoonacular.client.model.GetIngredientInformation200Response
+import com.spoonacular.client.model.GetIngredientSubstitutes200Response
+import com.spoonacular.client.model.IngredientSearch200Response
+import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInner
+import com.spoonacular.client.model.MapIngredientsToGroceryProductsRequest
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -22,6 +22,7 @@ import com.twitter.util.Future
 import com.twitter.io.Buf
 import io.finch._, items._
 import java.io.File
+import java.nio.file.Files
 import java.time._
 
 object IngredientsApi {
@@ -63,10 +64,10 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a Seq[InlineResponse20024]
+        * @return An endpoint representing a Set[AutocompleteIngredientSearch200ResponseInner]
         */
-        private def autocompleteIngredientSearch(da: DataAccessor): Endpoint[Seq[InlineResponse20024]] =
-        get("food" :: "ingredients" :: "autocomplete" :: paramOption("query") :: paramOption("number").map(_.map(_.toInt)) :: paramOption("metaInformation").map(_.map(_.toBoolean)) :: paramOption("intolerances") :: param("apiKey")) { (query: Option[String], number: Option[Int], metaInformation: Option[Boolean], intolerances: Option[String], authParamapiKeyScheme: String) =>
+        private def autocompleteIngredientSearch(da: DataAccessor): Endpoint[Set[AutocompleteIngredientSearch200ResponseInner]] =
+        get("food" :: "ingredients" :: "autocomplete" :: paramOption("query") :: paramOption("number").map(_.map(_.toInt)) :: paramOption("metaInformation").map(_.map(_.toBoolean)) :: paramOption("intolerances") :: header("x-api-key")) { (query: Option[String], number: Option[Int], metaInformation: Option[Boolean], intolerances: Option[String], authParamapiKeyScheme: String) =>
           da.Ingredients_autocompleteIngredientSearch(query, number, metaInformation, intolerances, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -77,10 +78,10 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a RecipesParseIngredientsNutritionWeightPerServing
+        * @return An endpoint representing a ComputeIngredientAmount200Response
         */
-        private def computeIngredientAmount(da: DataAccessor): Endpoint[RecipesParseIngredientsNutritionWeightPerServing] =
-        get("food" :: "ingredients" :: bigdecimal :: "amount" :: param("nutrient") :: param("target").map(_.toBigDecimal) :: paramOption("unit") :: param("apiKey")) { (id: BigDecimal, nutrient: String, target: BigDecimal, unit: Option[String], authParamapiKeyScheme: String) =>
+        private def computeIngredientAmount(da: DataAccessor): Endpoint[ComputeIngredientAmount200Response] =
+        get("food" :: "ingredients" :: bigdecimal :: "amount" :: param("nutrient") :: param("target").map(_.toBigDecimal) :: paramOption("unit") :: header("x-api-key")) { (id: BigDecimal, nutrient: String, target: BigDecimal, unit: Option[String], authParamapiKeyScheme: String) =>
           da.Ingredients_computeIngredientAmount(id, nutrient, target, unit, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -91,10 +92,10 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20022
+        * @return An endpoint representing a GetIngredientInformation200Response
         */
-        private def getIngredientInformation(da: DataAccessor): Endpoint[InlineResponse20022] =
-        get("food" :: "ingredients" :: int :: "information" :: paramOption("amount").map(_.map(_.toBigDecimal)) :: paramOption("unit") :: param("apiKey")) { (id: Int, amount: Option[BigDecimal], unit: Option[String], authParamapiKeyScheme: String) =>
+        private def getIngredientInformation(da: DataAccessor): Endpoint[GetIngredientInformation200Response] =
+        get("food" :: "ingredients" :: int :: "information" :: paramOption("amount").map(_.map(_.toBigDecimal)) :: paramOption("unit") :: header("x-api-key")) { (id: Int, amount: Option[BigDecimal], unit: Option[String], authParamapiKeyScheme: String) =>
           da.Ingredients_getIngredientInformation(id, amount, unit, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -105,10 +106,10 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20026
+        * @return An endpoint representing a GetIngredientSubstitutes200Response
         */
-        private def getIngredientSubstitutes(da: DataAccessor): Endpoint[InlineResponse20026] =
-        get("food" :: "ingredients" :: "substitutes" :: param("ingredientName") :: param("apiKey")) { (ingredientName: String, authParamapiKeyScheme: String) =>
+        private def getIngredientSubstitutes(da: DataAccessor): Endpoint[GetIngredientSubstitutes200Response] =
+        get("food" :: "ingredients" :: "substitutes" :: param("ingredientName") :: header("x-api-key")) { (ingredientName: String, authParamapiKeyScheme: String) =>
           da.Ingredients_getIngredientSubstitutes(ingredientName, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -119,10 +120,10 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20026
+        * @return An endpoint representing a GetIngredientSubstitutes200Response
         */
-        private def getIngredientSubstitutesByID(da: DataAccessor): Endpoint[InlineResponse20026] =
-        get("food" :: "ingredients" :: int :: "substitutes" :: param("apiKey")) { (id: Int, authParamapiKeyScheme: String) =>
+        private def getIngredientSubstitutesByID(da: DataAccessor): Endpoint[GetIngredientSubstitutes200Response] =
+        get("food" :: "ingredients" :: int :: "substitutes" :: header("x-api-key")) { (id: Int, authParamapiKeyScheme: String) =>
           da.Ingredients_getIngredientSubstitutesByID(id, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -133,10 +134,10 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a InlineResponse20025
+        * @return An endpoint representing a IngredientSearch200Response
         */
-        private def ingredientSearch(da: DataAccessor): Endpoint[InlineResponse20025] =
-        get("food" :: "ingredients" :: "search" :: paramOption("query") :: paramOption("addChildren").map(_.map(_.toBoolean)) :: paramOption("minProteinPercent").map(_.map(_.toBigDecimal)) :: paramOption("maxProteinPercent").map(_.map(_.toBigDecimal)) :: paramOption("minFatPercent").map(_.map(_.toBigDecimal)) :: paramOption("maxFatPercent").map(_.map(_.toBigDecimal)) :: paramOption("minCarbsPercent").map(_.map(_.toBigDecimal)) :: paramOption("maxCarbsPercent").map(_.map(_.toBigDecimal)) :: paramOption("metaInformation").map(_.map(_.toBoolean)) :: paramOption("intolerances") :: paramOption("sort") :: paramOption("sortDirection") :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: param("apiKey")) { (query: Option[String], addChildren: Option[Boolean], minProteinPercent: Option[BigDecimal], maxProteinPercent: Option[BigDecimal], minFatPercent: Option[BigDecimal], maxFatPercent: Option[BigDecimal], minCarbsPercent: Option[BigDecimal], maxCarbsPercent: Option[BigDecimal], metaInformation: Option[Boolean], intolerances: Option[String], sort: Option[String], sortDirection: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
+        private def ingredientSearch(da: DataAccessor): Endpoint[IngredientSearch200Response] =
+        get("food" :: "ingredients" :: "search" :: paramOption("query") :: paramOption("addChildren").map(_.map(_.toBoolean)) :: paramOption("minProteinPercent").map(_.map(_.toBigDecimal)) :: paramOption("maxProteinPercent").map(_.map(_.toBigDecimal)) :: paramOption("minFatPercent").map(_.map(_.toBigDecimal)) :: paramOption("maxFatPercent").map(_.map(_.toBigDecimal)) :: paramOption("minCarbsPercent").map(_.map(_.toBigDecimal)) :: paramOption("maxCarbsPercent").map(_.map(_.toBigDecimal)) :: paramOption("metaInformation").map(_.map(_.toBoolean)) :: paramOption("intolerances") :: paramOption("sort") :: paramOption("sortDirection") :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("number").map(_.map(_.toInt)) :: header("x-api-key")) { (query: Option[String], addChildren: Option[Boolean], minProteinPercent: Option[BigDecimal], maxProteinPercent: Option[BigDecimal], minFatPercent: Option[BigDecimal], maxFatPercent: Option[BigDecimal], minCarbsPercent: Option[BigDecimal], maxCarbsPercent: Option[BigDecimal], metaInformation: Option[Boolean], intolerances: Option[String], sort: Option[String], sortDirection: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String) =>
           da.Ingredients_ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -150,7 +151,7 @@ object IngredientsApi {
         * @return An endpoint representing a Object
         */
         private def ingredientsByIDImage(da: DataAccessor): Endpoint[Object] =
-        get("recipes" :: bigdecimal :: "ingredientWidget.png" :: paramOption("measure") :: param("apiKey")) { (id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String) =>
+        get("recipes" :: bigdecimal :: "ingredientWidget.png" :: paramOption("measure") :: header("x-api-key")) { (id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String) =>
           da.Ingredients_ingredientsByIDImage(id, measure, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -161,11 +162,11 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a Seq[InlineResponse20034]
+        * @return An endpoint representing a Set[MapIngredientsToGroceryProducts200ResponseInner]
         */
-        private def mapIngredientsToGroceryProducts(da: DataAccessor): Endpoint[Seq[InlineResponse20034]] =
-        post("food" :: "ingredients" :: "map" :: jsonBody[InlineObject2] :: param("apiKey")) { (inlineObject2: InlineObject2, authParamapiKeyScheme: String) =>
-          da.Ingredients_mapIngredientsToGroceryProducts(inlineObject2, authParamapiKeyScheme) match {
+        private def mapIngredientsToGroceryProducts(da: DataAccessor): Endpoint[Set[MapIngredientsToGroceryProducts200ResponseInner]] =
+        post("food" :: "ingredients" :: "map" :: jsonBody[MapIngredientsToGroceryProductsRequest] :: header("x-api-key")) { (mapIngredientsToGroceryProductsRequest: MapIngredientsToGroceryProductsRequest, authParamapiKeyScheme: String) =>
+          da.Ingredients_mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -178,7 +179,7 @@ object IngredientsApi {
         * @return An endpoint representing a String
         */
         private def visualizeIngredients(da: DataAccessor): Endpoint[String] =
-        post("recipes" :: "visualizeIngredients" :: headerOption("Content-Type") :: paramOption("language") :: headerOption("Accept") :: param("apiKey")) { (contentType: Option[String], language: Option[String], accept: Option[String], authParamapiKeyScheme: String) =>
+        post("recipes" :: "visualizeIngredients" :: headerOption("Content-Type") :: paramOption("language") :: headerOption("Accept") :: header("x-api-key")) { (contentType: Option[String], language: Option[String], accept: Option[String], authParamapiKeyScheme: String) =>
           da.Ingredients_visualizeIngredients(contentType, language, accept, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -199,7 +200,7 @@ object IngredientsApi {
     }
 
     private def bytesToFile(input: Array[Byte]): java.io.File = {
-      val file = File.createTempFile("tmpIngredientsApi", null)
+      val file = Files.createTempFile("tmpIngredientsApi", null).toFile
       val output = new FileOutputStream(file)
       output.write(input)
       file

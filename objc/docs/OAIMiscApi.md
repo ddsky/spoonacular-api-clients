@@ -20,21 +20,21 @@ Method | HTTP request | Description
 # **detectFoodInText**
 ```objc
 -(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
-        completionHandler: (void (^)(OAIInlineResponse20051* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIDetectFoodInText200Response* output, NSError* error)) handler;
 ```
 
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* contentType = application/json; // The content type. (optional)
@@ -43,7 +43,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Detect Food in Text
 [apiInstance detectFoodInTextWithContentType:contentType
-          completionHandler: ^(OAIInlineResponse20051* output, NSError* error) {
+          completionHandler: ^(OAIDetectFoodInText200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20051***](OAIInlineResponse20051.md)
+[**OAIDetectFoodInText200Response***](OAIDetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -77,21 +77,21 @@ Name | Type | Description  | Notes
 # **getARandomFoodJoke**
 ```objc
 -(NSURLSessionTask*) getARandomFoodJokeWithCompletionHandler: 
-        (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
+        (void (^)(OAIGetARandomFoodJoke200Response* output, NSError* error)) handler;
 ```
 
 Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 
@@ -99,7 +99,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Random Food Joke
 [apiInstance getARandomFoodJokeWithCompletionHandler: 
-          ^(OAIInlineResponse20055* output, NSError* error) {
+          ^(OAIGetARandomFoodJoke200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -114,7 +114,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIInlineResponse20055***](OAIInlineResponse20055.md)
+[**OAIGetARandomFoodJoke200Response***](OAIGetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -131,21 +131,21 @@ This endpoint does not need any parameter.
 ```objc
 -(NSURLSessionTask*) getConversationSuggestsWithQuery: (NSString*) query
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20057* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIGetConversationSuggests200Response* output, NSError* error)) handler;
 ```
 
 Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = tell; // A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
@@ -156,7 +156,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 // Conversation Suggests
 [apiInstance getConversationSuggestsWithQuery:query
               number:number
-          completionHandler: ^(OAIInlineResponse20057* output, NSError* error) {
+          completionHandler: ^(OAIGetConversationSuggests200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20057***](OAIInlineResponse20057.md)
+[**OAIGetConversationSuggests200Response***](OAIGetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -191,21 +191,21 @@ Name | Type | Description  | Notes
 # **getRandomFoodTrivia**
 ```objc
 -(NSURLSessionTask*) getRandomFoodTriviaWithCompletionHandler: 
-        (void (^)(OAIInlineResponse20055* output, NSError* error)) handler;
+        (void (^)(OAIGetRandomFoodTrivia200Response* output, NSError* error)) handler;
 ```
 
 Random Food Trivia
 
 Returns random food trivia.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 
@@ -213,7 +213,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Random Food Trivia
 [apiInstance getRandomFoodTriviaWithCompletionHandler: 
-          ^(OAIInlineResponse20055* output, NSError* error) {
+          ^(OAIGetRandomFoodTrivia200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -228,7 +228,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIInlineResponse20055***](OAIInlineResponse20055.md)
+[**OAIGetRandomFoodTrivia200Response***](OAIGetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -244,21 +244,21 @@ This endpoint does not need any parameter.
 # **imageAnalysisByURL**
 ```objc
 -(NSURLSessionTask*) imageAnalysisByURLWithImageUrl: (NSString*) imageUrl
-        completionHandler: (void (^)(OAIInlineResponse20049* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIImageAnalysisByURL200Response* output, NSError* error)) handler;
 ```
 
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // The URL of the image to be analyzed.
@@ -267,7 +267,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Image Analysis by URL
 [apiInstance imageAnalysisByURLWithImageUrl:imageUrl
-          completionHandler: ^(OAIInlineResponse20049* output, NSError* error) {
+          completionHandler: ^(OAIImageAnalysisByURL200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20049***](OAIInlineResponse20049.md)
+[**OAIImageAnalysisByURL200Response***](OAIImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -301,21 +301,21 @@ Name | Type | Description  | Notes
 # **imageClassificationByURL**
 ```objc
 -(NSURLSessionTask*) imageClassificationByURLWithImageUrl: (NSString*) imageUrl
-        completionHandler: (void (^)(OAIInlineResponse20048* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAIImageClassificationByURL200Response* output, NSError* error)) handler;
 ```
 
 Image Classification by URL
 
 Classify a food image.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // The URL of the image to be classified.
@@ -324,7 +324,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Image Classification by URL
 [apiInstance imageClassificationByURLWithImageUrl:imageUrl
-          completionHandler: ^(OAIInlineResponse20048* output, NSError* error) {
+          completionHandler: ^(OAIImageClassificationByURL200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20048***](OAIInlineResponse20048.md)
+[**OAIImageClassificationByURL200Response***](OAIImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -360,21 +360,21 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) searchAllFoodWithQuery: (NSString*) query
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20053* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchAllFood200Response* output, NSError* error)) handler;
 ```
 
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = apple; // The search query.
@@ -387,7 +387,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 [apiInstance searchAllFoodWithQuery:query
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20053* output, NSError* error) {
+          completionHandler: ^(OAISearchAllFood200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20053***](OAIInlineResponse20053.md)
+[**OAISearchAllFood200Response***](OAISearchAllFood200Response.md)
 
 ### Authorization
 
@@ -427,21 +427,21 @@ Name | Type | Description  | Notes
     query: (NSString*) query
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20029* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchCustomFoods200Response* output, NSError* error)) handler;
 ```
 
 Search Custom Foods
 
 Search custom foods in a user's account.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* username = dsky; // The username.
@@ -458,7 +458,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
               query:query
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20029* output, NSError* error) {
+          completionHandler: ^(OAISearchCustomFoods200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20029***](OAIInlineResponse20029.md)
+[**OAISearchCustomFoods200Response***](OAISearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -505,21 +505,21 @@ Name | Type | Description  | Notes
     maxLength: (NSNumber*) maxLength
     offset: (NSNumber*) offset
     number: (NSNumber*) number
-        completionHandler: (void (^)(OAIInlineResponse20054* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchFoodVideos200Response* output, NSError* error)) handler;
 ```
 
 Search Food Videos
 
 Find recipe and other food related videos.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = burger; // The (natural language) search query. (optional)
@@ -546,7 +546,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
               maxLength:maxLength
               offset:offset
               number:number
-          completionHandler: ^(OAIInlineResponse20054* output, NSError* error) {
+          completionHandler: ^(OAISearchFoodVideos200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -573,7 +573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20054***](OAIInlineResponse20054.md)
+[**OAISearchFoodVideos200Response***](OAISearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -589,21 +589,21 @@ Name | Type | Description  | Notes
 # **searchSiteContent**
 ```objc
 -(NSURLSessionTask*) searchSiteContentWithQuery: (NSString*) query
-        completionHandler: (void (^)(OAIInlineResponse20052* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAISearchSiteContent200Response* output, NSError* error)) handler;
 ```
 
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* query = past; // The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
@@ -612,7 +612,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Search Site Content
 [apiInstance searchSiteContentWithQuery:query
-          completionHandler: ^(OAIInlineResponse20052* output, NSError* error) {
+          completionHandler: ^(OAISearchSiteContent200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20052***](OAIInlineResponse20052.md)
+[**OAISearchSiteContent200Response***](OAISearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -647,21 +647,21 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) talkToChatbotWithText: (NSString*) text
     contextId: (NSString*) contextId
-        completionHandler: (void (^)(OAIInlineResponse20056* output, NSError* error)) handler;
+        completionHandler: (void (^)(OAITalkToChatbot200Response* output, NSError* error)) handler;
 ```
 
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
 
-### Example 
+### Example
 ```objc
 OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"apiKey"];
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"apiKey"];
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
 NSString* text = donut recipes; // The request / question / answer from the user to the chatbot.
@@ -672,7 +672,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 // Talk to Chatbot
 [apiInstance talkToChatbotWithText:text
               contextId:contextId
-          completionHandler: ^(OAIInlineResponse20056* output, NSError* error) {
+          completionHandler: ^(OAITalkToChatbot200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OAIInlineResponse20056***](OAIInlineResponse20056.md)
+[**OAITalkToChatbot200Response***](OAITalkToChatbot200Response.md)
 
 ### Authorization
 

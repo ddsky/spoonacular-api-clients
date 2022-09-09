@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="autocompleteproductsearch"></a>
 # **AutocompleteProductSearch**
-> InlineResponse20032 AutocompleteProductSearch (string query, int? number)
+> AutocompleteProductSearch200Response AutocompleteProductSearch (string query, int? number)
 
 Autocomplete Product Search
 
@@ -39,11 +39,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var query = chicke;  // string | The (partial) search query.
@@ -52,7 +51,7 @@ namespace Example
             try
             {
                 // Autocomplete Product Search
-                InlineResponse20032 result = apiInstance.AutocompleteProductSearch(query, number);
+                AutocompleteProductSearch200Response result = apiInstance.AutocompleteProductSearch(query, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -73,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -88,7 +87,7 @@ Name | Type | Description  | Notes
 
 <a name="classifygroceryproduct"></a>
 # **ClassifyGroceryProduct**
-> InlineResponse20033 ClassifyGroceryProduct (InlineObject1 inlineObject1, string locale)
+> ClassifyGroceryProduct200Response ClassifyGroceryProduct (ClassifyGroceryProductRequest classifyGroceryProductRequest, string locale)
 
 Classify Grocery Product
 
@@ -108,20 +107,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
-            var inlineObject1 = new InlineObject1(); // InlineObject1 | 
+            var classifyGroceryProductRequest = new ClassifyGroceryProductRequest(); // ClassifyGroceryProductRequest | 
             var locale = en_US;  // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional) 
 
             try
             {
                 // Classify Grocery Product
-                InlineResponse20033 result = apiInstance.ClassifyGroceryProduct(inlineObject1, locale);
+                ClassifyGroceryProduct200Response result = apiInstance.ClassifyGroceryProduct(classifyGroceryProductRequest, locale);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -137,12 +135,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **classifyGroceryProductRequest** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  | 
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**ClassifyGroceryProduct200Response**](ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -157,7 +155,7 @@ Name | Type | Description  | Notes
 
 <a name="classifygroceryproductbulk"></a>
 # **ClassifyGroceryProductBulk**
-> List<InlineResponse20033> ClassifyGroceryProductBulk (List<InlineObject> inlineObject, string locale)
+> List<ClassifyGroceryProductBulk200ResponseInner> ClassifyGroceryProductBulk (List<ClassifyGroceryProductBulkRequestInner> classifyGroceryProductBulkRequestInner, string locale)
 
 Classify Grocery Product Bulk
 
@@ -177,20 +175,19 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
-            var inlineObject = new List<InlineObject>(); // List<InlineObject> | 
+            var classifyGroceryProductBulkRequestInner = new List<ClassifyGroceryProductBulkRequestInner>(); // List<ClassifyGroceryProductBulkRequestInner> | 
             var locale = en_US;  // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional) 
 
             try
             {
                 // Classify Grocery Product Bulk
-                List&lt;InlineResponse20033&gt; result = apiInstance.ClassifyGroceryProductBulk(inlineObject, locale);
+                List&lt;ClassifyGroceryProductBulk200ResponseInner&gt; result = apiInstance.ClassifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, locale);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -206,12 +203,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**List<InlineObject>**](List.md)|  | 
+ **classifyGroceryProductBulkRequestInner** | [**List<ClassifyGroceryProductBulkRequestInner>**](ClassifyGroceryProductBulkRequestInner.md)|  | 
  **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
 
 ### Return type
 
-[**List<InlineResponse20033>**](InlineResponse20033.md)
+[**List<ClassifyGroceryProductBulk200ResponseInner>**](ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -226,7 +223,7 @@ Name | Type | Description  | Notes
 
 <a name="getcomparableproducts"></a>
 # **GetComparableProducts**
-> InlineResponse20031 GetComparableProducts (decimal? upc)
+> GetComparableProducts200Response GetComparableProducts (decimal? upc)
 
 Get Comparable Products
 
@@ -246,11 +243,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var upc = 33698816271;  // decimal? | The UPC of the product for which you want to find comparable products.
@@ -258,7 +254,7 @@ namespace Example
             try
             {
                 // Get Comparable Products
-                InlineResponse20031 result = apiInstance.GetComparableProducts(upc);
+                GetComparableProducts200Response result = apiInstance.GetComparableProducts(upc);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -278,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**GetComparableProducts200Response**](GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -293,7 +289,7 @@ Name | Type | Description  | Notes
 
 <a name="getproductinformation"></a>
 # **GetProductInformation**
-> InlineResponse20030 GetProductInformation (int? id)
+> GetProductInformation200Response GetProductInformation (int? id)
 
 Get Product Information
 
@@ -313,11 +309,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var id = 1;  // int? | The item's id.
@@ -325,7 +320,7 @@ namespace Example
             try
             {
                 // Get Product Information
-                InlineResponse20030 result = apiInstance.GetProductInformation(id);
+                GetProductInformation200Response result = apiInstance.GetProductInformation(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -345,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**GetProductInformation200Response**](GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -380,11 +375,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var id = 7657;  // decimal? | The id of the product.
@@ -447,11 +441,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var id = 22347;  // decimal? | The product id.
@@ -520,11 +513,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var id = 22347;  // decimal? | The product id.
@@ -575,7 +567,7 @@ Name | Type | Description  | Notes
 
 <a name="searchgroceryproducts"></a>
 # **SearchGroceryProducts**
-> InlineResponse20027 SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addProductInformation, int? offset, int? number)
+> SearchGroceryProducts200Response SearchGroceryProducts (string query, decimal? minCalories, decimal? maxCalories, decimal? minCarbs, decimal? maxCarbs, decimal? minProtein, decimal? maxProtein, decimal? minFat, decimal? maxFat, bool? addProductInformation, int? offset, int? number)
 
 Search Grocery Products
 
@@ -595,11 +587,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var query = burger;  // string | The (natural language) search query. (optional) 
@@ -618,7 +609,7 @@ namespace Example
             try
             {
                 // Search Grocery Products
-                InlineResponse20027 result = apiInstance.SearchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
+                SearchGroceryProducts200Response result = apiInstance.SearchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -649,7 +640,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**SearchGroceryProducts200Response**](SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -664,7 +655,7 @@ Name | Type | Description  | Notes
 
 <a name="searchgroceryproductsbyupc"></a>
 # **SearchGroceryProductsByUPC**
-> InlineResponse20028 SearchGroceryProductsByUPC (decimal? upc)
+> SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC (decimal? upc)
 
 Search Grocery Products by UPC
 
@@ -684,11 +675,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var upc = 41631000564;  // decimal? | The product's UPC.
@@ -696,7 +686,7 @@ namespace Example
             try
             {
                 // Search Grocery Products by UPC
-                InlineResponse20028 result = apiInstance.SearchGroceryProductsByUPC(upc);
+                SearchGroceryProductsByUPC200Response result = apiInstance.SearchGroceryProductsByUPC(upc);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -716,7 +706,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**SearchGroceryProductsByUPC200Response**](SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 
@@ -751,11 +741,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi();
             var id = 1;  // int? | The item's id.

@@ -1,0 +1,13 @@
+# SearchGroceryProductsByUpc200ResponseIngredientsInner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**description** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**name** | **String** |  | 
+**safety_level** | Option<[**serde_json::Value**](.md)> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

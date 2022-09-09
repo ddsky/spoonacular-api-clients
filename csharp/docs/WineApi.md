@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getdishpairingforwine"></a>
 # **GetDishPairingForWine**
-> InlineResponse20044 GetDishPairingForWine (string wine)
+> GetDishPairingForWine200Response GetDishPairingForWine (string wine)
 
 Dish Pairing for Wine
 
@@ -32,11 +32,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new WineApi();
             var wine = malbec;  // string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -44,7 +43,7 @@ namespace Example
             try
             {
                 // Dish Pairing for Wine
-                InlineResponse20044 result = apiInstance.GetDishPairingForWine(wine);
+                GetDishPairingForWine200Response result = apiInstance.GetDishPairingForWine(wine);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -64,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**GetDishPairingForWine200Response**](GetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -79,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="getwinedescription"></a>
 # **GetWineDescription**
-> InlineResponse20046 GetWineDescription (string wine)
+> GetWineDescription200Response GetWineDescription (string wine)
 
 Wine Description
 
@@ -99,11 +98,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new WineApi();
             var wine = merlot;  // string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
@@ -111,7 +109,7 @@ namespace Example
             try
             {
                 // Wine Description
-                InlineResponse20046 result = apiInstance.GetWineDescription(wine);
+                GetWineDescription200Response result = apiInstance.GetWineDescription(wine);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -131,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**GetWineDescription200Response**](GetWineDescription200Response.md)
 
 ### Authorization
 
@@ -146,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="getwinepairing"></a>
 # **GetWinePairing**
-> InlineResponse20045 GetWinePairing (string food, decimal? maxPrice)
+> GetWinePairing200Response GetWinePairing (string food, decimal? maxPrice)
 
 Wine Pairing
 
@@ -166,11 +164,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new WineApi();
             var food = steak;  // string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
@@ -179,7 +176,7 @@ namespace Example
             try
             {
                 // Wine Pairing
-                InlineResponse20045 result = apiInstance.GetWinePairing(food, maxPrice);
+                GetWinePairing200Response result = apiInstance.GetWinePairing(food, maxPrice);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -200,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**GetWinePairing200Response**](GetWinePairing200Response.md)
 
 ### Authorization
 
@@ -215,7 +212,7 @@ Name | Type | Description  | Notes
 
 <a name="getwinerecommendation"></a>
 # **GetWineRecommendation**
-> InlineResponse20047 GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number)
+> GetWineRecommendation200Response GetWineRecommendation (string wine, decimal? maxPrice, decimal? minRating, decimal? number)
 
 Wine Recommendation
 
@@ -235,11 +232,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
 
             var apiInstance = new WineApi();
             var wine = merlot;  // string | The type of wine to get a specific product recommendation for.
@@ -250,7 +246,7 @@ namespace Example
             try
             {
                 // Wine Recommendation
-                InlineResponse20047 result = apiInstance.GetWineRecommendation(wine, maxPrice, minRating, number);
+                GetWineRecommendation200Response result = apiInstance.GetWineRecommendation(wine, maxPrice, minRating, number);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -273,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**GetWineRecommendation200Response**](GetWineRecommendation200Response.md)
 
 ### Authorization
 

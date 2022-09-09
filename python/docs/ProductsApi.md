@@ -1,4 +1,4 @@
-# spoonacular.ProductsApi
+# openapi_client.ProductsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **autocomplete_product_search**
-> InlineResponse20032 autocomplete_product_search(query, number=number)
+> AutocompleteProductSearch200Response autocomplete_product_search(query)
 
 Autocomplete Product Search
 
@@ -27,41 +27,66 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.autocomplete_product_search200_response import AutocompleteProductSearch200Response
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-query = 'chicke' # str | The (partial) search query.
-number = 10 # int | The number of results to return (between 1 and 25). (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    query = "chicke" # str | The (partial) search query.
+    number = 10 # int | The number of results to return (between 1 and 25). (optional)
 
-try:
-    # Autocomplete Product Search
-    api_response = api_instance.autocomplete_product_search(query, number=number)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->autocomplete_product_search: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Autocomplete Product Search
+        api_response = api_instance.autocomplete_product_search(query)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->autocomplete_product_search: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Autocomplete Product Search
+        api_response = api_instance.autocomplete_product_search(query, number=number)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->autocomplete_product_search: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (partial) search query. | 
- **number** | **int**| The number of results to return (between 1 and 25). | [optional] 
+ **query** | **str**| The (partial) search query. |
+ **number** | **int**| The number of results to return (between 1 and 25). | [optional]
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -72,10 +97,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_grocery_product**
-> InlineResponse20033 classify_grocery_product(inline_object1, locale=locale)
+> ClassifyGroceryProduct200Response classify_grocery_product(classify_grocery_product_request)
 
 Classify Grocery Product
 
@@ -84,41 +119,71 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.classify_grocery_product_request import ClassifyGroceryProductRequest
+from openapi_client.model.classify_grocery_product200_response import ClassifyGroceryProduct200Response
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-inline_object1 = spoonacular.InlineObject1() # InlineObject1 | 
-locale = 'en_US' # str | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    classify_grocery_product_request = ClassifyGroceryProductRequest(
+        title="title_example",
+        upc="upc_example",
+        plu_code="plu_code_example",
+    ) # ClassifyGroceryProductRequest | 
+    locale = "en_US" # str | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
-try:
-    # Classify Grocery Product
-    api_response = api_instance.classify_grocery_product(inline_object1, locale=locale)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->classify_grocery_product: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Classify Grocery Product
+        api_response = api_instance.classify_grocery_product(classify_grocery_product_request)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->classify_grocery_product: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Classify Grocery Product
+        api_response = api_instance.classify_grocery_product(classify_grocery_product_request, locale=locale)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->classify_grocery_product: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | 
- **locale** | **str**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
+ **classify_grocery_product_request** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  |
+ **locale** | **str**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**ClassifyGroceryProduct200Response**](ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -129,10 +194,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_grocery_product_bulk**
-> list[InlineResponse20033] classify_grocery_product_bulk(inline_object, locale=locale)
+> [ClassifyGroceryProductBulk200ResponseInner] classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner)
 
 Classify Grocery Product Bulk
 
@@ -141,41 +216,73 @@ Provide a set of product jsons, get back classified products.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.classify_grocery_product_bulk_request_inner import ClassifyGroceryProductBulkRequestInner
+from openapi_client.model.classify_grocery_product_bulk200_response_inner import ClassifyGroceryProductBulk200ResponseInner
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-inline_object = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}] # list[InlineObject] | 
-locale = 'en_US' # str | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    classify_grocery_product_bulk_request_inner = [
+        ClassifyGroceryProductBulkRequestInner(
+            title="title_example",
+            upc="upc_example",
+            plu_code="plu_code_example",
+        ),
+    ] # [ClassifyGroceryProductBulkRequestInner] | 
+    locale = "en_US" # str | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
-try:
-    # Classify Grocery Product Bulk
-    api_response = api_instance.classify_grocery_product_bulk(inline_object, locale=locale)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->classify_grocery_product_bulk: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Classify Grocery Product Bulk
+        api_response = api_instance.classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->classify_grocery_product_bulk: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Classify Grocery Product Bulk
+        api_response = api_instance.classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner, locale=locale)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->classify_grocery_product_bulk: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**list[InlineObject]**](list.md)|  | 
- **locale** | **str**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] 
+ **classify_grocery_product_bulk_request_inner** | [**[ClassifyGroceryProductBulkRequestInner]**](ClassifyGroceryProductBulkRequestInner.md)|  |
+ **locale** | **str**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
 
 ### Return type
 
-[**list[InlineResponse20033]**](InlineResponse20033.md)
+[**[ClassifyGroceryProductBulk200ResponseInner]**](ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -186,10 +293,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comparable_products**
-> InlineResponse20031 get_comparable_products(upc)
+> GetComparableProducts200Response get_comparable_products(upc)
 
 Get Comparable Products
 
@@ -198,39 +315,55 @@ Find comparable products to the given one.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.get_comparable_products200_response import GetComparableProducts200Response
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-upc = 33698816271 # float | The UPC of the product for which you want to find comparable products.
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    upc = 33698816271 # float | The UPC of the product for which you want to find comparable products.
 
-try:
-    # Get Comparable Products
-    api_response = api_instance.get_comparable_products(upc)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->get_comparable_products: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Comparable Products
+        api_response = api_instance.get_comparable_products(upc)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->get_comparable_products: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **float**| The UPC of the product for which you want to find comparable products. | 
+ **upc** | **float**| The UPC of the product for which you want to find comparable products. |
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**GetComparableProducts200Response**](GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -241,10 +374,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_product_information**
-> InlineResponse20030 get_product_information(id)
+> GetProductInformation200Response get_product_information(id)
 
 Get Product Information
 
@@ -253,39 +396,55 @@ Use a product id to get full information about a product, such as ingredients, n
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.get_product_information200_response import GetProductInformation200Response
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-id = 1 # int | The item's id.
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    id = 1 # int | The item's id.
 
-try:
-    # Get Product Information
-    api_response = api_instance.get_product_information(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->get_product_information: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Product Information
+        api_response = api_instance.get_product_information(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->get_product_information: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The item&#39;s id. |
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**GetProductInformation200Response**](GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -296,10 +455,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_nutrition_by_id_image**
-> object product_nutrition_by_id_image(id)
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} product_nutrition_by_id_image(id)
 
 Product Nutrition by ID Image
 
@@ -308,39 +477,54 @@ Visualize a product's nutritional information as an image.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-id = 7657 # float | The id of the product.
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    id = 7657 # float | The id of the product.
 
-try:
-    # Product Nutrition by ID Image
-    api_response = api_instance.product_nutrition_by_id_image(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->product_nutrition_by_id_image: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Product Nutrition by ID Image
+        api_response = api_instance.product_nutrition_by_id_image(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->product_nutrition_by_id_image: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The id of the product. | 
+ **id** | **float**| The id of the product. |
 
 ### Return type
 
-**object**
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
 
 ### Authorization
 
@@ -351,10 +535,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: image/png
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_nutrition_label_image**
-> object product_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} product_nutrition_label_image(id)
 
 Product Nutrition Label Image
 
@@ -363,45 +557,69 @@ Get a product's nutrition label as an image.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-id = 22347 # float | The product id.
-show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
-show_zero_values = false # bool | Whether to show zero values. (optional)
-show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    id = 22347 # float | The product id.
+    show_optional_nutrients = False # bool | Whether to show optional nutrients. (optional)
+    show_zero_values = False # bool | Whether to show zero values. (optional)
+    show_ingredients = False # bool | Whether to show a list of ingredients. (optional)
 
-try:
-    # Product Nutrition Label Image
-    api_response = api_instance.product_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->product_nutrition_label_image: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Product Nutrition Label Image
+        api_response = api_instance.product_nutrition_label_image(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->product_nutrition_label_image: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Product Nutrition Label Image
+        api_response = api_instance.product_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->product_nutrition_label_image: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The product id. | 
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
- **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
+ **id** | **float**| The product id. |
+ **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
+ **show_zero_values** | **bool**| Whether to show zero values. | [optional]
+ **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
 
 ### Return type
 
-**object**
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
 
 ### Authorization
 
@@ -412,10 +630,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: image/png
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_nutrition_label_widget**
-> str product_nutrition_label_widget(id, default_css=default_css, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+> str product_nutrition_label_widget(id)
 
 Product Nutrition Label Widget
 
@@ -424,43 +652,67 @@ Get a product's nutrition label as an HTML widget.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-id = 22347 # float | The product id.
-default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
-show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
-show_zero_values = false # bool | Whether to show zero values. (optional)
-show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    id = 22347 # float | The product id.
+    default_css = False # bool | Whether the default CSS should be added to the response. (optional) if omitted the server will use the default value of True
+    show_optional_nutrients = False # bool | Whether to show optional nutrients. (optional)
+    show_zero_values = False # bool | Whether to show zero values. (optional)
+    show_ingredients = False # bool | Whether to show a list of ingredients. (optional)
 
-try:
-    # Product Nutrition Label Widget
-    api_response = api_instance.product_nutrition_label_widget(id, default_css=default_css, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->product_nutrition_label_widget: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Product Nutrition Label Widget
+        api_response = api_instance.product_nutrition_label_widget(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->product_nutrition_label_widget: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Product Nutrition Label Widget
+        api_response = api_instance.product_nutrition_label_widget(id, default_css=default_css, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->product_nutrition_label_widget: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The product id. | 
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
- **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
+ **id** | **float**| The product id. |
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] if omitted the server will use the default value of True
+ **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
+ **show_zero_values** | **bool**| Whether to show zero values. | [optional]
+ **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
 
 ### Return type
 
@@ -475,10 +727,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/html
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_grocery_products**
-> InlineResponse20027 search_grocery_products(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
+> SearchGroceryProducts200Response search_grocery_products()
 
 Search Grocery Products
 
@@ -487,61 +749,78 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.search_grocery_products200_response import SearchGroceryProducts200Response
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-query = 'burger' # str | The (natural language) search query. (optional)
-min_calories = 50 # float | The minimum amount of calories the product must have. (optional)
-max_calories = 800 # float | The maximum amount of calories the product can have. (optional)
-min_carbs = 10 # float | The minimum amount of carbohydrates in grams the product must have. (optional)
-max_carbs = 100 # float | The maximum amount of carbohydrates in grams the product can have. (optional)
-min_protein = 10 # float | The minimum amount of protein in grams the product must have. (optional)
-max_protein = 100 # float | The maximum amount of protein in grams the product can have. (optional)
-min_fat = 1 # float | The minimum amount of fat in grams the product must have. (optional)
-max_fat = 100 # float | The maximum amount of fat in grams the product can have. (optional)
-add_product_information = true # bool | If set to true, you get more information about the products returned. (optional)
-offset = 56 # int | The number of results to skip (between 0 and 900). (optional)
-number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    query = "burger" # str | The (natural language) search query. (optional)
+    min_calories = 50 # float | The minimum amount of calories the product must have. (optional)
+    max_calories = 800 # float | The maximum amount of calories the product can have. (optional)
+    min_carbs = 10 # float | The minimum amount of carbohydrates in grams the product must have. (optional)
+    max_carbs = 100 # float | The maximum amount of carbohydrates in grams the product can have. (optional)
+    min_protein = 10 # float | The minimum amount of protein in grams the product must have. (optional)
+    max_protein = 100 # float | The maximum amount of protein in grams the product can have. (optional)
+    min_fat = 1 # float | The minimum amount of fat in grams the product must have. (optional)
+    max_fat = 100 # float | The maximum amount of fat in grams the product can have. (optional)
+    add_product_information = True # bool | If set to true, you get more information about the products returned. (optional)
+    offset = 0 # int | The number of results to skip (between 0 and 900). (optional)
+    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) if omitted the server will use the default value of 10
 
-try:
-    # Search Grocery Products
-    api_response = api_instance.search_grocery_products(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->search_grocery_products: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Search Grocery Products
+        api_response = api_instance.search_grocery_products(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->search_grocery_products: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
- **min_calories** | **float**| The minimum amount of calories the product must have. | [optional] 
- **max_calories** | **float**| The maximum amount of calories the product can have. | [optional] 
- **min_carbs** | **float**| The minimum amount of carbohydrates in grams the product must have. | [optional] 
- **max_carbs** | **float**| The maximum amount of carbohydrates in grams the product can have. | [optional] 
- **min_protein** | **float**| The minimum amount of protein in grams the product must have. | [optional] 
- **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional] 
- **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional] 
- **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional] 
- **add_product_information** | **bool**| If set to true, you get more information about the products returned. | [optional] 
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **query** | **str**| The (natural language) search query. | [optional]
+ **min_calories** | **float**| The minimum amount of calories the product must have. | [optional]
+ **max_calories** | **float**| The maximum amount of calories the product can have. | [optional]
+ **min_carbs** | **float**| The minimum amount of carbohydrates in grams the product must have. | [optional]
+ **max_carbs** | **float**| The maximum amount of carbohydrates in grams the product can have. | [optional]
+ **min_protein** | **float**| The minimum amount of protein in grams the product must have. | [optional]
+ **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional]
+ **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional]
+ **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional]
+ **add_product_information** | **bool**| If set to true, you get more information about the products returned. | [optional]
+ **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
+ **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] if omitted the server will use the default value of 10
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**SearchGroceryProducts200Response**](SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -552,10 +831,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_grocery_products_by_upc**
-> InlineResponse20028 search_grocery_products_by_upc(upc)
+> SearchGroceryProductsByUPC200Response search_grocery_products_by_upc(upc)
 
 Search Grocery Products by UPC
 
@@ -564,39 +853,55 @@ Get information about a packaged food using its UPC.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
+from openapi_client.model.search_grocery_products_by_upc200_response import SearchGroceryProductsByUPC200Response
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-upc = 41631000564 # float | The product's UPC.
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    upc = 41631000564 # float | The product's UPC.
 
-try:
-    # Search Grocery Products by UPC
-    api_response = api_instance.search_grocery_products_by_upc(upc)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->search_grocery_products_by_upc: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Search Grocery Products by UPC
+        api_response = api_instance.search_grocery_products_by_upc(upc)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->search_grocery_products_by_upc: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **float**| The product&#39;s UPC. | 
+ **upc** | **float**| The product&#39;s UPC. |
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**SearchGroceryProductsByUPC200Response**](SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 
@@ -607,10 +912,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_product_nutrition_by_id**
-> str visualize_product_nutrition_by_id(id, default_css=default_css, accept=accept)
+> str visualize_product_nutrition_by_id(id)
 
 Product Nutrition by ID Widget
 
@@ -619,39 +934,63 @@ Visualize a product's nutritional information as HTML including CSS.
 ### Example
 
 * Api Key Authentication (apiKeyScheme):
+
 ```python
-from __future__ import print_function
 import time
-import spoonacular
-from spoonacular.rest import ApiException
+import openapi_client
+from com.spoonacular import products_api
 from pprint import pprint
-configuration = spoonacular.Configuration()
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = spoonacular.ProductsApi(spoonacular.ApiClient(configuration))
-id = 1 # int | The item's id.
-default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
-accept = 'application/json' # str | Accept header. (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = products_api.ProductsApi(api_client)
+    id = 1 # int | The item's id.
+    default_css = False # bool | Whether the default CSS should be added to the response. (optional) if omitted the server will use the default value of True
+    accept = "application/json" # str | Accept header. (optional)
 
-try:
-    # Product Nutrition by ID Widget
-    api_response = api_instance.visualize_product_nutrition_by_id(id, default_css=default_css, accept=accept)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductsApi->visualize_product_nutrition_by_id: %s\n" % e)
+    # example passing only required values which don't have defaults set
+    try:
+        # Product Nutrition by ID Widget
+        api_response = api_instance.visualize_product_nutrition_by_id(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->visualize_product_nutrition_by_id: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Product Nutrition by ID Widget
+        api_response = api_instance.visualize_product_nutrition_by_id(id, default_css=default_css, accept=accept)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ProductsApi->visualize_product_nutrition_by_id: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
- **accept** | **str**| Accept header. | [optional] 
+ **id** | **int**| The item&#39;s id. |
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] if omitted the server will use the default value of True
+ **accept** | **str**| Accept header. | [optional]
 
 ### Return type
 
@@ -665,6 +1004,16 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/html
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

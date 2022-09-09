@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getDishPairingForWine
 
-> InlineResponse20044 getDishPairingForWine(wine)
+> GetDishPairingForWine200Response getDishPairingForWine(wine)
 
 Dish Pairing for Wine
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**GetDishPairingForWine200Response**](GetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ## getWineDescription
 
-> InlineResponse20046 getWineDescription(wine)
+> GetWineDescription200Response getWineDescription(wine)
 
 Wine Description
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**GetWineDescription200Response**](GetWineDescription200Response.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ## getWinePairing
 
-> InlineResponse20045 getWinePairing(food, opts)
+> GetWinePairing200Response getWinePairing(food, opts)
 
 Wine Pairing
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**GetWinePairing200Response**](GetWinePairing200Response.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ## getWineRecommendation
 
-> InlineResponse20047 getWineRecommendation(wine, opts)
+> GetWineRecommendation200Response getWineRecommendation(wine, opts)
 
 Wine Recommendation
 
@@ -192,7 +192,7 @@ let wine = merlot; // String | The type of wine to get a specific product recomm
 let opts = {
   'maxPrice': 50, // Number | The maximum price for the specific wine recommendation in USD.
   'minRating': 0.7, // Number | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
-  '_number': 3 // Number | The number of wine recommendations expected (between 1 and 100).
+  'number': 3 // Number | The number of wine recommendations expected (between 1 and 100).
 };
 apiInstance.getWineRecommendation(wine, opts, (error, data, response) => {
   if (error) {
@@ -211,11 +211,11 @@ Name | Type | Description  | Notes
  **wine** | **String**| The type of wine to get a specific product recommendation for. | 
  **maxPrice** | **Number**| The maximum price for the specific wine recommendation in USD. | [optional] 
  **minRating** | **Number**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional] 
- **_number** | **Number**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10]
+ **number** | **Number**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10]
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**GetWineRecommendation200Response**](GetWineRecommendation200Response.md)
 
 ### Authorization
 

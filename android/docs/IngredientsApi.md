@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## autocompleteIngredientSearch
 
-> List&lt;InlineResponse20024&gt; autocompleteIngredientSearch(query, number, metaInformation, intolerances)
+> Set&lt;AutocompleteIngredientSearch200ResponseInner&gt; autocompleteIngredientSearch(query, number, metaInformation, intolerances)
 
 Autocomplete Ingredient Search
 
@@ -36,7 +36,7 @@ Integer number = 10; // Integer | The maximum number of items to return (between
 Boolean metaInformation = false; // Boolean | Whether to return more meta information about the ingredients.
 String intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 try {
-    List<InlineResponse20024> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
+    Set<AutocompleteIngredientSearch200ResponseInner> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#autocompleteIngredientSearch");
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20024&gt;**](InlineResponse20024.md)
+[**Set&lt;AutocompleteIngredientSearch200ResponseInner&gt;**](AutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ## computeIngredientAmount
 
-> RecipesParseIngredientsNutritionWeightPerServing computeIngredientAmount(id, nutrient, target, unit)
+> ComputeIngredientAmount200Response computeIngredientAmount(id, nutrient, target, unit)
 
 Compute Ingredient Amount
 
@@ -88,7 +88,7 @@ String nutrient = protein; // String | The target nutrient. See a list of suppor
 BigDecimal target = 2; // BigDecimal | The target number of the given nutrient.
 String unit = oz; // String | The target unit.
 try {
-    RecipesParseIngredientsNutritionWeightPerServing result = apiInstance.computeIngredientAmount(id, nutrient, target, unit);
+    ComputeIngredientAmount200Response result = apiInstance.computeIngredientAmount(id, nutrient, target, unit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#computeIngredientAmount");
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RecipesParseIngredientsNutritionWeightPerServing**](RecipesParseIngredientsNutritionWeightPerServing.md)
+[**ComputeIngredientAmount200Response**](ComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientInformation
 
-> InlineResponse20022 getIngredientInformation(id, amount, unit)
+> GetIngredientInformation200Response getIngredientInformation(id, amount, unit)
 
 Get Ingredient Information
 
@@ -139,7 +139,7 @@ Integer id = 1; // Integer | The item's id.
 BigDecimal amount = 150; // BigDecimal | The amount of this ingredient.
 String unit = grams; // String | The unit for the given amount.
 try {
-    InlineResponse20022 result = apiInstance.getIngredientInformation(id, amount, unit);
+    GetIngredientInformation200Response result = apiInstance.getIngredientInformation(id, amount, unit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#getIngredientInformation");
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientSubstitutes
 
-> InlineResponse20026 getIngredientSubstitutes(ingredientName)
+> GetIngredientSubstitutes200Response getIngredientSubstitutes(ingredientName)
 
 Get Ingredient Substitutes
 
@@ -187,7 +187,7 @@ Search for substitutes for a given ingredient.
 IngredientsApi apiInstance = new IngredientsApi();
 String ingredientName = butter; // String | The name of the ingredient you want to replace.
 try {
-    InlineResponse20026 result = apiInstance.getIngredientSubstitutes(ingredientName);
+    GetIngredientSubstitutes200Response result = apiInstance.getIngredientSubstitutes(ingredientName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#getIngredientSubstitutes");
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientSubstitutesByID
 
-> InlineResponse20026 getIngredientSubstitutesByID(id)
+> GetIngredientSubstitutes200Response getIngredientSubstitutesByID(id)
 
 Get Ingredient Substitutes by ID
 
@@ -233,7 +233,7 @@ Search for substitutes for a given ingredient.
 IngredientsApi apiInstance = new IngredientsApi();
 Integer id = 1; // Integer | The item's id.
 try {
-    InlineResponse20026 result = apiInstance.getIngredientSubstitutesByID(id);
+    GetIngredientSubstitutes200Response result = apiInstance.getIngredientSubstitutesByID(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#getIngredientSubstitutesByID");
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**GetIngredientSubstitutes200Response**](GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ## ingredientSearch
 
-> InlineResponse20025 ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
+> IngredientSearch200Response ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
 
 Ingredient Search
 
@@ -292,7 +292,7 @@ String sortDirection = asc; // String | The direction in which to sort. Must be 
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    InlineResponse20025 result = apiInstance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+    IngredientSearch200Response result = apiInstance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#ingredientSearch");
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**IngredientSearch200Response**](IngredientSearch200Response.md)
 
 ### Authorization
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ## mapIngredientsToGroceryProducts
 
-> List&lt;InlineResponse20034&gt; mapIngredientsToGroceryProducts(inlineObject2)
+> Set&lt;MapIngredientsToGroceryProducts200ResponseInner&gt; mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest)
 
 Map Ingredients to Grocery Products
 
@@ -397,9 +397,9 @@ Map a set of ingredients to products you can buy in the grocery store.
 //import com.spoonacular.IngredientsApi;
 
 IngredientsApi apiInstance = new IngredientsApi();
-InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
+MapIngredientsToGroceryProductsRequest mapIngredientsToGroceryProductsRequest = {"ingredients":["eggs","bacon"],"servings":2}; // MapIngredientsToGroceryProductsRequest | 
 try {
-    List<InlineResponse20034> result = apiInstance.mapIngredientsToGroceryProducts(inlineObject2);
+    Set<MapIngredientsToGroceryProducts200ResponseInner> result = apiInstance.mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#mapIngredientsToGroceryProducts");
@@ -412,11 +412,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  |
+ **mapIngredientsToGroceryProductsRequest** | [**MapIngredientsToGroceryProductsRequest**](MapIngredientsToGroceryProductsRequest.md)|  |
 
 ### Return type
 
-[**List&lt;InlineResponse20034&gt;**](InlineResponse20034.md)
+[**Set&lt;MapIngredientsToGroceryProducts200ResponseInner&gt;**](MapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 

@@ -1,414 +1,559 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
-class QueryParam {
-  String name;
-  String value;
-
-  QueryParam(this.name, this.value);
-}
-
 class ApiClient {
+  ApiClient({this.basePath = 'https://api.spoonacular.com', this.authentication});
 
-  String basePath;
-  var client = Client();
+  final String basePath;
 
-  Map<String, String> _defaultHeaderMap = {};
-  Map<String, Authentication> _authentications = {};
+  var _client = Client();
 
-  final _regList = RegExp(r'^List<(.*)>$');
-  final _regMap = RegExp(r'^Map<String,(.*)>$');
+  /// Returns the current HTTP [Client] instance to use in this class.
+  ///
+  /// The return value is guaranteed to never be null.
+  Client get client => _client;
 
-  ApiClient({this.basePath = "https://api.spoonacular.com"}) {
-    // Setup authentications (key: authentication name, value: authentication).
-    _authentications['apiKeyScheme'] = ApiKeyAuth("query", "apiKey");
+  /// Requests to use a new HTTP [Client] in this class.
+  set client(Client newClient) {
+    _client = newClient;
   }
+
+  final _defaultHeaderMap = <String, String>{};
+  final Authentication? authentication;
 
   void addDefaultHeader(String key, String value) {
      _defaultHeaderMap[key] = value;
   }
 
-  dynamic _deserialize(dynamic value, String targetType) {
+  Map<String,String> get defaultHeaderMap => _defaultHeaderMap;
+
+  // We don't use a Map<String, String> for queryParams.
+  // If collectionFormat is 'multi', a key might appear multiple times.
+  Future<Response> invokeAPI(
+    String path,
+    String method,
+    List<QueryParam> queryParams,
+    Object? body,
+    Map<String, String> headerParams,
+    Map<String, String> formParams,
+    String? contentType,
+  ) async {
+    _updateParamsForAuth(queryParams, headerParams);
+
+    headerParams.addAll(_defaultHeaderMap);
+    if (contentType != null) {
+      headerParams['Content-Type'] = contentType;
+    }
+
+    final urlEncodedQueryParams = queryParams.map((param) => '$param');
+    final queryString = urlEncodedQueryParams.isNotEmpty ? '?${urlEncodedQueryParams.join('&')}' : '';
+    final uri = Uri.parse('$basePath$path$queryString');
+
+    try {
+      // Special case for uploading a single file which isn't a 'multipart/form-data'.
+      if (
+        body is MultipartFile && (contentType == null ||
+        !contentType.toLowerCase().startsWith('multipart/form-data'))
+      ) {
+        final request = StreamedRequest(method, uri);
+        request.headers.addAll(headerParams);
+        request.contentLength = body.length;
+        body.finalize().listen(
+          request.sink.add,
+          onDone: request.sink.close,
+          // ignore: avoid_types_on_closure_parameters
+          onError: (Object error, StackTrace trace) => request.sink.close(),
+          cancelOnError: true,
+        );
+        final response = await _client.send(request);
+        return Response.fromStream(response);
+      }
+
+      if (body is MultipartRequest) {
+        final request = MultipartRequest(method, uri);
+        request.fields.addAll(body.fields);
+        request.files.addAll(body.files);
+        request.headers.addAll(body.headers);
+        request.headers.addAll(headerParams);
+        final response = await _client.send(request);
+        return Response.fromStream(response);
+      }
+
+      final msgBody = contentType == 'application/x-www-form-urlencoded'
+        ? formParams
+        : await serializeAsync(body);
+      final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
+
+      switch(method) {
+        case 'POST': return await _client.post(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'PUT': return await _client.put(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'DELETE': return await _client.delete(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'PATCH': return await _client.patch(uri, headers: nullableHeaderParams, body: msgBody,);
+        case 'HEAD': return await _client.head(uri, headers: nullableHeaderParams,);
+        case 'GET': return await _client.get(uri, headers: nullableHeaderParams,);
+      }
+    } on SocketException catch (error, trace) {
+      throw ApiException.withInner(
+        HttpStatus.badRequest,
+        'Socket operation failed: $method $path',
+        error,
+        trace,
+      );
+    } on TlsException catch (error, trace) {
+      throw ApiException.withInner(
+        HttpStatus.badRequest,
+        'TLS/SSL communication failed: $method $path',
+        error,
+        trace,
+      );
+    } on IOException catch (error, trace) {
+      throw ApiException.withInner(
+        HttpStatus.badRequest,
+        'I/O operation failed: $method $path',
+        error,
+        trace,
+      );
+    } on ClientException catch (error, trace) {
+      throw ApiException.withInner(
+        HttpStatus.badRequest,
+        'HTTP connection failed: $method $path',
+        error,
+        trace,
+      );
+    } on Exception catch (error, trace) {
+      throw ApiException.withInner(
+        HttpStatus.badRequest,
+        'Exception occurred: $method $path',
+        error,
+        trace,
+      );
+    }
+
+    throw ApiException(
+      HttpStatus.badRequest,
+      'Invalid HTTP operation: $method $path',
+    );
+  }
+
+  Future<dynamic> deserializeAsync(String json, String targetType, {bool growable = false,}) async =>
+    // ignore: deprecated_member_use_from_same_package
+    deserialize(json, targetType, growable: growable);
+
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(String json, String targetType, {bool growable = false,}) {
+    // Remove all spaces. Necessary for regular expressions as well.
+    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
+
+    // If the expected target type is String, nothing to do...
+    return targetType == 'String'
+      ? json
+      : _deserialize(jsonDecode(json), targetType, growable: growable);
+  }
+
+  // ignore: deprecated_member_use_from_same_package
+  Future<String> serializeAsync(Object? value) async => serialize(value);
+
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
+  String serialize(Object? value) => value == null ? '' : json.encode(value);
+
+  /// Update query and header parameters based on authentication settings.
+  void _updateParamsForAuth(
+    List<QueryParam> queryParams,
+    Map<String, String> headerParams,
+  ) {
+    if (authentication != null) {
+      authentication!.applyToParams(queryParams, headerParams);
+    }
+  }
+
+  static dynamic _deserialize(dynamic value, String targetType, {bool growable = false}) {
     try {
       switch (targetType) {
         case 'String':
-          return '$value';
+          return value is String ? value : value.toString();
         case 'int':
           return value is int ? value : int.parse('$value');
-        case 'bool':
-          return value is bool ? value : '$value'.toLowerCase() == 'true';
         case 'double':
           return value is double ? value : double.parse('$value');
-        case 'FoodIngredientsMapProducts':
-          return FoodIngredientsMapProducts.fromJson(value);
-        case 'InlineObject':
-          return InlineObject.fromJson(value);
-        case 'InlineObject1':
-          return InlineObject1.fromJson(value);
-        case 'InlineObject10':
-          return InlineObject10.fromJson(value);
-        case 'InlineObject2':
-          return InlineObject2.fromJson(value);
-        case 'InlineObject3':
-          return InlineObject3.fromJson(value);
-        case 'InlineObject4':
-          return InlineObject4.fromJson(value);
-        case 'InlineObject5':
-          return InlineObject5.fromJson(value);
-        case 'InlineObject6':
-          return InlineObject6.fromJson(value);
-        case 'InlineObject7':
-          return InlineObject7.fromJson(value);
-        case 'InlineObject8':
-          return InlineObject8.fromJson(value);
-        case 'InlineObject9':
-          return InlineObject9.fromJson(value);
-        case 'InlineResponse200':
-          return InlineResponse200.fromJson(value);
-        case 'InlineResponse2001':
-          return InlineResponse2001.fromJson(value);
-        case 'InlineResponse20010':
-          return InlineResponse20010.fromJson(value);
-        case 'InlineResponse20010Amount':
-          return InlineResponse20010Amount.fromJson(value);
-        case 'InlineResponse20010AmountMetric':
-          return InlineResponse20010AmountMetric.fromJson(value);
-        case 'InlineResponse20010Ingredients':
-          return InlineResponse20010Ingredients.fromJson(value);
-        case 'InlineResponse20011':
-          return InlineResponse20011.fromJson(value);
-        case 'InlineResponse20011Ingredients':
-          return InlineResponse20011Ingredients.fromJson(value);
-        case 'InlineResponse20012':
-          return InlineResponse20012.fromJson(value);
-        case 'InlineResponse20013':
-          return InlineResponse20013.fromJson(value);
-        case 'InlineResponse20013Ingredients':
-          return InlineResponse20013Ingredients.fromJson(value);
-        case 'InlineResponse20013Ingredients1':
-          return InlineResponse20013Ingredients1.fromJson(value);
-        case 'InlineResponse20013ParsedInstructions':
-          return InlineResponse20013ParsedInstructions.fromJson(value);
-        case 'InlineResponse20013Steps':
-          return InlineResponse20013Steps.fromJson(value);
-        case 'InlineResponse20014':
-          return InlineResponse20014.fromJson(value);
-        case 'InlineResponse20015':
-          return InlineResponse20015.fromJson(value);
-        case 'InlineResponse20016':
-          return InlineResponse20016.fromJson(value);
-        case 'InlineResponse20017':
-          return InlineResponse20017.fromJson(value);
-        case 'InlineResponse20018':
-          return InlineResponse20018.fromJson(value);
-        case 'InlineResponse20018Dishes':
-          return InlineResponse20018Dishes.fromJson(value);
-        case 'InlineResponse20018Ingredients':
-          return InlineResponse20018Ingredients.fromJson(value);
-        case 'InlineResponse20019':
-          return InlineResponse20019.fromJson(value);
-        case 'InlineResponse2002':
-          return InlineResponse2002.fromJson(value);
-        case 'InlineResponse20020':
-          return InlineResponse20020.fromJson(value);
-        case 'InlineResponse20021':
-          return InlineResponse20021.fromJson(value);
-        case 'InlineResponse20021Calories':
-          return InlineResponse20021Calories.fromJson(value);
-        case 'InlineResponse20021CaloriesConfidenceRange95Percent':
-          return InlineResponse20021CaloriesConfidenceRange95Percent.fromJson(value);
-        case 'InlineResponse20022':
-          return InlineResponse20022.fromJson(value);
-        case 'InlineResponse20022Nutrition':
-          return InlineResponse20022Nutrition.fromJson(value);
-        case 'InlineResponse20023':
-          return InlineResponse20023.fromJson(value);
-        case 'InlineResponse20023Ingredients':
-          return InlineResponse20023Ingredients.fromJson(value);
-        case 'InlineResponse20024':
-          return InlineResponse20024.fromJson(value);
-        case 'InlineResponse20025':
-          return InlineResponse20025.fromJson(value);
-        case 'InlineResponse20025Results':
-          return InlineResponse20025Results.fromJson(value);
-        case 'InlineResponse20026':
-          return InlineResponse20026.fromJson(value);
-        case 'InlineResponse20027':
-          return InlineResponse20027.fromJson(value);
-        case 'InlineResponse20028':
-          return InlineResponse20028.fromJson(value);
-        case 'InlineResponse20028Ingredients':
-          return InlineResponse20028Ingredients.fromJson(value);
-        case 'InlineResponse20028Nutrition':
-          return InlineResponse20028Nutrition.fromJson(value);
-        case 'InlineResponse20028Servings':
-          return InlineResponse20028Servings.fromJson(value);
-        case 'InlineResponse20029':
-          return InlineResponse20029.fromJson(value);
-        case 'InlineResponse20029CustomFoods':
-          return InlineResponse20029CustomFoods.fromJson(value);
-        case 'InlineResponse2003':
-          return InlineResponse2003.fromJson(value);
-        case 'InlineResponse20030':
-          return InlineResponse20030.fromJson(value);
-        case 'InlineResponse20030Ingredients':
-          return InlineResponse20030Ingredients.fromJson(value);
-        case 'InlineResponse20031':
-          return InlineResponse20031.fromJson(value);
-        case 'InlineResponse20031ComparableProducts':
-          return InlineResponse20031ComparableProducts.fromJson(value);
-        case 'InlineResponse20031ComparableProductsProtein':
-          return InlineResponse20031ComparableProductsProtein.fromJson(value);
-        case 'InlineResponse20032':
-          return InlineResponse20032.fromJson(value);
-        case 'InlineResponse20032Results':
-          return InlineResponse20032Results.fromJson(value);
-        case 'InlineResponse20033':
-          return InlineResponse20033.fromJson(value);
-        case 'InlineResponse20034':
-          return InlineResponse20034.fromJson(value);
-        case 'InlineResponse20035':
-          return InlineResponse20035.fromJson(value);
-        case 'InlineResponse20035MenuItems':
-          return InlineResponse20035MenuItems.fromJson(value);
-        case 'InlineResponse20036':
-          return InlineResponse20036.fromJson(value);
-        case 'InlineResponse20037':
-          return InlineResponse20037.fromJson(value);
-        case 'InlineResponse20037Nutrients':
-          return InlineResponse20037Nutrients.fromJson(value);
-        case 'InlineResponse20038':
-          return InlineResponse20038.fromJson(value);
-        case 'InlineResponse20038Days':
-          return InlineResponse20038Days.fromJson(value);
-        case 'InlineResponse20038Items':
-          return InlineResponse20038Items.fromJson(value);
-        case 'InlineResponse20038NutritionSummary':
-          return InlineResponse20038NutritionSummary.fromJson(value);
-        case 'InlineResponse20038NutritionSummaryNutrients':
-          return InlineResponse20038NutritionSummaryNutrients.fromJson(value);
-        case 'InlineResponse20038Value':
-          return InlineResponse20038Value.fromJson(value);
-        case 'InlineResponse20039':
-          return InlineResponse20039.fromJson(value);
-        case 'InlineResponse2003ExtendedIngredients':
-          return InlineResponse2003ExtendedIngredients.fromJson(value);
-        case 'InlineResponse2003Measures':
-          return InlineResponse2003Measures.fromJson(value);
-        case 'InlineResponse2003MeasuresMetric':
-          return InlineResponse2003MeasuresMetric.fromJson(value);
-        case 'InlineResponse2003WinePairing':
-          return InlineResponse2003WinePairing.fromJson(value);
-        case 'InlineResponse2003WinePairingProductMatches':
-          return InlineResponse2003WinePairingProductMatches.fromJson(value);
-        case 'InlineResponse2004':
-          return InlineResponse2004.fromJson(value);
-        case 'InlineResponse20040':
-          return InlineResponse20040.fromJson(value);
-        case 'InlineResponse20040Items':
-          return InlineResponse20040Items.fromJson(value);
-        case 'InlineResponse20040Value':
-          return InlineResponse20040Value.fromJson(value);
-        case 'InlineResponse20041':
-          return InlineResponse20041.fromJson(value);
-        case 'InlineResponse20041Days':
-          return InlineResponse20041Days.fromJson(value);
-        case 'InlineResponse20041Items':
-          return InlineResponse20041Items.fromJson(value);
-        case 'InlineResponse20041Value':
-          return InlineResponse20041Value.fromJson(value);
-        case 'InlineResponse20042':
-          return InlineResponse20042.fromJson(value);
-        case 'InlineResponse20042Aisles':
-          return InlineResponse20042Aisles.fromJson(value);
-        case 'InlineResponse20042Items':
-          return InlineResponse20042Items.fromJson(value);
-        case 'InlineResponse20042Measures':
-          return InlineResponse20042Measures.fromJson(value);
-        case 'InlineResponse20043':
-          return InlineResponse20043.fromJson(value);
-        case 'InlineResponse20044':
-          return InlineResponse20044.fromJson(value);
-        case 'InlineResponse20045':
-          return InlineResponse20045.fromJson(value);
-        case 'InlineResponse20045ProductMatches':
-          return InlineResponse20045ProductMatches.fromJson(value);
-        case 'InlineResponse20046':
-          return InlineResponse20046.fromJson(value);
-        case 'InlineResponse20047':
-          return InlineResponse20047.fromJson(value);
-        case 'InlineResponse20047RecommendedWines':
-          return InlineResponse20047RecommendedWines.fromJson(value);
-        case 'InlineResponse20048':
-          return InlineResponse20048.fromJson(value);
-        case 'InlineResponse20049':
-          return InlineResponse20049.fromJson(value);
-        case 'InlineResponse20049Category':
-          return InlineResponse20049Category.fromJson(value);
-        case 'InlineResponse20049Nutrition':
-          return InlineResponse20049Nutrition.fromJson(value);
-        case 'InlineResponse20049NutritionCalories':
-          return InlineResponse20049NutritionCalories.fromJson(value);
-        case 'InlineResponse20049NutritionCaloriesConfidenceRange95Percent':
-          return InlineResponse20049NutritionCaloriesConfidenceRange95Percent.fromJson(value);
-        case 'InlineResponse20049Recipes':
-          return InlineResponse20049Recipes.fromJson(value);
-        case 'InlineResponse2005':
-          return InlineResponse2005.fromJson(value);
-        case 'InlineResponse20050':
-          return InlineResponse20050.fromJson(value);
-        case 'InlineResponse20051':
-          return InlineResponse20051.fromJson(value);
-        case 'InlineResponse20052':
-          return InlineResponse20052.fromJson(value);
-        case 'InlineResponse20053':
-          return InlineResponse20053.fromJson(value);
-        case 'InlineResponse20053Results':
-          return InlineResponse20053Results.fromJson(value);
-        case 'InlineResponse20053SearchResults':
-          return InlineResponse20053SearchResults.fromJson(value);
-        case 'InlineResponse20054':
-          return InlineResponse20054.fromJson(value);
-        case 'InlineResponse20054Videos':
-          return InlineResponse20054Videos.fromJson(value);
-        case 'InlineResponse20055':
-          return InlineResponse20055.fromJson(value);
-        case 'InlineResponse20056':
-          return InlineResponse20056.fromJson(value);
-        case 'InlineResponse20057':
-          return InlineResponse20057.fromJson(value);
-        case 'InlineResponse20057Suggests':
-          return InlineResponse20057Suggests.fromJson(value);
-        case 'InlineResponse2006':
-          return InlineResponse2006.fromJson(value);
-        case 'InlineResponse2006Recipes':
-          return InlineResponse2006Recipes.fromJson(value);
-        case 'InlineResponse2007':
-          return InlineResponse2007.fromJson(value);
-        case 'InlineResponse2008':
-          return InlineResponse2008.fromJson(value);
-        case 'InlineResponse2009':
-          return InlineResponse2009.fromJson(value);
-        case 'InlineResponse200Results':
-          return InlineResponse200Results.fromJson(value);
-        case 'RecipesFindByIngredientsMissedIngredients':
-          return RecipesFindByIngredientsMissedIngredients.fromJson(value);
-        case 'RecipesParseIngredientsEstimatedCost':
-          return RecipesParseIngredientsEstimatedCost.fromJson(value);
-        case 'RecipesParseIngredientsNutrition':
-          return RecipesParseIngredientsNutrition.fromJson(value);
-        case 'RecipesParseIngredientsNutritionCaloricBreakdown':
-          return RecipesParseIngredientsNutritionCaloricBreakdown.fromJson(value);
-        case 'RecipesParseIngredientsNutritionNutrients':
-          return RecipesParseIngredientsNutritionNutrients.fromJson(value);
-        case 'RecipesParseIngredientsNutritionProperties':
-          return RecipesParseIngredientsNutritionProperties.fromJson(value);
-        case 'RecipesParseIngredientsNutritionWeightPerServing':
-          return RecipesParseIngredientsNutritionWeightPerServing.fromJson(value);
+        case 'bool':
+          if (value is bool) {
+            return value;
+          }
+          final valueString = '$value'.toLowerCase();
+          return valueString == 'true' || valueString == '1';
+        case 'DateTime':
+          return value is DateTime ? value : DateTime.tryParse(value);
+        case 'AddMealPlanTemplate200Response':
+          return AddMealPlanTemplate200Response.fromJson(value);
+        case 'AddMealPlanTemplate200ResponseItemsInner':
+          return AddMealPlanTemplate200ResponseItemsInner.fromJson(value);
+        case 'AddMealPlanTemplate200ResponseItemsInnerValue':
+          return AddMealPlanTemplate200ResponseItemsInnerValue.fromJson(value);
+        case 'AddToMealPlanRequest':
+          return AddToMealPlanRequest.fromJson(value);
+        case 'AddToMealPlanRequest1':
+          return AddToMealPlanRequest1.fromJson(value);
+        case 'AddToMealPlanRequest1Value':
+          return AddToMealPlanRequest1Value.fromJson(value);
+        case 'AddToMealPlanRequest1ValueIngredientsInner':
+          return AddToMealPlanRequest1ValueIngredientsInner.fromJson(value);
+        case 'AddToShoppingListRequest':
+          return AddToShoppingListRequest.fromJson(value);
+        case 'AnalyzeARecipeSearchQuery200Response':
+          return AnalyzeARecipeSearchQuery200Response.fromJson(value);
+        case 'AnalyzeARecipeSearchQuery200ResponseDishesInner':
+          return AnalyzeARecipeSearchQuery200ResponseDishesInner.fromJson(value);
+        case 'AnalyzeARecipeSearchQuery200ResponseIngredientsInner':
+          return AnalyzeARecipeSearchQuery200ResponseIngredientsInner.fromJson(value);
+        case 'AnalyzeRecipeInstructions200Response':
+          return AnalyzeRecipeInstructions200Response.fromJson(value);
+        case 'AnalyzeRecipeInstructions200ResponseIngredientsInner':
+          return AnalyzeRecipeInstructions200ResponseIngredientsInner.fromJson(value);
+        case 'AnalyzeRecipeInstructions200ResponseParsedInstructionsInner':
+          return AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.fromJson(value);
+        case 'AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner':
+          return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.fromJson(value);
+        case 'AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner':
+          return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.fromJson(value);
+        case 'AutocompleteIngredientSearch200ResponseInner':
+          return AutocompleteIngredientSearch200ResponseInner.fromJson(value);
+        case 'AutocompleteMenuItemSearch200Response':
+          return AutocompleteMenuItemSearch200Response.fromJson(value);
+        case 'AutocompleteProductSearch200Response':
+          return AutocompleteProductSearch200Response.fromJson(value);
+        case 'AutocompleteProductSearch200ResponseResultsInner':
+          return AutocompleteProductSearch200ResponseResultsInner.fromJson(value);
+        case 'AutocompleteRecipeSearch200ResponseInner':
+          return AutocompleteRecipeSearch200ResponseInner.fromJson(value);
+        case 'ClassifyCuisine200Response':
+          return ClassifyCuisine200Response.fromJson(value);
+        case 'ClassifyGroceryProduct200Response':
+          return ClassifyGroceryProduct200Response.fromJson(value);
+        case 'ClassifyGroceryProductBulk200ResponseInner':
+          return ClassifyGroceryProductBulk200ResponseInner.fromJson(value);
+        case 'ClassifyGroceryProductBulkRequestInner':
+          return ClassifyGroceryProductBulkRequestInner.fromJson(value);
+        case 'ClassifyGroceryProductRequest':
+          return ClassifyGroceryProductRequest.fromJson(value);
+        case 'ClearMealPlanDayRequest':
+          return ClearMealPlanDayRequest.fromJson(value);
+        case 'ComputeGlycemicLoad200Response':
+          return ComputeGlycemicLoad200Response.fromJson(value);
+        case 'ComputeGlycemicLoad200ResponseIngredientsInner':
+          return ComputeGlycemicLoad200ResponseIngredientsInner.fromJson(value);
+        case 'ComputeGlycemicLoadRequest':
+          return ComputeGlycemicLoadRequest.fromJson(value);
+        case 'ComputeIngredientAmount200Response':
+          return ComputeIngredientAmount200Response.fromJson(value);
+        case 'ConnectUser200Response':
+          return ConnectUser200Response.fromJson(value);
+        case 'ConnectUserRequest':
+          return ConnectUserRequest.fromJson(value);
+        case 'ConvertAmounts200Response':
+          return ConvertAmounts200Response.fromJson(value);
+        case 'CreateRecipeCard200Response':
+          return CreateRecipeCard200Response.fromJson(value);
+        case 'DeleteFromMealPlanRequest':
+          return DeleteFromMealPlanRequest.fromJson(value);
+        case 'DetectFoodInText200Response':
+          return DetectFoodInText200Response.fromJson(value);
+        case 'DetectFoodInText200ResponseAnnotationsInner':
+          return DetectFoodInText200ResponseAnnotationsInner.fromJson(value);
+        case 'GenerateMealPlan200Response':
+          return GenerateMealPlan200Response.fromJson(value);
+        case 'GenerateMealPlan200ResponseNutrients':
+          return GenerateMealPlan200ResponseNutrients.fromJson(value);
+        case 'GenerateShoppingList200Response':
+          return GenerateShoppingList200Response.fromJson(value);
+        case 'GenerateShoppingListRequest':
+          return GenerateShoppingListRequest.fromJson(value);
+        case 'GetARandomFoodJoke200Response':
+          return GetARandomFoodJoke200Response.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200Response':
+          return GetAnalyzedRecipeInstructions200Response.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseIngredientsInner':
+          return GetAnalyzedRecipeInstructions200ResponseIngredientsInner.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner':
+          return GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner':
+          return GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner':
+          return GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.fromJson(value);
+        case 'GetComparableProducts200Response':
+          return GetComparableProducts200Response.fromJson(value);
+        case 'GetComparableProducts200ResponseComparableProducts':
+          return GetComparableProducts200ResponseComparableProducts.fromJson(value);
+        case 'GetComparableProducts200ResponseComparableProductsProteinInner':
+          return GetComparableProducts200ResponseComparableProductsProteinInner.fromJson(value);
+        case 'GetConversationSuggests200Response':
+          return GetConversationSuggests200Response.fromJson(value);
+        case 'GetConversationSuggests200ResponseSuggests':
+          return GetConversationSuggests200ResponseSuggests.fromJson(value);
+        case 'GetConversationSuggests200ResponseSuggestsInner':
+          return GetConversationSuggests200ResponseSuggestsInner.fromJson(value);
+        case 'GetDishPairingForWine200Response':
+          return GetDishPairingForWine200Response.fromJson(value);
+        case 'GetIngredientInformation200Response':
+          return GetIngredientInformation200Response.fromJson(value);
+        case 'GetIngredientInformation200ResponseNutrition':
+          return GetIngredientInformation200ResponseNutrition.fromJson(value);
+        case 'GetIngredientSubstitutes200Response':
+          return GetIngredientSubstitutes200Response.fromJson(value);
+        case 'GetMealPlanTemplate200Response':
+          return GetMealPlanTemplate200Response.fromJson(value);
+        case 'GetMealPlanTemplate200ResponseDaysInner':
+          return GetMealPlanTemplate200ResponseDaysInner.fromJson(value);
+        case 'GetMealPlanTemplate200ResponseDaysInnerItemsInner':
+          return GetMealPlanTemplate200ResponseDaysInnerItemsInner.fromJson(value);
+        case 'GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue':
+          return GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue.fromJson(value);
+        case 'GetMealPlanTemplates200Response':
+          return GetMealPlanTemplates200Response.fromJson(value);
+        case 'GetMealPlanWeek200Response':
+          return GetMealPlanWeek200Response.fromJson(value);
+        case 'GetMealPlanWeek200ResponseDaysInner':
+          return GetMealPlanWeek200ResponseDaysInner.fromJson(value);
+        case 'GetMealPlanWeek200ResponseDaysInnerItemsInner':
+          return GetMealPlanWeek200ResponseDaysInnerItemsInner.fromJson(value);
+        case 'GetMealPlanWeek200ResponseDaysInnerItemsInnerValue':
+          return GetMealPlanWeek200ResponseDaysInnerItemsInnerValue.fromJson(value);
+        case 'GetMealPlanWeek200ResponseDaysInnerNutritionSummary':
+          return GetMealPlanWeek200ResponseDaysInnerNutritionSummary.fromJson(value);
+        case 'GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner':
+          return GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner.fromJson(value);
+        case 'GetMenuItemInformation200Response':
+          return GetMenuItemInformation200Response.fromJson(value);
+        case 'GetProductInformation200Response':
+          return GetProductInformation200Response.fromJson(value);
+        case 'GetProductInformation200ResponseIngredientsInner':
+          return GetProductInformation200ResponseIngredientsInner.fromJson(value);
+        case 'GetRandomFoodTrivia200Response':
+          return GetRandomFoodTrivia200Response.fromJson(value);
+        case 'GetRandomRecipes200Response':
+          return GetRandomRecipes200Response.fromJson(value);
+        case 'GetRandomRecipes200ResponseRecipesInner':
+          return GetRandomRecipes200ResponseRecipesInner.fromJson(value);
+        case 'GetRecipeEquipmentByID200Response':
+          return GetRecipeEquipmentByID200Response.fromJson(value);
+        case 'GetRecipeEquipmentByID200ResponseEquipmentInner':
+          return GetRecipeEquipmentByID200ResponseEquipmentInner.fromJson(value);
+        case 'GetRecipeInformation200Response':
+          return GetRecipeInformation200Response.fromJson(value);
+        case 'GetRecipeInformation200ResponseExtendedIngredientsInner':
+          return GetRecipeInformation200ResponseExtendedIngredientsInner.fromJson(value);
+        case 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures':
+          return GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.fromJson(value);
+        case 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric':
+          return GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.fromJson(value);
+        case 'GetRecipeInformation200ResponseWinePairing':
+          return GetRecipeInformation200ResponseWinePairing.fromJson(value);
+        case 'GetRecipeInformation200ResponseWinePairingProductMatchesInner':
+          return GetRecipeInformation200ResponseWinePairingProductMatchesInner.fromJson(value);
+        case 'GetRecipeInformationBulk200ResponseInner':
+          return GetRecipeInformationBulk200ResponseInner.fromJson(value);
+        case 'GetRecipeIngredientsByID200Response':
+          return GetRecipeIngredientsByID200Response.fromJson(value);
+        case 'GetRecipeIngredientsByID200ResponseIngredientsInner':
+          return GetRecipeIngredientsByID200ResponseIngredientsInner.fromJson(value);
+        case 'GetRecipeNutritionWidgetByID200Response':
+          return GetRecipeNutritionWidgetByID200Response.fromJson(value);
+        case 'GetRecipeNutritionWidgetByID200ResponseBadInner':
+          return GetRecipeNutritionWidgetByID200ResponseBadInner.fromJson(value);
+        case 'GetRecipeNutritionWidgetByID200ResponseGoodInner':
+          return GetRecipeNutritionWidgetByID200ResponseGoodInner.fromJson(value);
+        case 'GetRecipePriceBreakdownByID200Response':
+          return GetRecipePriceBreakdownByID200Response.fromJson(value);
+        case 'GetRecipePriceBreakdownByID200ResponseIngredientsInner':
+          return GetRecipePriceBreakdownByID200ResponseIngredientsInner.fromJson(value);
+        case 'GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount':
+          return GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount.fromJson(value);
+        case 'GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric':
+          return GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric.fromJson(value);
+        case 'GetRecipeTasteByID200Response':
+          return GetRecipeTasteByID200Response.fromJson(value);
+        case 'GetShoppingList200Response':
+          return GetShoppingList200Response.fromJson(value);
+        case 'GetShoppingList200ResponseAislesInner':
+          return GetShoppingList200ResponseAislesInner.fromJson(value);
+        case 'GetShoppingList200ResponseAislesInnerItemsInner':
+          return GetShoppingList200ResponseAislesInnerItemsInner.fromJson(value);
+        case 'GetShoppingList200ResponseAislesInnerItemsInnerMeasures':
+          return GetShoppingList200ResponseAislesInnerItemsInnerMeasures.fromJson(value);
+        case 'GetSimilarRecipes200ResponseInner':
+          return GetSimilarRecipes200ResponseInner.fromJson(value);
+        case 'GetWineDescription200Response':
+          return GetWineDescription200Response.fromJson(value);
+        case 'GetWinePairing200Response':
+          return GetWinePairing200Response.fromJson(value);
+        case 'GetWinePairing200ResponseProductMatchesInner':
+          return GetWinePairing200ResponseProductMatchesInner.fromJson(value);
+        case 'GetWineRecommendation200Response':
+          return GetWineRecommendation200Response.fromJson(value);
+        case 'GetWineRecommendation200ResponseRecommendedWinesInner':
+          return GetWineRecommendation200ResponseRecommendedWinesInner.fromJson(value);
+        case 'GuessNutritionByDishName200Response':
+          return GuessNutritionByDishName200Response.fromJson(value);
+        case 'GuessNutritionByDishName200ResponseCalories':
+          return GuessNutritionByDishName200ResponseCalories.fromJson(value);
+        case 'GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent':
+          return GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent.fromJson(value);
+        case 'ImageAnalysisByURL200Response':
+          return ImageAnalysisByURL200Response.fromJson(value);
+        case 'ImageAnalysisByURL200ResponseCategory':
+          return ImageAnalysisByURL200ResponseCategory.fromJson(value);
+        case 'ImageAnalysisByURL200ResponseNutrition':
+          return ImageAnalysisByURL200ResponseNutrition.fromJson(value);
+        case 'ImageAnalysisByURL200ResponseNutritionCalories':
+          return ImageAnalysisByURL200ResponseNutritionCalories.fromJson(value);
+        case 'ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent':
+          return ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent.fromJson(value);
+        case 'ImageAnalysisByURL200ResponseRecipesInner':
+          return ImageAnalysisByURL200ResponseRecipesInner.fromJson(value);
+        case 'ImageClassificationByURL200Response':
+          return ImageClassificationByURL200Response.fromJson(value);
+        case 'IngredientSearch200Response':
+          return IngredientSearch200Response.fromJson(value);
+        case 'IngredientSearch200ResponseResultsInner':
+          return IngredientSearch200ResponseResultsInner.fromJson(value);
+        case 'MapIngredientsToGroceryProducts200ResponseInner':
+          return MapIngredientsToGroceryProducts200ResponseInner.fromJson(value);
+        case 'MapIngredientsToGroceryProducts200ResponseInnerProductsInner':
+          return MapIngredientsToGroceryProducts200ResponseInnerProductsInner.fromJson(value);
+        case 'MapIngredientsToGroceryProductsRequest':
+          return MapIngredientsToGroceryProductsRequest.fromJson(value);
+        case 'ParseIngredients200ResponseInner':
+          return ParseIngredients200ResponseInner.fromJson(value);
+        case 'ParseIngredients200ResponseInnerEstimatedCost':
+          return ParseIngredients200ResponseInnerEstimatedCost.fromJson(value);
+        case 'ParseIngredients200ResponseInnerNutrition':
+          return ParseIngredients200ResponseInnerNutrition.fromJson(value);
+        case 'ParseIngredients200ResponseInnerNutritionCaloricBreakdown':
+          return ParseIngredients200ResponseInnerNutritionCaloricBreakdown.fromJson(value);
+        case 'ParseIngredients200ResponseInnerNutritionNutrientsInner':
+          return ParseIngredients200ResponseInnerNutritionNutrientsInner.fromJson(value);
+        case 'ParseIngredients200ResponseInnerNutritionPropertiesInner':
+          return ParseIngredients200ResponseInnerNutritionPropertiesInner.fromJson(value);
+        case 'ParseIngredients200ResponseInnerNutritionWeightPerServing':
+          return ParseIngredients200ResponseInnerNutritionWeightPerServing.fromJson(value);
+        case 'QuickAnswer200Response':
+          return QuickAnswer200Response.fromJson(value);
+        case 'SearchAllFood200Response':
+          return SearchAllFood200Response.fromJson(value);
+        case 'SearchAllFood200ResponseSearchResultsInner':
+          return SearchAllFood200ResponseSearchResultsInner.fromJson(value);
+        case 'SearchAllFood200ResponseSearchResultsInnerResultsInner':
+          return SearchAllFood200ResponseSearchResultsInnerResultsInner.fromJson(value);
+        case 'SearchCustomFoods200Response':
+          return SearchCustomFoods200Response.fromJson(value);
+        case 'SearchCustomFoods200ResponseCustomFoodsInner':
+          return SearchCustomFoods200ResponseCustomFoodsInner.fromJson(value);
+        case 'SearchFoodVideos200Response':
+          return SearchFoodVideos200Response.fromJson(value);
+        case 'SearchFoodVideos200ResponseVideosInner':
+          return SearchFoodVideos200ResponseVideosInner.fromJson(value);
+        case 'SearchGroceryProducts200Response':
+          return SearchGroceryProducts200Response.fromJson(value);
+        case 'SearchGroceryProductsByUPC200Response':
+          return SearchGroceryProductsByUPC200Response.fromJson(value);
+        case 'SearchGroceryProductsByUPC200ResponseIngredientsInner':
+          return SearchGroceryProductsByUPC200ResponseIngredientsInner.fromJson(value);
+        case 'SearchGroceryProductsByUPC200ResponseNutrition':
+          return SearchGroceryProductsByUPC200ResponseNutrition.fromJson(value);
+        case 'SearchGroceryProductsByUPC200ResponseServings':
+          return SearchGroceryProductsByUPC200ResponseServings.fromJson(value);
+        case 'SearchMenuItems200Response':
+          return SearchMenuItems200Response.fromJson(value);
+        case 'SearchMenuItems200ResponseMenuItemsInner':
+          return SearchMenuItems200ResponseMenuItemsInner.fromJson(value);
+        case 'SearchRecipes200Response':
+          return SearchRecipes200Response.fromJson(value);
+        case 'SearchRecipes200ResponseResultsInner':
+          return SearchRecipes200ResponseResultsInner.fromJson(value);
+        case 'SearchRecipesByIngredients200ResponseInner':
+          return SearchRecipesByIngredients200ResponseInner.fromJson(value);
+        case 'SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner':
+          return SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.fromJson(value);
+        case 'SearchRecipesByNutrients200ResponseInner':
+          return SearchRecipesByNutrients200ResponseInner.fromJson(value);
+        case 'SearchSiteContent200Response':
+          return SearchSiteContent200Response.fromJson(value);
+        case 'SearchSiteContent200ResponseArticlesInner':
+          return SearchSiteContent200ResponseArticlesInner.fromJson(value);
+        case 'SearchSiteContent200ResponseGroceryProductsInner':
+          return SearchSiteContent200ResponseGroceryProductsInner.fromJson(value);
+        case 'SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner':
+          return SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.fromJson(value);
+        case 'SummarizeRecipe200Response':
+          return SummarizeRecipe200Response.fromJson(value);
+        case 'TalkToChatbot200Response':
+          return TalkToChatbot200Response.fromJson(value);
         default:
-          {
-            Match match;
-            if (value is List &&
-                (match = _regList.firstMatch(targetType)) != null) {
-              var newTargetType = match[1];
-              return value.map((v) => _deserialize(v, newTargetType)).toList();
-            } else if (value is Map &&
-                (match = _regMap.firstMatch(targetType)) != null) {
-              var newTargetType = match[1];
-              return Map.fromIterables(value.keys,
-                  value.values.map((v) => _deserialize(v, newTargetType)));
-            }
+          dynamic match;
+          if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
+            return value
+              .map<dynamic>((dynamic v) => _deserialize(v, match, growable: growable,))
+              .toList(growable: growable);
+          }
+          if (value is Set && (match = _regSet.firstMatch(targetType)?.group(1)) != null) {
+            return value
+              .map<dynamic>((dynamic v) => _deserialize(v, match, growable: growable,))
+              .toSet();
+          }
+          if (value is Map && (match = _regMap.firstMatch(targetType)?.group(1)) != null) {
+            return Map<String, dynamic>.fromIterables(
+              value.keys.cast<String>(),
+              value.values.map<dynamic>((dynamic v) => _deserialize(v, match, growable: growable,)),
+            );
           }
       }
-    } on Exception catch (e, stack) {
-      throw ApiException.withInner(500, 'Exception during deserialization.', e, stack);
+    } on Exception catch (error, trace) {
+      throw ApiException.withInner(HttpStatus.internalServerError, 'Exception during deserialization.', error, trace,);
     }
-    throw ApiException(500, 'Could not find a suitable class for deserialization');
-  }
-
-  dynamic deserialize(String json, String targetType) {
-    // Remove all spaces.  Necessary for reg expressions as well.
-    targetType = targetType.replaceAll(' ', '');
-
-    if (targetType == 'String') return json;
-
-    var decodedJson = jsonDecode(json);
-    return _deserialize(decodedJson, targetType);
-  }
-
-  String serialize(Object obj) {
-    String serialized = '';
-    if (obj == null) {
-      serialized = '';
-    } else {
-      serialized = json.encode(obj);
-    }
-    return serialized;
-  }
-
-  // We don't use a Map<String, String> for queryParams.
-  // If collectionFormat is 'multi' a key might appear multiple times.
-  Future<Response> invokeAPI(String path,
-                             String method,
-                             Iterable<QueryParam> queryParams,
-                             Object body,
-                             Map<String, String> headerParams,
-                             Map<String, String> formParams,
-                             String contentType,
-                             List<String> authNames) async {
-
-    _updateParamsForAuth(authNames, queryParams, headerParams);
-
-    var ps = queryParams
-      .where((p) => p.value != null)
-      .map((p) => '${p.name}=${Uri.encodeQueryComponent(p.value)}');
-
-    String queryString = ps.isNotEmpty ?
-                         '?' + ps.join('&') :
-                         '';
-
-    String url = basePath + path + queryString;
-
-    headerParams.addAll(_defaultHeaderMap);
-    headerParams['Content-Type'] = contentType;
-
-    if(body is MultipartRequest) {
-      var request = MultipartRequest(method, Uri.parse(url));
-      request.fields.addAll(body.fields);
-      request.files.addAll(body.files);
-      request.headers.addAll(body.headers);
-      request.headers.addAll(headerParams);
-      var response = await client.send(request);
-      return Response.fromStream(response);
-    } else {
-      var msgBody = contentType == "application/x-www-form-urlencoded" ? formParams : serialize(body);
-      switch(method) {
-        case "POST":
-          return client.post(url, headers: headerParams, body: msgBody);
-        case "PUT":
-          return client.put(url, headers: headerParams, body: msgBody);
-        case "DELETE":
-          return client.delete(url, headers: headerParams);
-        case "PATCH":
-          return client.patch(url, headers: headerParams, body: msgBody);
-        default:
-          return client.get(url, headers: headerParams);
-      }
-    }
-  }
-
-  /// Update query and header parameters based on authentication settings.
-  /// @param authNames The authentications to apply
-  void _updateParamsForAuth(List<String> authNames, List<QueryParam> queryParams, Map<String, String> headerParams) {
-    authNames.forEach((authName) {
-      Authentication auth = _authentications[authName];
-      if (auth == null) throw ArgumentError("Authentication undefined: " + authName);
-      auth.applyToParams(queryParams, headerParams);
-    });
-  }
-
-  T getAuthentication<T extends Authentication>(String name) {
-    var authentication = _authentications[name];
-
-    return authentication is T ? authentication : null;
+    throw ApiException(HttpStatus.internalServerError, 'Could not find a suitable class for deserialization',);
   }
 }
+
+/// Primarily intended for use in an isolate.
+class DeserializationMessage {
+  const DeserializationMessage({
+    required this.json,
+    required this.targetType,
+    this.growable = false,
+  });
+
+  /// The JSON value to deserialize.
+  final String json;
+
+  /// Target type to deserialize to.
+  final String targetType;
+
+  /// Whether to make deserialized lists or maps growable.
+  final bool growable;
+}
+
+/// Primarily intended for use in an isolate.
+Future<dynamic> deserializeAsync(DeserializationMessage message) async {
+  // Remove all spaces. Necessary for regular expressions as well.
+  final targetType = message.targetType.replaceAll(' ', '');
+
+  // If the expected target type is String, nothing to do...
+  return targetType == 'String'
+    ? message.json
+    : ApiClient._deserialize(
+        jsonDecode(message.json),
+        targetType,
+        growable: message.growable,
+      );
+}
+
+/// Primarily intended for use in an isolate.
+Future<String> serializeAsync(Object? value) async => value == null ? '' : json.encode(value);

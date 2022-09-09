@@ -1,4 +1,4 @@
-package spoonacular
+package org.openapitools
 
 import com.twitter.finagle.Service
 import com.twitter.finagle.http.{Request, Response}

@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## addMealPlanTemplate
 
-> InlineResponse20040 addMealPlanTemplate(username, hash, inlineObject6)
+> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
 
 Add Meal Plan Template
 
@@ -43,8 +43,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let hash = 4b5v4398573406; // String | The private hash for the username.
-let inlineObject6 = new SpoonacularApi.InlineObject6(); // InlineObject6 | 
-apiInstance.addMealPlanTemplate(username, hash, inlineObject6, (error, data, response) => {
+let addToMealPlanRequest = new SpoonacularApi.AddToMealPlanRequest(); // AddToMealPlanRequest | 
+apiInstance.addMealPlanTemplate(username, hash, addToMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -60,11 +60,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**AddMealPlanTemplate200Response**](AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## addToMealPlan
 
-> Object addToMealPlan(username, hash, inlineObject4)
+> Object addToMealPlan(username, hash, addToMealPlanRequest)
 
 Add to Meal Plan
 
@@ -98,8 +98,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
-let inlineObject4 = new SpoonacularApi.InlineObject4(); // InlineObject4 | 
-apiInstance.addToMealPlan(username, hash, inlineObject4, (error, data, response) => {
+let addToMealPlanRequest = new SpoonacularApi.AddToMealPlanRequest(); // AddToMealPlanRequest | 
+apiInstance.addToMealPlan(username, hash, addToMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ## addToShoppingList
 
-> InlineResponse20042 addToShoppingList(username, hash, inlineObject9)
+> GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
 
 Add to Shopping List
 
@@ -153,8 +153,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
-let inlineObject9 = new SpoonacularApi.InlineObject9(); // InlineObject9 | 
-apiInstance.addToShoppingList(username, hash, inlineObject9, (error, data, response) => {
+let addToMealPlanRequest = new SpoonacularApi.AddToMealPlanRequest(); // AddToMealPlanRequest | 
+apiInstance.addToShoppingList(username, hash, addToMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -170,11 +170,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
+ **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ## clearMealPlanDay
 
-> Object clearMealPlanDay(username, _date, hash, inlineObject3)
+> Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
 
 Clear Meal Plan Day
 
@@ -207,10 +207,10 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
-let _date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
+let date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
-let inlineObject3 = new SpoonacularApi.InlineObject3(); // InlineObject3 | 
-apiInstance.clearMealPlanDay(username, _date, hash, inlineObject3, (error, data, response) => {
+let clearMealPlanDayRequest = new SpoonacularApi.ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
+apiInstance.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -225,9 +225,9 @@ apiInstance.clearMealPlanDay(username, _date, hash, inlineObject3, (error, data,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **_date** | **String**| The date in the format yyyy-mm-dd. | 
+ **date** | **String**| The date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ## connectUser
 
-> InlineResponse20043 connectUser(body)
+> ConnectUser200Response connectUser(body)
 
 Connect User
 
@@ -263,7 +263,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let body = null; // Object | 
+let body = {key: null}; // Object | 
 apiInstance.connectUser(body, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**ConnectUser200Response**](ConnectUser200Response.md)
 
 ### Authorization
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## deleteFromMealPlan
 
-> Object deleteFromMealPlan(username, id, hash, inlineObject5)
+> Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
 
 Delete from Meal Plan
 
@@ -317,8 +317,8 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
-let inlineObject5 = new SpoonacularApi.InlineObject5(); // InlineObject5 | 
-apiInstance.deleteFromMealPlan(username, id, hash, inlineObject5, (error, data, response) => {
+let deleteFromMealPlanRequest = new SpoonacularApi.DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
+apiInstance.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Number**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ## deleteFromShoppingList
 
-> Object deleteFromShoppingList(username, id, hash, inlineObject10)
+> Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
 
 Delete from Shopping List
 
@@ -374,8 +374,8 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let id = 1; // Number | The item's id.
 let hash = "hash_example"; // String | The private hash for the username.
-let inlineObject10 = new SpoonacularApi.InlineObject10(); // InlineObject10 | 
-apiInstance.deleteFromShoppingList(username, id, hash, inlineObject10, (error, data, response) => {
+let deleteFromMealPlanRequest = new SpoonacularApi.DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
+apiInstance.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Number**| The item&#39;s id. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ## deleteMealPlanTemplate
 
-> Object deleteMealPlanTemplate(username, id, hash, inlineObject7)
+> Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
 
 Delete Meal Plan Template
 
@@ -431,8 +431,8 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let id = 1; // Number | The item's id.
 let hash = 4b5v4398573406; // String | The private hash for the username.
-let inlineObject7 = new SpoonacularApi.InlineObject7(); // InlineObject7 | 
-apiInstance.deleteMealPlanTemplate(username, id, hash, inlineObject7, (error, data, response) => {
+let deleteFromMealPlanRequest = new SpoonacularApi.DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
+apiInstance.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Number**| The item&#39;s id. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 ## generateMealPlan
 
-> InlineResponse20037 generateMealPlan(opts)
+> GenerateMealPlan200Response generateMealPlan(opts)
 
 Generate Meal Plan
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**GenerateMealPlan200Response**](GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 
 ## generateShoppingList
 
-> InlineResponse20042 generateShoppingList(username, startDate, endDate, hash, inlineObject8)
+> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
 
 Generate Shopping List
 
@@ -548,8 +548,8 @@ let username = dsky; // String | The username.
 let startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 let endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
-let inlineObject8 = new SpoonacularApi.InlineObject8(); // InlineObject8 | 
-apiInstance.generateShoppingList(username, startDate, endDate, hash, inlineObject8, (error, data, response) => {
+let generateShoppingListRequest = new SpoonacularApi.GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
+apiInstance.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -567,11 +567,11 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | 
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanTemplate
 
-> InlineResponse20041 getMealPlanTemplate(username, id, hash)
+> GetMealPlanTemplate200Response getMealPlanTemplate(username, id, hash)
 
 Get Meal Plan Template
 
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**GetMealPlanTemplate200Response**](GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -640,7 +640,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanTemplates
 
-> InlineResponse20039 getMealPlanTemplates(username, hash)
+> GetMealPlanTemplates200Response getMealPlanTemplates(username, hash)
 
 Get Meal Plan Templates
 
@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**GetMealPlanTemplates200Response**](GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ## getMealPlanWeek
 
-> InlineResponse20038 getMealPlanWeek(username, startDate, hash)
+> GetMealPlanWeek200Response getMealPlanWeek(username, startDate, hash)
 
 Get Meal Plan Week
 
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**GetMealPlanWeek200Response**](GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -748,7 +748,7 @@ Name | Type | Description  | Notes
 
 ## getShoppingList
 
-> InlineResponse20042 getShoppingList(username, hash)
+> GetShoppingList200Response getShoppingList(username, hash)
 
 Get Shopping List
 
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 

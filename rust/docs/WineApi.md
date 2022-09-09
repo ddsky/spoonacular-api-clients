@@ -4,31 +4,30 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_dish_pairing_for_wine**](WineApi.md#get_dish_pairing_for_wine) | **Get** /food/wine/dishes | Dish Pairing for Wine
-[**get_wine_description**](WineApi.md#get_wine_description) | **Get** /food/wine/description | Wine Description
-[**get_wine_pairing**](WineApi.md#get_wine_pairing) | **Get** /food/wine/pairing | Wine Pairing
-[**get_wine_recommendation**](WineApi.md#get_wine_recommendation) | **Get** /food/wine/recommendation | Wine Recommendation
+[**get_dish_pairing_for_wine**](WineApi.md#get_dish_pairing_for_wine) | **GET** /food/wine/dishes | Dish Pairing for Wine
+[**get_wine_description**](WineApi.md#get_wine_description) | **GET** /food/wine/description | Wine Description
+[**get_wine_pairing**](WineApi.md#get_wine_pairing) | **GET** /food/wine/pairing | Wine Pairing
+[**get_wine_recommendation**](WineApi.md#get_wine_recommendation) | **GET** /food/wine/recommendation | Wine Recommendation
 
 
 
 ## get_dish_pairing_for_wine
 
-> ::models::InlineResponse20044 get_dish_pairing_for_wine(ctx, wine)
+> crate::models::GetDishPairingForWine200Response get_dish_pairing_for_wine(wine)
 Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **wine** | **String**| The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wine** | **String** | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". | [required] |
 
 ### Return type
 
-[**::models::InlineResponse20044**](inline_response_200_44.md)
+[**crate::models::GetDishPairingForWine200Response**](getDishPairingForWine_200_response.md)
 
 ### Authorization
 
@@ -44,22 +43,21 @@ Name | Type | Description  | Notes
 
 ## get_wine_description
 
-> ::models::InlineResponse20046 get_wine_description(ctx, wine)
+> crate::models::GetWineDescription200Response get_wine_description(wine)
 Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **wine** | **String**| The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wine** | **String** | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\". | [required] |
 
 ### Return type
 
-[**::models::InlineResponse20046**](inline_response_200_46.md)
+[**crate::models::GetWineDescription200Response**](getWineDescription_200_response.md)
 
 ### Authorization
 
@@ -75,32 +73,22 @@ Name | Type | Description  | Notes
 
 ## get_wine_pairing
 
-> ::models::InlineResponse20045 get_wine_pairing(ctx, food, optional)
+> crate::models::GetWinePairing200Response get_wine_pairing(food, max_price)
 Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **food** | **String**| The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **food** | **String**| The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). | 
- **max_price** | **f32**| The maximum price for the specific wine recommendation in USD. | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**food** | **String** | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). | [required] |
+**max_price** | Option<**f32**> | The maximum price for the specific wine recommendation in USD. |  |
 
 ### Return type
 
-[**::models::InlineResponse20045**](inline_response_200_45.md)
+[**crate::models::GetWinePairing200Response**](getWinePairing_200_response.md)
 
 ### Authorization
 
@@ -116,34 +104,24 @@ Name | Type | Description  | Notes
 
 ## get_wine_recommendation
 
-> ::models::InlineResponse20047 get_wine_recommendation(ctx, wine, optional)
+> crate::models::GetWineRecommendation200Response get_wine_recommendation(wine, max_price, min_rating, number)
 Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **wine** | **String**| The type of wine to get a specific product recommendation for. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **String**| The type of wine to get a specific product recommendation for. | 
- **max_price** | **f32**| The maximum price for the specific wine recommendation in USD. | 
- **min_rating** | **f32**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | 
- **number** | **f32**| The number of wine recommendations expected (between 1 and 100). | [default to 10]
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wine** | **String** | The type of wine to get a specific product recommendation for. | [required] |
+**max_price** | Option<**f32**> | The maximum price for the specific wine recommendation in USD. |  |
+**min_rating** | Option<**f32**> | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. |  |
+**number** | Option<**f32**> | The number of wine recommendations expected (between 1 and 100). |  |[default to 10]
 
 ### Return type
 
-[**::models::InlineResponse20047**](inline_response_200_47.md)
+[**crate::models::GetWineRecommendation200Response**](getWineRecommendation_200_response.md)
 
 ### Authorization
 

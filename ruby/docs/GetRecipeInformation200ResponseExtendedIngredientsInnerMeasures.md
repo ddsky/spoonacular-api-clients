@@ -1,0 +1,20 @@
+# OpenapiClient::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **metric** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.md) |  |  |
+| **us** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.md) |  |  |
+
+## Example
+
+```ruby
+require 'openapi_client'
+
+instance = OpenapiClient::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.new(
+  metric: null,
+  us: null
+)
+```
+

@@ -8,7 +8,7 @@
       "email": "mail@spoonacular.com",
       "url": "https://spoonacular.com/contact"
     },
-    "version": "1.0",
+    "version": "1.1",
     "x-codegen-settings": {
       "Nullify404": false,
       "GenerateAsyncCode": true,
@@ -1703,9 +1703,6 @@
                             "unitShort"
                           ]
                         }
-                      },
-                      "": {
-                        "type": "string"
                       }
                     },
                     "required": [
@@ -8375,8 +8372,8 @@
         "operationId": "ingredientsByIDImage",
         "deprecated": false,
         "tags": [
-          "recipes",
-          "ingredients"
+          "ingredients",
+          "recipes"
         ]
       },
       "parameters": [
@@ -14595,10 +14592,7 @@
                     },
                     "required": [
                       "name",
-                      "image",
-                      "id",
-                      "aisle",
-                      "possibleUnits"
+                      "image"
                     ]
                   }
                 },
@@ -29028,8 +29022,8 @@
     "securitySchemes": {
       "apiKeyScheme": {
         "type": "apiKey",
-        "name": "apiKey",
-        "in": "query"
+        "name": "x-api-key",
+        "in": "header"
       }
     },
     "parameters": {
