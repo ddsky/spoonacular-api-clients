@@ -1,0 +1,29 @@
+{
+  "name": "spoonacular-api-clients",
+  "version": "0.0.4",
+  "description": "This repository contains source code for the [spoonacular Recipe and Food API](https://spoonacular.com/food-api). The source code is free to use, all you need is an API key from spoonacular.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "bootstrap": "npm i && cd javascript && npm i",
+    "build": "tsc",
+    "clean": "rimraf ./dist ./javascript/dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "node ./scripts/publish.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WestBrian/spoonacular-api-clients.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WestBrian/spoonacular-api-clients/issues"
+  },
+  "homepage": "https://github.com/WestBrian/spoonacular-api-clients#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.3"
+  }
+}
