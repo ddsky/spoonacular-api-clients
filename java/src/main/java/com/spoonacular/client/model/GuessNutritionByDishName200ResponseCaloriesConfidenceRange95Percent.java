@@ -48,7 +48,7 @@ import com.spoonacular.client.JSON;
 /**
  * GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-09T18:25:28.115+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-10-28T13:58:23.400+02:00[Europe/Berlin]")
 public class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent {
   public static final String SERIALIZED_NAME_MAX = "max";
   @SerializedName(SERIALIZED_NAME_MAX)
