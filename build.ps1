@@ -26,28 +26,27 @@ java -jar .\openapi-generator-cli-6.0.1.jar generate -i .\spoonacular-openapi-3.
 #java -jar .\openapi-generator-cli-6.0.1.jar generate -i .\spoonacular-openapi-3.json -g nodejs-server --api-package com.spoonacular --artifact-version 1.1 --model-package com.spoonacular.client.model  --invoker-package com.spoonacular.client --group-id com.spoonacular --artifact-id nodejs-client -o nodejs
 
 # create sdk zips
-Compress-Archive -Path .\java\* -DestinationPath .\zips\java-client.zip -Force
-Compress-Archive -Path .\javascript\* -DestinationPath .\zips\javascript-client.zip -Force
-Compress-Archive -Path .\typescript\* -DestinationPath .\zips\typescript-client.zip -Force
-Compress-Archive -Path .\angular\* -DestinationPath .\zips\angular-client.zip -Force
-Compress-Archive -Path .\android\* -DestinationPath .\zips\android-client.zip -Force
-Compress-Archive -Path .\clojure\* -DestinationPath .\zips\clojure-client.zip -Force
-Compress-Archive -Path .\cpp\* -DestinationPath .\zips\cpp-client.zip -Force
-Compress-Archive -Path .\csharp\* -DestinationPath .\zips\csharp-client.zip -Force
-Compress-Archive -Path .\dart\* -DestinationPath .\zips\dart-client.zip -Force
-Compress-Archive -Path .\elixir\* -DestinationPath .\zips\elixir-client.zip -Force
-Compress-Archive -Path .\erlang\* -DestinationPath .\zips\erlang-client.zip -Force
-Compress-Archive -Path .\scala\* -DestinationPath .\zips\scala-client.zip -Force
-Compress-Archive -Path .\go\* -DestinationPath .\zips\go-client.zip -Force
-Compress-Archive -Path .\php\* -DestinationPath .\zips\php-client.zip -Force
-Compress-Archive -Path .\python\* -DestinationPath .\zips\python-client.zip -Force
-Compress-Archive -Path .\rust\* -DestinationPath .\zips\rust-client.zip -Force
-Compress-Archive -Path .\ruby\* -DestinationPath .\zips\ruby-client.zip -Force
-Compress-Archive -Path .\lua\* -DestinationPath .\zips\lua-client.zip -Force
-Compress-Archive -Path .\perl\* -DestinationPath .\zips\perl-client.zip -Force
-Compress-Archive -Path .\objc\* -DestinationPath .\zips\objc-client.zip -Force
-Compress-Archive -Path .\groovy\* -DestinationPath .\zips\groovy-client.zip -Force
-Compress-Archive -Path .\haskell\* -DestinationPath .\zips\haskell-client.zip -Force
-Compress-Archive -Path .\kotlin\* -DestinationPath .\zips\kotlin-client.zip -Force
-Compress-Archive -Path .\elm\* -DestinationPath .\zips\elm-client.zip -Force
-#Compress-Archive -Path .\nodejs\* -DestinationPath .\zips\nodejs-client.zip -Force
+.\7za.exe a -tzip .\zips\java-client.zip .\java\*
+.\7za.exe a -tzip .\zips\javascript-client.zip .\javascript\*
+.\7za.exe a -tzip .\zips\typescript-client.zip .\typescript\*
+.\7za.exe a -tzip .\zips\angular-client.zip .\angular\*
+.\7za.exe a -tzip .\zips\android-client.zip .\android\*
+.\7za.exe a -tzip .\zips\clojure-client.zip .\clojure\*
+.\7za.exe a -tzip .\zips\cpp-client.zip .\cpp\*
+.\7za.exe a -tzip .\zips\csharp-client.zip .\csharp\*
+.\7za.exe a -tzip .\zips\dart-client.zip .\dart\*
+.\7za.exe a -tzip .\zips\elixir-client.zip .\elixir\*
+.\7za.exe a -tzip .\zips\erlang-client.zip .\erlang\*
+.\7za.exe a -tzip .\zips\scala-client.zip .\scala\*
+.\7za.exe a -tzip .\zips\go-client.zip .\go\*
+.\7za.exe a -tzip .\zips\php-client.zip .\php\*
+.\7za.exe a -tzip .\zips\python-client.zip .\python\*
+.\7za.exe a -tzip .\zips\rust-client.zip .\rust\*
+.\7za.exe a -tzip .\zips\ruby-client.zip .\ruby\*
+.\7za.exe a -tzip .\zips\lua-client.zip .\lua\*
+.\7za.exe a -tzip .\zips\perl-client.zip .\perl\*
+.\7za.exe a -tzip .\zips\objc-client.zip .\objc\*
+.\7za.exe a -tzip .\zips\groovy-client.zip .\groovy\*
+.\7za.exe a -tzip .\zips\haskell-client.zip .\haskell\*
+.\7za.exe a -tzip .\zips\kotlin-client.zip .\kotlin\*
+.\7za.exe a -tzip .\zips\elm-client.zip .\elm\*
