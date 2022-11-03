@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyze_recipe**](DefaultApi.md#analyze_recipe) | **POST** /recipes/analyze | Analyze Recipe
+[**create_recipe_card_get**](DefaultApi.md#create_recipe_card_get) | **GET** /recipes/{id}/card | Create Recipe Card
 [**search_restaurants**](DefaultApi.md#search_restaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -95,6 +96,103 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_recipe_card_get**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} create_recipe_card_get(id)
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+
+* Api Key Authentication (apiKeyScheme):
+
+```python
+import time
+import openapi_client
+from com.spoonacular import default_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.spoonacular.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.spoonacular.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKeyScheme
+configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    id = 4632 # float | The recipe id.
+    mask = "ellipseMask" # str | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
+    background_image = "background1" # str | The background image (\"none\",\"background1\", or \"background2\"). (optional)
+    background_color = "ffffff" # str | The background color for the recipe card as a hex-string. (optional)
+    font_color = "333333" # str | The font color for the recipe card as a hex-string. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create Recipe Card
+        api_response = api_instance.create_recipe_card_get(id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling DefaultApi->create_recipe_card_get: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create Recipe Card
+        api_response = api_instance.create_recipe_card_get(id, mask=mask, background_image=background_image, background_color=background_color, font_color=font_color)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling DefaultApi->create_recipe_card_get: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| The recipe id. |
+ **mask** | **str**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional]
+ **background_image** | **str**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional]
+ **background_color** | **str**| The background color for the recipe card as a hex-string. | [optional]
+ **font_color** | **str**| The font color for the recipe card as a hex-string. | [optional]
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

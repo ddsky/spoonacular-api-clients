@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyzeRecipe**](OAIDefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+[**createRecipeCardGet**](OAIDefaultApi.md#createrecipecardget) | **GET** /recipes/{id}/card | Create Recipe Card
 [**searchRestaurants**](OAIDefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -73,6 +74,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createRecipeCardGet**
+```objc
+-(NSURLSessionTask*) createRecipeCardGetWithId: (NSNumber*) _id
+    mask: (NSString*) mask
+    backgroundImage: (NSString*) backgroundImage
+    backgroundColor: (NSString*) backgroundColor
+    fontColor: (NSString*) fontColor
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+```
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+```objc
+OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: apiKeyScheme)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
+
+
+NSNumber* _id = 4632; // The recipe id.
+NSString* mask = ellipseMask; // The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
+NSString* backgroundImage = background1; // The background image (\"none\",\"background1\", or \"background2\"). (optional)
+NSString* backgroundColor = ffffff; // The background color for the recipe card as a hex-string. (optional)
+NSString* fontColor = 333333; // The font color for the recipe card as a hex-string. (optional)
+
+OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
+
+// Create Recipe Card
+[apiInstance createRecipeCardGetWithId:_id
+              mask:mask
+              backgroundImage:backgroundImage
+              backgroundColor:backgroundColor
+              fontColor:fontColor
+          completionHandler: ^(NSObject* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIDefaultApi->createRecipeCardGet: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_id** | **NSNumber***| The recipe id. | 
+ **mask** | **NSString***| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] 
+ **backgroundImage** | **NSString***| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] 
+ **backgroundColor** | **NSString***| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **NSString***| The font color for the recipe card as a hex-string. | [optional] 
+
+### Return type
+
+**NSObject***
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

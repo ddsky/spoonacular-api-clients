@@ -10,6 +10,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyzeRecipe**](DefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+[**createRecipeCardGet**](DefaultApi.md#createrecipecardget) | **GET** /recipes/{id}/card | Create Recipe Card
 [**searchRestaurants**](DefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -62,6 +63,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createRecipeCardGet**
+> Object createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor)
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: apiKeyScheme
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
+
+final api_instance = DefaultApi();
+final id = 4632; // num | The recipe id.
+final mask = ellipseMask; // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+final backgroundImage = background1; // String | The background image (\"none\",\"background1\", or \"background2\").
+final backgroundColor = ffffff; // String | The background color for the recipe card as a hex-string.
+final fontColor = 333333; // String | The font color for the recipe card as a hex-string.
+
+try {
+    final result = api_instance.createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->createRecipeCardGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **num**| The recipe id. | 
+ **mask** | **String**| The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). | [optional] 
+ **backgroundImage** | **String**| The background image (\"none\",\"background1\", or \"background2\"). | [optional] 
+ **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

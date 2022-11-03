@@ -17,6 +17,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -127,6 +128,163 @@ func (a *DefaultApiService) AnalyzeRecipeExecute(r ApiAnalyzeRecipeRequest) (map
 	}
 	// body params
 	localVarPostBody = r.analyzeRecipeRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["apiKeyScheme"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateRecipeCardGetRequest struct {
+	ctx context.Context
+	ApiService *DefaultApiService
+	id float32
+	mask *string
+	backgroundImage *string
+	backgroundColor *string
+	fontColor *string
+}
+
+// The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+func (r ApiCreateRecipeCardGetRequest) Mask(mask string) ApiCreateRecipeCardGetRequest {
+	r.mask = &mask
+	return r
+}
+
+// The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+func (r ApiCreateRecipeCardGetRequest) BackgroundImage(backgroundImage string) ApiCreateRecipeCardGetRequest {
+	r.backgroundImage = &backgroundImage
+	return r
+}
+
+// The background color for the recipe card as a hex-string.
+func (r ApiCreateRecipeCardGetRequest) BackgroundColor(backgroundColor string) ApiCreateRecipeCardGetRequest {
+	r.backgroundColor = &backgroundColor
+	return r
+}
+
+// The font color for the recipe card as a hex-string.
+func (r ApiCreateRecipeCardGetRequest) FontColor(fontColor string) ApiCreateRecipeCardGetRequest {
+	r.fontColor = &fontColor
+	return r
+}
+
+func (r ApiCreateRecipeCardGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.CreateRecipeCardGetExecute(r)
+}
+
+/*
+CreateRecipeCardGet Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id The recipe id.
+ @return ApiCreateRecipeCardGetRequest
+*/
+func (a *DefaultApiService) CreateRecipeCardGet(ctx context.Context, id float32) ApiCreateRecipeCardGetRequest {
+	return ApiCreateRecipeCardGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return map[string]interface{}
+func (a *DefaultApiService) CreateRecipeCardGetExecute(r ApiCreateRecipeCardGetRequest) (map[string]interface{}, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]interface{}
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateRecipeCardGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/recipes/{id}/card"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.mask != nil {
+		localVarQueryParams.Add("mask", parameterToString(*r.mask, ""))
+	}
+	if r.backgroundImage != nil {
+		localVarQueryParams.Add("backgroundImage", parameterToString(*r.backgroundImage, ""))
+	}
+	if r.backgroundColor != nil {
+		localVarQueryParams.Add("backgroundColor", parameterToString(*r.backgroundColor, ""))
+	}
+	if r.fontColor != nil {
+		localVarQueryParams.Add("fontColor", parameterToString(*r.fontColor, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

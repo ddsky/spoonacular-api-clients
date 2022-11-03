@@ -85,6 +85,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for createRecipeCardGet
+     *
+     * Create Recipe Card.
+     *
+     */
+    public function testCreateRecipeCardGet()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for searchRestaurants
      *
      * Search Restaurants.

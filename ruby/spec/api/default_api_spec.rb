@@ -47,6 +47,22 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for create_recipe_card_get
+  # Create Recipe Card
+  # Generate a recipe card for a recipe.
+  # @param id The recipe id.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+  # @option opts [String] :background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+  # @option opts [String] :background_color The background color for the recipe card as a hex-string.
+  # @option opts [String] :font_color The font color for the recipe card as a hex-string.
+  # @return [Object]
+  describe 'create_recipe_card_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for search_restaurants
   # Search Restaurants
   # Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.

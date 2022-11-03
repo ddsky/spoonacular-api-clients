@@ -28,6 +28,7 @@ object DefaultApi {
     */
     def endpoints(da: DataAccessor) =
         analyzeRecipe(da) :+:
+        createRecipeCardGet(da) :+:
         searchRestaurants(da)
 
 
@@ -58,6 +59,20 @@ object DefaultApi {
         private def analyzeRecipe(da: DataAccessor): Endpoint[Object] =
         post("recipes" :: "analyze" :: jsonBody[AnalyzeRecipeRequest] :: paramOption("language") :: paramOption("includeNutrition").map(_.map(_.toBoolean)) :: paramOption("includeTaste").map(_.map(_.toBoolean)) :: header("x-api-key")) { (analyzeRecipeRequest: AnalyzeRecipeRequest, language: Option[String], includeNutrition: Option[Boolean], includeTaste: Option[Boolean], authParamapiKeyScheme: String) =>
           da.Default_analyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste, authParamapiKeyScheme) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a Object
+        */
+        private def createRecipeCardGet(da: DataAccessor): Endpoint[Object] =
+        get("recipes" :: bigdecimal :: "card" :: paramOption("mask") :: paramOption("backgroundImage") :: paramOption("backgroundColor") :: paramOption("fontColor") :: header("x-api-key")) { (id: BigDecimal, mask: Option[String], backgroundImage: Option[String], backgroundColor: Option[String], fontColor: Option[String], authParamapiKeyScheme: String) =>
+          da.Default_createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

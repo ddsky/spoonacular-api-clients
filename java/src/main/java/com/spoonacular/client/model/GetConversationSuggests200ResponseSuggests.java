@@ -51,7 +51,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetConversationSuggests200ResponseSuggests
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T16:53:39.113+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
 public class GetConversationSuggests200ResponseSuggests {
   public static final String SERIALIZED_NAME_U = "_";
   @SerializedName(SERIALIZED_NAME_U)

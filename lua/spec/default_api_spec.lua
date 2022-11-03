@@ -22,6 +22,13 @@ describe("default_api", function()
     end)
   end)
 
+  -- unit tests for create_recipe_card_get
+  describe("create_recipe_card_get test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
   -- unit tests for search_restaurants
   describe("search_restaurants test", function()
     it("should work", function()

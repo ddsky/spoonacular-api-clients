@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeRecipe**](DefaultApi.md#AnalyzeRecipe) | **Post** /recipes/analyze | Analyze Recipe
+[**CreateRecipeCardGet**](DefaultApi.md#CreateRecipeCardGet) | **Get** /recipes/{id}/card | Create Recipe Card
 [**SearchRestaurants**](DefaultApi.md#SearchRestaurants) | **Get** /food/restaurants/search | Search Restaurants
 
 
@@ -74,6 +75,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: , application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateRecipeCardGet
+
+> map[string]interface{} CreateRecipeCardGet(ctx, id).Mask(mask).BackgroundImage(backgroundImage).BackgroundColor(backgroundColor).FontColor(fontColor).Execute()
+
+Create Recipe Card
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := float32(4632) // float32 | The recipe id.
+    mask := "ellipseMask" // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
+    backgroundImage := "background1" // string | The background image (\"none\",\"background1\", or \"background2\"). (optional)
+    backgroundColor := "ffffff" // string | The background color for the recipe card as a hex-string. (optional)
+    fontColor := "333333" // string | The font color for the recipe card as a hex-string. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.CreateRecipeCardGet(context.Background(), id).Mask(mask).BackgroundImage(backgroundImage).BackgroundColor(backgroundColor).FontColor(fontColor).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateRecipeCardGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateRecipeCardGet`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateRecipeCardGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **float32** | The recipe id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateRecipeCardGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **mask** | **string** | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | 
+ **backgroundImage** | **string** | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | 
+ **backgroundColor** | **string** | The background color for the recipe card as a hex-string. | 
+ **fontColor** | **string** | The font color for the recipe card as a hex-string. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

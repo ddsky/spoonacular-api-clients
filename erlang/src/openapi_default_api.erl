@@ -1,6 +1,7 @@
 -module(openapi_default_api).
 
 -export([analyze_recipe/2, analyze_recipe/3,
+         create_recipe_card_get/2, create_recipe_card_get/3,
          search_restaurants/1, search_restaurants/2]).
 
 -define(BASE_URL, <<"">>).
@@ -22,6 +23,27 @@ analyze_recipe(Ctx, OpenapiAnalyzeRecipeRequest, Optional) ->
     Headers = [],
     Body1 = OpenapiAnalyzeRecipeRequest,
     ContentTypeHeader = openapi_utils:select_header_content_type([<<"">>, <<"application/json">>]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Create Recipe Card
+%% Generate a recipe card for a recipe.
+-spec create_recipe_card_get(ctx:ctx(), integer()) -> {ok, maps:map(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+create_recipe_card_get(Ctx, Id) ->
+    create_recipe_card_get(Ctx, Id, #{}).
+
+-spec create_recipe_card_get(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+create_recipe_card_get(Ctx, Id, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+
+    Method = get,
+    Path = [<<"/recipes/", Id, "/card">>],
+    QS = lists:flatten([])++openapi_utils:optional_params(['mask', 'backgroundImage', 'backgroundColor', 'fontColor'], _OptionalParams),
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = openapi_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).

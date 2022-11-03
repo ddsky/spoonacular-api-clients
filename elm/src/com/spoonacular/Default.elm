@@ -16,6 +16,7 @@
 
 module Api.Request.Default exposing
     ( analyzeRecipe
+    , createRecipeCardGet
     , searchRestaurants
     )
 
@@ -39,6 +40,21 @@ analyzeRecipe language_query includeNutrition_query includeTaste_query analyzeRe
         [ ( "language", Maybe.map identity language_query ), ( "includeNutrition", Maybe.map (\val -> if val then "true" else "false") includeNutrition_query ), ( "includeTaste", Maybe.map (\val -> if val then "true" else "false") includeTaste_query ) ]
         []
         (Just (Api.Data.encodeAnalyzeRecipeRequest analyzeRecipeRequest_body))
+        (Json.Decode.dict )
+
+
+
+{-| Generate a recipe card for a recipe.
+-}
+createRecipeCardGet : Float -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Api.Request (Dict.Dict String Api.Data.Object)
+createRecipeCardGet id_path mask_query backgroundImage_query backgroundColor_query fontColor_query =
+    Api.request
+        "GET"
+        "/recipes/{id}/card"
+        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "mask", Maybe.map identity mask_query ), ( "backgroundImage", Maybe.map identity backgroundImage_query ), ( "backgroundColor", Maybe.map identity backgroundColor_query ), ( "fontColor", Maybe.map identity fontColor_query ) ]
+        []
+        Nothing
         (Json.Decode.dict )
 
 

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AnalyzeRecipe**](DefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+[**CreateRecipeCardGet**](DefaultApi.md#createrecipecardget) | **GET** /recipes/{id}/card | Create Recipe Card
 [**SearchRestaurants**](DefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -76,6 +77,80 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createrecipecardget"></a>
+# **CreateRecipeCardGet**
+> Object CreateRecipeCardGet (decimal? id, string mask, string backgroundImage, string backgroundColor, string fontColor)
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.spoonacular;
+using Org.OpenAPITools.Client;
+using com.spoonacular.client.model;
+
+namespace Example
+{
+    public class CreateRecipeCardGetExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: apiKeyScheme
+            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+
+            var apiInstance = new DefaultApi();
+            var id = 4632;  // decimal? | The recipe id.
+            var mask = ellipseMask;  // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional) 
+            var backgroundImage = background1;  // string | The background image (\"none\",\"background1\", or \"background2\"). (optional) 
+            var backgroundColor = ffffff;  // string | The background color for the recipe card as a hex-string. (optional) 
+            var fontColor = 333333;  // string | The font color for the recipe card as a hex-string. (optional) 
+
+            try
+            {
+                // Create Recipe Card
+                Object result = apiInstance.CreateRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateRecipeCardGet: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **decimal?**| The recipe id. | 
+ **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] 
+ **backgroundImage** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] 
+ **backgroundColor** | **string**| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **string**| The font color for the recipe card as a hex-string. | [optional] 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

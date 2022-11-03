@@ -103,6 +103,56 @@ function default_api:analyze_recipe(analyze_recipe_request, language, include_nu
 	end
 end
 
+function default_api:create_recipe_card_get(id, mask, background_image, background_color, font_color)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/recipes/%s/card?mask=%s&backgroundImage=%s&backgroundColor=%s&fontColor=%s",
+			self.basePath, id, http_util.encodeURIComponent(mask), http_util.encodeURIComponent(background_image), http_util.encodeURIComponent(background_color), http_util.encodeURIComponent(font_color));
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "GET")
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+	-- api key in headers 'x-api-key'
+	if self.api_key['x-api-key'] then
+		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
+	end
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return openapiclient_TODO_OBJECT_MAPPING.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
 function default_api:search_restaurants(query, lat, lng, distance, budget, cuisine, min_rating, is_open, sort, page)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;

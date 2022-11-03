@@ -31,6 +31,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_create_recipe_card_get(self):
+        """Test case for create_recipe_card_get
+
+        Create Recipe Card  # noqa: E501
+        """
+        pass
+
     def test_search_restaurants(self):
         """Test case for search_restaurants
 

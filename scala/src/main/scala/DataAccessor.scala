@@ -22,6 +22,12 @@ trait DataAccessor {
 
         /**
         * 
+        * @return A Object
+        */
+        def Default_createRecipeCardGet(id: BigDecimal, mask: Option[String], backgroundImage: Option[String], backgroundColor: Option[String], fontColor: Option[String], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
         * @return A SearchRestaurants200Response
         */
         def Default_searchRestaurants(query: Option[String], lat: Option[BigDecimal], lng: Option[BigDecimal], distance: Option[BigDecimal], budget: Option[BigDecimal], cuisine: Option[String], minRating: Option[BigDecimal], isOpen: Option[Boolean], sort: Option[String], page: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,SearchRestaurants200Response] = Left(TODO)

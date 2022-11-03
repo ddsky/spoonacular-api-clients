@@ -26,6 +26,15 @@ void main() {
       // TODO
     });
 
+    // Create Recipe Card
+    //
+    // Generate a recipe card for a recipe.
+    //
+    //Future<Object> createRecipeCardGet(num id, { String mask, String backgroundImage, String backgroundColor, String fontColor }) async
+    test('test createRecipeCardGet', () async {
+      // TODO
+    });
+
     // Search Restaurants
     //
     // Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.

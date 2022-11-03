@@ -147,6 +147,117 @@ sub analyze_recipe {
 }
 
 #
+# create_recipe_card_get
+#
+# Create Recipe Card
+#
+# @param double $id The recipe id. (required)
+# @param string $mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
+# @param string $background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
+# @param string $background_color The background color for the recipe card as a hex-string. (optional)
+# @param string $font_color The font color for the recipe card as a hex-string. (optional)
+{
+    my $params = {
+    'id' => {
+        data_type => 'double',
+        description => 'The recipe id.',
+        required => '1',
+    },
+    'mask' => {
+        data_type => 'string',
+        description => 'The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).',
+        required => '0',
+    },
+    'background_image' => {
+        data_type => 'string',
+        description => 'The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).',
+        required => '0',
+    },
+    'background_color' => {
+        data_type => 'string',
+        description => 'The background color for the recipe card as a hex-string.',
+        required => '0',
+    },
+    'font_color' => {
+        data_type => 'string',
+        description => 'The font color for the recipe card as a hex-string.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'create_recipe_card_get' } = {
+        summary => 'Create Recipe Card',
+        params => $params,
+        returns => 'object',
+        };
+}
+# @return object
+#
+sub create_recipe_card_get {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'id' is set
+    unless (exists $args{'id'}) {
+      croak("Missing the required parameter 'id' when calling create_recipe_card_get");
+    }
+
+    # parse inputs
+    my $_resource_path = '/recipes/{id}/card';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'mask'}) {
+        $query_params->{'mask'} = $self->{api_client}->to_query_value($args{'mask'});
+    }
+
+    # query params
+    if ( exists $args{'background_image'}) {
+        $query_params->{'backgroundImage'} = $self->{api_client}->to_query_value($args{'background_image'});
+    }
+
+    # query params
+    if ( exists $args{'background_color'}) {
+        $query_params->{'backgroundColor'} = $self->{api_client}->to_query_value($args{'background_color'});
+    }
+
+    # query params
+    if ( exists $args{'font_color'}) {
+        $query_params->{'fontColor'} = $self->{api_client}->to_query_value($args{'font_color'});
+    }
+
+    # path params
+    if ( exists $args{'id'}) {
+        my $_base_variable = "{" . "id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(apiKeyScheme )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    return $_response_object;
+}
+
+#
 # search_restaurants
 #
 # Search Restaurants

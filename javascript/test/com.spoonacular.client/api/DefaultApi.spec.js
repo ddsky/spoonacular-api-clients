@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('createRecipeCardGet', function() {
+      it('should call createRecipeCardGet successfully', function(done) {
+        //uncomment below and update the code to test createRecipeCardGet
+        //instance.createRecipeCardGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('searchRestaurants', function() {
       it('should call searchRestaurants successfully', function(done) {
         //uncomment below and update the code to test searchRestaurants

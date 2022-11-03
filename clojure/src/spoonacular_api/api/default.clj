@@ -193,6 +193,32 @@
         res))))
 
 
+(defn-spec create-recipe-card-get-with-http-info any?
+  "Create Recipe Card
+  Generate a recipe card for a recipe."
+  ([id float?, ] (create-recipe-card-get-with-http-info id nil))
+  ([id float?, {:keys [mask backgroundImage backgroundColor fontColor]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/recipes/{id}/card" :get
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"mask" mask "backgroundImage" backgroundImage "backgroundColor" backgroundColor "fontColor" fontColor }
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    ["apiKeyScheme"]})))
+
+(defn-spec create-recipe-card-get any?
+  "Create Recipe Card
+  Generate a recipe card for a recipe."
+  ([id float?, ] (create-recipe-card-get id nil))
+  ([id float?, optional-params any?]
+   (let [res (:data (create-recipe-card-get-with-http-info id optional-params))]
+     (if (:decode-models *api-context*)
+        (st/decode any? res st/string-transformer)
+        res))))
+
+
 (defn-spec search-restaurants-with-http-info any?
   "Search Restaurants
   Search through thousands of restaurants (in North America) by location, cuisine, budget, and more."

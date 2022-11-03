@@ -8,7 +8,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 1.1
 - Package version: 1.1
-- Build date: 2022-11-03T16:54:47.866+01:00[Europe/Berlin]
+- Build date: 2022-11-03T17:11:13.051+01:00[Europe/Berlin]
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://spoonacular.com/contact](https://spoonacular.com/contact)
 
