@@ -86,6 +86,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**AnalyzeRecipe**](docs/DefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**CreateRecipeCardGet**](docs/DefaultApi.md#createrecipecardget) | **GET** /recipes/{id}/card | Create Recipe Card
 *DefaultApi* | [**SearchRestaurants**](docs/DefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**AutocompleteIngredientSearch**](docs/IngredientsApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**ComputeIngredientAmount**](docs/IngredientsApi.md#computeingredientamount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount

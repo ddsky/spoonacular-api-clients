@@ -136,6 +136,98 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Create Recipe Card
+/// Generate a recipe card for a recipe.
+///  @param _id The recipe id. 
+///
+///  @param mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
+///
+///  @param backgroundImage The background image (\"none\",\"background1\", or \"background2\"). (optional)
+///
+///  @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+///
+///  @param fontColor The font color for the recipe card as a hex-string. (optional)
+///
+///  @returns NSObject*
+///
+-(NSURLSessionTask*) createRecipeCardGetWithId: (NSNumber*) _id
+    mask: (NSString*) mask
+    backgroundImage: (NSString*) backgroundImage
+    backgroundColor: (NSString*) backgroundColor
+    fontColor: (NSString*) fontColor
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    // verify the required parameter '_id' is set
+    if (_id == nil) {
+        NSParameterAssert(_id);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"_id"] };
+            NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/{id}/card"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (_id != nil) {
+        pathParams[@"id"] = _id;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (mask != nil) {
+        queryParams[@"mask"] = mask;
+    }
+    if (backgroundImage != nil) {
+        queryParams[@"backgroundImage"] = backgroundImage;
+    }
+    if (backgroundColor != nil) {
+        queryParams[@"backgroundColor"] = backgroundColor;
+    }
+    if (fontColor != nil) {
+        queryParams[@"fontColor"] = fontColor;
+    }
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"apiKeyScheme"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSObject*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSObject*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Search Restaurants
 /// Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
 ///  @param query The search query. (optional)

@@ -51,6 +51,46 @@ defmodule com.spoonacular.client.Api.Default do
   end
 
   @doc """
+  Create Recipe Card
+  Generate a recipe card for a recipe.
+
+  ## Parameters
+
+  - connection (com.spoonacular.client.Connection): Connection to server
+  - id (float()): The recipe id.
+  - opts (KeywordList): [optional] Optional parameters
+    - :mask (String.t): The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+    - :background_image (String.t): The background image (\"none\",\"background1\", or \"background2\").
+    - :background_color (String.t): The background color for the recipe card as a hex-string.
+    - :font_color (String.t): The font color for the recipe card as a hex-string.
+  ## Returns
+
+  {:ok, map()} on success
+  {:error, Tesla.Env.t} on failure
+  """
+  @spec create_recipe_card_get(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  def create_recipe_card_get(connection, id, opts \\ []) do
+    optional_params = %{
+      :mask => :query,
+      :backgroundImage => :query,
+      :backgroundColor => :query,
+      :fontColor => :query
+    }
+    %{}
+    |> method(:get)
+    |> url("/recipes/#{id}/card")
+    |> add_optional_params(optional_params, opts)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, %{}},
+      { 401, false},
+      { 403, false},
+      { 404, false}
+    ])
+  end
+
+  @doc """
   Search Restaurants
   Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
 

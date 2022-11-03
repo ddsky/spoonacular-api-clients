@@ -247,6 +247,185 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for createRecipeCardGet
+     * @param id The recipe id. (required)
+     * @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
+     * @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     */
+    public okhttp3.Call createRecipeCardGetCall(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/recipes/{id}/card"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (mask != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mask", mask));
+        }
+
+        if (backgroundImage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("backgroundImage", backgroundImage));
+        }
+
+        if (backgroundColor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("backgroundColor", backgroundColor));
+        }
+
+        if (fontColor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fontColor", fontColor));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "apiKeyScheme" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createRecipeCardGetValidateBeforeCall(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling createRecipeCardGet(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createRecipeCardGetCall(id, mask, backgroundImage, backgroundColor, fontColor, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create Recipe Card
+     * Generate a recipe card for a recipe.
+     * @param id The recipe id. (required)
+     * @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
+     * @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     */
+    public Object createRecipeCardGet(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws ApiException {
+        ApiResponse<Object> localVarResp = createRecipeCardGetWithHttpInfo(id, mask, backgroundImage, backgroundColor, fontColor);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Recipe Card
+     * Generate a recipe card for a recipe.
+     * @param id The recipe id. (required)
+     * @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
+     * @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     */
+    public ApiResponse<Object> createRecipeCardGetWithHttpInfo(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws ApiException {
+        okhttp3.Call localVarCall = createRecipeCardGetValidateBeforeCall(id, mask, backgroundImage, backgroundColor, fontColor, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Recipe Card (asynchronously)
+     * Generate a recipe card for a recipe.
+     * @param id The recipe id. (required)
+     * @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
+     * @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     * Read entire docs
+     * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
+     */
+    public okhttp3.Call createRecipeCardGetAsync(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createRecipeCardGetValidateBeforeCall(id, mask, backgroundImage, backgroundColor, fontColor, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for searchRestaurants
      * @param query The search query. (optional)
      * @param lat The latitude of the user&#39;s location. (optional)

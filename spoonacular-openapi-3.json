@@ -11447,6 +11447,103 @@
         }
       ]
     },
+    "/recipes/{id}/card": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The recipe id.",
+            "schema": {
+              "type": "number",
+              "example": 4632
+            },
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "in": "path"
+          },
+          {
+            "name": "mask",
+            "description": "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").",
+            "schema": {
+              "type": "string",
+              "example": "ellipseMask"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "backgroundImage",
+            "description": "The background image (\"none\",\"background1\", or \"background2\").",
+            "schema": {
+              "type": "string",
+              "example": "background1"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "backgroundColor",
+            "description": "The background color for the recipe card as a hex-string.",
+            "schema": {
+              "type": "string",
+              "example": "ffffff"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "fontColor",
+            "description": "The font color for the recipe card as a hex-string.",
+            "schema": {
+              "type": "string",
+              "example": "333333"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Create-Recipe-Card"
+        },
+        "summary": "Create Recipe Card",
+        "description": "Generate a recipe card for a recipe.",
+        "operationId": "createRecipeCardGet",
+        "deprecated": false
+      }
+    },
     "/recipes/visualizeRecipe": {
       "post": {
         "responses": {

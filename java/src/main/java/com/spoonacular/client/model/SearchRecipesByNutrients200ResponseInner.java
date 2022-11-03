@@ -48,7 +48,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRecipesByNutrients200ResponseInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T16:53:39.113+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
 public class SearchRecipesByNutrients200ResponseInner {
   public static final String SERIALIZED_NAME_CALORIES = "calories";
   @SerializedName(SERIALIZED_NAME_CALORIES)

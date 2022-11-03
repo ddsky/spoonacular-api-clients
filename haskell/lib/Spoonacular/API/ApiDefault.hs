@@ -107,6 +107,48 @@ instance Consumes AnalyzeRecipe MimeJSON
 instance Produces AnalyzeRecipe MimeJSON
 
 
+-- *** createRecipeCardGet
+
+-- | @GET \/recipes\/{id}\/card@
+-- 
+-- Create Recipe Card
+-- 
+-- Generate a recipe card for a recipe.
+-- 
+-- AuthMethod: 'AuthApiKeyApiKeyScheme'
+-- 
+createRecipeCardGet
+  :: IdDouble -- ^ "id" -  The recipe id.
+  -> SpoonacularRequest CreateRecipeCardGet MimeNoContent A.Value MimeJSON
+createRecipeCardGet (IdDouble id) =
+  _mkRequest "GET" ["/recipes/",toPath id,"/card"]
+    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+
+data CreateRecipeCardGet  
+
+-- | /Optional Param/ "mask" - The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+instance HasOptionalParam CreateRecipeCardGet Mask where
+  applyOptionalParam req (Mask xs) =
+    req `addQuery` toQuery ("mask", Just xs)
+
+-- | /Optional Param/ "backgroundImage" - The background image (\"none\",\"background1\", or \"background2\").
+instance HasOptionalParam CreateRecipeCardGet BackgroundImage where
+  applyOptionalParam req (BackgroundImage xs) =
+    req `addQuery` toQuery ("backgroundImage", Just xs)
+
+-- | /Optional Param/ "backgroundColor" - The background color for the recipe card as a hex-string.
+instance HasOptionalParam CreateRecipeCardGet BackgroundColor where
+  applyOptionalParam req (BackgroundColor xs) =
+    req `addQuery` toQuery ("backgroundColor", Just xs)
+
+-- | /Optional Param/ "fontColor" - The font color for the recipe card as a hex-string.
+instance HasOptionalParam CreateRecipeCardGet FontColor where
+  applyOptionalParam req (FontColor xs) =
+    req `addQuery` toQuery ("fontColor", Just xs)
+-- | @application/json@
+instance Produces CreateRecipeCardGet MimeJSON
+
+
 -- *** searchRestaurants
 
 -- | @GET \/food\/restaurants\/search@

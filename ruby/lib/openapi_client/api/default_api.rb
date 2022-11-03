@@ -96,6 +96,81 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Create Recipe Card
+    # Generate a recipe card for a recipe.
+    # @param id [Float] The recipe id.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+    # @option opts [String] :background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+    # @option opts [String] :background_color The background color for the recipe card as a hex-string.
+    # @option opts [String] :font_color The font color for the recipe card as a hex-string.
+    # @return [Object]
+    def create_recipe_card_get(id, opts = {})
+      data, _status_code, _headers = create_recipe_card_get_with_http_info(id, opts)
+      data
+    end
+
+    # Create Recipe Card
+    # Generate a recipe card for a recipe.
+    # @param id [Float] The recipe id.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+    # @option opts [String] :background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+    # @option opts [String] :background_color The background color for the recipe card as a hex-string.
+    # @option opts [String] :font_color The font color for the recipe card as a hex-string.
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def create_recipe_card_get_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.create_recipe_card_get ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.create_recipe_card_get"
+      end
+      # resource path
+      local_var_path = '/recipes/{id}/card'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'mask'] = opts[:'mask'] if !opts[:'mask'].nil?
+      query_params[:'backgroundImage'] = opts[:'background_image'] if !opts[:'background_image'].nil?
+      query_params[:'backgroundColor'] = opts[:'background_color'] if !opts[:'background_color'].nil?
+      query_params[:'fontColor'] = opts[:'font_color'] if !opts[:'font_color'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.create_recipe_card_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#create_recipe_card_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search Restaurants
     # Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
     # @param [Hash] opts the optional parameters

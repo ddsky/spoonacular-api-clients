@@ -91,6 +91,12 @@ newtype Analyze = Analyze { unAnalyze :: Bool } deriving (P.Eq, P.Show)
 -- ** Author
 newtype Author = Author { unAuthor :: Text } deriving (P.Eq, P.Show)
 
+-- ** BackgroundColor
+newtype BackgroundColor = BackgroundColor { unBackgroundColor :: Text } deriving (P.Eq, P.Show)
+
+-- ** BackgroundImage
+newtype BackgroundImage = BackgroundImage { unBackgroundImage :: Text } deriving (P.Eq, P.Show)
+
 -- ** Body
 newtype Body = Body { unBody :: A.Value } deriving (P.Eq, P.Show, A.ToJSON)
 
@@ -132,6 +138,9 @@ newtype ExcludeIngredients = ExcludeIngredients { unExcludeIngredients :: Text }
 
 -- ** FillIngredients
 newtype FillIngredients = FillIngredients { unFillIngredients :: Bool } deriving (P.Eq, P.Show)
+
+-- ** FontColor
+newtype FontColor = FontColor { unFontColor :: Text } deriving (P.Eq, P.Show)
 
 -- ** Food
 newtype Food = Food { unFood :: Text } deriving (P.Eq, P.Show)
@@ -201,6 +210,9 @@ newtype Locale = Locale { unLocale :: E'Locale } deriving (P.Eq, P.Show)
 
 -- ** LocaleText
 newtype LocaleText = LocaleText { unLocaleText :: Text } deriving (P.Eq, P.Show)
+
+-- ** Mask
+newtype Mask = Mask { unMask :: Text } deriving (P.Eq, P.Show)
 
 -- ** MaxAlcohol
 newtype MaxAlcohol = MaxAlcohol { unMaxAlcohol :: Double } deriving (P.Eq, P.Show)

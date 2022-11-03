@@ -46,6 +46,42 @@ class DefaultApi {
 
     }
 
+    def createRecipeCardGet ( BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/recipes/${id}/card"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def contentType
+
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+
+        if (mask != null) {
+            queryParams.put("mask", mask)
+        }
+        if (backgroundImage != null) {
+            queryParams.put("backgroundImage", backgroundImage)
+        }
+        if (backgroundColor != null) {
+            queryParams.put("backgroundColor", backgroundColor)
+        }
+        if (fontColor != null) {
+            queryParams.put("fontColor", fontColor)
+        }
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
+                    "GET", "",
+                    Object.class )
+
+    }
+
     def searchRestaurants ( String query, BigDecimal lat, BigDecimal lng, BigDecimal distance, BigDecimal budget, String cuisine, BigDecimal minRating, Boolean isOpen, String sort, BigDecimal page, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/restaurants/search"
 

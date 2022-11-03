@@ -87,6 +87,59 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the createRecipeCardGet operation.
+     * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~createRecipeCardGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create Recipe Card
+     * Generate a recipe card for a recipe.
+     * @param {Number} id The recipe id.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.mask The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+     * @param {String} opts.backgroundImage The background image (\"none\",\"background1\", or \"background2\").
+     * @param {String} opts.backgroundColor The background color for the recipe card as a hex-string.
+     * @param {String} opts.fontColor The font color for the recipe card as a hex-string.
+     * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~createRecipeCardGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    createRecipeCardGet(id, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling createRecipeCardGet");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'mask': opts['mask'],
+        'backgroundImage': opts['backgroundImage'],
+        'backgroundColor': opts['backgroundColor'],
+        'fontColor': opts['fontColor']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyScheme'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/recipes/{id}/card', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the searchRestaurants operation.
      * @callback module:com.spoonacular.client/com.spoonacular/DefaultApi~searchRestaurantsCallback
      * @param {String} error Error message, if any.

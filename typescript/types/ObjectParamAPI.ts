@@ -192,6 +192,39 @@ export interface DefaultApiAnalyzeRecipeRequest {
     includeTaste?: boolean
 }
 
+export interface DefaultApiCreateRecipeCardGetRequest {
+    /**
+     * The recipe id.
+     * @type number
+     * @memberof DefaultApicreateRecipeCardGet
+     */
+    id: number
+    /**
+     * The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+     * @type string
+     * @memberof DefaultApicreateRecipeCardGet
+     */
+    mask?: string
+    /**
+     * The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+     * @type string
+     * @memberof DefaultApicreateRecipeCardGet
+     */
+    backgroundImage?: string
+    /**
+     * The background color for the recipe card as a hex-string.
+     * @type string
+     * @memberof DefaultApicreateRecipeCardGet
+     */
+    backgroundColor?: string
+    /**
+     * The font color for the recipe card as a hex-string.
+     * @type string
+     * @memberof DefaultApicreateRecipeCardGet
+     */
+    fontColor?: string
+}
+
 export interface DefaultApiSearchRestaurantsRequest {
     /**
      * The search query.
@@ -269,6 +302,15 @@ export class ObjectDefaultApi {
      */
     public analyzeRecipe(param: DefaultApiAnalyzeRecipeRequest, options?: Configuration): Promise<any> {
         return this.api.analyzeRecipe(param.analyzeRecipeRequest, param.language, param.includeNutrition, param.includeTaste,  options).toPromise();
+    }
+
+    /**
+     * Generate a recipe card for a recipe.
+     * Create Recipe Card
+     * @param param the request object
+     */
+    public createRecipeCardGet(param: DefaultApiCreateRecipeCardGetRequest, options?: Configuration): Promise<any> {
+        return this.api.createRecipeCardGet(param.id, param.mask, param.backgroundImage, param.backgroundColor, param.fontColor,  options).toPromise();
     }
 
     /**

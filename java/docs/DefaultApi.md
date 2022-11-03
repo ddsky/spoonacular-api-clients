@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**analyzeRecipe**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe |
+| [**createRecipeCardGet**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card |
 | [**searchRestaurants**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants |
 
 
@@ -76,6 +77,86 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
+<a name="createRecipeCardGet"></a>
+# **createRecipeCardGet**
+> Object createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor)
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+```java
+// Import classes:
+import com.spoonacular.client.ApiClient;
+import com.spoonacular.client.ApiException;
+import com.spoonacular.client.Configuration;
+import com.spoonacular.client.auth.*;
+import com.spoonacular.client.models.*;
+import com.spoonacular.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.spoonacular.com");
+    
+    // Configure API key authorization: apiKeyScheme
+    ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
+    apiKeyScheme.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyScheme.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    BigDecimal id = new BigDecimal("4632"); // BigDecimal | The recipe id.
+    String mask = "ellipseMask"; // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+    String backgroundImage = "background1"; // String | The background image (\"none\",\"background1\", or \"background2\").
+    String backgroundColor = "ffffff"; // String | The background color for the recipe card as a hex-string.
+    String fontColor = "333333"; // String | The font color for the recipe card as a hex-string.
+    try {
+      Object result = apiInstance.createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createRecipeCardGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **BigDecimal**| The recipe id. | |
+| **mask** | **String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
+| **backgroundImage** | **String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
+| **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] |
+| **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

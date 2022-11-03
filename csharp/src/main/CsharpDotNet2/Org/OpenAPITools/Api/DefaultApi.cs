@@ -21,6 +21,16 @@ namespace com.spoonacular
         /// <returns>Object</returns>
         Object AnalyzeRecipe (AnalyzeRecipeRequest analyzeRecipeRequest, string language, bool? includeNutrition, bool? includeTaste);
         /// <summary>
+        /// Create Recipe Card Generate a recipe card for a recipe.
+        /// </summary>
+        /// <param name="id">The recipe id.</param>
+        /// <param name="mask">The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).</param>
+        /// <param name="backgroundImage">The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string.</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string.</param>
+        /// <returns>Object</returns>
+        Object CreateRecipeCardGet (decimal? id, string mask, string backgroundImage, string backgroundColor, string fontColor);
+        /// <summary>
         /// Search Restaurants Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
         /// </summary>
         /// <param name="query">The search query.</param>
@@ -129,6 +139,51 @@ namespace com.spoonacular
                 throw new ApiException ((int)response.StatusCode, "Error calling AnalyzeRecipe: " + response.Content, response.Content);
             else if (((int)response.StatusCode) == 0)
                 throw new ApiException ((int)response.StatusCode, "Error calling AnalyzeRecipe: " + response.ErrorMessage, response.ErrorMessage);
+
+            return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
+        }
+
+        /// <summary>
+        /// Create Recipe Card Generate a recipe card for a recipe.
+        /// </summary>
+        /// <param name="id">The recipe id.</param>
+        /// <param name="mask">The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).</param>
+        /// <param name="backgroundImage">The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string.</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string.</param>
+        /// <returns>Object</returns>
+        public Object CreateRecipeCardGet (decimal? id, string mask, string backgroundImage, string backgroundColor, string fontColor)
+        {
+            
+            // verify the required parameter 'id' is set
+            if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling CreateRecipeCardGet");
+            
+
+            var path = "/recipes/{id}/card";
+            path = path.Replace("{format}", "json");
+            path = path.Replace("{" + "id" + "}", ApiClient.ParameterToString(id));
+
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>();
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            String postBody = null;
+
+             if (mask != null) queryParams.Add("mask", ApiClient.ParameterToString(mask)); // query parameter
+ if (backgroundImage != null) queryParams.Add("backgroundImage", ApiClient.ParameterToString(backgroundImage)); // query parameter
+ if (backgroundColor != null) queryParams.Add("backgroundColor", ApiClient.ParameterToString(backgroundColor)); // query parameter
+ if (fontColor != null) queryParams.Add("fontColor", ApiClient.ParameterToString(fontColor)); // query parameter
+                                    
+            // authentication setting, if any
+            String[] authSettings = new String[] { "apiKeyScheme" };
+
+            // make the HTTP request
+            IRestResponse response = (IRestResponse) ApiClient.CallApi(path, Method.GET, queryParams, postBody, headerParams, formParams, fileParams, authSettings);
+
+            if (((int)response.StatusCode) >= 400)
+                throw new ApiException ((int)response.StatusCode, "Error calling CreateRecipeCardGet: " + response.Content, response.Content);
+            else if (((int)response.StatusCode) == 0)
+                throw new ApiException ((int)response.StatusCode, "Error calling CreateRecipeCardGet: " + response.ErrorMessage, response.ErrorMessage);
 
             return (Object) ApiClient.Deserialize(response.Content, typeof(Object), response.Headers);
         }

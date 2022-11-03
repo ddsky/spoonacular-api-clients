@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyzeRecipe**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
+[**createRecipeCardGet**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card
 [**searchRestaurants**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -65,6 +66,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: , application/json
+- **Accept**: application/json
+
+
+## createRecipeCardGet
+
+> Object createRecipeCardGet(id, opts)
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+
+```javascript
+import SpoonacularApi from 'spoonacular_api';
+let defaultClient = SpoonacularApi.ApiClient.instance;
+// Configure API key authorization: apiKeyScheme
+let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
+apiKeyScheme.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyScheme.apiKeyPrefix = 'Token';
+
+let apiInstance = new SpoonacularApi.DefaultApi();
+let id = 4632; // Number | The recipe id.
+let opts = {
+  'mask': ellipseMask, // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+  'backgroundImage': background1, // String | The background image (\"none\",\"background1\", or \"background2\").
+  'backgroundColor': ffffff, // String | The background color for the recipe card as a hex-string.
+  'fontColor': 333333 // String | The font color for the recipe card as a hex-string.
+};
+apiInstance.createRecipeCardGet(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The recipe id. | 
+ **mask** | **String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] 
+ **backgroundImage** | **String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] 
+ **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

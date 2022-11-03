@@ -40,6 +40,17 @@ isa_ok($api, 'WWW::OpenAPIClient::DefaultApi');
 #my $analyze_recipe_result = $api->analyze_recipe(analyze_recipe_request => $analyze_recipe_analyze_recipe_request, language => $analyze_recipe_language, include_nutrition => $analyze_recipe_include_nutrition, include_taste => $analyze_recipe_include_taste);
 
 #
+# create_recipe_card_get test
+#
+# uncomment below and update the test
+#my $create_recipe_card_get_id = undef; # replace NULL with a proper value
+#my $create_recipe_card_get_mask = undef; # replace NULL with a proper value
+#my $create_recipe_card_get_background_image = undef; # replace NULL with a proper value
+#my $create_recipe_card_get_background_color = undef; # replace NULL with a proper value
+#my $create_recipe_card_get_font_color = undef; # replace NULL with a proper value
+#my $create_recipe_card_get_result = $api->create_recipe_card_get(id => $create_recipe_card_get_id, mask => $create_recipe_card_get_mask, background_image => $create_recipe_card_get_background_image, background_color => $create_recipe_card_get_background_color, font_color => $create_recipe_card_get_font_color);
+
+#
 # search_restaurants test
 #
 # uncomment below and update the test

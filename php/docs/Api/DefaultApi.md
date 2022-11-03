@@ -5,6 +5,7 @@ All URIs are relative to https://api.spoonacular.com.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyzeRecipe()**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
+[**createRecipeCardGet()**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card
 [**searchRestaurants()**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -70,6 +71,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: ``, `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createRecipeCardGet()`
+
+```php
+createRecipeCardGet($id, $mask, $background_image, $background_color, $font_color): object
+```
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: apiKeyScheme
+$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 4632; // float | The recipe id.
+$mask = ellipseMask; // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+$background_image = background1; // string | The background image (\"none\",\"background1\", or \"background2\").
+$background_color = ffffff; // string | The background color for the recipe card as a hex-string.
+$font_color = 333333; // string | The font color for the recipe card as a hex-string.
+
+try {
+    $result = $apiInstance->createRecipeCardGet($id, $mask, $background_image, $background_color, $font_color);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->createRecipeCardGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| The recipe id. |
+ **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional]
+ **background_image** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional]
+ **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional]
+ **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional]
+
+### Return type
+
+**object**
+
+### Authorization
+
+[apiKeyScheme](../../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

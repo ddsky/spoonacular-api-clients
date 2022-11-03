@@ -6156,6 +6156,78 @@ paths:
       tags:
       - recipes
       x-accepts: application/json
+  /recipes/{id}/card:
+    get:
+      deprecated: false
+      description: Generate a recipe card for a recipe.
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Create-Recipe-Card
+      operationId: createRecipeCardGet
+      parameters:
+      - description: The recipe id.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 4632
+          type: number
+        style: simple
+      - description: "The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\"\
+          , \"starMask\", \"heartMask\", \"potMask\", \"fishMask\")."
+        explode: false
+        in: query
+        name: mask
+        required: false
+        schema:
+          example: ellipseMask
+          type: string
+        style: form
+      - description: "The background image (\"none\",\"background1\", or \"background2\"\
+          )."
+        explode: false
+        in: query
+        name: backgroundImage
+        required: false
+        schema:
+          example: background1
+          type: string
+        style: form
+      - description: The background color for the recipe card as a hex-string.
+        explode: false
+        in: query
+        name: backgroundColor
+        required: false
+        schema:
+          example: ffffff
+          type: string
+        style: form
+      - description: The font color for the recipe card as a hex-string.
+        explode: false
+        in: query
+        name: fontColor
+        required: false
+        schema:
+          example: "333333"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples: {}
+              schema:
+                type: object
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Create Recipe Card
+      x-accepts: application/json
   /recipes/visualizeRecipe:
     post:
       deprecated: false

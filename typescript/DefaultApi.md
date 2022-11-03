@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyzeRecipe**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
+[**createRecipeCardGet**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card
 [**searchRestaurants**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -65,6 +66,75 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **createRecipeCardGet**
+> any createRecipeCardGet()
+
+Generate a recipe card for a recipe.
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DefaultApi(configuration);
+
+let body:.DefaultApiCreateRecipeCardGetRequest = {
+  // number | The recipe id.
+  id: 4632,
+  // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
+  mask: "ellipseMask",
+  // string | The background image (\"none\",\"background1\", or \"background2\"). (optional)
+  backgroundImage: "background1",
+  // string | The background color for the recipe card as a hex-string. (optional)
+  backgroundColor: "ffffff",
+  // string | The font color for the recipe card as a hex-string. (optional)
+  fontColor: "333333",
+};
+
+apiInstance.createRecipeCardGet(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**number**] | The recipe id. | defaults to undefined
+ **mask** | [**string**] | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | (optional) defaults to undefined
+ **backgroundImage** | [**string**] | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | (optional) defaults to undefined
+ **backgroundColor** | [**string**] | The background color for the recipe card as a hex-string. | (optional) defaults to undefined
+ **fontColor** | [**string**] | The font color for the recipe card as a hex-string. | (optional) defaults to undefined
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+[apiKeyScheme](README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

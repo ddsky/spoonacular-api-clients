@@ -189,6 +189,20 @@ export class PromiseDefaultApi {
     }
 
     /**
+     * Generate a recipe card for a recipe.
+     * Create Recipe Card
+     * @param id The recipe id.
+     * @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
+     * @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
+     * @param backgroundColor The background color for the recipe card as a hex-string.
+     * @param fontColor The font color for the recipe card as a hex-string.
+     */
+    public createRecipeCardGet(id: number, mask?: string, backgroundImage?: string, backgroundColor?: string, fontColor?: string, _options?: Configuration): Promise<any> {
+        const result = this.api.createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor, _options);
+        return result.toPromise();
+    }
+
+    /**
      * Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
      * Search Restaurants
      * @param query The search query.

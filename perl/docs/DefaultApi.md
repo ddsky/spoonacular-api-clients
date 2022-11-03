@@ -10,6 +10,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyze_recipe**](DefaultApi.md#analyze_recipe) | **POST** /recipes/analyze | Analyze Recipe
+[**create_recipe_card_get**](DefaultApi.md#create_recipe_card_get) | **GET** /recipes/{id}/card | Create Recipe Card
 [**search_restaurants**](DefaultApi.md#search_restaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -66,6 +67,65 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: , application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_recipe_card_get**
+> object create_recipe_card_get(id => $id, mask => $mask, background_image => $background_image, background_color => $background_color, font_color => $font_color)
+
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Example
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::DefaultApi;
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
+
+    # Configure API key authorization: apiKeyScheme
+    api_key => {'x-api-key' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'x-api-key' => 'Bearer'},
+);
+
+my $id = 4632; # double | The recipe id.
+my $mask = ellipseMask; # string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+my $background_image = background1; # string | The background image (\"none\",\"background1\", or \"background2\").
+my $background_color = ffffff; # string | The background color for the recipe card as a hex-string.
+my $font_color = 333333; # string | The font color for the recipe card as a hex-string.
+
+eval {
+    my $result = $api_instance->create_recipe_card_get(id => $id, mask => $mask, background_image => $background_image, background_color => $background_color, font_color => $font_color);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->create_recipe_card_get: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **double**| The recipe id. | 
+ **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] 
+ **background_image** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] 
+ **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] 
+ **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

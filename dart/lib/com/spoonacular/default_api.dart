@@ -102,6 +102,102 @@ class DefaultApi {
     return null;
   }
 
+  /// Create Recipe Card
+  ///
+  /// Generate a recipe card for a recipe.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [num] id (required):
+  ///   The recipe id.
+  ///
+  /// * [String] mask:
+  ///   The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+  ///
+  /// * [String] backgroundImage:
+  ///   The background image (\"none\",\"background1\", or \"background2\").
+  ///
+  /// * [String] backgroundColor:
+  ///   The background color for the recipe card as a hex-string.
+  ///
+  /// * [String] fontColor:
+  ///   The font color for the recipe card as a hex-string.
+  Future<Response> createRecipeCardGetWithHttpInfo(num id, { String? mask, String? backgroundImage, String? backgroundColor, String? fontColor, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/recipes/{id}/card'
+      .replaceAll('{id}', id.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (mask != null) {
+      queryParams.addAll(_queryParams('', 'mask', mask));
+    }
+    if (backgroundImage != null) {
+      queryParams.addAll(_queryParams('', 'backgroundImage', backgroundImage));
+    }
+    if (backgroundColor != null) {
+      queryParams.addAll(_queryParams('', 'backgroundColor', backgroundColor));
+    }
+    if (fontColor != null) {
+      queryParams.addAll(_queryParams('', 'fontColor', fontColor));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Create Recipe Card
+  ///
+  /// Generate a recipe card for a recipe.
+  ///
+  /// Parameters:
+  ///
+  /// * [num] id (required):
+  ///   The recipe id.
+  ///
+  /// * [String] mask:
+  ///   The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+  ///
+  /// * [String] backgroundImage:
+  ///   The background image (\"none\",\"background1\", or \"background2\").
+  ///
+  /// * [String] backgroundColor:
+  ///   The background color for the recipe card as a hex-string.
+  ///
+  /// * [String] fontColor:
+  ///   The font color for the recipe card as a hex-string.
+  Future<Object?> createRecipeCardGet(num id, { String? mask, String? backgroundImage, String? backgroundColor, String? fontColor, }) async {
+    final response = await createRecipeCardGetWithHttpInfo(id,  mask: mask, backgroundImage: backgroundImage, backgroundColor: backgroundColor, fontColor: fontColor, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+    
+    }
+    return null;
+  }
+
   /// Search Restaurants
   ///
   /// Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.

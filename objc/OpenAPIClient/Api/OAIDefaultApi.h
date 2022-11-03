@@ -46,6 +46,29 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
+/// Create Recipe Card
+/// Generate a recipe card for a recipe.
+///
+/// @param _id The recipe id.
+/// @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
+/// @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
+/// @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+/// @param fontColor The font color for the recipe card as a hex-string. (optional)
+/// 
+///  code:200 message:"Success",
+///  code:401 message:"Unauthorized",
+///  code:403 message:"Forbidden",
+///  code:404 message:"Not Found"
+///
+/// @return NSObject*
+-(NSURLSessionTask*) createRecipeCardGetWithId: (NSNumber*) _id
+    mask: (NSString*) mask
+    backgroundImage: (NSString*) backgroundImage
+    backgroundColor: (NSString*) backgroundColor
+    fontColor: (NSString*) fontColor
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+
+
 /// Search Restaurants
 /// Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
 ///

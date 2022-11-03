@@ -5,6 +5,7 @@ All URIs are relative to *https://api.spoonacular.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**analyze_recipe**](DefaultApi.md#analyze_recipe) | **POST** /recipes/analyze | Analyze Recipe
+[**create_recipe_card_get**](DefaultApi.md#create_recipe_card_get) | **GET** /recipes/{id}/card | Create Recipe Card
 [**search_restaurants**](DefaultApi.md#search_restaurants) | **GET** /food/restaurants/search | Search Restaurants
 
 
@@ -37,6 +38,40 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: , application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_recipe_card_get
+
+> serde_json::Value create_recipe_card_get(id, mask, background_image, background_color, font_color)
+Create Recipe Card
+
+Generate a recipe card for a recipe.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **f32** | The recipe id. | [required] |
+**mask** | Option<**String**> | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). |  |
+**background_image** | Option<**String**> | The background image (\"none\",\"background1\", or \"background2\"). |  |
+**background_color** | Option<**String**> | The background color for the recipe card as a hex-string. |  |
+**font_color** | Option<**String**> | The font color for the recipe card as a hex-string. |  |
+
+### Return type
+
+[**serde_json::Value**](serde_json::Value.md)
+
+### Authorization
+
+[apiKeyScheme](../README.md#apiKeyScheme)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
