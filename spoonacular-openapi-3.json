@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "spoonacular API",
-    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.",
+    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.",
     "contact": {
       "name": "David Urbansky",
       "email": "mail@spoonacular.com",
@@ -11204,6 +11204,158 @@
         ]
       }
     },
+    "/recipes/analyze": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "The input language, either \"en\" or \"de\".",
+                    "example": "en"
+                  },
+                  "includeNutrition": {
+                    "type": "boolean",
+                    "description": "Whether nutrition data should be added to correctly parsed ingredients.",
+                    "example": false
+                  },
+                  "includeTaste": {
+                    "type": "boolean",
+                    "description": "Whether taste data should be added to correctly parsed ingredients.",
+                    "example": false
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "servings": {
+                    "type": "integer"
+                  },
+                  "ingredients": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "instructions": {
+                    "type": "string"
+                  }
+                },
+                "x-examples": {
+                  "Example 1": {
+                    "title": "Spaghetti Carbonara",
+                    "servings": 2,
+                    "ingredients": [
+                      "1 lb spaghetti",
+                      "3.5 oz pancetta",
+                      "2 Tbsps olive oil",
+                      "1  egg",
+                      "0.5 cup parmesan cheese"
+                    ],
+                    "instructions": "Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "title": "Spaghetti Carbonara",
+                    "servings": 2,
+                    "ingredients": [
+                      "1 lb spaghetti",
+                      "3.5 oz pancetta",
+                      "2 Tbsps olive oil",
+                      "1  egg",
+                      "0.5 cup parmesan cheese"
+                    ],
+                    "instructions": "Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "
+                  }
+                }
+              }
+            }
+          },
+          "description": "Example request body."
+        },
+        "parameters": [
+          {
+            "name": "language",
+            "description": "The input language, either \"en\" or \"de\".",
+            "schema": {
+              "type": "string",
+              "example": "en"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "includeNutrition",
+            "description": "Whether nutrition data should be added to correctly parsed ingredients.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "includeTaste",
+            "description": "Whether taste data should be added to correctly parsed ingredients.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Analyze-Recipe"
+        },
+        "summary": "Analyze Recipe",
+        "description": "This endpoint allows you to send raw recipe information, such as title, servings, and ingredients, to then see what we compute (badges, diets, nutrition, and more). This is useful if you have your own recipe data and want to enrich it with our semantic analysis.",
+        "operationId": "analyzeRecipe",
+        "deprecated": false
+      }
+    },
     "/recipes/{id}/summary": {
       "get": {
         "responses": {
@@ -14725,6 +14877,9 @@
             "style": "form",
             "explode": false,
             "in": "query"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "externalDocs": {
@@ -14989,6 +15144,9 @@
           },
           {
             "$ref": "#/components/parameters/number"
+          },
+          {
+            "$ref": "#/components/parameters/language"
           }
         ],
         "externalDocs": {
@@ -25965,6 +26123,474 @@
           "$ref": "#/components/parameters/id"
         }
       ]
+    },
+    "/food/restaurants/search": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "restaurants": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "phone_number": {
+                            "type": "integer"
+                          },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "street_addr": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "zipcode": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "lat": {
+                                "type": "number"
+                              },
+                              "lon": {
+                                "type": "number"
+                              },
+                              "street_addr_2": {
+                                "type": "string"
+                              },
+                              "latitude": {
+                                "type": "number"
+                              },
+                              "longitude": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "local_hours": {
+                            "type": "object",
+                            "properties": {
+                              "operational": {
+                                "type": "object",
+                                "properties": {
+                                  "Monday": {
+                                    "type": "string"
+                                  },
+                                  "Tuesday": {
+                                    "type": "string"
+                                  },
+                                  "Wednesday": {
+                                    "type": "string"
+                                  },
+                                  "Thursday": {
+                                    "type": "string"
+                                  },
+                                  "Friday": {
+                                    "type": "string"
+                                  },
+                                  "Saturday": {
+                                    "type": "string"
+                                  },
+                                  "Sunday": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "delivery": {
+                                "type": "object",
+                                "properties": {
+                                  "Monday": {
+                                    "type": "string"
+                                  },
+                                  "Tuesday": {
+                                    "type": "string"
+                                  },
+                                  "Wednesday": {
+                                    "type": "string"
+                                  },
+                                  "Thursday": {
+                                    "type": "string"
+                                  },
+                                  "Friday": {
+                                    "type": "string"
+                                  },
+                                  "Saturday": {
+                                    "type": "string"
+                                  },
+                                  "Sunday": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "pickup": {
+                                "type": "object",
+                                "properties": {
+                                  "Monday": {
+                                    "type": "string"
+                                  },
+                                  "Tuesday": {
+                                    "type": "string"
+                                  },
+                                  "Wednesday": {
+                                    "type": "string"
+                                  },
+                                  "Thursday": {
+                                    "type": "string"
+                                  },
+                                  "Friday": {
+                                    "type": "string"
+                                  },
+                                  "Saturday": {
+                                    "type": "string"
+                                  },
+                                  "Sunday": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "dine_in": {
+                                "type": "object",
+                                "properties": {
+                                  "Monday": {
+                                    "type": "string"
+                                  },
+                                  "Tuesday": {
+                                    "type": "string"
+                                  },
+                                  "Wednesday": {
+                                    "type": "string"
+                                  },
+                                  "Thursday": {
+                                    "type": "string"
+                                  },
+                                  "Friday": {
+                                    "type": "string"
+                                  },
+                                  "Saturday": {
+                                    "type": "string"
+                                  },
+                                  "Sunday": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "cuisines": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "food_photos": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "logo_photos": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "store_photos": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {}
+                            }
+                          },
+                          "dollar_signs": {
+                            "type": "integer"
+                          },
+                          "pickup_enabled": {
+                            "type": "boolean"
+                          },
+                          "delivery_enabled": {
+                            "type": "boolean"
+                          },
+                          "is_open": {
+                            "type": "boolean"
+                          },
+                          "offers_first_party_delivery": {
+                            "type": "boolean"
+                          },
+                          "offers_third_party_delivery": {
+                            "type": "boolean"
+                          },
+                          "miles": {
+                            "type": "number"
+                          },
+                          "weighted_rating_value": {
+                            "type": "number"
+                          },
+                          "aggregated_rating_count": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "restaurants": [
+                        {
+                          "_id": "a8b49c84-a92d-4f06-802e-467af49feaf0",
+                          "name": "South Beach Cafe",
+                          "phone_number": 14159741115,
+                          "address": {
+                            "street_addr": "800 The Embarcadero",
+                            "city": "San Francisco",
+                            "state": "CA",
+                            "zipcode": "94107",
+                            "country": "US",
+                            "lat": 37.78129959,
+                            "lon": -122.38869477,
+                            "street_addr_2": "",
+                            "latitude": 37.78129959,
+                            "longitude": -122.38869477
+                          },
+                          "type": "restaurant",
+                          "description": "Italian, Pizza",
+                          "local_hours": {
+                            "operational": {
+                              "Monday": "07:00AM - 09:00PM",
+                              "Tuesday": "07:00AM - 09:00PM",
+                              "Wednesday": "07:00AM - 09:00PM",
+                              "Thursday": "07:00AM - 09:00PM",
+                              "Friday": "07:00AM - 09:00PM",
+                              "Saturday": "08:00AM - 09:00PM",
+                              "Sunday": "08:00AM - 09:00PM"
+                            },
+                            "delivery": {
+                              "Monday": "07:00AM - 09:00PM",
+                              "Tuesday": "07:00AM - 09:00PM",
+                              "Wednesday": "07:00AM - 09:00PM",
+                              "Thursday": "07:00AM - 09:00PM",
+                              "Friday": "07:00AM - 09:00PM",
+                              "Saturday": "08:00AM - 09:00PM",
+                              "Sunday": "08:00AM - 09:00PM"
+                            },
+                            "pickup": {
+                              "Monday": "07:00AM - 09:00PM",
+                              "Tuesday": "07:00AM - 09:00PM",
+                              "Wednesday": "07:00AM - 09:00PM",
+                              "Thursday": "07:00AM - 09:00PM",
+                              "Friday": "07:00AM - 09:00PM",
+                              "Saturday": "08:00AM - 09:00PM",
+                              "Sunday": "08:00AM - 09:00PM"
+                            },
+                            "dine_in": {
+                              "Monday": "07:00AM - 09:00PM",
+                              "Tuesday": "07:00AM - 09:00PM",
+                              "Wednesday": "07:00AM - 09:00PM",
+                              "Thursday": "07:00AM - 09:00PM",
+                              "Friday": "07:00AM - 09:00PM",
+                              "Saturday": "08:00AM - 09:00PM",
+                              "Sunday": "08:00AM - 09:00PM"
+                            }
+                          },
+                          "cuisines": [
+                            "Breakfast",
+                            "Dinner",
+                            "Italian",
+                            "Lunch",
+                            "Pickup",
+                            "Pizza",
+                            "Salads",
+                            "Sandwich",
+                            "Sandwiches",
+                            "Takeout"
+                          ],
+                          "food_photos": [
+                            "https://cdn-img.mealme.ai/f3d0e396f1b552927092bafa65ef2cc4e8b57c22/68747470733a2f2f6d656469612d63646e2e677275626875622e636f6d2f696d6167652f75706c6f61642f62657462706b3570747a37756a306279616b6a672e6a7067"
+                          ],
+                          "logo_photos": [
+                            "https://cdn-img.mealme.ai/25b450d4e72eea47dccd744c326e49e23343bd0d/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f677275626875622f696d6167652f75706c6f61642f76313531383830323236382f63686a6a356173716f6766696e726f7671376f732e706e67"
+                          ],
+                          "store_photos": [],
+                          "dollar_signs": 2,
+                          "pickup_enabled": true,
+                          "delivery_enabled": true,
+                          "is_open": false,
+                          "offers_first_party_delivery": false,
+                          "offers_third_party_delivery": true,
+                          "miles": 0.2508434381960197,
+                          "weighted_rating_value": 4.725654450261779,
+                          "aggregated_rating_count": 191
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "description": "The search query.",
+            "schema": {
+              "type": "string",
+              "example": "beach cafe"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "lat",
+            "description": "The latitude of the user's location.",
+            "schema": {
+              "type": "number",
+              "example": 37.7786357
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "lng",
+            "description": "The longitude of the user's location.\".",
+            "schema": {
+              "type": "number",
+              "example": -122.3918135
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "distance",
+            "description": "The distance around the location in miles.",
+            "schema": {
+              "type": "number",
+              "example": 2
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "budget",
+            "description": "The user's budget for a meal in USD.",
+            "schema": {
+              "type": "number",
+              "example": 20
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "cuisine",
+            "description": "The cuisine of the restaurant.",
+            "schema": {
+              "type": "string",
+              "example": "italian"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "min-rating",
+            "description": "The minimum rating of the restaurant between 0 and 5.",
+            "schema": {
+              "type": "number",
+              "example": 4.4
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "is-open",
+            "description": "Whether the restaurant must be open at the time of search.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "sort",
+            "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.",
+            "schema": {
+              "type": "string",
+              "example": "distance"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "page",
+            "description": "The page number of results.",
+            "schema": {
+              "type": "number",
+              "example": 0
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          }
+        ],
+        "externalDocs": {
+          "description": "Read entire docs",
+          "url": "https://spoonacular.com/food-api/docs#Search-Restaurants"
+        },
+        "summary": "Search Restaurants",
+        "description": "Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.",
+        "operationId": "searchRestaurants",
+        "deprecated": false
+      }
     },
     "/food/wine/dishes": {
       "get": {
