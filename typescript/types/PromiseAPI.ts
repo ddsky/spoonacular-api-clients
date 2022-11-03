@@ -18,6 +18,8 @@ import { AnalyzeRecipeInstructions200ResponseIngredientsInner } from '../models/
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
+import { AnalyzeRecipeRequest1 } from '../models/AnalyzeRecipeRequest1';
 import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
 import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
 import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
@@ -148,12 +150,68 @@ import { SearchRecipes200ResponseResultsInner } from '../models/SearchRecipes200
 import { SearchRecipesByIngredients200ResponseInner } from '../models/SearchRecipesByIngredients200ResponseInner';
 import { SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner } from '../models/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
 import { SearchRecipesByNutrients200ResponseInner } from '../models/SearchRecipesByNutrients200ResponseInner';
+import { SearchRestaurants200Response } from '../models/SearchRestaurants200Response';
+import { SearchRestaurants200ResponseRestaurantsInner } from '../models/SearchRestaurants200ResponseRestaurantsInner';
+import { SearchRestaurants200ResponseRestaurantsInnerAddress } from '../models/SearchRestaurants200ResponseRestaurantsInnerAddress';
+import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
+import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
 import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
 import { SearchSiteContent200ResponseGroceryProductsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInner';
 import { SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
 import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
+import { ObservableDefaultApi } from './ObservableAPI';
+
+import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
+export class PromiseDefaultApi {
+    private api: ObservableDefaultApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: DefaultApiRequestFactory,
+        responseProcessor?: DefaultApiResponseProcessor
+    ) {
+        this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * This endpoint allows you to send raw recipe information, such as title, servings, and ingredients, to then see what we compute (badges, diets, nutrition, and more). This is useful if you have your own recipe data and want to enrich it with our semantic analysis.
+     * Analyze Recipe
+     * @param analyzeRecipeRequest Example request body.
+     * @param language The input language, either \&quot;en\&quot; or \&quot;de\&quot;.
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
+     * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
+     */
+    public analyzeRecipe(analyzeRecipeRequest: AnalyzeRecipeRequest, language?: string, includeNutrition?: boolean, includeTaste?: boolean, _options?: Configuration): Promise<any> {
+        const result = this.api.analyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
+     * Search Restaurants
+     * @param query The search query.
+     * @param lat The latitude of the user&#39;s location.
+     * @param lng The longitude of the user&#39;s location.\&quot;.
+     * @param distance The distance around the location in miles.
+     * @param budget The user&#39;s budget for a meal in USD.
+     * @param cuisine The cuisine of the restaurant.
+     * @param minRating The minimum rating of the restaurant between 0 and 5.
+     * @param isOpen Whether the restaurant must be open at the time of search.
+     * @param sort How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;.
+     * @param page The page number of results.
+     */
+    public searchRestaurants(query?: string, lat?: number, lng?: number, distance?: number, budget?: number, cuisine?: string, minRating?: number, isOpen?: boolean, sort?: string, page?: number, _options?: Configuration): Promise<SearchRestaurants200Response> {
+        const result = this.api.searchRestaurants(query, lat, lng, distance, budget, cuisine, minRating, isOpen, sort, page, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
 import { ObservableIngredientsApi } from './ObservableAPI';
 
 import { IngredientsApiRequestFactory, IngredientsApiResponseProcessor} from "../apis/IngredientsApi";
@@ -175,9 +233,10 @@ export class PromiseIngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param metaInformation Whether to return more meta information about the ingredients.
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
      */
-    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, _options?: Configuration): Promise<Set<AutocompleteIngredientSearch200ResponseInner>> {
-        const result = this.api.autocompleteIngredientSearch(query, number, metaInformation, intolerances, _options);
+    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Promise<Set<AutocompleteIngredientSearch200ResponseInner>> {
+        const result = this.api.autocompleteIngredientSearch(query, number, metaInformation, intolerances, language, _options);
         return result.toPromise();
     }
 
@@ -243,9 +302,10 @@ export class PromiseIngredientsApi {
      * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
      */
-    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, _options?: Configuration): Promise<IngredientSearch200Response> {
-        const result = this.api.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, _options);
+    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Promise<IngredientSearch200Response> {
+        const result = this.api.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, _options);
         return result.toPromise();
     }
 

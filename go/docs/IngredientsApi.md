@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## AutocompleteIngredientSearch
 
-> []AutocompleteIngredientSearch200ResponseInner AutocompleteIngredientSearch(ctx).Query(query).Number(number).MetaInformation(metaInformation).Intolerances(intolerances).Execute()
+> []AutocompleteIngredientSearch200ResponseInner AutocompleteIngredientSearch(ctx).Query(query).Number(number).MetaInformation(metaInformation).Intolerances(intolerances).Language(language).Execute()
 
 Autocomplete Ingredient Search
 
@@ -41,10 +41,11 @@ func main() {
     number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
     metaInformation := false // bool | Whether to return more meta information about the ingredients. (optional)
     intolerances := "egg" // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+    language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.AutocompleteIngredientSearch(context.Background()).Query(query).Number(number).MetaInformation(metaInformation).Intolerances(intolerances).Execute()
+    resp, r, err := apiClient.IngredientsApi.AutocompleteIngredientSearch(context.Background()).Query(query).Number(number).MetaInformation(metaInformation).Intolerances(intolerances).Language(language).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.AutocompleteIngredientSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -69,6 +70,7 @@ Name | Type | Description  | Notes
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
  **metaInformation** | **bool** | Whether to return more meta information about the ingredients. | 
  **intolerances** | **string** | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | 
+ **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
 
 ### Return type
 
@@ -376,7 +378,7 @@ Name | Type | Description  | Notes
 
 ## IngredientSearch
 
-> IngredientSearch200Response IngredientSearch(ctx).Query(query).AddChildren(addChildren).MinProteinPercent(minProteinPercent).MaxProteinPercent(maxProteinPercent).MinFatPercent(minFatPercent).MaxFatPercent(maxFatPercent).MinCarbsPercent(minCarbsPercent).MaxCarbsPercent(maxCarbsPercent).MetaInformation(metaInformation).Intolerances(intolerances).Sort(sort).SortDirection(sortDirection).Offset(offset).Number(number).Execute()
+> IngredientSearch200Response IngredientSearch(ctx).Query(query).AddChildren(addChildren).MinProteinPercent(minProteinPercent).MaxProteinPercent(maxProteinPercent).MinFatPercent(minFatPercent).MaxFatPercent(maxFatPercent).MinCarbsPercent(minCarbsPercent).MaxCarbsPercent(maxCarbsPercent).MetaInformation(metaInformation).Intolerances(intolerances).Sort(sort).SortDirection(sortDirection).Offset(offset).Number(number).Language(language).Execute()
 
 Ingredient Search
 
@@ -409,10 +411,11 @@ func main() {
     sortDirection := "asc" // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
     offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
     number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+    language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.IngredientSearch(context.Background()).Query(query).AddChildren(addChildren).MinProteinPercent(minProteinPercent).MaxProteinPercent(maxProteinPercent).MinFatPercent(minFatPercent).MaxFatPercent(maxFatPercent).MinCarbsPercent(minCarbsPercent).MaxCarbsPercent(maxCarbsPercent).MetaInformation(metaInformation).Intolerances(intolerances).Sort(sort).SortDirection(sortDirection).Offset(offset).Number(number).Execute()
+    resp, r, err := apiClient.IngredientsApi.IngredientSearch(context.Background()).Query(query).AddChildren(addChildren).MinProteinPercent(minProteinPercent).MaxProteinPercent(maxProteinPercent).MinFatPercent(minFatPercent).MaxFatPercent(maxFatPercent).MinCarbsPercent(minCarbsPercent).MaxCarbsPercent(maxCarbsPercent).MetaInformation(metaInformation).Intolerances(intolerances).Sort(sort).SortDirection(sortDirection).Offset(offset).Number(number).Language(language).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.IngredientSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -447,6 +450,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **string** | The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | 
  **offset** | **int32** | The number of results to skip (between 0 and 900). | 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
+ **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
 
 ### Return type
 

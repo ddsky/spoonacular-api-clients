@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ## `autocompleteIngredientSearch()`
 
 ```php
-autocompleteIngredientSearch($query, $number, $meta_information, $intolerances): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]
+autocompleteIngredientSearch($query, $number, $meta_information, $intolerances, $language): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]
 ```
 
 Autocomplete Ingredient Search
@@ -48,9 +48,10 @@ $query = burger; // string | The (natural language) search query.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 $meta_information = false; // bool | Whether to return more meta information about the ingredients.
 $intolerances = egg; // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+$language = en; // string | The language of the input. Either 'en' or 'de'.
 
 try {
-    $result = $apiInstance->autocompleteIngredientSearch($query, $number, $meta_information, $intolerances);
+    $result = $apiInstance->autocompleteIngredientSearch($query, $number, $meta_information, $intolerances, $language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->autocompleteIngredientSearch: ', $e->getMessage(), PHP_EOL;
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional]
  **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
 
 ### Return type
 
@@ -344,7 +346,7 @@ Name | Type | Description  | Notes
 ## `ingredientSearch()`
 
 ```php
-ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response
+ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language): \com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response
 ```
 
 Ingredient Search
@@ -384,9 +386,10 @@ $sort = calories; // string | The strategy to sort recipes by. See a full list o
 $sort_direction = asc; // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
 $offset = 56; // int | The number of results to skip (between 0 and 900).
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
+$language = en; // string | The language of the input. Either 'en' or 'de'.
 
 try {
-    $result = $apiInstance->ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+    $result = $apiInstance->ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->ingredientSearch: ', $e->getMessage(), PHP_EOL;
@@ -411,6 +414,7 @@ Name | Type | Description  | Notes
  **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
 
 ### Return type
 

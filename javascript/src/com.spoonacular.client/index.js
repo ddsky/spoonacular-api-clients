@@ -1,6 +1,6 @@
 /**
  * spoonacular API
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.1
  * Contact: mail@spoonacular.com
@@ -29,6 +29,8 @@ import AnalyzeRecipeInstructions200ResponseIngredientsInner from './com.spoonacu
 import AnalyzeRecipeInstructions200ResponseParsedInstructionsInner from './com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
 import AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner from './com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 import AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner from './com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import AnalyzeRecipeRequest from './com.spoonacular.client.model/AnalyzeRecipeRequest';
+import AnalyzeRecipeRequest1 from './com.spoonacular.client.model/AnalyzeRecipeRequest1';
 import AutocompleteIngredientSearch200ResponseInner from './com.spoonacular.client.model/AutocompleteIngredientSearch200ResponseInner';
 import AutocompleteMenuItemSearch200Response from './com.spoonacular.client.model/AutocompleteMenuItemSearch200Response';
 import AutocompleteProductSearch200Response from './com.spoonacular.client.model/AutocompleteProductSearch200Response';
@@ -159,12 +161,18 @@ import SearchRecipes200ResponseResultsInner from './com.spoonacular.client.model
 import SearchRecipesByIngredients200ResponseInner from './com.spoonacular.client.model/SearchRecipesByIngredients200ResponseInner';
 import SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner from './com.spoonacular.client.model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
 import SearchRecipesByNutrients200ResponseInner from './com.spoonacular.client.model/SearchRecipesByNutrients200ResponseInner';
+import SearchRestaurants200Response from './com.spoonacular.client.model/SearchRestaurants200Response';
+import SearchRestaurants200ResponseRestaurantsInner from './com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInner';
+import SearchRestaurants200ResponseRestaurantsInnerAddress from './com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerAddress';
+import SearchRestaurants200ResponseRestaurantsInnerLocalHours from './com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
+import SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational from './com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import SearchSiteContent200Response from './com.spoonacular.client.model/SearchSiteContent200Response';
 import SearchSiteContent200ResponseArticlesInner from './com.spoonacular.client.model/SearchSiteContent200ResponseArticlesInner';
 import SearchSiteContent200ResponseGroceryProductsInner from './com.spoonacular.client.model/SearchSiteContent200ResponseGroceryProductsInner';
 import SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner from './com.spoonacular.client.model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
 import SummarizeRecipe200Response from './com.spoonacular.client.model/SummarizeRecipe200Response';
 import TalkToChatbot200Response from './com.spoonacular.client.model/TalkToChatbot200Response';
+import DefaultApi from './com.spoonacular/DefaultApi';
 import IngredientsApi from './com.spoonacular/IngredientsApi';
 import MealPlanningApi from './com.spoonacular/MealPlanningApi';
 import MenuItemsApi from './com.spoonacular/MenuItemsApi';
@@ -175,7 +183,7 @@ import WineApi from './com.spoonacular/WineApi';
 
 
 /**
-* The_spoonacular_Nutrition_Recipe_and_Food_API_allows_you_to_access_over_380000_recipes_thousands_of_ingredients_800000_food_products_and_100000_menu_items__Our_food_ontology_and_semantic_recipe_search_engine_makes_it_possible_to_search_for_recipes_using_natural_language_queries_such_as_gluten_free_brownies_without_sugar_or_low_fat_vegan_cupcakes__You_can_automatically_calculate_the_nutritional_information_for_any_recipe_analyze_recipe_costs_visualize_ingredient_lists_find_recipes_for_whats_in_your_fridge_find_recipes_based_on_special_diets_nutritional_requirements_or_favorite_ingredients_classify_recipes_into_types_and_cuisines_convert_ingredient_amounts_or_even_compute_an_entire_meal_plan__With_our_powerful_API_you_can_create_many_kinds_of_food_and_especially_nutrition_apps_Special_diets_dietary_requirements_currently_available_include_vegan_vegetarian_pescetarian_gluten_free_grain_free_dairy_free_high_protein_whole_30_low_sodium_low_carb_Paleo_ketogenic_FODMAP_and_Primal_.<br>
+* The_spoonacular_Nutrition_Recipe_and_Food_API_allows_you_to_access_over_thousands_of_recipes_thousands_of_ingredients_800000_food_products_over_100000_menu_items_and_restaurants__Our_food_ontology_and_semantic_recipe_search_engine_makes_it_possible_to_search_for_recipes_using_natural_language_queries_such_as_gluten_free_brownies_without_sugar_or_low_fat_vegan_cupcakes__You_can_automatically_calculate_the_nutritional_information_for_any_recipe_analyze_recipe_costs_visualize_ingredient_lists_find_recipes_for_whats_in_your_fridge_find_recipes_based_on_special_diets_nutritional_requirements_or_favorite_ingredients_classify_recipes_into_types_and_cuisines_convert_ingredient_amounts_or_even_compute_an_entire_meal_plan__With_our_powerful_API_you_can_create_many_kinds_of_food_and_especially_nutrition_apps_Special_diets_dietary_requirements_currently_available_include_vegan_vegetarian_pescetarian_gluten_free_grain_free_dairy_free_high_protein_whole_30_low_sodium_low_carb_Paleo_ketogenic_FODMAP_and_Primal_.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -307,6 +315,18 @@ export {
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner}
      */
     AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner,
+
+    /**
+     * The AnalyzeRecipeRequest model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeRequest}
+     */
+    AnalyzeRecipeRequest,
+
+    /**
+     * The AnalyzeRecipeRequest1 model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeRequest1}
+     */
+    AnalyzeRecipeRequest1,
 
     /**
      * The AutocompleteIngredientSearch200ResponseInner model constructor.
@@ -1089,6 +1109,36 @@ export {
     SearchRecipesByNutrients200ResponseInner,
 
     /**
+     * The SearchRestaurants200Response model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200Response}
+     */
+    SearchRestaurants200Response,
+
+    /**
+     * The SearchRestaurants200ResponseRestaurantsInner model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInner}
+     */
+    SearchRestaurants200ResponseRestaurantsInner,
+
+    /**
+     * The SearchRestaurants200ResponseRestaurantsInnerAddress model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerAddress}
+     */
+    SearchRestaurants200ResponseRestaurantsInnerAddress,
+
+    /**
+     * The SearchRestaurants200ResponseRestaurantsInnerLocalHours model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerLocalHours}
+     */
+    SearchRestaurants200ResponseRestaurantsInnerLocalHours,
+
+    /**
+     * The SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational model constructor.
+     * @property {module:com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational}
+     */
+    SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational,
+
+    /**
      * The SearchSiteContent200Response model constructor.
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/SearchSiteContent200Response}
      */
@@ -1123,6 +1173,12 @@ export {
      * @property {module:com.spoonacular.client/com.spoonacular.client.model/TalkToChatbot200Response}
      */
     TalkToChatbot200Response,
+
+    /**
+    * The DefaultApi service constructor.
+    * @property {module:com.spoonacular.client/com.spoonacular/DefaultApi}
+    */
+    DefaultApi,
 
     /**
     * The IngredientsApi service constructor.

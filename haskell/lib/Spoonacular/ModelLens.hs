@@ -1,7 +1,7 @@
 {-
    spoonacular API
 
-   The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+   The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
    OpenAPI Version: 3.0.0
    spoonacular API API version: 1.1
@@ -338,6 +338,49 @@ analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients
 analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImageL :: Lens_' AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner (Text)
 analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImageL f AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner{..} = (\analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage -> AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner { analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage, ..} ) <$> f analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage
 {-# INLINE analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImageL #-}
+
+
+
+-- * AnalyzeRecipeRequest
+
+-- | 'analyzeRecipeRequestLanguage' Lens
+analyzeRecipeRequestLanguageL :: Lens_' AnalyzeRecipeRequest (Maybe Text)
+analyzeRecipeRequestLanguageL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestLanguage -> AnalyzeRecipeRequest { analyzeRecipeRequestLanguage, ..} ) <$> f analyzeRecipeRequestLanguage
+{-# INLINE analyzeRecipeRequestLanguageL #-}
+
+-- | 'analyzeRecipeRequestIncludeNutrition' Lens
+analyzeRecipeRequestIncludeNutritionL :: Lens_' AnalyzeRecipeRequest (Maybe Bool)
+analyzeRecipeRequestIncludeNutritionL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestIncludeNutrition -> AnalyzeRecipeRequest { analyzeRecipeRequestIncludeNutrition, ..} ) <$> f analyzeRecipeRequestIncludeNutrition
+{-# INLINE analyzeRecipeRequestIncludeNutritionL #-}
+
+-- | 'analyzeRecipeRequestIncludeTaste' Lens
+analyzeRecipeRequestIncludeTasteL :: Lens_' AnalyzeRecipeRequest (Maybe Bool)
+analyzeRecipeRequestIncludeTasteL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestIncludeTaste -> AnalyzeRecipeRequest { analyzeRecipeRequestIncludeTaste, ..} ) <$> f analyzeRecipeRequestIncludeTaste
+{-# INLINE analyzeRecipeRequestIncludeTasteL #-}
+
+
+
+-- * AnalyzeRecipeRequest1
+
+-- | 'analyzeRecipeRequest1Title' Lens
+analyzeRecipeRequest1TitleL :: Lens_' AnalyzeRecipeRequest1 (Maybe Text)
+analyzeRecipeRequest1TitleL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Title -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Title, ..} ) <$> f analyzeRecipeRequest1Title
+{-# INLINE analyzeRecipeRequest1TitleL #-}
+
+-- | 'analyzeRecipeRequest1Servings' Lens
+analyzeRecipeRequest1ServingsL :: Lens_' AnalyzeRecipeRequest1 (Maybe Int)
+analyzeRecipeRequest1ServingsL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Servings -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Servings, ..} ) <$> f analyzeRecipeRequest1Servings
+{-# INLINE analyzeRecipeRequest1ServingsL #-}
+
+-- | 'analyzeRecipeRequest1Ingredients' Lens
+analyzeRecipeRequest1IngredientsL :: Lens_' AnalyzeRecipeRequest1 (Maybe [Text])
+analyzeRecipeRequest1IngredientsL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Ingredients -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Ingredients, ..} ) <$> f analyzeRecipeRequest1Ingredients
+{-# INLINE analyzeRecipeRequest1IngredientsL #-}
+
+-- | 'analyzeRecipeRequest1Instructions' Lens
+analyzeRecipeRequest1InstructionsL :: Lens_' AnalyzeRecipeRequest1 (Maybe Text)
+analyzeRecipeRequest1InstructionsL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Instructions -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Instructions, ..} ) <$> f analyzeRecipeRequest1Instructions
+{-# INLINE analyzeRecipeRequest1InstructionsL #-}
 
 
 
@@ -4013,6 +4056,236 @@ searchRecipesByNutrients200ResponseInnerProteinL f SearchRecipesByNutrients200Re
 searchRecipesByNutrients200ResponseInnerTitleL :: Lens_' SearchRecipesByNutrients200ResponseInner (Text)
 searchRecipesByNutrients200ResponseInnerTitleL f SearchRecipesByNutrients200ResponseInner{..} = (\searchRecipesByNutrients200ResponseInnerTitle -> SearchRecipesByNutrients200ResponseInner { searchRecipesByNutrients200ResponseInnerTitle, ..} ) <$> f searchRecipesByNutrients200ResponseInnerTitle
 {-# INLINE searchRecipesByNutrients200ResponseInnerTitleL #-}
+
+
+
+-- * SearchRestaurants200Response
+
+-- | 'searchRestaurants200ResponseRestaurants' Lens
+searchRestaurants200ResponseRestaurantsL :: Lens_' SearchRestaurants200Response (Maybe [SearchRestaurants200ResponseRestaurantsInner])
+searchRestaurants200ResponseRestaurantsL f SearchRestaurants200Response{..} = (\searchRestaurants200ResponseRestaurants -> SearchRestaurants200Response { searchRestaurants200ResponseRestaurants, ..} ) <$> f searchRestaurants200ResponseRestaurants
+{-# INLINE searchRestaurants200ResponseRestaurantsL #-}
+
+
+
+-- * SearchRestaurants200ResponseRestaurantsInner
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerId' Lens
+searchRestaurants200ResponseRestaurantsInnerIdL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerIdL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerId -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerId, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerId
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerIdL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerName' Lens
+searchRestaurants200ResponseRestaurantsInnerNameL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerNameL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerName -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerName, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerName
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerNameL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerPhoneNumber' Lens
+searchRestaurants200ResponseRestaurantsInnerPhoneNumberL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Int)
+searchRestaurants200ResponseRestaurantsInnerPhoneNumberL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerPhoneNumber -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerPhoneNumber, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerPhoneNumber
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerPhoneNumberL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddress' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe SearchRestaurants200ResponseRestaurantsInnerAddress)
+searchRestaurants200ResponseRestaurantsInnerAddressL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerAddress -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerAddress, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddress
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerType' Lens
+searchRestaurants200ResponseRestaurantsInnerTypeL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerTypeL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerType -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerType, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerType
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerTypeL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerDescription' Lens
+searchRestaurants200ResponseRestaurantsInnerDescriptionL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerDescriptionL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerDescription -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerDescription, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerDescription
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerDescriptionL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHours' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHours)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHours -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerLocalHours, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHours
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerCuisines' Lens
+searchRestaurants200ResponseRestaurantsInnerCuisinesL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe [Text])
+searchRestaurants200ResponseRestaurantsInnerCuisinesL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerCuisines -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerCuisines, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerCuisines
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerCuisinesL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerFoodPhotos' Lens
+searchRestaurants200ResponseRestaurantsInnerFoodPhotosL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe [Text])
+searchRestaurants200ResponseRestaurantsInnerFoodPhotosL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerFoodPhotos -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerFoodPhotos, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerFoodPhotos
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerFoodPhotosL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLogoPhotos' Lens
+searchRestaurants200ResponseRestaurantsInnerLogoPhotosL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe [Text])
+searchRestaurants200ResponseRestaurantsInnerLogoPhotosL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerLogoPhotos -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerLogoPhotos, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLogoPhotos
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLogoPhotosL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerStorePhotos' Lens
+searchRestaurants200ResponseRestaurantsInnerStorePhotosL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe [A.Value])
+searchRestaurants200ResponseRestaurantsInnerStorePhotosL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerStorePhotos -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerStorePhotos, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerStorePhotos
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerStorePhotosL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerDollarSigns' Lens
+searchRestaurants200ResponseRestaurantsInnerDollarSignsL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Int)
+searchRestaurants200ResponseRestaurantsInnerDollarSignsL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerDollarSigns -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerDollarSigns, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerDollarSigns
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerDollarSignsL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerPickupEnabled' Lens
+searchRestaurants200ResponseRestaurantsInnerPickupEnabledL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Bool)
+searchRestaurants200ResponseRestaurantsInnerPickupEnabledL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerPickupEnabled -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerPickupEnabled, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerPickupEnabled
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerPickupEnabledL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled' Lens
+searchRestaurants200ResponseRestaurantsInnerDeliveryEnabledL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Bool)
+searchRestaurants200ResponseRestaurantsInnerDeliveryEnabledL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerDeliveryEnabledL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerIsOpen' Lens
+searchRestaurants200ResponseRestaurantsInnerIsOpenL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Bool)
+searchRestaurants200ResponseRestaurantsInnerIsOpenL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerIsOpen -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerIsOpen, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerIsOpen
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerIsOpenL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery' Lens
+searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDeliveryL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Bool)
+searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDeliveryL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDeliveryL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery' Lens
+searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDeliveryL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Bool)
+searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDeliveryL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDeliveryL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerMiles' Lens
+searchRestaurants200ResponseRestaurantsInnerMilesL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Double)
+searchRestaurants200ResponseRestaurantsInnerMilesL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerMiles -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerMiles, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerMiles
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerMilesL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue' Lens
+searchRestaurants200ResponseRestaurantsInnerWeightedRatingValueL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Double)
+searchRestaurants200ResponseRestaurantsInnerWeightedRatingValueL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerWeightedRatingValueL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount' Lens
+searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCountL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe Int)
+searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCountL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCountL #-}
+
+
+
+-- * SearchRestaurants200ResponseRestaurantsInnerAddress
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressStreetAddrL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerAddressStreetAddrL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressStreetAddrL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressCity' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressCityL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerAddressCityL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressCity -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressCity, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressCity
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressCityL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressState' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressStateL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerAddressStateL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressState -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressState, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressState
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressStateL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressZipcode' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressZipcodeL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerAddressZipcodeL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressZipcode -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressZipcode, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressZipcode
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressZipcodeL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressCountry' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressCountryL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerAddressCountryL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressCountry -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressCountry, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressCountry
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressCountryL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressLat' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressLatL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Double)
+searchRestaurants200ResponseRestaurantsInnerAddressLatL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressLat -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressLat, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressLat
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressLatL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressLon' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressLonL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Double)
+searchRestaurants200ResponseRestaurantsInnerAddressLonL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressLon -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressLon, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressLon
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressLonL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2L :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2L f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2 -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2L #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressLatitude' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressLatitudeL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Double)
+searchRestaurants200ResponseRestaurantsInnerAddressLatitudeL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressLatitude -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressLatitude, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressLatitude
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressLatitudeL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerAddressLongitude' Lens
+searchRestaurants200ResponseRestaurantsInnerAddressLongitudeL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerAddress (Maybe Double)
+searchRestaurants200ResponseRestaurantsInnerAddressLongitudeL f SearchRestaurants200ResponseRestaurantsInnerAddress{..} = (\searchRestaurants200ResponseRestaurantsInnerAddressLongitude -> SearchRestaurants200ResponseRestaurantsInnerAddress { searchRestaurants200ResponseRestaurantsInnerAddressLongitude, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerAddressLongitude
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerAddressLongitudeL #-}
+
+
+
+-- * SearchRestaurants200ResponseRestaurantsInnerLocalHours
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHours (Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalL f SearchRestaurants200ResponseRestaurantsInnerLocalHours{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational -> SearchRestaurants200ResponseRestaurantsInnerLocalHours { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursDeliveryL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHours (Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursDeliveryL f SearchRestaurants200ResponseRestaurantsInnerLocalHours{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery -> SearchRestaurants200ResponseRestaurantsInnerLocalHours { searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursDeliveryL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursPickupL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHours (Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursPickupL f SearchRestaurants200ResponseRestaurantsInnerLocalHours{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup -> SearchRestaurants200ResponseRestaurantsInnerLocalHours { searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursPickupL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursDineInL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHours (Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursDineInL f SearchRestaurants200ResponseRestaurantsInnerLocalHours{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn -> SearchRestaurants200ResponseRestaurantsInnerLocalHours { searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursDineInL #-}
+
+
+
+-- * SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMondayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMondayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMondayL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesdayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesdayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesdayL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesdayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesdayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesdayL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursdayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursdayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursdayL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFridayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFridayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFridayL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturdayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturdayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturdayL #-}
+
+-- | 'searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday' Lens
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSundayL :: Lens_' SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (Maybe Text)
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSundayL f SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational{..} = (\searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday
+{-# INLINE searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSundayL #-}
 
 
 

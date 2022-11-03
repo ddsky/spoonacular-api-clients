@@ -19,6 +19,8 @@ docs/AnalyzeRecipeInstructions200ResponseIngredientsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
+docs/AnalyzeRecipeRequest.md
+docs/AnalyzeRecipeRequest1.md
 docs/AutocompleteIngredientSearch200ResponseInner.md
 docs/AutocompleteMenuItemSearch200Response.md
 docs/AutocompleteProductSearch200Response.md
@@ -38,6 +40,7 @@ docs/ConnectUser200Response.md
 docs/ConnectUserRequest.md
 docs/ConvertAmounts200Response.md
 docs/CreateRecipeCard200Response.md
+docs/DefaultApi.md
 docs/DeleteFromMealPlanRequest.md
 docs/DetectFoodInText200Response.md
 docs/DetectFoodInText200ResponseAnnotationsInner.md
@@ -155,6 +158,11 @@ docs/SearchRecipes200ResponseResultsInner.md
 docs/SearchRecipesByIngredients200ResponseInner.md
 docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md
 docs/SearchRecipesByNutrients200ResponseInner.md
+docs/SearchRestaurants200Response.md
+docs/SearchRestaurants200ResponseRestaurantsInner.md
+docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
+docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
+docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
 docs/SearchSiteContent200ResponseGroceryProductsInner.md
@@ -164,6 +172,7 @@ docs/TalkToChatbot200Response.md
 docs/WineApi.md
 git_push.sh
 src/apis/configuration.rs
+src/apis/default_api.rs
 src/apis/ingredients_api.rs
 src/apis/meal_planning_api.rs
 src/apis/menu_items_api.rs
@@ -189,6 +198,8 @@ src/models/analyze_recipe_instructions_200_response_ingredients_inner.rs
 src/models/analyze_recipe_instructions_200_response_parsed_instructions_inner.rs
 src/models/analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner.rs
 src/models/analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.rs
+src/models/analyze_recipe_request.rs
+src/models/analyze_recipe_request_1.rs
 src/models/autocomplete_ingredient_search_200_response_inner.rs
 src/models/autocomplete_menu_item_search_200_response.rs
 src/models/autocomplete_product_search_200_response.rs
@@ -320,6 +331,11 @@ src/models/search_recipes_200_response_results_inner.rs
 src/models/search_recipes_by_ingredients_200_response_inner.rs
 src/models/search_recipes_by_ingredients_200_response_inner_missed_ingredients_inner.rs
 src/models/search_recipes_by_nutrients_200_response_inner.rs
+src/models/search_restaurants_200_response.rs
+src/models/search_restaurants_200_response_restaurants_inner.rs
+src/models/search_restaurants_200_response_restaurants_inner_address.rs
+src/models/search_restaurants_200_response_restaurants_inner_local_hours.rs
+src/models/search_restaurants_200_response_restaurants_inner_local_hours_operational.rs
 src/models/search_site_content_200_response.rs
 src/models/search_site_content_200_response_articles_inner.rs
 src/models/search_site_content_200_response_grocery_products_inner.rs

@@ -6,6 +6,7 @@ project/plugins.sbt
 sbt
 src/main/scala/DataAccessor.scala
 src/main/scala/Server.scala
+src/main/scala/com/spoonacular/DefaultApi.scala
 src/main/scala/com/spoonacular/IngredientsApi.scala
 src/main/scala/com/spoonacular/MealPlanningApi.scala
 src/main/scala/com/spoonacular/MenuItemsApi.scala
@@ -29,6 +30,8 @@ src/main/scala/com/spoonacular/client/model/AnalyzeRecipeInstructions200Response
 src/main/scala/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.scala
 src/main/scala/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.scala
 src/main/scala/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.scala
+src/main/scala/com/spoonacular/client/model/AnalyzeRecipeRequest.scala
+src/main/scala/com/spoonacular/client/model/AnalyzeRecipeRequest1.scala
 src/main/scala/com/spoonacular/client/model/AutocompleteIngredientSearch200ResponseInner.scala
 src/main/scala/com/spoonacular/client/model/AutocompleteMenuItemSearch200Response.scala
 src/main/scala/com/spoonacular/client/model/AutocompleteProductSearch200Response.scala
@@ -159,6 +162,11 @@ src/main/scala/com/spoonacular/client/model/SearchRecipes200ResponseResultsInner
 src/main/scala/com/spoonacular/client/model/SearchRecipesByIngredients200ResponseInner.scala
 src/main/scala/com/spoonacular/client/model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.scala
 src/main/scala/com/spoonacular/client/model/SearchRecipesByNutrients200ResponseInner.scala
+src/main/scala/com/spoonacular/client/model/SearchRestaurants200Response.scala
+src/main/scala/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInner.scala
+src/main/scala/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerAddress.scala
+src/main/scala/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.scala
+src/main/scala/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.scala
 src/main/scala/com/spoonacular/client/model/SearchSiteContent200Response.scala
 src/main/scala/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInner.scala
 src/main/scala/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInner.scala

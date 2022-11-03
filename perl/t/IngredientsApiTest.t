@@ -2,7 +2,7 @@
 
 spoonacular API
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
 The version of the OpenAPI document: 1.1
 Contact: mail@spoonacular.com
@@ -37,7 +37,8 @@ isa_ok($api, 'WWW::OpenAPIClient::IngredientsApi');
 #my $autocomplete_ingredient_search_number = undef; # replace NULL with a proper value
 #my $autocomplete_ingredient_search_meta_information = undef; # replace NULL with a proper value
 #my $autocomplete_ingredient_search_intolerances = undef; # replace NULL with a proper value
-#my $autocomplete_ingredient_search_result = $api->autocomplete_ingredient_search(query => $autocomplete_ingredient_search_query, number => $autocomplete_ingredient_search_number, meta_information => $autocomplete_ingredient_search_meta_information, intolerances => $autocomplete_ingredient_search_intolerances);
+#my $autocomplete_ingredient_search_language = undef; # replace NULL with a proper value
+#my $autocomplete_ingredient_search_result = $api->autocomplete_ingredient_search(query => $autocomplete_ingredient_search_query, number => $autocomplete_ingredient_search_number, meta_information => $autocomplete_ingredient_search_meta_information, intolerances => $autocomplete_ingredient_search_intolerances, language => $autocomplete_ingredient_search_language);
 
 #
 # compute_ingredient_amount test
@@ -90,7 +91,8 @@ isa_ok($api, 'WWW::OpenAPIClient::IngredientsApi');
 #my $ingredient_search_sort_direction = undef; # replace NULL with a proper value
 #my $ingredient_search_offset = undef; # replace NULL with a proper value
 #my $ingredient_search_number = undef; # replace NULL with a proper value
-#my $ingredient_search_result = $api->ingredient_search(query => $ingredient_search_query, add_children => $ingredient_search_add_children, min_protein_percent => $ingredient_search_min_protein_percent, max_protein_percent => $ingredient_search_max_protein_percent, min_fat_percent => $ingredient_search_min_fat_percent, max_fat_percent => $ingredient_search_max_fat_percent, min_carbs_percent => $ingredient_search_min_carbs_percent, max_carbs_percent => $ingredient_search_max_carbs_percent, meta_information => $ingredient_search_meta_information, intolerances => $ingredient_search_intolerances, sort => $ingredient_search_sort, sort_direction => $ingredient_search_sort_direction, offset => $ingredient_search_offset, number => $ingredient_search_number);
+#my $ingredient_search_language = undef; # replace NULL with a proper value
+#my $ingredient_search_result = $api->ingredient_search(query => $ingredient_search_query, add_children => $ingredient_search_add_children, min_protein_percent => $ingredient_search_min_protein_percent, max_protein_percent => $ingredient_search_max_protein_percent, min_fat_percent => $ingredient_search_min_fat_percent, max_fat_percent => $ingredient_search_max_fat_percent, min_carbs_percent => $ingredient_search_min_carbs_percent, max_carbs_percent => $ingredient_search_max_carbs_percent, meta_information => $ingredient_search_meta_information, intolerances => $ingredient_search_intolerances, sort => $ingredient_search_sort, sort_direction => $ingredient_search_sort_direction, offset => $ingredient_search_offset, number => $ingredient_search_number, language => $ingredient_search_language);
 
 #
 # ingredients_by_id_image test

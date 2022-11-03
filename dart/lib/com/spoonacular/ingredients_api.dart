@@ -35,7 +35,10 @@ class IngredientsApi {
   ///
   /// * [String] intolerances:
   ///   A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-  Future<Response> autocompleteIngredientSearchWithHttpInfo({ String? query, int? number, bool? metaInformation, String? intolerances, }) async {
+  ///
+  /// * [String] language:
+  ///   The language of the input. Either 'en' or 'de'.
+  Future<Response> autocompleteIngredientSearchWithHttpInfo({ String? query, int? number, bool? metaInformation, String? intolerances, String? language, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/ingredients/autocomplete';
 
@@ -57,6 +60,9 @@ class IngredientsApi {
     }
     if (intolerances != null) {
       queryParams.addAll(_queryParams('', 'intolerances', intolerances));
+    }
+    if (language != null) {
+      queryParams.addAll(_queryParams('', 'language', language));
     }
 
     const contentTypes = <String>[];
@@ -90,8 +96,11 @@ class IngredientsApi {
   ///
   /// * [String] intolerances:
   ///   A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-  Future<Set<AutocompleteIngredientSearch200ResponseInner>?> autocompleteIngredientSearch({ String? query, int? number, bool? metaInformation, String? intolerances, }) async {
-    final response = await autocompleteIngredientSearchWithHttpInfo( query: query, number: number, metaInformation: metaInformation, intolerances: intolerances, );
+  ///
+  /// * [String] language:
+  ///   The language of the input. Either 'en' or 'de'.
+  Future<Set<AutocompleteIngredientSearch200ResponseInner>?> autocompleteIngredientSearch({ String? query, int? number, bool? metaInformation, String? intolerances, String? language, }) async {
+    final response = await autocompleteIngredientSearchWithHttpInfo( query: query, number: number, metaInformation: metaInformation, intolerances: intolerances, language: language, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -437,7 +446,10 @@ class IngredientsApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> ingredientSearchWithHttpInfo({ String? query, bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, }) async {
+  ///
+  /// * [String] language:
+  ///   The language of the input. Either 'en' or 'de'.
+  Future<Response> ingredientSearchWithHttpInfo({ String? query, bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, String? language, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/ingredients/search';
 
@@ -489,6 +501,9 @@ class IngredientsApi {
     }
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
+    }
+    if (language != null) {
+      queryParams.addAll(_queryParams('', 'language', language));
     }
 
     const contentTypes = <String>[];
@@ -552,8 +567,11 @@ class IngredientsApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<IngredientSearch200Response?> ingredientSearch({ String? query, bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, }) async {
-    final response = await ingredientSearchWithHttpInfo( query: query, addChildren: addChildren, minProteinPercent: minProteinPercent, maxProteinPercent: maxProteinPercent, minFatPercent: minFatPercent, maxFatPercent: maxFatPercent, minCarbsPercent: minCarbsPercent, maxCarbsPercent: maxCarbsPercent, metaInformation: metaInformation, intolerances: intolerances, sort: sort, sortDirection: sortDirection, offset: offset, number: number, );
+  ///
+  /// * [String] language:
+  ///   The language of the input. Either 'en' or 'de'.
+  Future<IngredientSearch200Response?> ingredientSearch({ String? query, bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, String? language, }) async {
+    final response = await ingredientSearchWithHttpInfo( query: query, addChildren: addChildren, minProteinPercent: minProteinPercent, maxProteinPercent: maxProteinPercent, minFatPercent: minFatPercent, maxFatPercent: maxFatPercent, minCarbsPercent: minCarbsPercent, maxCarbsPercent: maxCarbsPercent, metaInformation: metaInformation, intolerances: intolerances, sort: sort, sortDirection: sortDirection, offset: offset, number: number, language: language, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

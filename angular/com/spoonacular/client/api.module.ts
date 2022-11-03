@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
+import { DefaultService } from './com.spoonacular/default.service';
 import { IngredientsService } from './com.spoonacular/ingredients.service';
 import { MealPlanningService } from './com.spoonacular/mealPlanning.service';
 import { MenuItemsService } from './com.spoonacular/menuItems.service';

@@ -1,6 +1,6 @@
 # OpenAPIClient
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -60,6 +60,8 @@ Import the following:
 #import <OpenAPIClient/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInner.h>
 #import <OpenAPIClient/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.h>
 #import <OpenAPIClient/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.h>
+#import <OpenAPIClient/OAIAnalyzeRecipeRequest.h>
+#import <OpenAPIClient/OAIAnalyzeRecipeRequest1.h>
 #import <OpenAPIClient/OAIAutocompleteIngredientSearch200ResponseInner.h>
 #import <OpenAPIClient/OAIAutocompleteMenuItemSearch200Response.h>
 #import <OpenAPIClient/OAIAutocompleteProductSearch200Response.h>
@@ -190,6 +192,11 @@ Import the following:
 #import <OpenAPIClient/OAISearchRecipesByIngredients200ResponseInner.h>
 #import <OpenAPIClient/OAISearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.h>
 #import <OpenAPIClient/OAISearchRecipesByNutrients200ResponseInner.h>
+#import <OpenAPIClient/OAISearchRestaurants200Response.h>
+#import <OpenAPIClient/OAISearchRestaurants200ResponseRestaurantsInner.h>
+#import <OpenAPIClient/OAISearchRestaurants200ResponseRestaurantsInnerAddress.h>
+#import <OpenAPIClient/OAISearchRestaurants200ResponseRestaurantsInnerLocalHours.h>
+#import <OpenAPIClient/OAISearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.h>
 #import <OpenAPIClient/OAISearchSiteContent200Response.h>
 #import <OpenAPIClient/OAISearchSiteContent200ResponseArticlesInner.h>
 #import <OpenAPIClient/OAISearchSiteContent200ResponseGroceryProductsInner.h>
@@ -197,6 +204,7 @@ Import the following:
 #import <OpenAPIClient/OAISummarizeRecipe200Response.h>
 #import <OpenAPIClient/OAITalkToChatbot200Response.h>
 // load API classes for accessing endpoints
+#import <OpenAPIClient/OAIDefaultApi.h>
 #import <OpenAPIClient/OAIIngredientsApi.h>
 #import <OpenAPIClient/OAIMealPlanningApi.h>
 #import <OpenAPIClient/OAIMenuItemsApi.h>
@@ -225,19 +233,19 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* *query = burger; // The (natural language) search query. (optional)
-NSNumber* *number = 10; // The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
-NSNumber* *metaInformation = false; // Whether to return more meta information about the ingredients. (optional)
-NSString* *intolerances = egg; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+OAIAnalyzeRecipeRequest* *analyzeRecipeRequest = [[OAIAnalyzeRecipeRequest alloc] init]; // Example request body.
+NSString* *language = en; // The input language, either \"en\" or \"de\". (optional)
+NSNumber* *includeNutrition = false; // Whether nutrition data should be added to correctly parsed ingredients. (optional)
+NSNumber* *includeTaste = false; // Whether taste data should be added to correctly parsed ingredients. (optional)
 
-OAIIngredientsApi *apiInstance = [[OAIIngredientsApi alloc] init];
+OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
 
-// Autocomplete Ingredient Search
-[apiInstance autocompleteIngredientSearchWithQuery:query
-    number:number
-    metaInformation:metaInformation
-    intolerances:intolerances
-              completionHandler: ^(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error) {
+// Analyze Recipe
+[apiInstance analyzeRecipeWithAnalyzeRecipeRequest:analyzeRecipeRequest
+    language:language
+    includeNutrition:includeNutrition
+    includeTaste:includeTaste
+              completionHandler: ^(NSObject* output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -254,6 +262,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OAIDefaultApi* | [**analyzeRecipe**](docs/OAIDefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+*OAIDefaultApi* | [**searchRestaurants**](docs/OAIDefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 *OAIIngredientsApi* | [**autocompleteIngredientSearch**](docs/OAIIngredientsApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *OAIIngredientsApi* | [**computeIngredientAmount**](docs/OAIIngredientsApi.md#computeingredientamount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *OAIIngredientsApi* | [**getIngredientInformation**](docs/OAIIngredientsApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -371,6 +381,8 @@ Class | Method | HTTP request | Description
  - [OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [OAIAnalyzeRecipeRequest](docs/OAIAnalyzeRecipeRequest.md)
+ - [OAIAnalyzeRecipeRequest1](docs/OAIAnalyzeRecipeRequest1.md)
  - [OAIAutocompleteIngredientSearch200ResponseInner](docs/OAIAutocompleteIngredientSearch200ResponseInner.md)
  - [OAIAutocompleteMenuItemSearch200Response](docs/OAIAutocompleteMenuItemSearch200Response.md)
  - [OAIAutocompleteProductSearch200Response](docs/OAIAutocompleteProductSearch200Response.md)
@@ -501,6 +513,11 @@ Class | Method | HTTP request | Description
  - [OAISearchRecipesByIngredients200ResponseInner](docs/OAISearchRecipesByIngredients200ResponseInner.md)
  - [OAISearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/OAISearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [OAISearchRecipesByNutrients200ResponseInner](docs/OAISearchRecipesByNutrients200ResponseInner.md)
+ - [OAISearchRestaurants200Response](docs/OAISearchRestaurants200Response.md)
+ - [OAISearchRestaurants200ResponseRestaurantsInner](docs/OAISearchRestaurants200ResponseRestaurantsInner.md)
+ - [OAISearchRestaurants200ResponseRestaurantsInnerAddress](docs/OAISearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [OAISearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/OAISearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [OAISearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/OAISearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [OAISearchSiteContent200Response](docs/OAISearchSiteContent200Response.md)
  - [OAISearchSiteContent200ResponseArticlesInner](docs/OAISearchSiteContent200ResponseArticlesInner.md)
  - [OAISearchSiteContent200ResponseGroceryProductsInner](docs/OAISearchSiteContent200ResponseGroceryProductsInner.md)

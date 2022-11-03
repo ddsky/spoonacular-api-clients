@@ -2,7 +2,7 @@
 
 OpenapiClient - the Ruby gem for the spoonacular API
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -67,20 +67,20 @@ OpenapiClient.configure do |config|
   # config.api_key_prefix['apiKeyScheme'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::IngredientsApi.new
+api_instance = OpenapiClient::DefaultApi.new
+analyze_recipe_request = OpenapiClient::AnalyzeRecipeRequest.new # AnalyzeRecipeRequest | Example request body.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
-  number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  meta_information: false, # Boolean | Whether to return more meta information about the ingredients.
-  intolerances: 'egg' # String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+  language: 'en', # String | The input language, either \"en\" or \"de\".
+  include_nutrition: false, # Boolean | Whether nutrition data should be added to correctly parsed ingredients.
+  include_taste: false # Boolean | Whether taste data should be added to correctly parsed ingredients.
 }
 
 begin
-  #Autocomplete Ingredient Search
-  result = api_instance.autocomplete_ingredient_search(opts)
+  #Analyze Recipe
+  result = api_instance.analyze_recipe(analyze_recipe_request, opts)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling IngredientsApi->autocomplete_ingredient_search: #{e}"
+  puts "Exception when calling DefaultApi->analyze_recipe: #{e}"
 end
 
 ```
@@ -91,6 +91,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OpenapiClient::DefaultApi* | [**analyze_recipe**](docs/DefaultApi.md#analyze_recipe) | **POST** /recipes/analyze | Analyze Recipe
+*OpenapiClient::DefaultApi* | [**search_restaurants**](docs/DefaultApi.md#search_restaurants) | **GET** /food/restaurants/search | Search Restaurants
 *OpenapiClient::IngredientsApi* | [**autocomplete_ingredient_search**](docs/IngredientsApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *OpenapiClient::IngredientsApi* | [**compute_ingredient_amount**](docs/IngredientsApi.md#compute_ingredient_amount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *OpenapiClient::IngredientsApi* | [**get_ingredient_information**](docs/IngredientsApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -208,6 +210,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [OpenapiClient::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [OpenapiClient::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [OpenapiClient::AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
+ - [OpenapiClient::AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [OpenapiClient::AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [OpenapiClient::AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [OpenapiClient::AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -338,6 +342,11 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::SearchRecipesByIngredients200ResponseInner](docs/SearchRecipesByIngredients200ResponseInner.md)
  - [OpenapiClient::SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [OpenapiClient::SearchRecipesByNutrients200ResponseInner](docs/SearchRecipesByNutrients200ResponseInner.md)
+ - [OpenapiClient::SearchRestaurants200Response](docs/SearchRestaurants200Response.md)
+ - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInner](docs/SearchRestaurants200ResponseRestaurantsInner.md)
+ - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerAddress](docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [OpenapiClient::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [OpenapiClient::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
  - [OpenapiClient::SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)

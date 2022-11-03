@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="autocompleteingredientsearch"></a>
 # **AutocompleteIngredientSearch**
-> List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances)
+> List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances, string language)
 
 Autocomplete Ingredient Search
 
@@ -47,11 +47,12 @@ namespace Example
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
             var metaInformation = false;  // bool? | Whether to return more meta information about the ingredients. (optional) 
             var intolerances = egg;  // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional) 
+            var language = en;  // string | The language of the input. Either 'en' or 'de'. (optional) 
 
             try
             {
                 // Autocomplete Ingredient Search
-                List&lt;AutocompleteIngredientSearch200ResponseInner&gt; result = apiInstance.AutocompleteIngredientSearch(query, number, metaInformation, intolerances);
+                List&lt;AutocompleteIngredientSearch200ResponseInner&gt; result = apiInstance.AutocompleteIngredientSearch(query, number, metaInformation, intolerances, language);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -71,6 +72,7 @@ Name | Type | Description  | Notes
  **number** | **int?**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **bool?**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -363,7 +365,7 @@ Name | Type | Description  | Notes
 
 <a name="ingredientsearch"></a>
 # **IngredientSearch**
-> IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number)
+> IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number, string language)
 
 Ingredient Search
 
@@ -403,11 +405,12 @@ namespace Example
             var sortDirection = asc;  // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional) 
             var offset = 56;  // int? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
+            var language = en;  // string | The language of the input. Either 'en' or 'de'. (optional) 
 
             try
             {
                 // Ingredient Search
-                IngredientSearch200Response result = apiInstance.IngredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+                IngredientSearch200Response result = apiInstance.IngredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -437,6 +440,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
  **offset** | **int?**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int?**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 

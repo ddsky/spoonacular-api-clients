@@ -23,6 +23,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
     - :meta_information (boolean()): Whether to return more meta information about the ingredients.
     - :intolerances (String.t): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    - :language (String.t): The language of the input. Either 'en' or 'de'.
   ## Returns
 
   {:ok, [%AutocompleteIngredientSearch200ResponseInner{}, ...]} on success
@@ -34,7 +35,8 @@ defmodule com.spoonacular.client.Api.Ingredients do
       :query => :query,
       :number => :query,
       :metaInformation => :query,
-      :intolerances => :query
+      :intolerances => :query,
+      :language => :query
     }
     %{}
     |> method(:get)
@@ -205,6 +207,7 @@ defmodule com.spoonacular.client.Api.Ingredients do
     - :sort_direction (String.t): The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
     - :offset (integer()): The number of results to skip (between 0 and 900).
     - :number (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
+    - :language (String.t): The language of the input. Either 'en' or 'de'.
   ## Returns
 
   {:ok, com.spoonacular.client.Model.IngredientSearch200Response.t} on success
@@ -226,7 +229,8 @@ defmodule com.spoonacular.client.Api.Ingredients do
       :sort => :query,
       :sortDirection => :query,
       :offset => :query,
-      :number => :query
+      :number => :query,
+      :language => :query
     }
     %{}
     |> method(:get)

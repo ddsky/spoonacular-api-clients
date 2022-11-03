@@ -1,5 +1,6 @@
 .gitignore
 .openapi-generator-ignore
+DefaultApi.md
 IngredientsApi.md
 MealPlanningApi.md
 MenuItemsApi.md
@@ -11,6 +12,7 @@ WineApi.md
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
+com/spoonacular/apis/DefaultApi.ts
 com/spoonacular/apis/IngredientsApi.ts
 com/spoonacular/apis/MealPlanningApi.ts
 com/spoonacular/apis/MenuItemsApi.ts
@@ -34,6 +36,8 @@ com/spoonacular/client/model/models/AnalyzeRecipeInstructions200ResponseIngredie
 com/spoonacular/client/model/models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.ts
 com/spoonacular/client/model/models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.ts
 com/spoonacular/client/model/models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.ts
+com/spoonacular/client/model/models/AnalyzeRecipeRequest.ts
+com/spoonacular/client/model/models/AnalyzeRecipeRequest1.ts
 com/spoonacular/client/model/models/AutocompleteIngredientSearch200ResponseInner.ts
 com/spoonacular/client/model/models/AutocompleteMenuItemSearch200Response.ts
 com/spoonacular/client/model/models/AutocompleteProductSearch200Response.ts
@@ -164,6 +168,11 @@ com/spoonacular/client/model/models/SearchRecipes200ResponseResultsInner.ts
 com/spoonacular/client/model/models/SearchRecipesByIngredients200ResponseInner.ts
 com/spoonacular/client/model/models/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.ts
 com/spoonacular/client/model/models/SearchRecipesByNutrients200ResponseInner.ts
+com/spoonacular/client/model/models/SearchRestaurants200Response.ts
+com/spoonacular/client/model/models/SearchRestaurants200ResponseRestaurantsInner.ts
+com/spoonacular/client/model/models/SearchRestaurants200ResponseRestaurantsInnerAddress.ts
+com/spoonacular/client/model/models/SearchRestaurants200ResponseRestaurantsInnerLocalHours.ts
+com/spoonacular/client/model/models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.ts
 com/spoonacular/client/model/models/SearchSiteContent200Response.ts
 com/spoonacular/client/model/models/SearchSiteContent200ResponseArticlesInner.ts
 com/spoonacular/client/model/models/SearchSiteContent200ResponseGroceryProductsInner.ts

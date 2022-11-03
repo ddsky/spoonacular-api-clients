@@ -4,6 +4,7 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/DefaultApi.md
 docs/Api/IngredientsApi.md
 docs/Api/MealPlanningApi.md
 docs/Api/MenuItemsApi.md
@@ -27,6 +28,8 @@ docs/Model/AnalyzeRecipeInstructions200ResponseIngredientsInner.md
 docs/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
+docs/Model/AnalyzeRecipeRequest.md
+docs/Model/AnalyzeRecipeRequest1.md
 docs/Model/AutocompleteIngredientSearch200ResponseInner.md
 docs/Model/AutocompleteMenuItemSearch200Response.md
 docs/Model/AutocompleteProductSearch200Response.md
@@ -157,6 +160,11 @@ docs/Model/SearchRecipes200ResponseResultsInner.md
 docs/Model/SearchRecipesByIngredients200ResponseInner.md
 docs/Model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md
 docs/Model/SearchRecipesByNutrients200ResponseInner.md
+docs/Model/SearchRestaurants200Response.md
+docs/Model/SearchRestaurants200ResponseRestaurantsInner.md
+docs/Model/SearchRestaurants200ResponseRestaurantsInnerAddress.md
+docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
+docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/Model/SearchSiteContent200Response.md
 docs/Model/SearchSiteContent200ResponseArticlesInner.md
 docs/Model/SearchSiteContent200ResponseGroceryProductsInner.md
@@ -168,6 +176,7 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/ObjectSerializer.php
+lib/com/spoonacular/DefaultApi.php
 lib/com/spoonacular/IngredientsApi.php
 lib/com/spoonacular/MealPlanningApi.php
 lib/com/spoonacular/MenuItemsApi.php
@@ -191,6 +200,8 @@ lib/model/AnalyzeRecipeInstructions200ResponseIngredientsInner.php
 lib/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.php
 lib/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.php
 lib/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.php
+lib/model/AnalyzeRecipeRequest.php
+lib/model/AnalyzeRecipeRequest1.php
 lib/model/AutocompleteIngredientSearch200ResponseInner.php
 lib/model/AutocompleteMenuItemSearch200Response.php
 lib/model/AutocompleteProductSearch200Response.php
@@ -322,6 +333,11 @@ lib/model/SearchRecipes200ResponseResultsInner.php
 lib/model/SearchRecipesByIngredients200ResponseInner.php
 lib/model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.php
 lib/model/SearchRecipesByNutrients200ResponseInner.php
+lib/model/SearchRestaurants200Response.php
+lib/model/SearchRestaurants200ResponseRestaurantsInner.php
+lib/model/SearchRestaurants200ResponseRestaurantsInnerAddress.php
+lib/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.php
+lib/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.php
 lib/model/SearchSiteContent200Response.php
 lib/model/SearchSiteContent200ResponseArticlesInner.php
 lib/model/SearchSiteContent200ResponseGroceryProductsInner.php
@@ -329,6 +345,7 @@ lib/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.php
 lib/model/SummarizeRecipe200Response.php
 lib/model/TalkToChatbot200Response.php
 phpunit.xml.dist
+test/Api/DefaultApiTest.php
 test/Api/IngredientsApiTest.php
 test/Api/MealPlanningApiTest.php
 test/Api/MenuItemsApiTest.php
@@ -352,6 +369,8 @@ test/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
 test/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerTest.php
 test/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerTest.php
 test/Model/AnalyzeRecipeInstructions200ResponseTest.php
+test/Model/AnalyzeRecipeRequest1Test.php
+test/Model/AnalyzeRecipeRequestTest.php
 test/Model/AutocompleteIngredientSearch200ResponseInnerTest.php
 test/Model/AutocompleteMenuItemSearch200ResponseTest.php
 test/Model/AutocompleteProductSearch200ResponseResultsInnerTest.php
@@ -482,6 +501,11 @@ test/Model/SearchRecipes200ResponseTest.php
 test/Model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInnerTest.php
 test/Model/SearchRecipesByIngredients200ResponseInnerTest.php
 test/Model/SearchRecipesByNutrients200ResponseInnerTest.php
+test/Model/SearchRestaurants200ResponseRestaurantsInnerAddressTest.php
+test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTest.php
+test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTest.php
+test/Model/SearchRestaurants200ResponseRestaurantsInnerTest.php
+test/Model/SearchRestaurants200ResponseTest.php
 test/Model/SearchSiteContent200ResponseArticlesInnerTest.php
 test/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerTest.php
 test/Model/SearchSiteContent200ResponseGroceryProductsInnerTest.php

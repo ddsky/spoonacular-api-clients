@@ -16,7 +16,7 @@ class IngredientsApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def autocompleteIngredientSearch ( String query, Integer number, Boolean metaInformation, String intolerances, Closure onSuccess, Closure onFailure)  {
+    def autocompleteIngredientSearch ( String query, Integer number, Boolean metaInformation, String intolerances, String language, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/autocomplete"
 
         // params
@@ -37,6 +37,9 @@ class IngredientsApi {
         }
         if (intolerances != null) {
             queryParams.put("intolerances", intolerances)
+        }
+        if (language != null) {
+            queryParams.put("language", language)
         }
 
 
@@ -170,7 +173,7 @@ class IngredientsApi {
 
     }
 
-    def ingredientSearch ( String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, Closure onSuccess, Closure onFailure)  {
+    def ingredientSearch ( String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/ingredients/search"
 
         // params
@@ -221,6 +224,9 @@ class IngredientsApi {
         }
         if (number != null) {
             queryParams.put("number", number)
+        }
+        if (language != null) {
+            queryParams.put("language", language)
         }
 
 

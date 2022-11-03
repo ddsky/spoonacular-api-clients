@@ -10,7 +10,7 @@
 
 /**
 * spoonacular API
-* The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+* The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 *
 * The version of the OpenAPI document: 1.1
 * Contact: mail@spoonacular.com
@@ -36,6 +36,7 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
 /// @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
 /// @param metaInformation Whether to return more meta information about the ingredients. (optional)
 /// @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+/// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -47,6 +48,7 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
     intolerances: (NSString*) intolerances
+    language: (NSString*) language
     completionHandler: (void (^)(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error)) handler;
 
 
@@ -137,6 +139,7 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
 /// @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
 /// @param offset The number of results to skip (between 0 and 900). (optional)
 /// @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
+/// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -158,6 +161,7 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
     sortDirection: (NSString*) sortDirection
     offset: (NSNumber*) offset
     number: (NSNumber*) number
+    language: (NSString*) language
     completionHandler: (void (^)(OAIIngredientSearch200Response* output, NSError* error)) handler;
 
 

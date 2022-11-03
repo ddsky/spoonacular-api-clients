@@ -39,6 +39,8 @@ let body:.IngredientsApiAutocompleteIngredientSearchRequest = {
   metaInformation: false,
   // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
   intolerances: "egg",
+  // 'en' | 'de' | The language of the input. Either 'en' or 'de'. (optional)
+  language: "en",
 };
 
 apiInstance.autocompleteIngredientSearch(body).then((data:any) => {
@@ -55,6 +57,7 @@ Name | Type | Description  | Notes
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
  **metaInformation** | [**boolean**] | Whether to return more meta information about the ingredients. | (optional) defaults to undefined
  **intolerances** | [**string**] | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | (optional) defaults to undefined
+ **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | (optional) defaults to undefined
 
 
 ### Return type
@@ -368,6 +371,8 @@ let body:.IngredientsApiIngredientSearchRequest = {
   offset: 0,
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
+  // 'en' | 'de' | The language of the input. Either 'en' or 'de'. (optional)
+  language: "en",
 };
 
 apiInstance.ingredientSearch(body).then((data:any) => {
@@ -394,6 +399,7 @@ Name | Type | Description  | Notes
  **sortDirection** | [**string**] | The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | (optional) defaults to undefined
  **offset** | [**number**] | The number of results to skip (between 0 and 900). | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
+ **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | (optional) defaults to undefined
 
 
 ### Return type

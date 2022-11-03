@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **autocomplete_ingredient_search**
-> ARRAY[AutocompleteIngredientSearch200ResponseInner] autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances)
+> ARRAY[AutocompleteIngredientSearch200ResponseInner] autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances, language => $language)
 
 Autocomplete Ingredient Search
 
@@ -43,9 +43,10 @@ my $query = burger; # string | The (natural language) search query.
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 my $meta_information = false; # boolean | Whether to return more meta information about the ingredients.
 my $intolerances = egg; # string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
 eval {
-    my $result = $api_instance->autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances);
+    my $result = $api_instance->autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances, language => $language);
     print Dumper($result);
 };
 if ($@) {
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **meta_information** | **boolean**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -292,7 +294,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredient_search**
-> IngredientSearch200Response ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number)
+> IngredientSearch200Response ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number, language => $language)
 
 Ingredient Search
 
@@ -324,9 +326,10 @@ my $sort = calories; # string | The strategy to sort recipes by. See a full list
 my $sort_direction = asc; # string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
+my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
 eval {
-    my $result = $api_instance->ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number);
+    my $result = $api_instance->ingredient_search(query => $query, add_children => $add_children, min_protein_percent => $min_protein_percent, max_protein_percent => $max_protein_percent, min_fat_percent => $min_fat_percent, max_fat_percent => $max_fat_percent, min_carbs_percent => $min_carbs_percent, max_carbs_percent => $max_carbs_percent, meta_information => $meta_information, intolerances => $intolerances, sort => $sort, sort_direction => $sort_direction, offset => $offset, number => $number, language => $language);
     print Dumper($result);
 };
 if ($@) {
@@ -352,6 +355,7 @@ Name | Type | Description  | Notes
  **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 

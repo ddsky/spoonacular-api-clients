@@ -25,7 +25,7 @@ autocomplete_ingredient_search(Ctx, Optional) ->
 
     Method = get,
     Path = [<<"/food/ingredients/autocomplete">>],
-    QS = lists:flatten([])++openapi_utils:optional_params(['query', 'number', 'metaInformation', 'intolerances'], _OptionalParams),
+    QS = lists:flatten([])++openapi_utils:optional_params(['query', 'number', 'metaInformation', 'intolerances', 'language'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),
@@ -130,7 +130,7 @@ ingredient_search(Ctx, Optional) ->
 
     Method = get,
     Path = [<<"/food/ingredients/search">>],
-    QS = lists:flatten([])++openapi_utils:optional_params(['query', 'addChildren', 'minProteinPercent', 'maxProteinPercent', 'minFatPercent', 'maxFatPercent', 'minCarbsPercent', 'maxCarbsPercent', 'metaInformation', 'intolerances', 'sort', 'sortDirection', 'offset', 'number'], _OptionalParams),
+    QS = lists:flatten([])++openapi_utils:optional_params(['query', 'addChildren', 'minProteinPercent', 'maxProteinPercent', 'minFatPercent', 'maxFatPercent', 'minCarbsPercent', 'maxCarbsPercent', 'metaInformation', 'intolerances', 'sort', 'sortDirection', 'offset', 'number', 'language'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),

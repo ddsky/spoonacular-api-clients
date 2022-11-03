@@ -2,7 +2,7 @@
 
 WWW::OpenAPIClient::Role - a Moose role for the spoonacular API
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -233,6 +233,7 @@ cpanm --quiet --no-interactive Class::Accessor Test::Exception Test::More Log::A
 
 To load the API packages:
 ```perl
+use WWW::OpenAPIClient::DefaultApi;
 use WWW::OpenAPIClient::IngredientsApi;
 use WWW::OpenAPIClient::MealPlanningApi;
 use WWW::OpenAPIClient::MenuItemsApi;
@@ -261,6 +262,8 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseIngredientsI
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
+use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest;
+use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest1;
 use WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner;
 use WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response;
@@ -391,6 +394,11 @@ use WWW::OpenAPIClient::Object::SearchRecipes200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByNutrients200ResponseInner;
+use WWW::OpenAPIClient::Object::SearchRestaurants200Response;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInner;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddress;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
@@ -408,6 +416,7 @@ use lib 'lib';
 use strict;
 use warnings;
 # load the API package
+use WWW::OpenAPIClient::DefaultApi;
 use WWW::OpenAPIClient::IngredientsApi;
 use WWW::OpenAPIClient::MealPlanningApi;
 use WWW::OpenAPIClient::MenuItemsApi;
@@ -433,6 +442,8 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseIngredientsI
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
+use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest;
+use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest1;
 use WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner;
 use WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response;
@@ -563,6 +574,11 @@ use WWW::OpenAPIClient::Object::SearchRecipes200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByNutrients200ResponseInner;
+use WWW::OpenAPIClient::Object::SearchRestaurants200Response;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInner;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddress;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours;
+use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
@@ -574,24 +590,24 @@ use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
 use Data::Dumper;
 
 
-my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
+my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
     # Configure API key authorization: apiKeyScheme
     api_key => {'x-api-key' => 'YOUR_API_KEY'},
     # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $query = burger; # string | The (natural language) search query.
-my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-my $meta_information = false; # boolean | Whether to return more meta information about the ingredients.
-my $intolerances = egg; # string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+my $analyze_recipe_request = WWW::OpenAPIClient::Object::AnalyzeRecipeRequest->new(); # AnalyzeRecipeRequest | Example request body.
+my $language = en; # string | The input language, either \"en\" or \"de\".
+my $include_nutrition = false; # boolean | Whether nutrition data should be added to correctly parsed ingredients.
+my $include_taste = false; # boolean | Whether taste data should be added to correctly parsed ingredients.
 
 eval {
-    my $result = $api_instance->autocomplete_ingredient_search(query => $query, number => $number, meta_information => $meta_information, intolerances => $intolerances);
+    my $result = $api_instance->analyze_recipe(analyze_recipe_request => $analyze_recipe_request, language => $language, include_nutrition => $include_nutrition, include_taste => $include_taste);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling IngredientsApi->autocomplete_ingredient_search: $@\n";
+    warn "Exception when calling DefaultApi->analyze_recipe: $@\n";
 }
 
 ```
@@ -602,6 +618,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**analyze_recipe**](docs/DefaultApi.md#analyze_recipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**search_restaurants**](docs/DefaultApi.md#search_restaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**autocomplete_ingredient_search**](docs/IngredientsApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**compute_ingredient_amount**](docs/IngredientsApi.md#compute_ingredient_amount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *IngredientsApi* | [**get_ingredient_information**](docs/IngredientsApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -718,6 +736,8 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [WWW::OpenAPIClient::Object::AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
+ - [WWW::OpenAPIClient::Object::AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -848,6 +868,11 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInner](docs/SearchRecipesByIngredients200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::SearchRecipesByNutrients200ResponseInner](docs/SearchRecipesByNutrients200ResponseInner.md)
+ - [WWW::OpenAPIClient::Object::SearchRestaurants200Response](docs/SearchRestaurants200Response.md)
+ - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInner](docs/SearchRestaurants200ResponseRestaurantsInner.md)
+ - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddress](docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)

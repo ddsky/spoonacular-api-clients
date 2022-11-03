@@ -14,6 +14,8 @@ export * from './AnalyzeRecipeInstructions200ResponseIngredientsInner';
 export * from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
 export * from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 export * from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+export * from './AnalyzeRecipeRequest';
+export * from './AnalyzeRecipeRequest1';
 export * from './AutocompleteIngredientSearch200ResponseInner';
 export * from './AutocompleteMenuItemSearch200Response';
 export * from './AutocompleteProductSearch200Response';
@@ -144,6 +146,11 @@ export * from './SearchRecipes200ResponseResultsInner';
 export * from './SearchRecipesByIngredients200ResponseInner';
 export * from './SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
 export * from './SearchRecipesByNutrients200ResponseInner';
+export * from './SearchRestaurants200Response';
+export * from './SearchRestaurants200ResponseRestaurantsInner';
+export * from './SearchRestaurants200ResponseRestaurantsInnerAddress';
+export * from './SearchRestaurants200ResponseRestaurantsInnerLocalHours';
+export * from './SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 export * from './SearchSiteContent200Response';
 export * from './SearchSiteContent200ResponseArticlesInner';
 export * from './SearchSiteContent200ResponseGroceryProductsInner';
@@ -167,6 +174,8 @@ import { AnalyzeRecipeInstructions200ResponseIngredientsInner } from './AnalyzeR
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import { AnalyzeRecipeRequest } from './AnalyzeRecipeRequest';
+import { AnalyzeRecipeRequest1 } from './AnalyzeRecipeRequest1';
 import { AutocompleteIngredientSearch200ResponseInner } from './AutocompleteIngredientSearch200ResponseInner';
 import { AutocompleteMenuItemSearch200Response } from './AutocompleteMenuItemSearch200Response';
 import { AutocompleteProductSearch200Response } from './AutocompleteProductSearch200Response';
@@ -297,6 +306,11 @@ import { SearchRecipes200ResponseResultsInner } from './SearchRecipes200Response
 import { SearchRecipesByIngredients200ResponseInner } from './SearchRecipesByIngredients200ResponseInner';
 import { SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner } from './SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
 import { SearchRecipesByNutrients200ResponseInner } from './SearchRecipesByNutrients200ResponseInner';
+import { SearchRestaurants200Response } from './SearchRestaurants200Response';
+import { SearchRestaurants200ResponseRestaurantsInner } from './SearchRestaurants200ResponseRestaurantsInner';
+import { SearchRestaurants200ResponseRestaurantsInnerAddress } from './SearchRestaurants200ResponseRestaurantsInnerAddress';
+import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from './SearchRestaurants200ResponseRestaurantsInnerLocalHours';
+import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from './SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import { SearchSiteContent200Response } from './SearchSiteContent200Response';
 import { SearchSiteContent200ResponseArticlesInner } from './SearchSiteContent200ResponseArticlesInner';
 import { SearchSiteContent200ResponseGroceryProductsInner } from './SearchSiteContent200ResponseGroceryProductsInner';
@@ -343,6 +357,8 @@ let typeMap: {[index: string]: any} = {
     "AnalyzeRecipeInstructions200ResponseParsedInstructionsInner": AnalyzeRecipeInstructions200ResponseParsedInstructionsInner,
     "AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner": AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner,
     "AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner": AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner,
+    "AnalyzeRecipeRequest": AnalyzeRecipeRequest,
+    "AnalyzeRecipeRequest1": AnalyzeRecipeRequest1,
     "AutocompleteIngredientSearch200ResponseInner": AutocompleteIngredientSearch200ResponseInner,
     "AutocompleteMenuItemSearch200Response": AutocompleteMenuItemSearch200Response,
     "AutocompleteProductSearch200Response": AutocompleteProductSearch200Response,
@@ -473,6 +489,11 @@ let typeMap: {[index: string]: any} = {
     "SearchRecipesByIngredients200ResponseInner": SearchRecipesByIngredients200ResponseInner,
     "SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner": SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner,
     "SearchRecipesByNutrients200ResponseInner": SearchRecipesByNutrients200ResponseInner,
+    "SearchRestaurants200Response": SearchRestaurants200Response,
+    "SearchRestaurants200ResponseRestaurantsInner": SearchRestaurants200ResponseRestaurantsInner,
+    "SearchRestaurants200ResponseRestaurantsInnerAddress": SearchRestaurants200ResponseRestaurantsInnerAddress,
+    "SearchRestaurants200ResponseRestaurantsInnerLocalHours": SearchRestaurants200ResponseRestaurantsInnerLocalHours,
+    "SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational": SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational,
     "SearchSiteContent200Response": SearchSiteContent200Response,
     "SearchSiteContent200ResponseArticlesInner": SearchSiteContent200ResponseArticlesInner,
     "SearchSiteContent200ResponseGroceryProductsInner": SearchSiteContent200ResponseGroceryProductsInner,

@@ -18,8 +18,9 @@ namespace com.spoonacular
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param>
         /// <param name="metaInformation">Whether to return more meta information about the ingredients.</param>
         /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;.</param>
         /// <returns>List&lt;AutocompleteIngredientSearch200ResponseInner&gt;</returns>
-        List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances);
+        List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances, string language);
         /// <summary>
         /// Compute Ingredient Amount Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
         /// </summary>
@@ -66,8 +67,9 @@ namespace com.spoonacular
         /// <param name="sortDirection">The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).</param>
         /// <param name="offset">The number of results to skip (between 0 and 900).</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;.</param>
         /// <returns>IngredientSearch200Response</returns>
-        IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number);
+        IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number, string language);
         /// <summary>
         /// Ingredients by ID Image Visualize a recipe&#39;s ingredient list.
         /// </summary>
@@ -151,8 +153,9 @@ namespace com.spoonacular
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param>
         /// <param name="metaInformation">Whether to return more meta information about the ingredients.</param>
         /// <param name="intolerances">A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;.</param>
         /// <returns>List&lt;AutocompleteIngredientSearch200ResponseInner&gt;</returns>
-        public List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances)
+        public List<AutocompleteIngredientSearch200ResponseInner> AutocompleteIngredientSearch (string query, int? number, bool? metaInformation, string intolerances, string language)
         {
             
 
@@ -169,6 +172,7 @@ namespace com.spoonacular
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
  if (metaInformation != null) queryParams.Add("metaInformation", ApiClient.ParameterToString(metaInformation)); // query parameter
  if (intolerances != null) queryParams.Add("intolerances", ApiClient.ParameterToString(intolerances)); // query parameter
+ if (language != null) queryParams.Add("language", ApiClient.ParameterToString(language)); // query parameter
                                     
             // authentication setting, if any
             String[] authSettings = new String[] { "apiKeyScheme" };
@@ -365,8 +369,9 @@ namespace com.spoonacular
         /// <param name="sortDirection">The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).</param>
         /// <param name="offset">The number of results to skip (between 0 and 900).</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10.</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;.</param>
         /// <returns>IngredientSearch200Response</returns>
-        public IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number)
+        public IngredientSearch200Response IngredientSearch (string query, bool? addChildren, decimal? minProteinPercent, decimal? maxProteinPercent, decimal? minFatPercent, decimal? maxFatPercent, decimal? minCarbsPercent, decimal? maxCarbsPercent, bool? metaInformation, string intolerances, string sort, string sortDirection, int? offset, int? number, string language)
         {
             
 
@@ -393,6 +398,7 @@ namespace com.spoonacular
  if (sortDirection != null) queryParams.Add("sortDirection", ApiClient.ParameterToString(sortDirection)); // query parameter
  if (offset != null) queryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
  if (number != null) queryParams.Add("number", ApiClient.ParameterToString(number)); // query parameter
+ if (language != null) queryParams.Add("language", ApiClient.ParameterToString(language)); // query parameter
                                     
             // authentication setting, if any
             String[] authSettings = new String[] { "apiKeyScheme" };

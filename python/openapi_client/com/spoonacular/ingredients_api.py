@@ -1,7 +1,7 @@
 """
     spoonacular API
 
-    The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.  # noqa: E501
+    The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.  # noqa: E501
 
     The version of the OpenAPI document: 1.1
     Contact: mail@spoonacular.com
@@ -59,11 +59,13 @@ class IngredientsApi(object):
                     'number',
                     'meta_information',
                     'intolerances',
+                    'language',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'language',
                 ],
                 'validation': [
                     'number',
@@ -78,6 +80,11 @@ class IngredientsApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('language',): {
+
+                        "EN": "en",
+                        "DE": "de"
+                    },
                 },
                 'openapi_types': {
                     'query':
@@ -88,18 +95,22 @@ class IngredientsApi(object):
                         (bool,),
                     'intolerances':
                         (str,),
+                    'language':
+                        (str,),
                 },
                 'attribute_map': {
                     'query': 'query',
                     'number': 'number',
                     'meta_information': 'metaInformation',
                     'intolerances': 'intolerances',
+                    'language': 'language',
                 },
                 'location_map': {
                     'query': 'query',
                     'number': 'query',
                     'meta_information': 'query',
                     'intolerances': 'query',
+                    'language': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -370,11 +381,13 @@ class IngredientsApi(object):
                     'sort_direction',
                     'offset',
                     'number',
+                    'language',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'language',
                 ],
                 'validation': [
                     'offset',
@@ -395,6 +408,11 @@ class IngredientsApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('language',): {
+
+                        "EN": "en",
+                        "DE": "de"
+                    },
                 },
                 'openapi_types': {
                     'query':
@@ -425,6 +443,8 @@ class IngredientsApi(object):
                         (int,),
                     'number':
                         (int,),
+                    'language':
+                        (str,),
                 },
                 'attribute_map': {
                     'query': 'query',
@@ -441,6 +461,7 @@ class IngredientsApi(object):
                     'sort_direction': 'sortDirection',
                     'offset': 'offset',
                     'number': 'number',
+                    'language': 'language',
                 },
                 'location_map': {
                     'query': 'query',
@@ -457,6 +478,7 @@ class IngredientsApi(object):
                     'sort_direction': 'query',
                     'offset': 'query',
                     'number': 'query',
+                    'language': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -684,6 +706,7 @@ class IngredientsApi(object):
             number (int): The maximum number of items to return (between 1 and 100). Defaults to 10.. [optional] if omitted the server will use the default value of 10
             meta_information (bool): Whether to return more meta information about the ingredients.. [optional]
             intolerances (str): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.. [optional]
+            language (str): The language of the input. Either 'en' or 'de'.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1119,6 +1142,7 @@ class IngredientsApi(object):
             sort_direction (str): The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).. [optional]
             offset (int): The number of results to skip (between 0 and 900).. [optional]
             number (int): The maximum number of items to return (between 1 and 100). Defaults to 10.. [optional] if omitted the server will use the default value of 10
+            language (str): The language of the input. Either 'en' or 'de'.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -21,6 +21,7 @@ Method | HTTP request | Description
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
     intolerances: (NSString*) intolerances
+    language: (NSString*) language
         completionHandler: (void (^)(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error)) handler;
 ```
 
@@ -42,6 +43,7 @@ NSString* query = burger; // The (natural language) search query. (optional)
 NSNumber* number = 10; // The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
 NSNumber* metaInformation = false; // Whether to return more meta information about the ingredients. (optional)
 NSString* intolerances = egg; // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
 
 OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
@@ -50,6 +52,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
               number:number
               metaInformation:metaInformation
               intolerances:intolerances
+              language:language
           completionHandler: ^(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -68,6 +71,7 @@ Name | Type | Description  | Notes
  **number** | **NSNumber***| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to @10]
  **metaInformation** | **NSNumber***| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **NSString***| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -348,6 +352,7 @@ Name | Type | Description  | Notes
     sortDirection: (NSString*) sortDirection
     offset: (NSNumber*) offset
     number: (NSNumber*) number
+    language: (NSString*) language
         completionHandler: (void (^)(OAIIngredientSearch200Response* output, NSError* error)) handler;
 ```
 
@@ -379,6 +384,7 @@ NSString* sort = calories; // The strategy to sort recipes by. See a full list o
 NSString* sortDirection = asc; // The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
 NSNumber* offset = @56; // The number of results to skip (between 0 and 900). (optional)
 NSNumber* number = 10; // The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
+NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
 
 OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
@@ -397,6 +403,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
               sortDirection:sortDirection
               offset:offset
               number:number
+              language:language
           completionHandler: ^(OAIIngredientSearch200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -425,6 +432,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **NSString***| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 
  **offset** | **NSNumber***| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **NSNumber***| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to @10]
+ **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 

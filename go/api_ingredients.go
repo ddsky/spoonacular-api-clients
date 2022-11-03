@@ -1,7 +1,7 @@
 /*
 spoonacular API
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
 API version: 1.1
 Contact: mail@spoonacular.com
@@ -31,6 +31,7 @@ type ApiAutocompleteIngredientSearchRequest struct {
 	number *int32
 	metaInformation *bool
 	intolerances *string
+	language *string
 }
 
 // The (natural language) search query.
@@ -54,6 +55,12 @@ func (r ApiAutocompleteIngredientSearchRequest) MetaInformation(metaInformation 
 // A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
 func (r ApiAutocompleteIngredientSearchRequest) Intolerances(intolerances string) ApiAutocompleteIngredientSearchRequest {
 	r.intolerances = &intolerances
+	return r
+}
+
+// The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+func (r ApiAutocompleteIngredientSearchRequest) Language(language string) ApiAutocompleteIngredientSearchRequest {
+	r.language = &language
 	return r
 }
 
@@ -108,6 +115,9 @@ func (a *IngredientsApiService) AutocompleteIngredientSearchExecute(r ApiAutocom
 	}
 	if r.intolerances != nil {
 		localVarQueryParams.Add("intolerances", parameterToString(*r.intolerances, ""))
+	}
+	if r.language != nil {
+		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -721,6 +731,7 @@ type ApiIngredientSearchRequest struct {
 	sortDirection *string
 	offset *int32
 	number *int32
+	language *string
 }
 
 // The (natural language) search query.
@@ -807,6 +818,12 @@ func (r ApiIngredientSearchRequest) Number(number int32) ApiIngredientSearchRequ
 	return r
 }
 
+// The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+func (r ApiIngredientSearchRequest) Language(language string) ApiIngredientSearchRequest {
+	r.language = &language
+	return r
+}
+
 func (r ApiIngredientSearchRequest) Execute() (*IngredientSearch200Response, *http.Response, error) {
 	return r.ApiService.IngredientSearchExecute(r)
 }
@@ -888,6 +905,9 @@ func (a *IngredientsApiService) IngredientSearchExecute(r ApiIngredientSearchReq
 	}
 	if r.number != nil {
 		localVarQueryParams.Add("number", parameterToString(*r.number, ""))
+	}
+	if r.language != nil {
+		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

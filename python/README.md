@@ -1,5 +1,5 @@
 # openapi-client
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -52,14 +52,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import openapi_client
 from pprint import pprint
-from com.spoonacular import ingredients_api
-from openapi_client.model.autocomplete_ingredient_search200_response_inner import AutocompleteIngredientSearch200ResponseInner
-from openapi_client.model.compute_ingredient_amount200_response import ComputeIngredientAmount200Response
-from openapi_client.model.get_ingredient_information200_response import GetIngredientInformation200Response
-from openapi_client.model.get_ingredient_substitutes200_response import GetIngredientSubstitutes200Response
-from openapi_client.model.ingredient_search200_response import IngredientSearch200Response
-from openapi_client.model.map_ingredients_to_grocery_products200_response_inner import MapIngredientsToGroceryProducts200ResponseInner
-from openapi_client.model.map_ingredients_to_grocery_products_request import MapIngredientsToGroceryProductsRequest
+from com.spoonacular import default_api
+from openapi_client.model.analyze_recipe_request import AnalyzeRecipeRequest
+from openapi_client.model.analyze_recipe_request1 import AnalyzeRecipeRequest1
+from openapi_client.model.search_restaurants200_response import SearchRestaurants200Response
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
@@ -81,18 +77,22 @@ configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = ingredients_api.IngredientsApi(api_client)
-    query = "burger" # str | The (natural language) search query. (optional)
-    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-    meta_information = False # bool | Whether to return more meta information about the ingredients. (optional)
-    intolerances = "egg" # str | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+    api_instance = default_api.DefaultApi(api_client)
+    analyze_recipe_request = AnalyzeRecipeRequest(
+        language="en",
+        include_nutrition=False,
+        include_taste=False,
+    ) # AnalyzeRecipeRequest | Example request body.
+    language = "en" # str | The input language, either \"en\" or \"de\". (optional)
+    include_nutrition = False # bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
+    include_taste = False # bool | Whether taste data should be added to correctly parsed ingredients. (optional)
 
     try:
-        # Autocomplete Ingredient Search
-        api_response = api_instance.autocomplete_ingredient_search(query=query, number=number, meta_information=meta_information, intolerances=intolerances)
+        # Analyze Recipe
+        api_response = api_instance.analyze_recipe(analyze_recipe_request, language=language, include_nutrition=include_nutrition, include_taste=include_taste)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling IngredientsApi->autocomplete_ingredient_search: %s\n" % e)
+        print("Exception when calling DefaultApi->analyze_recipe: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -101,6 +101,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**analyze_recipe**](docs/DefaultApi.md#analyze_recipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**search_restaurants**](docs/DefaultApi.md#search_restaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**autocomplete_ingredient_search**](docs/IngredientsApi.md#autocomplete_ingredient_search) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**compute_ingredient_amount**](docs/IngredientsApi.md#compute_ingredient_amount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *IngredientsApi* | [**get_ingredient_information**](docs/IngredientsApi.md#get_ingredient_information) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -218,6 +220,8 @@ Class | Method | HTTP request | Description
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
+ - [AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -348,6 +352,11 @@ Class | Method | HTTP request | Description
  - [SearchRecipesByIngredients200ResponseInner](docs/SearchRecipesByIngredients200ResponseInner.md)
  - [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [SearchRecipesByNutrients200ResponseInner](docs/SearchRecipesByNutrients200ResponseInner.md)
+ - [SearchRestaurants200Response](docs/SearchRestaurants200Response.md)
+ - [SearchRestaurants200ResponseRestaurantsInner](docs/SearchRestaurants200ResponseRestaurantsInner.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerAddress](docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
  - [SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)

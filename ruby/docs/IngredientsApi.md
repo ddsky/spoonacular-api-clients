@@ -41,7 +41,8 @@ opts = {
   query: 'burger', # String | The (natural language) search query.
   number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
   meta_information: false, # Boolean | Whether to return more meta information about the ingredients.
-  intolerances: 'egg' # String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+  intolerances: 'egg', # String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+  language: 'en' # String | The language of the input. Either 'en' or 'de'.
 }
 
 begin
@@ -79,6 +80,7 @@ end
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 | **meta_information** | **Boolean** | Whether to return more meta information about the ingredients. | [optional] |
 | **intolerances** | **String** | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
@@ -428,7 +430,8 @@ opts = {
   sort: 'calories', # String | The strategy to sort recipes by. See a full list of supported sorting options.
   sort_direction: 'asc', # String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
   offset: 56, # Integer | The number of results to skip (between 0 and 900).
-  number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
+  language: 'en' # String | The language of the input. Either 'en' or 'de'.
 }
 
 begin
@@ -476,6 +479,7 @@ end
 | **sort_direction** | **String** | The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |
 | **offset** | **Integer** | The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
+| **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 

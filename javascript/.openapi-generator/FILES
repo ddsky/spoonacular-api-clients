@@ -19,6 +19,8 @@ docs/AnalyzeRecipeInstructions200ResponseIngredientsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
+docs/AnalyzeRecipeRequest.md
+docs/AnalyzeRecipeRequest1.md
 docs/AutocompleteIngredientSearch200ResponseInner.md
 docs/AutocompleteMenuItemSearch200Response.md
 docs/AutocompleteProductSearch200Response.md
@@ -38,6 +40,7 @@ docs/ConnectUser200Response.md
 docs/ConnectUserRequest.md
 docs/ConvertAmounts200Response.md
 docs/CreateRecipeCard200Response.md
+docs/DefaultApi.md
 docs/DeleteFromMealPlanRequest.md
 docs/DetectFoodInText200Response.md
 docs/DetectFoodInText200ResponseAnnotationsInner.md
@@ -155,6 +158,11 @@ docs/SearchRecipes200ResponseResultsInner.md
 docs/SearchRecipesByIngredients200ResponseInner.md
 docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md
 docs/SearchRecipesByNutrients200ResponseInner.md
+docs/SearchRestaurants200Response.md
+docs/SearchRestaurants200ResponseRestaurantsInner.md
+docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
+docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
+docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
 docs/SearchSiteContent200ResponseGroceryProductsInner.md
@@ -182,6 +190,8 @@ src/com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeInstruction
 src/com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.js
+src/com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeRequest.js
+src/com.spoonacular.client/com.spoonacular.client.model/AnalyzeRecipeRequest1.js
 src/com.spoonacular.client/com.spoonacular.client.model/AutocompleteIngredientSearch200ResponseInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/AutocompleteMenuItemSearch200Response.js
 src/com.spoonacular.client/com.spoonacular.client.model/AutocompleteProductSearch200Response.js
@@ -312,12 +322,18 @@ src/com.spoonacular.client/com.spoonacular.client.model/SearchRecipes200Response
 src/com.spoonacular.client/com.spoonacular.client.model/SearchRecipesByIngredients200ResponseInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/SearchRecipesByNutrients200ResponseInner.js
+src/com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200Response.js
+src/com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInner.js
+src/com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerAddress.js
+src/com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.js
+src/com.spoonacular.client/com.spoonacular.client.model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.js
 src/com.spoonacular.client/com.spoonacular.client.model/SearchSiteContent200Response.js
 src/com.spoonacular.client/com.spoonacular.client.model/SearchSiteContent200ResponseArticlesInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/SearchSiteContent200ResponseGroceryProductsInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.js
 src/com.spoonacular.client/com.spoonacular.client.model/SummarizeRecipe200Response.js
 src/com.spoonacular.client/com.spoonacular.client.model/TalkToChatbot200Response.js
+src/com.spoonacular.client/com.spoonacular/DefaultApi.js
 src/com.spoonacular.client/com.spoonacular/IngredientsApi.js
 src/com.spoonacular.client/com.spoonacular/MealPlanningApi.js
 src/com.spoonacular.client/com.spoonacular/MenuItemsApi.js
@@ -326,6 +342,7 @@ src/com.spoonacular.client/com.spoonacular/ProductsApi.js
 src/com.spoonacular.client/com.spoonacular/RecipesApi.js
 src/com.spoonacular.client/com.spoonacular/WineApi.js
 src/com.spoonacular.client/index.js
+test/com.spoonacular.client/api/DefaultApi.spec.js
 test/com.spoonacular.client/api/IngredientsApi.spec.js
 test/com.spoonacular.client/api/MealPlanningApi.spec.js
 test/com.spoonacular.client/api/MenuItemsApi.spec.js
@@ -349,6 +366,8 @@ test/com.spoonacular.client/model/AnalyzeRecipeInstructions200ResponseIngredient
 test/com.spoonacular.client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.spec.js
 test/com.spoonacular.client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.spec.js
 test/com.spoonacular.client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.spec.js
+test/com.spoonacular.client/model/AnalyzeRecipeRequest.spec.js
+test/com.spoonacular.client/model/AnalyzeRecipeRequest1.spec.js
 test/com.spoonacular.client/model/AutocompleteIngredientSearch200ResponseInner.spec.js
 test/com.spoonacular.client/model/AutocompleteMenuItemSearch200Response.spec.js
 test/com.spoonacular.client/model/AutocompleteProductSearch200Response.spec.js
@@ -479,6 +498,11 @@ test/com.spoonacular.client/model/SearchRecipes200ResponseResultsInner.spec.js
 test/com.spoonacular.client/model/SearchRecipesByIngredients200ResponseInner.spec.js
 test/com.spoonacular.client/model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.spec.js
 test/com.spoonacular.client/model/SearchRecipesByNutrients200ResponseInner.spec.js
+test/com.spoonacular.client/model/SearchRestaurants200Response.spec.js
+test/com.spoonacular.client/model/SearchRestaurants200ResponseRestaurantsInner.spec.js
+test/com.spoonacular.client/model/SearchRestaurants200ResponseRestaurantsInnerAddress.spec.js
+test/com.spoonacular.client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.spec.js
+test/com.spoonacular.client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.spec.js
 test/com.spoonacular.client/model/SearchSiteContent200Response.spec.js
 test/com.spoonacular.client/model/SearchSiteContent200ResponseArticlesInner.spec.js
 test/com.spoonacular.client/model/SearchSiteContent200ResponseGroceryProductsInner.spec.js
