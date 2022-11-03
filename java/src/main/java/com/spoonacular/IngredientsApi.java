@@ -1,6 +1,6 @@
 /*
  * spoonacular API
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.1
  * Contact: mail@spoonacular.com
@@ -87,6 +87,7 @@ public class IngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -101,7 +102,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public okhttp3.Call autocompleteIngredientSearchCall(String query, Integer number, Boolean metaInformation, String intolerances, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call autocompleteIngredientSearchCall(String query, Integer number, Boolean metaInformation, String intolerances, String language, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -142,6 +143,10 @@ public class IngredientsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("intolerances", intolerances));
         }
 
+        if (language != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -163,10 +168,10 @@ public class IngredientsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call autocompleteIngredientSearchValidateBeforeCall(String query, Integer number, Boolean metaInformation, String intolerances, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call autocompleteIngredientSearchValidateBeforeCall(String query, Integer number, Boolean metaInformation, String intolerances, String language, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = autocompleteIngredientSearchCall(query, number, metaInformation, intolerances, _callback);
+        okhttp3.Call localVarCall = autocompleteIngredientSearchCall(query, number, metaInformation, intolerances, language, _callback);
         return localVarCall;
 
     }
@@ -178,6 +183,7 @@ public class IngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return Set&lt;AutocompleteIngredientSearch200ResponseInner&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -191,8 +197,8 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch(String query, Integer number, Boolean metaInformation, String intolerances) throws ApiException {
-        ApiResponse<Set<AutocompleteIngredientSearch200ResponseInner>> localVarResp = autocompleteIngredientSearchWithHttpInfo(query, number, metaInformation, intolerances);
+    public Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch(String query, Integer number, Boolean metaInformation, String intolerances, String language) throws ApiException {
+        ApiResponse<Set<AutocompleteIngredientSearch200ResponseInner>> localVarResp = autocompleteIngredientSearchWithHttpInfo(query, number, metaInformation, intolerances, language);
         return localVarResp.getData();
     }
 
@@ -203,6 +209,7 @@ public class IngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return ApiResponse&lt;Set&lt;AutocompleteIngredientSearch200ResponseInner&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -216,8 +223,8 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public ApiResponse<Set<AutocompleteIngredientSearch200ResponseInner>> autocompleteIngredientSearchWithHttpInfo(String query, Integer number, Boolean metaInformation, String intolerances) throws ApiException {
-        okhttp3.Call localVarCall = autocompleteIngredientSearchValidateBeforeCall(query, number, metaInformation, intolerances, null);
+    public ApiResponse<Set<AutocompleteIngredientSearch200ResponseInner>> autocompleteIngredientSearchWithHttpInfo(String query, Integer number, Boolean metaInformation, String intolerances, String language) throws ApiException {
+        okhttp3.Call localVarCall = autocompleteIngredientSearchValidateBeforeCall(query, number, metaInformation, intolerances, language, null);
         Type localVarReturnType = new TypeToken<Set<AutocompleteIngredientSearch200ResponseInner>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -229,6 +236,7 @@ public class IngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -243,9 +251,9 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Ingredient-Search">Autocomplete Ingredient Search Documentation</a>
      */
-    public okhttp3.Call autocompleteIngredientSearchAsync(String query, Integer number, Boolean metaInformation, String intolerances, final ApiCallback<Set<AutocompleteIngredientSearch200ResponseInner>> _callback) throws ApiException {
+    public okhttp3.Call autocompleteIngredientSearchAsync(String query, Integer number, Boolean metaInformation, String intolerances, String language, final ApiCallback<Set<AutocompleteIngredientSearch200ResponseInner>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = autocompleteIngredientSearchValidateBeforeCall(query, number, metaInformation, intolerances, _callback);
+        okhttp3.Call localVarCall = autocompleteIngredientSearchValidateBeforeCall(query, number, metaInformation, intolerances, language, _callback);
         Type localVarReturnType = new TypeToken<Set<AutocompleteIngredientSearch200ResponseInner>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -907,6 +915,7 @@ public class IngredientsApi {
      * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -921,7 +930,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
      */
-    public okhttp3.Call ingredientSearchCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ingredientSearchCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1002,6 +1011,10 @@ public class IngredientsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("number", number));
         }
 
+        if (language != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1023,10 +1036,10 @@ public class IngredientsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ingredientSearchValidateBeforeCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ingredientSearchValidateBeforeCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = ingredientSearchCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, _callback);
+        okhttp3.Call localVarCall = ingredientSearchCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, _callback);
         return localVarCall;
 
     }
@@ -1048,6 +1061,7 @@ public class IngredientsApi {
      * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return IngredientSearch200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1061,8 +1075,8 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
      */
-    public IngredientSearch200Response ingredientSearch(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number) throws ApiException {
-        ApiResponse<IngredientSearch200Response> localVarResp = ingredientSearchWithHttpInfo(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+    public IngredientSearch200Response ingredientSearch(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language) throws ApiException {
+        ApiResponse<IngredientSearch200Response> localVarResp = ingredientSearchWithHttpInfo(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language);
         return localVarResp.getData();
     }
 
@@ -1083,6 +1097,7 @@ public class IngredientsApi {
      * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return ApiResponse&lt;IngredientSearch200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1096,8 +1111,8 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
      */
-    public ApiResponse<IngredientSearch200Response> ingredientSearchWithHttpInfo(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number) throws ApiException {
-        okhttp3.Call localVarCall = ingredientSearchValidateBeforeCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, null);
+    public ApiResponse<IngredientSearch200Response> ingredientSearchWithHttpInfo(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language) throws ApiException {
+        okhttp3.Call localVarCall = ingredientSearchValidateBeforeCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, null);
         Type localVarReturnType = new TypeToken<IngredientSearch200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1119,6 +1134,7 @@ public class IngredientsApi {
      * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1133,9 +1149,9 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredient-Search">Ingredient Search Documentation</a>
      */
-    public okhttp3.Call ingredientSearchAsync(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, final ApiCallback<IngredientSearch200Response> _callback) throws ApiException {
+    public okhttp3.Call ingredientSearchAsync(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, final ApiCallback<IngredientSearch200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ingredientSearchValidateBeforeCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, _callback);
+        okhttp3.Call localVarCall = ingredientSearchValidateBeforeCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, _callback);
         Type localVarReturnType = new TypeToken<IngredientSearch200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

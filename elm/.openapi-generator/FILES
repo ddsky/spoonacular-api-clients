@@ -4,6 +4,7 @@ README.md
 elm.json
 src/Api.elm
 src/Api/Time.elm
+src/com/spoonacular/Default.elm
 src/com/spoonacular/Ingredients.elm
 src/com/spoonacular/MealPlanning.elm
 src/com/spoonacular/MenuItems.elm

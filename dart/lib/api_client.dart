@@ -224,6 +224,10 @@ class ApiClient {
           return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.fromJson(value);
         case 'AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner':
           return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.fromJson(value);
+        case 'AnalyzeRecipeRequest':
+          return AnalyzeRecipeRequest.fromJson(value);
+        case 'AnalyzeRecipeRequest1':
+          return AnalyzeRecipeRequest1.fromJson(value);
         case 'AutocompleteIngredientSearch200ResponseInner':
           return AutocompleteIngredientSearch200ResponseInner.fromJson(value);
         case 'AutocompleteMenuItemSearch200Response':
@@ -484,6 +488,16 @@ class ApiClient {
           return SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.fromJson(value);
         case 'SearchRecipesByNutrients200ResponseInner':
           return SearchRecipesByNutrients200ResponseInner.fromJson(value);
+        case 'SearchRestaurants200Response':
+          return SearchRestaurants200Response.fromJson(value);
+        case 'SearchRestaurants200ResponseRestaurantsInner':
+          return SearchRestaurants200ResponseRestaurantsInner.fromJson(value);
+        case 'SearchRestaurants200ResponseRestaurantsInnerAddress':
+          return SearchRestaurants200ResponseRestaurantsInnerAddress.fromJson(value);
+        case 'SearchRestaurants200ResponseRestaurantsInnerLocalHours':
+          return SearchRestaurants200ResponseRestaurantsInnerLocalHours.fromJson(value);
+        case 'SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational':
+          return SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.fromJson(value);
         case 'SearchSiteContent200Response':
           return SearchSiteContent200Response.fromJson(value);
         case 'SearchSiteContent200ResponseArticlesInner':

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## autocompleteIngredientSearch
 
-> Set&lt;AutocompleteIngredientSearch200ResponseInner&gt; autocompleteIngredientSearch(query, number, metaInformation, intolerances)
+> Set&lt;AutocompleteIngredientSearch200ResponseInner&gt; autocompleteIngredientSearch(query, number, metaInformation, intolerances, language)
 
 Autocomplete Ingredient Search
 
@@ -35,8 +35,9 @@ String query = burger; // String | The (natural language) search query.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 Boolean metaInformation = false; // Boolean | Whether to return more meta information about the ingredients.
 String intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+String language = en; // String | The language of the input. Either 'en' or 'de'.
 try {
-    Set<AutocompleteIngredientSearch200ResponseInner> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
+    Set<AutocompleteIngredientSearch200ResponseInner> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances, language);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#autocompleteIngredientSearch");
@@ -53,6 +54,7 @@ Name | Type | Description  | Notes
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **Boolean**| Whether to return more meta information about the ingredients. | [optional] [default to null]
  **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
+ **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
 
 ### Return type
 
@@ -264,7 +266,7 @@ Name | Type | Description  | Notes
 
 ## ingredientSearch
 
-> IngredientSearch200Response ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
+> IngredientSearch200Response ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language)
 
 Ingredient Search
 
@@ -291,8 +293,9 @@ String sort = calories; // String | The strategy to sort recipes by. See a full 
 String sortDirection = asc; // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
+String language = en; // String | The language of the input. Either 'en' or 'de'.
 try {
-    IngredientSearch200Response result = apiInstance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+    IngredientSearch200Response result = apiInstance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#ingredientSearch");
@@ -319,6 +322,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] [default to null]
  **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
 
 ### Return type
 

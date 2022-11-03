@@ -58,21 +58,21 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import com.spoonacular.IngredientsApi;
+import com.spoonacular.DefaultApi;
 
-public class IngredientsApiExample {
+public class DefaultApiExample {
 
     public static void main(String[] args) {
-        IngredientsApi apiInstance = new IngredientsApi();
-        String query = burger; // String | The (natural language) search query.
-        Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-        Boolean metaInformation = false; // Boolean | Whether to return more meta information about the ingredients.
-        String intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+        DefaultApi apiInstance = new DefaultApi();
+        AnalyzeRecipeRequest analyzeRecipeRequest = new AnalyzeRecipeRequest(); // AnalyzeRecipeRequest | Example request body.
+        String language = en; // String | The input language, either \"en\" or \"de\".
+        Boolean includeNutrition = false; // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
+        Boolean includeTaste = false; // Boolean | Whether taste data should be added to correctly parsed ingredients.
         try {
-            Set<AutocompleteIngredientSearch200ResponseInner> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
+            Object result = apiInstance.analyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling IngredientsApi#autocompleteIngredientSearch");
+            System.err.println("Exception when calling DefaultApi#analyzeRecipe");
             e.printStackTrace();
         }
     }
@@ -86,6 +86,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**analyzeRecipe**](docs/DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**searchRestaurants**](docs/DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**autocompleteIngredientSearch**](docs/IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**computeIngredientAmount**](docs/IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *IngredientsApi* | [**getIngredientInformation**](docs/IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -203,6 +205,8 @@ Class | Method | HTTP request | Description
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
+ - [AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -333,6 +337,11 @@ Class | Method | HTTP request | Description
  - [SearchRecipesByIngredients200ResponseInner](docs/SearchRecipesByIngredients200ResponseInner.md)
  - [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [SearchRecipesByNutrients200ResponseInner](docs/SearchRecipesByNutrients200ResponseInner.md)
+ - [SearchRestaurants200Response](docs/SearchRestaurants200Response.md)
+ - [SearchRestaurants200ResponseRestaurantsInner](docs/SearchRestaurants200ResponseRestaurantsInner.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerAddress](docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
  - [SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)

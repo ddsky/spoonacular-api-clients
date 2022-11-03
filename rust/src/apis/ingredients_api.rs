@@ -1,7 +1,7 @@
 /*
  * spoonacular API
  *
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.1
  * Contact: mail@spoonacular.com
@@ -107,7 +107,7 @@ pub enum VisualizeIngredientsError {
 
 
 /// Autocomplete the entry of an ingredient.
-pub async fn autocomplete_ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, number: Option<i32>, meta_information: Option<bool>, intolerances: Option<&str>) -> Result<Vec<crate::models::AutocompleteIngredientSearch200ResponseInner>, Error<AutocompleteIngredientSearchError>> {
+pub async fn autocomplete_ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, number: Option<i32>, meta_information: Option<bool>, intolerances: Option<&str>, language: Option<&str>) -> Result<Vec<crate::models::AutocompleteIngredientSearch200ResponseInner>, Error<AutocompleteIngredientSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -126,6 +126,9 @@ pub async fn autocomplete_ingredient_search(configuration: &configuration::Confi
     }
     if let Some(ref local_var_str) = intolerances {
         local_var_req_builder = local_var_req_builder.query(&[("intolerances", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = language {
+        local_var_req_builder = local_var_req_builder.query(&[("language", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -311,7 +314,7 @@ pub async fn get_ingredient_substitutes_by_id(configuration: &configuration::Con
 }
 
 /// Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-pub async fn ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, add_children: Option<bool>, min_protein_percent: Option<f32>, max_protein_percent: Option<f32>, min_fat_percent: Option<f32>, max_fat_percent: Option<f32>, min_carbs_percent: Option<f32>, max_carbs_percent: Option<f32>, meta_information: Option<bool>, intolerances: Option<&str>, sort: Option<&str>, sort_direction: Option<&str>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::IngredientSearch200Response, Error<IngredientSearchError>> {
+pub async fn ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, add_children: Option<bool>, min_protein_percent: Option<f32>, max_protein_percent: Option<f32>, min_fat_percent: Option<f32>, max_fat_percent: Option<f32>, min_carbs_percent: Option<f32>, max_carbs_percent: Option<f32>, meta_information: Option<bool>, intolerances: Option<&str>, sort: Option<&str>, sort_direction: Option<&str>, offset: Option<i32>, number: Option<i32>, language: Option<&str>) -> Result<crate::models::IngredientSearch200Response, Error<IngredientSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -360,6 +363,9 @@ pub async fn ingredient_search(configuration: &configuration::Configuration, que
     }
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = language {
+        local_var_req_builder = local_var_req_builder.query(&[("language", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

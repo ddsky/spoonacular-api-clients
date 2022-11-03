@@ -1,7 +1,7 @@
 --[[
   spoonacular API
 
-  The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+  The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
   The version of the OpenAPI document: 1.1
   Contact: mail@spoonacular.com
@@ -51,13 +51,13 @@ local function new_ingredients_api(authority, basePath, schemes)
 	}, ingredients_api_mt)
 end
 
-function ingredients_api:autocomplete_ingredient_search(query, Number_, meta_information, intolerances)
+function ingredients_api:autocomplete_ingredient_search(query, Number_, meta_information, intolerances, language)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/food/ingredients/autocomplete?query=%s&number=%s&metaInformation=%s&intolerances=%s",
-			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(meta_information), http_util.encodeURIComponent(intolerances));
+		path = string.format("%s/food/ingredients/autocomplete?query=%s&number=%s&metaInformation=%s&intolerances=%s&language=%s",
+			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(meta_information), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(language));
 	})
 
 	-- set HTTP verb
@@ -304,13 +304,13 @@ function ingredients_api:get_ingredient_substitutes_by_id(id)
 	end
 end
 
-function ingredients_api:ingredient_search(query, add_children, min_protein_percent, max_protein_percent, min_fat_percent, max_fat_percent, min_carbs_percent, max_carbs_percent, meta_information, intolerances, sort, sort_direction, offset, Number_)
+function ingredients_api:ingredient_search(query, add_children, min_protein_percent, max_protein_percent, min_fat_percent, max_fat_percent, min_carbs_percent, max_carbs_percent, meta_information, intolerances, sort, sort_direction, offset, Number_, language)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/food/ingredients/search?query=%s&addChildren=%s&minProteinPercent=%s&maxProteinPercent=%s&minFatPercent=%s&maxFatPercent=%s&minCarbsPercent=%s&maxCarbsPercent=%s&metaInformation=%s&intolerances=%s&sort=%s&sortDirection=%s&offset=%s&number=%s",
-			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(add_children), http_util.encodeURIComponent(min_protein_percent), http_util.encodeURIComponent(max_protein_percent), http_util.encodeURIComponent(min_fat_percent), http_util.encodeURIComponent(max_fat_percent), http_util.encodeURIComponent(min_carbs_percent), http_util.encodeURIComponent(max_carbs_percent), http_util.encodeURIComponent(meta_information), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(sort), http_util.encodeURIComponent(sort_direction), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_));
+		path = string.format("%s/food/ingredients/search?query=%s&addChildren=%s&minProteinPercent=%s&maxProteinPercent=%s&minFatPercent=%s&maxFatPercent=%s&minCarbsPercent=%s&maxCarbsPercent=%s&metaInformation=%s&intolerances=%s&sort=%s&sortDirection=%s&offset=%s&number=%s&language=%s",
+			self.basePath, http_util.encodeURIComponent(query), http_util.encodeURIComponent(add_children), http_util.encodeURIComponent(min_protein_percent), http_util.encodeURIComponent(max_protein_percent), http_util.encodeURIComponent(min_fat_percent), http_util.encodeURIComponent(max_fat_percent), http_util.encodeURIComponent(min_carbs_percent), http_util.encodeURIComponent(max_carbs_percent), http_util.encodeURIComponent(meta_information), http_util.encodeURIComponent(intolerances), http_util.encodeURIComponent(sort), http_util.encodeURIComponent(sort_direction), http_util.encodeURIComponent(offset), http_util.encodeURIComponent(Number_), http_util.encodeURIComponent(language));
 	})
 
 	-- set HTTP verb

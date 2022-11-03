@@ -2,6 +2,7 @@
 README.md
 build.gradle
 src/main/groovy/com/spoonacular/ApiUtils.groovy
+src/main/groovy/com/spoonacular/DefaultApi.groovy
 src/main/groovy/com/spoonacular/IngredientsApi.groovy
 src/main/groovy/com/spoonacular/MealPlanningApi.groovy
 src/main/groovy/com/spoonacular/MenuItemsApi.groovy
@@ -25,6 +26,8 @@ src/main/groovy/com/spoonacular/client/model/AnalyzeRecipeInstructions200Respons
 src/main/groovy/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.groovy
 src/main/groovy/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.groovy
 src/main/groovy/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.groovy
+src/main/groovy/com/spoonacular/client/model/AnalyzeRecipeRequest.groovy
+src/main/groovy/com/spoonacular/client/model/AnalyzeRecipeRequest1.groovy
 src/main/groovy/com/spoonacular/client/model/AutocompleteIngredientSearch200ResponseInner.groovy
 src/main/groovy/com/spoonacular/client/model/AutocompleteMenuItemSearch200Response.groovy
 src/main/groovy/com/spoonacular/client/model/AutocompleteProductSearch200Response.groovy
@@ -155,6 +158,11 @@ src/main/groovy/com/spoonacular/client/model/SearchRecipes200ResponseResultsInne
 src/main/groovy/com/spoonacular/client/model/SearchRecipesByIngredients200ResponseInner.groovy
 src/main/groovy/com/spoonacular/client/model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.groovy
 src/main/groovy/com/spoonacular/client/model/SearchRecipesByNutrients200ResponseInner.groovy
+src/main/groovy/com/spoonacular/client/model/SearchRestaurants200Response.groovy
+src/main/groovy/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInner.groovy
+src/main/groovy/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerAddress.groovy
+src/main/groovy/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.groovy
+src/main/groovy/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.groovy
 src/main/groovy/com/spoonacular/client/model/SearchSiteContent200Response.groovy
 src/main/groovy/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInner.groovy
 src/main/groovy/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInner.groovy

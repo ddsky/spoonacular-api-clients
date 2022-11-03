@@ -1,7 +1,7 @@
 =begin
 #spoonacular API
 
-#The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+#The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
 The version of the OpenAPI document: 1.1
 Contact: mail@spoonacular.com
@@ -33,6 +33,8 @@ require 'openapi_client/models/analyze_recipe_instructions200_response_ingredien
 require 'openapi_client/models/analyze_recipe_instructions200_response_parsed_instructions_inner'
 require 'openapi_client/models/analyze_recipe_instructions200_response_parsed_instructions_inner_steps_inner'
 require 'openapi_client/models/analyze_recipe_instructions200_response_parsed_instructions_inner_steps_inner_ingredients_inner'
+require 'openapi_client/models/analyze_recipe_request'
+require 'openapi_client/models/analyze_recipe_request1'
 require 'openapi_client/models/autocomplete_ingredient_search200_response_inner'
 require 'openapi_client/models/autocomplete_menu_item_search200_response'
 require 'openapi_client/models/autocomplete_product_search200_response'
@@ -163,6 +165,11 @@ require 'openapi_client/models/search_recipes200_response_results_inner'
 require 'openapi_client/models/search_recipes_by_ingredients200_response_inner'
 require 'openapi_client/models/search_recipes_by_ingredients200_response_inner_missed_ingredients_inner'
 require 'openapi_client/models/search_recipes_by_nutrients200_response_inner'
+require 'openapi_client/models/search_restaurants200_response'
+require 'openapi_client/models/search_restaurants200_response_restaurants_inner'
+require 'openapi_client/models/search_restaurants200_response_restaurants_inner_address'
+require 'openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours'
+require 'openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours_operational'
 require 'openapi_client/models/search_site_content200_response'
 require 'openapi_client/models/search_site_content200_response_articles_inner'
 require 'openapi_client/models/search_site_content200_response_grocery_products_inner'
@@ -171,6 +178,7 @@ require 'openapi_client/models/summarize_recipe200_response'
 require 'openapi_client/models/talk_to_chatbot200_response'
 
 # APIs
+require 'openapi_client/api/default_api'
 require 'openapi_client/api/ingredients_api'
 require 'openapi_client/api/meal_planning_api'
 require 'openapi_client/api/menu_items_api'

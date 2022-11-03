@@ -5,6 +5,7 @@
             [orchestra.core :refer [defn-spec]]
             [spoonacular-api.specs.get-product-information-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response :refer :all]
+            [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-local-hours :refer :all]
             [spoonacular-api.specs.get-recipe-ingredients-by-id-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.add-to-shopping-list-request :refer :all]
             [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-good-inner :refer :all]
@@ -12,6 +13,7 @@
             [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
             [spoonacular-api.specs.talk-to-chatbot-200-response :refer :all]
+            [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-address :refer :all]
             [spoonacular-api.specs.connect-user-200-response :refer :all]
             [spoonacular-api.specs.search-recipes-200-response-results-inner :refer :all]
             [spoonacular-api.specs.get-wine-description-200-response :refer :all]
@@ -19,9 +21,11 @@
             [spoonacular-api.specs.parse-ingredients-200-response-inner-estimated-cost :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response :refer :all]
             [spoonacular-api.specs.get-a-random-food-joke-200-response :refer :all]
+            [spoonacular-api.specs.analyze-recipe-request-1 :refer :all]
             [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response :refer :all]
             [spoonacular-api.specs.convert-amounts-200-response :refer :all]
             [spoonacular-api.specs.generate-meal-plan-200-response :refer :all]
+            [spoonacular-api.specs.search-restaurants-200-response :refer :all]
             [spoonacular-api.specs.analyze-a-recipe-search-query-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing :refer :all]
             [spoonacular-api.specs.get-similar-recipes-200-response-inner :refer :all]
@@ -45,6 +49,7 @@
             [spoonacular-api.specs.search-all-food-200-response-search-results-inner :refer :all]
             [spoonacular-api.specs.search-all-food-200-response-search-results-inner-results-inner :refer :all]
             [spoonacular-api.specs.search-menu-items-200-response-menu-items-inner :refer :all]
+            [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner :refer :all]
             [spoonacular-api.specs.compute-ingredient-amount-200-response :refer :all]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests-inner :refer :all]
             [spoonacular-api.specs.search-custom-foods-200-response-custom-foods-inner :refer :all]
@@ -52,6 +57,7 @@
             [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response-calories :refer :all]
             [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
+            [spoonacular-api.specs.analyze-recipe-request :refer :all]
             [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
@@ -69,6 +75,7 @@
             [spoonacular-api.specs.add-meal-plan-template-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner-measures :refer :all]
             [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
+            [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-local-hours-operational :refer :all]
             [spoonacular-api.specs.get-product-information-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
@@ -163,11 +170,11 @@
   "Autocomplete Ingredient Search
   Autocomplete the entry of an ingredient."
   ([] (autocomplete-ingredient-search-with-http-info nil))
-  ([{:keys [query number metaInformation intolerances]} (s/map-of keyword? any?)]
+  ([{:keys [query number metaInformation intolerances language]} (s/map-of keyword? any?)]
    (call-api "/food/ingredients/autocomplete" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"query" query "number" number "metaInformation" metaInformation "intolerances" intolerances }
+              :query-params  {"query" query "number" number "metaInformation" metaInformation "intolerances" intolerances "language" language }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
@@ -288,11 +295,11 @@
   "Ingredient Search
   Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
   ([] (ingredient-search-with-http-info nil))
-  ([{:keys [query addChildren minProteinPercent maxProteinPercent minFatPercent maxFatPercent minCarbsPercent maxCarbsPercent metaInformation intolerances sort sortDirection offset number]} (s/map-of keyword? any?)]
+  ([{:keys [query addChildren minProteinPercent maxProteinPercent minFatPercent maxFatPercent minCarbsPercent maxCarbsPercent metaInformation intolerances sort sortDirection offset number language]} (s/map-of keyword? any?)]
    (call-api "/food/ingredients/search" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"query" query "addChildren" addChildren "minProteinPercent" minProteinPercent "maxProteinPercent" maxProteinPercent "minFatPercent" minFatPercent "maxFatPercent" maxFatPercent "minCarbsPercent" minCarbsPercent "maxCarbsPercent" maxCarbsPercent "metaInformation" metaInformation "intolerances" intolerances "sort" sort "sortDirection" sortDirection "offset" offset "number" number }
+              :query-params  {"query" query "addChildren" addChildren "minProteinPercent" minProteinPercent "maxProteinPercent" maxProteinPercent "minFatPercent" minFatPercent "maxFatPercent" maxFatPercent "minCarbsPercent" minCarbsPercent "maxCarbsPercent" maxCarbsPercent "metaInformation" metaInformation "intolerances" intolerances "sort" sort "sortDirection" sortDirection "offset" offset "number" number "language" language }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]

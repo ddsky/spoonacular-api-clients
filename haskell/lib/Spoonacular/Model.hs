@@ -1,7 +1,7 @@
 {-
    spoonacular API
 
-   The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+   The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
    OpenAPI Version: 3.0.0
    spoonacular API API version: 1.1
@@ -94,6 +94,9 @@ newtype Author = Author { unAuthor :: Text } deriving (P.Eq, P.Show)
 -- ** Body
 newtype Body = Body { unBody :: A.Value } deriving (P.Eq, P.Show, A.ToJSON)
 
+-- ** Budget
+newtype Budget = Budget { unBudget :: Double } deriving (P.Eq, P.Show)
+
 -- ** ClassifyGroceryProductBulkRequestInner2
 newtype ClassifyGroceryProductBulkRequestInner2 = ClassifyGroceryProductBulkRequestInner2 { unClassifyGroceryProductBulkRequestInner2 :: [ClassifyGroceryProductBulkRequestInner] } deriving (P.Eq, P.Show, A.ToJSON)
 
@@ -108,6 +111,9 @@ newtype DefaultCss = DefaultCss { unDefaultCss :: Bool } deriving (P.Eq, P.Show)
 
 -- ** Diet
 newtype Diet = Diet { unDiet :: Text } deriving (P.Eq, P.Show)
+
+-- ** Distance
+newtype Distance = Distance { unDistance :: Double } deriving (P.Eq, P.Show)
 
 -- ** EndDate
 newtype EndDate = EndDate { unEndDate :: Text } deriving (P.Eq, P.Show)
@@ -172,11 +178,23 @@ newtype InstructionsRequired = InstructionsRequired { unInstructionsRequired :: 
 -- ** Intolerances
 newtype Intolerances = Intolerances { unIntolerances :: Text } deriving (P.Eq, P.Show)
 
+-- ** IsOpen
+newtype IsOpen = IsOpen { unIsOpen :: Bool } deriving (P.Eq, P.Show)
+
 -- ** Language
 newtype Language = Language { unLanguage :: E'Language } deriving (P.Eq, P.Show)
 
+-- ** LanguageText
+newtype LanguageText = LanguageText { unLanguageText :: Text } deriving (P.Eq, P.Show)
+
+-- ** Lat
+newtype Lat = Lat { unLat :: Double } deriving (P.Eq, P.Show)
+
 -- ** LimitLicense
 newtype LimitLicense = LimitLicense { unLimitLicense :: Bool } deriving (P.Eq, P.Show)
+
+-- ** Lng
+newtype Lng = Lng { unLng :: Double } deriving (P.Eq, P.Show)
 
 -- ** Locale
 newtype Locale = Locale { unLocale :: E'Locale } deriving (P.Eq, P.Show)
@@ -459,6 +477,9 @@ newtype Nutrient = Nutrient { unNutrient :: Text } deriving (P.Eq, P.Show)
 
 -- ** Offset
 newtype Offset = Offset { unOffset :: Int } deriving (P.Eq, P.Show)
+
+-- ** Page
+newtype Page = Page { unPage :: Double } deriving (P.Eq, P.Show)
 
 -- ** ParamAccept
 newtype ParamAccept = ParamAccept { unParamAccept :: E'Accept } deriving (P.Eq, P.Show)
@@ -1178,6 +1199,82 @@ mkAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredien
   , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName
   , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName
   , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage
+  }
+
+-- ** AnalyzeRecipeRequest
+-- | AnalyzeRecipeRequest
+data AnalyzeRecipeRequest = AnalyzeRecipeRequest
+  { analyzeRecipeRequestLanguage :: !(Maybe Text) -- ^ "language" - The input language, either \&quot;en\&quot; or \&quot;de\&quot;.
+  , analyzeRecipeRequestIncludeNutrition :: !(Maybe Bool) -- ^ "includeNutrition" - Whether nutrition data should be added to correctly parsed ingredients.
+  , analyzeRecipeRequestIncludeTaste :: !(Maybe Bool) -- ^ "includeTaste" - Whether taste data should be added to correctly parsed ingredients.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON AnalyzeRecipeRequest
+instance A.FromJSON AnalyzeRecipeRequest where
+  parseJSON = A.withObject "AnalyzeRecipeRequest" $ \o ->
+    AnalyzeRecipeRequest
+      <$> (o .:? "language")
+      <*> (o .:? "includeNutrition")
+      <*> (o .:? "includeTaste")
+
+-- | ToJSON AnalyzeRecipeRequest
+instance A.ToJSON AnalyzeRecipeRequest where
+  toJSON AnalyzeRecipeRequest {..} =
+   _omitNulls
+      [ "language" .= analyzeRecipeRequestLanguage
+      , "includeNutrition" .= analyzeRecipeRequestIncludeNutrition
+      , "includeTaste" .= analyzeRecipeRequestIncludeTaste
+      ]
+
+
+-- | Construct a value of type 'AnalyzeRecipeRequest' (by applying it's required fields, if any)
+mkAnalyzeRecipeRequest
+  :: AnalyzeRecipeRequest
+mkAnalyzeRecipeRequest =
+  AnalyzeRecipeRequest
+  { analyzeRecipeRequestLanguage = Nothing
+  , analyzeRecipeRequestIncludeNutrition = Nothing
+  , analyzeRecipeRequestIncludeTaste = Nothing
+  }
+
+-- ** AnalyzeRecipeRequest1
+-- | AnalyzeRecipeRequest1
+data AnalyzeRecipeRequest1 = AnalyzeRecipeRequest1
+  { analyzeRecipeRequest1Title :: !(Maybe Text) -- ^ "title"
+  , analyzeRecipeRequest1Servings :: !(Maybe Int) -- ^ "servings"
+  , analyzeRecipeRequest1Ingredients :: !(Maybe [Text]) -- ^ "ingredients"
+  , analyzeRecipeRequest1Instructions :: !(Maybe Text) -- ^ "instructions"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON AnalyzeRecipeRequest1
+instance A.FromJSON AnalyzeRecipeRequest1 where
+  parseJSON = A.withObject "AnalyzeRecipeRequest1" $ \o ->
+    AnalyzeRecipeRequest1
+      <$> (o .:? "title")
+      <*> (o .:? "servings")
+      <*> (o .:? "ingredients")
+      <*> (o .:? "instructions")
+
+-- | ToJSON AnalyzeRecipeRequest1
+instance A.ToJSON AnalyzeRecipeRequest1 where
+  toJSON AnalyzeRecipeRequest1 {..} =
+   _omitNulls
+      [ "title" .= analyzeRecipeRequest1Title
+      , "servings" .= analyzeRecipeRequest1Servings
+      , "ingredients" .= analyzeRecipeRequest1Ingredients
+      , "instructions" .= analyzeRecipeRequest1Instructions
+      ]
+
+
+-- | Construct a value of type 'AnalyzeRecipeRequest1' (by applying it's required fields, if any)
+mkAnalyzeRecipeRequest1
+  :: AnalyzeRecipeRequest1
+mkAnalyzeRecipeRequest1 =
+  AnalyzeRecipeRequest1
+  { analyzeRecipeRequest1Title = Nothing
+  , analyzeRecipeRequest1Servings = Nothing
+  , analyzeRecipeRequest1Ingredients = Nothing
+  , analyzeRecipeRequest1Instructions = Nothing
   }
 
 -- ** AutocompleteIngredientSearch200ResponseInner
@@ -7461,6 +7558,294 @@ mkSearchRecipesByNutrients200ResponseInner searchRecipesByNutrients200ResponseIn
   , searchRecipesByNutrients200ResponseInnerImageType
   , searchRecipesByNutrients200ResponseInnerProtein
   , searchRecipesByNutrients200ResponseInnerTitle
+  }
+
+-- ** SearchRestaurants200Response
+-- | SearchRestaurants200Response
+data SearchRestaurants200Response = SearchRestaurants200Response
+  { searchRestaurants200ResponseRestaurants :: !(Maybe [SearchRestaurants200ResponseRestaurantsInner]) -- ^ "restaurants"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchRestaurants200Response
+instance A.FromJSON SearchRestaurants200Response where
+  parseJSON = A.withObject "SearchRestaurants200Response" $ \o ->
+    SearchRestaurants200Response
+      <$> (o .:? "restaurants")
+
+-- | ToJSON SearchRestaurants200Response
+instance A.ToJSON SearchRestaurants200Response where
+  toJSON SearchRestaurants200Response {..} =
+   _omitNulls
+      [ "restaurants" .= searchRestaurants200ResponseRestaurants
+      ]
+
+
+-- | Construct a value of type 'SearchRestaurants200Response' (by applying it's required fields, if any)
+mkSearchRestaurants200Response
+  :: SearchRestaurants200Response
+mkSearchRestaurants200Response =
+  SearchRestaurants200Response
+  { searchRestaurants200ResponseRestaurants = Nothing
+  }
+
+-- ** SearchRestaurants200ResponseRestaurantsInner
+-- | SearchRestaurants200ResponseRestaurantsInner
+data SearchRestaurants200ResponseRestaurantsInner = SearchRestaurants200ResponseRestaurantsInner
+  { searchRestaurants200ResponseRestaurantsInnerId :: !(Maybe Text) -- ^ "_id"
+  , searchRestaurants200ResponseRestaurantsInnerName :: !(Maybe Text) -- ^ "name"
+  , searchRestaurants200ResponseRestaurantsInnerPhoneNumber :: !(Maybe Int) -- ^ "phone_number"
+  , searchRestaurants200ResponseRestaurantsInnerAddress :: !(Maybe SearchRestaurants200ResponseRestaurantsInnerAddress) -- ^ "address"
+  , searchRestaurants200ResponseRestaurantsInnerType :: !(Maybe Text) -- ^ "type"
+  , searchRestaurants200ResponseRestaurantsInnerDescription :: !(Maybe Text) -- ^ "description"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHours :: !(Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHours) -- ^ "local_hours"
+  , searchRestaurants200ResponseRestaurantsInnerCuisines :: !(Maybe [Text]) -- ^ "cuisines"
+  , searchRestaurants200ResponseRestaurantsInnerFoodPhotos :: !(Maybe [Text]) -- ^ "food_photos"
+  , searchRestaurants200ResponseRestaurantsInnerLogoPhotos :: !(Maybe [Text]) -- ^ "logo_photos"
+  , searchRestaurants200ResponseRestaurantsInnerStorePhotos :: !(Maybe [A.Value]) -- ^ "store_photos"
+  , searchRestaurants200ResponseRestaurantsInnerDollarSigns :: !(Maybe Int) -- ^ "dollar_signs"
+  , searchRestaurants200ResponseRestaurantsInnerPickupEnabled :: !(Maybe Bool) -- ^ "pickup_enabled"
+  , searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled :: !(Maybe Bool) -- ^ "delivery_enabled"
+  , searchRestaurants200ResponseRestaurantsInnerIsOpen :: !(Maybe Bool) -- ^ "is_open"
+  , searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery :: !(Maybe Bool) -- ^ "offers_first_party_delivery"
+  , searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery :: !(Maybe Bool) -- ^ "offers_third_party_delivery"
+  , searchRestaurants200ResponseRestaurantsInnerMiles :: !(Maybe Double) -- ^ "miles"
+  , searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue :: !(Maybe Double) -- ^ "weighted_rating_value"
+  , searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount :: !(Maybe Int) -- ^ "aggregated_rating_count"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchRestaurants200ResponseRestaurantsInner
+instance A.FromJSON SearchRestaurants200ResponseRestaurantsInner where
+  parseJSON = A.withObject "SearchRestaurants200ResponseRestaurantsInner" $ \o ->
+    SearchRestaurants200ResponseRestaurantsInner
+      <$> (o .:? "_id")
+      <*> (o .:? "name")
+      <*> (o .:? "phone_number")
+      <*> (o .:? "address")
+      <*> (o .:? "type")
+      <*> (o .:? "description")
+      <*> (o .:? "local_hours")
+      <*> (o .:? "cuisines")
+      <*> (o .:? "food_photos")
+      <*> (o .:? "logo_photos")
+      <*> (o .:? "store_photos")
+      <*> (o .:? "dollar_signs")
+      <*> (o .:? "pickup_enabled")
+      <*> (o .:? "delivery_enabled")
+      <*> (o .:? "is_open")
+      <*> (o .:? "offers_first_party_delivery")
+      <*> (o .:? "offers_third_party_delivery")
+      <*> (o .:? "miles")
+      <*> (o .:? "weighted_rating_value")
+      <*> (o .:? "aggregated_rating_count")
+
+-- | ToJSON SearchRestaurants200ResponseRestaurantsInner
+instance A.ToJSON SearchRestaurants200ResponseRestaurantsInner where
+  toJSON SearchRestaurants200ResponseRestaurantsInner {..} =
+   _omitNulls
+      [ "_id" .= searchRestaurants200ResponseRestaurantsInnerId
+      , "name" .= searchRestaurants200ResponseRestaurantsInnerName
+      , "phone_number" .= searchRestaurants200ResponseRestaurantsInnerPhoneNumber
+      , "address" .= searchRestaurants200ResponseRestaurantsInnerAddress
+      , "type" .= searchRestaurants200ResponseRestaurantsInnerType
+      , "description" .= searchRestaurants200ResponseRestaurantsInnerDescription
+      , "local_hours" .= searchRestaurants200ResponseRestaurantsInnerLocalHours
+      , "cuisines" .= searchRestaurants200ResponseRestaurantsInnerCuisines
+      , "food_photos" .= searchRestaurants200ResponseRestaurantsInnerFoodPhotos
+      , "logo_photos" .= searchRestaurants200ResponseRestaurantsInnerLogoPhotos
+      , "store_photos" .= searchRestaurants200ResponseRestaurantsInnerStorePhotos
+      , "dollar_signs" .= searchRestaurants200ResponseRestaurantsInnerDollarSigns
+      , "pickup_enabled" .= searchRestaurants200ResponseRestaurantsInnerPickupEnabled
+      , "delivery_enabled" .= searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled
+      , "is_open" .= searchRestaurants200ResponseRestaurantsInnerIsOpen
+      , "offers_first_party_delivery" .= searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery
+      , "offers_third_party_delivery" .= searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery
+      , "miles" .= searchRestaurants200ResponseRestaurantsInnerMiles
+      , "weighted_rating_value" .= searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue
+      , "aggregated_rating_count" .= searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount
+      ]
+
+
+-- | Construct a value of type 'SearchRestaurants200ResponseRestaurantsInner' (by applying it's required fields, if any)
+mkSearchRestaurants200ResponseRestaurantsInner
+  :: SearchRestaurants200ResponseRestaurantsInner
+mkSearchRestaurants200ResponseRestaurantsInner =
+  SearchRestaurants200ResponseRestaurantsInner
+  { searchRestaurants200ResponseRestaurantsInnerId = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerName = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerPhoneNumber = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddress = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerType = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerDescription = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHours = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerCuisines = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerFoodPhotos = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLogoPhotos = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerStorePhotos = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerDollarSigns = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerPickupEnabled = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerIsOpen = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerOffersFirstPartyDelivery = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerOffersThirdPartyDelivery = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerMiles = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerWeightedRatingValue = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAggregatedRatingCount = Nothing
+  }
+
+-- ** SearchRestaurants200ResponseRestaurantsInnerAddress
+-- | SearchRestaurants200ResponseRestaurantsInnerAddress
+data SearchRestaurants200ResponseRestaurantsInnerAddress = SearchRestaurants200ResponseRestaurantsInnerAddress
+  { searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr :: !(Maybe Text) -- ^ "street_addr"
+  , searchRestaurants200ResponseRestaurantsInnerAddressCity :: !(Maybe Text) -- ^ "city"
+  , searchRestaurants200ResponseRestaurantsInnerAddressState :: !(Maybe Text) -- ^ "state"
+  , searchRestaurants200ResponseRestaurantsInnerAddressZipcode :: !(Maybe Text) -- ^ "zipcode"
+  , searchRestaurants200ResponseRestaurantsInnerAddressCountry :: !(Maybe Text) -- ^ "country"
+  , searchRestaurants200ResponseRestaurantsInnerAddressLat :: !(Maybe Double) -- ^ "lat"
+  , searchRestaurants200ResponseRestaurantsInnerAddressLon :: !(Maybe Double) -- ^ "lon"
+  , searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2 :: !(Maybe Text) -- ^ "street_addr_2"
+  , searchRestaurants200ResponseRestaurantsInnerAddressLatitude :: !(Maybe Double) -- ^ "latitude"
+  , searchRestaurants200ResponseRestaurantsInnerAddressLongitude :: !(Maybe Double) -- ^ "longitude"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchRestaurants200ResponseRestaurantsInnerAddress
+instance A.FromJSON SearchRestaurants200ResponseRestaurantsInnerAddress where
+  parseJSON = A.withObject "SearchRestaurants200ResponseRestaurantsInnerAddress" $ \o ->
+    SearchRestaurants200ResponseRestaurantsInnerAddress
+      <$> (o .:? "street_addr")
+      <*> (o .:? "city")
+      <*> (o .:? "state")
+      <*> (o .:? "zipcode")
+      <*> (o .:? "country")
+      <*> (o .:? "lat")
+      <*> (o .:? "lon")
+      <*> (o .:? "street_addr_2")
+      <*> (o .:? "latitude")
+      <*> (o .:? "longitude")
+
+-- | ToJSON SearchRestaurants200ResponseRestaurantsInnerAddress
+instance A.ToJSON SearchRestaurants200ResponseRestaurantsInnerAddress where
+  toJSON SearchRestaurants200ResponseRestaurantsInnerAddress {..} =
+   _omitNulls
+      [ "street_addr" .= searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr
+      , "city" .= searchRestaurants200ResponseRestaurantsInnerAddressCity
+      , "state" .= searchRestaurants200ResponseRestaurantsInnerAddressState
+      , "zipcode" .= searchRestaurants200ResponseRestaurantsInnerAddressZipcode
+      , "country" .= searchRestaurants200ResponseRestaurantsInnerAddressCountry
+      , "lat" .= searchRestaurants200ResponseRestaurantsInnerAddressLat
+      , "lon" .= searchRestaurants200ResponseRestaurantsInnerAddressLon
+      , "street_addr_2" .= searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2
+      , "latitude" .= searchRestaurants200ResponseRestaurantsInnerAddressLatitude
+      , "longitude" .= searchRestaurants200ResponseRestaurantsInnerAddressLongitude
+      ]
+
+
+-- | Construct a value of type 'SearchRestaurants200ResponseRestaurantsInnerAddress' (by applying it's required fields, if any)
+mkSearchRestaurants200ResponseRestaurantsInnerAddress
+  :: SearchRestaurants200ResponseRestaurantsInnerAddress
+mkSearchRestaurants200ResponseRestaurantsInnerAddress =
+  SearchRestaurants200ResponseRestaurantsInnerAddress
+  { searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressCity = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressState = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressZipcode = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressCountry = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressLat = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressLon = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressStreetAddr2 = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressLatitude = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerAddressLongitude = Nothing
+  }
+
+-- ** SearchRestaurants200ResponseRestaurantsInnerLocalHours
+-- | SearchRestaurants200ResponseRestaurantsInnerLocalHours
+data SearchRestaurants200ResponseRestaurantsInnerLocalHours = SearchRestaurants200ResponseRestaurantsInnerLocalHours
+  { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational :: !(Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational) -- ^ "operational"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery :: !(Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational) -- ^ "delivery"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup :: !(Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational) -- ^ "pickup"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn :: !(Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational) -- ^ "dine_in"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchRestaurants200ResponseRestaurantsInnerLocalHours
+instance A.FromJSON SearchRestaurants200ResponseRestaurantsInnerLocalHours where
+  parseJSON = A.withObject "SearchRestaurants200ResponseRestaurantsInnerLocalHours" $ \o ->
+    SearchRestaurants200ResponseRestaurantsInnerLocalHours
+      <$> (o .:? "operational")
+      <*> (o .:? "delivery")
+      <*> (o .:? "pickup")
+      <*> (o .:? "dine_in")
+
+-- | ToJSON SearchRestaurants200ResponseRestaurantsInnerLocalHours
+instance A.ToJSON SearchRestaurants200ResponseRestaurantsInnerLocalHours where
+  toJSON SearchRestaurants200ResponseRestaurantsInnerLocalHours {..} =
+   _omitNulls
+      [ "operational" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+      , "delivery" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery
+      , "pickup" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup
+      , "dine_in" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn
+      ]
+
+
+-- | Construct a value of type 'SearchRestaurants200ResponseRestaurantsInnerLocalHours' (by applying it's required fields, if any)
+mkSearchRestaurants200ResponseRestaurantsInnerLocalHours
+  :: SearchRestaurants200ResponseRestaurantsInnerLocalHours
+mkSearchRestaurants200ResponseRestaurantsInnerLocalHours =
+  SearchRestaurants200ResponseRestaurantsInnerLocalHours
+  { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursDelivery = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursPickup = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursDineIn = Nothing
+  }
+
+-- ** SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+-- | SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+data SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational = SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+  { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday :: !(Maybe Text) -- ^ "Monday"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday :: !(Maybe Text) -- ^ "Tuesday"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday :: !(Maybe Text) -- ^ "Wednesday"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday :: !(Maybe Text) -- ^ "Thursday"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday :: !(Maybe Text) -- ^ "Friday"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday :: !(Maybe Text) -- ^ "Saturday"
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday :: !(Maybe Text) -- ^ "Sunday"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+instance A.FromJSON SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational where
+  parseJSON = A.withObject "SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational" $ \o ->
+    SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+      <$> (o .:? "Monday")
+      <*> (o .:? "Tuesday")
+      <*> (o .:? "Wednesday")
+      <*> (o .:? "Thursday")
+      <*> (o .:? "Friday")
+      <*> (o .:? "Saturday")
+      <*> (o .:? "Sunday")
+
+-- | ToJSON SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+instance A.ToJSON SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational where
+  toJSON SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {..} =
+   _omitNulls
+      [ "Monday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday
+      , "Tuesday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday
+      , "Wednesday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday
+      , "Thursday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday
+      , "Friday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday
+      , "Saturday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday
+      , "Sunday" .= searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday
+      ]
+
+
+-- | Construct a value of type 'SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational' (by applying it's required fields, if any)
+mkSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+  :: SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+mkSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
+  SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+  { searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalMonday = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTuesday = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWednesday = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalThursday = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalFriday = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSaturday = Nothing
+  , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday = Nothing
   }
 
 -- ** SearchSiteContent200Response

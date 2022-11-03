@@ -66,12 +66,15 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
 ///
+///  @param language The language of the input. Either 'en' or 'de'. (optional)
+///
 ///  @returns OAISet<OAIAutocompleteIngredientSearch200ResponseInner>*
 ///
 -(NSURLSessionTask*) autocompleteIngredientSearchWithQuery: (NSString*) query
     number: (NSNumber*) number
     metaInformation: (NSNumber*) metaInformation
     intolerances: (NSString*) intolerances
+    language: (NSString*) language
     completionHandler: (void (^)(OAISet<OAIAutocompleteIngredientSearch200ResponseInner>* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/ingredients/autocomplete"];
 
@@ -89,6 +92,9 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     }
     if (intolerances != nil) {
         queryParams[@"intolerances"] = intolerances;
+    }
+    if (language != nil) {
+        queryParams[@"language"] = language;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -485,6 +491,8 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to @10)
 ///
+///  @param language The language of the input. Either 'en' or 'de'. (optional)
+///
 ///  @returns OAIIngredientSearch200Response*
 ///
 -(NSURLSessionTask*) ingredientSearchWithQuery: (NSString*) query
@@ -501,6 +509,7 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     sortDirection: (NSString*) sortDirection
     offset: (NSNumber*) offset
     number: (NSNumber*) number
+    language: (NSString*) language
     completionHandler: (void (^)(OAIIngredientSearch200Response* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/ingredients/search"];
 
@@ -548,6 +557,9 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     }
     if (number != nil) {
         queryParams[@"number"] = number;
+    }
+    if (language != nil) {
+        queryParams[@"language"] = language;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

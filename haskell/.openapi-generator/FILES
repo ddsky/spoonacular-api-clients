@@ -6,6 +6,7 @@ Setup.hs
 git_push.sh
 lib/Spoonacular.hs
 lib/Spoonacular/API.hs
+lib/Spoonacular/API/ApiDefault.hs
 lib/Spoonacular/API/Ingredients.hs
 lib/Spoonacular/API/MealPlanning.hs
 lib/Spoonacular/API/MenuItems.hs

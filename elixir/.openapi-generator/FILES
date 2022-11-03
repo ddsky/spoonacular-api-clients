@@ -4,6 +4,7 @@
 README.md
 config/config.exs
 config/runtime.exs
+lib/com/spoonacular/client/api/default.ex
 lib/com/spoonacular/client/api/ingredients.ex
 lib/com/spoonacular/client/api/meal_planning.ex
 lib/com/spoonacular/client/api/menu_items.ex
@@ -29,6 +30,8 @@ lib/com/spoonacular/client/model/analyze_recipe_instructions_200_response_ingred
 lib/com/spoonacular/client/model/analyze_recipe_instructions_200_response_parsed_instructions_inner.ex
 lib/com/spoonacular/client/model/analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner.ex
 lib/com/spoonacular/client/model/analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.ex
+lib/com/spoonacular/client/model/analyze_recipe_request.ex
+lib/com/spoonacular/client/model/analyze_recipe_request_1.ex
 lib/com/spoonacular/client/model/autocomplete_ingredient_search_200_response_inner.ex
 lib/com/spoonacular/client/model/autocomplete_menu_item_search_200_response.ex
 lib/com/spoonacular/client/model/autocomplete_product_search_200_response.ex
@@ -159,6 +162,11 @@ lib/com/spoonacular/client/model/search_recipes_200_response_results_inner.ex
 lib/com/spoonacular/client/model/search_recipes_by_ingredients_200_response_inner.ex
 lib/com/spoonacular/client/model/search_recipes_by_ingredients_200_response_inner_missed_ingredients_inner.ex
 lib/com/spoonacular/client/model/search_recipes_by_nutrients_200_response_inner.ex
+lib/com/spoonacular/client/model/search_restaurants_200_response.ex
+lib/com/spoonacular/client/model/search_restaurants_200_response_restaurants_inner.ex
+lib/com/spoonacular/client/model/search_restaurants_200_response_restaurants_inner_address.ex
+lib/com/spoonacular/client/model/search_restaurants_200_response_restaurants_inner_local_hours.ex
+lib/com/spoonacular/client/model/search_restaurants_200_response_restaurants_inner_local_hours_operational.ex
 lib/com/spoonacular/client/model/search_site_content_200_response.ex
 lib/com/spoonacular/client/model/search_site_content_200_response_articles_inner.ex
 lib/com/spoonacular/client/model/search_site_content_200_response_grocery_products_inner.ex

@@ -28,9 +28,11 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param metaInformation Whether to return more meta information about the ingredients.
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
      */
-    public async autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, _options?: Configuration): Promise<RequestContext> {
+    public async autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -61,6 +63,11 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (intolerances !== undefined) {
             requestContext.setQueryParam("intolerances", ObjectSerializer.serialize(intolerances, "string", ""));
+        }
+
+        // Query Params
+        if (language !== undefined) {
+            requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
 
@@ -297,9 +304,11 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
      * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
      */
-    public async ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -390,6 +399,11 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (number !== undefined) {
             requestContext.setQueryParam("number", ObjectSerializer.serialize(number, "number", ""));
+        }
+
+        // Query Params
+        if (language !== undefined) {
+            requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
 

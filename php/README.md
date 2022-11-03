@@ -1,6 +1,6 @@
 # OpenAPIClient-php
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -58,22 +58,22 @@ $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setAp
 // $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new com.spoonacular.client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$query = burger; // string | The (natural language) search query.
-$number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-$meta_information = false; // bool | Whether to return more meta information about the ingredients.
-$intolerances = egg; // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+$analyze_recipe_request = new \com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeRequest | Example request body.
+$language = en; // string | The input language, either \"en\" or \"de\".
+$include_nutrition = false; // bool | Whether nutrition data should be added to correctly parsed ingredients.
+$include_taste = false; // bool | Whether taste data should be added to correctly parsed ingredients.
 
 try {
-    $result = $apiInstance->autocompleteIngredientSearch($query, $number, $meta_information, $intolerances);
+    $result = $apiInstance->analyzeRecipe($analyze_recipe_request, $language, $include_nutrition, $include_taste);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling IngredientsApi->autocompleteIngredientSearch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->analyzeRecipe: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -84,6 +84,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**analyzeRecipe**](docs/Api/DefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**searchRestaurants**](docs/Api/DefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**autocompleteIngredientSearch**](docs/Api/IngredientsApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**computeIngredientAmount**](docs/Api/IngredientsApi.md#computeingredientamount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *IngredientsApi* | [**getIngredientInformation**](docs/Api/IngredientsApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -200,6 +202,8 @@ Class | Method | HTTP request | Description
 - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
 - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
 - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/Model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+- [AnalyzeRecipeRequest](docs/Model/AnalyzeRecipeRequest.md)
+- [AnalyzeRecipeRequest1](docs/Model/AnalyzeRecipeRequest1.md)
 - [AutocompleteIngredientSearch200ResponseInner](docs/Model/AutocompleteIngredientSearch200ResponseInner.md)
 - [AutocompleteMenuItemSearch200Response](docs/Model/AutocompleteMenuItemSearch200Response.md)
 - [AutocompleteProductSearch200Response](docs/Model/AutocompleteProductSearch200Response.md)
@@ -330,6 +334,11 @@ Class | Method | HTTP request | Description
 - [SearchRecipesByIngredients200ResponseInner](docs/Model/SearchRecipesByIngredients200ResponseInner.md)
 - [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/Model/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
 - [SearchRecipesByNutrients200ResponseInner](docs/Model/SearchRecipesByNutrients200ResponseInner.md)
+- [SearchRestaurants200Response](docs/Model/SearchRestaurants200Response.md)
+- [SearchRestaurants200ResponseRestaurantsInner](docs/Model/SearchRestaurants200ResponseRestaurantsInner.md)
+- [SearchRestaurants200ResponseRestaurantsInnerAddress](docs/Model/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+- [SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+- [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
 - [SearchSiteContent200Response](docs/Model/SearchSiteContent200Response.md)
 - [SearchSiteContent200ResponseArticlesInner](docs/Model/SearchSiteContent200ResponseArticlesInner.md)
 - [SearchSiteContent200ResponseGroceryProductsInner](docs/Model/SearchSiteContent200ResponseGroceryProductsInner.md)

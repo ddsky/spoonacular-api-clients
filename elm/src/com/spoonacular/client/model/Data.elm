@@ -1,6 +1,6 @@
 {-
    spoonacular API
-   The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+   The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
    The version of the OpenAPI document: 1.1
    Contact: mail@spoonacular.com
@@ -31,6 +31,8 @@ module Api.Data exposing
     , AnalyzeRecipeInstructions200ResponseParsedInstructionsInner
     , AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
     , AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+    , AnalyzeRecipeRequest
+    , AnalyzeRecipeRequest1
     , AutocompleteIngredientSearch200ResponseInner
     , AutocompleteMenuItemSearch200Response
     , AutocompleteProductSearch200Response
@@ -161,6 +163,11 @@ module Api.Data exposing
     , SearchRecipesByIngredients200ResponseInner
     , SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
     , SearchRecipesByNutrients200ResponseInner
+    , SearchRestaurants200Response
+    , SearchRestaurants200ResponseRestaurantsInner
+    , SearchRestaurants200ResponseRestaurantsInnerAddress
+    , SearchRestaurants200ResponseRestaurantsInnerLocalHours
+    , SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
     , SearchSiteContent200Response
     , SearchSiteContent200ResponseArticlesInner
     , SearchSiteContent200ResponseGroceryProductsInner
@@ -183,6 +190,8 @@ module Api.Data exposing
     , encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInner
     , encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
     , encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+    , encodeAnalyzeRecipeRequest
+    , encodeAnalyzeRecipeRequest1
     , encodeAutocompleteIngredientSearch200ResponseInner
     , encodeAutocompleteMenuItemSearch200Response
     , encodeAutocompleteProductSearch200Response
@@ -313,6 +322,11 @@ module Api.Data exposing
     , encodeSearchRecipesByIngredients200ResponseInner
     , encodeSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
     , encodeSearchRecipesByNutrients200ResponseInner
+    , encodeSearchRestaurants200Response
+    , encodeSearchRestaurants200ResponseRestaurantsInner
+    , encodeSearchRestaurants200ResponseRestaurantsInnerAddress
+    , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHours
+    , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
     , encodeSearchSiteContent200Response
     , encodeSearchSiteContent200ResponseArticlesInner
     , encodeSearchSiteContent200ResponseGroceryProductsInner
@@ -335,6 +349,8 @@ module Api.Data exposing
     , analyzeRecipeInstructions200ResponseParsedInstructionsInnerDecoder
     , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder
     , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder
+    , analyzeRecipeRequestDecoder
+    , analyzeRecipeRequest1Decoder
     , autocompleteIngredientSearch200ResponseInnerDecoder
     , autocompleteMenuItemSearch200ResponseDecoder
     , autocompleteProductSearch200ResponseDecoder
@@ -465,6 +481,11 @@ module Api.Data exposing
     , searchRecipesByIngredients200ResponseInnerDecoder
     , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerDecoder
     , searchRecipesByNutrients200ResponseInnerDecoder
+    , searchRestaurants200ResponseDecoder
+    , searchRestaurants200ResponseRestaurantsInnerDecoder
+    , searchRestaurants200ResponseRestaurantsInnerAddressDecoder
+    , searchRestaurants200ResponseRestaurantsInnerLocalHoursDecoder
+    , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder
     , searchSiteContent200ResponseDecoder
     , searchSiteContent200ResponseArticlesInnerDecoder
     , searchSiteContent200ResponseGroceryProductsInnerDecoder
@@ -601,6 +622,21 @@ type alias AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
 , name : String
 , localizedName : String
 , image : String
+}
+
+
+type alias AnalyzeRecipeRequest =
+    { language : Maybe String
+, includeNutrition : Maybe Bool
+, includeTaste : Maybe Bool
+}
+
+
+type alias AnalyzeRecipeRequest1 =
+    { title : Maybe String
+, servings : Maybe Int
+, ingredients : Maybe (List (String))
+, instructions : Maybe String
 }
 
 
@@ -1859,6 +1895,68 @@ type alias SearchRecipesByNutrients200ResponseInner =
 }
 
 
+type alias SearchRestaurants200Response =
+    { restaurants : Maybe (List (SearchRestaurants200ResponseRestaurantsInner))
+}
+
+
+type alias SearchRestaurants200ResponseRestaurantsInner =
+    { id : Maybe String
+, name : Maybe String
+, phoneNumber : Maybe Int
+, address : Maybe SearchRestaurants200ResponseRestaurantsInnerAddress
+, type_ : Maybe String
+, description : Maybe String
+, localHours : Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHours
+, cuisines : Maybe (List (String))
+, foodPhotos : Maybe (List (String))
+, logoPhotos : Maybe (List (String))
+, storePhotos : Maybe (List (Object))
+, dollarSigns : Maybe Int
+, pickupEnabled : Maybe Bool
+, deliveryEnabled : Maybe Bool
+, isOpen : Maybe Bool
+, offersFirstPartyDelivery : Maybe Bool
+, offersThirdPartyDelivery : Maybe Bool
+, miles : Maybe Float
+, weightedRatingValue : Maybe Float
+, aggregatedRatingCount : Maybe Int
+}
+
+
+type alias SearchRestaurants200ResponseRestaurantsInnerAddress =
+    { streetAddr : Maybe String
+, city : Maybe String
+, state : Maybe String
+, zipcode : Maybe String
+, country : Maybe String
+, lat : Maybe Float
+, lon : Maybe Float
+, streetAddr2 : Maybe String
+, latitude : Maybe Float
+, longitude : Maybe Float
+}
+
+
+type alias SearchRestaurants200ResponseRestaurantsInnerLocalHours =
+    { operational : Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+, delivery : Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+, pickup : Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+, dineIn : Maybe SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+}
+
+
+type alias SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
+    { monday : Maybe String
+, tuesday : Maybe String
+, wednesday : Maybe String
+, thursday : Maybe String
+, friday : Maybe String
+, saturday : Maybe String
+, sunday : Maybe String
+}
+
+
 {-| 
 -}
 type alias SearchSiteContent200Response =
@@ -2258,6 +2356,51 @@ encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
             , encode "name" Json.Encode.string model.name
             , encode "localizedName" Json.Encode.string model.localizedName
             , encode "image" Json.Encode.string model.image
+            ]
+    in
+    pairs
+
+
+encodeAnalyzeRecipeRequest : AnalyzeRecipeRequest -> Json.Encode.Value
+encodeAnalyzeRecipeRequest =
+    encodeObject << encodeAnalyzeRecipeRequestPairs
+
+
+encodeAnalyzeRecipeRequestWithTag : ( String, String ) -> AnalyzeRecipeRequest -> Json.Encode.Value
+encodeAnalyzeRecipeRequestWithTag (tagField, tag) model =
+    encodeObject (encodeAnalyzeRecipeRequestPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeAnalyzeRecipeRequestPairs : AnalyzeRecipeRequest -> List EncodedField
+encodeAnalyzeRecipeRequestPairs model =
+    let
+        pairs =
+            [ maybeEncode "language" Json.Encode.string model.language
+            , maybeEncode "includeNutrition" Json.Encode.bool model.includeNutrition
+            , maybeEncode "includeTaste" Json.Encode.bool model.includeTaste
+            ]
+    in
+    pairs
+
+
+encodeAnalyzeRecipeRequest1 : AnalyzeRecipeRequest1 -> Json.Encode.Value
+encodeAnalyzeRecipeRequest1 =
+    encodeObject << encodeAnalyzeRecipeRequest1Pairs
+
+
+encodeAnalyzeRecipeRequest1WithTag : ( String, String ) -> AnalyzeRecipeRequest1 -> Json.Encode.Value
+encodeAnalyzeRecipeRequest1WithTag (tagField, tag) model =
+    encodeObject (encodeAnalyzeRecipeRequest1Pairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeAnalyzeRecipeRequest1Pairs : AnalyzeRecipeRequest1 -> List EncodedField
+encodeAnalyzeRecipeRequest1Pairs model =
+    let
+        pairs =
+            [ maybeEncode "title" Json.Encode.string model.title
+            , maybeEncode "servings" Json.Encode.int model.servings
+            , maybeEncode "ingredients" (Json.Encode.list Json.Encode.string) model.ingredients
+            , maybeEncode "instructions" Json.Encode.string model.instructions
             ]
     in
     pairs
@@ -5364,6 +5507,143 @@ encodeSearchRecipesByNutrients200ResponseInnerPairs model =
     pairs
 
 
+encodeSearchRestaurants200Response : SearchRestaurants200Response -> Json.Encode.Value
+encodeSearchRestaurants200Response =
+    encodeObject << encodeSearchRestaurants200ResponsePairs
+
+
+encodeSearchRestaurants200ResponseWithTag : ( String, String ) -> SearchRestaurants200Response -> Json.Encode.Value
+encodeSearchRestaurants200ResponseWithTag (tagField, tag) model =
+    encodeObject (encodeSearchRestaurants200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchRestaurants200ResponsePairs : SearchRestaurants200Response -> List EncodedField
+encodeSearchRestaurants200ResponsePairs model =
+    let
+        pairs =
+            [ maybeEncode "restaurants" (Json.Encode.list encodeSearchRestaurants200ResponseRestaurantsInner) model.restaurants
+            ]
+    in
+    pairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInner : SearchRestaurants200ResponseRestaurantsInner -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInner =
+    encodeObject << encodeSearchRestaurants200ResponseRestaurantsInnerPairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerWithTag : ( String, String ) -> SearchRestaurants200ResponseRestaurantsInner -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeSearchRestaurants200ResponseRestaurantsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerPairs : SearchRestaurants200ResponseRestaurantsInner -> List EncodedField
+encodeSearchRestaurants200ResponseRestaurantsInnerPairs model =
+    let
+        pairs =
+            [ maybeEncode "_id" Json.Encode.string model.id
+            , maybeEncode "name" Json.Encode.string model.name
+            , maybeEncode "phone_number" Json.Encode.int model.phoneNumber
+            , maybeEncode "address" encodeSearchRestaurants200ResponseRestaurantsInnerAddress model.address
+            , maybeEncode "type" Json.Encode.string model.type_
+            , maybeEncode "description" Json.Encode.string model.description
+            , maybeEncode "local_hours" encodeSearchRestaurants200ResponseRestaurantsInnerLocalHours model.localHours
+            , maybeEncode "cuisines" (Json.Encode.list Json.Encode.string) model.cuisines
+            , maybeEncode "food_photos" (Json.Encode.list Json.Encode.string) model.foodPhotos
+            , maybeEncode "logo_photos" (Json.Encode.list Json.Encode.string) model.logoPhotos
+            , maybeEncode "store_photos" (Json.Encode.list encodeObject) model.storePhotos
+            , maybeEncode "dollar_signs" Json.Encode.int model.dollarSigns
+            , maybeEncode "pickup_enabled" Json.Encode.bool model.pickupEnabled
+            , maybeEncode "delivery_enabled" Json.Encode.bool model.deliveryEnabled
+            , maybeEncode "is_open" Json.Encode.bool model.isOpen
+            , maybeEncode "offers_first_party_delivery" Json.Encode.bool model.offersFirstPartyDelivery
+            , maybeEncode "offers_third_party_delivery" Json.Encode.bool model.offersThirdPartyDelivery
+            , maybeEncode "miles" Json.Encode.float model.miles
+            , maybeEncode "weighted_rating_value" Json.Encode.float model.weightedRatingValue
+            , maybeEncode "aggregated_rating_count" Json.Encode.int model.aggregatedRatingCount
+            ]
+    in
+    pairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerAddress : SearchRestaurants200ResponseRestaurantsInnerAddress -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerAddress =
+    encodeObject << encodeSearchRestaurants200ResponseRestaurantsInnerAddressPairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerAddressWithTag : ( String, String ) -> SearchRestaurants200ResponseRestaurantsInnerAddress -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerAddressWithTag (tagField, tag) model =
+    encodeObject (encodeSearchRestaurants200ResponseRestaurantsInnerAddressPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerAddressPairs : SearchRestaurants200ResponseRestaurantsInnerAddress -> List EncodedField
+encodeSearchRestaurants200ResponseRestaurantsInnerAddressPairs model =
+    let
+        pairs =
+            [ maybeEncode "street_addr" Json.Encode.string model.streetAddr
+            , maybeEncode "city" Json.Encode.string model.city
+            , maybeEncode "state" Json.Encode.string model.state
+            , maybeEncode "zipcode" Json.Encode.string model.zipcode
+            , maybeEncode "country" Json.Encode.string model.country
+            , maybeEncode "lat" Json.Encode.float model.lat
+            , maybeEncode "lon" Json.Encode.float model.lon
+            , maybeEncode "street_addr_2" Json.Encode.string model.streetAddr2
+            , maybeEncode "latitude" Json.Encode.float model.latitude
+            , maybeEncode "longitude" Json.Encode.float model.longitude
+            ]
+    in
+    pairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHours : SearchRestaurants200ResponseRestaurantsInnerLocalHours -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHours =
+    encodeObject << encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursPairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursWithTag : ( String, String ) -> SearchRestaurants200ResponseRestaurantsInnerLocalHours -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursWithTag (tagField, tag) model =
+    encodeObject (encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursPairs : SearchRestaurants200ResponseRestaurantsInnerLocalHours -> List EncodedField
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursPairs model =
+    let
+        pairs =
+            [ maybeEncode "operational" encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational model.operational
+            , maybeEncode "delivery" encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational model.delivery
+            , maybeEncode "pickup" encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational model.pickup
+            , maybeEncode "dine_in" encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational model.dineIn
+            ]
+    in
+    pairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational : SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
+    encodeObject << encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalPairs
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWithTag : ( String, String ) -> SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational -> Json.Encode.Value
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalWithTag (tagField, tag) model =
+    encodeObject (encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalPairs : SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational -> List EncodedField
+encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalPairs model =
+    let
+        pairs =
+            [ maybeEncode "Monday" Json.Encode.string model.monday
+            , maybeEncode "Tuesday" Json.Encode.string model.tuesday
+            , maybeEncode "Wednesday" Json.Encode.string model.wednesday
+            , maybeEncode "Thursday" Json.Encode.string model.thursday
+            , maybeEncode "Friday" Json.Encode.string model.friday
+            , maybeEncode "Saturday" Json.Encode.string model.saturday
+            , maybeEncode "Sunday" Json.Encode.string model.sunday
+            ]
+    in
+    pairs
+
+
 encodeSearchSiteContent200Response : SearchSiteContent200Response -> Json.Encode.Value
 encodeSearchSiteContent200Response =
     encodeObject << encodeSearchSiteContent200ResponsePairs
@@ -5626,6 +5906,23 @@ analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients
         |> decode "name" Json.Decode.string 
         |> decode "localizedName" Json.Decode.string 
         |> decode "image" Json.Decode.string 
+
+
+analyzeRecipeRequestDecoder : Json.Decode.Decoder AnalyzeRecipeRequest
+analyzeRecipeRequestDecoder =
+    Json.Decode.succeed AnalyzeRecipeRequest
+        |> maybeDecode "language" Json.Decode.string Nothing
+        |> maybeDecode "includeNutrition" Json.Decode.bool Nothing
+        |> maybeDecode "includeTaste" Json.Decode.bool Nothing
+
+
+analyzeRecipeRequest1Decoder : Json.Decode.Decoder AnalyzeRecipeRequest1
+analyzeRecipeRequest1Decoder =
+    Json.Decode.succeed AnalyzeRecipeRequest1
+        |> maybeDecode "title" Json.Decode.string Nothing
+        |> maybeDecode "servings" Json.Decode.int Nothing
+        |> maybeDecode "ingredients" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecode "instructions" Json.Decode.string Nothing
 
 
 autocompleteIngredientSearch200ResponseInnerDecoder : Json.Decode.Decoder AutocompleteIngredientSearch200ResponseInner
@@ -6907,6 +7204,73 @@ searchRecipesByNutrients200ResponseInnerDecoder =
         |> decode "imageType" Json.Decode.string 
         |> decode "protein" Json.Decode.string 
         |> decode "title" Json.Decode.string 
+
+
+searchRestaurants200ResponseDecoder : Json.Decode.Decoder SearchRestaurants200Response
+searchRestaurants200ResponseDecoder =
+    Json.Decode.succeed SearchRestaurants200Response
+        |> maybeDecode "restaurants" (Json.Decode.list searchRestaurants200ResponseRestaurantsInnerDecoder) Nothing
+
+
+searchRestaurants200ResponseRestaurantsInnerDecoder : Json.Decode.Decoder SearchRestaurants200ResponseRestaurantsInner
+searchRestaurants200ResponseRestaurantsInnerDecoder =
+    Json.Decode.succeed SearchRestaurants200ResponseRestaurantsInner
+        |> maybeDecode "_id" Json.Decode.string Nothing
+        |> maybeDecode "name" Json.Decode.string Nothing
+        |> maybeDecode "phone_number" Json.Decode.int Nothing
+        |> maybeDecode "address" searchRestaurants200ResponseRestaurantsInnerAddressDecoder Nothing
+        |> maybeDecode "type" Json.Decode.string Nothing
+        |> maybeDecode "description" Json.Decode.string Nothing
+        |> maybeDecode "local_hours" searchRestaurants200ResponseRestaurantsInnerLocalHoursDecoder Nothing
+        |> maybeDecode "cuisines" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecode "food_photos" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecode "logo_photos" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecode "store_photos" (Json.Decode.list objectDecoder) Nothing
+        |> maybeDecode "dollar_signs" Json.Decode.int Nothing
+        |> maybeDecode "pickup_enabled" Json.Decode.bool Nothing
+        |> maybeDecode "delivery_enabled" Json.Decode.bool Nothing
+        |> maybeDecode "is_open" Json.Decode.bool Nothing
+        |> maybeDecode "offers_first_party_delivery" Json.Decode.bool Nothing
+        |> maybeDecode "offers_third_party_delivery" Json.Decode.bool Nothing
+        |> maybeDecode "miles" Json.Decode.float Nothing
+        |> maybeDecode "weighted_rating_value" Json.Decode.float Nothing
+        |> maybeDecode "aggregated_rating_count" Json.Decode.int Nothing
+
+
+searchRestaurants200ResponseRestaurantsInnerAddressDecoder : Json.Decode.Decoder SearchRestaurants200ResponseRestaurantsInnerAddress
+searchRestaurants200ResponseRestaurantsInnerAddressDecoder =
+    Json.Decode.succeed SearchRestaurants200ResponseRestaurantsInnerAddress
+        |> maybeDecode "street_addr" Json.Decode.string Nothing
+        |> maybeDecode "city" Json.Decode.string Nothing
+        |> maybeDecode "state" Json.Decode.string Nothing
+        |> maybeDecode "zipcode" Json.Decode.string Nothing
+        |> maybeDecode "country" Json.Decode.string Nothing
+        |> maybeDecode "lat" Json.Decode.float Nothing
+        |> maybeDecode "lon" Json.Decode.float Nothing
+        |> maybeDecode "street_addr_2" Json.Decode.string Nothing
+        |> maybeDecode "latitude" Json.Decode.float Nothing
+        |> maybeDecode "longitude" Json.Decode.float Nothing
+
+
+searchRestaurants200ResponseRestaurantsInnerLocalHoursDecoder : Json.Decode.Decoder SearchRestaurants200ResponseRestaurantsInnerLocalHours
+searchRestaurants200ResponseRestaurantsInnerLocalHoursDecoder =
+    Json.Decode.succeed SearchRestaurants200ResponseRestaurantsInnerLocalHours
+        |> maybeDecode "operational" searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder Nothing
+        |> maybeDecode "delivery" searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder Nothing
+        |> maybeDecode "pickup" searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder Nothing
+        |> maybeDecode "dine_in" searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder Nothing
+
+
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder : Json.Decode.Decoder SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder =
+    Json.Decode.succeed SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+        |> maybeDecode "Monday" Json.Decode.string Nothing
+        |> maybeDecode "Tuesday" Json.Decode.string Nothing
+        |> maybeDecode "Wednesday" Json.Decode.string Nothing
+        |> maybeDecode "Thursday" Json.Decode.string Nothing
+        |> maybeDecode "Friday" Json.Decode.string Nothing
+        |> maybeDecode "Saturday" Json.Decode.string Nothing
+        |> maybeDecode "Sunday" Json.Decode.string Nothing
 
 
 searchSiteContent200ResponseDecoder : Json.Decode.Decoder SearchSiteContent200Response

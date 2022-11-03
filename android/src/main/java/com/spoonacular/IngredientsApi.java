@@ -1,6 +1,6 @@
 /**
  * spoonacular API
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.1
  * Contact: mail@spoonacular.com
@@ -70,9 +70,10 @@ public class IngredientsApi {
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
    * @param metaInformation Whether to return more meta information about the ingredients.
    * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
    * @return Set<AutocompleteIngredientSearch200ResponseInner>
   */
-  public Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch (String query, Integer number, Boolean metaInformation, String intolerances) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch (String query, Integer number, Boolean metaInformation, String intolerances, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -88,6 +89,7 @@ public class IngredientsApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "metaInformation", metaInformation));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "intolerances", intolerances));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -130,9 +132,9 @@ public class IngredientsApi {
       /**
    * Autocomplete Ingredient Search
    * Autocomplete the entry of an ingredient.
-   * @param query The (natural language) search query.   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.   * @param metaInformation Whether to return more meta information about the ingredients.   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+   * @param query The (natural language) search query.   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.   * @param metaInformation Whether to return more meta information about the ingredients.   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
   */
-  public void autocompleteIngredientSearch (String query, Integer number, Boolean metaInformation, String intolerances, final Response.Listener<Set<AutocompleteIngredientSearch200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
+  public void autocompleteIngredientSearch (String query, Integer number, Boolean metaInformation, String intolerances, String language, final Response.Listener<Set<AutocompleteIngredientSearch200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -150,6 +152,7 @@ public class IngredientsApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "metaInformation", metaInformation));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "intolerances", intolerances));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
 
 
     String[] contentTypes = {
@@ -753,9 +756,10 @@ public class IngredientsApi {
    * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
    * @param offset The number of results to skip (between 0 and 900).
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
+   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
    * @return IngredientSearch200Response
   */
-  public IngredientSearch200Response ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public IngredientSearch200Response ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -781,6 +785,7 @@ public class IngredientsApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sortDirection", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -823,9 +828,9 @@ public class IngredientsApi {
       /**
    * Ingredient Search
    * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-   * @param query The (natural language) search query.   * @param addChildren Whether to add children of found foods.   * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100).   * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100).   * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100).   * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100).   * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100).   * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100).   * @param metaInformation Whether to return more meta information about the ingredients.   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.   * @param sort The strategy to sort recipes by. See a full list of supported sorting options.   * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).   * @param offset The number of results to skip (between 0 and 900).   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
+   * @param query The (natural language) search query.   * @param addChildren Whether to add children of found foods.   * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100).   * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100).   * @param minFatPercent The minimum percentage of fat the food must have (between 0 and 100).   * @param maxFatPercent The maximum percentage of fat the food can have (between 0 and 100).   * @param minCarbsPercent The minimum percentage of carbs the food must have (between 0 and 100).   * @param maxCarbsPercent The maximum percentage of carbs the food can have (between 0 and 100).   * @param metaInformation Whether to return more meta information about the ingredients.   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.   * @param sort The strategy to sort recipes by. See a full list of supported sorting options.   * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).   * @param offset The number of results to skip (between 0 and 900).   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
   */
-  public void ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, final Response.Listener<IngredientSearch200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, final Response.Listener<IngredientSearch200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -853,6 +858,7 @@ public class IngredientsApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sortDirection", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "offset", offset));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "number", number));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
 
 
     String[] contentTypes = {

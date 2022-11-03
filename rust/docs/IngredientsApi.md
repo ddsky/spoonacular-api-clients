@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## autocomplete_ingredient_search
 
-> Vec<crate::models::AutocompleteIngredientSearch200ResponseInner> autocomplete_ingredient_search(query, number, meta_information, intolerances)
+> Vec<crate::models::AutocompleteIngredientSearch200ResponseInner> autocomplete_ingredient_search(query, number, meta_information, intolerances, language)
 Autocomplete Ingredient Search
 
 Autocomplete the entry of an ingredient.
@@ -32,6 +32,7 @@ Name | Type | Description  | Required | Notes
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 **meta_information** | Option<**bool**> | Whether to return more meta information about the ingredients. |  |
 **intolerances** | Option<**String**> | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. |  |
+**language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
 
 ### Return type
 
@@ -176,7 +177,7 @@ Name | Type | Description  | Required | Notes
 
 ## ingredient_search
 
-> crate::models::IngredientSearch200Response ingredient_search(query, add_children, min_protein_percent, max_protein_percent, min_fat_percent, max_fat_percent, min_carbs_percent, max_carbs_percent, meta_information, intolerances, sort, sort_direction, offset, number)
+> crate::models::IngredientSearch200Response ingredient_search(query, add_children, min_protein_percent, max_protein_percent, min_fat_percent, max_fat_percent, min_carbs_percent, max_carbs_percent, meta_information, intolerances, sort, sort_direction, offset, number, language)
 Ingredient Search
 
 Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
@@ -200,6 +201,7 @@ Name | Type | Description  | Required | Notes
 **sort_direction** | Option<**String**> | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
+**language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
 
 ### Return type
 

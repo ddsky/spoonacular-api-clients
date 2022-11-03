@@ -1,5 +1,5 @@
 # openapi
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -48,17 +48,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
-final api_instance = IngredientsApi();
-final query = burger; // String | The (natural language) search query.
-final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-final metaInformation = false; // bool | Whether to return more meta information about the ingredients.
-final intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+final api_instance = DefaultApi();
+final analyzeRecipeRequest = AnalyzeRecipeRequest(); // AnalyzeRecipeRequest | Example request body.
+final language = en; // String | The input language, either \"en\" or \"de\".
+final includeNutrition = false; // bool | Whether nutrition data should be added to correctly parsed ingredients.
+final includeTaste = false; // bool | Whether taste data should be added to correctly parsed ingredients.
 
 try {
-    final result = api_instance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
+    final result = api_instance.analyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
     print(result);
 } catch (e) {
-    print('Exception when calling IngredientsApi->autocompleteIngredientSearch: $e\n');
+    print('Exception when calling DefaultApi->analyzeRecipe: $e\n');
 }
 
 ```
@@ -69,6 +69,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**analyzeRecipe**](doc\/DefaultApi.md#analyzerecipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**searchRestaurants**](doc\/DefaultApi.md#searchrestaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**autocompleteIngredientSearch**](doc\/IngredientsApi.md#autocompleteingredientsearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**computeIngredientAmount**](doc\/IngredientsApi.md#computeingredientamount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *IngredientsApi* | [**getIngredientInformation**](doc\/IngredientsApi.md#getingredientinformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -186,6 +188,8 @@ Class | Method | HTTP request | Description
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](doc\/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](doc\/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](doc\/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [AnalyzeRecipeRequest](doc\/AnalyzeRecipeRequest.md)
+ - [AnalyzeRecipeRequest1](doc\/AnalyzeRecipeRequest1.md)
  - [AutocompleteIngredientSearch200ResponseInner](doc\/AutocompleteIngredientSearch200ResponseInner.md)
  - [AutocompleteMenuItemSearch200Response](doc\/AutocompleteMenuItemSearch200Response.md)
  - [AutocompleteProductSearch200Response](doc\/AutocompleteProductSearch200Response.md)
@@ -316,6 +320,11 @@ Class | Method | HTTP request | Description
  - [SearchRecipesByIngredients200ResponseInner](doc\/SearchRecipesByIngredients200ResponseInner.md)
  - [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](doc\/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [SearchRecipesByNutrients200ResponseInner](doc\/SearchRecipesByNutrients200ResponseInner.md)
+ - [SearchRestaurants200Response](doc\/SearchRestaurants200Response.md)
+ - [SearchRestaurants200ResponseRestaurantsInner](doc\/SearchRestaurants200ResponseRestaurantsInner.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerAddress](doc\/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHours](doc\/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](doc\/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [SearchSiteContent200Response](doc\/SearchSiteContent200Response.md)
  - [SearchSiteContent200ResponseArticlesInner](doc\/SearchSiteContent200ResponseArticlesInner.md)
  - [SearchSiteContent200ResponseGroceryProductsInner](doc\/SearchSiteContent200ResponseGroceryProductsInner.md)

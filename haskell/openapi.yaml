@@ -5,19 +5,19 @@ info:
     name: David Urbansky
     url: https://spoonacular.com/contact
   description: "The spoonacular Nutrition, Recipe, and Food API allows you to access\
-    \ over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000\
-    \ menu items. Our food ontology and semantic recipe search engine makes it possible\
-    \ to search for recipes using natural language queries, such as \"gluten free\
-    \ brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically\
-    \ calculate the nutritional information for any recipe, analyze recipe costs,\
-    \ visualize ingredient lists, find recipes for what's in your fridge, find recipes\
-    \ based on special diets, nutritional requirements, or favorite ingredients, classify\
-    \ recipes into types and cuisines, convert ingredient amounts, or even compute\
-    \ an entire meal plan. With our powerful API, you can create many kinds of food\
-    \ and especially nutrition apps.\n\nSpecial diets/dietary requirements currently\
-    \ available include: vegan, vegetarian, pescetarian, gluten free, grain free,\
-    \ dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic,\
-    \ FODMAP, and Primal."
+    \ over thousands of recipes, thousands of ingredients, 800,000 food products,\
+    \ over 100,000 menu items, and restaurants. Our food ontology and semantic recipe\
+    \ search engine makes it possible to search for recipes using natural language\
+    \ queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\"\
+    \ You can automatically calculate the nutritional information for any recipe,\
+    \ analyze recipe costs, visualize ingredient lists, find recipes for what's in\
+    \ your fridge, find recipes based on special diets, nutritional requirements,\
+    \ or favorite ingredients, classify recipes into types and cuisines, convert ingredient\
+    \ amounts, or even compute an entire meal plan. With our powerful API, you can\
+    \ create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary\
+    \ requirements currently available include: vegan, vegetarian, pescetarian, gluten\
+    \ free, grain free, dairy free, high protein, whole 30, low sodium, low carb,\
+    \ Paleo, ketogenic, FODMAP, and Primal."
   license:
     name: spoonacular API Terms
     url: https://spoonacular.com/food-api/terms
@@ -5985,6 +5985,83 @@ paths:
       summary: Equipment Widget
       tags:
       - recipes
+  /recipes/analyze:
+    post:
+      deprecated: false
+      description: "This endpoint allows you to send raw recipe information, such\
+        \ as title, servings, and ingredients, to then see what we compute (badges,\
+        \ diets, nutrition, and more). This is useful if you have your own recipe\
+        \ data and want to enrich it with our semantic analysis."
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Analyze-Recipe
+      operationId: analyzeRecipe
+      parameters:
+      - description: "The input language, either \"en\" or \"de\"."
+        explode: false
+        in: query
+        name: language
+        required: false
+        schema:
+          example: en
+          type: string
+        style: form
+      - description: Whether nutrition data should be added to correctly parsed ingredients.
+        explode: false
+        in: query
+        name: includeNutrition
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
+      - description: Whether taste data should be added to correctly parsed ingredients.
+        explode: false
+        in: query
+        name: includeTaste
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          ? ""
+          : schema:
+              $ref: '#/components/schemas/analyzeRecipe_request'
+          application/json:
+            examples:
+              Example 1:
+                value:
+                  title: Spaghetti Carbonara
+                  servings: 2
+                  ingredients:
+                  - 1 lb spaghetti
+                  - 3.5 oz pancetta
+                  - 2 Tbsps olive oil
+                  - 1  egg
+                  - 0.5 cup parmesan cheese
+                  instructions: 'Bring a large pot of water to a boil and season generously
+                    with salt. Add the pasta to the water once boiling and cook until
+                    al dente. Reserve 2 cups of cooking water and drain the pasta. '
+            schema:
+              $ref: '#/components/schemas/analyzeRecipe_request_1'
+        description: Example request body.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Analyze Recipe
   /recipes/{id}/summary:
     get:
       deprecated: false
@@ -7403,6 +7480,18 @@ paths:
           example: egg
           type: string
         style: form
+      - description: The language of the input. Either 'en' or 'de'.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          enum:
+          - en
+          - de
+          example: en
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -7709,6 +7798,18 @@ paths:
           maximum: 100
           minimum: 1
           type: integer
+        style: form
+      - description: The language of the input. Either 'en' or 'de'.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          enum:
+          - en
+          - de
+          example: en
+          type: string
         style: form
       responses:
         "200":
@@ -11775,6 +11876,121 @@ paths:
       summary: Delete from Shopping List
       tags:
       - meal planning
+  /food/restaurants/search:
+    get:
+      deprecated: false
+      description: "Search through thousands of restaurants (in North America) by\
+        \ location, cuisine, budget, and more."
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Restaurants
+      operationId: searchRestaurants
+      parameters:
+      - description: The search query.
+        explode: false
+        in: query
+        name: query
+        required: false
+        schema:
+          example: beach cafe
+          type: string
+        style: form
+      - description: The latitude of the user's location.
+        explode: false
+        in: query
+        name: lat
+        required: false
+        schema:
+          example: 37.7786357
+          type: number
+        style: form
+      - description: The longitude of the user's location.".
+        explode: false
+        in: query
+        name: lng
+        required: false
+        schema:
+          example: -122.3918135
+          type: number
+        style: form
+      - description: The distance around the location in miles.
+        explode: false
+        in: query
+        name: distance
+        required: false
+        schema:
+          example: 2
+          type: number
+        style: form
+      - description: The user's budget for a meal in USD.
+        explode: false
+        in: query
+        name: budget
+        required: false
+        schema:
+          example: 20
+          type: number
+        style: form
+      - description: The cuisine of the restaurant.
+        explode: false
+        in: query
+        name: cuisine
+        required: false
+        schema:
+          example: italian
+          type: string
+        style: form
+      - description: The minimum rating of the restaurant between 0 and 5.
+        explode: false
+        in: query
+        name: min-rating
+        required: false
+        schema:
+          example: 4.4
+          type: number
+        style: form
+      - description: Whether the restaurant must be open at the time of search.
+        explode: false
+        in: query
+        name: is-open
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      - description: "How to sort the results, one of the following 'cheapest', 'fastest',\
+          \ 'rating', 'distance' or the default 'relevance'."
+        explode: false
+        in: query
+        name: sort
+        required: false
+        schema:
+          example: distance
+          type: string
+        style: form
+      - description: The page number of results.
+        explode: false
+        in: query
+        name: page
+        required: false
+        schema:
+          example: 0
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchRestaurants_200_response'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: Search Restaurants
   /food/wine/dishes:
     get:
       deprecated: false
@@ -16273,6 +16489,48 @@ components:
           equipment:
           - id: 404645
             name: frying pan
+    analyzeRecipe_request:
+      properties:
+        language:
+          description: "The input language, either \"en\" or \"de\"."
+          example: en
+          type: string
+        includeNutrition:
+          description: Whether nutrition data should be added to correctly parsed
+            ingredients.
+          example: false
+          type: boolean
+        includeTaste:
+          description: Whether taste data should be added to correctly parsed ingredients.
+          example: false
+          type: boolean
+      type: object
+    analyzeRecipe_request_1:
+      properties:
+        title:
+          type: string
+        servings:
+          type: integer
+        ingredients:
+          items:
+            type: string
+          type: array
+        instructions:
+          type: string
+      type: object
+      x-examples:
+        Example 1:
+          title: Spaghetti Carbonara
+          servings: 2
+          ingredients:
+          - 1 lb spaghetti
+          - 3.5 oz pancetta
+          - 2 Tbsps olive oil
+          - 1  egg
+          - 0.5 cup parmesan cheese
+          instructions: 'Bring a large pot of water to a boil and season generously
+            with salt. Add the pasta to the water once boiling and cook until al dente.
+            Reserve 2 cups of cooking water and drain the pasta. '
     summarizeRecipe_200_response:
       description: ""
       example:
@@ -21552,6 +21810,458 @@ components:
           item: 1 package baking powder
           aisle: Baking
           parse: true
+    searchRestaurants_200_response_restaurants_inner_address:
+      example:
+        zipcode: zipcode
+        country: country
+        city: city
+        latitude: 5.962133916683182
+        lon: 1.4658129805029452
+        street_addr_2: street_addr_2
+        state: state
+        street_addr: street_addr
+        lat: 6.027456183070403
+        longitude: 5.637376656633329
+      properties:
+        street_addr:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zipcode:
+          type: string
+        country:
+          type: string
+        lat:
+          type: number
+        lon:
+          type: number
+        street_addr_2:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+      type: object
+    searchRestaurants_200_response_restaurants_inner_local_hours_operational:
+      example:
+        Monday: Monday
+        Thursday: Thursday
+        Friday: Friday
+        Sunday: Sunday
+        Wednesday: Wednesday
+        Tuesday: Tuesday
+        Saturday: Saturday
+      properties:
+        Monday:
+          type: string
+        Tuesday:
+          type: string
+        Wednesday:
+          type: string
+        Thursday:
+          type: string
+        Friday:
+          type: string
+        Saturday:
+          type: string
+        Sunday:
+          type: string
+      type: object
+    searchRestaurants_200_response_restaurants_inner_local_hours:
+      example:
+        delivery:
+          Monday: Monday
+          Thursday: Thursday
+          Friday: Friday
+          Sunday: Sunday
+          Wednesday: Wednesday
+          Tuesday: Tuesday
+          Saturday: Saturday
+        dine_in:
+          Monday: Monday
+          Thursday: Thursday
+          Friday: Friday
+          Sunday: Sunday
+          Wednesday: Wednesday
+          Tuesday: Tuesday
+          Saturday: Saturday
+        operational:
+          Monday: Monday
+          Thursday: Thursday
+          Friday: Friday
+          Sunday: Sunday
+          Wednesday: Wednesday
+          Tuesday: Tuesday
+          Saturday: Saturday
+        pickup:
+          Monday: Monday
+          Thursday: Thursday
+          Friday: Friday
+          Sunday: Sunday
+          Wednesday: Wednesday
+          Tuesday: Tuesday
+          Saturday: Saturday
+      properties:
+        operational:
+          $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner_local_hours_operational'
+        delivery:
+          $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner_local_hours_operational'
+        pickup:
+          $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner_local_hours_operational'
+        dine_in:
+          $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner_local_hours_operational'
+      type: object
+    searchRestaurants_200_response_restaurants_inner:
+      example:
+        offers_third_party_delivery: true
+        address:
+          zipcode: zipcode
+          country: country
+          city: city
+          latitude: 5.962133916683182
+          lon: 1.4658129805029452
+          street_addr_2: street_addr_2
+          state: state
+          street_addr: street_addr
+          lat: 6.027456183070403
+          longitude: 5.637376656633329
+        is_open: true
+        description: description
+        weighted_rating_value: 9.301444243932576
+        type: type
+        offers_first_party_delivery: true
+        aggregated_rating_count: 3
+        store_photos:
+        - "{}"
+        - "{}"
+        logo_photos:
+        - logo_photos
+        - logo_photos
+        pickup_enabled: true
+        cuisines:
+        - cuisines
+        - cuisines
+        miles: 7.061401241503109
+        dollar_signs: 2
+        delivery_enabled: true
+        food_photos:
+        - food_photos
+        - food_photos
+        name: name
+        phone_number: 0
+        _id: _id
+        local_hours:
+          delivery:
+            Monday: Monday
+            Thursday: Thursday
+            Friday: Friday
+            Sunday: Sunday
+            Wednesday: Wednesday
+            Tuesday: Tuesday
+            Saturday: Saturday
+          dine_in:
+            Monday: Monday
+            Thursday: Thursday
+            Friday: Friday
+            Sunday: Sunday
+            Wednesday: Wednesday
+            Tuesday: Tuesday
+            Saturday: Saturday
+          operational:
+            Monday: Monday
+            Thursday: Thursday
+            Friday: Friday
+            Sunday: Sunday
+            Wednesday: Wednesday
+            Tuesday: Tuesday
+            Saturday: Saturday
+          pickup:
+            Monday: Monday
+            Thursday: Thursday
+            Friday: Friday
+            Sunday: Sunday
+            Wednesday: Wednesday
+            Tuesday: Tuesday
+            Saturday: Saturday
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        phone_number:
+          type: integer
+        address:
+          $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner_address'
+        type:
+          type: string
+        description:
+          type: string
+        local_hours:
+          $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner_local_hours'
+        cuisines:
+          items:
+            type: string
+          type: array
+        food_photos:
+          items:
+            type: string
+          type: array
+        logo_photos:
+          items:
+            type: string
+          type: array
+        store_photos:
+          items:
+            properties: {}
+            type: object
+          type: array
+        dollar_signs:
+          type: integer
+        pickup_enabled:
+          type: boolean
+        delivery_enabled:
+          type: boolean
+        is_open:
+          type: boolean
+        offers_first_party_delivery:
+          type: boolean
+        offers_third_party_delivery:
+          type: boolean
+        miles:
+          type: number
+        weighted_rating_value:
+          type: number
+        aggregated_rating_count:
+          type: integer
+      type: object
+    searchRestaurants_200_response:
+      example:
+        restaurants:
+        - offers_third_party_delivery: true
+          address:
+            zipcode: zipcode
+            country: country
+            city: city
+            latitude: 5.962133916683182
+            lon: 1.4658129805029452
+            street_addr_2: street_addr_2
+            state: state
+            street_addr: street_addr
+            lat: 6.027456183070403
+            longitude: 5.637376656633329
+          is_open: true
+          description: description
+          weighted_rating_value: 9.301444243932576
+          type: type
+          offers_first_party_delivery: true
+          aggregated_rating_count: 3
+          store_photos:
+          - "{}"
+          - "{}"
+          logo_photos:
+          - logo_photos
+          - logo_photos
+          pickup_enabled: true
+          cuisines:
+          - cuisines
+          - cuisines
+          miles: 7.061401241503109
+          dollar_signs: 2
+          delivery_enabled: true
+          food_photos:
+          - food_photos
+          - food_photos
+          name: name
+          phone_number: 0
+          _id: _id
+          local_hours:
+            delivery:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+            dine_in:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+            operational:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+            pickup:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+        - offers_third_party_delivery: true
+          address:
+            zipcode: zipcode
+            country: country
+            city: city
+            latitude: 5.962133916683182
+            lon: 1.4658129805029452
+            street_addr_2: street_addr_2
+            state: state
+            street_addr: street_addr
+            lat: 6.027456183070403
+            longitude: 5.637376656633329
+          is_open: true
+          description: description
+          weighted_rating_value: 9.301444243932576
+          type: type
+          offers_first_party_delivery: true
+          aggregated_rating_count: 3
+          store_photos:
+          - "{}"
+          - "{}"
+          logo_photos:
+          - logo_photos
+          - logo_photos
+          pickup_enabled: true
+          cuisines:
+          - cuisines
+          - cuisines
+          miles: 7.061401241503109
+          dollar_signs: 2
+          delivery_enabled: true
+          food_photos:
+          - food_photos
+          - food_photos
+          name: name
+          phone_number: 0
+          _id: _id
+          local_hours:
+            delivery:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+            dine_in:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+            operational:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+            pickup:
+              Monday: Monday
+              Thursday: Thursday
+              Friday: Friday
+              Sunday: Sunday
+              Wednesday: Wednesday
+              Tuesday: Tuesday
+              Saturday: Saturday
+      properties:
+        restaurants:
+          items:
+            $ref: '#/components/schemas/searchRestaurants_200_response_restaurants_inner'
+          type: array
+      type: object
+      x-examples:
+        Example 1:
+          restaurants:
+          - _id: a8b49c84-a92d-4f06-802e-467af49feaf0
+            name: South Beach Cafe
+            phone_number: 14159741115
+            address:
+              street_addr: 800 The Embarcadero
+              city: San Francisco
+              state: CA
+              zipcode: "94107"
+              country: US
+              lat: 37.78129959
+              lon: -122.38869477
+              street_addr_2: ""
+              latitude: 37.78129959
+              longitude: -122.38869477
+            type: restaurant
+            description: "Italian, Pizza"
+            local_hours:
+              operational:
+                Monday: 07:00AM - 09:00PM
+                Tuesday: 07:00AM - 09:00PM
+                Wednesday: 07:00AM - 09:00PM
+                Thursday: 07:00AM - 09:00PM
+                Friday: 07:00AM - 09:00PM
+                Saturday: 08:00AM - 09:00PM
+                Sunday: 08:00AM - 09:00PM
+              delivery:
+                Monday: 07:00AM - 09:00PM
+                Tuesday: 07:00AM - 09:00PM
+                Wednesday: 07:00AM - 09:00PM
+                Thursday: 07:00AM - 09:00PM
+                Friday: 07:00AM - 09:00PM
+                Saturday: 08:00AM - 09:00PM
+                Sunday: 08:00AM - 09:00PM
+              pickup:
+                Monday: 07:00AM - 09:00PM
+                Tuesday: 07:00AM - 09:00PM
+                Wednesday: 07:00AM - 09:00PM
+                Thursday: 07:00AM - 09:00PM
+                Friday: 07:00AM - 09:00PM
+                Saturday: 08:00AM - 09:00PM
+                Sunday: 08:00AM - 09:00PM
+              dine_in:
+                Monday: 07:00AM - 09:00PM
+                Tuesday: 07:00AM - 09:00PM
+                Wednesday: 07:00AM - 09:00PM
+                Thursday: 07:00AM - 09:00PM
+                Friday: 07:00AM - 09:00PM
+                Saturday: 08:00AM - 09:00PM
+                Sunday: 08:00AM - 09:00PM
+            cuisines:
+            - Breakfast
+            - Dinner
+            - Italian
+            - Lunch
+            - Pickup
+            - Pizza
+            - Salads
+            - Sandwich
+            - Sandwiches
+            - Takeout
+            food_photos:
+            - https://cdn-img.mealme.ai/f3d0e396f1b552927092bafa65ef2cc4e8b57c22/68747470733a2f2f6d656469612d63646e2e677275626875622e636f6d2f696d6167652f75706c6f61642f62657462706b3570747a37756a306279616b6a672e6a7067
+            logo_photos:
+            - https://cdn-img.mealme.ai/25b450d4e72eea47dccd744c326e49e23343bd0d/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f677275626875622f696d6167652f75706c6f61642f76313531383830323236382f63686a6a356173716f6766696e726f7671376f732e706e67
+            store_photos: []
+            dollar_signs: 2
+            pickup_enabled: true
+            delivery_enabled: true
+            is_open: false
+            offers_first_party_delivery: false
+            offers_third_party_delivery: true
+            miles: 0.2508434381960197
+            weighted_rating_value: 4.725654450261779
+            aggregated_rating_count: 191
     getDishPairingForWine_200_response:
       description: ""
       example:

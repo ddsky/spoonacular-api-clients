@@ -22,6 +22,8 @@ com/spoonacular/client/model/analyzeRecipeInstructions200ResponseIngredientsInne
 com/spoonacular/client/model/analyzeRecipeInstructions200ResponseParsedInstructionsInner.ts
 com/spoonacular/client/model/analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.ts
 com/spoonacular/client/model/analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.ts
+com/spoonacular/client/model/analyzeRecipeRequest.ts
+com/spoonacular/client/model/analyzeRecipeRequest1.ts
 com/spoonacular/client/model/autocompleteIngredientSearch200ResponseInner.ts
 com/spoonacular/client/model/autocompleteMenuItemSearch200Response.ts
 com/spoonacular/client/model/autocompleteProductSearch200Response.ts
@@ -153,6 +155,11 @@ com/spoonacular/client/model/searchRecipes200ResponseResultsInner.ts
 com/spoonacular/client/model/searchRecipesByIngredients200ResponseInner.ts
 com/spoonacular/client/model/searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.ts
 com/spoonacular/client/model/searchRecipesByNutrients200ResponseInner.ts
+com/spoonacular/client/model/searchRestaurants200Response.ts
+com/spoonacular/client/model/searchRestaurants200ResponseRestaurantsInner.ts
+com/spoonacular/client/model/searchRestaurants200ResponseRestaurantsInnerAddress.ts
+com/spoonacular/client/model/searchRestaurants200ResponseRestaurantsInnerLocalHours.ts
+com/spoonacular/client/model/searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.ts
 com/spoonacular/client/model/searchSiteContent200Response.ts
 com/spoonacular/client/model/searchSiteContent200ResponseArticlesInner.ts
 com/spoonacular/client/model/searchSiteContent200ResponseGroceryProductsInner.ts
@@ -160,6 +167,7 @@ com/spoonacular/client/model/searchSiteContent200ResponseGroceryProductsInnerDat
 com/spoonacular/client/model/summarizeRecipe200Response.ts
 com/spoonacular/client/model/talkToChatbot200Response.ts
 com/spoonacular/client/variables.ts
+com/spoonacular/default.service.ts
 com/spoonacular/ingredients.service.ts
 com/spoonacular/mealPlanning.service.ts
 com/spoonacular/menuItems.service.ts

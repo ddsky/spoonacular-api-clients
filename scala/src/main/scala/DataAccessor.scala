@@ -16,9 +16,21 @@ trait DataAccessor {
 
         /**
         * 
+        * @return A Object
+        */
+        def Default_analyzeRecipe(analyzeRecipeRequest: AnalyzeRecipeRequest, language: Option[String], includeNutrition: Option[Boolean], includeTaste: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+
+        /**
+        * 
+        * @return A SearchRestaurants200Response
+        */
+        def Default_searchRestaurants(query: Option[String], lat: Option[BigDecimal], lng: Option[BigDecimal], distance: Option[BigDecimal], budget: Option[BigDecimal], cuisine: Option[String], minRating: Option[BigDecimal], isOpen: Option[Boolean], sort: Option[String], page: Option[BigDecimal], authParamapiKeyScheme: String): Either[CommonError,SearchRestaurants200Response] = Left(TODO)
+
+        /**
+        * 
         * @return A Set[AutocompleteIngredientSearch200ResponseInner]
         */
-        def Ingredients_autocompleteIngredientSearch(query: Option[String], number: Option[Int], metaInformation: Option[Boolean], intolerances: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[AutocompleteIngredientSearch200ResponseInner]] = Left(TODO)
+        def Ingredients_autocompleteIngredientSearch(query: Option[String], number: Option[Int], metaInformation: Option[Boolean], intolerances: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[AutocompleteIngredientSearch200ResponseInner]] = Left(TODO)
 
         /**
         * 
@@ -48,7 +60,7 @@ trait DataAccessor {
         * 
         * @return A IngredientSearch200Response
         */
-        def Ingredients_ingredientSearch(query: Option[String], addChildren: Option[Boolean], minProteinPercent: Option[BigDecimal], maxProteinPercent: Option[BigDecimal], minFatPercent: Option[BigDecimal], maxFatPercent: Option[BigDecimal], minCarbsPercent: Option[BigDecimal], maxCarbsPercent: Option[BigDecimal], metaInformation: Option[Boolean], intolerances: Option[String], sort: Option[String], sortDirection: Option[String], offset: Option[Int], number: Option[Int], authParamapiKeyScheme: String): Either[CommonError,IngredientSearch200Response] = Left(TODO)
+        def Ingredients_ingredientSearch(query: Option[String], addChildren: Option[Boolean], minProteinPercent: Option[BigDecimal], maxProteinPercent: Option[BigDecimal], minFatPercent: Option[BigDecimal], maxFatPercent: Option[BigDecimal], minCarbsPercent: Option[BigDecimal], maxCarbsPercent: Option[BigDecimal], metaInformation: Option[Boolean], intolerances: Option[String], sort: Option[String], sortDirection: Option[String], offset: Option[Int], number: Option[Int], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,IngredientSearch200Response] = Left(TODO)
 
         /**
         * 

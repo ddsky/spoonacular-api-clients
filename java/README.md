@@ -2,9 +2,9 @@
 
 spoonacular API
 - API version: 1.1
-  - Build date: 2022-10-28T13:58:23.400+02:00[Europe/Berlin]
+  - Build date: 2022-11-03T16:53:39.113+01:00[Europe/Berlin]
 
-The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
 
 Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
 
@@ -88,7 +88,7 @@ import com.spoonacular.client.ApiException;
 import com.spoonacular.client.Configuration;
 import com.spoonacular.client.auth.*;
 import com.spoonacular.client.models.*;
-import com.spoonacular.IngredientsApi;
+import com.spoonacular.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -101,16 +101,16 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //apiKeyScheme.setApiKeyPrefix("Token");
 
-    IngredientsApi apiInstance = new IngredientsApi(defaultClient);
-    String query = "burger"; // String | The (natural language) search query.
-    Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-    Boolean metaInformation = false; // Boolean | Whether to return more meta information about the ingredients.
-    String intolerances = "egg"; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    AnalyzeRecipeRequest analyzeRecipeRequest = new AnalyzeRecipeRequest(); // AnalyzeRecipeRequest | Example request body.
+    String language = "en"; // String | The input language, either \"en\" or \"de\".
+    Boolean includeNutrition = false; // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
+    Boolean includeTaste = false; // Boolean | Whether taste data should be added to correctly parsed ingredients.
     try {
-      Set<AutocompleteIngredientSearch200ResponseInner> result = apiInstance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
+      Object result = apiInstance.analyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling IngredientsApi#autocompleteIngredientSearch");
+      System.err.println("Exception when calling DefaultApi#analyzeRecipe");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -127,6 +127,8 @@ All URIs are relative to *https://api.spoonacular.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**analyzeRecipe**](docs/DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
+*DefaultApi* | [**searchRestaurants**](docs/DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
 *IngredientsApi* | [**autocompleteIngredientSearch**](docs/IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
 *IngredientsApi* | [**computeIngredientAmount**](docs/IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
 *IngredientsApi* | [**getIngredientInformation**](docs/IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
@@ -244,6 +246,8 @@ Class | Method | HTTP request | Description
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
+ - [AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -374,6 +378,11 @@ Class | Method | HTTP request | Description
  - [SearchRecipesByIngredients200ResponseInner](docs/SearchRecipesByIngredients200ResponseInner.md)
  - [SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner](docs/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md)
  - [SearchRecipesByNutrients200ResponseInner](docs/SearchRecipesByNutrients200ResponseInner.md)
+ - [SearchRestaurants200Response](docs/SearchRestaurants200Response.md)
+ - [SearchRestaurants200ResponseRestaurantsInner](docs/SearchRestaurants200ResponseRestaurantsInner.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerAddress](docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
+ - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
  - [SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)

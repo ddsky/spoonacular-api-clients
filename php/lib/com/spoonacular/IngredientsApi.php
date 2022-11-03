@@ -12,7 +12,7 @@
 /**
  * spoonacular API
  *
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.1
  * Contact: mail@spoonacular.com
@@ -125,14 +125,15 @@ class IngredientsApi
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]
      */
-    public function autocompleteIngredientSearch($query = null, $number = 10, $meta_information = null, $intolerances = null)
+    public function autocompleteIngredientSearch($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null)
     {
-        list($response) = $this->autocompleteIngredientSearchWithHttpInfo($query, $number, $meta_information, $intolerances);
+        list($response) = $this->autocompleteIngredientSearchWithHttpInfo($query, $number, $meta_information, $intolerances, $language);
         return $response;
     }
 
@@ -145,14 +146,15 @@ class IngredientsApi
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function autocompleteIngredientSearchWithHttpInfo($query = null, $number = 10, $meta_information = null, $intolerances = null)
+    public function autocompleteIngredientSearchWithHttpInfo($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null)
     {
-        $request = $this->autocompleteIngredientSearchRequest($query, $number, $meta_information, $intolerances);
+        $request = $this->autocompleteIngredientSearchRequest($query, $number, $meta_information, $intolerances, $language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -247,13 +249,14 @@ class IngredientsApi
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function autocompleteIngredientSearchAsync($query = null, $number = 10, $meta_information = null, $intolerances = null)
+    public function autocompleteIngredientSearchAsync($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null)
     {
-        return $this->autocompleteIngredientSearchAsyncWithHttpInfo($query, $number, $meta_information, $intolerances)
+        return $this->autocompleteIngredientSearchAsyncWithHttpInfo($query, $number, $meta_information, $intolerances, $language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,14 +273,15 @@ class IngredientsApi
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function autocompleteIngredientSearchAsyncWithHttpInfo($query = null, $number = 10, $meta_information = null, $intolerances = null)
+    public function autocompleteIngredientSearchAsyncWithHttpInfo($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null)
     {
         $returnType = '\com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]';
-        $request = $this->autocompleteIngredientSearchRequest($query, $number, $meta_information, $intolerances);
+        $request = $this->autocompleteIngredientSearchRequest($query, $number, $meta_information, $intolerances, $language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -322,11 +326,12 @@ class IngredientsApi
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function autocompleteIngredientSearchRequest($query = null, $number = 10, $meta_information = null, $intolerances = null)
+    public function autocompleteIngredientSearchRequest($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null)
     {
         if ($number !== null && $number > 100) {
             throw new \InvalidArgumentException('invalid value for "$number" when calling IngredientsApi.autocompleteIngredientSearch, must be smaller than or equal to 100.');
@@ -377,6 +382,15 @@ class IngredientsApi
             'string', // openApiType
             'form', // style
             false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
 
@@ -1687,14 +1701,15 @@ class IngredientsApi
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response
      */
-    public function ingredientSearch($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10)
+    public function ingredientSearch($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null)
     {
-        list($response) = $this->ingredientSearchWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+        list($response) = $this->ingredientSearchWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language);
         return $response;
     }
 
@@ -1717,14 +1732,15 @@ class IngredientsApi
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \com.spoonacular.client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ingredientSearchWithHttpInfo($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10)
+    public function ingredientSearchWithHttpInfo($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null)
     {
-        $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+        $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1829,13 +1845,14 @@ class IngredientsApi
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ingredientSearchAsync($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10)
+    public function ingredientSearchAsync($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null)
     {
-        return $this->ingredientSearchAsyncWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number)
+        return $this->ingredientSearchAsyncWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1862,14 +1879,15 @@ class IngredientsApi
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ingredientSearchAsyncWithHttpInfo($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10)
+    public function ingredientSearchAsyncWithHttpInfo($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null)
     {
         $returnType = '\com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response';
-        $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number);
+        $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1924,11 +1942,12 @@ class IngredientsApi
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
+     * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ingredientSearchRequest($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10)
+    public function ingredientSearchRequest($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null)
     {
         if ($offset !== null && $offset > 900) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling IngredientsApi.ingredientSearch, must be smaller than or equal to 900.');
@@ -2074,6 +2093,15 @@ class IngredientsApi
             $number,
             'number', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

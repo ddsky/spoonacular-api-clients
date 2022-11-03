@@ -1,6 +1,6 @@
 /**
  * spoonacular API
- * The spoonacular Nutrition, Recipe, and Food API allows you to access over 380,000 recipes, thousands of ingredients, 800,000 food products, and 100,000 menu items. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
+ * The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.  Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.
  *
  * The version of the OpenAPI document: 1.1
  * Contact: mail@spoonacular.com
@@ -56,6 +56,7 @@ export default class IngredientsApi {
      * @param {Number} opts.number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
      * @param {Boolean} opts.metaInformation Whether to return more meta information about the ingredients.
      * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/String} opts.language The language of the input. Either 'en' or 'de'.
      * @param {module:com.spoonacular.client/com.spoonacular/IngredientsApi~autocompleteIngredientSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:com.spoonacular.client/com.spoonacular.client.model/AutocompleteIngredientSearch200ResponseInner>}
      */
@@ -69,7 +70,8 @@ export default class IngredientsApi {
         'query': opts['query'],
         'number': opts['number'],
         'metaInformation': opts['metaInformation'],
-        'intolerances': opts['intolerances']
+        'intolerances': opts['intolerances'],
+        'language': opts['language']
       };
       let headerParams = {
       };
@@ -307,6 +309,7 @@ export default class IngredientsApi {
      * @param {String} opts.sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
      * @param {Number} opts.offset The number of results to skip (between 0 and 900).
      * @param {Number} opts.number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
+     * @param {module:com.spoonacular.client/com.spoonacular.client.model/String} opts.language The language of the input. Either 'en' or 'de'.
      * @param {module:com.spoonacular.client/com.spoonacular/IngredientsApi~ingredientSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:com.spoonacular.client/com.spoonacular.client.model/IngredientSearch200Response}
      */
@@ -330,7 +333,8 @@ export default class IngredientsApi {
         'sort': opts['sort'],
         'sortDirection': opts['sortDirection'],
         'offset': opts['offset'],
-        'number': opts['number']
+        'number': opts['number'],
+        'language': opts['language']
       };
       let headerParams = {
       };

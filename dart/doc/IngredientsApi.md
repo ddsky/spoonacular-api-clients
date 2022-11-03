@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **autocompleteIngredientSearch**
-> Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch(query, number, metaInformation, intolerances)
+> Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch(query, number, metaInformation, intolerances, language)
 
 Autocomplete Ingredient Search
 
@@ -40,9 +40,10 @@ final query = burger; // String | The (natural language) search query.
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 final metaInformation = false; // bool | Whether to return more meta information about the ingredients.
 final intolerances = egg; // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+final language = en; // String | The language of the input. Either 'en' or 'de'.
 
 try {
-    final result = api_instance.autocompleteIngredientSearch(query, number, metaInformation, intolerances);
+    final result = api_instance.autocompleteIngredientSearch(query, number, metaInformation, intolerances, language);
     print(result);
 } catch (e) {
     print('Exception when calling IngredientsApi->autocompleteIngredientSearch: $e\n');
@@ -57,6 +58,7 @@ Name | Type | Description  | Notes
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **bool**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
+ **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
 
 ### Return type
 
@@ -272,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredientSearch**
-> IngredientSearch200Response ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number)
+> IngredientSearch200Response ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language)
 
 Ingredient Search
 
@@ -301,9 +303,10 @@ final sort = calories; // String | The strategy to sort recipes by. See a full l
 final sortDirection = asc; // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
 final offset = 56; // int | The number of results to skip (between 0 and 900).
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
+final language = en; // String | The language of the input. Either 'en' or 'de'.
 
 try {
-    final result = api_instance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number);
+    final result = api_instance.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language);
     print(result);
 } catch (e) {
     print('Exception when calling IngredientsApi->ingredientSearch: $e\n');
@@ -328,6 +331,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **String**| The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+ **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
 
 ### Return type
 

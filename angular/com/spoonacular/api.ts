@@ -1,3 +1,5 @@
+export * from './default.service';
+import { DefaultService } from './default.service';
 export * from './ingredients.service';
 import { IngredientsService } from './ingredients.service';
 export * from './mealPlanning.service';
@@ -12,4 +14,4 @@ export * from './recipes.service';
 import { RecipesService } from './recipes.service';
 export * from './wine.service';
 import { WineService } from './wine.service';
-export const APIS = [IngredientsService, MealPlanningService, MenuItemsService, MiscService, ProductsService, RecipesService, WineService];
+export const APIS = [DefaultService, IngredientsService, MealPlanningService, MenuItemsService, MiscService, ProductsService, RecipesService, WineService];
