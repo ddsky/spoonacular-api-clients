@@ -11,7 +11,7 @@
  */
 
 import { ImageAnalysisByURL200ResponseNutritionCalories } from './ImageAnalysisByURL200ResponseNutritionCalories';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class ImageAnalysisByURL200ResponseNutrition {
     'recipesUsed': number;

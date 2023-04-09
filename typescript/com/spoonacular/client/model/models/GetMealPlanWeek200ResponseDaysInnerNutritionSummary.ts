@@ -11,7 +11,7 @@
  */
 
 import { GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner } from './GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetMealPlanWeek200ResponseDaysInnerNutritionSummary {
     'nutrients': Set<GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner>;

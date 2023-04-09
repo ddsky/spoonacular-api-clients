@@ -11,7 +11,7 @@
  */
 
 import { GetShoppingList200ResponseAislesInnerItemsInner } from './GetShoppingList200ResponseAislesInnerItemsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetShoppingList200ResponseAislesInner {
     'aisle': string;

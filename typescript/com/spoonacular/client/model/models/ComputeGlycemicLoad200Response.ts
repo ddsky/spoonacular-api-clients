@@ -11,7 +11,7 @@
  */
 
 import { ComputeGlycemicLoad200ResponseIngredientsInner } from './ComputeGlycemicLoad200ResponseIngredientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

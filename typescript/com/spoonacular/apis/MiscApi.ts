@@ -1,24 +1,22 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
-
-import { DetectFoodInText200Response } from '..com/spoonacular/client/model/models/DetectFoodInText200Response';
-import { GetARandomFoodJoke200Response } from '..com/spoonacular/client/model/models/GetARandomFoodJoke200Response';
-import { GetConversationSuggests200Response } from '..com/spoonacular/client/model/models/GetConversationSuggests200Response';
-import { GetRandomFoodTrivia200Response } from '..com/spoonacular/client/model/models/GetRandomFoodTrivia200Response';
-import { ImageAnalysisByURL200Response } from '..com/spoonacular/client/model/models/ImageAnalysisByURL200Response';
-import { ImageClassificationByURL200Response } from '..com/spoonacular/client/model/models/ImageClassificationByURL200Response';
-import { SearchAllFood200Response } from '..com/spoonacular/client/model/models/SearchAllFood200Response';
-import { SearchCustomFoods200Response } from '..com/spoonacular/client/model/models/SearchCustomFoods200Response';
-import { SearchFoodVideos200Response } from '..com/spoonacular/client/model/models/SearchFoodVideos200Response';
-import { SearchSiteContent200Response } from '..com/spoonacular/client/model/models/SearchSiteContent200Response';
-import { TalkToChatbot200Response } from '..com/spoonacular/client/model/models/TalkToChatbot200Response';
+import { DetectFoodInText200Response } from 'models/DetectFoodInText200Response';
+import { GetARandomFoodJoke200Response } from 'models/GetARandomFoodJoke200Response';
+import { GetConversationSuggests200Response } from 'models/GetConversationSuggests200Response';
+import { GetRandomFoodTrivia200Response } from 'models/GetRandomFoodTrivia200Response';
+import { ImageAnalysisByURL200Response } from 'models/ImageAnalysisByURL200Response';
+import { ImageClassificationByURL200Response } from 'models/ImageClassificationByURL200Response';
+import { SearchAllFood200Response } from 'models/SearchAllFood200Response';
+import { SearchCustomFoods200Response } from 'models/SearchCustomFoods200Response';
+import { SearchFoodVideos200Response } from 'models/SearchFoodVideos200Response';
+import { SearchSiteContent200Response } from 'models/SearchSiteContent200Response';
+import { TalkToChatbot200Response } from 'models/TalkToChatbot200Response';
 
 /**
  * no description

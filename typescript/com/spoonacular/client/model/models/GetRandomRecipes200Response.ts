@@ -11,7 +11,7 @@
  */
 
 import { GetRandomRecipes200ResponseRecipesInner } from './GetRandomRecipes200ResponseRecipesInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

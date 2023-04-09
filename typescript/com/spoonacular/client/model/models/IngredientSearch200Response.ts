@@ -11,7 +11,7 @@
  */
 
 import { IngredientSearch200ResponseResultsInner } from './IngredientSearch200ResponseResultsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

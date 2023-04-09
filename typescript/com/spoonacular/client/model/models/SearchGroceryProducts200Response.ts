@@ -11,7 +11,7 @@
  */
 
 import { AutocompleteRecipeSearch200ResponseInner } from './AutocompleteRecipeSearch200ResponseInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

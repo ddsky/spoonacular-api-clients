@@ -11,7 +11,7 @@
  */
 
 import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric } from './GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
     'metric': GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric;

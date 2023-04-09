@@ -11,7 +11,7 @@
  */
 
 import { GetComparableProducts200ResponseComparableProducts } from './GetComparableProducts200ResponseComparableProducts';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

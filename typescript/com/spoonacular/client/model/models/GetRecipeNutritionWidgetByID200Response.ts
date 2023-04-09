@@ -12,7 +12,7 @@
 
 import { GetRecipeNutritionWidgetByID200ResponseBadInner } from './GetRecipeNutritionWidgetByID200ResponseBadInner';
 import { GetRecipeNutritionWidgetByID200ResponseGoodInner } from './GetRecipeNutritionWidgetByID200ResponseGoodInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

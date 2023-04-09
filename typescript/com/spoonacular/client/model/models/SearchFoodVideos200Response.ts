@@ -11,7 +11,7 @@
  */
 
 import { SearchFoodVideos200ResponseVideosInner } from './SearchFoodVideos200ResponseVideosInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

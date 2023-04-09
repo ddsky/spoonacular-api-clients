@@ -11,7 +11,7 @@
  */
 
 import { SearchAllFood200ResponseSearchResultsInner } from './SearchAllFood200ResponseSearchResultsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

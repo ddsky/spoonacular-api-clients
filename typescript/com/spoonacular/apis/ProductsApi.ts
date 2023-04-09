@@ -1,22 +1,20 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
-
-import { AutocompleteProductSearch200Response } from '..com/spoonacular/client/model/models/AutocompleteProductSearch200Response';
-import { ClassifyGroceryProduct200Response } from '..com/spoonacular/client/model/models/ClassifyGroceryProduct200Response';
-import { ClassifyGroceryProductBulk200ResponseInner } from '..com/spoonacular/client/model/models/ClassifyGroceryProductBulk200ResponseInner';
-import { ClassifyGroceryProductBulkRequestInner } from '..com/spoonacular/client/model/models/ClassifyGroceryProductBulkRequestInner';
-import { ClassifyGroceryProductRequest } from '..com/spoonacular/client/model/models/ClassifyGroceryProductRequest';
-import { GetComparableProducts200Response } from '..com/spoonacular/client/model/models/GetComparableProducts200Response';
-import { GetProductInformation200Response } from '..com/spoonacular/client/model/models/GetProductInformation200Response';
-import { SearchGroceryProducts200Response } from '..com/spoonacular/client/model/models/SearchGroceryProducts200Response';
-import { SearchGroceryProductsByUPC200Response } from '..com/spoonacular/client/model/models/SearchGroceryProductsByUPC200Response';
+import { AutocompleteProductSearch200Response } from 'models/AutocompleteProductSearch200Response';
+import { ClassifyGroceryProduct200Response } from 'models/ClassifyGroceryProduct200Response';
+import { ClassifyGroceryProductBulk200ResponseInner } from 'models/ClassifyGroceryProductBulk200ResponseInner';
+import { ClassifyGroceryProductBulkRequestInner } from 'models/ClassifyGroceryProductBulkRequestInner';
+import { ClassifyGroceryProductRequest } from 'models/ClassifyGroceryProductRequest';
+import { GetComparableProducts200Response } from 'models/GetComparableProducts200Response';
+import { GetProductInformation200Response } from 'models/GetProductInformation200Response';
+import { SearchGroceryProducts200Response } from 'models/SearchGroceryProducts200Response';
+import { SearchGroceryProductsByUPC200Response } from 'models/SearchGroceryProductsByUPC200Response';
 
 /**
  * no description

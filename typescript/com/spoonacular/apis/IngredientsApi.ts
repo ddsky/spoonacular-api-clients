@@ -1,20 +1,19 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
 
-import { AutocompleteIngredientSearch200ResponseInner } from '..com/spoonacular/client/model/models/AutocompleteIngredientSearch200ResponseInner';
-import { ComputeIngredientAmount200Response } from '..com/spoonacular/client/model/models/ComputeIngredientAmount200Response';
-import { GetIngredientInformation200Response } from '..com/spoonacular/client/model/models/GetIngredientInformation200Response';
-import { GetIngredientSubstitutes200Response } from '..com/spoonacular/client/model/models/GetIngredientSubstitutes200Response';
-import { IngredientSearch200Response } from '..com/spoonacular/client/model/models/IngredientSearch200Response';
-import { MapIngredientsToGroceryProducts200ResponseInner } from '..com/spoonacular/client/model/models/MapIngredientsToGroceryProducts200ResponseInner';
-import { MapIngredientsToGroceryProductsRequest } from '..com/spoonacular/client/model/models/MapIngredientsToGroceryProductsRequest';
+import { AutocompleteIngredientSearch200ResponseInner } from 'models/AutocompleteIngredientSearch200ResponseInner';
+import { ComputeIngredientAmount200Response } from 'models/ComputeIngredientAmount200Response';
+import { GetIngredientInformation200Response } from 'models/GetIngredientInformation200Response';
+import { GetIngredientSubstitutes200Response } from 'models/GetIngredientSubstitutes200Response';
+import { IngredientSearch200Response } from 'models/IngredientSearch200Response';
+import { MapIngredientsToGroceryProducts200ResponseInner } from 'models/MapIngredientsToGroceryProducts200ResponseInner';
+import { MapIngredientsToGroceryProductsRequest } from 'models/MapIngredientsToGroceryProductsRequest';
 
 /**
  * no description

@@ -11,7 +11,7 @@
  */
 
 import { GetRecipeIngredientsByID200ResponseIngredientsInner } from './GetRecipeIngredientsByID200ResponseIngredientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

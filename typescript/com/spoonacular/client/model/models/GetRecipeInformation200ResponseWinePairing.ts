@@ -11,7 +11,7 @@
  */
 
 import { GetRecipeInformation200ResponseWinePairingProductMatchesInner } from './GetRecipeInformation200ResponseWinePairingProductMatchesInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetRecipeInformation200ResponseWinePairing {
     'pairedWines': Array<string>;

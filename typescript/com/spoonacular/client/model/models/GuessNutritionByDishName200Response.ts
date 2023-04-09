@@ -11,7 +11,7 @@
  */
 
 import { GuessNutritionByDishName200ResponseCalories } from './GuessNutritionByDishName200ResponseCalories';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

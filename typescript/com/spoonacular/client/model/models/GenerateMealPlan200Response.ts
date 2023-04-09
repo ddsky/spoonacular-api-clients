@@ -12,7 +12,7 @@
 
 import { GenerateMealPlan200ResponseNutrients } from './GenerateMealPlan200ResponseNutrients';
 import { GetSimilarRecipes200ResponseInner } from './GetSimilarRecipes200ResponseInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

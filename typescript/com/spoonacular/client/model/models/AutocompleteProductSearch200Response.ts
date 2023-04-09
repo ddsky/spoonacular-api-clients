@@ -11,7 +11,7 @@
  */
 
 import { AutocompleteProductSearch200ResponseResultsInner } from './AutocompleteProductSearch200ResponseResultsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

@@ -1,38 +1,36 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
-
-import { AnalyzeARecipeSearchQuery200Response } from '..com/spoonacular/client/model/models/AnalyzeARecipeSearchQuery200Response';
-import { AnalyzeRecipeInstructions200Response } from '..com/spoonacular/client/model/models/AnalyzeRecipeInstructions200Response';
-import { AutocompleteRecipeSearch200ResponseInner } from '..com/spoonacular/client/model/models/AutocompleteRecipeSearch200ResponseInner';
-import { ClassifyCuisine200Response } from '..com/spoonacular/client/model/models/ClassifyCuisine200Response';
-import { ComputeGlycemicLoad200Response } from '..com/spoonacular/client/model/models/ComputeGlycemicLoad200Response';
-import { ComputeGlycemicLoadRequest } from '..com/spoonacular/client/model/models/ComputeGlycemicLoadRequest';
-import { ConvertAmounts200Response } from '..com/spoonacular/client/model/models/ConvertAmounts200Response';
-import { CreateRecipeCard200Response } from '..com/spoonacular/client/model/models/CreateRecipeCard200Response';
-import { GetAnalyzedRecipeInstructions200Response } from '..com/spoonacular/client/model/models/GetAnalyzedRecipeInstructions200Response';
-import { GetRandomRecipes200Response } from '..com/spoonacular/client/model/models/GetRandomRecipes200Response';
-import { GetRecipeEquipmentByID200Response } from '..com/spoonacular/client/model/models/GetRecipeEquipmentByID200Response';
-import { GetRecipeInformation200Response } from '..com/spoonacular/client/model/models/GetRecipeInformation200Response';
-import { GetRecipeInformationBulk200ResponseInner } from '..com/spoonacular/client/model/models/GetRecipeInformationBulk200ResponseInner';
-import { GetRecipeIngredientsByID200Response } from '..com/spoonacular/client/model/models/GetRecipeIngredientsByID200Response';
-import { GetRecipeNutritionWidgetByID200Response } from '..com/spoonacular/client/model/models/GetRecipeNutritionWidgetByID200Response';
-import { GetRecipePriceBreakdownByID200Response } from '..com/spoonacular/client/model/models/GetRecipePriceBreakdownByID200Response';
-import { GetRecipeTasteByID200Response } from '..com/spoonacular/client/model/models/GetRecipeTasteByID200Response';
-import { GetSimilarRecipes200ResponseInner } from '..com/spoonacular/client/model/models/GetSimilarRecipes200ResponseInner';
-import { GuessNutritionByDishName200Response } from '..com/spoonacular/client/model/models/GuessNutritionByDishName200Response';
-import { ParseIngredients200ResponseInner } from '..com/spoonacular/client/model/models/ParseIngredients200ResponseInner';
-import { QuickAnswer200Response } from '..com/spoonacular/client/model/models/QuickAnswer200Response';
-import { SearchRecipes200Response } from '..com/spoonacular/client/model/models/SearchRecipes200Response';
-import { SearchRecipesByIngredients200ResponseInner } from '..com/spoonacular/client/model/models/SearchRecipesByIngredients200ResponseInner';
-import { SearchRecipesByNutrients200ResponseInner } from '..com/spoonacular/client/model/models/SearchRecipesByNutrients200ResponseInner';
-import { SummarizeRecipe200Response } from '..com/spoonacular/client/model/models/SummarizeRecipe200Response';
+import { AnalyzeARecipeSearchQuery200Response } from 'models/AnalyzeARecipeSearchQuery200Response';
+import { AnalyzeRecipeInstructions200Response } from 'models/AnalyzeRecipeInstructions200Response';
+import { AutocompleteRecipeSearch200ResponseInner } from 'models/AutocompleteRecipeSearch200ResponseInner';
+import { ClassifyCuisine200Response } from 'models/ClassifyCuisine200Response';
+import { ComputeGlycemicLoad200Response } from 'models/ComputeGlycemicLoad200Response';
+import { ComputeGlycemicLoadRequest } from 'models/ComputeGlycemicLoadRequest';
+import { ConvertAmounts200Response } from 'models/ConvertAmounts200Response';
+import { CreateRecipeCard200Response } from 'models/CreateRecipeCard200Response';
+import { GetAnalyzedRecipeInstructions200Response } from 'models/GetAnalyzedRecipeInstructions200Response';
+import { GetRandomRecipes200Response } from 'models/GetRandomRecipes200Response';
+import { GetRecipeEquipmentByID200Response } from 'models/GetRecipeEquipmentByID200Response';
+import { GetRecipeInformation200Response } from 'models/GetRecipeInformation200Response';
+import { GetRecipeInformationBulk200ResponseInner } from 'models/GetRecipeInformationBulk200ResponseInner';
+import { GetRecipeIngredientsByID200Response } from 'models/GetRecipeIngredientsByID200Response';
+import { GetRecipeNutritionWidgetByID200Response } from 'models/GetRecipeNutritionWidgetByID200Response';
+import { GetRecipePriceBreakdownByID200Response } from 'models/GetRecipePriceBreakdownByID200Response';
+import { GetRecipeTasteByID200Response } from 'models/GetRecipeTasteByID200Response';
+import { GetSimilarRecipes200ResponseInner } from 'models/GetSimilarRecipes200ResponseInner';
+import { GuessNutritionByDishName200Response } from 'models/GuessNutritionByDishName200Response';
+import { ParseIngredients200ResponseInner } from 'models/ParseIngredients200ResponseInner';
+import { QuickAnswer200Response } from 'models/QuickAnswer200Response';
+import { SearchRecipes200Response } from 'models/SearchRecipes200Response';
+import { SearchRecipesByIngredients200ResponseInner } from 'models/SearchRecipesByIngredients200ResponseInner';
+import { SearchRecipesByNutrients200ResponseInner } from 'models/SearchRecipesByNutrients200ResponseInner';
+import { SummarizeRecipe200Response } from 'models/SummarizeRecipe200Response';
 
 /**
  * no description

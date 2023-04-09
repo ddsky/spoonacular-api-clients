@@ -1,5 +1,17 @@
 {
   "compilerOptions": {
+
+    "baseUrl": ".", 
+    "paths": {
+      "http/*" : ["./http/*"], 
+      "models/*" : ["./com/spoonacular/client/model/models/*"],        /* added import aliases to clean up import syntax */
+      "apis/*" : ["./apis/*"],
+      "configuration/*" : ["./configuration.ts"],
+      "models-root/*" : ["./models-root/*"],
+      "util/*" : ["./util.ts"],
+      "auth/*" : ["./auth/*"]
+    },
+
     "strict": true,
     /* Basic Options */
     "target": "es5",

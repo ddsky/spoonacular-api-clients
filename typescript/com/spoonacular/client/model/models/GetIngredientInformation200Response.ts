@@ -12,7 +12,7 @@
 
 import { GetIngredientInformation200ResponseNutrition } from './GetIngredientInformation200ResponseNutrition';
 import { ParseIngredients200ResponseInnerEstimatedCost } from './ParseIngredients200ResponseInnerEstimatedCost';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

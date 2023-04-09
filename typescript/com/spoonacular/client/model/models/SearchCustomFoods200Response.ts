@@ -11,7 +11,7 @@
  */
 
 import { SearchCustomFoods200ResponseCustomFoodsInner } from './SearchCustomFoods200ResponseCustomFoodsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

@@ -11,7 +11,7 @@
  */
 
 import { SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner } from './SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchRecipesByIngredients200ResponseInner {
     'id': number;

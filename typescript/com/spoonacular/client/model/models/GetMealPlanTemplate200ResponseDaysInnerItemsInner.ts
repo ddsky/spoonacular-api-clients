@@ -11,7 +11,7 @@
  */
 
 import { GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue } from './GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     'id': number;

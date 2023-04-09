@@ -12,7 +12,7 @@
 
 import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from './GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
 import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner } from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

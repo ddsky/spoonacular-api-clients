@@ -11,7 +11,7 @@
  */
 
 import { GetShoppingList200ResponseAislesInner } from './GetShoppingList200ResponseAislesInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

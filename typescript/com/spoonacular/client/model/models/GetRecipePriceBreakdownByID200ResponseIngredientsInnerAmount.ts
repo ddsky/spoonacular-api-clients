@@ -11,7 +11,7 @@
  */
 
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric } from './GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount {
     'metric': GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric;

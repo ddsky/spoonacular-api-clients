@@ -11,7 +11,7 @@
  */
 
 import { GetConversationSuggests200ResponseSuggests } from './GetConversationSuggests200ResponseSuggests';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

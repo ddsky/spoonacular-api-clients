@@ -11,7 +11,7 @@
  */
 
 import { GetComparableProducts200ResponseComparableProductsProteinInner } from './GetComparableProducts200ResponseComparableProductsProteinInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetComparableProducts200ResponseComparableProducts {
     'calories': Array<any>;

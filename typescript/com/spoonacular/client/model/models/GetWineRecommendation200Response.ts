@@ -11,7 +11,7 @@
  */
 
 import { GetWineRecommendation200ResponseRecommendedWinesInner } from './GetWineRecommendation200ResponseRecommendedWinesInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

@@ -11,7 +11,7 @@
  */
 
 import { SearchGroceryProductsByUPC200ResponseServings } from './SearchGroceryProductsByUPC200ResponseServings';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchMenuItems200ResponseMenuItemsInner {
     'id': number;

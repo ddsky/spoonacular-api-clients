@@ -11,7 +11,7 @@
  */
 
 import { SearchMenuItems200ResponseMenuItemsInner } from './SearchMenuItems200ResponseMenuItemsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

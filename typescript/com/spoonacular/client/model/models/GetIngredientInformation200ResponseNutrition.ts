@@ -14,7 +14,7 @@ import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from './Par
 import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from './ParseIngredients200ResponseInnerNutritionNutrientsInner';
 import { ParseIngredients200ResponseInnerNutritionPropertiesInner } from './ParseIngredients200ResponseInnerNutritionPropertiesInner';
 import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from './ParseIngredients200ResponseInnerNutritionWeightPerServing';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetIngredientInformation200ResponseNutrition {
     'nutrients': Set<ParseIngredients200ResponseInnerNutritionNutrientsInner>;
