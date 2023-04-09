@@ -13,7 +13,7 @@
 import { ImageAnalysisByURL200ResponseCategory } from './ImageAnalysisByURL200ResponseCategory';
 import { ImageAnalysisByURL200ResponseNutrition } from './ImageAnalysisByURL200ResponseNutrition';
 import { ImageAnalysisByURL200ResponseRecipesInner } from './ImageAnalysisByURL200ResponseRecipesInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

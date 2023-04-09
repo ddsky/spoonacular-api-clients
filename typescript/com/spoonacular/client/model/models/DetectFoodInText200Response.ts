@@ -11,7 +11,7 @@
  */
 
 import { DetectFoodInText200ResponseAnnotationsInner } from './DetectFoodInText200ResponseAnnotationsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

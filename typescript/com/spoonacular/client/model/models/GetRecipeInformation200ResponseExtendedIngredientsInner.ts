@@ -11,7 +11,7 @@
  */
 
 import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures } from './GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetRecipeInformation200ResponseExtendedIngredientsInner {
     'aisle': string;

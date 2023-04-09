@@ -12,7 +12,7 @@
 
 import { SearchRestaurants200ResponseRestaurantsInnerAddress } from './SearchRestaurants200ResponseRestaurantsInnerAddress';
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from './SearchRestaurants200ResponseRestaurantsInnerLocalHours';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchRestaurants200ResponseRestaurantsInner {
     'id'?: string;

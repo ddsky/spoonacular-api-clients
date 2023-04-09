@@ -11,7 +11,7 @@
  */
 
 import { GetConversationSuggests200ResponseSuggestsInner } from './GetConversationSuggests200ResponseSuggestsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetConversationSuggests200ResponseSuggests {
     'u': Set<GetConversationSuggests200ResponseSuggestsInner>;

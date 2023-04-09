@@ -11,7 +11,7 @@
  */
 
 import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from './ParseIngredients200ResponseInnerNutritionWeightPerServing';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
     'original': ParseIngredients200ResponseInnerNutritionWeightPerServing;

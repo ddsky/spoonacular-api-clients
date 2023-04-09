@@ -1,17 +1,15 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
-
-import { GetDishPairingForWine200Response } from '..com/spoonacular/client/model/models/GetDishPairingForWine200Response';
-import { GetWineDescription200Response } from '..com/spoonacular/client/model/models/GetWineDescription200Response';
-import { GetWinePairing200Response } from '..com/spoonacular/client/model/models/GetWinePairing200Response';
-import { GetWineRecommendation200Response } from '..com/spoonacular/client/model/models/GetWineRecommendation200Response';
+import { GetDishPairingForWine200Response } from 'models/GetDishPairingForWine200Response';
+import { GetWineDescription200Response } from 'models/GetWineDescription200Response';
+import { GetWinePairing200Response } from 'models/GetWinePairing200Response';
+import { GetWineRecommendation200Response } from 'models/GetWineRecommendation200Response';
 
 /**
  * no description

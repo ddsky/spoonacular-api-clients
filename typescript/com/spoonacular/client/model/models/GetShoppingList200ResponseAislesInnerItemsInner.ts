@@ -11,7 +11,7 @@
  */
 
 import { GetShoppingList200ResponseAislesInnerItemsInnerMeasures } from './GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetShoppingList200ResponseAislesInnerItemsInner {
     'id': number;

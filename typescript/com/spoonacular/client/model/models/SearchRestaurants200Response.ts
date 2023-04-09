@@ -11,7 +11,7 @@
  */
 
 import { SearchRestaurants200ResponseRestaurantsInner } from './SearchRestaurants200ResponseRestaurantsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchRestaurants200Response {
     'restaurants'?: Array<SearchRestaurants200ResponseRestaurantsInner>;

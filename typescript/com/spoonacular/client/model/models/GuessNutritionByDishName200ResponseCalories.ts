@@ -11,7 +11,7 @@
  */
 
 import { GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent } from './GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GuessNutritionByDishName200ResponseCalories {
     'confidenceRange95Percent': GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent;

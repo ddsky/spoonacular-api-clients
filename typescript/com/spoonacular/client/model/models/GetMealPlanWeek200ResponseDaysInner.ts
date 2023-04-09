@@ -12,7 +12,7 @@
 
 import { GetMealPlanWeek200ResponseDaysInnerItemsInner } from './GetMealPlanWeek200ResponseDaysInnerItemsInner';
 import { GetMealPlanWeek200ResponseDaysInnerNutritionSummary } from './GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class GetMealPlanWeek200ResponseDaysInner {
     'nutritionSummary'?: GetMealPlanWeek200ResponseDaysInnerNutritionSummary;

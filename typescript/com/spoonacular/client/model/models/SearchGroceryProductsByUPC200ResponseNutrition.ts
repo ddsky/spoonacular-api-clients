@@ -12,7 +12,7 @@
 
 import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from './ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
 import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from './ParseIngredients200ResponseInnerNutritionNutrientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchGroceryProductsByUPC200ResponseNutrition {
     'nutrients': Set<ParseIngredients200ResponseInnerNutritionNutrientsInner>;

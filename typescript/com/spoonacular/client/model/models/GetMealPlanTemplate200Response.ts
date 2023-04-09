@@ -11,7 +11,7 @@
  */
 
 import { GetMealPlanTemplate200ResponseDaysInner } from './GetMealPlanTemplate200ResponseDaysInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

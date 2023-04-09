@@ -12,7 +12,7 @@
 
 import { AnalyzeARecipeSearchQuery200ResponseDishesInner } from './AnalyzeARecipeSearchQuery200ResponseDishesInner';
 import { AnalyzeARecipeSearchQuery200ResponseIngredientsInner } from './AnalyzeARecipeSearchQuery200ResponseIngredientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

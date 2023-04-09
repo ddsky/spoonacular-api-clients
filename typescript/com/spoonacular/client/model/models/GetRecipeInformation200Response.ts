@@ -12,7 +12,7 @@
 
 import { GetRecipeInformation200ResponseExtendedIngredientsInner } from './GetRecipeInformation200ResponseExtendedIngredientsInner';
 import { GetRecipeInformation200ResponseWinePairing } from './GetRecipeInformation200ResponseWinePairing';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

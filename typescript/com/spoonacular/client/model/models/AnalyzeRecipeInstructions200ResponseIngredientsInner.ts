@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class AnalyzeRecipeInstructions200ResponseIngredientsInner {
     'id': number;

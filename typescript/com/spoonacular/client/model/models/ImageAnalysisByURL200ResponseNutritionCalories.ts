@@ -11,7 +11,7 @@
  */
 
 import { ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent } from './ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class ImageAnalysisByURL200ResponseNutritionCalories {
     'value': number;

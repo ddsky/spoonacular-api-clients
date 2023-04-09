@@ -11,7 +11,7 @@
  */
 
 import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from './GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

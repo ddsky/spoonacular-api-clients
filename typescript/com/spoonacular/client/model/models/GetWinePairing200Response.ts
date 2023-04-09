@@ -11,7 +11,7 @@
  */
 
 import { GetWinePairing200ResponseProductMatchesInner } from './GetWinePairing200ResponseProductMatchesInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

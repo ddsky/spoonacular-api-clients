@@ -11,7 +11,7 @@
  */
 
 import { GetRecipeEquipmentByID200ResponseEquipmentInner } from './GetRecipeEquipmentByID200ResponseEquipmentInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

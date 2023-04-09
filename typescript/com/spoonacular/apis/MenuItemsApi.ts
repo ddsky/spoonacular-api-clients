@@ -1,16 +1,15 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
 
-import { AutocompleteMenuItemSearch200Response } from '..com/spoonacular/client/model/models/AutocompleteMenuItemSearch200Response';
-import { GetMenuItemInformation200Response } from '..com/spoonacular/client/model/models/GetMenuItemInformation200Response';
-import { SearchMenuItems200Response } from '..com/spoonacular/client/model/models/SearchMenuItems200Response';
+import { AutocompleteMenuItemSearch200Response } from 'models/AutocompleteMenuItemSearch200Response';
+import { GetMenuItemInformation200Response } from 'models/GetMenuItemInformation200Response';
+import { SearchMenuItems200Response } from 'models/SearchMenuItems200Response';
 
 /**
  * no description

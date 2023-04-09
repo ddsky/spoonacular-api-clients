@@ -11,7 +11,7 @@
  */
 
 import { AddMealPlanTemplate200ResponseItemsInner } from './AddMealPlanTemplate200ResponseItemsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

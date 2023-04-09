@@ -11,7 +11,7 @@
  */
 
 import { AddToMealPlanRequest1Value } from './AddToMealPlanRequest1Value';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

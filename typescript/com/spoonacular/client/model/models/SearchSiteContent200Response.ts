@@ -12,7 +12,7 @@
 
 import { SearchSiteContent200ResponseArticlesInner } from './SearchSiteContent200ResponseArticlesInner';
 import { SearchSiteContent200ResponseGroceryProductsInner } from './SearchSiteContent200ResponseGroceryProductsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 /**
 * 

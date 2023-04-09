@@ -11,7 +11,7 @@
  */
 
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class AnalyzeRecipeInstructions200ResponseParsedInstructionsInner {
     'name': string;

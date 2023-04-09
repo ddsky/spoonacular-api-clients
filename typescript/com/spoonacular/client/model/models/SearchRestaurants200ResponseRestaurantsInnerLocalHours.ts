@@ -11,7 +11,7 @@
  */
 
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from './SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     'operational'?: SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;

@@ -11,7 +11,7 @@
  */
 
 import { SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner } from './SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchSiteContent200ResponseGroceryProductsInner {
     'dataPoints'?: Set<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner>;

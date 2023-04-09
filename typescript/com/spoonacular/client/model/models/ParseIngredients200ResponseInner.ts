@@ -12,7 +12,7 @@
 
 import { ParseIngredients200ResponseInnerEstimatedCost } from './ParseIngredients200ResponseInnerEstimatedCost';
 import { ParseIngredients200ResponseInnerNutrition } from './ParseIngredients200ResponseInnerNutrition';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class ParseIngredients200ResponseInner {
     'id': number;

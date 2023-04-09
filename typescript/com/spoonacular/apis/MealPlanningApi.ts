@@ -1,28 +1,26 @@
-// TODO: better import syntax?
-import {BaseAPIRequestFactory, RequiredError} from './baseapi';
-import {Configuration} from '../configuration';
-import {RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-import {ObjectSerializer} from '../models/ObjectSerializer';
-import {ApiException} from './exception';
-import {canConsumeForm, isCodeInRange} from '../util';
-import {SecurityAuthentication} from '../auth/auth';
+import {BaseAPIRequestFactory, RequiredError} from 'apis/baseapi';
+import {Configuration} from 'configuration';
+import {RequestContext, HttpMethod, ResponseContext, HttpFile} from 'http/http';
+import {ObjectSerializer} from 'models-root/ObjectSerializer';
+import {ApiException} from 'apis/exception';
+import {canConsumeForm, isCodeInRange} from 'util';
+import {SecurityAuthentication} from 'auth/auth';
 
-
-import { AddMealPlanTemplate200Response } from '..com/spoonacular/client/model/models/AddMealPlanTemplate200Response';
-import { AddToMealPlanRequest } from '..com/spoonacular/client/model/models/AddToMealPlanRequest';
-import { AddToMealPlanRequest1 } from '..com/spoonacular/client/model/models/AddToMealPlanRequest1';
-import { AddToShoppingListRequest } from '..com/spoonacular/client/model/models/AddToShoppingListRequest';
-import { ClearMealPlanDayRequest } from '..com/spoonacular/client/model/models/ClearMealPlanDayRequest';
-import { ConnectUser200Response } from '..com/spoonacular/client/model/models/ConnectUser200Response';
-import { ConnectUserRequest } from '..com/spoonacular/client/model/models/ConnectUserRequest';
-import { DeleteFromMealPlanRequest } from '..com/spoonacular/client/model/models/DeleteFromMealPlanRequest';
-import { GenerateMealPlan200Response } from '..com/spoonacular/client/model/models/GenerateMealPlan200Response';
-import { GenerateShoppingList200Response } from '..com/spoonacular/client/model/models/GenerateShoppingList200Response';
-import { GenerateShoppingListRequest } from '..com/spoonacular/client/model/models/GenerateShoppingListRequest';
-import { GetMealPlanTemplate200Response } from '..com/spoonacular/client/model/models/GetMealPlanTemplate200Response';
-import { GetMealPlanTemplates200Response } from '..com/spoonacular/client/model/models/GetMealPlanTemplates200Response';
-import { GetMealPlanWeek200Response } from '..com/spoonacular/client/model/models/GetMealPlanWeek200Response';
-import { GetShoppingList200Response } from '..com/spoonacular/client/model/models/GetShoppingList200Response';
+import { AddMealPlanTemplate200Response } from 'models/AddMealPlanTemplate200Response';
+import { AddToMealPlanRequest } from 'models/AddToMealPlanRequest';
+import { AddToMealPlanRequest1 } from 'models/AddToMealPlanRequest1';
+import { AddToShoppingListRequest } from 'models/AddToShoppingListRequest';
+import { ClearMealPlanDayRequest } from 'models/ClearMealPlanDayRequest';
+import { ConnectUser200Response } from 'models/ConnectUser200Response';
+import { ConnectUserRequest } from 'models/ConnectUserRequest';
+import { DeleteFromMealPlanRequest } from 'models/DeleteFromMealPlanRequest';
+import { GenerateMealPlan200Response } from 'models/GenerateMealPlan200Response';
+import { GenerateShoppingList200Response } from 'models/GenerateShoppingList200Response';
+import { GenerateShoppingListRequest } from 'models/GenerateShoppingListRequest';
+import { GetMealPlanTemplate200Response } from 'models/GetMealPlanTemplate200Response';
+import { GetMealPlanTemplates200Response } from 'models/GetMealPlanTemplates200Response';
+import { GetMealPlanWeek200Response } from 'models/GetMealPlanWeek200Response';
+import { GetShoppingList200Response } from 'models/GetShoppingList200Response';
 
 /**
  * no description

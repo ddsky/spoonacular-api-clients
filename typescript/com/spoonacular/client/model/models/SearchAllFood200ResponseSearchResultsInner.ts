@@ -11,7 +11,7 @@
  */
 
 import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from './SearchAllFood200ResponseSearchResultsInnerResultsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class SearchAllFood200ResponseSearchResultsInner {
     'name': string;

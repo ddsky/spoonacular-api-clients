@@ -11,7 +11,7 @@
  */
 
 import { AddToMealPlanRequest1ValueIngredientsInner } from './AddToMealPlanRequest1ValueIngredientsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class AddToMealPlanRequest1Value {
     'ingredients': Set<AddToMealPlanRequest1ValueIngredientsInner>;

@@ -11,7 +11,7 @@
  */
 
 import { MapIngredientsToGroceryProducts200ResponseInnerProductsInner } from './MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
-import { HttpFile } from '../http/http';
+import { HttpFile } from 'http/http';
 
 export class MapIngredientsToGroceryProducts200ResponseInner {
     'original': string;
