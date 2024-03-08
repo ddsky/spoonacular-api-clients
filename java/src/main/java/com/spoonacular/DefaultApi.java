@@ -37,7 +37,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class DefaultApi {
     private ApiClient localVarApiClient;
@@ -142,7 +141,8 @@ public class DefaultApi {
         }
 
         final String[] localVarContentTypes = {
-            "", "application/json"
+            "",
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -155,15 +155,12 @@ public class DefaultApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call analyzeRecipeValidateBeforeCall(AnalyzeRecipeRequest analyzeRecipeRequest, String language, Boolean includeNutrition, Boolean includeTaste, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'analyzeRecipeRequest' is set
         if (analyzeRecipeRequest == null) {
             throw new ApiException("Missing the required parameter 'analyzeRecipeRequest' when calling analyzeRecipe(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = analyzeRecipeCall(analyzeRecipeRequest, language, includeNutrition, includeTaste, _callback);
-        return localVarCall;
+        return analyzeRecipeCall(analyzeRecipeRequest, language, includeNutrition, includeTaste, _callback);
 
     }
 
@@ -285,7 +282,7 @@ public class DefaultApi {
 
         // create path and map variables
         String localVarPath = "/recipes/{id}/card"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -318,7 +315,6 @@ public class DefaultApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -331,15 +327,12 @@ public class DefaultApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createRecipeCardGetValidateBeforeCall(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createRecipeCardGet(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createRecipeCardGetCall(id, mask, backgroundImage, backgroundColor, fontColor, _callback);
-        return localVarCall;
+        return createRecipeCardGetCall(id, mask, backgroundImage, backgroundColor, fontColor, _callback);
 
     }
 
@@ -525,7 +518,6 @@ public class DefaultApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -538,10 +530,7 @@ public class DefaultApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchRestaurantsValidateBeforeCall(String query, BigDecimal lat, BigDecimal lng, BigDecimal distance, BigDecimal budget, String cuisine, BigDecimal minRating, Boolean isOpen, String sort, BigDecimal page, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = searchRestaurantsCall(query, lat, lng, distance, budget, cuisine, minRating, isOpen, sort, page, _callback);
-        return localVarCall;
+        return searchRestaurantsCall(query, lat, lng, distance, budget, cuisine, minRating, isOpen, sort, page, _callback);
 
     }
 

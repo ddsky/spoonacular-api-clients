@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  |
 **name** | **string** |  |
-**measures** | [**\com.spoonacular.client\com.spoonacular.client.model\GetShoppingList200ResponseAislesInnerItemsInnerMeasures**](GetShoppingList200ResponseAislesInnerItemsInnerMeasures.md) |  | [optional]
+**measures** | [**\OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasures**](GetShoppingList200ResponseAislesInnerItemsInnerMeasures.md) |  | [optional]
 **pantry_item** | **bool** |  |
 **aisle** | **string** |  |
 **cost** | **float** |  |

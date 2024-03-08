@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.SummarizeRecipe200Response
+# spoonacular.Model.SummarizeRecipe200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Summary** | **string** |  | 
 **Title** | **string** |  | 
 

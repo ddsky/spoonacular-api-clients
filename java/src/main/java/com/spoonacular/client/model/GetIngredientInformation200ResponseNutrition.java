@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,11 +23,9 @@ import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionCal
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionNutrientsInner;
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionPropertiesInner;
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionWeightPerServing;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -41,12 +38,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -54,7 +55,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetIngredientInformation200ResponseNutrition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetIngredientInformation200ResponseNutrition {
   public static final String SERIALIZED_NAME_NUTRIENTS = "nutrients";
   @SerializedName(SERIALIZED_NAME_NUTRIENTS)
@@ -72,16 +73,18 @@ public class GetIngredientInformation200ResponseNutrition {
   @SerializedName(SERIALIZED_NAME_WEIGHT_PER_SERVING)
   private ParseIngredients200ResponseInnerNutritionWeightPerServing weightPerServing;
 
-  public GetIngredientInformation200ResponseNutrition() { 
+  public GetIngredientInformation200ResponseNutrition() {
   }
 
   public GetIngredientInformation200ResponseNutrition nutrients(Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients) {
-    
     this.nutrients = nutrients;
     return this;
   }
 
   public GetIngredientInformation200ResponseNutrition addNutrientsItem(ParseIngredients200ResponseInnerNutritionNutrientsInner nutrientsItem) {
+    if (this.nutrients == null) {
+      this.nutrients = new LinkedHashSet<>();
+    }
     this.nutrients.add(nutrientsItem);
     return this;
   }
@@ -91,12 +94,9 @@ public class GetIngredientInformation200ResponseNutrition {
    * @return nutrients
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> getNutrients() {
     return nutrients;
   }
-
 
   public void setNutrients(Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients) {
     this.nutrients = nutrients;
@@ -104,12 +104,14 @@ public class GetIngredientInformation200ResponseNutrition {
 
 
   public GetIngredientInformation200ResponseNutrition properties(Set<ParseIngredients200ResponseInnerNutritionPropertiesInner> properties) {
-    
     this.properties = properties;
     return this;
   }
 
   public GetIngredientInformation200ResponseNutrition addPropertiesItem(ParseIngredients200ResponseInnerNutritionPropertiesInner propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new LinkedHashSet<>();
+    }
     this.properties.add(propertiesItem);
     return this;
   }
@@ -119,12 +121,9 @@ public class GetIngredientInformation200ResponseNutrition {
    * @return properties
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<ParseIngredients200ResponseInnerNutritionPropertiesInner> getProperties() {
     return properties;
   }
-
 
   public void setProperties(Set<ParseIngredients200ResponseInnerNutritionPropertiesInner> properties) {
     this.properties = properties;
@@ -132,7 +131,6 @@ public class GetIngredientInformation200ResponseNutrition {
 
 
   public GetIngredientInformation200ResponseNutrition caloricBreakdown(ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown) {
-    
     this.caloricBreakdown = caloricBreakdown;
     return this;
   }
@@ -142,12 +140,9 @@ public class GetIngredientInformation200ResponseNutrition {
    * @return caloricBreakdown
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ParseIngredients200ResponseInnerNutritionCaloricBreakdown getCaloricBreakdown() {
     return caloricBreakdown;
   }
-
 
   public void setCaloricBreakdown(ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown) {
     this.caloricBreakdown = caloricBreakdown;
@@ -155,7 +150,6 @@ public class GetIngredientInformation200ResponseNutrition {
 
 
   public GetIngredientInformation200ResponseNutrition weightPerServing(ParseIngredients200ResponseInnerNutritionWeightPerServing weightPerServing) {
-    
     this.weightPerServing = weightPerServing;
     return this;
   }
@@ -165,12 +159,9 @@ public class GetIngredientInformation200ResponseNutrition {
    * @return weightPerServing
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ParseIngredients200ResponseInnerNutritionWeightPerServing getWeightPerServing() {
     return weightPerServing;
   }
-
 
   public void setWeightPerServing(ParseIngredients200ResponseInnerNutritionWeightPerServing weightPerServing) {
     this.weightPerServing = weightPerServing;
@@ -242,66 +233,57 @@ public class GetIngredientInformation200ResponseNutrition {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetIngredientInformation200ResponseNutrition
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetIngredientInformation200ResponseNutrition
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetIngredientInformation200ResponseNutrition.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetIngredientInformation200ResponseNutrition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetIngredientInformation200ResponseNutrition is not found in the empty JSON string", GetIngredientInformation200ResponseNutrition.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetIngredientInformation200ResponseNutrition.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetIngredientInformation200ResponseNutrition` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetIngredientInformation200ResponseNutrition` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetIngredientInformation200ResponseNutrition.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("nutrients").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nutrients` to be an array in the JSON string but got `%s`", jsonObj.get("nutrients").toString()));
+      }
+
       JsonArray jsonArraynutrients = jsonObj.getAsJsonArray("nutrients");
-      if (jsonArraynutrients != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("nutrients").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `nutrients` to be an array in the JSON string but got `%s`", jsonObj.get("nutrients").toString()));
-        }
-
-        // validate the optional field `nutrients` (array)
-        for (int i = 0; i < jsonArraynutrients.size(); i++) {
-          ParseIngredients200ResponseInnerNutritionNutrientsInner.validateJsonObject(jsonArraynutrients.get(i).getAsJsonObject());
-        };
+      // validate the required field `nutrients` (array)
+      for (int i = 0; i < jsonArraynutrients.size(); i++) {
+        ParseIngredients200ResponseInnerNutritionNutrientsInner.validateJsonElement(jsonArraynutrients.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("properties").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj.get("properties").toString()));
       }
+
       JsonArray jsonArrayproperties = jsonObj.getAsJsonArray("properties");
-      if (jsonArrayproperties != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("properties").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj.get("properties").toString()));
-        }
-
-        // validate the optional field `properties` (array)
-        for (int i = 0; i < jsonArrayproperties.size(); i++) {
-          ParseIngredients200ResponseInnerNutritionPropertiesInner.validateJsonObject(jsonArrayproperties.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `caloricBreakdown`
-      if (jsonObj.getAsJsonObject("caloricBreakdown") != null) {
-        ParseIngredients200ResponseInnerNutritionCaloricBreakdown.validateJsonObject(jsonObj.getAsJsonObject("caloricBreakdown"));
-      }
-      // validate the optional field `weightPerServing`
-      if (jsonObj.getAsJsonObject("weightPerServing") != null) {
-        ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJsonObject(jsonObj.getAsJsonObject("weightPerServing"));
-      }
+      // validate the required field `properties` (array)
+      for (int i = 0; i < jsonArrayproperties.size(); i++) {
+        ParseIngredients200ResponseInnerNutritionPropertiesInner.validateJsonElement(jsonArrayproperties.get(i));
+      };
+      // validate the required field `caloricBreakdown`
+      ParseIngredients200ResponseInnerNutritionCaloricBreakdown.validateJsonElement(jsonObj.get("caloricBreakdown"));
+      // validate the required field `weightPerServing`
+      ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJsonElement(jsonObj.get("weightPerServing"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -324,9 +306,9 @@ public class GetIngredientInformation200ResponseNutrition {
 
            @Override
            public GetIngredientInformation200ResponseNutrition read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -21,17 +21,15 @@ import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseIngredientsInner;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for SearchGroceryProductsByUPC200Response

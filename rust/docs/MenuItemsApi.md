@@ -1,4 +1,4 @@
-# com.spoonacular.client\MenuItemsApi
+# \MenuItemsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 

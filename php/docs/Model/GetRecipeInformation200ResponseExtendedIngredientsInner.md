@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **consitency** | **string** |  |
 **id** | **int** |  |
 **image** | **string** |  |
-**measures** | [**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional]
+**measures** | [**\OpenAPI\Client\Model\GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional]
 **meta** | **string[]** |  | [optional]
 **name** | **string** |  |
 **original** | **string** |  |

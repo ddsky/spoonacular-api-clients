@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ConvertAmounts200Response {
     #[serde(rename = "sourceAmount")]
     pub source_amount: f32,

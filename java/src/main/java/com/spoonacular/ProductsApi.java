@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProductsApi {
     private ApiClient localVarApiClient;
@@ -143,7 +142,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -156,15 +154,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call autocompleteProductSearchValidateBeforeCall(String query, Integer number, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling autocompleteProductSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = autocompleteProductSearchCall(query, number, _callback);
-        return localVarCall;
+        return autocompleteProductSearchCall(query, number, _callback);
 
     }
 
@@ -310,15 +305,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call classifyGroceryProductValidateBeforeCall(ClassifyGroceryProductRequest classifyGroceryProductRequest, String locale, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'classifyGroceryProductRequest' is set
         if (classifyGroceryProductRequest == null) {
             throw new ApiException("Missing the required parameter 'classifyGroceryProductRequest' when calling classifyGroceryProduct(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = classifyGroceryProductCall(classifyGroceryProductRequest, locale, _callback);
-        return localVarCall;
+        return classifyGroceryProductCall(classifyGroceryProductRequest, locale, _callback);
 
     }
 
@@ -464,15 +456,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call classifyGroceryProductBulkValidateBeforeCall(Set<ClassifyGroceryProductBulkRequestInner> classifyGroceryProductBulkRequestInner, String locale, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'classifyGroceryProductBulkRequestInner' is set
         if (classifyGroceryProductBulkRequestInner == null) {
             throw new ApiException("Missing the required parameter 'classifyGroceryProductBulkRequestInner' when calling classifyGroceryProductBulk(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = classifyGroceryProductBulkCall(classifyGroceryProductBulkRequestInner, locale, _callback);
-        return localVarCall;
+        return classifyGroceryProductBulkCall(classifyGroceryProductBulkRequestInner, locale, _callback);
 
     }
 
@@ -584,7 +573,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/upc/{upc}/comparable"
-            .replaceAll("\\{" + "upc" + "\\}", localVarApiClient.escapeString(upc.toString()));
+            .replace("{" + "upc" + "}", localVarApiClient.escapeString(upc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -601,7 +590,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -614,15 +602,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getComparableProductsValidateBeforeCall(BigDecimal upc, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'upc' is set
         if (upc == null) {
             throw new ApiException("Missing the required parameter 'upc' when calling getComparableProducts(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getComparableProductsCall(upc, _callback);
-        return localVarCall;
+        return getComparableProductsCall(upc, _callback);
 
     }
 
@@ -731,7 +716,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -748,7 +733,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -761,15 +745,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProductInformationValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProductInformation(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getProductInformationCall(id, _callback);
-        return localVarCall;
+        return getProductInformationCall(id, _callback);
 
     }
 
@@ -878,7 +859,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/{id}/nutritionWidget.png"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -895,7 +876,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -908,15 +888,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call productNutritionByIDImageValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling productNutritionByIDImage(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = productNutritionByIDImageCall(id, _callback);
-        return localVarCall;
+        return productNutritionByIDImageCall(id, _callback);
 
     }
 
@@ -1028,7 +1005,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/{id}/nutritionLabel.png"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1057,7 +1034,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1070,15 +1046,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call productNutritionLabelImageValidateBeforeCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling productNutritionLabelImage(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = productNutritionLabelImageCall(id, showOptionalNutrients, showZeroValues, showIngredients, _callback);
-        return localVarCall;
+        return productNutritionLabelImageCall(id, showOptionalNutrients, showZeroValues, showIngredients, _callback);
 
     }
 
@@ -1200,7 +1173,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/{id}/nutritionLabel"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1233,7 +1206,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1246,15 +1218,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call productNutritionLabelWidgetValidateBeforeCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling productNutritionLabelWidget(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = productNutritionLabelWidgetCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, _callback);
-        return localVarCall;
+        return productNutritionLabelWidgetCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, _callback);
 
     }
 
@@ -1450,7 +1419,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1463,10 +1431,7 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchGroceryProductsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = searchGroceryProductsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _callback);
-        return localVarCall;
+        return searchGroceryProductsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _callback);
 
     }
 
@@ -1608,7 +1573,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/upc/{upc}"
-            .replaceAll("\\{" + "upc" + "\\}", localVarApiClient.escapeString(upc.toString()));
+            .replace("{" + "upc" + "}", localVarApiClient.escapeString(upc.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1625,7 +1590,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1638,15 +1602,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchGroceryProductsByUPCValidateBeforeCall(BigDecimal upc, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'upc' is set
         if (upc == null) {
             throw new ApiException("Missing the required parameter 'upc' when calling searchGroceryProductsByUPC(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = searchGroceryProductsByUPCCall(upc, _callback);
-        return localVarCall;
+        return searchGroceryProductsByUPCCall(upc, _callback);
 
     }
 
@@ -1757,7 +1718,7 @@ public class ProductsApi {
 
         // create path and map variables
         String localVarPath = "/food/products/{id}/nutritionWidget"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1782,7 +1743,6 @@ public class ProductsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1795,15 +1755,12 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call visualizeProductNutritionByIDValidateBeforeCall(Integer id, Boolean defaultCss, String accept, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling visualizeProductNutritionByID(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = visualizeProductNutritionByIDCall(id, defaultCss, accept, _callback);
-        return localVarCall;
+        return visualizeProductNutritionByIDCall(id, defaultCss, accept, _callback);
 
     }
 

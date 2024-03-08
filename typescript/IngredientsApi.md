@@ -39,7 +39,7 @@ let body:.IngredientsApiAutocompleteIngredientSearchRequest = {
   metaInformation: false,
   // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
   intolerances: "egg",
-  // 'en' | 'de' | The language of the input. Either 'en' or 'de'. (optional)
+  // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
 };
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
  **metaInformation** | [**boolean**] | Whether to return more meta information about the ingredients. | (optional) defaults to undefined
  **intolerances** | [**string**] | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | (optional) defaults to undefined
- **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | (optional) defaults to undefined
+ **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
 
 
 ### Return type
@@ -166,7 +166,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiGetIngredientInformationRequest = {
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
   // number | The amount of this ingredient. (optional)
   amount: 150,
@@ -184,7 +184,7 @@ apiInstance.getIngredientInformation(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **amount** | [**number**] | The amount of this ingredient. | (optional) defaults to undefined
  **unit** | [**string**] | The unit for the given amount. | (optional) defaults to undefined
 
@@ -286,7 +286,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiGetIngredientSubstitutesByIDRequest = {
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
 };
 
@@ -300,7 +300,7 @@ apiInstance.getIngredientSubstitutesByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
 
 
 ### Return type
@@ -365,13 +365,13 @@ let body:.IngredientsApiIngredientSearchRequest = {
   intolerances: "egg",
   // string | The strategy to sort recipes by. See a full list of supported sorting options. (optional)
   sort: "calories",
-  // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
+  // string | The direction in which to sort. Must be either \'asc\' (ascending) or \'desc\' (descending). (optional)
   sortDirection: "asc",
   // number | The number of results to skip (between 0 and 900). (optional)
   offset: 0,
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
-  // 'en' | 'de' | The language of the input. Either 'en' or 'de'. (optional)
+  // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
 };
 
@@ -396,10 +396,10 @@ Name | Type | Description  | Notes
  **metaInformation** | [**boolean**] | Whether to return more meta information about the ingredients. | (optional) defaults to undefined
  **intolerances** | [**string**] | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | (optional) defaults to undefined
  **sort** | [**string**] | The strategy to sort recipes by. See a full list of supported sorting options. | (optional) defaults to undefined
- **sortDirection** | [**string**] | The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | (optional) defaults to undefined
+ **sortDirection** | [**string**] | The direction in which to sort. Must be either \&#39;asc\&#39; (ascending) or \&#39;desc\&#39; (descending). | (optional) defaults to undefined
  **offset** | [**number**] | The number of results to skip (between 0 and 900). | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
- **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | (optional) defaults to undefined
+ **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
 
 
 ### Return type
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 # **ingredientsByIDImage**
 > any ingredientsByIDImage()
 
-Visualize a recipe's ingredient list.
+Visualize a recipe\'s ingredient list.
 
 ### Example
 
@@ -444,7 +444,7 @@ const apiInstance = new .IngredientsApi(configuration);
 let body:.IngredientsApiIngredientsByIDImageRequest = {
   // number | The recipe id.
   id: 1082038,
-  // 'us' | 'metric' | Whether the the measures should be 'us' or 'metric'. (optional)
+  // 'us' | 'metric' | Whether the the measures should be \'us\' or \'metric\'. (optional)
   measure: "metric",
 };
 
@@ -459,7 +459,7 @@ apiInstance.ingredientsByIDImage(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**number**] | The recipe id. | defaults to undefined
- **measure** | [**&#39;us&#39; | &#39;metric&#39;**]**Array<&#39;us&#39; &#124; &#39;metric&#39;>** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | (optional) defaults to undefined
+ **measure** | [**&#39;us&#39; | &#39;metric&#39;**]**Array<&#39;us&#39; &#124; &#39;metric&#39;>** | Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;. | (optional) defaults to undefined
 
 
 ### Return type
@@ -566,7 +566,7 @@ const apiInstance = new .IngredientsApi(configuration);
 let body:.IngredientsApiVisualizeIngredientsRequest = {
   // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
   contentType: "application/json",
-  // 'en' | 'de' | The language of the input. Either 'en' or 'de'. (optional)
+  // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
   // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
   accept: "application/json",
@@ -583,7 +583,7 @@ apiInstance.visualizeIngredients(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
- **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | (optional) defaults to undefined
+ **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
  **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
 
 

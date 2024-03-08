@@ -38,8 +38,8 @@ Name | Type | Description | Notes
 **whole30** | **bool** |  |
 **weight_watcher_smart_points** | **float** |  |
 **dish_types** | **string[]** |  |
-**extended_ingredients** | [**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200ResponseExtendedIngredientsInner[]**](GetRecipeInformation200ResponseExtendedIngredientsInner.md) |  |
+**extended_ingredients** | [**\OpenAPI\Client\Model\GetRecipeInformation200ResponseExtendedIngredientsInner[]**](GetRecipeInformation200ResponseExtendedIngredientsInner.md) |  |
 **summary** | **string** |  |
-**wine_pairing** | [**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200ResponseWinePairing**](GetRecipeInformation200ResponseWinePairing.md) |  |
+**wine_pairing** | [**\OpenAPI\Client\Model\GetRecipeInformation200ResponseWinePairing**](GetRecipeInformation200ResponseWinePairing.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetComparableProducts200Response {
     #[serde(rename = "comparableProducts")]
     pub comparable_products: Box<crate::models::GetComparableProducts200ResponseComparableProducts>,

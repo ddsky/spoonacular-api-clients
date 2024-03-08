@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ConnectUser200Response
+# spoonacular.Model.ConnectUser200Response
 
 ## Properties
 

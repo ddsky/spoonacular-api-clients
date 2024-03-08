@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetWinePairing200Response {
     #[serde(rename = "pairedWines")]
     pub paired_wines: Vec<String>,

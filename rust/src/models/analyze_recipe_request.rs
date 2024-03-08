@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyzeRecipeRequest {
     /// The input language, either \"en\" or \"de\".
     #[serde(rename = "language", skip_serializing_if = "Option::is_none")]

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**products** | [**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteRecipeSearch200ResponseInner[]**](AutocompleteRecipeSearch200ResponseInner.md) |  |
+**products** | [**\OpenAPI\Client\Model\AutocompleteRecipeSearch200ResponseInner[]**](AutocompleteRecipeSearch200ResponseInner.md) |  |
 **total_products** | **int** |  |
 **type** | **string** |  |
 **offset** | **int** |  |

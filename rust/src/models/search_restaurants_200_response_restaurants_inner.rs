@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchRestaurants200ResponseRestaurantsInner {
     #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
     pub _id: Option<String>,
@@ -22,7 +22,7 @@ pub struct SearchRestaurants200ResponseRestaurantsInner {
     #[serde(rename = "address", skip_serializing_if = "Option::is_none")]
     pub address: Option<Box<crate::models::SearchRestaurants200ResponseRestaurantsInnerAddress>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub _type: Option<String>,
+    pub r#type: Option<String>,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     #[serde(rename = "local_hours", skip_serializing_if = "Option::is_none")]
@@ -62,7 +62,7 @@ impl SearchRestaurants200ResponseRestaurantsInner {
             name: None,
             phone_number: None,
             address: None,
-            _type: None,
+            r#type: None,
             description: None,
             local_hours: None,
             cuisines: None,

@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.IngredientSearch200ResponseResultsInner
+# spoonacular.Model.IngredientSearch200ResponseResultsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Name** | **string** |  | 
 **Image** | **string** |  | 
 

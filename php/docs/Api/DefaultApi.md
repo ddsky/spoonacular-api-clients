@@ -1,12 +1,12 @@
-# com.spoonacular.client\DefaultApi
+# OpenAPI\Client\DefaultApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**analyzeRecipe()**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
-[**createRecipeCardGet()**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card
-[**searchRestaurants()**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**analyzeRecipe()**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe |
+| [**createRecipeCardGet()**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card |
+| [**searchRestaurants()**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants |
 
 
 ## `analyzeRecipe()`
@@ -27,18 +27,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+$apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$analyze_recipe_request = new \com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeRequest | Example request body.
+$analyze_recipe_request = new \OpenAPI\Client\Model\AnalyzeRecipeRequest(); // \OpenAPI\Client\Model\AnalyzeRecipeRequest | Example request body.
 $language = en; // string | The input language, either \"en\" or \"de\".
 $include_nutrition = false; // bool | Whether nutrition data should be added to correctly parsed ingredients.
 $include_taste = false; // bool | Whether taste data should be added to correctly parsed ingredients.
@@ -53,12 +53,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **analyze_recipe_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeRequest**](../Model/AnalyzeRecipeRequest.md)| Example request body. |
- **language** | **string**| The input language, either \&quot;en\&quot; or \&quot;de\&quot;. | [optional]
- **include_nutrition** | **bool**| Whether nutrition data should be added to correctly parsed ingredients. | [optional]
- **include_taste** | **bool**| Whether taste data should be added to correctly parsed ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **analyze_recipe_request** | [**\OpenAPI\Client\Model\AnalyzeRecipeRequest**](../Model/AnalyzeRecipeRequest.md)| Example request body. | |
+| **language** | **string**| The input language, either \&quot;en\&quot; or \&quot;de\&quot;. | [optional] |
+| **include_nutrition** | **bool**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] |
+| **include_taste** | **bool**| Whether taste data should be added to correctly parsed ingredients. | [optional] |
 
 ### Return type
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+$apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -122,13 +122,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
- **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional]
- **background_image** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional]
- **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional]
- **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
+| **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
+| **background_image** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
+| **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] |
+| **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional] |
 
 ### Return type
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ## `searchRestaurants()`
 
 ```php
-searchRestaurants($query, $lat, $lng, $distance, $budget, $cuisine, $min_rating, $is_open, $sort, $page): \com.spoonacular.client\com.spoonacular.client.model\SearchRestaurants200Response
+searchRestaurants($query, $lat, $lng, $distance, $budget, $cuisine, $min_rating, $is_open, $sort, $page): \OpenAPI\Client\Model\SearchRestaurants200Response
 ```
 
 Search Restaurants
@@ -165,12 +165,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\DefaultApi(
+$apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -197,22 +197,22 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The search query. | [optional]
- **lat** | **float**| The latitude of the user&#39;s location. | [optional]
- **lng** | **float**| The longitude of the user&#39;s location.\&quot;. | [optional]
- **distance** | **float**| The distance around the location in miles. | [optional]
- **budget** | **float**| The user&#39;s budget for a meal in USD. | [optional]
- **cuisine** | **string**| The cuisine of the restaurant. | [optional]
- **min_rating** | **float**| The minimum rating of the restaurant between 0 and 5. | [optional]
- **is_open** | **bool**| Whether the restaurant must be open at the time of search. | [optional]
- **sort** | **string**| How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;. | [optional]
- **page** | **float**| The page number of results. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The search query. | [optional] |
+| **lat** | **float**| The latitude of the user&#39;s location. | [optional] |
+| **lng** | **float**| The longitude of the user&#39;s location.\&quot;. | [optional] |
+| **distance** | **float**| The distance around the location in miles. | [optional] |
+| **budget** | **float**| The user&#39;s budget for a meal in USD. | [optional] |
+| **cuisine** | **string**| The cuisine of the restaurant. | [optional] |
+| **min_rating** | **float**| The minimum rating of the restaurant between 0 and 5. | [optional] |
+| **is_open** | **bool**| Whether the restaurant must be open at the time of search. | [optional] |
+| **sort** | **string**| How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;. | [optional] |
+| **page** | **float**| The page number of results. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchRestaurants200Response**](../Model/SearchRestaurants200Response.md)
+[**\OpenAPI\Client\Model\SearchRestaurants200Response**](../Model/SearchRestaurants200Response.md)
 
 ### Authorization
 

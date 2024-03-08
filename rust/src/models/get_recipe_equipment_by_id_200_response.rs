@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetRecipeEquipmentById200Response {
     #[serde(rename = "equipment")]
     pub equipment: Vec<crate::models::GetRecipeEquipmentById200ResponseEquipmentInner>,

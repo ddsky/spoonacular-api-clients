@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchFoodVideos200ResponseVideosInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchFoodVideos200ResponseVideosInner {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -78,11 +80,10 @@ public class SearchFoodVideos200ResponseVideosInner {
   @SerializedName(SERIALIZED_NAME_YOU_TUBE_ID)
   private String youTubeId;
 
-  public SearchFoodVideos200ResponseVideosInner() { 
+  public SearchFoodVideos200ResponseVideosInner() {
   }
 
   public SearchFoodVideos200ResponseVideosInner title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -92,12 +93,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return title
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getTitle() {
     return title;
   }
-
 
   public void setTitle(String title) {
     this.title = title;
@@ -105,7 +103,6 @@ public class SearchFoodVideos200ResponseVideosInner {
 
 
   public SearchFoodVideos200ResponseVideosInner length(Integer length) {
-    
     this.length = length;
     return this;
   }
@@ -115,12 +112,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return length
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getLength() {
     return length;
   }
-
 
   public void setLength(Integer length) {
     this.length = length;
@@ -128,7 +122,6 @@ public class SearchFoodVideos200ResponseVideosInner {
 
 
   public SearchFoodVideos200ResponseVideosInner rating(BigDecimal rating) {
-    
     this.rating = rating;
     return this;
   }
@@ -138,12 +131,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return rating
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getRating() {
     return rating;
   }
-
 
   public void setRating(BigDecimal rating) {
     this.rating = rating;
@@ -151,7 +141,6 @@ public class SearchFoodVideos200ResponseVideosInner {
 
 
   public SearchFoodVideos200ResponseVideosInner shortTitle(String shortTitle) {
-    
     this.shortTitle = shortTitle;
     return this;
   }
@@ -161,12 +150,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return shortTitle
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getShortTitle() {
     return shortTitle;
   }
-
 
   public void setShortTitle(String shortTitle) {
     this.shortTitle = shortTitle;
@@ -174,7 +160,6 @@ public class SearchFoodVideos200ResponseVideosInner {
 
 
   public SearchFoodVideos200ResponseVideosInner thumbnail(String thumbnail) {
-    
     this.thumbnail = thumbnail;
     return this;
   }
@@ -184,12 +169,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return thumbnail
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getThumbnail() {
     return thumbnail;
   }
-
 
   public void setThumbnail(String thumbnail) {
     this.thumbnail = thumbnail;
@@ -197,7 +179,6 @@ public class SearchFoodVideos200ResponseVideosInner {
 
 
   public SearchFoodVideos200ResponseVideosInner views(Integer views) {
-    
     this.views = views;
     return this;
   }
@@ -207,12 +188,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return views
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getViews() {
     return views;
   }
-
 
   public void setViews(Integer views) {
     this.views = views;
@@ -220,7 +198,6 @@ public class SearchFoodVideos200ResponseVideosInner {
 
 
   public SearchFoodVideos200ResponseVideosInner youTubeId(String youTubeId) {
-    
     this.youTubeId = youTubeId;
     return this;
   }
@@ -230,12 +207,9 @@ public class SearchFoodVideos200ResponseVideosInner {
    * @return youTubeId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getYouTubeId() {
     return youTubeId;
   }
-
 
   public void setYouTubeId(String youTubeId) {
     this.youTubeId = youTubeId;
@@ -319,44 +293,43 @@ public class SearchFoodVideos200ResponseVideosInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchFoodVideos200ResponseVideosInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchFoodVideos200ResponseVideosInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchFoodVideos200ResponseVideosInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchFoodVideos200ResponseVideosInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchFoodVideos200ResponseVideosInner is not found in the empty JSON string", SearchFoodVideos200ResponseVideosInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchFoodVideos200ResponseVideosInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchFoodVideos200ResponseVideosInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchFoodVideos200ResponseVideosInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SearchFoodVideos200ResponseVideosInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("shortTitle") != null && !jsonObj.get("shortTitle").isJsonPrimitive()) {
+      if (!jsonObj.get("shortTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shortTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shortTitle").toString()));
       }
-      if (jsonObj.get("thumbnail") != null && !jsonObj.get("thumbnail").isJsonPrimitive()) {
+      if (!jsonObj.get("thumbnail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `thumbnail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail").toString()));
       }
-      if (jsonObj.get("youTubeId") != null && !jsonObj.get("youTubeId").isJsonPrimitive()) {
+      if (!jsonObj.get("youTubeId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `youTubeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("youTubeId").toString()));
       }
   }
@@ -381,9 +354,9 @@ public class SearchFoodVideos200ResponseVideosInner {
 
            @Override
            public SearchFoodVideos200ResponseVideosInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

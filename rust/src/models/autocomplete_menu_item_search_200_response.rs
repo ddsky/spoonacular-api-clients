@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AutocompleteMenuItemSearch200Response {
     #[serde(rename = "results")]
     pub results: Vec<crate::models::AutocompleteProductSearch200ResponseResultsInner>,

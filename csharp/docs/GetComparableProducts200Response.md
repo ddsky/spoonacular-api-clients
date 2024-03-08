@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetComparableProducts200Response
+# spoonacular.Model.GetComparableProducts200Response
 
 ## Properties
 

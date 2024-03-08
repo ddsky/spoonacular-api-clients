@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**videos** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchFoodVideos200ResponseVideosInner[]**](SearchFoodVideos200ResponseVideosInner.md) |  |
+**videos** | [**\OpenAPI\Client\Model\SearchFoodVideos200ResponseVideosInner[]**](SearchFoodVideos200ResponseVideosInner.md) |  |
 **total_results** | **int** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

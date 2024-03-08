@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AddToMealPlanRequest
+# spoonacular.Model.AddToMealPlanRequest
 
 ## Properties
 

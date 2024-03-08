@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetMealPlanTemplate200ResponseDaysInner {
     #[serde(rename = "nutritionSummary", skip_serializing_if = "Option::is_none")]
     pub nutrition_summary: Option<Box<crate::models::GetMealPlanWeek200ResponseDaysInnerNutritionSummary>>,

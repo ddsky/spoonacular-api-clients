@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetRecipeIngredientsById200ResponseIngredientsInner {
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
     pub amount: Option<Box<crate::models::GetRecipePriceBreakdownById200ResponseIngredientsInnerAmount>>,

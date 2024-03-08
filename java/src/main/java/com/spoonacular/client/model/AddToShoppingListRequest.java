@@ -14,15 +14,13 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,12 +32,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -47,8 +49,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class AddToShoppingListRequest {
   public static final String SERIALIZED_NAME_ITEM = "item";
   @SerializedName(SERIALIZED_NAME_ITEM)
@@ -62,11 +63,10 @@ public class AddToShoppingListRequest {
   @SerializedName(SERIALIZED_NAME_PARSE)
   private Boolean parse;
 
-  public AddToShoppingListRequest() { 
+  public AddToShoppingListRequest() {
   }
 
   public AddToShoppingListRequest item(String item) {
-    
     this.item = item;
     return this;
   }
@@ -76,12 +76,9 @@ public class AddToShoppingListRequest {
    * @return item
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getItem() {
     return item;
   }
-
 
   public void setItem(String item) {
     this.item = item;
@@ -89,7 +86,6 @@ public class AddToShoppingListRequest {
 
 
   public AddToShoppingListRequest aisle(String aisle) {
-    
     this.aisle = aisle;
     return this;
   }
@@ -99,12 +95,9 @@ public class AddToShoppingListRequest {
    * @return aisle
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getAisle() {
     return aisle;
   }
-
 
   public void setAisle(String aisle) {
     this.aisle = aisle;
@@ -112,7 +105,6 @@ public class AddToShoppingListRequest {
 
 
   public AddToShoppingListRequest parse(Boolean parse) {
-    
     this.parse = parse;
     return this;
   }
@@ -122,12 +114,9 @@ public class AddToShoppingListRequest {
    * @return parse
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getParse() {
     return parse;
   }
-
 
   public void setParse(Boolean parse) {
     this.parse = parse;
@@ -195,38 +184,37 @@ public class AddToShoppingListRequest {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AddToShoppingListRequest
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AddToShoppingListRequest
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AddToShoppingListRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AddToShoppingListRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AddToShoppingListRequest is not found in the empty JSON string", AddToShoppingListRequest.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddToShoppingListRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddToShoppingListRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddToShoppingListRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddToShoppingListRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("item") != null && !jsonObj.get("item").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("item").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `item` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item").toString()));
       }
-      if (jsonObj.get("aisle") != null && !jsonObj.get("aisle").isJsonPrimitive()) {
+      if (!jsonObj.get("aisle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aisle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aisle").toString()));
       }
   }
@@ -251,9 +239,9 @@ public class AddToShoppingListRequest {
 
            @Override
            public AddToShoppingListRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

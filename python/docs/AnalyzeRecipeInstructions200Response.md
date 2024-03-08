@@ -3,13 +3,30 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parsed_instructions** | [**[AnalyzeRecipeInstructions200ResponseParsedInstructionsInner]**](AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md) |  | 
-**ingredients** | [**[AnalyzeRecipeInstructions200ResponseIngredientsInner]**](AnalyzeRecipeInstructions200ResponseIngredientsInner.md) |  | 
-**equipment** | [**[AnalyzeRecipeInstructions200ResponseIngredientsInner]**](AnalyzeRecipeInstructions200ResponseIngredientsInner.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**parsed_instructions** | [**List[AnalyzeRecipeInstructions200ResponseParsedInstructionsInner]**](AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md) |  | 
+**ingredients** | [**List[AnalyzeRecipeInstructions200ResponseIngredientsInner]**](AnalyzeRecipeInstructions200ResponseIngredientsInner.md) |  | 
+**equipment** | [**List[AnalyzeRecipeInstructions200ResponseIngredientsInner]**](AnalyzeRecipeInstructions200ResponseIngredientsInner.md) |  | 
 
+## Example
+
+```python
+from spoonacular.models.analyze_recipe_instructions200_response import AnalyzeRecipeInstructions200Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of AnalyzeRecipeInstructions200Response from a JSON string
+analyze_recipe_instructions200_response_instance = AnalyzeRecipeInstructions200Response.from_json(json)
+# print the JSON string representation of the object
+print AnalyzeRecipeInstructions200Response.to_json()
+
+# convert the object into a dict
+analyze_recipe_instructions200_response_dict = analyze_recipe_instructions200_response_instance.to_dict()
+# create an instance of AnalyzeRecipeInstructions200Response from a dict
+analyze_recipe_instructions200_response_form_dict = analyze_recipe_instructions200_response.from_dict(analyze_recipe_instructions200_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

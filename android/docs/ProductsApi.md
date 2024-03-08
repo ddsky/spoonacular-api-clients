@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
  **maxProtein** | **BigDecimal**| The maximum amount of protein in grams the product can have. | [optional] [default to null]
  **minFat** | **BigDecimal**| The minimum amount of fat in grams the product must have. | [optional] [default to null]
  **maxFat** | **BigDecimal**| The maximum amount of fat in grams the product can have. | [optional] [default to null]
- **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] [default to null] [enum: false, true]
+ **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] [default to null]
  **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 

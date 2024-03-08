@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
     #[serde(rename = "original")]
     pub original: Box<crate::models::ParseIngredients200ResponseInnerNutritionWeightPerServing>,

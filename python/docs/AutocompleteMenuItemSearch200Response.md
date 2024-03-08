@@ -3,11 +3,28 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**[AutocompleteProductSearch200ResponseResultsInner]**](AutocompleteProductSearch200ResponseResultsInner.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**results** | [**List[AutocompleteProductSearch200ResponseResultsInner]**](AutocompleteProductSearch200ResponseResultsInner.md) |  | 
 
+## Example
+
+```python
+from spoonacular.models.autocomplete_menu_item_search200_response import AutocompleteMenuItemSearch200Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of AutocompleteMenuItemSearch200Response from a JSON string
+autocomplete_menu_item_search200_response_instance = AutocompleteMenuItemSearch200Response.from_json(json)
+# print the JSON string representation of the object
+print AutocompleteMenuItemSearch200Response.to_json()
+
+# convert the object into a dict
+autocomplete_menu_item_search200_response_dict = autocomplete_menu_item_search200_response_instance.to_dict()
+# create an instance of AutocompleteMenuItemSearch200Response from a dict
+autocomplete_menu_item_search200_response_form_dict = autocomplete_menu_item_search200_response.from_dict(autocomplete_menu_item_search200_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

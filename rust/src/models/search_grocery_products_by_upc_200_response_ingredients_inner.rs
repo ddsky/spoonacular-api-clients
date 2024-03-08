@@ -11,14 +11,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchGroceryProductsByUpc200ResponseIngredientsInner {
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<serde_json::Value>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<serde_json::Value>>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "safety_level", skip_serializing_if = "Option::is_none")]
-    pub safety_level: Option<serde_json::Value>,
+    #[serde(rename = "safety_level", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub safety_level: Option<Option<serde_json::Value>>,
 }
 
 impl SearchGroceryProductsByUpc200ResponseIngredientsInner {

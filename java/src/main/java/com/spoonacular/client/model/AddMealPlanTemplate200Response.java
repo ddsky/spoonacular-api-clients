@@ -14,18 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.AddMealPlanTemplate200ResponseItemsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -38,12 +35,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -51,8 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class AddMealPlanTemplate200Response {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -66,11 +66,10 @@ public class AddMealPlanTemplate200Response {
   @SerializedName(SERIALIZED_NAME_PUBLISH_AS_PUBLIC)
   private Boolean publishAsPublic;
 
-  public AddMealPlanTemplate200Response() { 
+  public AddMealPlanTemplate200Response() {
   }
 
   public AddMealPlanTemplate200Response name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -80,12 +79,9 @@ public class AddMealPlanTemplate200Response {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -93,12 +89,14 @@ public class AddMealPlanTemplate200Response {
 
 
   public AddMealPlanTemplate200Response items(Set<AddMealPlanTemplate200ResponseItemsInner> items) {
-    
     this.items = items;
     return this;
   }
 
   public AddMealPlanTemplate200Response addItemsItem(AddMealPlanTemplate200ResponseItemsInner itemsItem) {
+    if (this.items == null) {
+      this.items = new LinkedHashSet<>();
+    }
     this.items.add(itemsItem);
     return this;
   }
@@ -108,12 +106,9 @@ public class AddMealPlanTemplate200Response {
    * @return items
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<AddMealPlanTemplate200ResponseItemsInner> getItems() {
     return items;
   }
-
 
   public void setItems(Set<AddMealPlanTemplate200ResponseItemsInner> items) {
     this.items = items;
@@ -121,7 +116,6 @@ public class AddMealPlanTemplate200Response {
 
 
   public AddMealPlanTemplate200Response publishAsPublic(Boolean publishAsPublic) {
-    
     this.publishAsPublic = publishAsPublic;
     return this;
   }
@@ -131,12 +125,9 @@ public class AddMealPlanTemplate200Response {
    * @return publishAsPublic
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getPublishAsPublic() {
     return publishAsPublic;
   }
-
 
   public void setPublishAsPublic(Boolean publishAsPublic) {
     this.publishAsPublic = publishAsPublic;
@@ -204,49 +195,46 @@ public class AddMealPlanTemplate200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AddMealPlanTemplate200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AddMealPlanTemplate200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AddMealPlanTemplate200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AddMealPlanTemplate200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AddMealPlanTemplate200Response is not found in the empty JSON string", AddMealPlanTemplate200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddMealPlanTemplate200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddMealPlanTemplate200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddMealPlanTemplate200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddMealPlanTemplate200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      if (jsonArrayitems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("items").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
-        }
-
-        // validate the optional field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-          AddMealPlanTemplate200ResponseItemsInner.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+      // ensure the json data is an array
+      if (!jsonObj.get("items").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
       }
+
+      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+      // validate the required field `items` (array)
+      for (int i = 0; i < jsonArrayitems.size(); i++) {
+        AddMealPlanTemplate200ResponseItemsInner.validateJsonElement(jsonArrayitems.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -269,9 +257,9 @@ public class AddMealPlanTemplate200Response {
 
            @Override
            public AddMealPlanTemplate200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

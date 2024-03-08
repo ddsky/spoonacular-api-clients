@@ -2,14 +2,31 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **amount** | **str** |  | 
 **indented** | **bool** |  | 
 **percent_of_daily_needs** | **float** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.get_recipe_nutrition_widget_by_id200_response_bad_inner import GetRecipeNutritionWidgetByID200ResponseBadInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetRecipeNutritionWidgetByID200ResponseBadInner from a JSON string
+get_recipe_nutrition_widget_by_id200_response_bad_inner_instance = GetRecipeNutritionWidgetByID200ResponseBadInner.from_json(json)
+# print the JSON string representation of the object
+print GetRecipeNutritionWidgetByID200ResponseBadInner.to_json()
+
+# convert the object into a dict
+get_recipe_nutrition_widget_by_id200_response_bad_inner_dict = get_recipe_nutrition_widget_by_id200_response_bad_inner_instance.to_dict()
+# create an instance of GetRecipeNutritionWidgetByID200ResponseBadInner from a dict
+get_recipe_nutrition_widget_by_id200_response_bad_inner_form_dict = get_recipe_nutrition_widget_by_id200_response_bad_inner.from_dict(get_recipe_nutrition_widget_by_id200_response_bad_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

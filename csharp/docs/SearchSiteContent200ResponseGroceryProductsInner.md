@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.SearchSiteContent200ResponseGroceryProductsInner
+# spoonacular.Model.SearchSiteContent200ResponseGroceryProductsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataPoints** | [**List<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner>**](SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md) |  | [optional] 
+**DataPoints** | [**List&lt;SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner&gt;**](SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md) |  | [optional] 
 **Image** | **string** |  | 
 **Link** | **string** |  | 
 **Name** | **string** |  | 

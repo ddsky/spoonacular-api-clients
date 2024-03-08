@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ClassifyGroceryProductBulk200ResponseInner
+# spoonacular.Model.ClassifyGroceryProductBulk200ResponseInner
 
 ## Properties
 
@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **CleanTitle** | **string** |  | 
 **Image** | **string** |  | 
 **Category** | **string** |  | 
-**Breadcrumbs** | **List<string>** |  | 
-**UsdaCode** | **int?** |  | 
+**Breadcrumbs** | **List&lt;string&gt;** |  | 
+**UsdaCode** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

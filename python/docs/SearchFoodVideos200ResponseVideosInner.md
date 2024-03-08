@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** |  | 
@@ -11,8 +12,24 @@ Name | Type | Description | Notes
 **thumbnail** | **str** |  | 
 **views** | **int** |  | 
 **you_tube_id** | **str** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.search_food_videos200_response_videos_inner import SearchFoodVideos200ResponseVideosInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of SearchFoodVideos200ResponseVideosInner from a JSON string
+search_food_videos200_response_videos_inner_instance = SearchFoodVideos200ResponseVideosInner.from_json(json)
+# print the JSON string representation of the object
+print SearchFoodVideos200ResponseVideosInner.to_json()
+
+# convert the object into a dict
+search_food_videos200_response_videos_inner_dict = search_food_videos200_response_videos_inner_instance.to_dict()
+# create an instance of SearchFoodVideos200ResponseVideosInner from a dict
+search_food_videos200_response_videos_inner_form_dict = search_food_videos200_response_videos_inner.from_dict(search_food_videos200_response_videos_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

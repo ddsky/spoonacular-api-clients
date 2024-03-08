@@ -14,19 +14,16 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.ComputeGlycemicLoad200ResponseIngredientsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -39,12 +36,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,8 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class ComputeGlycemicLoad200Response {
   public static final String SERIALIZED_NAME_TOTAL_GLYCEMIC_LOAD = "totalGlycemicLoad";
   @SerializedName(SERIALIZED_NAME_TOTAL_GLYCEMIC_LOAD)
@@ -63,11 +63,10 @@ public class ComputeGlycemicLoad200Response {
   @SerializedName(SERIALIZED_NAME_INGREDIENTS)
   private Set<ComputeGlycemicLoad200ResponseIngredientsInner> ingredients = new LinkedHashSet<>();
 
-  public ComputeGlycemicLoad200Response() { 
+  public ComputeGlycemicLoad200Response() {
   }
 
   public ComputeGlycemicLoad200Response totalGlycemicLoad(BigDecimal totalGlycemicLoad) {
-    
     this.totalGlycemicLoad = totalGlycemicLoad;
     return this;
   }
@@ -77,12 +76,9 @@ public class ComputeGlycemicLoad200Response {
    * @return totalGlycemicLoad
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getTotalGlycemicLoad() {
     return totalGlycemicLoad;
   }
-
 
   public void setTotalGlycemicLoad(BigDecimal totalGlycemicLoad) {
     this.totalGlycemicLoad = totalGlycemicLoad;
@@ -90,12 +86,14 @@ public class ComputeGlycemicLoad200Response {
 
 
   public ComputeGlycemicLoad200Response ingredients(Set<ComputeGlycemicLoad200ResponseIngredientsInner> ingredients) {
-    
     this.ingredients = ingredients;
     return this;
   }
 
   public ComputeGlycemicLoad200Response addIngredientsItem(ComputeGlycemicLoad200ResponseIngredientsInner ingredientsItem) {
+    if (this.ingredients == null) {
+      this.ingredients = new LinkedHashSet<>();
+    }
     this.ingredients.add(ingredientsItem);
     return this;
   }
@@ -105,12 +103,9 @@ public class ComputeGlycemicLoad200Response {
    * @return ingredients
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<ComputeGlycemicLoad200ResponseIngredientsInner> getIngredients() {
     return ingredients;
   }
-
 
   public void setIngredients(Set<ComputeGlycemicLoad200ResponseIngredientsInner> ingredients) {
     this.ingredients = ingredients;
@@ -174,46 +169,43 @@ public class ComputeGlycemicLoad200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ComputeGlycemicLoad200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ComputeGlycemicLoad200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ComputeGlycemicLoad200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ComputeGlycemicLoad200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ComputeGlycemicLoad200Response is not found in the empty JSON string", ComputeGlycemicLoad200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ComputeGlycemicLoad200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ComputeGlycemicLoad200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ComputeGlycemicLoad200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ComputeGlycemicLoad200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
-      if (jsonArrayingredients != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("ingredients").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
-        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("ingredients").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
+      }
 
-        // validate the optional field `ingredients` (array)
-        for (int i = 0; i < jsonArrayingredients.size(); i++) {
-          ComputeGlycemicLoad200ResponseIngredientsInner.validateJsonObject(jsonArrayingredients.get(i).getAsJsonObject());
-        };
-      }
+      JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
+      // validate the required field `ingredients` (array)
+      for (int i = 0; i < jsonArrayingredients.size(); i++) {
+        ComputeGlycemicLoad200ResponseIngredientsInner.validateJsonElement(jsonArrayingredients.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -236,9 +228,9 @@ public class ComputeGlycemicLoad200Response {
 
            @Override
            public ComputeGlycemicLoad200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

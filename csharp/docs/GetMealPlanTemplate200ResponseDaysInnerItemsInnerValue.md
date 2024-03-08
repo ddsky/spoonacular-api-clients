@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+# spoonacular.Model.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal?** |  | 
+**Id** | **decimal** |  | 
 **Title** | **string** |  | 
 **ImageType** | **string** |  | 
 

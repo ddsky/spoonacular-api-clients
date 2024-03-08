@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.QuickAnswer200Response
+# spoonacular.Model.QuickAnswer200Response
 
 ## Properties
 

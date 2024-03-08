@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 # **searchCustomFoods**
 > SearchCustomFoods200Response searchCustomFoods()
 
-Search custom foods in a user's account.
+Search custom foods in a user\'s account.
 
 ### Example
 
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 # **searchSiteContent**
 > SearchSiteContent200Response searchSiteContent()
 
-Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+Search spoonacular\'s site content. You\'ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
 
 ### Example
 

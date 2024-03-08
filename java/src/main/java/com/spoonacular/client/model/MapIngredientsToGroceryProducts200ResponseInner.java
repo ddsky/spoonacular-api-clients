@@ -14,17 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInnerProductsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,12 +37,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * MapIngredientsToGroceryProducts200ResponseInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class MapIngredientsToGroceryProducts200ResponseInner {
   public static final String SERIALIZED_NAME_ORIGINAL = "original";
   @SerializedName(SERIALIZED_NAME_ORIGINAL)
@@ -74,11 +76,10 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
   private Set<MapIngredientsToGroceryProducts200ResponseInnerProductsInner> products = new LinkedHashSet<>();
 
-  public MapIngredientsToGroceryProducts200ResponseInner() { 
+  public MapIngredientsToGroceryProducts200ResponseInner() {
   }
 
   public MapIngredientsToGroceryProducts200ResponseInner original(String original) {
-    
     this.original = original;
     return this;
   }
@@ -88,12 +89,9 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
    * @return original
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getOriginal() {
     return original;
   }
-
 
   public void setOriginal(String original) {
     this.original = original;
@@ -101,7 +99,6 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
 
 
   public MapIngredientsToGroceryProducts200ResponseInner originalName(String originalName) {
-    
     this.originalName = originalName;
     return this;
   }
@@ -111,12 +108,9 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
    * @return originalName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getOriginalName() {
     return originalName;
   }
-
 
   public void setOriginalName(String originalName) {
     this.originalName = originalName;
@@ -124,7 +118,6 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
 
 
   public MapIngredientsToGroceryProducts200ResponseInner ingredientImage(String ingredientImage) {
-    
     this.ingredientImage = ingredientImage;
     return this;
   }
@@ -134,12 +127,9 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
    * @return ingredientImage
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getIngredientImage() {
     return ingredientImage;
   }
-
 
   public void setIngredientImage(String ingredientImage) {
     this.ingredientImage = ingredientImage;
@@ -147,12 +137,14 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
 
 
   public MapIngredientsToGroceryProducts200ResponseInner meta(List<String> meta) {
-    
     this.meta = meta;
     return this;
   }
 
   public MapIngredientsToGroceryProducts200ResponseInner addMetaItem(String metaItem) {
+    if (this.meta == null) {
+      this.meta = new ArrayList<>();
+    }
     this.meta.add(metaItem);
     return this;
   }
@@ -162,12 +154,9 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
    * @return meta
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getMeta() {
     return meta;
   }
-
 
   public void setMeta(List<String> meta) {
     this.meta = meta;
@@ -175,12 +164,14 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
 
 
   public MapIngredientsToGroceryProducts200ResponseInner products(Set<MapIngredientsToGroceryProducts200ResponseInnerProductsInner> products) {
-    
     this.products = products;
     return this;
   }
 
   public MapIngredientsToGroceryProducts200ResponseInner addProductsItem(MapIngredientsToGroceryProducts200ResponseInnerProductsInner productsItem) {
+    if (this.products == null) {
+      this.products = new LinkedHashSet<>();
+    }
     this.products.add(productsItem);
     return this;
   }
@@ -190,12 +181,9 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
    * @return products
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<MapIngredientsToGroceryProducts200ResponseInnerProductsInner> getProducts() {
     return products;
   }
-
 
   public void setProducts(Set<MapIngredientsToGroceryProducts200ResponseInnerProductsInner> products) {
     this.products = products;
@@ -271,59 +259,58 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MapIngredientsToGroceryProducts200ResponseInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MapIngredientsToGroceryProducts200ResponseInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (MapIngredientsToGroceryProducts200ResponseInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MapIngredientsToGroceryProducts200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in MapIngredientsToGroceryProducts200ResponseInner is not found in the empty JSON string", MapIngredientsToGroceryProducts200ResponseInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MapIngredientsToGroceryProducts200ResponseInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MapIngredientsToGroceryProducts200ResponseInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MapIngredientsToGroceryProducts200ResponseInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : MapIngredientsToGroceryProducts200ResponseInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("original") != null && !jsonObj.get("original").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("original").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `original` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original").toString()));
       }
-      if (jsonObj.get("originalName") != null && !jsonObj.get("originalName").isJsonPrimitive()) {
+      if (!jsonObj.get("originalName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalName").toString()));
       }
-      if (jsonObj.get("ingredientImage") != null && !jsonObj.get("ingredientImage").isJsonPrimitive()) {
+      if (!jsonObj.get("ingredientImage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ingredientImage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ingredientImage").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("meta") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("meta").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `meta` to be an array in the JSON string but got `%s`", jsonObj.get("meta").toString()));
       }
-      JsonArray jsonArrayproducts = jsonObj.getAsJsonArray("products");
-      if (jsonArrayproducts != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("products").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `products` to be an array in the JSON string but got `%s`", jsonObj.get("products").toString()));
-        }
-
-        // validate the optional field `products` (array)
-        for (int i = 0; i < jsonArrayproducts.size(); i++) {
-          MapIngredientsToGroceryProducts200ResponseInnerProductsInner.validateJsonObject(jsonArrayproducts.get(i).getAsJsonObject());
-        };
+      // ensure the json data is an array
+      if (!jsonObj.get("products").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `products` to be an array in the JSON string but got `%s`", jsonObj.get("products").toString()));
       }
+
+      JsonArray jsonArrayproducts = jsonObj.getAsJsonArray("products");
+      // validate the required field `products` (array)
+      for (int i = 0; i < jsonArrayproducts.size(); i++) {
+        MapIngredientsToGroceryProducts200ResponseInnerProductsInner.validateJsonElement(jsonArrayproducts.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -346,9 +333,9 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
 
            @Override
            public MapIngredientsToGroceryProducts200ResponseInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

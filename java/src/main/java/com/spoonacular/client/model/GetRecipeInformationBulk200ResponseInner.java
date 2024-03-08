@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetRecipeInformation200ResponseExtendedIngredientsInner;
 import com.spoonacular.client.model.GetRecipeInformation200ResponseWinePairing;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,12 +39,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -54,7 +56,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeInformationBulk200ResponseInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetRecipeInformationBulk200ResponseInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -204,11 +206,10 @@ public class GetRecipeInformationBulk200ResponseInner {
   @SerializedName(SERIALIZED_NAME_WINE_PAIRING)
   private GetRecipeInformation200ResponseWinePairing winePairing;
 
-  public GetRecipeInformationBulk200ResponseInner() { 
+  public GetRecipeInformationBulk200ResponseInner() {
   }
 
   public GetRecipeInformationBulk200ResponseInner id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -218,12 +219,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getId() {
     return id;
   }
-
 
   public void setId(Integer id) {
     this.id = id;
@@ -231,7 +229,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -241,12 +238,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return title
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getTitle() {
     return title;
   }
-
 
   public void setTitle(String title) {
     this.title = title;
@@ -254,7 +248,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner image(String image) {
-    
     this.image = image;
     return this;
   }
@@ -264,12 +257,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return image
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -277,7 +267,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner imageType(String imageType) {
-    
     this.imageType = imageType;
     return this;
   }
@@ -287,12 +276,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return imageType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImageType() {
     return imageType;
   }
-
 
   public void setImageType(String imageType) {
     this.imageType = imageType;
@@ -300,7 +286,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner servings(BigDecimal servings) {
-    
     this.servings = servings;
     return this;
   }
@@ -310,12 +295,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return servings
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getServings() {
     return servings;
   }
-
 
   public void setServings(BigDecimal servings) {
     this.servings = servings;
@@ -323,7 +305,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner readyInMinutes(Integer readyInMinutes) {
-    
     this.readyInMinutes = readyInMinutes;
     return this;
   }
@@ -333,12 +314,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return readyInMinutes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getReadyInMinutes() {
     return readyInMinutes;
   }
-
 
   public void setReadyInMinutes(Integer readyInMinutes) {
     this.readyInMinutes = readyInMinutes;
@@ -346,7 +324,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner license(String license) {
-    
     this.license = license;
     return this;
   }
@@ -356,12 +333,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return license
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getLicense() {
     return license;
   }
-
 
   public void setLicense(String license) {
     this.license = license;
@@ -369,7 +343,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner sourceName(String sourceName) {
-    
     this.sourceName = sourceName;
     return this;
   }
@@ -379,12 +352,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return sourceName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getSourceName() {
     return sourceName;
   }
-
 
   public void setSourceName(String sourceName) {
     this.sourceName = sourceName;
@@ -392,7 +362,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner sourceUrl(String sourceUrl) {
-    
     this.sourceUrl = sourceUrl;
     return this;
   }
@@ -402,12 +371,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return sourceUrl
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getSourceUrl() {
     return sourceUrl;
   }
-
 
   public void setSourceUrl(String sourceUrl) {
     this.sourceUrl = sourceUrl;
@@ -415,7 +381,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner spoonacularSourceUrl(String spoonacularSourceUrl) {
-    
     this.spoonacularSourceUrl = spoonacularSourceUrl;
     return this;
   }
@@ -425,12 +390,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return spoonacularSourceUrl
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getSpoonacularSourceUrl() {
     return spoonacularSourceUrl;
   }
-
 
   public void setSpoonacularSourceUrl(String spoonacularSourceUrl) {
     this.spoonacularSourceUrl = spoonacularSourceUrl;
@@ -438,7 +400,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner aggregateLikes(Integer aggregateLikes) {
-    
     this.aggregateLikes = aggregateLikes;
     return this;
   }
@@ -448,12 +409,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return aggregateLikes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getAggregateLikes() {
     return aggregateLikes;
   }
-
 
   public void setAggregateLikes(Integer aggregateLikes) {
     this.aggregateLikes = aggregateLikes;
@@ -461,7 +419,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner healthScore(BigDecimal healthScore) {
-    
     this.healthScore = healthScore;
     return this;
   }
@@ -471,12 +428,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return healthScore
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getHealthScore() {
     return healthScore;
   }
-
 
   public void setHealthScore(BigDecimal healthScore) {
     this.healthScore = healthScore;
@@ -484,7 +438,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner spoonacularScore(BigDecimal spoonacularScore) {
-    
     this.spoonacularScore = spoonacularScore;
     return this;
   }
@@ -494,12 +447,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return spoonacularScore
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getSpoonacularScore() {
     return spoonacularScore;
   }
-
 
   public void setSpoonacularScore(BigDecimal spoonacularScore) {
     this.spoonacularScore = spoonacularScore;
@@ -507,7 +457,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner pricePerServing(BigDecimal pricePerServing) {
-    
     this.pricePerServing = pricePerServing;
     return this;
   }
@@ -517,12 +466,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return pricePerServing
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getPricePerServing() {
     return pricePerServing;
   }
-
 
   public void setPricePerServing(BigDecimal pricePerServing) {
     this.pricePerServing = pricePerServing;
@@ -530,12 +476,14 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner analyzedInstructions(List<String> analyzedInstructions) {
-    
     this.analyzedInstructions = analyzedInstructions;
     return this;
   }
 
   public GetRecipeInformationBulk200ResponseInner addAnalyzedInstructionsItem(String analyzedInstructionsItem) {
+    if (this.analyzedInstructions == null) {
+      this.analyzedInstructions = new ArrayList<>();
+    }
     this.analyzedInstructions.add(analyzedInstructionsItem);
     return this;
   }
@@ -545,12 +493,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return analyzedInstructions
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getAnalyzedInstructions() {
     return analyzedInstructions;
   }
-
 
   public void setAnalyzedInstructions(List<String> analyzedInstructions) {
     this.analyzedInstructions = analyzedInstructions;
@@ -558,7 +503,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner cheap(Boolean cheap) {
-    
     this.cheap = cheap;
     return this;
   }
@@ -568,12 +512,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return cheap
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getCheap() {
     return cheap;
   }
-
 
   public void setCheap(Boolean cheap) {
     this.cheap = cheap;
@@ -581,7 +522,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner creditsText(String creditsText) {
-    
     this.creditsText = creditsText;
     return this;
   }
@@ -591,12 +531,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return creditsText
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getCreditsText() {
     return creditsText;
   }
-
 
   public void setCreditsText(String creditsText) {
     this.creditsText = creditsText;
@@ -604,12 +541,14 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner cuisines(List<String> cuisines) {
-    
     this.cuisines = cuisines;
     return this;
   }
 
   public GetRecipeInformationBulk200ResponseInner addCuisinesItem(String cuisinesItem) {
+    if (this.cuisines == null) {
+      this.cuisines = new ArrayList<>();
+    }
     this.cuisines.add(cuisinesItem);
     return this;
   }
@@ -619,12 +558,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return cuisines
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getCuisines() {
     return cuisines;
   }
-
 
   public void setCuisines(List<String> cuisines) {
     this.cuisines = cuisines;
@@ -632,7 +568,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner dairyFree(Boolean dairyFree) {
-    
     this.dairyFree = dairyFree;
     return this;
   }
@@ -642,12 +577,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return dairyFree
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getDairyFree() {
     return dairyFree;
   }
-
 
   public void setDairyFree(Boolean dairyFree) {
     this.dairyFree = dairyFree;
@@ -655,12 +587,14 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner diets(List<String> diets) {
-    
     this.diets = diets;
     return this;
   }
 
   public GetRecipeInformationBulk200ResponseInner addDietsItem(String dietsItem) {
+    if (this.diets == null) {
+      this.diets = new ArrayList<>();
+    }
     this.diets.add(dietsItem);
     return this;
   }
@@ -670,12 +604,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return diets
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getDiets() {
     return diets;
   }
-
 
   public void setDiets(List<String> diets) {
     this.diets = diets;
@@ -683,7 +614,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner gaps(String gaps) {
-    
     this.gaps = gaps;
     return this;
   }
@@ -693,12 +623,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return gaps
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getGaps() {
     return gaps;
   }
-
 
   public void setGaps(String gaps) {
     this.gaps = gaps;
@@ -706,7 +633,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner glutenFree(Boolean glutenFree) {
-    
     this.glutenFree = glutenFree;
     return this;
   }
@@ -716,12 +642,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return glutenFree
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getGlutenFree() {
     return glutenFree;
   }
-
 
   public void setGlutenFree(Boolean glutenFree) {
     this.glutenFree = glutenFree;
@@ -729,7 +652,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner instructions(String instructions) {
-    
     this.instructions = instructions;
     return this;
   }
@@ -739,12 +661,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return instructions
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getInstructions() {
     return instructions;
   }
-
 
   public void setInstructions(String instructions) {
     this.instructions = instructions;
@@ -752,7 +671,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner ketogenic(Boolean ketogenic) {
-    
     this.ketogenic = ketogenic;
     return this;
   }
@@ -762,12 +680,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return ketogenic
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getKetogenic() {
     return ketogenic;
   }
-
 
   public void setKetogenic(Boolean ketogenic) {
     this.ketogenic = ketogenic;
@@ -775,7 +690,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner lowFodmap(Boolean lowFodmap) {
-    
     this.lowFodmap = lowFodmap;
     return this;
   }
@@ -785,12 +699,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return lowFodmap
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getLowFodmap() {
     return lowFodmap;
   }
-
 
   public void setLowFodmap(Boolean lowFodmap) {
     this.lowFodmap = lowFodmap;
@@ -798,12 +709,14 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner occasions(List<String> occasions) {
-    
     this.occasions = occasions;
     return this;
   }
 
   public GetRecipeInformationBulk200ResponseInner addOccasionsItem(String occasionsItem) {
+    if (this.occasions == null) {
+      this.occasions = new ArrayList<>();
+    }
     this.occasions.add(occasionsItem);
     return this;
   }
@@ -813,12 +726,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return occasions
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getOccasions() {
     return occasions;
   }
-
 
   public void setOccasions(List<String> occasions) {
     this.occasions = occasions;
@@ -826,7 +736,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner sustainable(Boolean sustainable) {
-    
     this.sustainable = sustainable;
     return this;
   }
@@ -836,12 +745,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return sustainable
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getSustainable() {
     return sustainable;
   }
-
 
   public void setSustainable(Boolean sustainable) {
     this.sustainable = sustainable;
@@ -849,7 +755,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner vegan(Boolean vegan) {
-    
     this.vegan = vegan;
     return this;
   }
@@ -859,12 +764,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return vegan
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getVegan() {
     return vegan;
   }
-
 
   public void setVegan(Boolean vegan) {
     this.vegan = vegan;
@@ -872,7 +774,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner vegetarian(Boolean vegetarian) {
-    
     this.vegetarian = vegetarian;
     return this;
   }
@@ -882,12 +783,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return vegetarian
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getVegetarian() {
     return vegetarian;
   }
-
 
   public void setVegetarian(Boolean vegetarian) {
     this.vegetarian = vegetarian;
@@ -895,7 +793,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner veryHealthy(Boolean veryHealthy) {
-    
     this.veryHealthy = veryHealthy;
     return this;
   }
@@ -905,12 +802,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return veryHealthy
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getVeryHealthy() {
     return veryHealthy;
   }
-
 
   public void setVeryHealthy(Boolean veryHealthy) {
     this.veryHealthy = veryHealthy;
@@ -918,7 +812,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner veryPopular(Boolean veryPopular) {
-    
     this.veryPopular = veryPopular;
     return this;
   }
@@ -928,12 +821,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return veryPopular
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getVeryPopular() {
     return veryPopular;
   }
-
 
   public void setVeryPopular(Boolean veryPopular) {
     this.veryPopular = veryPopular;
@@ -941,7 +831,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner whole30(Boolean whole30) {
-    
     this.whole30 = whole30;
     return this;
   }
@@ -951,12 +840,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return whole30
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Boolean getWhole30() {
     return whole30;
   }
-
 
   public void setWhole30(Boolean whole30) {
     this.whole30 = whole30;
@@ -964,7 +850,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner weightWatcherSmartPoints(BigDecimal weightWatcherSmartPoints) {
-    
     this.weightWatcherSmartPoints = weightWatcherSmartPoints;
     return this;
   }
@@ -974,12 +859,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return weightWatcherSmartPoints
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getWeightWatcherSmartPoints() {
     return weightWatcherSmartPoints;
   }
-
 
   public void setWeightWatcherSmartPoints(BigDecimal weightWatcherSmartPoints) {
     this.weightWatcherSmartPoints = weightWatcherSmartPoints;
@@ -987,12 +869,14 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner dishTypes(List<String> dishTypes) {
-    
     this.dishTypes = dishTypes;
     return this;
   }
 
   public GetRecipeInformationBulk200ResponseInner addDishTypesItem(String dishTypesItem) {
+    if (this.dishTypes == null) {
+      this.dishTypes = new ArrayList<>();
+    }
     this.dishTypes.add(dishTypesItem);
     return this;
   }
@@ -1002,12 +886,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return dishTypes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getDishTypes() {
     return dishTypes;
   }
-
 
   public void setDishTypes(List<String> dishTypes) {
     this.dishTypes = dishTypes;
@@ -1015,12 +896,14 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner extendedIngredients(Set<GetRecipeInformation200ResponseExtendedIngredientsInner> extendedIngredients) {
-    
     this.extendedIngredients = extendedIngredients;
     return this;
   }
 
   public GetRecipeInformationBulk200ResponseInner addExtendedIngredientsItem(GetRecipeInformation200ResponseExtendedIngredientsInner extendedIngredientsItem) {
+    if (this.extendedIngredients == null) {
+      this.extendedIngredients = new LinkedHashSet<>();
+    }
     this.extendedIngredients.add(extendedIngredientsItem);
     return this;
   }
@@ -1030,12 +913,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return extendedIngredients
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetRecipeInformation200ResponseExtendedIngredientsInner> getExtendedIngredients() {
     return extendedIngredients;
   }
-
 
   public void setExtendedIngredients(Set<GetRecipeInformation200ResponseExtendedIngredientsInner> extendedIngredients) {
     this.extendedIngredients = extendedIngredients;
@@ -1043,7 +923,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner summary(String summary) {
-    
     this.summary = summary;
     return this;
   }
@@ -1053,12 +932,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return summary
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getSummary() {
     return summary;
   }
-
 
   public void setSummary(String summary) {
     this.summary = summary;
@@ -1066,7 +942,6 @@ public class GetRecipeInformationBulk200ResponseInner {
 
 
   public GetRecipeInformationBulk200ResponseInner winePairing(GetRecipeInformation200ResponseWinePairing winePairing) {
-    
     this.winePairing = winePairing;
     return this;
   }
@@ -1076,12 +951,9 @@ public class GetRecipeInformationBulk200ResponseInner {
    * @return winePairing
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public GetRecipeInformation200ResponseWinePairing getWinePairing() {
     return winePairing;
   }
-
 
   public void setWinePairing(GetRecipeInformation200ResponseWinePairing winePairing) {
     this.winePairing = winePairing;
@@ -1285,103 +1157,108 @@ public class GetRecipeInformationBulk200ResponseInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetRecipeInformationBulk200ResponseInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformationBulk200ResponseInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetRecipeInformationBulk200ResponseInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetRecipeInformationBulk200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetRecipeInformationBulk200ResponseInner is not found in the empty JSON string", GetRecipeInformationBulk200ResponseInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetRecipeInformationBulk200ResponseInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformationBulk200ResponseInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformationBulk200ResponseInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetRecipeInformationBulk200ResponseInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonPrimitive()) {
+      if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
-      if (jsonObj.get("imageType") != null && !jsonObj.get("imageType").isJsonPrimitive()) {
+      if (!jsonObj.get("imageType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageType").toString()));
       }
-      if (jsonObj.get("license") != null && !jsonObj.get("license").isJsonPrimitive()) {
+      if (!jsonObj.get("license").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `license` to be a primitive type in the JSON string but got `%s`", jsonObj.get("license").toString()));
       }
-      if (jsonObj.get("sourceName") != null && !jsonObj.get("sourceName").isJsonPrimitive()) {
+      if (!jsonObj.get("sourceName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sourceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceName").toString()));
       }
-      if (jsonObj.get("sourceUrl") != null && !jsonObj.get("sourceUrl").isJsonPrimitive()) {
+      if (!jsonObj.get("sourceUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sourceUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceUrl").toString()));
       }
-      if (jsonObj.get("spoonacularSourceUrl") != null && !jsonObj.get("spoonacularSourceUrl").isJsonPrimitive()) {
+      if (!jsonObj.get("spoonacularSourceUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `spoonacularSourceUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("spoonacularSourceUrl").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("analyzedInstructions") != null && !jsonObj.get("analyzedInstructions").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("analyzedInstructions") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("analyzedInstructions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `analyzedInstructions` to be an array in the JSON string but got `%s`", jsonObj.get("analyzedInstructions").toString()));
       }
-      if (jsonObj.get("creditsText") != null && !jsonObj.get("creditsText").isJsonPrimitive()) {
+      if (!jsonObj.get("creditsText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `creditsText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creditsText").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("cuisines") != null && !jsonObj.get("cuisines").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("cuisines") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("cuisines").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cuisines` to be an array in the JSON string but got `%s`", jsonObj.get("cuisines").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("diets") != null && !jsonObj.get("diets").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("diets") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("diets").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `diets` to be an array in the JSON string but got `%s`", jsonObj.get("diets").toString()));
       }
-      if (jsonObj.get("gaps") != null && !jsonObj.get("gaps").isJsonPrimitive()) {
+      if (!jsonObj.get("gaps").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gaps` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gaps").toString()));
       }
-      if (jsonObj.get("instructions") != null && !jsonObj.get("instructions").isJsonPrimitive()) {
+      if (!jsonObj.get("instructions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("occasions") != null && !jsonObj.get("occasions").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("occasions") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("occasions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `occasions` to be an array in the JSON string but got `%s`", jsonObj.get("occasions").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("dishTypes") != null && !jsonObj.get("dishTypes").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("dishTypes") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("dishTypes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `dishTypes` to be an array in the JSON string but got `%s`", jsonObj.get("dishTypes").toString()));
       }
-      JsonArray jsonArrayextendedIngredients = jsonObj.getAsJsonArray("extendedIngredients");
-      if (jsonArrayextendedIngredients != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("extendedIngredients").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `extendedIngredients` to be an array in the JSON string but got `%s`", jsonObj.get("extendedIngredients").toString()));
-        }
-
-        // validate the optional field `extendedIngredients` (array)
-        for (int i = 0; i < jsonArrayextendedIngredients.size(); i++) {
-          GetRecipeInformation200ResponseExtendedIngredientsInner.validateJsonObject(jsonArrayextendedIngredients.get(i).getAsJsonObject());
-        };
+      // ensure the json data is an array
+      if (!jsonObj.get("extendedIngredients").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extendedIngredients` to be an array in the JSON string but got `%s`", jsonObj.get("extendedIngredients").toString()));
       }
-      if (jsonObj.get("summary") != null && !jsonObj.get("summary").isJsonPrimitive()) {
+
+      JsonArray jsonArrayextendedIngredients = jsonObj.getAsJsonArray("extendedIngredients");
+      // validate the required field `extendedIngredients` (array)
+      for (int i = 0; i < jsonArrayextendedIngredients.size(); i++) {
+        GetRecipeInformation200ResponseExtendedIngredientsInner.validateJsonElement(jsonArrayextendedIngredients.get(i));
+      };
+      if (!jsonObj.get("summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
       }
-      // validate the optional field `winePairing`
-      if (jsonObj.getAsJsonObject("winePairing") != null) {
-        GetRecipeInformation200ResponseWinePairing.validateJsonObject(jsonObj.getAsJsonObject("winePairing"));
-      }
+      // validate the required field `winePairing`
+      GetRecipeInformation200ResponseWinePairing.validateJsonElement(jsonObj.get("winePairing"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -1404,9 +1281,9 @@ public class GetRecipeInformationBulk200ResponseInner {
 
            @Override
            public GetRecipeInformationBulk200ResponseInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

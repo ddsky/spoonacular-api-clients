@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchSiteContent200ResponseGroceryProductsInner {
     #[serde(rename = "dataPoints", skip_serializing_if = "Option::is_none")]
     pub data_points: Option<Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner>>,

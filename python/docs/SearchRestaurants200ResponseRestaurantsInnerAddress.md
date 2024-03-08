@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **street_addr** | **str** |  | [optional] 
@@ -14,8 +15,24 @@ Name | Type | Description | Notes
 **street_addr_2** | **str** |  | [optional] 
 **latitude** | **float** |  | [optional] 
 **longitude** | **float** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.search_restaurants200_response_restaurants_inner_address import SearchRestaurants200ResponseRestaurantsInnerAddress
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of SearchRestaurants200ResponseRestaurantsInnerAddress from a JSON string
+search_restaurants200_response_restaurants_inner_address_instance = SearchRestaurants200ResponseRestaurantsInnerAddress.from_json(json)
+# print the JSON string representation of the object
+print SearchRestaurants200ResponseRestaurantsInnerAddress.to_json()
+
+# convert the object into a dict
+search_restaurants200_response_restaurants_inner_address_dict = search_restaurants200_response_restaurants_inner_address_instance.to_dict()
+# create an instance of SearchRestaurants200ResponseRestaurantsInnerAddress from a dict
+search_restaurants200_response_restaurants_inner_address_form_dict = search_restaurants200_response_restaurants_inner_address.from_dict(search_restaurants200_response_restaurants_inner_address_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

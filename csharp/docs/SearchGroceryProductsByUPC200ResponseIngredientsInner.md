@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SearchGroceryProductsByUPC200ResponseIngredientsInner
+# spoonacular.Model.SearchGroceryProductsByUPC200ResponseIngredientsInner
 
 ## Properties
 

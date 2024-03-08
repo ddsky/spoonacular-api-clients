@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ConnectUserRequest
+# spoonacular.Model.ConnectUserRequest
 
 ## Properties
 

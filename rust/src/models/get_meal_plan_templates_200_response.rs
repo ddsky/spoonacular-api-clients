@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetMealPlanTemplates200Response {
     #[serde(rename = "templates")]
     pub templates: Vec<crate::models::GetAnalyzedRecipeInstructions200ResponseIngredientsInner>,

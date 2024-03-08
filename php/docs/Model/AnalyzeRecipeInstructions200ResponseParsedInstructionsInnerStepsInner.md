@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **number** | **float** |  |
 **step** | **string** |  |
-**ingredients** | [**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner[]**](AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md) |  | [optional]
-**equipment** | [**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner[]**](AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md) |  | [optional]
+**ingredients** | [**\OpenAPI\Client\Model\AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner[]**](AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md) |  | [optional]
+**equipment** | [**\OpenAPI\Client\Model\AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner[]**](AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

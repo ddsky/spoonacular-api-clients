@@ -1,56 +1,56 @@
-# com.spoonacular.client\RecipesApi
+# OpenAPI\Client\RecipesApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**analyzeARecipeSearchQuery()**](RecipesApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
-[**analyzeRecipeInstructions()**](RecipesApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
-[**autocompleteRecipeSearch()**](RecipesApi.md#autocompleteRecipeSearch) | **GET** /recipes/autocomplete | Autocomplete Recipe Search
-[**classifyCuisine()**](RecipesApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
-[**computeGlycemicLoad()**](RecipesApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
-[**convertAmounts()**](RecipesApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
-[**createRecipeCard()**](RecipesApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
-[**equipmentByIDImage()**](RecipesApi.md#equipmentByIDImage) | **GET** /recipes/{id}/equipmentWidget.png | Equipment by ID Image
-[**extractRecipeFromWebsite()**](RecipesApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website
-[**getAnalyzedRecipeInstructions()**](RecipesApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
-[**getRandomRecipes()**](RecipesApi.md#getRandomRecipes) | **GET** /recipes/random | Get Random Recipes
-[**getRecipeEquipmentByID()**](RecipesApi.md#getRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget.json | Equipment by ID
-[**getRecipeInformation()**](RecipesApi.md#getRecipeInformation) | **GET** /recipes/{id}/information | Get Recipe Information
-[**getRecipeInformationBulk()**](RecipesApi.md#getRecipeInformationBulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
-[**getRecipeIngredientsByID()**](RecipesApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Ingredients by ID
-[**getRecipeNutritionWidgetByID()**](RecipesApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Nutrition by ID
-[**getRecipePriceBreakdownByID()**](RecipesApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Price Breakdown by ID
-[**getRecipeTasteByID()**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
-[**getSimilarRecipes()**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
-[**guessNutritionByDishName()**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage()**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
-[**parseIngredients()**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
-[**priceBreakdownByIDImage()**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
-[**quickAnswer()**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
-[**recipeNutritionByIDImage()**](RecipesApi.md#recipeNutritionByIDImage) | **GET** /recipes/{id}/nutritionWidget.png | Recipe Nutrition by ID Image
-[**recipeNutritionLabelImage()**](RecipesApi.md#recipeNutritionLabelImage) | **GET** /recipes/{id}/nutritionLabel.png | Recipe Nutrition Label Image
-[**recipeNutritionLabelWidget()**](RecipesApi.md#recipeNutritionLabelWidget) | **GET** /recipes/{id}/nutritionLabel | Recipe Nutrition Label Widget
-[**recipeTasteByIDImage()**](RecipesApi.md#recipeTasteByIDImage) | **GET** /recipes/{id}/tasteWidget.png | Recipe Taste by ID Image
-[**searchRecipes()**](RecipesApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
-[**searchRecipesByIngredients()**](RecipesApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
-[**searchRecipesByNutrients()**](RecipesApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-[**summarizeRecipe()**](RecipesApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
-[**visualizeEquipment()**](RecipesApi.md#visualizeEquipment) | **POST** /recipes/visualizeEquipment | Equipment Widget
-[**visualizePriceBreakdown()**](RecipesApi.md#visualizePriceBreakdown) | **POST** /recipes/visualizePriceEstimator | Price Breakdown Widget
-[**visualizeRecipeEquipmentByID()**](RecipesApi.md#visualizeRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget | Equipment by ID Widget
-[**visualizeRecipeIngredientsByID()**](RecipesApi.md#visualizeRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget | Ingredients by ID Widget
-[**visualizeRecipeNutrition()**](RecipesApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Recipe Nutrition Widget
-[**visualizeRecipeNutritionByID()**](RecipesApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Recipe Nutrition by ID Widget
-[**visualizeRecipePriceBreakdownByID()**](RecipesApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Price Breakdown by ID Widget
-[**visualizeRecipeTaste()**](RecipesApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Recipe Taste Widget
-[**visualizeRecipeTasteByID()**](RecipesApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**analyzeARecipeSearchQuery()**](RecipesApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query |
+| [**analyzeRecipeInstructions()**](RecipesApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions |
+| [**autocompleteRecipeSearch()**](RecipesApi.md#autocompleteRecipeSearch) | **GET** /recipes/autocomplete | Autocomplete Recipe Search |
+| [**classifyCuisine()**](RecipesApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine |
+| [**computeGlycemicLoad()**](RecipesApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load |
+| [**convertAmounts()**](RecipesApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts |
+| [**createRecipeCard()**](RecipesApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card |
+| [**equipmentByIDImage()**](RecipesApi.md#equipmentByIDImage) | **GET** /recipes/{id}/equipmentWidget.png | Equipment by ID Image |
+| [**extractRecipeFromWebsite()**](RecipesApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website |
+| [**getAnalyzedRecipeInstructions()**](RecipesApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions |
+| [**getRandomRecipes()**](RecipesApi.md#getRandomRecipes) | **GET** /recipes/random | Get Random Recipes |
+| [**getRecipeEquipmentByID()**](RecipesApi.md#getRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget.json | Equipment by ID |
+| [**getRecipeInformation()**](RecipesApi.md#getRecipeInformation) | **GET** /recipes/{id}/information | Get Recipe Information |
+| [**getRecipeInformationBulk()**](RecipesApi.md#getRecipeInformationBulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk |
+| [**getRecipeIngredientsByID()**](RecipesApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Ingredients by ID |
+| [**getRecipeNutritionWidgetByID()**](RecipesApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Nutrition by ID |
+| [**getRecipePriceBreakdownByID()**](RecipesApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Price Breakdown by ID |
+| [**getRecipeTasteByID()**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID |
+| [**getSimilarRecipes()**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes |
+| [**guessNutritionByDishName()**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name |
+| [**ingredientsByIDImage()**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
+| [**parseIngredients()**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients |
+| [**priceBreakdownByIDImage()**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image |
+| [**quickAnswer()**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer |
+| [**recipeNutritionByIDImage()**](RecipesApi.md#recipeNutritionByIDImage) | **GET** /recipes/{id}/nutritionWidget.png | Recipe Nutrition by ID Image |
+| [**recipeNutritionLabelImage()**](RecipesApi.md#recipeNutritionLabelImage) | **GET** /recipes/{id}/nutritionLabel.png | Recipe Nutrition Label Image |
+| [**recipeNutritionLabelWidget()**](RecipesApi.md#recipeNutritionLabelWidget) | **GET** /recipes/{id}/nutritionLabel | Recipe Nutrition Label Widget |
+| [**recipeTasteByIDImage()**](RecipesApi.md#recipeTasteByIDImage) | **GET** /recipes/{id}/tasteWidget.png | Recipe Taste by ID Image |
+| [**searchRecipes()**](RecipesApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes |
+| [**searchRecipesByIngredients()**](RecipesApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients |
+| [**searchRecipesByNutrients()**](RecipesApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients |
+| [**summarizeRecipe()**](RecipesApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe |
+| [**visualizeEquipment()**](RecipesApi.md#visualizeEquipment) | **POST** /recipes/visualizeEquipment | Equipment Widget |
+| [**visualizePriceBreakdown()**](RecipesApi.md#visualizePriceBreakdown) | **POST** /recipes/visualizePriceEstimator | Price Breakdown Widget |
+| [**visualizeRecipeEquipmentByID()**](RecipesApi.md#visualizeRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget | Equipment by ID Widget |
+| [**visualizeRecipeIngredientsByID()**](RecipesApi.md#visualizeRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget | Ingredients by ID Widget |
+| [**visualizeRecipeNutrition()**](RecipesApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Recipe Nutrition Widget |
+| [**visualizeRecipeNutritionByID()**](RecipesApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Recipe Nutrition by ID Widget |
+| [**visualizeRecipePriceBreakdownByID()**](RecipesApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Price Breakdown by ID Widget |
+| [**visualizeRecipeTaste()**](RecipesApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Recipe Taste Widget |
+| [**visualizeRecipeTasteByID()**](RecipesApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget |
 
 
 ## `analyzeARecipeSearchQuery()`
 
 ```php
-analyzeARecipeSearchQuery($q): \com.spoonacular.client\com.spoonacular.client.model\AnalyzeARecipeSearchQuery200Response
+analyzeARecipeSearchQuery($q): \OpenAPI\Client\Model\AnalyzeARecipeSearchQuery200Response
 ```
 
 Analyze a Recipe Search Query
@@ -65,12 +65,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -88,13 +88,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | **string**| The recipe search query. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **q** | **string**| The recipe search query. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeARecipeSearchQuery200Response**](../Model/AnalyzeARecipeSearchQuery200Response.md)
+[**\OpenAPI\Client\Model\AnalyzeARecipeSearchQuery200Response**](../Model/AnalyzeARecipeSearchQuery200Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 ## `analyzeRecipeInstructions()`
 
 ```php
-analyzeRecipeInstructions($content_type): \com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeInstructions200Response
+analyzeRecipeInstructions($content_type): \OpenAPI\Client\Model\AnalyzeRecipeInstructions200Response
 ```
 
 Analyze Recipe Instructions
@@ -127,12 +127,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -150,13 +150,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeRecipeInstructions200Response**](../Model/AnalyzeRecipeInstructions200Response.md)
+[**\OpenAPI\Client\Model\AnalyzeRecipeInstructions200Response**](../Model/AnalyzeRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 ## `autocompleteRecipeSearch()`
 
 ```php
-autocompleteRecipeSearch($query, $number): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteRecipeSearch200ResponseInner[]
+autocompleteRecipeSearch($query, $number): \OpenAPI\Client\Model\AutocompleteRecipeSearch200ResponseInner[]
 ```
 
 Autocomplete Recipe Search
@@ -189,12 +189,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -213,14 +213,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteRecipeSearch200ResponseInner[]**](../Model/AutocompleteRecipeSearch200ResponseInner.md)
+[**\OpenAPI\Client\Model\AutocompleteRecipeSearch200ResponseInner[]**](../Model/AutocompleteRecipeSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 ## `classifyCuisine()`
 
 ```php
-classifyCuisine($content_type): \com.spoonacular.client\com.spoonacular.client.model\ClassifyCuisine200Response
+classifyCuisine($content_type): \OpenAPI\Client\Model\ClassifyCuisine200Response
 ```
 
 Classify Cuisine
@@ -253,12 +253,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -276,13 +276,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ClassifyCuisine200Response**](../Model/ClassifyCuisine200Response.md)
+[**\OpenAPI\Client\Model\ClassifyCuisine200Response**](../Model/ClassifyCuisine200Response.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ## `computeGlycemicLoad()`
 
 ```php
-computeGlycemicLoad($compute_glycemic_load_request, $language): \com.spoonacular.client\com.spoonacular.client.model\ComputeGlycemicLoad200Response
+computeGlycemicLoad($compute_glycemic_load_request, $language): \OpenAPI\Client\Model\ComputeGlycemicLoad200Response
 ```
 
 Compute Glycemic Load
@@ -315,18 +315,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$compute_glycemic_load_request = {"ingredients":["1 kiwi","2 cups rice","2 glasses of water"]}; // \com.spoonacular.client\com.spoonacular.client.model\ComputeGlycemicLoadRequest
+$compute_glycemic_load_request = {"ingredients":["1 kiwi","2 cups rice","2 glasses of water"]}; // \OpenAPI\Client\Model\ComputeGlycemicLoadRequest
 $language = en; // string | The language of the input. Either 'en' or 'de'.
 
 try {
@@ -339,14 +339,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **compute_glycemic_load_request** | [**\com.spoonacular.client\com.spoonacular.client.model\ComputeGlycemicLoadRequest**](../Model/ComputeGlycemicLoadRequest.md)|  |
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **compute_glycemic_load_request** | [**\OpenAPI\Client\Model\ComputeGlycemicLoadRequest**](../Model/ComputeGlycemicLoadRequest.md)|  | |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ComputeGlycemicLoad200Response**](../Model/ComputeGlycemicLoad200Response.md)
+[**\OpenAPI\Client\Model\ComputeGlycemicLoad200Response**](../Model/ComputeGlycemicLoad200Response.md)
 
 ### Authorization
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 ## `convertAmounts()`
 
 ```php
-convertAmounts($ingredient_name, $source_amount, $source_unit, $target_unit): \com.spoonacular.client\com.spoonacular.client.model\ConvertAmounts200Response
+convertAmounts($ingredient_name, $source_amount, $source_unit, $target_unit): \OpenAPI\Client\Model\ConvertAmounts200Response
 ```
 
 Convert Amounts
@@ -379,12 +379,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -405,16 +405,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredient_name** | **string**| The ingredient which you want to convert. |
- **source_amount** | **float**| The amount from which you want to convert, e.g. the 2.5 in \&quot;2.5 cups of flour to grams\&quot;. |
- **source_unit** | **string**| The unit from which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; |
- **target_unit** | **string**| The unit to which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ingredient_name** | **string**| The ingredient which you want to convert. | |
+| **source_amount** | **float**| The amount from which you want to convert, e.g. the 2.5 in \&quot;2.5 cups of flour to grams\&quot;. | |
+| **source_unit** | **string**| The unit from which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; | |
+| **target_unit** | **string**| The unit to which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ConvertAmounts200Response**](../Model/ConvertAmounts200Response.md)
+[**\OpenAPI\Client\Model\ConvertAmounts200Response**](../Model/ConvertAmounts200Response.md)
 
 ### Authorization
 
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 ## `createRecipeCard()`
 
 ```php
-createRecipeCard($content_type): \com.spoonacular.client\com.spoonacular.client.model\CreateRecipeCard200Response
+createRecipeCard($content_type): \OpenAPI\Client\Model\CreateRecipeCard200Response
 ```
 
 Create Recipe Card
@@ -447,12 +447,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -470,13 +470,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\CreateRecipeCard200Response**](../Model/CreateRecipeCard200Response.md)
+[**\OpenAPI\Client\Model\CreateRecipeCard200Response**](../Model/CreateRecipeCard200Response.md)
 
 ### Authorization
 
@@ -509,12 +509,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -532,9 +532,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
 
 ### Return type
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 ## `extractRecipeFromWebsite()`
 
 ```php
-extractRecipeFromWebsite($url, $force_extraction, $analyze, $include_nutrition, $include_taste): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200Response
+extractRecipeFromWebsite($url, $force_extraction, $analyze, $include_nutrition, $include_taste): \OpenAPI\Client\Model\GetRecipeInformation200Response
 ```
 
 Extract Recipe from Website
@@ -571,12 +571,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -598,17 +598,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **url** | **string**| The URL of the recipe page. |
- **force_extraction** | **bool**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional]
- **analyze** | **bool**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional]
- **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
- **include_taste** | **bool**| Whether taste data should be added to correctly parsed ingredients. | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **url** | **string**| The URL of the recipe page. | |
+| **force_extraction** | **bool**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] |
+| **analyze** | **bool**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional] |
+| **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **include_taste** | **bool**| Whether taste data should be added to correctly parsed ingredients. | [optional] [default to false] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200Response**](../Model/GetRecipeInformation200Response.md)
+[**\OpenAPI\Client\Model\GetRecipeInformation200Response**](../Model/GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 ## `getAnalyzedRecipeInstructions()`
 
 ```php
-getAnalyzedRecipeInstructions($id, $step_breakdown): \com.spoonacular.client\com.spoonacular.client.model\GetAnalyzedRecipeInstructions200Response
+getAnalyzedRecipeInstructions($id, $step_breakdown): \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response
 ```
 
 Get Analyzed Recipe Instructions
@@ -641,12 +641,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -665,14 +665,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **step_breakdown** | **bool**| Whether to break down the recipe steps even more. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **step_breakdown** | **bool**| Whether to break down the recipe steps even more. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetAnalyzedRecipeInstructions200Response**](../Model/GetAnalyzedRecipeInstructions200Response.md)
+[**\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response**](../Model/GetAnalyzedRecipeInstructions200Response.md)
 
 ### Authorization
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 ## `getRandomRecipes()`
 
 ```php
-getRandomRecipes($limit_license, $tags, $number): \com.spoonacular.client\com.spoonacular.client.model\GetRandomRecipes200Response
+getRandomRecipes($limit_license, $tags, $number): \OpenAPI\Client\Model\GetRandomRecipes200Response
 ```
 
 Get Random Recipes
@@ -705,12 +705,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -730,15 +730,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
- **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRandomRecipes200Response**](../Model/GetRandomRecipes200Response.md)
+[**\OpenAPI\Client\Model\GetRandomRecipes200Response**](../Model/GetRandomRecipes200Response.md)
 
 ### Authorization
 
@@ -756,7 +756,7 @@ Name | Type | Description  | Notes
 ## `getRecipeEquipmentByID()`
 
 ```php
-getRecipeEquipmentByID($id): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeEquipmentByID200Response
+getRecipeEquipmentByID($id): \OpenAPI\Client\Model\GetRecipeEquipmentByID200Response
 ```
 
 Equipment by ID
@@ -771,12 +771,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -794,13 +794,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeEquipmentByID200Response**](../Model/GetRecipeEquipmentByID200Response.md)
+[**\OpenAPI\Client\Model\GetRecipeEquipmentByID200Response**](../Model/GetRecipeEquipmentByID200Response.md)
 
 ### Authorization
 
@@ -818,7 +818,7 @@ Name | Type | Description  | Notes
 ## `getRecipeInformation()`
 
 ```php
-getRecipeInformation($id, $include_nutrition): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200Response
+getRecipeInformation($id, $include_nutrition): \OpenAPI\Client\Model\GetRecipeInformation200Response
 ```
 
 Get Recipe Information
@@ -833,12 +833,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -857,14 +857,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformation200Response**](../Model/GetRecipeInformation200Response.md)
+[**\OpenAPI\Client\Model\GetRecipeInformation200Response**](../Model/GetRecipeInformation200Response.md)
 
 ### Authorization
 
@@ -882,7 +882,7 @@ Name | Type | Description  | Notes
 ## `getRecipeInformationBulk()`
 
 ```php
-getRecipeInformationBulk($ids, $include_nutrition): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformationBulk200ResponseInner[]
+getRecipeInformationBulk($ids, $include_nutrition): \OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]
 ```
 
 Get Recipe Information Bulk
@@ -897,12 +897,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -921,14 +921,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | **string**| A comma-separated list of recipe ids. |
- **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ids** | **string**| A comma-separated list of recipe ids. | |
+| **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeInformationBulk200ResponseInner[]**](../Model/GetRecipeInformationBulk200ResponseInner.md)
+[**\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]**](../Model/GetRecipeInformationBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -946,7 +946,7 @@ Name | Type | Description  | Notes
 ## `getRecipeIngredientsByID()`
 
 ```php
-getRecipeIngredientsByID($id): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeIngredientsByID200Response
+getRecipeIngredientsByID($id): \OpenAPI\Client\Model\GetRecipeIngredientsByID200Response
 ```
 
 Ingredients by ID
@@ -961,12 +961,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -984,13 +984,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeIngredientsByID200Response**](../Model/GetRecipeIngredientsByID200Response.md)
+[**\OpenAPI\Client\Model\GetRecipeIngredientsByID200Response**](../Model/GetRecipeIngredientsByID200Response.md)
 
 ### Authorization
 
@@ -1008,7 +1008,7 @@ Name | Type | Description  | Notes
 ## `getRecipeNutritionWidgetByID()`
 
 ```php
-getRecipeNutritionWidgetByID($id): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeNutritionWidgetByID200Response
+getRecipeNutritionWidgetByID($id): \OpenAPI\Client\Model\GetRecipeNutritionWidgetByID200Response
 ```
 
 Nutrition by ID
@@ -1023,12 +1023,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1046,13 +1046,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeNutritionWidgetByID200Response**](../Model/GetRecipeNutritionWidgetByID200Response.md)
+[**\OpenAPI\Client\Model\GetRecipeNutritionWidgetByID200Response**](../Model/GetRecipeNutritionWidgetByID200Response.md)
 
 ### Authorization
 
@@ -1070,7 +1070,7 @@ Name | Type | Description  | Notes
 ## `getRecipePriceBreakdownByID()`
 
 ```php
-getRecipePriceBreakdownByID($id): \com.spoonacular.client\com.spoonacular.client.model\GetRecipePriceBreakdownByID200Response
+getRecipePriceBreakdownByID($id): \OpenAPI\Client\Model\GetRecipePriceBreakdownByID200Response
 ```
 
 Price Breakdown by ID
@@ -1085,12 +1085,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1108,13 +1108,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipePriceBreakdownByID200Response**](../Model/GetRecipePriceBreakdownByID200Response.md)
+[**\OpenAPI\Client\Model\GetRecipePriceBreakdownByID200Response**](../Model/GetRecipePriceBreakdownByID200Response.md)
 
 ### Authorization
 
@@ -1132,7 +1132,7 @@ Name | Type | Description  | Notes
 ## `getRecipeTasteByID()`
 
 ```php
-getRecipeTasteByID($id, $normalize): \com.spoonacular.client\com.spoonacular.client.model\GetRecipeTasteByID200Response
+getRecipeTasteByID($id, $normalize): \OpenAPI\Client\Model\GetRecipeTasteByID200Response
 ```
 
 Taste by ID
@@ -1147,12 +1147,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1171,14 +1171,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **normalize** | **bool**| Normalize to the strongest taste. | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **normalize** | **bool**| Normalize to the strongest taste. | [optional] [default to true] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRecipeTasteByID200Response**](../Model/GetRecipeTasteByID200Response.md)
+[**\OpenAPI\Client\Model\GetRecipeTasteByID200Response**](../Model/GetRecipeTasteByID200Response.md)
 
 ### Authorization
 
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 ## `getSimilarRecipes()`
 
 ```php
-getSimilarRecipes($id, $number, $limit_license): \com.spoonacular.client\com.spoonacular.client.model\GetSimilarRecipes200ResponseInner[]
+getSimilarRecipes($id, $number, $limit_license): \OpenAPI\Client\Model\GetSimilarRecipes200ResponseInner[]
 ```
 
 Get Similar Recipes
@@ -1211,12 +1211,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1236,15 +1236,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetSimilarRecipes200ResponseInner[]**](../Model/GetSimilarRecipes200ResponseInner.md)
+[**\OpenAPI\Client\Model\GetSimilarRecipes200ResponseInner[]**](../Model/GetSimilarRecipes200ResponseInner.md)
 
 ### Authorization
 
@@ -1262,7 +1262,7 @@ Name | Type | Description  | Notes
 ## `guessNutritionByDishName()`
 
 ```php
-guessNutritionByDishName($title): \com.spoonacular.client\com.spoonacular.client.model\GuessNutritionByDishName200Response
+guessNutritionByDishName($title): \OpenAPI\Client\Model\GuessNutritionByDishName200Response
 ```
 
 Guess Nutrition by Dish Name
@@ -1277,12 +1277,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1300,13 +1300,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **title** | **string**| The title of the dish. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **title** | **string**| The title of the dish. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GuessNutritionByDishName200Response**](../Model/GuessNutritionByDishName200Response.md)
+[**\OpenAPI\Client\Model\GuessNutritionByDishName200Response**](../Model/GuessNutritionByDishName200Response.md)
 
 ### Authorization
 
@@ -1339,12 +1339,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1363,10 +1363,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
- **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
+| **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
 ### Return type
 
@@ -1388,7 +1388,7 @@ Name | Type | Description  | Notes
 ## `parseIngredients()`
 
 ```php
-parseIngredients($content_type, $language): \com.spoonacular.client\com.spoonacular.client.model\ParseIngredients200ResponseInner[]
+parseIngredients($content_type, $language): \OpenAPI\Client\Model\ParseIngredients200ResponseInner[]
 ```
 
 Parse Ingredients
@@ -1403,12 +1403,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1427,14 +1427,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ParseIngredients200ResponseInner[]**](../Model/ParseIngredients200ResponseInner.md)
+[**\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]**](../Model/ParseIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -1467,12 +1467,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1490,9 +1490,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
 
 ### Return type
 
@@ -1514,7 +1514,7 @@ Name | Type | Description  | Notes
 ## `quickAnswer()`
 
 ```php
-quickAnswer($q): \com.spoonacular.client\com.spoonacular.client.model\QuickAnswer200Response
+quickAnswer($q): \OpenAPI\Client\Model\QuickAnswer200Response
 ```
 
 Quick Answer
@@ -1529,12 +1529,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1552,13 +1552,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | **string**| The nutrition related question. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **q** | **string**| The nutrition related question. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\QuickAnswer200Response**](../Model/QuickAnswer200Response.md)
+[**\OpenAPI\Client\Model\QuickAnswer200Response**](../Model/QuickAnswer200Response.md)
 
 ### Authorization
 
@@ -1591,12 +1591,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1614,9 +1614,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
 
 ### Return type
 
@@ -1653,12 +1653,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1679,12 +1679,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
+| **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
+| **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
+| **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -1721,12 +1721,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1748,13 +1748,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
+| **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
+| **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -1791,12 +1791,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1816,11 +1816,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
- **normalize** | **bool**| Normalize to the strongest taste. | [optional]
- **rgb** | **string**| Red, green, blue values for the chart color. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
+| **normalize** | **bool**| Normalize to the strongest taste. | [optional] |
+| **rgb** | **string**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type
 
@@ -1842,7 +1842,7 @@ Name | Type | Description  | Notes
 ## `searchRecipes()`
 
 ```php
-searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license): \com.spoonacular.client\com.spoonacular.client.model\SearchRecipes200Response
+searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license): \OpenAPI\Client\Model\SearchRecipes200Response
 ```
 
 Search Recipes
@@ -1857,12 +1857,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1975,108 +1975,108 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional]
- **exclude_cuisine** | **string**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional]
- **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
- **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **equipment** | **string**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional]
- **include_ingredients** | **string**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional]
- **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **type** | **string**| The type of recipe. See a full list of supported meal types. | [optional]
- **instructions_required** | **bool**| Whether the recipes must have instructions. | [optional]
- **fill_ingredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional]
- **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. | [optional]
- **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional]
- **author** | **string**| The username of the recipe author. | [optional]
- **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional]
- **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional]
- **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional]
- **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
- **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
- **sort** | **string**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
- **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
- **min_carbs** | **float**| The minimum amount of carbohydrates in grams the recipe must have. | [optional]
- **max_carbs** | **float**| The maximum amount of carbohydrates in grams the recipe can have. | [optional]
- **min_protein** | **float**| The minimum amount of protein in grams the recipe must have. | [optional]
- **max_protein** | **float**| The maximum amount of protein in grams the recipe can have. | [optional]
- **min_calories** | **float**| The minimum amount of calories the recipe must have. | [optional]
- **max_calories** | **float**| The maximum amount of calories the recipe can have. | [optional]
- **min_fat** | **float**| The minimum amount of fat in grams the recipe must have. | [optional]
- **max_fat** | **float**| The maximum amount of fat in grams the recipe can have. | [optional]
- **min_alcohol** | **float**| The minimum amount of alcohol in grams the recipe must have. | [optional]
- **max_alcohol** | **float**| The maximum amount of alcohol in grams the recipe can have. | [optional]
- **min_caffeine** | **float**| The minimum amount of caffeine in milligrams the recipe must have. | [optional]
- **max_caffeine** | **float**| The maximum amount of caffeine in milligrams the recipe can have. | [optional]
- **min_copper** | **float**| The minimum amount of copper in milligrams the recipe must have. | [optional]
- **max_copper** | **float**| The maximum amount of copper in milligrams the recipe can have. | [optional]
- **min_calcium** | **float**| The minimum amount of calcium in milligrams the recipe must have. | [optional]
- **max_calcium** | **float**| The maximum amount of calcium in milligrams the recipe can have. | [optional]
- **min_choline** | **float**| The minimum amount of choline in milligrams the recipe must have. | [optional]
- **max_choline** | **float**| The maximum amount of choline in milligrams the recipe can have. | [optional]
- **min_cholesterol** | **float**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional]
- **max_cholesterol** | **float**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional]
- **min_fluoride** | **float**| The minimum amount of fluoride in milligrams the recipe must have. | [optional]
- **max_fluoride** | **float**| The maximum amount of fluoride in milligrams the recipe can have. | [optional]
- **min_saturated_fat** | **float**| The minimum amount of saturated fat in grams the recipe must have. | [optional]
- **max_saturated_fat** | **float**| The maximum amount of saturated fat in grams the recipe can have. | [optional]
- **min_vitamin_a** | **float**| The minimum amount of Vitamin A in IU the recipe must have. | [optional]
- **max_vitamin_a** | **float**| The maximum amount of Vitamin A in IU the recipe can have. | [optional]
- **min_vitamin_c** | **float**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional]
- **max_vitamin_c** | **float**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional]
- **min_vitamin_d** | **float**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional]
- **max_vitamin_d** | **float**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional]
- **min_vitamin_e** | **float**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional]
- **max_vitamin_e** | **float**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional]
- **min_vitamin_k** | **float**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional]
- **max_vitamin_k** | **float**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional]
- **min_vitamin_b1** | **float**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional]
- **max_vitamin_b1** | **float**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional]
- **min_vitamin_b2** | **float**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional]
- **max_vitamin_b2** | **float**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional]
- **min_vitamin_b5** | **float**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional]
- **max_vitamin_b5** | **float**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional]
- **min_vitamin_b3** | **float**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional]
- **max_vitamin_b3** | **float**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional]
- **min_vitamin_b6** | **float**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional]
- **max_vitamin_b6** | **float**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional]
- **min_vitamin_b12** | **float**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional]
- **max_vitamin_b12** | **float**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
- **min_fiber** | **float**| The minimum amount of fiber in grams the recipe must have. | [optional]
- **max_fiber** | **float**| The maximum amount of fiber in grams the recipe can have. | [optional]
- **min_folate** | **float**| The minimum amount of folate in micrograms the recipe must have. | [optional]
- **max_folate** | **float**| The maximum amount of folate in micrograms the recipe can have. | [optional]
- **min_folic_acid** | **float**| The minimum amount of folic acid in micrograms the recipe must have. | [optional]
- **max_folic_acid** | **float**| The maximum amount of folic acid in micrograms the recipe can have. | [optional]
- **min_iodine** | **float**| The minimum amount of iodine in micrograms the recipe must have. | [optional]
- **max_iodine** | **float**| The maximum amount of iodine in micrograms the recipe can have. | [optional]
- **min_iron** | **float**| The minimum amount of iron in milligrams the recipe must have. | [optional]
- **max_iron** | **float**| The maximum amount of iron in milligrams the recipe can have. | [optional]
- **min_magnesium** | **float**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
- **max_magnesium** | **float**| The maximum amount of magnesium in milligrams the recipe can have. | [optional]
- **min_manganese** | **float**| The minimum amount of manganese in milligrams the recipe must have. | [optional]
- **max_manganese** | **float**| The maximum amount of manganese in milligrams the recipe can have. | [optional]
- **min_phosphorus** | **float**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional]
- **max_phosphorus** | **float**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
- **min_potassium** | **float**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
- **max_potassium** | **float**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
- **min_selenium** | **float**| The minimum amount of selenium in micrograms the recipe must have. | [optional]
- **max_selenium** | **float**| The maximum amount of selenium in micrograms the recipe can have. | [optional]
- **min_sodium** | **float**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
- **max_sodium** | **float**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
- **min_sugar** | **float**| The minimum amount of sugar in grams the recipe must have. | [optional]
- **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional]
- **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
- **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] |
+| **exclude_cuisine** | **string**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] |
+| **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
+| **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| **equipment** | **string**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] |
+| **include_ingredients** | **string**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] |
+| **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] |
+| **type** | **string**| The type of recipe. See a full list of supported meal types. | [optional] |
+| **instructions_required** | **bool**| Whether the recipes must have instructions. | [optional] |
+| **fill_ingredients** | **bool**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] |
+| **add_recipe_information** | **bool**| If set to true, you get more information about the recipes returned. | [optional] |
+| **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] |
+| **author** | **string**| The username of the recipe author. | [optional] |
+| **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
+| **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional] |
+| **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional] |
+| **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
+| **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
+| **sort** | **string**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] |
+| **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |
+| **min_carbs** | **float**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] |
+| **max_carbs** | **float**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] |
+| **min_protein** | **float**| The minimum amount of protein in grams the recipe must have. | [optional] |
+| **max_protein** | **float**| The maximum amount of protein in grams the recipe can have. | [optional] |
+| **min_calories** | **float**| The minimum amount of calories the recipe must have. | [optional] |
+| **max_calories** | **float**| The maximum amount of calories the recipe can have. | [optional] |
+| **min_fat** | **float**| The minimum amount of fat in grams the recipe must have. | [optional] |
+| **max_fat** | **float**| The maximum amount of fat in grams the recipe can have. | [optional] |
+| **min_alcohol** | **float**| The minimum amount of alcohol in grams the recipe must have. | [optional] |
+| **max_alcohol** | **float**| The maximum amount of alcohol in grams the recipe can have. | [optional] |
+| **min_caffeine** | **float**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] |
+| **max_caffeine** | **float**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] |
+| **min_copper** | **float**| The minimum amount of copper in milligrams the recipe must have. | [optional] |
+| **max_copper** | **float**| The maximum amount of copper in milligrams the recipe can have. | [optional] |
+| **min_calcium** | **float**| The minimum amount of calcium in milligrams the recipe must have. | [optional] |
+| **max_calcium** | **float**| The maximum amount of calcium in milligrams the recipe can have. | [optional] |
+| **min_choline** | **float**| The minimum amount of choline in milligrams the recipe must have. | [optional] |
+| **max_choline** | **float**| The maximum amount of choline in milligrams the recipe can have. | [optional] |
+| **min_cholesterol** | **float**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] |
+| **max_cholesterol** | **float**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] |
+| **min_fluoride** | **float**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] |
+| **max_fluoride** | **float**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] |
+| **min_saturated_fat** | **float**| The minimum amount of saturated fat in grams the recipe must have. | [optional] |
+| **max_saturated_fat** | **float**| The maximum amount of saturated fat in grams the recipe can have. | [optional] |
+| **min_vitamin_a** | **float**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] |
+| **max_vitamin_a** | **float**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] |
+| **min_vitamin_c** | **float**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] |
+| **max_vitamin_c** | **float**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] |
+| **min_vitamin_d** | **float**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] |
+| **max_vitamin_d** | **float**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] |
+| **min_vitamin_e** | **float**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] |
+| **max_vitamin_e** | **float**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] |
+| **min_vitamin_k** | **float**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] |
+| **max_vitamin_k** | **float**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] |
+| **min_vitamin_b1** | **float**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b1** | **float**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b2** | **float**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b2** | **float**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b5** | **float**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b5** | **float**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b3** | **float**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b3** | **float**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b6** | **float**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b6** | **float**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b12** | **float**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] |
+| **max_vitamin_b12** | **float**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] |
+| **min_fiber** | **float**| The minimum amount of fiber in grams the recipe must have. | [optional] |
+| **max_fiber** | **float**| The maximum amount of fiber in grams the recipe can have. | [optional] |
+| **min_folate** | **float**| The minimum amount of folate in micrograms the recipe must have. | [optional] |
+| **max_folate** | **float**| The maximum amount of folate in micrograms the recipe can have. | [optional] |
+| **min_folic_acid** | **float**| The minimum amount of folic acid in micrograms the recipe must have. | [optional] |
+| **max_folic_acid** | **float**| The maximum amount of folic acid in micrograms the recipe can have. | [optional] |
+| **min_iodine** | **float**| The minimum amount of iodine in micrograms the recipe must have. | [optional] |
+| **max_iodine** | **float**| The maximum amount of iodine in micrograms the recipe can have. | [optional] |
+| **min_iron** | **float**| The minimum amount of iron in milligrams the recipe must have. | [optional] |
+| **max_iron** | **float**| The maximum amount of iron in milligrams the recipe can have. | [optional] |
+| **min_magnesium** | **float**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] |
+| **max_magnesium** | **float**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] |
+| **min_manganese** | **float**| The minimum amount of manganese in milligrams the recipe must have. | [optional] |
+| **max_manganese** | **float**| The maximum amount of manganese in milligrams the recipe can have. | [optional] |
+| **min_phosphorus** | **float**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] |
+| **max_phosphorus** | **float**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] |
+| **min_potassium** | **float**| The minimum amount of potassium in milligrams the recipe must have. | [optional] |
+| **max_potassium** | **float**| The maximum amount of potassium in milligrams the recipe can have. | [optional] |
+| **min_selenium** | **float**| The minimum amount of selenium in micrograms the recipe must have. | [optional] |
+| **max_selenium** | **float**| The maximum amount of selenium in micrograms the recipe can have. | [optional] |
+| **min_sodium** | **float**| The minimum amount of sodium in milligrams the recipe must have. | [optional] |
+| **max_sodium** | **float**| The maximum amount of sodium in milligrams the recipe can have. | [optional] |
+| **min_sugar** | **float**| The minimum amount of sugar in grams the recipe must have. | [optional] |
+| **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional] |
+| **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional] |
+| **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchRecipes200Response**](../Model/SearchRecipes200Response.md)
+[**\OpenAPI\Client\Model\SearchRecipes200Response**](../Model/SearchRecipes200Response.md)
 
 ### Authorization
 
@@ -2094,7 +2094,7 @@ Name | Type | Description  | Notes
 ## `searchRecipesByIngredients()`
 
 ```php
-searchRecipesByIngredients($ingredients, $number, $limit_license, $ranking, $ignore_pantry): \com.spoonacular.client\com.spoonacular.client.model\SearchRecipesByIngredients200ResponseInner[]
+searchRecipesByIngredients($ingredients, $number, $limit_license, $ranking, $ignore_pantry): \OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[]
 ```
 
 Search Recipes by Ingredients
@@ -2109,12 +2109,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2136,17 +2136,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
- **ranking** | **float**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional]
- **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **ranking** | **float**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
+| **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchRecipesByIngredients200ResponseInner[]**](../Model/SearchRecipesByIngredients200ResponseInner.md)
+[**\OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[]**](../Model/SearchRecipesByIngredients200ResponseInner.md)
 
 ### Authorization
 
@@ -2164,7 +2164,7 @@ Name | Type | Description  | Notes
 ## `searchRecipesByNutrients()`
 
 ```php
-searchRecipesByNutrients($min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $random, $limit_license): \com.spoonacular.client\com.spoonacular.client.model\SearchRecipesByNutrients200ResponseInner[]
+searchRecipesByNutrients($min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $random, $limit_license): \OpenAPI\Client\Model\SearchRecipesByNutrients200ResponseInner[]
 ```
 
 Search Recipes by Nutrients
@@ -2179,12 +2179,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2277,88 +2277,88 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **min_carbs** | **float**| The minimum amount of carbohydrates in grams the recipe must have. | [optional]
- **max_carbs** | **float**| The maximum amount of carbohydrates in grams the recipe can have. | [optional]
- **min_protein** | **float**| The minimum amount of protein in grams the recipe must have. | [optional]
- **max_protein** | **float**| The maximum amount of protein in grams the recipe can have. | [optional]
- **min_calories** | **float**| The minimum amount of calories the recipe must have. | [optional]
- **max_calories** | **float**| The maximum amount of calories the recipe can have. | [optional]
- **min_fat** | **float**| The minimum amount of fat in grams the recipe must have. | [optional]
- **max_fat** | **float**| The maximum amount of fat in grams the recipe can have. | [optional]
- **min_alcohol** | **float**| The minimum amount of alcohol in grams the recipe must have. | [optional]
- **max_alcohol** | **float**| The maximum amount of alcohol in grams the recipe can have. | [optional]
- **min_caffeine** | **float**| The minimum amount of caffeine in milligrams the recipe must have. | [optional]
- **max_caffeine** | **float**| The maximum amount of caffeine in milligrams the recipe can have. | [optional]
- **min_copper** | **float**| The minimum amount of copper in milligrams the recipe must have. | [optional]
- **max_copper** | **float**| The maximum amount of copper in milligrams the recipe can have. | [optional]
- **min_calcium** | **float**| The minimum amount of calcium in milligrams the recipe must have. | [optional]
- **max_calcium** | **float**| The maximum amount of calcium in milligrams the recipe can have. | [optional]
- **min_choline** | **float**| The minimum amount of choline in milligrams the recipe must have. | [optional]
- **max_choline** | **float**| The maximum amount of choline in milligrams the recipe can have. | [optional]
- **min_cholesterol** | **float**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional]
- **max_cholesterol** | **float**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional]
- **min_fluoride** | **float**| The minimum amount of fluoride in milligrams the recipe must have. | [optional]
- **max_fluoride** | **float**| The maximum amount of fluoride in milligrams the recipe can have. | [optional]
- **min_saturated_fat** | **float**| The minimum amount of saturated fat in grams the recipe must have. | [optional]
- **max_saturated_fat** | **float**| The maximum amount of saturated fat in grams the recipe can have. | [optional]
- **min_vitamin_a** | **float**| The minimum amount of Vitamin A in IU the recipe must have. | [optional]
- **max_vitamin_a** | **float**| The maximum amount of Vitamin A in IU the recipe can have. | [optional]
- **min_vitamin_c** | **float**| The minimum amount of Vitamin C in milligrams the recipe must have. | [optional]
- **max_vitamin_c** | **float**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional]
- **min_vitamin_d** | **float**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional]
- **max_vitamin_d** | **float**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional]
- **min_vitamin_e** | **float**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional]
- **max_vitamin_e** | **float**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional]
- **min_vitamin_k** | **float**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional]
- **max_vitamin_k** | **float**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional]
- **min_vitamin_b1** | **float**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional]
- **max_vitamin_b1** | **float**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional]
- **min_vitamin_b2** | **float**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional]
- **max_vitamin_b2** | **float**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional]
- **min_vitamin_b5** | **float**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional]
- **max_vitamin_b5** | **float**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional]
- **min_vitamin_b3** | **float**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional]
- **max_vitamin_b3** | **float**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional]
- **min_vitamin_b6** | **float**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional]
- **max_vitamin_b6** | **float**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional]
- **min_vitamin_b12** | **float**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional]
- **max_vitamin_b12** | **float**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
- **min_fiber** | **float**| The minimum amount of fiber in grams the recipe must have. | [optional]
- **max_fiber** | **float**| The maximum amount of fiber in grams the recipe can have. | [optional]
- **min_folate** | **float**| The minimum amount of folate in micrograms the recipe must have. | [optional]
- **max_folate** | **float**| The maximum amount of folate in micrograms the recipe can have. | [optional]
- **min_folic_acid** | **float**| The minimum amount of folic acid in micrograms the recipe must have. | [optional]
- **max_folic_acid** | **float**| The maximum amount of folic acid in micrograms the recipe can have. | [optional]
- **min_iodine** | **float**| The minimum amount of iodine in micrograms the recipe must have. | [optional]
- **max_iodine** | **float**| The maximum amount of iodine in micrograms the recipe can have. | [optional]
- **min_iron** | **float**| The minimum amount of iron in milligrams the recipe must have. | [optional]
- **max_iron** | **float**| The maximum amount of iron in milligrams the recipe can have. | [optional]
- **min_magnesium** | **float**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
- **max_magnesium** | **float**| The maximum amount of magnesium in milligrams the recipe can have. | [optional]
- **min_manganese** | **float**| The minimum amount of manganese in milligrams the recipe must have. | [optional]
- **max_manganese** | **float**| The maximum amount of manganese in milligrams the recipe can have. | [optional]
- **min_phosphorus** | **float**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional]
- **max_phosphorus** | **float**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
- **min_potassium** | **float**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
- **max_potassium** | **float**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
- **min_selenium** | **float**| The minimum amount of selenium in micrograms the recipe must have. | [optional]
- **max_selenium** | **float**| The maximum amount of selenium in micrograms the recipe can have. | [optional]
- **min_sodium** | **float**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
- **max_sodium** | **float**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
- **min_sugar** | **float**| The minimum amount of sugar in grams the recipe must have. | [optional]
- **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional]
- **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
- **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional]
- **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **min_carbs** | **float**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] |
+| **max_carbs** | **float**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] |
+| **min_protein** | **float**| The minimum amount of protein in grams the recipe must have. | [optional] |
+| **max_protein** | **float**| The maximum amount of protein in grams the recipe can have. | [optional] |
+| **min_calories** | **float**| The minimum amount of calories the recipe must have. | [optional] |
+| **max_calories** | **float**| The maximum amount of calories the recipe can have. | [optional] |
+| **min_fat** | **float**| The minimum amount of fat in grams the recipe must have. | [optional] |
+| **max_fat** | **float**| The maximum amount of fat in grams the recipe can have. | [optional] |
+| **min_alcohol** | **float**| The minimum amount of alcohol in grams the recipe must have. | [optional] |
+| **max_alcohol** | **float**| The maximum amount of alcohol in grams the recipe can have. | [optional] |
+| **min_caffeine** | **float**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] |
+| **max_caffeine** | **float**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] |
+| **min_copper** | **float**| The minimum amount of copper in milligrams the recipe must have. | [optional] |
+| **max_copper** | **float**| The maximum amount of copper in milligrams the recipe can have. | [optional] |
+| **min_calcium** | **float**| The minimum amount of calcium in milligrams the recipe must have. | [optional] |
+| **max_calcium** | **float**| The maximum amount of calcium in milligrams the recipe can have. | [optional] |
+| **min_choline** | **float**| The minimum amount of choline in milligrams the recipe must have. | [optional] |
+| **max_choline** | **float**| The maximum amount of choline in milligrams the recipe can have. | [optional] |
+| **min_cholesterol** | **float**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] |
+| **max_cholesterol** | **float**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] |
+| **min_fluoride** | **float**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] |
+| **max_fluoride** | **float**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] |
+| **min_saturated_fat** | **float**| The minimum amount of saturated fat in grams the recipe must have. | [optional] |
+| **max_saturated_fat** | **float**| The maximum amount of saturated fat in grams the recipe can have. | [optional] |
+| **min_vitamin_a** | **float**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] |
+| **max_vitamin_a** | **float**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] |
+| **min_vitamin_c** | **float**| The minimum amount of Vitamin C in milligrams the recipe must have. | [optional] |
+| **max_vitamin_c** | **float**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] |
+| **min_vitamin_d** | **float**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] |
+| **max_vitamin_d** | **float**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] |
+| **min_vitamin_e** | **float**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] |
+| **max_vitamin_e** | **float**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] |
+| **min_vitamin_k** | **float**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] |
+| **max_vitamin_k** | **float**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] |
+| **min_vitamin_b1** | **float**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b1** | **float**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b2** | **float**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b2** | **float**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b5** | **float**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b5** | **float**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b3** | **float**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b3** | **float**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b6** | **float**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] |
+| **max_vitamin_b6** | **float**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] |
+| **min_vitamin_b12** | **float**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] |
+| **max_vitamin_b12** | **float**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] |
+| **min_fiber** | **float**| The minimum amount of fiber in grams the recipe must have. | [optional] |
+| **max_fiber** | **float**| The maximum amount of fiber in grams the recipe can have. | [optional] |
+| **min_folate** | **float**| The minimum amount of folate in micrograms the recipe must have. | [optional] |
+| **max_folate** | **float**| The maximum amount of folate in micrograms the recipe can have. | [optional] |
+| **min_folic_acid** | **float**| The minimum amount of folic acid in micrograms the recipe must have. | [optional] |
+| **max_folic_acid** | **float**| The maximum amount of folic acid in micrograms the recipe can have. | [optional] |
+| **min_iodine** | **float**| The minimum amount of iodine in micrograms the recipe must have. | [optional] |
+| **max_iodine** | **float**| The maximum amount of iodine in micrograms the recipe can have. | [optional] |
+| **min_iron** | **float**| The minimum amount of iron in milligrams the recipe must have. | [optional] |
+| **max_iron** | **float**| The maximum amount of iron in milligrams the recipe can have. | [optional] |
+| **min_magnesium** | **float**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] |
+| **max_magnesium** | **float**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] |
+| **min_manganese** | **float**| The minimum amount of manganese in milligrams the recipe must have. | [optional] |
+| **max_manganese** | **float**| The maximum amount of manganese in milligrams the recipe can have. | [optional] |
+| **min_phosphorus** | **float**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] |
+| **max_phosphorus** | **float**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] |
+| **min_potassium** | **float**| The minimum amount of potassium in milligrams the recipe must have. | [optional] |
+| **max_potassium** | **float**| The maximum amount of potassium in milligrams the recipe can have. | [optional] |
+| **min_selenium** | **float**| The minimum amount of selenium in micrograms the recipe must have. | [optional] |
+| **max_selenium** | **float**| The maximum amount of selenium in micrograms the recipe can have. | [optional] |
+| **min_sodium** | **float**| The minimum amount of sodium in milligrams the recipe must have. | [optional] |
+| **max_sodium** | **float**| The maximum amount of sodium in milligrams the recipe can have. | [optional] |
+| **min_sugar** | **float**| The minimum amount of sugar in grams the recipe must have. | [optional] |
+| **max_sugar** | **float**| The maximum amount of sugar in grams the recipe can have. | [optional] |
+| **min_zinc** | **float**| The minimum amount of zinc in milligrams the recipe must have. | [optional] |
+| **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional] |
+| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchRecipesByNutrients200ResponseInner[]**](../Model/SearchRecipesByNutrients200ResponseInner.md)
+[**\OpenAPI\Client\Model\SearchRecipesByNutrients200ResponseInner[]**](../Model/SearchRecipesByNutrients200ResponseInner.md)
 
 ### Authorization
 
@@ -2376,7 +2376,7 @@ Name | Type | Description  | Notes
 ## `summarizeRecipe()`
 
 ```php
-summarizeRecipe($id): \com.spoonacular.client\com.spoonacular.client.model\SummarizeRecipe200Response
+summarizeRecipe($id): \OpenAPI\Client\Model\SummarizeRecipe200Response
 ```
 
 Summarize Recipe
@@ -2391,12 +2391,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2414,13 +2414,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SummarizeRecipe200Response**](../Model/SummarizeRecipe200Response.md)
+[**\OpenAPI\Client\Model\SummarizeRecipe200Response**](../Model/SummarizeRecipe200Response.md)
 
 ### Authorization
 
@@ -2453,12 +2453,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2477,10 +2477,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
- **accept** | **string**| Accept header. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
+| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 
@@ -2517,12 +2517,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2542,11 +2542,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
- **accept** | **string**| Accept header. | [optional]
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
+| **accept** | **string**| Accept header. | [optional] |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
@@ -2583,12 +2583,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2607,10 +2607,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 
@@ -2647,12 +2647,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2672,11 +2672,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
 ### Return type
 
@@ -2713,12 +2713,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2738,11 +2738,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
- **accept** | **string**| Accept header. | [optional]
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
+| **accept** | **string**| Accept header. | [optional] |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
@@ -2779,12 +2779,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2804,11 +2804,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **string**| Accept header. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 
@@ -2845,12 +2845,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2869,10 +2869,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 
@@ -2909,12 +2909,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2936,13 +2936,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
- **content_type** | **string**| The content type. | [optional]
- **accept** | **string**| Accept header. | [optional]
- **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional]
- **rgb** | **string**| Red, green, blue values for the chart color. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **content_type** | **string**| The content type. | [optional] |
+| **accept** | **string**| Accept header. | [optional] |
+| **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] |
+| **rgb** | **string**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type
 
@@ -2979,12 +2979,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\RecipesApi(
+$apiInstance = new OpenAPI\Client\Api\RecipesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3004,11 +3004,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] [default to true]
- **rgb** | **string**| Red, green, blue values for the chart color. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] [default to true] |
+| **rgb** | **string**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type
 

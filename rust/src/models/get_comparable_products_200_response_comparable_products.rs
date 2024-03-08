@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetComparableProducts200ResponseComparableProducts {
     #[serde(rename = "calories")]
     pub calories: Vec<serde_json::Value>,

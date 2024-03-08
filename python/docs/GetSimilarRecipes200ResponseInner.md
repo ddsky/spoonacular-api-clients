@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
@@ -10,8 +11,24 @@ Name | Type | Description | Notes
 **ready_in_minutes** | **int** |  | 
 **servings** | **float** |  | 
 **source_url** | **str** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.get_similar_recipes200_response_inner import GetSimilarRecipes200ResponseInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetSimilarRecipes200ResponseInner from a JSON string
+get_similar_recipes200_response_inner_instance = GetSimilarRecipes200ResponseInner.from_json(json)
+# print the JSON string representation of the object
+print GetSimilarRecipes200ResponseInner.to_json()
+
+# convert the object into a dict
+get_similar_recipes200_response_inner_dict = get_similar_recipes200_response_inner_instance.to_dict()
+# create an instance of GetSimilarRecipes200ResponseInner from a dict
+get_similar_recipes200_response_inner_form_dict = get_similar_recipes200_response_inner.from_dict(get_similar_recipes200_response_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

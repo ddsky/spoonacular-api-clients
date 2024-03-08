@@ -1991,9 +1991,3 @@ instance Arbitrary E'Locale where
 instance Arbitrary E'Measure where
   arbitrary = arbitraryBoundedEnum
 
-instance Arbitrary E'Normalize where
-  arbitrary = arbitraryBoundedEnum
-
-instance Arbitrary E'Normalize2 where
-  arbitrary = arbitraryBoundedEnum
-

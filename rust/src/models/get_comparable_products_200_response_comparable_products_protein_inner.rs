@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetComparableProducts200ResponseComparableProductsProteinInner {
     #[serde(rename = "difference")]
     pub difference: f32,

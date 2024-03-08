@@ -1,4 +1,4 @@
-# com.spoonacular.client\MealPlanningApi
+# \MealPlanningApi
 
 All URIs are relative to *https://api.spoonacular.com*
 

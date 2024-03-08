@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
@@ -13,15 +14,31 @@ Name | Type | Description | Notes
 **unit** | **str** |  | 
 **unit_short** | **str** |  | 
 **unit_long** | **str** |  | 
-**possible_units** | **[str]** |  | 
+**possible_units** | **List[str]** |  | 
 **estimated_cost** | [**ParseIngredients200ResponseInnerEstimatedCost**](ParseIngredients200ResponseInnerEstimatedCost.md) |  | 
 **consistency** | **str** |  | 
 **aisle** | **str** |  | 
 **image** | **str** |  | 
-**meta** | **[str]** |  | 
+**meta** | **List[str]** |  | 
 **nutrition** | [**ParseIngredients200ResponseInnerNutrition**](ParseIngredients200ResponseInnerNutrition.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.parse_ingredients200_response_inner import ParseIngredients200ResponseInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ParseIngredients200ResponseInner from a JSON string
+parse_ingredients200_response_inner_instance = ParseIngredients200ResponseInner.from_json(json)
+# print the JSON string representation of the object
+print ParseIngredients200ResponseInner.to_json()
+
+# convert the object into a dict
+parse_ingredients200_response_inner_dict = parse_ingredients200_response_inner_instance.to_dict()
+# create an instance of ParseIngredients200ResponseInner from a dict
+parse_ingredients200_response_inner_form_dict = parse_ingredients200_response_inner.from_dict(parse_ingredients200_response_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,10 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.AnalyzeARecipeSearchQuery200ResponseDishesInner;
 import com.spoonacular.client.model.AnalyzeARecipeSearchQuery200ResponseIngredientsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,12 +38,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -53,8 +55,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class AnalyzeARecipeSearchQuery200Response {
   public static final String SERIALIZED_NAME_DISHES = "dishes";
   @SerializedName(SERIALIZED_NAME_DISHES)
@@ -72,16 +73,18 @@ public class AnalyzeARecipeSearchQuery200Response {
   @SerializedName(SERIALIZED_NAME_MODIFIERS)
   private List<String> modifiers = new ArrayList<>();
 
-  public AnalyzeARecipeSearchQuery200Response() { 
+  public AnalyzeARecipeSearchQuery200Response() {
   }
 
   public AnalyzeARecipeSearchQuery200Response dishes(Set<AnalyzeARecipeSearchQuery200ResponseDishesInner> dishes) {
-    
     this.dishes = dishes;
     return this;
   }
 
   public AnalyzeARecipeSearchQuery200Response addDishesItem(AnalyzeARecipeSearchQuery200ResponseDishesInner dishesItem) {
+    if (this.dishes == null) {
+      this.dishes = new LinkedHashSet<>();
+    }
     this.dishes.add(dishesItem);
     return this;
   }
@@ -91,12 +94,9 @@ public class AnalyzeARecipeSearchQuery200Response {
    * @return dishes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<AnalyzeARecipeSearchQuery200ResponseDishesInner> getDishes() {
     return dishes;
   }
-
 
   public void setDishes(Set<AnalyzeARecipeSearchQuery200ResponseDishesInner> dishes) {
     this.dishes = dishes;
@@ -104,12 +104,14 @@ public class AnalyzeARecipeSearchQuery200Response {
 
 
   public AnalyzeARecipeSearchQuery200Response ingredients(Set<AnalyzeARecipeSearchQuery200ResponseIngredientsInner> ingredients) {
-    
     this.ingredients = ingredients;
     return this;
   }
 
   public AnalyzeARecipeSearchQuery200Response addIngredientsItem(AnalyzeARecipeSearchQuery200ResponseIngredientsInner ingredientsItem) {
+    if (this.ingredients == null) {
+      this.ingredients = new LinkedHashSet<>();
+    }
     this.ingredients.add(ingredientsItem);
     return this;
   }
@@ -119,12 +121,9 @@ public class AnalyzeARecipeSearchQuery200Response {
    * @return ingredients
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<AnalyzeARecipeSearchQuery200ResponseIngredientsInner> getIngredients() {
     return ingredients;
   }
-
 
   public void setIngredients(Set<AnalyzeARecipeSearchQuery200ResponseIngredientsInner> ingredients) {
     this.ingredients = ingredients;
@@ -132,12 +131,14 @@ public class AnalyzeARecipeSearchQuery200Response {
 
 
   public AnalyzeARecipeSearchQuery200Response cuisines(List<String> cuisines) {
-    
     this.cuisines = cuisines;
     return this;
   }
 
   public AnalyzeARecipeSearchQuery200Response addCuisinesItem(String cuisinesItem) {
+    if (this.cuisines == null) {
+      this.cuisines = new ArrayList<>();
+    }
     this.cuisines.add(cuisinesItem);
     return this;
   }
@@ -147,12 +148,9 @@ public class AnalyzeARecipeSearchQuery200Response {
    * @return cuisines
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getCuisines() {
     return cuisines;
   }
-
 
   public void setCuisines(List<String> cuisines) {
     this.cuisines = cuisines;
@@ -160,12 +158,14 @@ public class AnalyzeARecipeSearchQuery200Response {
 
 
   public AnalyzeARecipeSearchQuery200Response modifiers(List<String> modifiers) {
-    
     this.modifiers = modifiers;
     return this;
   }
 
   public AnalyzeARecipeSearchQuery200Response addModifiersItem(String modifiersItem) {
+    if (this.modifiers == null) {
+      this.modifiers = new ArrayList<>();
+    }
     this.modifiers.add(modifiersItem);
     return this;
   }
@@ -175,12 +175,9 @@ public class AnalyzeARecipeSearchQuery200Response {
    * @return modifiers
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getModifiers() {
     return modifiers;
   }
-
 
   public void setModifiers(List<String> modifiers) {
     this.modifiers = modifiers;
@@ -252,64 +249,63 @@ public class AnalyzeARecipeSearchQuery200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AnalyzeARecipeSearchQuery200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AnalyzeARecipeSearchQuery200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AnalyzeARecipeSearchQuery200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AnalyzeARecipeSearchQuery200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AnalyzeARecipeSearchQuery200Response is not found in the empty JSON string", AnalyzeARecipeSearchQuery200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AnalyzeARecipeSearchQuery200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AnalyzeARecipeSearchQuery200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AnalyzeARecipeSearchQuery200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AnalyzeARecipeSearchQuery200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      JsonArray jsonArraydishes = jsonObj.getAsJsonArray("dishes");
-      if (jsonArraydishes != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("dishes").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `dishes` to be an array in the JSON string but got `%s`", jsonObj.get("dishes").toString()));
-        }
-
-        // validate the optional field `dishes` (array)
-        for (int i = 0; i < jsonArraydishes.size(); i++) {
-          AnalyzeARecipeSearchQuery200ResponseDishesInner.validateJsonObject(jsonArraydishes.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
-      if (jsonArrayingredients != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("ingredients").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
-        }
-
-        // validate the optional field `ingredients` (array)
-        for (int i = 0; i < jsonArrayingredients.size(); i++) {
-          AnalyzeARecipeSearchQuery200ResponseIngredientsInner.validateJsonObject(jsonArrayingredients.get(i).getAsJsonObject());
-        };
-      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
-      if (jsonObj.get("cuisines") != null && !jsonObj.get("cuisines").isJsonArray()) {
+      if (!jsonObj.get("dishes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dishes` to be an array in the JSON string but got `%s`", jsonObj.get("dishes").toString()));
+      }
+
+      JsonArray jsonArraydishes = jsonObj.getAsJsonArray("dishes");
+      // validate the required field `dishes` (array)
+      for (int i = 0; i < jsonArraydishes.size(); i++) {
+        AnalyzeARecipeSearchQuery200ResponseDishesInner.validateJsonElement(jsonArraydishes.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("ingredients").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
+      }
+
+      JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
+      // validate the required field `ingredients` (array)
+      for (int i = 0; i < jsonArrayingredients.size(); i++) {
+        AnalyzeARecipeSearchQuery200ResponseIngredientsInner.validateJsonElement(jsonArrayingredients.get(i));
+      };
+      // ensure the required json array is present
+      if (jsonObj.get("cuisines") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("cuisines").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cuisines` to be an array in the JSON string but got `%s`", jsonObj.get("cuisines").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("modifiers") != null && !jsonObj.get("modifiers").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("modifiers") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("modifiers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiers` to be an array in the JSON string but got `%s`", jsonObj.get("modifiers").toString()));
       }
   }
@@ -334,9 +330,9 @@ public class AnalyzeARecipeSearchQuery200Response {
 
            @Override
            public AnalyzeARecipeSearchQuery200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

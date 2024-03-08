@@ -1,4 +1,4 @@
-package org.openapitools
+package spoonacular
 
 // TODO: properly handle custom imports
 import java.io._
@@ -6,7 +6,7 @@ import java.util.UUID
 import java.time._
 import com.twitter.finagle.http.exp.Multipart.{FileUpload, InMemoryFileUpload, OnDiskFileUpload}
 
-import com.spoonacular.client.model._
+import org.openapitools.models._
 
 trait DataAccessor {
     // TODO: apiInfo -> apis -> operations = TODO error

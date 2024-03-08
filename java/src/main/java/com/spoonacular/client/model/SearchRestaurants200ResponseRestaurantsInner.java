@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerAddress;
 import com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHours;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -39,12 +37,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200ResponseRestaurantsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchRestaurants200ResponseRestaurantsInner {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,19 +86,19 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
   public static final String SERIALIZED_NAME_CUISINES = "cuisines";
   @SerializedName(SERIALIZED_NAME_CUISINES)
-  private List<String> cuisines = null;
+  private List<String> cuisines;
 
   public static final String SERIALIZED_NAME_FOOD_PHOTOS = "food_photos";
   @SerializedName(SERIALIZED_NAME_FOOD_PHOTOS)
-  private List<String> foodPhotos = null;
+  private List<String> foodPhotos;
 
   public static final String SERIALIZED_NAME_LOGO_PHOTOS = "logo_photos";
   @SerializedName(SERIALIZED_NAME_LOGO_PHOTOS)
-  private List<String> logoPhotos = null;
+  private List<String> logoPhotos;
 
   public static final String SERIALIZED_NAME_STORE_PHOTOS = "store_photos";
   @SerializedName(SERIALIZED_NAME_STORE_PHOTOS)
-  private List<Object> storePhotos = null;
+  private List<Object> storePhotos;
 
   public static final String SERIALIZED_NAME_DOLLAR_SIGNS = "dollar_signs";
   @SerializedName(SERIALIZED_NAME_DOLLAR_SIGNS)
@@ -134,11 +136,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
   @SerializedName(SERIALIZED_NAME_AGGREGATED_RATING_COUNT)
   private Integer aggregatedRatingCount;
 
-  public SearchRestaurants200ResponseRestaurantsInner() { 
+  public SearchRestaurants200ResponseRestaurantsInner() {
   }
 
   public SearchRestaurants200ResponseRestaurantsInner id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -148,12 +149,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -161,7 +159,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -171,12 +168,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -184,7 +178,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner phoneNumber(Integer phoneNumber) {
-    
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -194,12 +187,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return phoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getPhoneNumber() {
     return phoneNumber;
   }
-
 
   public void setPhoneNumber(Integer phoneNumber) {
     this.phoneNumber = phoneNumber;
@@ -207,7 +197,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner address(SearchRestaurants200ResponseRestaurantsInnerAddress address) {
-    
     this.address = address;
     return this;
   }
@@ -217,12 +206,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return address
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SearchRestaurants200ResponseRestaurantsInnerAddress getAddress() {
     return address;
   }
-
 
   public void setAddress(SearchRestaurants200ResponseRestaurantsInnerAddress address) {
     this.address = address;
@@ -230,7 +216,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -240,12 +225,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -253,7 +235,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -263,12 +244,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDescription() {
     return description;
   }
-
 
   public void setDescription(String description) {
     this.description = description;
@@ -276,7 +254,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner localHours(SearchRestaurants200ResponseRestaurantsInnerLocalHours localHours) {
-    
     this.localHours = localHours;
     return this;
   }
@@ -286,12 +263,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return localHours
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SearchRestaurants200ResponseRestaurantsInnerLocalHours getLocalHours() {
     return localHours;
   }
-
 
   public void setLocalHours(SearchRestaurants200ResponseRestaurantsInnerLocalHours localHours) {
     this.localHours = localHours;
@@ -299,7 +273,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner cuisines(List<String> cuisines) {
-    
     this.cuisines = cuisines;
     return this;
   }
@@ -317,12 +290,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return cuisines
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getCuisines() {
     return cuisines;
   }
-
 
   public void setCuisines(List<String> cuisines) {
     this.cuisines = cuisines;
@@ -330,7 +300,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner foodPhotos(List<String> foodPhotos) {
-    
     this.foodPhotos = foodPhotos;
     return this;
   }
@@ -348,12 +317,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return foodPhotos
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getFoodPhotos() {
     return foodPhotos;
   }
-
 
   public void setFoodPhotos(List<String> foodPhotos) {
     this.foodPhotos = foodPhotos;
@@ -361,7 +327,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner logoPhotos(List<String> logoPhotos) {
-    
     this.logoPhotos = logoPhotos;
     return this;
   }
@@ -379,12 +344,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return logoPhotos
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getLogoPhotos() {
     return logoPhotos;
   }
-
 
   public void setLogoPhotos(List<String> logoPhotos) {
     this.logoPhotos = logoPhotos;
@@ -392,7 +354,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner storePhotos(List<Object> storePhotos) {
-    
     this.storePhotos = storePhotos;
     return this;
   }
@@ -410,12 +371,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return storePhotos
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<Object> getStorePhotos() {
     return storePhotos;
   }
-
 
   public void setStorePhotos(List<Object> storePhotos) {
     this.storePhotos = storePhotos;
@@ -423,7 +381,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner dollarSigns(Integer dollarSigns) {
-    
     this.dollarSigns = dollarSigns;
     return this;
   }
@@ -433,12 +390,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return dollarSigns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getDollarSigns() {
     return dollarSigns;
   }
-
 
   public void setDollarSigns(Integer dollarSigns) {
     this.dollarSigns = dollarSigns;
@@ -446,7 +400,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner pickupEnabled(Boolean pickupEnabled) {
-    
     this.pickupEnabled = pickupEnabled;
     return this;
   }
@@ -456,12 +409,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return pickupEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getPickupEnabled() {
     return pickupEnabled;
   }
-
 
   public void setPickupEnabled(Boolean pickupEnabled) {
     this.pickupEnabled = pickupEnabled;
@@ -469,7 +419,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner deliveryEnabled(Boolean deliveryEnabled) {
-    
     this.deliveryEnabled = deliveryEnabled;
     return this;
   }
@@ -479,12 +428,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return deliveryEnabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getDeliveryEnabled() {
     return deliveryEnabled;
   }
-
 
   public void setDeliveryEnabled(Boolean deliveryEnabled) {
     this.deliveryEnabled = deliveryEnabled;
@@ -492,7 +438,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner isOpen(Boolean isOpen) {
-    
     this.isOpen = isOpen;
     return this;
   }
@@ -502,12 +447,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return isOpen
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIsOpen() {
     return isOpen;
   }
-
 
   public void setIsOpen(Boolean isOpen) {
     this.isOpen = isOpen;
@@ -515,7 +457,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner offersFirstPartyDelivery(Boolean offersFirstPartyDelivery) {
-    
     this.offersFirstPartyDelivery = offersFirstPartyDelivery;
     return this;
   }
@@ -525,12 +466,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return offersFirstPartyDelivery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getOffersFirstPartyDelivery() {
     return offersFirstPartyDelivery;
   }
-
 
   public void setOffersFirstPartyDelivery(Boolean offersFirstPartyDelivery) {
     this.offersFirstPartyDelivery = offersFirstPartyDelivery;
@@ -538,7 +476,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner offersThirdPartyDelivery(Boolean offersThirdPartyDelivery) {
-    
     this.offersThirdPartyDelivery = offersThirdPartyDelivery;
     return this;
   }
@@ -548,12 +485,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return offersThirdPartyDelivery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getOffersThirdPartyDelivery() {
     return offersThirdPartyDelivery;
   }
-
 
   public void setOffersThirdPartyDelivery(Boolean offersThirdPartyDelivery) {
     this.offersThirdPartyDelivery = offersThirdPartyDelivery;
@@ -561,7 +495,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner miles(BigDecimal miles) {
-    
     this.miles = miles;
     return this;
   }
@@ -571,12 +504,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return miles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BigDecimal getMiles() {
     return miles;
   }
-
 
   public void setMiles(BigDecimal miles) {
     this.miles = miles;
@@ -584,7 +514,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner weightedRatingValue(BigDecimal weightedRatingValue) {
-    
     this.weightedRatingValue = weightedRatingValue;
     return this;
   }
@@ -594,12 +523,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return weightedRatingValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BigDecimal getWeightedRatingValue() {
     return weightedRatingValue;
   }
-
 
   public void setWeightedRatingValue(BigDecimal weightedRatingValue) {
     this.weightedRatingValue = weightedRatingValue;
@@ -607,7 +533,6 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
 
   public SearchRestaurants200ResponseRestaurantsInner aggregatedRatingCount(Integer aggregatedRatingCount) {
-    
     this.aggregatedRatingCount = aggregatedRatingCount;
     return this;
   }
@@ -617,12 +542,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return aggregatedRatingCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getAggregatedRatingCount() {
     return aggregatedRatingCount;
   }
-
 
   public void setAggregatedRatingCount(Integer aggregatedRatingCount) {
     this.aggregatedRatingCount = aggregatedRatingCount;
@@ -738,61 +660,60 @@ public class SearchRestaurants200ResponseRestaurantsInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchRestaurants200ResponseRestaurantsInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchRestaurants200ResponseRestaurantsInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchRestaurants200ResponseRestaurantsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchRestaurants200ResponseRestaurantsInner is not found in the empty JSON string", SearchRestaurants200ResponseRestaurantsInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchRestaurants200ResponseRestaurantsInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchRestaurants200ResponseRestaurantsInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchRestaurants200ResponseRestaurantsInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      if (jsonObj.get("_id") != null && !jsonObj.get("_id").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("_id") != null && !jsonObj.get("_id").isJsonNull()) && !jsonObj.get("_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `address`
-      if (jsonObj.getAsJsonObject("address") != null) {
-        SearchRestaurants200ResponseRestaurantsInnerAddress.validateJsonObject(jsonObj.getAsJsonObject("address"));
+      if (jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) {
+        SearchRestaurants200ResponseRestaurantsInnerAddress.validateJsonElement(jsonObj.get("address"));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field `local_hours`
-      if (jsonObj.getAsJsonObject("local_hours") != null) {
-        SearchRestaurants200ResponseRestaurantsInnerLocalHours.validateJsonObject(jsonObj.getAsJsonObject("local_hours"));
+      if (jsonObj.get("local_hours") != null && !jsonObj.get("local_hours").isJsonNull()) {
+        SearchRestaurants200ResponseRestaurantsInnerLocalHours.validateJsonElement(jsonObj.get("local_hours"));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("cuisines") != null && !jsonObj.get("cuisines").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("cuisines") != null && !jsonObj.get("cuisines").isJsonNull() && !jsonObj.get("cuisines").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cuisines` to be an array in the JSON string but got `%s`", jsonObj.get("cuisines").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("food_photos") != null && !jsonObj.get("food_photos").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("food_photos") != null && !jsonObj.get("food_photos").isJsonNull() && !jsonObj.get("food_photos").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `food_photos` to be an array in the JSON string but got `%s`", jsonObj.get("food_photos").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("logo_photos") != null && !jsonObj.get("logo_photos").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("logo_photos") != null && !jsonObj.get("logo_photos").isJsonNull() && !jsonObj.get("logo_photos").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `logo_photos` to be an array in the JSON string but got `%s`", jsonObj.get("logo_photos").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("store_photos") != null && !jsonObj.get("store_photos").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("store_photos") != null && !jsonObj.get("store_photos").isJsonNull() && !jsonObj.get("store_photos").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `store_photos` to be an array in the JSON string but got `%s`", jsonObj.get("store_photos").toString()));
       }
   }
@@ -817,9 +738,9 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
            @Override
            public SearchRestaurants200ResponseRestaurantsInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

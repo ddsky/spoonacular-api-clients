@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetProductInformation200ResponseIngredientsInner
+# spoonacular.Model.GetProductInformation200ResponseIngredientsInner
 
 ## Properties
 

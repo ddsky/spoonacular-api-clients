@@ -890,7 +890,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The item&#39;s id. | [default to null]
- **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to true] [enum: false, true]
+ **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to true]
 
 ### Return type
 
@@ -2355,7 +2355,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The item&#39;s id. | [default to null]
- **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true] [enum: true, false]
+ **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true]
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] [default to null]
 
 ### Return type

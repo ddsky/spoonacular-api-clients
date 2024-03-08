@@ -1,12 +1,12 @@
-# Org.OpenAPITools.Model.SearchRecipes200ResponseResultsInner
+# spoonacular.Model.SearchRecipes200ResponseResultsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
-**Calories** | **decimal?** |  | 
+**Calories** | **decimal** |  | 
 **Carbs** | **string** |  | 
 **Fat** | **string** |  | 
 **Image** | **string** |  | 

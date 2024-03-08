@@ -1,12 +1,12 @@
-# Org.OpenAPITools.Model.GetMealPlanWeek200ResponseDaysInnerItemsInner
+# spoonacular.Model.GetMealPlanWeek200ResponseDaysInnerItemsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
-**Slot** | **int?** |  | 
-**Position** | **int?** |  | 
+**Id** | **int** |  | 
+**Slot** | **int** |  | 
+**Position** | **int** |  | 
 **Type** | **string** |  | 
 **Value** | [**GetMealPlanWeek200ResponseDaysInnerItemsInnerValue**](GetMealPlanWeek200ResponseDaysInnerItemsInnerValue.md) |  | [optional] 
 

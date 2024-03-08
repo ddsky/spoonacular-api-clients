@@ -1,24 +1,24 @@
-# com.spoonacular.client\IngredientsApi
+# OpenAPI\Client\IngredientsApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autocompleteIngredientSearch()**](IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
-[**computeIngredientAmount()**](IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
-[**getIngredientInformation()**](IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
-[**getIngredientSubstitutes()**](IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
-[**getIngredientSubstitutesByID()**](IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
-[**ingredientSearch()**](IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
-[**ingredientsByIDImage()**](IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
-[**mapIngredientsToGroceryProducts()**](IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
-[**visualizeIngredients()**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**autocompleteIngredientSearch()**](IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search |
+| [**computeIngredientAmount()**](IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount |
+| [**getIngredientInformation()**](IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information |
+| [**getIngredientSubstitutes()**](IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes |
+| [**getIngredientSubstitutesByID()**](IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID |
+| [**ingredientSearch()**](IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search |
+| [**ingredientsByIDImage()**](IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
+| [**mapIngredientsToGroceryProducts()**](IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products |
+| [**visualizeIngredients()**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget |
 
 
 ## `autocompleteIngredientSearch()`
 
 ```php
-autocompleteIngredientSearch($query, $number, $meta_information, $intolerances, $language): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]
+autocompleteIngredientSearch($query, $number, $meta_information, $intolerances, $language): \OpenAPI\Client\Model\AutocompleteIngredientSearch200ResponseInner[]
 ```
 
 Autocomplete Ingredient Search
@@ -33,12 +33,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -60,17 +60,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional]
- **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional] |
+| **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteIngredientSearch200ResponseInner[]**](../Model/AutocompleteIngredientSearch200ResponseInner.md)
+[**\OpenAPI\Client\Model\AutocompleteIngredientSearch200ResponseInner[]**](../Model/AutocompleteIngredientSearch200ResponseInner.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 ## `computeIngredientAmount()`
 
 ```php
-computeIngredientAmount($id, $nutrient, $target, $unit): \com.spoonacular.client\com.spoonacular.client.model\ComputeIngredientAmount200Response
+computeIngredientAmount($id, $nutrient, $target, $unit): \OpenAPI\Client\Model\ComputeIngredientAmount200Response
 ```
 
 Compute Ingredient Amount
@@ -103,12 +103,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -129,16 +129,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The id of the ingredient you want the amount for. |
- **nutrient** | **string**| The target nutrient. See a list of supported nutrients. |
- **target** | **float**| The target number of the given nutrient. |
- **unit** | **string**| The target unit. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The id of the ingredient you want the amount for. | |
+| **nutrient** | **string**| The target nutrient. See a list of supported nutrients. | |
+| **target** | **float**| The target number of the given nutrient. | |
+| **unit** | **string**| The target unit. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ComputeIngredientAmount200Response**](../Model/ComputeIngredientAmount200Response.md)
+[**\OpenAPI\Client\Model\ComputeIngredientAmount200Response**](../Model/ComputeIngredientAmount200Response.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 ## `getIngredientInformation()`
 
 ```php
-getIngredientInformation($id, $amount, $unit): \com.spoonacular.client\com.spoonacular.client.model\GetIngredientInformation200Response
+getIngredientInformation($id, $amount, $unit): \OpenAPI\Client\Model\GetIngredientInformation200Response
 ```
 
 Get Ingredient Information
@@ -171,12 +171,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -196,15 +196,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **amount** | **float**| The amount of this ingredient. | [optional]
- **unit** | **string**| The unit for the given amount. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **amount** | **float**| The amount of this ingredient. | [optional] |
+| **unit** | **string**| The unit for the given amount. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetIngredientInformation200Response**](../Model/GetIngredientInformation200Response.md)
+[**\OpenAPI\Client\Model\GetIngredientInformation200Response**](../Model/GetIngredientInformation200Response.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 ## `getIngredientSubstitutes()`
 
 ```php
-getIngredientSubstitutes($ingredient_name): \com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response
+getIngredientSubstitutes($ingredient_name): \OpenAPI\Client\Model\GetIngredientSubstitutes200Response
 ```
 
 Get Ingredient Substitutes
@@ -237,12 +237,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -260,13 +260,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredient_name** | **string**| The name of the ingredient you want to replace. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ingredient_name** | **string**| The name of the ingredient you want to replace. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response**](../Model/GetIngredientSubstitutes200Response.md)
+[**\OpenAPI\Client\Model\GetIngredientSubstitutes200Response**](../Model/GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 ## `getIngredientSubstitutesByID()`
 
 ```php
-getIngredientSubstitutesByID($id): \com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response
+getIngredientSubstitutesByID($id): \OpenAPI\Client\Model\GetIngredientSubstitutes200Response
 ```
 
 Get Ingredient Substitutes by ID
@@ -299,12 +299,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -322,13 +322,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetIngredientSubstitutes200Response**](../Model/GetIngredientSubstitutes200Response.md)
+[**\OpenAPI\Client\Model\GetIngredientSubstitutes200Response**](../Model/GetIngredientSubstitutes200Response.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 ## `ingredientSearch()`
 
 ```php
-ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language): \com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response
+ingredientSearch($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language): \OpenAPI\Client\Model\IngredientSearch200Response
 ```
 
 Ingredient Search
@@ -361,12 +361,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -398,27 +398,27 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **add_children** | **bool**| Whether to add children of found foods. | [optional]
- **min_protein_percent** | **float**| The minimum percentage of protein the food must have (between 0 and 100). | [optional]
- **max_protein_percent** | **float**| The maximum percentage of protein the food can have (between 0 and 100). | [optional]
- **min_fat_percent** | **float**| The minimum percentage of fat the food must have (between 0 and 100). | [optional]
- **max_fat_percent** | **float**| The maximum percentage of fat the food can have (between 0 and 100). | [optional]
- **min_carbs_percent** | **float**| The minimum percentage of carbs the food must have (between 0 and 100). | [optional]
- **max_carbs_percent** | **float**| The maximum percentage of carbs the food can have (between 0 and 100). | [optional]
- **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional]
- **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **sort** | **string**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
- **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **add_children** | **bool**| Whether to add children of found foods. | [optional] |
+| **min_protein_percent** | **float**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] |
+| **max_protein_percent** | **float**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] |
+| **min_fat_percent** | **float**| The minimum percentage of fat the food must have (between 0 and 100). | [optional] |
+| **max_fat_percent** | **float**| The maximum percentage of fat the food can have (between 0 and 100). | [optional] |
+| **min_carbs_percent** | **float**| The minimum percentage of carbs the food must have (between 0 and 100). | [optional] |
+| **max_carbs_percent** | **float**| The maximum percentage of carbs the food can have (between 0 and 100). | [optional] |
+| **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional] |
+| **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| **sort** | **string**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] |
+| **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200Response**](../Model/IngredientSearch200Response.md)
+[**\OpenAPI\Client\Model\IngredientSearch200Response**](../Model/IngredientSearch200Response.md)
 
 ### Authorization
 
@@ -451,12 +451,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -475,10 +475,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. |
- **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The recipe id. | |
+| **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
 ### Return type
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 ## `mapIngredientsToGroceryProducts()`
 
 ```php
-mapIngredientsToGroceryProducts($map_ingredients_to_grocery_products_request): \com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProducts200ResponseInner[]
+mapIngredientsToGroceryProducts($map_ingredients_to_grocery_products_request): \OpenAPI\Client\Model\MapIngredientsToGroceryProducts200ResponseInner[]
 ```
 
 Map Ingredients to Grocery Products
@@ -515,18 +515,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$map_ingredients_to_grocery_products_request = {"ingredients":["eggs","bacon"],"servings":2}; // \com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProductsRequest
+$map_ingredients_to_grocery_products_request = {"ingredients":["eggs","bacon"],"servings":2}; // \OpenAPI\Client\Model\MapIngredientsToGroceryProductsRequest
 
 try {
     $result = $apiInstance->mapIngredientsToGroceryProducts($map_ingredients_to_grocery_products_request);
@@ -538,13 +538,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **map_ingredients_to_grocery_products_request** | [**\com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProductsRequest**](../Model/MapIngredientsToGroceryProductsRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **map_ingredients_to_grocery_products_request** | [**\OpenAPI\Client\Model\MapIngredientsToGroceryProductsRequest**](../Model/MapIngredientsToGroceryProductsRequest.md)|  | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\MapIngredientsToGroceryProducts200ResponseInner[]**](../Model/MapIngredientsToGroceryProducts200ResponseInner.md)
+[**\OpenAPI\Client\Model\MapIngredientsToGroceryProducts200ResponseInner[]**](../Model/MapIngredientsToGroceryProducts200ResponseInner.md)
 
 ### Authorization
 
@@ -577,12 +577,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\IngredientsApi(
+$apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -602,11 +602,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
- **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]
- **accept** | **string**| Accept header. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 

@@ -21,15 +21,12 @@ import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.ImageAnalysisByURL200ResponseCategory;
 import com.spoonacular.client.model.ImageAnalysisByURL200ResponseNutrition;
 import com.spoonacular.client.model.ImageAnalysisByURL200ResponseRecipesInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for ImageAnalysisByURL200Response

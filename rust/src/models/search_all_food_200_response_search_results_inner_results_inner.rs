@@ -11,32 +11,32 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchAllFood200ResponseSearchResultsInnerResultsInner {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "image")]
+    #[serde(rename = "image", deserialize_with = "Option::deserialize")]
     pub image: Option<String>,
-    #[serde(rename = "link")]
+    #[serde(rename = "link", deserialize_with = "Option::deserialize")]
     pub link: Option<String>,
     #[serde(rename = "type")]
-    pub _type: String,
+    pub r#type: String,
     #[serde(rename = "relevance")]
     pub relevance: f32,
-    #[serde(rename = "content")]
+    #[serde(rename = "content", deserialize_with = "Option::deserialize")]
     pub content: Option<String>,
 }
 
 impl SearchAllFood200ResponseSearchResultsInnerResultsInner {
-    pub fn new(id: String, name: String, image: Option<String>, link: Option<String>, _type: String, relevance: f32, content: Option<String>) -> SearchAllFood200ResponseSearchResultsInnerResultsInner {
+    pub fn new(id: String, name: String, image: Option<String>, link: Option<String>, r#type: String, relevance: f32, content: Option<String>) -> SearchAllFood200ResponseSearchResultsInnerResultsInner {
         SearchAllFood200ResponseSearchResultsInnerResultsInner {
             id,
             name,
             image,
             link,
-            _type,
+            r#type,
             relevance,
             content,
         }

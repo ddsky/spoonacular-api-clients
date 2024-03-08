@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **menu_items** | [**Vec<crate::models::SearchMenuItems200ResponseMenuItemsInner>**](searchMenuItems_200_response_menuItems_inner.md) |  | 
 **total_menu_items** | **i32** |  | 
-**_type** | **String** |  | 
+**r#type** | **String** |  | 
 **offset** | **i32** |  | 
 **number** | **i32** |  | 
 

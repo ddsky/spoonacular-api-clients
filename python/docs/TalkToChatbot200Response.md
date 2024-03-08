@@ -3,12 +3,29 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answer_text** | **str** |  | 
-**media** | **[bool, date, datetime, dict, float, int, list, str, none_type]** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**media** | **List[object]** |  | 
 
+## Example
+
+```python
+from spoonacular.models.talk_to_chatbot200_response import TalkToChatbot200Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of TalkToChatbot200Response from a JSON string
+talk_to_chatbot200_response_instance = TalkToChatbot200Response.from_json(json)
+# print the JSON string representation of the object
+print TalkToChatbot200Response.to_json()
+
+# convert the object into a dict
+talk_to_chatbot200_response_dict = talk_to_chatbot200_response_instance.to_dict()
+# create an instance of TalkToChatbot200Response from a dict
+talk_to_chatbot200_response_form_dict = talk_to_chatbot200_response.from_dict(talk_to_chatbot200_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

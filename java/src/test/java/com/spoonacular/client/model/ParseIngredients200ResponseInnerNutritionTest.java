@@ -22,15 +22,12 @@ import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionCal
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionNutrientsInner;
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionPropertiesInner;
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionWeightPerServing;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for ParseIngredients200ResponseInnerNutrition

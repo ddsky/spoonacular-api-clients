@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AnalyzeARecipeSearchQuery200ResponseDishesInner
+# spoonacular.Model.AnalyzeARecipeSearchQuery200ResponseDishesInner
 
 ## Properties
 

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ImageAnalysisByUrl200Response {
     #[serde(rename = "nutrition")]
     pub nutrition: Box<crate::models::ImageAnalysisByUrl200ResponseNutrition>,

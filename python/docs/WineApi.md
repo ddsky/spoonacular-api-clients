@@ -1,4 +1,4 @@
-# openapi_client.WineApi
+# spoonacular.WineApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -22,14 +22,14 @@ Find a dish that goes well with a given wine.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import wine_api
-from openapi_client.model.get_dish_pairing_for_wine200_response import GetDishPairingForWine200Response
+import spoonacular
+from spoonacular.models.get_dish_pairing_for_wine200_response import GetDishPairingForWine200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -39,32 +39,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = wine_api.WineApi(api_client)
-    wine = "malbec" # str | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+    api_instance = spoonacular.WineApi(api_client)
+    wine = 'malbec' # str | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
-    # example passing only required values which don't have defaults set
     try:
         # Dish Pairing for Wine
         api_response = api_instance.get_dish_pairing_for_wine(wine)
+        print("The response of WineApi->get_dish_pairing_for_wine:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WineApi->get_dish_pairing_for_wine: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wine** | **str**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. |
+ **wine** | **str**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
 
 ### Return type
 
@@ -78,7 +80,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -103,14 +104,14 @@ Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import wine_api
-from openapi_client.model.get_wine_description200_response import GetWineDescription200Response
+import spoonacular
+from spoonacular.models.get_wine_description200_response import GetWineDescription200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -120,32 +121,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = wine_api.WineApi(api_client)
-    wine = "merlot" # str | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+    api_instance = spoonacular.WineApi(api_client)
+    wine = 'merlot' # str | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
-    # example passing only required values which don't have defaults set
     try:
         # Wine Description
         api_response = api_instance.get_wine_description(wine)
+        print("The response of WineApi->get_wine_description:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WineApi->get_wine_description: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wine** | **str**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. |
+ **wine** | **str**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | 
 
 ### Return type
 
@@ -160,7 +163,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -173,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wine_pairing**
-> GetWinePairing200Response get_wine_pairing(food)
+> GetWinePairing200Response get_wine_pairing(food, max_price=max_price)
 
 Wine Pairing
 
@@ -184,14 +186,14 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import wine_api
-from openapi_client.model.get_wine_pairing200_response import GetWinePairing200Response
+import spoonacular
+from spoonacular.models.get_wine_pairing200_response import GetWinePairing200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -201,43 +203,36 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = wine_api.WineApi(api_client)
-    food = "steak" # str | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
+    api_instance = spoonacular.WineApi(api_client)
+    food = 'steak' # str | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
     max_price = 50 # float | The maximum price for the specific wine recommendation in USD. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Wine Pairing
-        api_response = api_instance.get_wine_pairing(food)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling WineApi->get_wine_pairing: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Wine Pairing
         api_response = api_instance.get_wine_pairing(food, max_price=max_price)
+        print("The response of WineApi->get_wine_pairing:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WineApi->get_wine_pairing: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **food** | **str**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). |
- **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional]
+ **food** | **str**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). | 
+ **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional] 
 
 ### Return type
 
@@ -252,7 +247,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -265,7 +259,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wine_recommendation**
-> GetWineRecommendation200Response get_wine_recommendation(wine)
+> GetWineRecommendation200Response get_wine_recommendation(wine, max_price=max_price, min_rating=min_rating, number=number)
 
 Wine Recommendation
 
@@ -276,14 +270,14 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import wine_api
-from openapi_client.model.get_wine_recommendation200_response import GetWineRecommendation200Response
+import spoonacular
+from spoonacular.models.get_wine_recommendation200_response import GetWineRecommendation200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -293,47 +287,40 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = wine_api.WineApi(api_client)
-    wine = "merlot" # str | The type of wine to get a specific product recommendation for.
+    api_instance = spoonacular.WineApi(api_client)
+    wine = 'merlot' # str | The type of wine to get a specific product recommendation for.
     max_price = 50 # float | The maximum price for the specific wine recommendation in USD. (optional)
     min_rating = 0.7 # float | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
-    number = 3 # float | The number of wine recommendations expected (between 1 and 100). (optional) if omitted the server will use the default value of 10
+    number = 10 # float | The number of wine recommendations expected (between 1 and 100). (optional) (default to 10)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Wine Recommendation
-        api_response = api_instance.get_wine_recommendation(wine)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling WineApi->get_wine_recommendation: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Wine Recommendation
         api_response = api_instance.get_wine_recommendation(wine, max_price=max_price, min_rating=min_rating, number=number)
+        print("The response of WineApi->get_wine_recommendation:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WineApi->get_wine_recommendation: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wine** | **str**| The type of wine to get a specific product recommendation for. |
- **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional]
- **min_rating** | **float**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional]
- **number** | **float**| The number of wine recommendations expected (between 1 and 100). | [optional] if omitted the server will use the default value of 10
+ **wine** | **str**| The type of wine to get a specific product recommendation for. | 
+ **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional] 
+ **min_rating** | **float**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional] 
+ **number** | **float**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10]
 
 ### Return type
 
@@ -347,7 +334,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ParseIngredients200ResponseInnerNutritionWeightPerServing {
     #[serde(rename = "amount")]
     pub amount: f32,

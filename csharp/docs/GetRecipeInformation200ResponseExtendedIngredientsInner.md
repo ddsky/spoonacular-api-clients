@@ -1,16 +1,16 @@
-# Org.OpenAPITools.Model.GetRecipeInformation200ResponseExtendedIngredientsInner
+# spoonacular.Model.GetRecipeInformation200ResponseExtendedIngredientsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aisle** | **string** |  | 
-**Amount** | **decimal?** |  | 
+**Amount** | **decimal** |  | 
 **Consitency** | **string** |  | 
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Image** | **string** |  | 
 **Measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional] 
-**Meta** | **List<string>** |  | [optional] 
+**Meta** | **List&lt;string&gt;** |  | [optional] 
 **Name** | **string** |  | 
 **Original** | **string** |  | 
 **OriginalName** | **string** |  | 

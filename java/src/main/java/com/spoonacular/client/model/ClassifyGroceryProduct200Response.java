@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -36,12 +34,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -49,8 +51,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class ClassifyGroceryProduct200Response {
   public static final String SERIALIZED_NAME_CLEAN_TITLE = "cleanTitle";
   @SerializedName(SERIALIZED_NAME_CLEAN_TITLE)
@@ -72,11 +73,10 @@ public class ClassifyGroceryProduct200Response {
   @SerializedName(SERIALIZED_NAME_USDA_CODE)
   private Integer usdaCode;
 
-  public ClassifyGroceryProduct200Response() { 
+  public ClassifyGroceryProduct200Response() {
   }
 
   public ClassifyGroceryProduct200Response cleanTitle(String cleanTitle) {
-    
     this.cleanTitle = cleanTitle;
     return this;
   }
@@ -86,12 +86,9 @@ public class ClassifyGroceryProduct200Response {
    * @return cleanTitle
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getCleanTitle() {
     return cleanTitle;
   }
-
 
   public void setCleanTitle(String cleanTitle) {
     this.cleanTitle = cleanTitle;
@@ -99,7 +96,6 @@ public class ClassifyGroceryProduct200Response {
 
 
   public ClassifyGroceryProduct200Response image(String image) {
-    
     this.image = image;
     return this;
   }
@@ -109,12 +105,9 @@ public class ClassifyGroceryProduct200Response {
    * @return image
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -122,7 +115,6 @@ public class ClassifyGroceryProduct200Response {
 
 
   public ClassifyGroceryProduct200Response category(String category) {
-    
     this.category = category;
     return this;
   }
@@ -132,12 +124,9 @@ public class ClassifyGroceryProduct200Response {
    * @return category
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getCategory() {
     return category;
   }
-
 
   public void setCategory(String category) {
     this.category = category;
@@ -145,12 +134,14 @@ public class ClassifyGroceryProduct200Response {
 
 
   public ClassifyGroceryProduct200Response breadcrumbs(List<String> breadcrumbs) {
-    
     this.breadcrumbs = breadcrumbs;
     return this;
   }
 
   public ClassifyGroceryProduct200Response addBreadcrumbsItem(String breadcrumbsItem) {
+    if (this.breadcrumbs == null) {
+      this.breadcrumbs = new ArrayList<>();
+    }
     this.breadcrumbs.add(breadcrumbsItem);
     return this;
   }
@@ -160,12 +151,9 @@ public class ClassifyGroceryProduct200Response {
    * @return breadcrumbs
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getBreadcrumbs() {
     return breadcrumbs;
   }
-
 
   public void setBreadcrumbs(List<String> breadcrumbs) {
     this.breadcrumbs = breadcrumbs;
@@ -173,7 +161,6 @@ public class ClassifyGroceryProduct200Response {
 
 
   public ClassifyGroceryProduct200Response usdaCode(Integer usdaCode) {
-    
     this.usdaCode = usdaCode;
     return this;
   }
@@ -183,12 +170,9 @@ public class ClassifyGroceryProduct200Response {
    * @return usdaCode
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getUsdaCode() {
     return usdaCode;
   }
-
 
   public void setUsdaCode(Integer usdaCode) {
     this.usdaCode = usdaCode;
@@ -264,45 +248,46 @@ public class ClassifyGroceryProduct200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ClassifyGroceryProduct200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProduct200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ClassifyGroceryProduct200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ClassifyGroceryProduct200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ClassifyGroceryProduct200Response is not found in the empty JSON string", ClassifyGroceryProduct200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ClassifyGroceryProduct200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ClassifyGroceryProduct200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ClassifyGroceryProduct200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ClassifyGroceryProduct200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("cleanTitle") != null && !jsonObj.get("cleanTitle").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("cleanTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cleanTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cleanTitle").toString()));
       }
-      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonPrimitive()) {
+      if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
-      if (jsonObj.get("category") != null && !jsonObj.get("category").isJsonPrimitive()) {
+      if (!jsonObj.get("category").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("breadcrumbs") != null && !jsonObj.get("breadcrumbs").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("breadcrumbs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("breadcrumbs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `breadcrumbs` to be an array in the JSON string but got `%s`", jsonObj.get("breadcrumbs").toString()));
       }
   }
@@ -327,9 +312,9 @@ public class ClassifyGroceryProduct200Response {
 
            @Override
            public ClassifyGroceryProduct200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

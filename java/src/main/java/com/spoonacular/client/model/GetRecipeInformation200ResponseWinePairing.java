@@ -14,17 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetRecipeInformation200ResponseWinePairingProductMatchesInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,12 +37,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeInformation200ResponseWinePairing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetRecipeInformation200ResponseWinePairing {
   public static final String SERIALIZED_NAME_PAIRED_WINES = "pairedWines";
   @SerializedName(SERIALIZED_NAME_PAIRED_WINES)
@@ -66,16 +68,18 @@ public class GetRecipeInformation200ResponseWinePairing {
   @SerializedName(SERIALIZED_NAME_PRODUCT_MATCHES)
   private Set<GetRecipeInformation200ResponseWinePairingProductMatchesInner> productMatches = new LinkedHashSet<>();
 
-  public GetRecipeInformation200ResponseWinePairing() { 
+  public GetRecipeInformation200ResponseWinePairing() {
   }
 
   public GetRecipeInformation200ResponseWinePairing pairedWines(List<String> pairedWines) {
-    
     this.pairedWines = pairedWines;
     return this;
   }
 
   public GetRecipeInformation200ResponseWinePairing addPairedWinesItem(String pairedWinesItem) {
+    if (this.pairedWines == null) {
+      this.pairedWines = new ArrayList<>();
+    }
     this.pairedWines.add(pairedWinesItem);
     return this;
   }
@@ -85,12 +89,9 @@ public class GetRecipeInformation200ResponseWinePairing {
    * @return pairedWines
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getPairedWines() {
     return pairedWines;
   }
-
 
   public void setPairedWines(List<String> pairedWines) {
     this.pairedWines = pairedWines;
@@ -98,7 +99,6 @@ public class GetRecipeInformation200ResponseWinePairing {
 
 
   public GetRecipeInformation200ResponseWinePairing pairingText(String pairingText) {
-    
     this.pairingText = pairingText;
     return this;
   }
@@ -108,12 +108,9 @@ public class GetRecipeInformation200ResponseWinePairing {
    * @return pairingText
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getPairingText() {
     return pairingText;
   }
-
 
   public void setPairingText(String pairingText) {
     this.pairingText = pairingText;
@@ -121,12 +118,14 @@ public class GetRecipeInformation200ResponseWinePairing {
 
 
   public GetRecipeInformation200ResponseWinePairing productMatches(Set<GetRecipeInformation200ResponseWinePairingProductMatchesInner> productMatches) {
-    
     this.productMatches = productMatches;
     return this;
   }
 
   public GetRecipeInformation200ResponseWinePairing addProductMatchesItem(GetRecipeInformation200ResponseWinePairingProductMatchesInner productMatchesItem) {
+    if (this.productMatches == null) {
+      this.productMatches = new LinkedHashSet<>();
+    }
     this.productMatches.add(productMatchesItem);
     return this;
   }
@@ -136,12 +135,9 @@ public class GetRecipeInformation200ResponseWinePairing {
    * @return productMatches
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetRecipeInformation200ResponseWinePairingProductMatchesInner> getProductMatches() {
     return productMatches;
   }
-
 
   public void setProductMatches(Set<GetRecipeInformation200ResponseWinePairingProductMatchesInner> productMatches) {
     this.productMatches = productMatches;
@@ -209,53 +205,52 @@ public class GetRecipeInformation200ResponseWinePairing {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetRecipeInformation200ResponseWinePairing
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseWinePairing
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetRecipeInformation200ResponseWinePairing.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetRecipeInformation200ResponseWinePairing.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetRecipeInformation200ResponseWinePairing is not found in the empty JSON string", GetRecipeInformation200ResponseWinePairing.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetRecipeInformation200ResponseWinePairing.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformation200ResponseWinePairing` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformation200ResponseWinePairing` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetRecipeInformation200ResponseWinePairing.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("pairedWines") != null && !jsonObj.get("pairedWines").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("pairedWines") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("pairedWines").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `pairedWines` to be an array in the JSON string but got `%s`", jsonObj.get("pairedWines").toString()));
       }
-      if (jsonObj.get("pairingText") != null && !jsonObj.get("pairingText").isJsonPrimitive()) {
+      if (!jsonObj.get("pairingText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pairingText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pairingText").toString()));
       }
-      JsonArray jsonArrayproductMatches = jsonObj.getAsJsonArray("productMatches");
-      if (jsonArrayproductMatches != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("productMatches").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `productMatches` to be an array in the JSON string but got `%s`", jsonObj.get("productMatches").toString()));
-        }
-
-        // validate the optional field `productMatches` (array)
-        for (int i = 0; i < jsonArrayproductMatches.size(); i++) {
-          GetRecipeInformation200ResponseWinePairingProductMatchesInner.validateJsonObject(jsonArrayproductMatches.get(i).getAsJsonObject());
-        };
+      // ensure the json data is an array
+      if (!jsonObj.get("productMatches").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `productMatches` to be an array in the JSON string but got `%s`", jsonObj.get("productMatches").toString()));
       }
+
+      JsonArray jsonArrayproductMatches = jsonObj.getAsJsonArray("productMatches");
+      // validate the required field `productMatches` (array)
+      for (int i = 0; i < jsonArrayproductMatches.size(); i++) {
+        GetRecipeInformation200ResponseWinePairingProductMatchesInner.validateJsonElement(jsonArrayproductMatches.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -278,9 +273,9 @@ public class GetRecipeInformation200ResponseWinePairing {
 
            @Override
            public GetRecipeInformation200ResponseWinePairing read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

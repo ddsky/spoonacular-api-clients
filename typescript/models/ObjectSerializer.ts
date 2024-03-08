@@ -1,322 +1,322 @@
-export * from './AddMealPlanTemplate200Response';
-export * from './AddMealPlanTemplate200ResponseItemsInner';
-export * from './AddMealPlanTemplate200ResponseItemsInnerValue';
-export * from './AddToMealPlanRequest';
-export * from './AddToMealPlanRequest1';
-export * from './AddToMealPlanRequest1Value';
-export * from './AddToMealPlanRequest1ValueIngredientsInner';
-export * from './AddToShoppingListRequest';
-export * from './AnalyzeARecipeSearchQuery200Response';
-export * from './AnalyzeARecipeSearchQuery200ResponseDishesInner';
-export * from './AnalyzeARecipeSearchQuery200ResponseIngredientsInner';
-export * from './AnalyzeRecipeInstructions200Response';
-export * from './AnalyzeRecipeInstructions200ResponseIngredientsInner';
-export * from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
-export * from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-export * from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
-export * from './AnalyzeRecipeRequest';
-export * from './AnalyzeRecipeRequest1';
-export * from './AutocompleteIngredientSearch200ResponseInner';
-export * from './AutocompleteMenuItemSearch200Response';
-export * from './AutocompleteProductSearch200Response';
-export * from './AutocompleteProductSearch200ResponseResultsInner';
-export * from './AutocompleteRecipeSearch200ResponseInner';
-export * from './ClassifyCuisine200Response';
-export * from './ClassifyGroceryProduct200Response';
-export * from './ClassifyGroceryProductBulk200ResponseInner';
-export * from './ClassifyGroceryProductBulkRequestInner';
-export * from './ClassifyGroceryProductRequest';
-export * from './ClearMealPlanDayRequest';
-export * from './ComputeGlycemicLoad200Response';
-export * from './ComputeGlycemicLoad200ResponseIngredientsInner';
-export * from './ComputeGlycemicLoadRequest';
-export * from './ComputeIngredientAmount200Response';
-export * from './ConnectUser200Response';
-export * from './ConnectUserRequest';
-export * from './ConvertAmounts200Response';
-export * from './CreateRecipeCard200Response';
-export * from './DeleteFromMealPlanRequest';
-export * from './DetectFoodInText200Response';
-export * from './DetectFoodInText200ResponseAnnotationsInner';
-export * from './GenerateMealPlan200Response';
-export * from './GenerateMealPlan200ResponseNutrients';
-export * from './GenerateShoppingList200Response';
-export * from './GenerateShoppingListRequest';
-export * from './GetARandomFoodJoke200Response';
-export * from './GetAnalyzedRecipeInstructions200Response';
-export * from './GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
-export * from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
-export * from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-export * from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
-export * from './GetComparableProducts200Response';
-export * from './GetComparableProducts200ResponseComparableProducts';
-export * from './GetComparableProducts200ResponseComparableProductsProteinInner';
-export * from './GetConversationSuggests200Response';
-export * from './GetConversationSuggests200ResponseSuggests';
-export * from './GetConversationSuggests200ResponseSuggestsInner';
-export * from './GetDishPairingForWine200Response';
-export * from './GetIngredientInformation200Response';
-export * from './GetIngredientInformation200ResponseNutrition';
-export * from './GetIngredientSubstitutes200Response';
-export * from './GetMealPlanTemplate200Response';
-export * from './GetMealPlanTemplate200ResponseDaysInner';
-export * from './GetMealPlanTemplate200ResponseDaysInnerItemsInner';
-export * from './GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
-export * from './GetMealPlanTemplates200Response';
-export * from './GetMealPlanWeek200Response';
-export * from './GetMealPlanWeek200ResponseDaysInner';
-export * from './GetMealPlanWeek200ResponseDaysInnerItemsInner';
-export * from './GetMealPlanWeek200ResponseDaysInnerItemsInnerValue';
-export * from './GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
-export * from './GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
-export * from './GetMenuItemInformation200Response';
-export * from './GetProductInformation200Response';
-export * from './GetProductInformation200ResponseIngredientsInner';
-export * from './GetRandomFoodTrivia200Response';
-export * from './GetRandomRecipes200Response';
-export * from './GetRandomRecipes200ResponseRecipesInner';
-export * from './GetRecipeEquipmentByID200Response';
-export * from './GetRecipeEquipmentByID200ResponseEquipmentInner';
-export * from './GetRecipeInformation200Response';
-export * from './GetRecipeInformation200ResponseExtendedIngredientsInner';
-export * from './GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
-export * from './GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
-export * from './GetRecipeInformation200ResponseWinePairing';
-export * from './GetRecipeInformation200ResponseWinePairingProductMatchesInner';
-export * from './GetRecipeInformationBulk200ResponseInner';
-export * from './GetRecipeIngredientsByID200Response';
-export * from './GetRecipeIngredientsByID200ResponseIngredientsInner';
-export * from './GetRecipeNutritionWidgetByID200Response';
-export * from './GetRecipeNutritionWidgetByID200ResponseBadInner';
-export * from './GetRecipeNutritionWidgetByID200ResponseGoodInner';
-export * from './GetRecipePriceBreakdownByID200Response';
-export * from './GetRecipePriceBreakdownByID200ResponseIngredientsInner';
-export * from './GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount';
-export * from './GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
-export * from './GetRecipeTasteByID200Response';
-export * from './GetShoppingList200Response';
-export * from './GetShoppingList200ResponseAislesInner';
-export * from './GetShoppingList200ResponseAislesInnerItemsInner';
-export * from './GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
-export * from './GetSimilarRecipes200ResponseInner';
-export * from './GetWineDescription200Response';
-export * from './GetWinePairing200Response';
-export * from './GetWinePairing200ResponseProductMatchesInner';
-export * from './GetWineRecommendation200Response';
-export * from './GetWineRecommendation200ResponseRecommendedWinesInner';
-export * from './GuessNutritionByDishName200Response';
-export * from './GuessNutritionByDishName200ResponseCalories';
-export * from './GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent';
-export * from './ImageAnalysisByURL200Response';
-export * from './ImageAnalysisByURL200ResponseCategory';
-export * from './ImageAnalysisByURL200ResponseNutrition';
-export * from './ImageAnalysisByURL200ResponseNutritionCalories';
-export * from './ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
-export * from './ImageAnalysisByURL200ResponseRecipesInner';
-export * from './ImageClassificationByURL200Response';
-export * from './IngredientSearch200Response';
-export * from './IngredientSearch200ResponseResultsInner';
-export * from './MapIngredientsToGroceryProducts200ResponseInner';
-export * from './MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
-export * from './MapIngredientsToGroceryProductsRequest';
-export * from './ParseIngredients200ResponseInner';
-export * from './ParseIngredients200ResponseInnerEstimatedCost';
-export * from './ParseIngredients200ResponseInnerNutrition';
-export * from './ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
-export * from './ParseIngredients200ResponseInnerNutritionNutrientsInner';
-export * from './ParseIngredients200ResponseInnerNutritionPropertiesInner';
-export * from './ParseIngredients200ResponseInnerNutritionWeightPerServing';
-export * from './QuickAnswer200Response';
-export * from './SearchAllFood200Response';
-export * from './SearchAllFood200ResponseSearchResultsInner';
-export * from './SearchAllFood200ResponseSearchResultsInnerResultsInner';
-export * from './SearchCustomFoods200Response';
-export * from './SearchCustomFoods200ResponseCustomFoodsInner';
-export * from './SearchFoodVideos200Response';
-export * from './SearchFoodVideos200ResponseVideosInner';
-export * from './SearchGroceryProducts200Response';
-export * from './SearchGroceryProductsByUPC200Response';
-export * from './SearchGroceryProductsByUPC200ResponseIngredientsInner';
-export * from './SearchGroceryProductsByUPC200ResponseNutrition';
-export * from './SearchGroceryProductsByUPC200ResponseServings';
-export * from './SearchMenuItems200Response';
-export * from './SearchMenuItems200ResponseMenuItemsInner';
-export * from './SearchRecipes200Response';
-export * from './SearchRecipes200ResponseResultsInner';
-export * from './SearchRecipesByIngredients200ResponseInner';
-export * from './SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
-export * from './SearchRecipesByNutrients200ResponseInner';
-export * from './SearchRestaurants200Response';
-export * from './SearchRestaurants200ResponseRestaurantsInner';
-export * from './SearchRestaurants200ResponseRestaurantsInnerAddress';
-export * from './SearchRestaurants200ResponseRestaurantsInnerLocalHours';
-export * from './SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
-export * from './SearchSiteContent200Response';
-export * from './SearchSiteContent200ResponseArticlesInner';
-export * from './SearchSiteContent200ResponseGroceryProductsInner';
-export * from './SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
-export * from './SummarizeRecipe200Response';
-export * from './TalkToChatbot200Response';
+export * from '../models/AddMealPlanTemplate200Response';
+export * from '../models/AddMealPlanTemplate200ResponseItemsInner';
+export * from '../models/AddMealPlanTemplate200ResponseItemsInnerValue';
+export * from '../models/AddToMealPlanRequest';
+export * from '../models/AddToMealPlanRequest1';
+export * from '../models/AddToMealPlanRequest1Value';
+export * from '../models/AddToMealPlanRequest1ValueIngredientsInner';
+export * from '../models/AddToShoppingListRequest';
+export * from '../models/AnalyzeARecipeSearchQuery200Response';
+export * from '../models/AnalyzeARecipeSearchQuery200ResponseDishesInner';
+export * from '../models/AnalyzeARecipeSearchQuery200ResponseIngredientsInner';
+export * from '../models/AnalyzeRecipeInstructions200Response';
+export * from '../models/AnalyzeRecipeInstructions200ResponseIngredientsInner';
+export * from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
+export * from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
+export * from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+export * from '../models/AnalyzeRecipeRequest';
+export * from '../models/AnalyzeRecipeRequest1';
+export * from '../models/AutocompleteIngredientSearch200ResponseInner';
+export * from '../models/AutocompleteMenuItemSearch200Response';
+export * from '../models/AutocompleteProductSearch200Response';
+export * from '../models/AutocompleteProductSearch200ResponseResultsInner';
+export * from '../models/AutocompleteRecipeSearch200ResponseInner';
+export * from '../models/ClassifyCuisine200Response';
+export * from '../models/ClassifyGroceryProduct200Response';
+export * from '../models/ClassifyGroceryProductBulk200ResponseInner';
+export * from '../models/ClassifyGroceryProductBulkRequestInner';
+export * from '../models/ClassifyGroceryProductRequest';
+export * from '../models/ClearMealPlanDayRequest';
+export * from '../models/ComputeGlycemicLoad200Response';
+export * from '../models/ComputeGlycemicLoad200ResponseIngredientsInner';
+export * from '../models/ComputeGlycemicLoadRequest';
+export * from '../models/ComputeIngredientAmount200Response';
+export * from '../models/ConnectUser200Response';
+export * from '../models/ConnectUserRequest';
+export * from '../models/ConvertAmounts200Response';
+export * from '../models/CreateRecipeCard200Response';
+export * from '../models/DeleteFromMealPlanRequest';
+export * from '../models/DetectFoodInText200Response';
+export * from '../models/DetectFoodInText200ResponseAnnotationsInner';
+export * from '../models/GenerateMealPlan200Response';
+export * from '../models/GenerateMealPlan200ResponseNutrients';
+export * from '../models/GenerateShoppingList200Response';
+export * from '../models/GenerateShoppingListRequest';
+export * from '../models/GetARandomFoodJoke200Response';
+export * from '../models/GetAnalyzedRecipeInstructions200Response';
+export * from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
+export * from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
+export * from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
+export * from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+export * from '../models/GetComparableProducts200Response';
+export * from '../models/GetComparableProducts200ResponseComparableProducts';
+export * from '../models/GetComparableProducts200ResponseComparableProductsProteinInner';
+export * from '../models/GetConversationSuggests200Response';
+export * from '../models/GetConversationSuggests200ResponseSuggests';
+export * from '../models/GetConversationSuggests200ResponseSuggestsInner';
+export * from '../models/GetDishPairingForWine200Response';
+export * from '../models/GetIngredientInformation200Response';
+export * from '../models/GetIngredientInformation200ResponseNutrition';
+export * from '../models/GetIngredientSubstitutes200Response';
+export * from '../models/GetMealPlanTemplate200Response';
+export * from '../models/GetMealPlanTemplate200ResponseDaysInner';
+export * from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInner';
+export * from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
+export * from '../models/GetMealPlanTemplates200Response';
+export * from '../models/GetMealPlanWeek200Response';
+export * from '../models/GetMealPlanWeek200ResponseDaysInner';
+export * from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInner';
+export * from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInnerValue';
+export * from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
+export * from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
+export * from '../models/GetMenuItemInformation200Response';
+export * from '../models/GetProductInformation200Response';
+export * from '../models/GetProductInformation200ResponseIngredientsInner';
+export * from '../models/GetRandomFoodTrivia200Response';
+export * from '../models/GetRandomRecipes200Response';
+export * from '../models/GetRandomRecipes200ResponseRecipesInner';
+export * from '../models/GetRecipeEquipmentByID200Response';
+export * from '../models/GetRecipeEquipmentByID200ResponseEquipmentInner';
+export * from '../models/GetRecipeInformation200Response';
+export * from '../models/GetRecipeInformation200ResponseExtendedIngredientsInner';
+export * from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
+export * from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
+export * from '../models/GetRecipeInformation200ResponseWinePairing';
+export * from '../models/GetRecipeInformation200ResponseWinePairingProductMatchesInner';
+export * from '../models/GetRecipeInformationBulk200ResponseInner';
+export * from '../models/GetRecipeIngredientsByID200Response';
+export * from '../models/GetRecipeIngredientsByID200ResponseIngredientsInner';
+export * from '../models/GetRecipeNutritionWidgetByID200Response';
+export * from '../models/GetRecipeNutritionWidgetByID200ResponseBadInner';
+export * from '../models/GetRecipeNutritionWidgetByID200ResponseGoodInner';
+export * from '../models/GetRecipePriceBreakdownByID200Response';
+export * from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInner';
+export * from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount';
+export * from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
+export * from '../models/GetRecipeTasteByID200Response';
+export * from '../models/GetShoppingList200Response';
+export * from '../models/GetShoppingList200ResponseAislesInner';
+export * from '../models/GetShoppingList200ResponseAislesInnerItemsInner';
+export * from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
+export * from '../models/GetSimilarRecipes200ResponseInner';
+export * from '../models/GetWineDescription200Response';
+export * from '../models/GetWinePairing200Response';
+export * from '../models/GetWinePairing200ResponseProductMatchesInner';
+export * from '../models/GetWineRecommendation200Response';
+export * from '../models/GetWineRecommendation200ResponseRecommendedWinesInner';
+export * from '../models/GuessNutritionByDishName200Response';
+export * from '../models/GuessNutritionByDishName200ResponseCalories';
+export * from '../models/GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent';
+export * from '../models/ImageAnalysisByURL200Response';
+export * from '../models/ImageAnalysisByURL200ResponseCategory';
+export * from '../models/ImageAnalysisByURL200ResponseNutrition';
+export * from '../models/ImageAnalysisByURL200ResponseNutritionCalories';
+export * from '../models/ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
+export * from '../models/ImageAnalysisByURL200ResponseRecipesInner';
+export * from '../models/ImageClassificationByURL200Response';
+export * from '../models/IngredientSearch200Response';
+export * from '../models/IngredientSearch200ResponseResultsInner';
+export * from '../models/MapIngredientsToGroceryProducts200ResponseInner';
+export * from '../models/MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
+export * from '../models/MapIngredientsToGroceryProductsRequest';
+export * from '../models/ParseIngredients200ResponseInner';
+export * from '../models/ParseIngredients200ResponseInnerEstimatedCost';
+export * from '../models/ParseIngredients200ResponseInnerNutrition';
+export * from '../models/ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
+export * from '../models/ParseIngredients200ResponseInnerNutritionNutrientsInner';
+export * from '../models/ParseIngredients200ResponseInnerNutritionPropertiesInner';
+export * from '../models/ParseIngredients200ResponseInnerNutritionWeightPerServing';
+export * from '../models/QuickAnswer200Response';
+export * from '../models/SearchAllFood200Response';
+export * from '../models/SearchAllFood200ResponseSearchResultsInner';
+export * from '../models/SearchAllFood200ResponseSearchResultsInnerResultsInner';
+export * from '../models/SearchCustomFoods200Response';
+export * from '../models/SearchCustomFoods200ResponseCustomFoodsInner';
+export * from '../models/SearchFoodVideos200Response';
+export * from '../models/SearchFoodVideos200ResponseVideosInner';
+export * from '../models/SearchGroceryProducts200Response';
+export * from '../models/SearchGroceryProductsByUPC200Response';
+export * from '../models/SearchGroceryProductsByUPC200ResponseIngredientsInner';
+export * from '../models/SearchGroceryProductsByUPC200ResponseNutrition';
+export * from '../models/SearchGroceryProductsByUPC200ResponseServings';
+export * from '../models/SearchMenuItems200Response';
+export * from '../models/SearchMenuItems200ResponseMenuItemsInner';
+export * from '../models/SearchRecipes200Response';
+export * from '../models/SearchRecipes200ResponseResultsInner';
+export * from '../models/SearchRecipesByIngredients200ResponseInner';
+export * from '../models/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
+export * from '../models/SearchRecipesByNutrients200ResponseInner';
+export * from '../models/SearchRestaurants200Response';
+export * from '../models/SearchRestaurants200ResponseRestaurantsInner';
+export * from '../models/SearchRestaurants200ResponseRestaurantsInnerAddress';
+export * from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
+export * from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
+export * from '../models/SearchSiteContent200Response';
+export * from '../models/SearchSiteContent200ResponseArticlesInner';
+export * from '../models/SearchSiteContent200ResponseGroceryProductsInner';
+export * from '../models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
+export * from '../models/SummarizeRecipe200Response';
+export * from '../models/TalkToChatbot200Response';
 
-import { AddMealPlanTemplate200Response } from './AddMealPlanTemplate200Response';
-import { AddMealPlanTemplate200ResponseItemsInner } from './AddMealPlanTemplate200ResponseItemsInner';
-import { AddMealPlanTemplate200ResponseItemsInnerValue } from './AddMealPlanTemplate200ResponseItemsInnerValue';
-import { AddToMealPlanRequest } from './AddToMealPlanRequest';
-import { AddToMealPlanRequest1 } from './AddToMealPlanRequest1';
-import { AddToMealPlanRequest1Value } from './AddToMealPlanRequest1Value';
-import { AddToMealPlanRequest1ValueIngredientsInner } from './AddToMealPlanRequest1ValueIngredientsInner';
-import { AddToShoppingListRequest } from './AddToShoppingListRequest';
-import { AnalyzeARecipeSearchQuery200Response } from './AnalyzeARecipeSearchQuery200Response';
-import { AnalyzeARecipeSearchQuery200ResponseDishesInner } from './AnalyzeARecipeSearchQuery200ResponseDishesInner';
-import { AnalyzeARecipeSearchQuery200ResponseIngredientsInner } from './AnalyzeARecipeSearchQuery200ResponseIngredientsInner';
-import { AnalyzeRecipeInstructions200Response } from './AnalyzeRecipeInstructions200Response';
-import { AnalyzeRecipeInstructions200ResponseIngredientsInner } from './AnalyzeRecipeInstructions200ResponseIngredientsInner';
-import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
-import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from './AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
-import { AnalyzeRecipeRequest } from './AnalyzeRecipeRequest';
-import { AnalyzeRecipeRequest1 } from './AnalyzeRecipeRequest1';
-import { AutocompleteIngredientSearch200ResponseInner } from './AutocompleteIngredientSearch200ResponseInner';
-import { AutocompleteMenuItemSearch200Response } from './AutocompleteMenuItemSearch200Response';
-import { AutocompleteProductSearch200Response } from './AutocompleteProductSearch200Response';
-import { AutocompleteProductSearch200ResponseResultsInner } from './AutocompleteProductSearch200ResponseResultsInner';
-import { AutocompleteRecipeSearch200ResponseInner } from './AutocompleteRecipeSearch200ResponseInner';
-import { ClassifyCuisine200Response } from './ClassifyCuisine200Response';
-import { ClassifyGroceryProduct200Response } from './ClassifyGroceryProduct200Response';
-import { ClassifyGroceryProductBulk200ResponseInner } from './ClassifyGroceryProductBulk200ResponseInner';
-import { ClassifyGroceryProductBulkRequestInner } from './ClassifyGroceryProductBulkRequestInner';
-import { ClassifyGroceryProductRequest } from './ClassifyGroceryProductRequest';
-import { ClearMealPlanDayRequest } from './ClearMealPlanDayRequest';
-import { ComputeGlycemicLoad200Response } from './ComputeGlycemicLoad200Response';
-import { ComputeGlycemicLoad200ResponseIngredientsInner } from './ComputeGlycemicLoad200ResponseIngredientsInner';
-import { ComputeGlycemicLoadRequest } from './ComputeGlycemicLoadRequest';
-import { ComputeIngredientAmount200Response } from './ComputeIngredientAmount200Response';
-import { ConnectUser200Response } from './ConnectUser200Response';
-import { ConnectUserRequest } from './ConnectUserRequest';
-import { ConvertAmounts200Response } from './ConvertAmounts200Response';
-import { CreateRecipeCard200Response } from './CreateRecipeCard200Response';
-import { DeleteFromMealPlanRequest } from './DeleteFromMealPlanRequest';
-import { DetectFoodInText200Response } from './DetectFoodInText200Response';
-import { DetectFoodInText200ResponseAnnotationsInner } from './DetectFoodInText200ResponseAnnotationsInner';
-import { GenerateMealPlan200Response } from './GenerateMealPlan200Response';
-import { GenerateMealPlan200ResponseNutrients } from './GenerateMealPlan200ResponseNutrients';
-import { GenerateShoppingList200Response } from './GenerateShoppingList200Response';
-import { GenerateShoppingListRequest } from './GenerateShoppingListRequest';
-import { GetARandomFoodJoke200Response } from './GetARandomFoodJoke200Response';
-import { GetAnalyzedRecipeInstructions200Response } from './GetAnalyzedRecipeInstructions200Response';
-import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from './GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner } from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from './GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
-import { GetComparableProducts200Response } from './GetComparableProducts200Response';
-import { GetComparableProducts200ResponseComparableProducts } from './GetComparableProducts200ResponseComparableProducts';
-import { GetComparableProducts200ResponseComparableProductsProteinInner } from './GetComparableProducts200ResponseComparableProductsProteinInner';
-import { GetConversationSuggests200Response } from './GetConversationSuggests200Response';
-import { GetConversationSuggests200ResponseSuggests } from './GetConversationSuggests200ResponseSuggests';
-import { GetConversationSuggests200ResponseSuggestsInner } from './GetConversationSuggests200ResponseSuggestsInner';
-import { GetDishPairingForWine200Response } from './GetDishPairingForWine200Response';
-import { GetIngredientInformation200Response } from './GetIngredientInformation200Response';
-import { GetIngredientInformation200ResponseNutrition } from './GetIngredientInformation200ResponseNutrition';
-import { GetIngredientSubstitutes200Response } from './GetIngredientSubstitutes200Response';
-import { GetMealPlanTemplate200Response } from './GetMealPlanTemplate200Response';
-import { GetMealPlanTemplate200ResponseDaysInner } from './GetMealPlanTemplate200ResponseDaysInner';
-import { GetMealPlanTemplate200ResponseDaysInnerItemsInner } from './GetMealPlanTemplate200ResponseDaysInnerItemsInner';
-import { GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue } from './GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
-import { GetMealPlanTemplates200Response } from './GetMealPlanTemplates200Response';
-import { GetMealPlanWeek200Response } from './GetMealPlanWeek200Response';
-import { GetMealPlanWeek200ResponseDaysInner } from './GetMealPlanWeek200ResponseDaysInner';
-import { GetMealPlanWeek200ResponseDaysInnerItemsInner } from './GetMealPlanWeek200ResponseDaysInnerItemsInner';
-import { GetMealPlanWeek200ResponseDaysInnerItemsInnerValue } from './GetMealPlanWeek200ResponseDaysInnerItemsInnerValue';
-import { GetMealPlanWeek200ResponseDaysInnerNutritionSummary } from './GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
-import { GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner } from './GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
-import { GetMenuItemInformation200Response } from './GetMenuItemInformation200Response';
-import { GetProductInformation200Response } from './GetProductInformation200Response';
-import { GetProductInformation200ResponseIngredientsInner } from './GetProductInformation200ResponseIngredientsInner';
-import { GetRandomFoodTrivia200Response } from './GetRandomFoodTrivia200Response';
-import { GetRandomRecipes200Response } from './GetRandomRecipes200Response';
-import { GetRandomRecipes200ResponseRecipesInner } from './GetRandomRecipes200ResponseRecipesInner';
-import { GetRecipeEquipmentByID200Response } from './GetRecipeEquipmentByID200Response';
-import { GetRecipeEquipmentByID200ResponseEquipmentInner } from './GetRecipeEquipmentByID200ResponseEquipmentInner';
-import { GetRecipeInformation200Response } from './GetRecipeInformation200Response';
-import { GetRecipeInformation200ResponseExtendedIngredientsInner } from './GetRecipeInformation200ResponseExtendedIngredientsInner';
-import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures } from './GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
-import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric } from './GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
-import { GetRecipeInformation200ResponseWinePairing } from './GetRecipeInformation200ResponseWinePairing';
-import { GetRecipeInformation200ResponseWinePairingProductMatchesInner } from './GetRecipeInformation200ResponseWinePairingProductMatchesInner';
-import { GetRecipeInformationBulk200ResponseInner } from './GetRecipeInformationBulk200ResponseInner';
-import { GetRecipeIngredientsByID200Response } from './GetRecipeIngredientsByID200Response';
-import { GetRecipeIngredientsByID200ResponseIngredientsInner } from './GetRecipeIngredientsByID200ResponseIngredientsInner';
-import { GetRecipeNutritionWidgetByID200Response } from './GetRecipeNutritionWidgetByID200Response';
-import { GetRecipeNutritionWidgetByID200ResponseBadInner } from './GetRecipeNutritionWidgetByID200ResponseBadInner';
-import { GetRecipeNutritionWidgetByID200ResponseGoodInner } from './GetRecipeNutritionWidgetByID200ResponseGoodInner';
-import { GetRecipePriceBreakdownByID200Response } from './GetRecipePriceBreakdownByID200Response';
-import { GetRecipePriceBreakdownByID200ResponseIngredientsInner } from './GetRecipePriceBreakdownByID200ResponseIngredientsInner';
-import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount } from './GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount';
-import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric } from './GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
-import { GetRecipeTasteByID200Response } from './GetRecipeTasteByID200Response';
-import { GetShoppingList200Response } from './GetShoppingList200Response';
-import { GetShoppingList200ResponseAislesInner } from './GetShoppingList200ResponseAislesInner';
-import { GetShoppingList200ResponseAislesInnerItemsInner } from './GetShoppingList200ResponseAislesInnerItemsInner';
-import { GetShoppingList200ResponseAislesInnerItemsInnerMeasures } from './GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
-import { GetSimilarRecipes200ResponseInner } from './GetSimilarRecipes200ResponseInner';
-import { GetWineDescription200Response } from './GetWineDescription200Response';
-import { GetWinePairing200Response } from './GetWinePairing200Response';
-import { GetWinePairing200ResponseProductMatchesInner } from './GetWinePairing200ResponseProductMatchesInner';
-import { GetWineRecommendation200Response } from './GetWineRecommendation200Response';
-import { GetWineRecommendation200ResponseRecommendedWinesInner } from './GetWineRecommendation200ResponseRecommendedWinesInner';
-import { GuessNutritionByDishName200Response } from './GuessNutritionByDishName200Response';
-import { GuessNutritionByDishName200ResponseCalories } from './GuessNutritionByDishName200ResponseCalories';
-import { GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent } from './GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent';
-import { ImageAnalysisByURL200Response } from './ImageAnalysisByURL200Response';
-import { ImageAnalysisByURL200ResponseCategory } from './ImageAnalysisByURL200ResponseCategory';
-import { ImageAnalysisByURL200ResponseNutrition } from './ImageAnalysisByURL200ResponseNutrition';
-import { ImageAnalysisByURL200ResponseNutritionCalories } from './ImageAnalysisByURL200ResponseNutritionCalories';
-import { ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent } from './ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
-import { ImageAnalysisByURL200ResponseRecipesInner } from './ImageAnalysisByURL200ResponseRecipesInner';
-import { ImageClassificationByURL200Response } from './ImageClassificationByURL200Response';
-import { IngredientSearch200Response } from './IngredientSearch200Response';
-import { IngredientSearch200ResponseResultsInner } from './IngredientSearch200ResponseResultsInner';
-import { MapIngredientsToGroceryProducts200ResponseInner } from './MapIngredientsToGroceryProducts200ResponseInner';
-import { MapIngredientsToGroceryProducts200ResponseInnerProductsInner } from './MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
-import { MapIngredientsToGroceryProductsRequest } from './MapIngredientsToGroceryProductsRequest';
-import { ParseIngredients200ResponseInner } from './ParseIngredients200ResponseInner';
-import { ParseIngredients200ResponseInnerEstimatedCost } from './ParseIngredients200ResponseInnerEstimatedCost';
-import { ParseIngredients200ResponseInnerNutrition } from './ParseIngredients200ResponseInnerNutrition';
-import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from './ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
-import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from './ParseIngredients200ResponseInnerNutritionNutrientsInner';
-import { ParseIngredients200ResponseInnerNutritionPropertiesInner } from './ParseIngredients200ResponseInnerNutritionPropertiesInner';
-import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from './ParseIngredients200ResponseInnerNutritionWeightPerServing';
-import { QuickAnswer200Response } from './QuickAnswer200Response';
-import { SearchAllFood200Response } from './SearchAllFood200Response';
-import { SearchAllFood200ResponseSearchResultsInner } from './SearchAllFood200ResponseSearchResultsInner';
-import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from './SearchAllFood200ResponseSearchResultsInnerResultsInner';
-import { SearchCustomFoods200Response } from './SearchCustomFoods200Response';
-import { SearchCustomFoods200ResponseCustomFoodsInner } from './SearchCustomFoods200ResponseCustomFoodsInner';
-import { SearchFoodVideos200Response } from './SearchFoodVideos200Response';
-import { SearchFoodVideos200ResponseVideosInner } from './SearchFoodVideos200ResponseVideosInner';
-import { SearchGroceryProducts200Response } from './SearchGroceryProducts200Response';
-import { SearchGroceryProductsByUPC200Response } from './SearchGroceryProductsByUPC200Response';
-import { SearchGroceryProductsByUPC200ResponseIngredientsInner } from './SearchGroceryProductsByUPC200ResponseIngredientsInner';
-import { SearchGroceryProductsByUPC200ResponseNutrition } from './SearchGroceryProductsByUPC200ResponseNutrition';
-import { SearchGroceryProductsByUPC200ResponseServings } from './SearchGroceryProductsByUPC200ResponseServings';
-import { SearchMenuItems200Response } from './SearchMenuItems200Response';
-import { SearchMenuItems200ResponseMenuItemsInner } from './SearchMenuItems200ResponseMenuItemsInner';
-import { SearchRecipes200Response } from './SearchRecipes200Response';
-import { SearchRecipes200ResponseResultsInner } from './SearchRecipes200ResponseResultsInner';
-import { SearchRecipesByIngredients200ResponseInner } from './SearchRecipesByIngredients200ResponseInner';
-import { SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner } from './SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
-import { SearchRecipesByNutrients200ResponseInner } from './SearchRecipesByNutrients200ResponseInner';
-import { SearchRestaurants200Response } from './SearchRestaurants200Response';
-import { SearchRestaurants200ResponseRestaurantsInner } from './SearchRestaurants200ResponseRestaurantsInner';
-import { SearchRestaurants200ResponseRestaurantsInnerAddress } from './SearchRestaurants200ResponseRestaurantsInnerAddress';
-import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from './SearchRestaurants200ResponseRestaurantsInnerLocalHours';
-import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from './SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
-import { SearchSiteContent200Response } from './SearchSiteContent200Response';
-import { SearchSiteContent200ResponseArticlesInner } from './SearchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseGroceryProductsInner } from './SearchSiteContent200ResponseGroceryProductsInner';
-import { SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner } from './SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
-import { SummarizeRecipe200Response } from './SummarizeRecipe200Response';
-import { TalkToChatbot200Response } from './TalkToChatbot200Response';
+import { AddMealPlanTemplate200Response } from '../models/AddMealPlanTemplate200Response';
+import { AddMealPlanTemplate200ResponseItemsInner } from '../models/AddMealPlanTemplate200ResponseItemsInner';
+import { AddMealPlanTemplate200ResponseItemsInnerValue } from '../models/AddMealPlanTemplate200ResponseItemsInnerValue';
+import { AddToMealPlanRequest } from '../models/AddToMealPlanRequest';
+import { AddToMealPlanRequest1 } from '../models/AddToMealPlanRequest1';
+import { AddToMealPlanRequest1Value } from '../models/AddToMealPlanRequest1Value';
+import { AddToMealPlanRequest1ValueIngredientsInner } from '../models/AddToMealPlanRequest1ValueIngredientsInner';
+import { AddToShoppingListRequest } from '../models/AddToShoppingListRequest';
+import { AnalyzeARecipeSearchQuery200Response } from '../models/AnalyzeARecipeSearchQuery200Response';
+import { AnalyzeARecipeSearchQuery200ResponseDishesInner } from '../models/AnalyzeARecipeSearchQuery200ResponseDishesInner';
+import { AnalyzeARecipeSearchQuery200ResponseIngredientsInner } from '../models/AnalyzeARecipeSearchQuery200ResponseIngredientsInner';
+import { AnalyzeRecipeInstructions200Response } from '../models/AnalyzeRecipeInstructions200Response';
+import { AnalyzeRecipeInstructions200ResponseIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseIngredientsInner';
+import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner';
+import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
+import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
+import { AnalyzeRecipeRequest1 } from '../models/AnalyzeRecipeRequest1';
+import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
+import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
+import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
+import { AutocompleteProductSearch200ResponseResultsInner } from '../models/AutocompleteProductSearch200ResponseResultsInner';
+import { AutocompleteRecipeSearch200ResponseInner } from '../models/AutocompleteRecipeSearch200ResponseInner';
+import { ClassifyCuisine200Response } from '../models/ClassifyCuisine200Response';
+import { ClassifyGroceryProduct200Response } from '../models/ClassifyGroceryProduct200Response';
+import { ClassifyGroceryProductBulk200ResponseInner } from '../models/ClassifyGroceryProductBulk200ResponseInner';
+import { ClassifyGroceryProductBulkRequestInner } from '../models/ClassifyGroceryProductBulkRequestInner';
+import { ClassifyGroceryProductRequest } from '../models/ClassifyGroceryProductRequest';
+import { ClearMealPlanDayRequest } from '../models/ClearMealPlanDayRequest';
+import { ComputeGlycemicLoad200Response } from '../models/ComputeGlycemicLoad200Response';
+import { ComputeGlycemicLoad200ResponseIngredientsInner } from '../models/ComputeGlycemicLoad200ResponseIngredientsInner';
+import { ComputeGlycemicLoadRequest } from '../models/ComputeGlycemicLoadRequest';
+import { ComputeIngredientAmount200Response } from '../models/ComputeIngredientAmount200Response';
+import { ConnectUser200Response } from '../models/ConnectUser200Response';
+import { ConnectUserRequest } from '../models/ConnectUserRequest';
+import { ConvertAmounts200Response } from '../models/ConvertAmounts200Response';
+import { CreateRecipeCard200Response } from '../models/CreateRecipeCard200Response';
+import { DeleteFromMealPlanRequest } from '../models/DeleteFromMealPlanRequest';
+import { DetectFoodInText200Response } from '../models/DetectFoodInText200Response';
+import { DetectFoodInText200ResponseAnnotationsInner } from '../models/DetectFoodInText200ResponseAnnotationsInner';
+import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
+import { GenerateMealPlan200ResponseNutrients } from '../models/GenerateMealPlan200ResponseNutrients';
+import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
+import { GenerateShoppingListRequest } from '../models/GenerateShoppingListRequest';
+import { GetARandomFoodJoke200Response } from '../models/GetARandomFoodJoke200Response';
+import { GetAnalyzedRecipeInstructions200Response } from '../models/GetAnalyzedRecipeInstructions200Response';
+import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
+import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
+import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
+import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import { GetComparableProducts200Response } from '../models/GetComparableProducts200Response';
+import { GetComparableProducts200ResponseComparableProducts } from '../models/GetComparableProducts200ResponseComparableProducts';
+import { GetComparableProducts200ResponseComparableProductsProteinInner } from '../models/GetComparableProducts200ResponseComparableProductsProteinInner';
+import { GetConversationSuggests200Response } from '../models/GetConversationSuggests200Response';
+import { GetConversationSuggests200ResponseSuggests } from '../models/GetConversationSuggests200ResponseSuggests';
+import { GetConversationSuggests200ResponseSuggestsInner } from '../models/GetConversationSuggests200ResponseSuggestsInner';
+import { GetDishPairingForWine200Response } from '../models/GetDishPairingForWine200Response';
+import { GetIngredientInformation200Response } from '../models/GetIngredientInformation200Response';
+import { GetIngredientInformation200ResponseNutrition } from '../models/GetIngredientInformation200ResponseNutrition';
+import { GetIngredientSubstitutes200Response } from '../models/GetIngredientSubstitutes200Response';
+import { GetMealPlanTemplate200Response } from '../models/GetMealPlanTemplate200Response';
+import { GetMealPlanTemplate200ResponseDaysInner } from '../models/GetMealPlanTemplate200ResponseDaysInner';
+import { GetMealPlanTemplate200ResponseDaysInnerItemsInner } from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInner';
+import { GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue } from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
+import { GetMealPlanTemplates200Response } from '../models/GetMealPlanTemplates200Response';
+import { GetMealPlanWeek200Response } from '../models/GetMealPlanWeek200Response';
+import { GetMealPlanWeek200ResponseDaysInner } from '../models/GetMealPlanWeek200ResponseDaysInner';
+import { GetMealPlanWeek200ResponseDaysInnerItemsInner } from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInner';
+import { GetMealPlanWeek200ResponseDaysInnerItemsInnerValue } from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInnerValue';
+import { GetMealPlanWeek200ResponseDaysInnerNutritionSummary } from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
+import { GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner } from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
+import { GetMenuItemInformation200Response } from '../models/GetMenuItemInformation200Response';
+import { GetProductInformation200Response } from '../models/GetProductInformation200Response';
+import { GetProductInformation200ResponseIngredientsInner } from '../models/GetProductInformation200ResponseIngredientsInner';
+import { GetRandomFoodTrivia200Response } from '../models/GetRandomFoodTrivia200Response';
+import { GetRandomRecipes200Response } from '../models/GetRandomRecipes200Response';
+import { GetRandomRecipes200ResponseRecipesInner } from '../models/GetRandomRecipes200ResponseRecipesInner';
+import { GetRecipeEquipmentByID200Response } from '../models/GetRecipeEquipmentByID200Response';
+import { GetRecipeEquipmentByID200ResponseEquipmentInner } from '../models/GetRecipeEquipmentByID200ResponseEquipmentInner';
+import { GetRecipeInformation200Response } from '../models/GetRecipeInformation200Response';
+import { GetRecipeInformation200ResponseExtendedIngredientsInner } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInner';
+import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
+import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
+import { GetRecipeInformation200ResponseWinePairing } from '../models/GetRecipeInformation200ResponseWinePairing';
+import { GetRecipeInformation200ResponseWinePairingProductMatchesInner } from '../models/GetRecipeInformation200ResponseWinePairingProductMatchesInner';
+import { GetRecipeInformationBulk200ResponseInner } from '../models/GetRecipeInformationBulk200ResponseInner';
+import { GetRecipeIngredientsByID200Response } from '../models/GetRecipeIngredientsByID200Response';
+import { GetRecipeIngredientsByID200ResponseIngredientsInner } from '../models/GetRecipeIngredientsByID200ResponseIngredientsInner';
+import { GetRecipeNutritionWidgetByID200Response } from '../models/GetRecipeNutritionWidgetByID200Response';
+import { GetRecipeNutritionWidgetByID200ResponseBadInner } from '../models/GetRecipeNutritionWidgetByID200ResponseBadInner';
+import { GetRecipeNutritionWidgetByID200ResponseGoodInner } from '../models/GetRecipeNutritionWidgetByID200ResponseGoodInner';
+import { GetRecipePriceBreakdownByID200Response } from '../models/GetRecipePriceBreakdownByID200Response';
+import { GetRecipePriceBreakdownByID200ResponseIngredientsInner } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInner';
+import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount';
+import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
+import { GetRecipeTasteByID200Response } from '../models/GetRecipeTasteByID200Response';
+import { GetShoppingList200Response } from '../models/GetShoppingList200Response';
+import { GetShoppingList200ResponseAislesInner } from '../models/GetShoppingList200ResponseAislesInner';
+import { GetShoppingList200ResponseAislesInnerItemsInner } from '../models/GetShoppingList200ResponseAislesInnerItemsInner';
+import { GetShoppingList200ResponseAislesInnerItemsInnerMeasures } from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
+import { GetSimilarRecipes200ResponseInner } from '../models/GetSimilarRecipes200ResponseInner';
+import { GetWineDescription200Response } from '../models/GetWineDescription200Response';
+import { GetWinePairing200Response } from '../models/GetWinePairing200Response';
+import { GetWinePairing200ResponseProductMatchesInner } from '../models/GetWinePairing200ResponseProductMatchesInner';
+import { GetWineRecommendation200Response } from '../models/GetWineRecommendation200Response';
+import { GetWineRecommendation200ResponseRecommendedWinesInner } from '../models/GetWineRecommendation200ResponseRecommendedWinesInner';
+import { GuessNutritionByDishName200Response } from '../models/GuessNutritionByDishName200Response';
+import { GuessNutritionByDishName200ResponseCalories } from '../models/GuessNutritionByDishName200ResponseCalories';
+import { GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent } from '../models/GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent';
+import { ImageAnalysisByURL200Response } from '../models/ImageAnalysisByURL200Response';
+import { ImageAnalysisByURL200ResponseCategory } from '../models/ImageAnalysisByURL200ResponseCategory';
+import { ImageAnalysisByURL200ResponseNutrition } from '../models/ImageAnalysisByURL200ResponseNutrition';
+import { ImageAnalysisByURL200ResponseNutritionCalories } from '../models/ImageAnalysisByURL200ResponseNutritionCalories';
+import { ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent } from '../models/ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
+import { ImageAnalysisByURL200ResponseRecipesInner } from '../models/ImageAnalysisByURL200ResponseRecipesInner';
+import { ImageClassificationByURL200Response } from '../models/ImageClassificationByURL200Response';
+import { IngredientSearch200Response } from '../models/IngredientSearch200Response';
+import { IngredientSearch200ResponseResultsInner } from '../models/IngredientSearch200ResponseResultsInner';
+import { MapIngredientsToGroceryProducts200ResponseInner } from '../models/MapIngredientsToGroceryProducts200ResponseInner';
+import { MapIngredientsToGroceryProducts200ResponseInnerProductsInner } from '../models/MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
+import { MapIngredientsToGroceryProductsRequest } from '../models/MapIngredientsToGroceryProductsRequest';
+import { ParseIngredients200ResponseInner } from '../models/ParseIngredients200ResponseInner';
+import { ParseIngredients200ResponseInnerEstimatedCost } from '../models/ParseIngredients200ResponseInnerEstimatedCost';
+import { ParseIngredients200ResponseInnerNutrition } from '../models/ParseIngredients200ResponseInnerNutrition';
+import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from '../models/ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
+import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from '../models/ParseIngredients200ResponseInnerNutritionNutrientsInner';
+import { ParseIngredients200ResponseInnerNutritionPropertiesInner } from '../models/ParseIngredients200ResponseInnerNutritionPropertiesInner';
+import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from '../models/ParseIngredients200ResponseInnerNutritionWeightPerServing';
+import { QuickAnswer200Response } from '../models/QuickAnswer200Response';
+import { SearchAllFood200Response } from '../models/SearchAllFood200Response';
+import { SearchAllFood200ResponseSearchResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInner';
+import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInnerResultsInner';
+import { SearchCustomFoods200Response } from '../models/SearchCustomFoods200Response';
+import { SearchCustomFoods200ResponseCustomFoodsInner } from '../models/SearchCustomFoods200ResponseCustomFoodsInner';
+import { SearchFoodVideos200Response } from '../models/SearchFoodVideos200Response';
+import { SearchFoodVideos200ResponseVideosInner } from '../models/SearchFoodVideos200ResponseVideosInner';
+import { SearchGroceryProducts200Response } from '../models/SearchGroceryProducts200Response';
+import { SearchGroceryProductsByUPC200Response } from '../models/SearchGroceryProductsByUPC200Response';
+import { SearchGroceryProductsByUPC200ResponseIngredientsInner } from '../models/SearchGroceryProductsByUPC200ResponseIngredientsInner';
+import { SearchGroceryProductsByUPC200ResponseNutrition } from '../models/SearchGroceryProductsByUPC200ResponseNutrition';
+import { SearchGroceryProductsByUPC200ResponseServings } from '../models/SearchGroceryProductsByUPC200ResponseServings';
+import { SearchMenuItems200Response } from '../models/SearchMenuItems200Response';
+import { SearchMenuItems200ResponseMenuItemsInner } from '../models/SearchMenuItems200ResponseMenuItemsInner';
+import { SearchRecipes200Response } from '../models/SearchRecipes200Response';
+import { SearchRecipes200ResponseResultsInner } from '../models/SearchRecipes200ResponseResultsInner';
+import { SearchRecipesByIngredients200ResponseInner } from '../models/SearchRecipesByIngredients200ResponseInner';
+import { SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner } from '../models/SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner';
+import { SearchRecipesByNutrients200ResponseInner } from '../models/SearchRecipesByNutrients200ResponseInner';
+import { SearchRestaurants200Response } from '../models/SearchRestaurants200Response';
+import { SearchRestaurants200ResponseRestaurantsInner } from '../models/SearchRestaurants200ResponseRestaurantsInner';
+import { SearchRestaurants200ResponseRestaurantsInnerAddress } from '../models/SearchRestaurants200ResponseRestaurantsInnerAddress';
+import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
+import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
+import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
+import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
+import { SearchSiteContent200ResponseGroceryProductsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInner';
+import { SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
+import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
+import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -329,13 +329,6 @@ let primitives = [
                     "number",
                     "any"
                  ];
-
-const supportedMediaTypes: { [mediaType: string]: number } = {
-  "application/json": Infinity,
-  "application/octet-stream": 0,
-  "application/x-www-form-urlencoded": 0
-}
-
 
 let enumsMap: Set<string> = new Set<string>([
 ]);
@@ -502,6 +495,58 @@ let typeMap: {[index: string]: any} = {
     "TalkToChatbot200Response": TalkToChatbot200Response,
 }
 
+type MimeTypeDescriptor = {
+    type: string;
+    subtype: string;
+    subtypeTokens: string[];
+};
+
+/**
+ * Every mime-type consists of a type, subtype, and optional parameters.
+ * The subtype can be composite, including information about the content format.
+ * For example: `application/json-patch+json`, `application/merge-patch+json`.
+ *
+ * This helper transforms a string mime-type into an internal representation.
+ * This simplifies the implementation of predicates that in turn define common rules for parsing or stringifying
+ * the payload.
+ */
+const parseMimeType = (mimeType: string): MimeTypeDescriptor => {
+    const [type, subtype] = mimeType.split('/');
+    return {
+        type,
+        subtype,
+        subtypeTokens: subtype.split('+'),
+    };
+};
+
+type MimeTypePredicate = (mimeType: string) => boolean;
+
+// This factory creates a predicate function that checks a string mime-type against defined rules.
+const mimeTypePredicateFactory = (predicate: (descriptor: MimeTypeDescriptor) => boolean): MimeTypePredicate => (mimeType) => predicate(parseMimeType(mimeType));
+
+// Use this factory when you need to define a simple predicate based only on type and, if applicable, subtype.
+const mimeTypeSimplePredicateFactory = (type: string, subtype?: string): MimeTypePredicate => mimeTypePredicateFactory((descriptor) => {
+    if (descriptor.type !== type) return false;
+    if (subtype != null && descriptor.subtype !== subtype) return false;
+    return true;
+});
+
+// Creating a set of named predicates that will help us determine how to handle different mime-types
+const isTextLikeMimeType = mimeTypeSimplePredicateFactory('text');
+const isJsonMimeType = mimeTypeSimplePredicateFactory('application', 'json');
+const isJsonLikeMimeType = mimeTypePredicateFactory((descriptor) => descriptor.type === 'application' && descriptor.subtypeTokens.some((item) => item === 'json'));
+const isOctetStreamMimeType = mimeTypeSimplePredicateFactory('application', 'octet-stream');
+const isFormUrlencodedMimeType = mimeTypeSimplePredicateFactory('application', 'x-www-form-urlencoded');
+
+// Defining a list of mime-types in the order of prioritization for handling.
+const supportedMimeTypePredicatesWithPriority: MimeTypePredicate[] = [
+    isJsonMimeType,
+    isJsonLikeMimeType,
+    isTextLikeMimeType,
+    isOctetStreamMimeType,
+    isFormUrlencodedMimeType,
+];
+
 export class ObjectSerializer {
     public static findCorrectType(data: any, expectedType: string) {
         if (data == undefined) {
@@ -547,8 +592,7 @@ export class ObjectSerializer {
             let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
             subType = subType.substring(0, subType.length - 1); // Type> => Type
             let transformedData: any[] = [];
-            for (let index in data) {
-                let date = data[index];
+            for (let date of data) {
                 transformedData.push(ObjectSerializer.serialize(date, subType, format));
             }
             return transformedData;
@@ -577,8 +621,7 @@ export class ObjectSerializer {
             // get the map for the correct type.
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
-            for (let index in attributeTypes) {
-                let attributeType = attributeTypes[index];
+            for (let attributeType of attributeTypes) {
                 instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type, attributeType.format);
             }
             return instance;
@@ -596,8 +639,7 @@ export class ObjectSerializer {
             let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
             subType = subType.substring(0, subType.length - 1); // Type> => Type
             let transformedData: any[] = [];
-            for (let index in data) {
-                let date = data[index];
+            for (let date of data) {
                 transformedData.push(ObjectSerializer.deserialize(date, subType, format));
             }
             return transformedData;
@@ -613,8 +655,7 @@ export class ObjectSerializer {
             }
             let instance = new typeMap[type]();
             let attributeTypes = typeMap[type].getAttributeTypeMap();
-            for (let index in attributeTypes) {
-                let attributeType = attributeTypes[index];
+            for (let attributeType of attributeTypes) {
                 let value = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type, attributeType.format);
                 if (value !== undefined) {
                     instance[attributeType.name] = value;
@@ -646,32 +687,32 @@ export class ObjectSerializer {
      */
     public static getPreferredMediaType(mediaTypes: Array<string>): string {
         /** According to OAS 3 we should default to json */
-        if (!mediaTypes) {
+        if (mediaTypes.length === 0) {
             return "application/json";
         }
 
         const normalMediaTypes = mediaTypes.map(this.normalizeMediaType);
-        let selectedMediaType: string | undefined = undefined;
-        let selectedRank: number = -Infinity;
-        for (const mediaType of normalMediaTypes) {
-            if (supportedMediaTypes[mediaType!] > selectedRank) {
-                selectedMediaType = mediaType;
-                selectedRank = supportedMediaTypes[mediaType!];
+
+        for (const predicate of supportedMimeTypePredicatesWithPriority) {
+            for (const mediaType of normalMediaTypes) {
+                if (mediaType != null && predicate(mediaType)) {
+                    return mediaType;
+                }
             }
         }
 
-        if (selectedMediaType === undefined) {
-            throw new Error("None of the given media types are supported: " + mediaTypes.join(", "));
-        }
-
-        return selectedMediaType!;
+        throw new Error("None of the given media types are supported: " + mediaTypes.join(", "));
     }
 
     /**
      * Convert data to a string according the given media type
      */
     public static stringify(data: any, mediaType: string): string {
-        if (mediaType === "application/json") {
+        if (isTextLikeMimeType(mediaType)) {
+            return String(data);
+        }
+
+        if (isJsonLikeMimeType(mediaType)) {
             return JSON.stringify(data);
         }
 
@@ -686,12 +727,12 @@ export class ObjectSerializer {
             throw new Error("Cannot parse content. No Content-Type defined.");
         }
 
-        if (mediaType === "application/json") {
-            return JSON.parse(rawData);
+        if (isTextLikeMimeType(mediaType)) {
+            return rawData;
         }
 
-        if (mediaType === "text/html") {
-            return rawData;
+        if (isJsonLikeMimeType(mediaType)) {
+            return JSON.parse(rawData);
         }
 
         throw new Error("The mediaType " + mediaType + " is not supported by ObjectSerializer.parse.");

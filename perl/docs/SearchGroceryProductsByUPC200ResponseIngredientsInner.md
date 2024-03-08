@@ -8,9 +8,9 @@ use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseIngredients
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | [**AnyType**](.md) |  | [optional] 
+**description** | **object** |  | [optional] 
 **name** | **string** |  | 
-**safety_level** | [**AnyType**](.md) |  | [optional] 
+**safety_level** | **object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

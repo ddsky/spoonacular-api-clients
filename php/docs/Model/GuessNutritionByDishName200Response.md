@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calories** | [**\com.spoonacular.client\com.spoonacular.client.model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
-**carbs** | [**\com.spoonacular.client\com.spoonacular.client.model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
-**fat** | [**\com.spoonacular.client\com.spoonacular.client.model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
-**protein** | [**\com.spoonacular.client\com.spoonacular.client.model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
+**calories** | [**\OpenAPI\Client\Model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
+**carbs** | [**\OpenAPI\Client\Model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
+**fat** | [**\OpenAPI\Client\Model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
+**protein** | [**\OpenAPI\Client\Model\GuessNutritionByDishName200ResponseCalories**](GuessNutritionByDishName200ResponseCalories.md) |  |
 **recipes_used** | **int** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

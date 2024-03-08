@@ -20,7 +20,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List |
 
 
-<a name="addMealPlanTemplate"></a>
+<a id="addMealPlanTemplate"></a>
 # **addMealPlanTemplate**
 > AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
 
@@ -96,7 +96,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="addToMealPlan"></a>
+<a id="addToMealPlan"></a>
 # **addToMealPlan**
 > Object addToMealPlan(username, hash, addToMealPlanRequest)
 
@@ -172,7 +172,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="addToShoppingList"></a>
+<a id="addToShoppingList"></a>
 # **addToShoppingList**
 > GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
 
@@ -248,7 +248,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="clearMealPlanDay"></a>
+<a id="clearMealPlanDay"></a>
 # **clearMealPlanDay**
 > Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
 
@@ -326,7 +326,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="connectUser"></a>
+<a id="connectUser"></a>
 # **connectUser**
 > ConnectUser200Response connectUser(body)
 
@@ -398,7 +398,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="deleteFromMealPlan"></a>
+<a id="deleteFromMealPlan"></a>
 # **deleteFromMealPlan**
 > Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
 
@@ -476,7 +476,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="deleteFromShoppingList"></a>
+<a id="deleteFromShoppingList"></a>
 # **deleteFromShoppingList**
 > Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
 
@@ -554,7 +554,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="deleteMealPlanTemplate"></a>
+<a id="deleteMealPlanTemplate"></a>
 # **deleteMealPlanTemplate**
 > Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
 
@@ -632,7 +632,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="generateMealPlan"></a>
+<a id="generateMealPlan"></a>
 # **generateMealPlan**
 > GenerateMealPlan200Response generateMealPlan(timeFrame, targetCalories, diet, exclude)
 
@@ -710,7 +710,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="generateShoppingList"></a>
+<a id="generateShoppingList"></a>
 # **generateShoppingList**
 > GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
 
@@ -790,7 +790,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getMealPlanTemplate"></a>
+<a id="getMealPlanTemplate"></a>
 # **getMealPlanTemplate**
 > GetMealPlanTemplate200Response getMealPlanTemplate(username, id, hash)
 
@@ -866,7 +866,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getMealPlanTemplates"></a>
+<a id="getMealPlanTemplates"></a>
 # **getMealPlanTemplates**
 > GetMealPlanTemplates200Response getMealPlanTemplates(username, hash)
 
@@ -940,7 +940,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getMealPlanWeek"></a>
+<a id="getMealPlanWeek"></a>
 # **getMealPlanWeek**
 > GetMealPlanWeek200Response getMealPlanWeek(username, startDate, hash)
 
@@ -1016,7 +1016,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getShoppingList"></a>
+<a id="getShoppingList"></a>
 # **getShoppingList**
 > GetShoppingList200Response getShoppingList(username, hash)
 

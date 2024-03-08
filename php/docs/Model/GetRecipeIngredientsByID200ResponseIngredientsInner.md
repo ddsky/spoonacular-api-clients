@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | [**\com.spoonacular.client\com.spoonacular.client.model\GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount**](GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount.md) |  | [optional]
+**amount** | [**\OpenAPI\Client\Model\GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount**](GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount.md) |  | [optional]
 **image** | **string** |  |
 **name** | **string** |  |
 

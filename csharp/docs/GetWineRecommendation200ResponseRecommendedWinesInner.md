@@ -1,18 +1,18 @@
-# Org.OpenAPITools.Model.GetWineRecommendation200ResponseRecommendedWinesInner
+# spoonacular.Model.GetWineRecommendation200ResponseRecommendedWinesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
-**AverageRating** | **decimal?** |  | 
+**AverageRating** | **decimal** |  | 
 **Description** | **string** |  | 
 **ImageUrl** | **string** |  | 
 **Link** | **string** |  | 
 **Price** | **string** |  | 
-**RatingCount** | **int?** |  | 
-**Score** | **decimal?** |  | 
+**RatingCount** | **int** |  | 
+**Score** | **decimal** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

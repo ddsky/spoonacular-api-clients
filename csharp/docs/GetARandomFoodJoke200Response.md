@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetARandomFoodJoke200Response
+# spoonacular.Model.GetARandomFoodJoke200Response
 
 ## Properties
 

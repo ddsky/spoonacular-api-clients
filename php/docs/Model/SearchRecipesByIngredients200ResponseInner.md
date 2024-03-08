@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **image_type** | **string** |  |
 **likes** | **int** |  |
 **missed_ingredient_count** | **int** |  |
-**missed_ingredients** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner[]**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  |
+**missed_ingredients** | [**\OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner[]**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  |
 **title** | **string** |  |
 **unused_ingredients** | **object[]** |  |
 **used_ingredient_count** | **float** |  |
-**used_ingredients** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner[]**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  |
+**used_ingredients** | [**\OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner[]**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SearchRestaurants200ResponseRestaurantsInnerLocalHours
+# spoonacular.Model.SearchRestaurants200ResponseRestaurantsInnerLocalHours
 
 ## Properties
 

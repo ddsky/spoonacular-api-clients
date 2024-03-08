@@ -356,8 +356,6 @@ spec/api/misc_api_spec.rb
 spec/api/products_api_spec.rb
 spec/api/recipes_api_spec.rb
 spec/api/wine_api_spec.rb
-spec/api_client_spec.rb
-spec/configuration_spec.rb
 spec/models/add_meal_plan_template200_response_items_inner_spec.rb
 spec/models/add_meal_plan_template200_response_items_inner_value_spec.rb
 spec/models/add_meal_plan_template200_response_spec.rb

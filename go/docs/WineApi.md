@@ -1,13 +1,13 @@
-# com.spoonacular.client\WineApi
+# \WineAPI
 
 All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDishPairingForWine**](WineApi.md#GetDishPairingForWine) | **Get** /food/wine/dishes | Dish Pairing for Wine
-[**GetWineDescription**](WineApi.md#GetWineDescription) | **Get** /food/wine/description | Wine Description
-[**GetWinePairing**](WineApi.md#GetWinePairing) | **Get** /food/wine/pairing | Wine Pairing
-[**GetWineRecommendation**](WineApi.md#GetWineRecommendation) | **Get** /food/wine/recommendation | Wine Recommendation
+[**GetDishPairingForWine**](WineAPI.md#GetDishPairingForWine) | **Get** /food/wine/dishes | Dish Pairing for Wine
+[**GetWineDescription**](WineAPI.md#GetWineDescription) | **Get** /food/wine/description | Wine Description
+[**GetWinePairing**](WineAPI.md#GetWinePairing) | **Get** /food/wine/pairing | Wine Pairing
+[**GetWineRecommendation**](WineAPI.md#GetWineRecommendation) | **Get** /food/wine/recommendation | Wine Recommendation
 
 
 
@@ -25,24 +25,24 @@ Dish Pairing for Wine
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    wine := "malbec" // string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+	wine := "malbec" // string | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WineApi.GetDishPairingForWine(context.Background()).Wine(wine).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetDishPairingForWine``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDishPairingForWine`: GetDishPairingForWine200Response
-    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetDishPairingForWine`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WineAPI.GetDishPairingForWine(context.Background()).Wine(wine).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WineAPI.GetDishPairingForWine``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDishPairingForWine`: GetDishPairingForWine200Response
+	fmt.Fprintf(os.Stdout, "Response from `WineAPI.GetDishPairingForWine`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Wine Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    wine := "merlot" // string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+	wine := "merlot" // string | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WineApi.GetWineDescription(context.Background()).Wine(wine).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetWineDescription``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetWineDescription`: GetWineDescription200Response
-    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetWineDescription`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WineAPI.GetWineDescription(context.Background()).Wine(wine).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WineAPI.GetWineDescription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetWineDescription`: GetWineDescription200Response
+	fmt.Fprintf(os.Stdout, "Response from `WineAPI.GetWineDescription`: %v\n", resp)
 }
 ```
 
@@ -157,25 +157,25 @@ Wine Pairing
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    food := "steak" // string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
-    maxPrice := float32(50) // float32 | The maximum price for the specific wine recommendation in USD. (optional)
+	food := "steak" // string | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
+	maxPrice := float32(50) // float32 | The maximum price for the specific wine recommendation in USD. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WineApi.GetWinePairing(context.Background()).Food(food).MaxPrice(maxPrice).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetWinePairing``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetWinePairing`: GetWinePairing200Response
-    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetWinePairing`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WineAPI.GetWinePairing(context.Background()).Food(food).MaxPrice(maxPrice).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WineAPI.GetWinePairing``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetWinePairing`: GetWinePairing200Response
+	fmt.Fprintf(os.Stdout, "Response from `WineAPI.GetWinePairing`: %v\n", resp)
 }
 ```
 
@@ -225,27 +225,27 @@ Wine Recommendation
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    wine := "merlot" // string | The type of wine to get a specific product recommendation for.
-    maxPrice := float32(50) // float32 | The maximum price for the specific wine recommendation in USD. (optional)
-    minRating := float32(0.7) // float32 | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
-    number := float32(3) // float32 | The number of wine recommendations expected (between 1 and 100). (optional) (default to 10)
+	wine := "merlot" // string | The type of wine to get a specific product recommendation for.
+	maxPrice := float32(50) // float32 | The maximum price for the specific wine recommendation in USD. (optional)
+	minRating := float32(0.7) // float32 | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. (optional)
+	number := float32(3) // float32 | The number of wine recommendations expected (between 1 and 100). (optional) (default to 10)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WineApi.GetWineRecommendation(context.Background()).Wine(wine).MaxPrice(maxPrice).MinRating(minRating).Number(number).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WineApi.GetWineRecommendation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetWineRecommendation`: GetWineRecommendation200Response
-    fmt.Fprintf(os.Stdout, "Response from `WineApi.GetWineRecommendation`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WineAPI.GetWineRecommendation(context.Background()).Wine(wine).MaxPrice(maxPrice).MinRating(minRating).Number(number).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WineAPI.GetWineRecommendation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetWineRecommendation`: GetWineRecommendation200Response
+	fmt.Fprintf(os.Stdout, "Response from `WineAPI.GetWineRecommendation`: %v\n", resp)
 }
 ```
 

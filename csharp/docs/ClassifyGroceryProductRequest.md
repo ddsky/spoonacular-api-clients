@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ClassifyGroceryProductRequest
+# spoonacular.Model.ClassifyGroceryProductRequest
 
 ## Properties
 

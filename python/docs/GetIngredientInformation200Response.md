@@ -3,6 +3,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
@@ -14,17 +15,33 @@ Name | Type | Description | Notes
 **unit** | **str** |  | 
 **unit_short** | **str** |  | 
 **unit_long** | **str** |  | 
-**possible_units** | **[str]** |  | 
+**possible_units** | **List[str]** |  | 
 **estimated_cost** | [**ParseIngredients200ResponseInnerEstimatedCost**](ParseIngredients200ResponseInnerEstimatedCost.md) |  | 
 **consistency** | **str** |  | 
-**shopping_list_units** | **[str]** |  | 
+**shopping_list_units** | **List[str]** |  | 
 **aisle** | **str** |  | 
 **image** | **str** |  | 
-**meta** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
+**meta** | **List[object]** |  | 
 **nutrition** | [**GetIngredientInformation200ResponseNutrition**](GetIngredientInformation200ResponseNutrition.md) |  | 
-**category_path** | **[str]** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**category_path** | **List[str]** |  | 
 
+## Example
+
+```python
+from spoonacular.models.get_ingredient_information200_response import GetIngredientInformation200Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetIngredientInformation200Response from a JSON string
+get_ingredient_information200_response_instance = GetIngredientInformation200Response.from_json(json)
+# print the JSON string representation of the object
+print GetIngredientInformation200Response.to_json()
+
+# convert the object into a dict
+get_ingredient_information200_response_dict = get_ingredient_information200_response_instance.to_dict()
+# create an instance of GetIngredientInformation200Response from a dict
+get_ingredient_information200_response_form_dict = get_ingredient_information200_response.from_dict(get_ingredient_information200_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

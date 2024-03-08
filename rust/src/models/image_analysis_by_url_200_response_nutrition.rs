@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ImageAnalysisByUrl200ResponseNutrition {
     #[serde(rename = "recipesUsed")]
     pub recipes_used: i32,

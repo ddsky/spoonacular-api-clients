@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **image** | Option<**String**> |  | 
 **link** | Option<**String**> |  | 
-**_type** | **String** |  | 
+**r#type** | **String** |  | 
 **relevance** | **f32** |  | 
 **content** | Option<**String**> |  | 
 

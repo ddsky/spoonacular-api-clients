@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -62,11 +64,10 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
   @SerializedName(SERIALIZED_NAME_UNIT_SHORT)
   private String unitShort;
 
-  public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric() { 
+  public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric() {
   }
 
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric amount(BigDecimal amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -76,12 +77,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getAmount() {
     return amount;
   }
-
 
   public void setAmount(BigDecimal amount) {
     this.amount = amount;
@@ -89,7 +87,6 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
 
 
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric unitLong(String unitLong) {
-    
     this.unitLong = unitLong;
     return this;
   }
@@ -99,12 +96,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
    * @return unitLong
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getUnitLong() {
     return unitLong;
   }
-
 
   public void setUnitLong(String unitLong) {
     this.unitLong = unitLong;
@@ -112,7 +106,6 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
 
 
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric unitShort(String unitShort) {
-    
     this.unitShort = unitShort;
     return this;
   }
@@ -122,12 +115,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
    * @return unitShort
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getUnitShort() {
     return unitShort;
   }
-
 
   public void setUnitShort(String unitShort) {
     this.unitShort = unitShort;
@@ -195,38 +185,37 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric is not found in the empty JSON string", GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("unitLong") != null && !jsonObj.get("unitLong").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("unitLong").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unitLong` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unitLong").toString()));
       }
-      if (jsonObj.get("unitShort") != null && !jsonObj.get("unitShort").isJsonPrimitive()) {
+      if (!jsonObj.get("unitShort").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unitShort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unitShort").toString()));
       }
   }
@@ -251,9 +240,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetr
 
            @Override
            public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

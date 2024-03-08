@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200ResponseBadInner;
 import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200ResponseGoodInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -39,12 +36,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,8 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetRecipeNutritionWidgetByID200Response {
   public static final String SERIALIZED_NAME_CALORIES = "calories";
   @SerializedName(SERIALIZED_NAME_CALORIES)
@@ -79,11 +79,10 @@ public class GetRecipeNutritionWidgetByID200Response {
   @SerializedName(SERIALIZED_NAME_GOOD)
   private Set<GetRecipeNutritionWidgetByID200ResponseGoodInner> good = new LinkedHashSet<>();
 
-  public GetRecipeNutritionWidgetByID200Response() { 
+  public GetRecipeNutritionWidgetByID200Response() {
   }
 
   public GetRecipeNutritionWidgetByID200Response calories(String calories) {
-    
     this.calories = calories;
     return this;
   }
@@ -93,12 +92,9 @@ public class GetRecipeNutritionWidgetByID200Response {
    * @return calories
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getCalories() {
     return calories;
   }
-
 
   public void setCalories(String calories) {
     this.calories = calories;
@@ -106,7 +102,6 @@ public class GetRecipeNutritionWidgetByID200Response {
 
 
   public GetRecipeNutritionWidgetByID200Response carbs(String carbs) {
-    
     this.carbs = carbs;
     return this;
   }
@@ -116,12 +111,9 @@ public class GetRecipeNutritionWidgetByID200Response {
    * @return carbs
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getCarbs() {
     return carbs;
   }
-
 
   public void setCarbs(String carbs) {
     this.carbs = carbs;
@@ -129,7 +121,6 @@ public class GetRecipeNutritionWidgetByID200Response {
 
 
   public GetRecipeNutritionWidgetByID200Response fat(String fat) {
-    
     this.fat = fat;
     return this;
   }
@@ -139,12 +130,9 @@ public class GetRecipeNutritionWidgetByID200Response {
    * @return fat
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getFat() {
     return fat;
   }
-
 
   public void setFat(String fat) {
     this.fat = fat;
@@ -152,7 +140,6 @@ public class GetRecipeNutritionWidgetByID200Response {
 
 
   public GetRecipeNutritionWidgetByID200Response protein(String protein) {
-    
     this.protein = protein;
     return this;
   }
@@ -162,12 +149,9 @@ public class GetRecipeNutritionWidgetByID200Response {
    * @return protein
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getProtein() {
     return protein;
   }
-
 
   public void setProtein(String protein) {
     this.protein = protein;
@@ -175,12 +159,14 @@ public class GetRecipeNutritionWidgetByID200Response {
 
 
   public GetRecipeNutritionWidgetByID200Response bad(Set<GetRecipeNutritionWidgetByID200ResponseBadInner> bad) {
-    
     this.bad = bad;
     return this;
   }
 
   public GetRecipeNutritionWidgetByID200Response addBadItem(GetRecipeNutritionWidgetByID200ResponseBadInner badItem) {
+    if (this.bad == null) {
+      this.bad = new LinkedHashSet<>();
+    }
     this.bad.add(badItem);
     return this;
   }
@@ -190,12 +176,9 @@ public class GetRecipeNutritionWidgetByID200Response {
    * @return bad
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetRecipeNutritionWidgetByID200ResponseBadInner> getBad() {
     return bad;
   }
-
 
   public void setBad(Set<GetRecipeNutritionWidgetByID200ResponseBadInner> bad) {
     this.bad = bad;
@@ -203,12 +186,14 @@ public class GetRecipeNutritionWidgetByID200Response {
 
 
   public GetRecipeNutritionWidgetByID200Response good(Set<GetRecipeNutritionWidgetByID200ResponseGoodInner> good) {
-    
     this.good = good;
     return this;
   }
 
   public GetRecipeNutritionWidgetByID200Response addGoodItem(GetRecipeNutritionWidgetByID200ResponseGoodInner goodItem) {
+    if (this.good == null) {
+      this.good = new LinkedHashSet<>();
+    }
     this.good.add(goodItem);
     return this;
   }
@@ -218,12 +203,9 @@ public class GetRecipeNutritionWidgetByID200Response {
    * @return good
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetRecipeNutritionWidgetByID200ResponseGoodInner> getGood() {
     return good;
   }
-
 
   public void setGood(Set<GetRecipeNutritionWidgetByID200ResponseGoodInner> good) {
     this.good = good;
@@ -303,70 +285,65 @@ public class GetRecipeNutritionWidgetByID200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetRecipeNutritionWidgetByID200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetRecipeNutritionWidgetByID200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetRecipeNutritionWidgetByID200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetRecipeNutritionWidgetByID200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetRecipeNutritionWidgetByID200Response is not found in the empty JSON string", GetRecipeNutritionWidgetByID200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetRecipeNutritionWidgetByID200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeNutritionWidgetByID200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeNutritionWidgetByID200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetRecipeNutritionWidgetByID200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("calories") != null && !jsonObj.get("calories").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("calories").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `calories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("calories").toString()));
       }
-      if (jsonObj.get("carbs") != null && !jsonObj.get("carbs").isJsonPrimitive()) {
+      if (!jsonObj.get("carbs").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carbs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carbs").toString()));
       }
-      if (jsonObj.get("fat") != null && !jsonObj.get("fat").isJsonPrimitive()) {
+      if (!jsonObj.get("fat").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fat").toString()));
       }
-      if (jsonObj.get("protein") != null && !jsonObj.get("protein").isJsonPrimitive()) {
+      if (!jsonObj.get("protein").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `protein` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protein").toString()));
       }
+      // ensure the json data is an array
+      if (!jsonObj.get("bad").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bad` to be an array in the JSON string but got `%s`", jsonObj.get("bad").toString()));
+      }
+
       JsonArray jsonArraybad = jsonObj.getAsJsonArray("bad");
-      if (jsonArraybad != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("bad").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `bad` to be an array in the JSON string but got `%s`", jsonObj.get("bad").toString()));
-        }
-
-        // validate the optional field `bad` (array)
-        for (int i = 0; i < jsonArraybad.size(); i++) {
-          GetRecipeNutritionWidgetByID200ResponseBadInner.validateJsonObject(jsonArraybad.get(i).getAsJsonObject());
-        };
+      // validate the required field `bad` (array)
+      for (int i = 0; i < jsonArraybad.size(); i++) {
+        GetRecipeNutritionWidgetByID200ResponseBadInner.validateJsonElement(jsonArraybad.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("good").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `good` to be an array in the JSON string but got `%s`", jsonObj.get("good").toString()));
       }
+
       JsonArray jsonArraygood = jsonObj.getAsJsonArray("good");
-      if (jsonArraygood != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("good").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `good` to be an array in the JSON string but got `%s`", jsonObj.get("good").toString()));
-        }
-
-        // validate the optional field `good` (array)
-        for (int i = 0; i < jsonArraygood.size(); i++) {
-          GetRecipeNutritionWidgetByID200ResponseGoodInner.validateJsonObject(jsonArraygood.get(i).getAsJsonObject());
-        };
-      }
+      // validate the required field `good` (array)
+      for (int i = 0; i < jsonArraygood.size(); i++) {
+        GetRecipeNutritionWidgetByID200ResponseGoodInner.validateJsonElement(jsonArraygood.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -389,9 +366,9 @@ public class GetRecipeNutritionWidgetByID200Response {
 
            @Override
            public GetRecipeNutritionWidgetByID200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

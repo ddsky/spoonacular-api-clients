@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyzeRecipeInstructions200Response {
     #[serde(rename = "parsedInstructions")]
     pub parsed_instructions: Vec<crate::models::AnalyzeRecipeInstructions200ResponseParsedInstructionsInner>,

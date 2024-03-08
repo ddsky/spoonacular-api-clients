@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerEstimatedCost;
 import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutrition;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -39,12 +37,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * ParseIngredients200ResponseInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class ParseIngredients200ResponseInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -118,11 +120,10 @@ public class ParseIngredients200ResponseInner {
   @SerializedName(SERIALIZED_NAME_NUTRITION)
   private ParseIngredients200ResponseInnerNutrition nutrition;
 
-  public ParseIngredients200ResponseInner() { 
+  public ParseIngredients200ResponseInner() {
   }
 
   public ParseIngredients200ResponseInner id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -132,12 +133,9 @@ public class ParseIngredients200ResponseInner {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getId() {
     return id;
   }
-
 
   public void setId(Integer id) {
     this.id = id;
@@ -145,7 +143,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner original(String original) {
-    
     this.original = original;
     return this;
   }
@@ -155,12 +152,9 @@ public class ParseIngredients200ResponseInner {
    * @return original
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getOriginal() {
     return original;
   }
-
 
   public void setOriginal(String original) {
     this.original = original;
@@ -168,7 +162,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner originalName(String originalName) {
-    
     this.originalName = originalName;
     return this;
   }
@@ -178,12 +171,9 @@ public class ParseIngredients200ResponseInner {
    * @return originalName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getOriginalName() {
     return originalName;
   }
-
 
   public void setOriginalName(String originalName) {
     this.originalName = originalName;
@@ -191,7 +181,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -201,12 +190,9 @@ public class ParseIngredients200ResponseInner {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -214,7 +200,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner nameClean(String nameClean) {
-    
     this.nameClean = nameClean;
     return this;
   }
@@ -224,12 +209,9 @@ public class ParseIngredients200ResponseInner {
    * @return nameClean
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getNameClean() {
     return nameClean;
   }
-
 
   public void setNameClean(String nameClean) {
     this.nameClean = nameClean;
@@ -237,7 +219,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner amount(BigDecimal amount) {
-    
     this.amount = amount;
     return this;
   }
@@ -247,12 +228,9 @@ public class ParseIngredients200ResponseInner {
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getAmount() {
     return amount;
   }
-
 
   public void setAmount(BigDecimal amount) {
     this.amount = amount;
@@ -260,7 +238,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner unit(String unit) {
-    
     this.unit = unit;
     return this;
   }
@@ -270,12 +247,9 @@ public class ParseIngredients200ResponseInner {
    * @return unit
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getUnit() {
     return unit;
   }
-
 
   public void setUnit(String unit) {
     this.unit = unit;
@@ -283,7 +257,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner unitShort(String unitShort) {
-    
     this.unitShort = unitShort;
     return this;
   }
@@ -293,12 +266,9 @@ public class ParseIngredients200ResponseInner {
    * @return unitShort
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getUnitShort() {
     return unitShort;
   }
-
 
   public void setUnitShort(String unitShort) {
     this.unitShort = unitShort;
@@ -306,7 +276,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner unitLong(String unitLong) {
-    
     this.unitLong = unitLong;
     return this;
   }
@@ -316,12 +285,9 @@ public class ParseIngredients200ResponseInner {
    * @return unitLong
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getUnitLong() {
     return unitLong;
   }
-
 
   public void setUnitLong(String unitLong) {
     this.unitLong = unitLong;
@@ -329,12 +295,14 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner possibleUnits(List<String> possibleUnits) {
-    
     this.possibleUnits = possibleUnits;
     return this;
   }
 
   public ParseIngredients200ResponseInner addPossibleUnitsItem(String possibleUnitsItem) {
+    if (this.possibleUnits == null) {
+      this.possibleUnits = new ArrayList<>();
+    }
     this.possibleUnits.add(possibleUnitsItem);
     return this;
   }
@@ -344,12 +312,9 @@ public class ParseIngredients200ResponseInner {
    * @return possibleUnits
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getPossibleUnits() {
     return possibleUnits;
   }
-
 
   public void setPossibleUnits(List<String> possibleUnits) {
     this.possibleUnits = possibleUnits;
@@ -357,7 +322,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner estimatedCost(ParseIngredients200ResponseInnerEstimatedCost estimatedCost) {
-    
     this.estimatedCost = estimatedCost;
     return this;
   }
@@ -367,12 +331,9 @@ public class ParseIngredients200ResponseInner {
    * @return estimatedCost
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ParseIngredients200ResponseInnerEstimatedCost getEstimatedCost() {
     return estimatedCost;
   }
-
 
   public void setEstimatedCost(ParseIngredients200ResponseInnerEstimatedCost estimatedCost) {
     this.estimatedCost = estimatedCost;
@@ -380,7 +341,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner consistency(String consistency) {
-    
     this.consistency = consistency;
     return this;
   }
@@ -390,12 +350,9 @@ public class ParseIngredients200ResponseInner {
    * @return consistency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getConsistency() {
     return consistency;
   }
-
 
   public void setConsistency(String consistency) {
     this.consistency = consistency;
@@ -403,7 +360,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner aisle(String aisle) {
-    
     this.aisle = aisle;
     return this;
   }
@@ -413,12 +369,9 @@ public class ParseIngredients200ResponseInner {
    * @return aisle
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getAisle() {
     return aisle;
   }
-
 
   public void setAisle(String aisle) {
     this.aisle = aisle;
@@ -426,7 +379,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner image(String image) {
-    
     this.image = image;
     return this;
   }
@@ -436,12 +388,9 @@ public class ParseIngredients200ResponseInner {
    * @return image
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -449,12 +398,14 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner meta(List<String> meta) {
-    
     this.meta = meta;
     return this;
   }
 
   public ParseIngredients200ResponseInner addMetaItem(String metaItem) {
+    if (this.meta == null) {
+      this.meta = new ArrayList<>();
+    }
     this.meta.add(metaItem);
     return this;
   }
@@ -464,12 +415,9 @@ public class ParseIngredients200ResponseInner {
    * @return meta
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getMeta() {
     return meta;
   }
-
 
   public void setMeta(List<String> meta) {
     this.meta = meta;
@@ -477,7 +425,6 @@ public class ParseIngredients200ResponseInner {
 
 
   public ParseIngredients200ResponseInner nutrition(ParseIngredients200ResponseInnerNutrition nutrition) {
-    
     this.nutrition = nutrition;
     return this;
   }
@@ -487,12 +434,9 @@ public class ParseIngredients200ResponseInner {
    * @return nutrition
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ParseIngredients200ResponseInnerNutrition getNutrition() {
     return nutrition;
   }
-
 
   public void setNutrition(ParseIngredients200ResponseInnerNutrition nutrition) {
     this.nutrition = nutrition;
@@ -612,80 +556,79 @@ public class ParseIngredients200ResponseInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ParseIngredients200ResponseInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ParseIngredients200ResponseInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ParseIngredients200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ParseIngredients200ResponseInner is not found in the empty JSON string", ParseIngredients200ResponseInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ParseIngredients200ResponseInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ParseIngredients200ResponseInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ParseIngredients200ResponseInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ParseIngredients200ResponseInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("original") != null && !jsonObj.get("original").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("original").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `original` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original").toString()));
       }
-      if (jsonObj.get("originalName") != null && !jsonObj.get("originalName").isJsonPrimitive()) {
+      if (!jsonObj.get("originalName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalName").toString()));
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (jsonObj.get("nameClean") != null && !jsonObj.get("nameClean").isJsonPrimitive()) {
+      if (!jsonObj.get("nameClean").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nameClean` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameClean").toString()));
       }
-      if (jsonObj.get("unit") != null && !jsonObj.get("unit").isJsonPrimitive()) {
+      if (!jsonObj.get("unit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unit").toString()));
       }
-      if (jsonObj.get("unitShort") != null && !jsonObj.get("unitShort").isJsonPrimitive()) {
+      if (!jsonObj.get("unitShort").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unitShort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unitShort").toString()));
       }
-      if (jsonObj.get("unitLong") != null && !jsonObj.get("unitLong").isJsonPrimitive()) {
+      if (!jsonObj.get("unitLong").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unitLong` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unitLong").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("possibleUnits") != null && !jsonObj.get("possibleUnits").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("possibleUnits") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("possibleUnits").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `possibleUnits` to be an array in the JSON string but got `%s`", jsonObj.get("possibleUnits").toString()));
       }
-      // validate the optional field `estimatedCost`
-      if (jsonObj.getAsJsonObject("estimatedCost") != null) {
-        ParseIngredients200ResponseInnerEstimatedCost.validateJsonObject(jsonObj.getAsJsonObject("estimatedCost"));
-      }
-      if (jsonObj.get("consistency") != null && !jsonObj.get("consistency").isJsonPrimitive()) {
+      // validate the required field `estimatedCost`
+      ParseIngredients200ResponseInnerEstimatedCost.validateJsonElement(jsonObj.get("estimatedCost"));
+      if (!jsonObj.get("consistency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `consistency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("consistency").toString()));
       }
-      if (jsonObj.get("aisle") != null && !jsonObj.get("aisle").isJsonPrimitive()) {
+      if (!jsonObj.get("aisle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aisle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aisle").toString()));
       }
-      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonPrimitive()) {
+      if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("meta") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("meta").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `meta` to be an array in the JSON string but got `%s`", jsonObj.get("meta").toString()));
       }
-      // validate the optional field `nutrition`
-      if (jsonObj.getAsJsonObject("nutrition") != null) {
-        ParseIngredients200ResponseInnerNutrition.validateJsonObject(jsonObj.getAsJsonObject("nutrition"));
-      }
+      // validate the required field `nutrition`
+      ParseIngredients200ResponseInnerNutrition.validateJsonElement(jsonObj.get("nutrition"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -708,9 +651,9 @@ public class ParseIngredients200ResponseInner {
 
            @Override
            public ParseIngredients200ResponseInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

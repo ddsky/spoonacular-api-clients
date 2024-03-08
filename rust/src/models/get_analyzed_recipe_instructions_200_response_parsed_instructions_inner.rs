@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner {
     #[serde(rename = "name")]
     pub name: String,

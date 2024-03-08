@@ -1,18 +1,18 @@
-# com.spoonacular.client\IngredientsApi
+# \IngredientsAPI
 
 All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AutocompleteIngredientSearch**](IngredientsApi.md#AutocompleteIngredientSearch) | **Get** /food/ingredients/autocomplete | Autocomplete Ingredient Search
-[**ComputeIngredientAmount**](IngredientsApi.md#ComputeIngredientAmount) | **Get** /food/ingredients/{id}/amount | Compute Ingredient Amount
-[**GetIngredientInformation**](IngredientsApi.md#GetIngredientInformation) | **Get** /food/ingredients/{id}/information | Get Ingredient Information
-[**GetIngredientSubstitutes**](IngredientsApi.md#GetIngredientSubstitutes) | **Get** /food/ingredients/substitutes | Get Ingredient Substitutes
-[**GetIngredientSubstitutesByID**](IngredientsApi.md#GetIngredientSubstitutesByID) | **Get** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
-[**IngredientSearch**](IngredientsApi.md#IngredientSearch) | **Get** /food/ingredients/search | Ingredient Search
-[**IngredientsByIDImage**](IngredientsApi.md#IngredientsByIDImage) | **Get** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
-[**MapIngredientsToGroceryProducts**](IngredientsApi.md#MapIngredientsToGroceryProducts) | **Post** /food/ingredients/map | Map Ingredients to Grocery Products
-[**VisualizeIngredients**](IngredientsApi.md#VisualizeIngredients) | **Post** /recipes/visualizeIngredients | Ingredients Widget
+[**AutocompleteIngredientSearch**](IngredientsAPI.md#AutocompleteIngredientSearch) | **Get** /food/ingredients/autocomplete | Autocomplete Ingredient Search
+[**ComputeIngredientAmount**](IngredientsAPI.md#ComputeIngredientAmount) | **Get** /food/ingredients/{id}/amount | Compute Ingredient Amount
+[**GetIngredientInformation**](IngredientsAPI.md#GetIngredientInformation) | **Get** /food/ingredients/{id}/information | Get Ingredient Information
+[**GetIngredientSubstitutes**](IngredientsAPI.md#GetIngredientSubstitutes) | **Get** /food/ingredients/substitutes | Get Ingredient Substitutes
+[**GetIngredientSubstitutesByID**](IngredientsAPI.md#GetIngredientSubstitutesByID) | **Get** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
+[**IngredientSearch**](IngredientsAPI.md#IngredientSearch) | **Get** /food/ingredients/search | Ingredient Search
+[**IngredientsByIDImage**](IngredientsAPI.md#IngredientsByIDImage) | **Get** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
+[**MapIngredientsToGroceryProducts**](IngredientsAPI.md#MapIngredientsToGroceryProducts) | **Post** /food/ingredients/map | Map Ingredients to Grocery Products
+[**VisualizeIngredients**](IngredientsAPI.md#VisualizeIngredients) | **Post** /recipes/visualizeIngredients | Ingredients Widget
 
 
 
@@ -30,28 +30,28 @@ Autocomplete Ingredient Search
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "burger" // string | The (natural language) search query. (optional)
-    number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-    metaInformation := false // bool | Whether to return more meta information about the ingredients. (optional)
-    intolerances := "egg" // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-    language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
+	query := "burger" // string | The (natural language) search query. (optional)
+	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+	metaInformation := false // bool | Whether to return more meta information about the ingredients. (optional)
+	intolerances := "egg" // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.AutocompleteIngredientSearch(context.Background()).Query(query).Number(number).MetaInformation(metaInformation).Intolerances(intolerances).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.AutocompleteIngredientSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AutocompleteIngredientSearch`: []AutocompleteIngredientSearch200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.AutocompleteIngredientSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.AutocompleteIngredientSearch(context.Background()).Query(query).Number(number).MetaInformation(metaInformation).Intolerances(intolerances).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.AutocompleteIngredientSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AutocompleteIngredientSearch`: []AutocompleteIngredientSearch200ResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.AutocompleteIngredientSearch`: %v\n", resp)
 }
 ```
 
@@ -104,27 +104,27 @@ Compute Ingredient Amount
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(9266) // float32 | The id of the ingredient you want the amount for.
-    nutrient := "protein" // string | The target nutrient. See a list of supported nutrients.
-    target := float32(2) // float32 | The target number of the given nutrient.
-    unit := "oz" // string | The target unit. (optional)
+	id := float32(9266) // float32 | The id of the ingredient you want the amount for.
+	nutrient := "protein" // string | The target nutrient. See a list of supported nutrients.
+	target := float32(2) // float32 | The target number of the given nutrient.
+	unit := "oz" // string | The target unit. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.ComputeIngredientAmount(context.Background(), id).Nutrient(nutrient).Target(target).Unit(unit).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.ComputeIngredientAmount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ComputeIngredientAmount`: ComputeIngredientAmount200Response
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.ComputeIngredientAmount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.ComputeIngredientAmount(context.Background(), id).Nutrient(nutrient).Target(target).Unit(unit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.ComputeIngredientAmount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ComputeIngredientAmount`: ComputeIngredientAmount200Response
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.ComputeIngredientAmount`: %v\n", resp)
 }
 ```
 
@@ -180,26 +180,26 @@ Get Ingredient Information
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := int32(1) // int32 | The item's id.
-    amount := float32(150) // float32 | The amount of this ingredient. (optional)
-    unit := "grams" // string | The unit for the given amount. (optional)
+	id := int32(1) // int32 | The item's id.
+	amount := float32(150) // float32 | The amount of this ingredient. (optional)
+	unit := "grams" // string | The unit for the given amount. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.GetIngredientInformation(context.Background(), id).Amount(amount).Unit(unit).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.GetIngredientInformation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIngredientInformation`: GetIngredientInformation200Response
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.GetIngredientInformation`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.GetIngredientInformation(context.Background(), id).Amount(amount).Unit(unit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.GetIngredientInformation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIngredientInformation`: GetIngredientInformation200Response
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.GetIngredientInformation`: %v\n", resp)
 }
 ```
 
@@ -254,24 +254,24 @@ Get Ingredient Substitutes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    ingredientName := "butter" // string | The name of the ingredient you want to replace.
+	ingredientName := "butter" // string | The name of the ingredient you want to replace.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.GetIngredientSubstitutes(context.Background()).IngredientName(ingredientName).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.GetIngredientSubstitutes``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIngredientSubstitutes`: GetIngredientSubstitutes200Response
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.GetIngredientSubstitutes`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.GetIngredientSubstitutes(context.Background()).IngredientName(ingredientName).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.GetIngredientSubstitutes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIngredientSubstitutes`: GetIngredientSubstitutes200Response
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.GetIngredientSubstitutes`: %v\n", resp)
 }
 ```
 
@@ -320,24 +320,24 @@ Get Ingredient Substitutes by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := int32(1) // int32 | The item's id.
+	id := int32(1) // int32 | The item's id.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.GetIngredientSubstitutesByID(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.GetIngredientSubstitutesByID``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIngredientSubstitutesByID`: GetIngredientSubstitutes200Response
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.GetIngredientSubstitutesByID`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.GetIngredientSubstitutesByID(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.GetIngredientSubstitutesByID``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIngredientSubstitutesByID`: GetIngredientSubstitutes200Response
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.GetIngredientSubstitutesByID`: %v\n", resp)
 }
 ```
 
@@ -390,38 +390,38 @@ Ingredient Search
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "burger" // string | The (natural language) search query. (optional)
-    addChildren := true // bool | Whether to add children of found foods. (optional)
-    minProteinPercent := float32(10) // float32 | The minimum percentage of protein the food must have (between 0 and 100). (optional)
-    maxProteinPercent := float32(90) // float32 | The maximum percentage of protein the food can have (between 0 and 100). (optional)
-    minFatPercent := float32(10) // float32 | The minimum percentage of fat the food must have (between 0 and 100). (optional)
-    maxFatPercent := float32(90) // float32 | The maximum percentage of fat the food can have (between 0 and 100). (optional)
-    minCarbsPercent := float32(10) // float32 | The minimum percentage of carbs the food must have (between 0 and 100). (optional)
-    maxCarbsPercent := float32(90) // float32 | The maximum percentage of carbs the food can have (between 0 and 100). (optional)
-    metaInformation := false // bool | Whether to return more meta information about the ingredients. (optional)
-    intolerances := "egg" // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
-    sort := "calories" // string | The strategy to sort recipes by. See a full list of supported sorting options. (optional)
-    sortDirection := "asc" // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
-    offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
-    number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-    language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
+	query := "burger" // string | The (natural language) search query. (optional)
+	addChildren := true // bool | Whether to add children of found foods. (optional)
+	minProteinPercent := float32(10) // float32 | The minimum percentage of protein the food must have (between 0 and 100). (optional)
+	maxProteinPercent := float32(90) // float32 | The maximum percentage of protein the food can have (between 0 and 100). (optional)
+	minFatPercent := float32(10) // float32 | The minimum percentage of fat the food must have (between 0 and 100). (optional)
+	maxFatPercent := float32(90) // float32 | The maximum percentage of fat the food can have (between 0 and 100). (optional)
+	minCarbsPercent := float32(10) // float32 | The minimum percentage of carbs the food must have (between 0 and 100). (optional)
+	maxCarbsPercent := float32(90) // float32 | The maximum percentage of carbs the food can have (between 0 and 100). (optional)
+	metaInformation := false // bool | Whether to return more meta information about the ingredients. (optional)
+	intolerances := "egg" // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
+	sort := "calories" // string | The strategy to sort recipes by. See a full list of supported sorting options. (optional)
+	sortDirection := "asc" // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
+	offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
+	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.IngredientSearch(context.Background()).Query(query).AddChildren(addChildren).MinProteinPercent(minProteinPercent).MaxProteinPercent(maxProteinPercent).MinFatPercent(minFatPercent).MaxFatPercent(maxFatPercent).MinCarbsPercent(minCarbsPercent).MaxCarbsPercent(maxCarbsPercent).MetaInformation(metaInformation).Intolerances(intolerances).Sort(sort).SortDirection(sortDirection).Offset(offset).Number(number).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.IngredientSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IngredientSearch`: IngredientSearch200Response
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.IngredientSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.IngredientSearch(context.Background()).Query(query).AddChildren(addChildren).MinProteinPercent(minProteinPercent).MaxProteinPercent(maxProteinPercent).MinFatPercent(minFatPercent).MaxFatPercent(maxFatPercent).MinCarbsPercent(minCarbsPercent).MaxCarbsPercent(maxCarbsPercent).MetaInformation(metaInformation).Intolerances(intolerances).Sort(sort).SortDirection(sortDirection).Offset(offset).Number(number).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.IngredientSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IngredientSearch`: IngredientSearch200Response
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.IngredientSearch`: %v\n", resp)
 }
 ```
 
@@ -484,25 +484,25 @@ Ingredients by ID Image
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(1082038) // float32 | The recipe id.
-    measure := "metric" // string | Whether the the measures should be 'us' or 'metric'. (optional)
+	id := float32(1082038) // float32 | The recipe id.
+	measure := "metric" // string | Whether the the measures should be 'us' or 'metric'. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.IngredientsByIDImage(context.Background(), id).Measure(measure).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.IngredientsByIDImage``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IngredientsByIDImage`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.IngredientsByIDImage`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.IngredientsByIDImage(context.Background(), id).Measure(measure).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.IngredientsByIDImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IngredientsByIDImage`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.IngredientsByIDImage`: %v\n", resp)
 }
 ```
 
@@ -556,24 +556,24 @@ Map Ingredients to Grocery Products
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    mapIngredientsToGroceryProductsRequest := *openapiclient.NewMapIngredientsToGroceryProductsRequest([]string{"Ingredients_example"}, float32(123)) // MapIngredientsToGroceryProductsRequest | 
+	mapIngredientsToGroceryProductsRequest := *openapiclient.NewMapIngredientsToGroceryProductsRequest([]string{"Ingredients_example"}, float32(123)) // MapIngredientsToGroceryProductsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.MapIngredientsToGroceryProducts(context.Background()).MapIngredientsToGroceryProductsRequest(mapIngredientsToGroceryProductsRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.MapIngredientsToGroceryProducts``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MapIngredientsToGroceryProducts`: []MapIngredientsToGroceryProducts200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.MapIngredientsToGroceryProducts`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.MapIngredientsToGroceryProducts(context.Background()).MapIngredientsToGroceryProductsRequest(mapIngredientsToGroceryProductsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.MapIngredientsToGroceryProducts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MapIngredientsToGroceryProducts`: []MapIngredientsToGroceryProducts200ResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.MapIngredientsToGroceryProducts`: %v\n", resp)
 }
 ```
 
@@ -622,26 +622,26 @@ Ingredients Widget
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    contentType := "application/json" // string | The content type. (optional)
-    language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
-    accept := "application/json" // string | Accept header. (optional)
+	contentType := "application/json" // string | The content type. (optional)
+	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
+	accept := "application/json" // string | Accept header. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IngredientsApi.VisualizeIngredients(context.Background()).ContentType(contentType).Language(language).Accept(accept).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IngredientsApi.VisualizeIngredients``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VisualizeIngredients`: string
-    fmt.Fprintf(os.Stdout, "Response from `IngredientsApi.VisualizeIngredients`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IngredientsAPI.VisualizeIngredients(context.Background()).ContentType(contentType).Language(language).Accept(accept).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.VisualizeIngredients``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VisualizeIngredients`: string
+	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.VisualizeIngredients`: %v\n", resp)
 }
 ```
 

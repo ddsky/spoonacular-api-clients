@@ -1,12 +1,12 @@
-# Org.OpenAPITools.Model.GetRecipeInformation200ResponseWinePairing
+# spoonacular.Model.GetRecipeInformation200ResponseWinePairing
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PairedWines** | **List<string>** |  | 
+**PairedWines** | **List&lt;string&gt;** |  | 
 **PairingText** | **string** |  | 
-**ProductMatches** | [**List<GetRecipeInformation200ResponseWinePairingProductMatchesInner>**](GetRecipeInformation200ResponseWinePairingProductMatchesInner.md) |  | 
+**ProductMatches** | [**List&lt;GetRecipeInformation200ResponseWinePairingProductMatchesInner&gt;**](GetRecipeInformation200ResponseWinePairingProductMatchesInner.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

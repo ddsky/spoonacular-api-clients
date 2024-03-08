@@ -1,4 +1,4 @@
-# openapi_client.MenuItemsApi
+# spoonacular.MenuItemsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **autocomplete_menu_item_search**
-> AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query)
+> AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query, number=number)
 
 Autocomplete Menu Item Search
 
@@ -25,14 +25,14 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
-from openapi_client.model.autocomplete_menu_item_search200_response import AutocompleteMenuItemSearch200Response
+import spoonacular
+from spoonacular.models.autocomplete_menu_item_search200_response import AutocompleteMenuItemSearch200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -42,43 +42,36 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
-    query = "chicke" # str | The (partial) search query.
+    api_instance = spoonacular.MenuItemsApi(api_client)
+    query = 'chicke' # str | The (partial) search query.
     number = 10 # float | The number of results to return (between 1 and 25). (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Autocomplete Menu Item Search
-        api_response = api_instance.autocomplete_menu_item_search(query)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MenuItemsApi->autocomplete_menu_item_search: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Autocomplete Menu Item Search
         api_response = api_instance.autocomplete_menu_item_search(query, number=number)
+        print("The response of MenuItemsApi->autocomplete_menu_item_search:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->autocomplete_menu_item_search: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (partial) search query. |
- **number** | **float**| The number of results to return (between 1 and 25). | [optional]
+ **query** | **str**| The (partial) search query. | 
+ **number** | **float**| The number of results to return (between 1 and 25). | [optional] 
 
 ### Return type
 
@@ -92,7 +85,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -117,14 +109,14 @@ Use a menu item id to get all available information about a menu item, such as n
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
-from openapi_client.model.get_menu_item_information200_response import GetMenuItemInformation200Response
+import spoonacular
+from spoonacular.models.get_menu_item_information200_response import GetMenuItemInformation200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -134,32 +126,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
+    api_instance = spoonacular.MenuItemsApi(api_client)
     id = 1 # int | The item's id.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Menu Item Information
         api_response = api_instance.get_menu_item_information(id)
+        print("The response of MenuItemsApi->get_menu_item_information:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->get_menu_item_information: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+ **id** | **int**| The item&#39;s id. | 
 
 ### Return type
 
@@ -174,7 +168,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -187,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **menu_item_nutrition_by_id_image**
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} menu_item_nutrition_by_id_image(id)
+> object menu_item_nutrition_by_id_image(id)
 
 Menu Item Nutrition by ID Image
 
@@ -198,13 +191,13 @@ Visualize a menu item's nutritional information as HTML including CSS.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
+import spoonacular
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -214,36 +207,38 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
+    api_instance = spoonacular.MenuItemsApi(api_client)
     id = 424571 # float | The menu item id.
 
-    # example passing only required values which don't have defaults set
     try:
         # Menu Item Nutrition by ID Image
         api_response = api_instance.menu_item_nutrition_by_id_image(id)
+        print("The response of MenuItemsApi->menu_item_nutrition_by_id_image:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->menu_item_nutrition_by_id_image: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. |
+ **id** | **float**| The menu item id. | 
 
 ### Return type
 
-**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+**object**
 
 ### Authorization
 
@@ -253,7 +248,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: image/png
-
 
 ### HTTP response details
 
@@ -267,7 +261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **menu_item_nutrition_label_image**
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} menu_item_nutrition_label_image(id)
+> object menu_item_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
 
 Menu Item Nutrition Label Image
 
@@ -278,13 +272,13 @@ Visualize a menu item's nutritional label information as an image.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
+import spoonacular
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -294,51 +288,44 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
+    api_instance = spoonacular.MenuItemsApi(api_client)
     id = 342313 # float | The menu item id.
-    show_optional_nutrients = False # bool | Whether to show optional nutrients. (optional)
-    show_zero_values = False # bool | Whether to show zero values. (optional)
-    show_ingredients = False # bool | Whether to show a list of ingredients. (optional)
+    show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
+    show_zero_values = false # bool | Whether to show zero values. (optional)
+    show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Menu Item Nutrition Label Image
-        api_response = api_instance.menu_item_nutrition_label_image(id)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MenuItemsApi->menu_item_nutrition_label_image: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Menu Item Nutrition Label Image
         api_response = api_instance.menu_item_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+        print("The response of MenuItemsApi->menu_item_nutrition_label_image:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->menu_item_nutrition_label_image: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. |
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+ **id** | **float**| The menu item id. | 
+ **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
+ **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
+ **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
 
 ### Return type
 
-**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+**object**
 
 ### Authorization
 
@@ -348,7 +335,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: image/png
-
 
 ### HTTP response details
 
@@ -362,7 +348,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **menu_item_nutrition_label_widget**
-> str menu_item_nutrition_label_widget(id)
+> str menu_item_nutrition_label_widget(id, default_css=default_css, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
 
 Menu Item Nutrition Label Widget
 
@@ -373,13 +359,13 @@ Visualize a menu item's nutritional label information as HTML including CSS.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
+import spoonacular
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -389,49 +375,42 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
+    api_instance = spoonacular.MenuItemsApi(api_client)
     id = 342313 # float | The menu item id.
-    default_css = False # bool | Whether the default CSS should be added to the response. (optional) if omitted the server will use the default value of True
-    show_optional_nutrients = False # bool | Whether to show optional nutrients. (optional)
-    show_zero_values = False # bool | Whether to show zero values. (optional)
-    show_ingredients = False # bool | Whether to show a list of ingredients. (optional)
+    default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
+    show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
+    show_zero_values = false # bool | Whether to show zero values. (optional)
+    show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Menu Item Nutrition Label Widget
-        api_response = api_instance.menu_item_nutrition_label_widget(id)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MenuItemsApi->menu_item_nutrition_label_widget: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Menu Item Nutrition Label Widget
         api_response = api_instance.menu_item_nutrition_label_widget(id, default_css=default_css, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+        print("The response of MenuItemsApi->menu_item_nutrition_label_widget:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->menu_item_nutrition_label_widget: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] if omitted the server will use the default value of True
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+ **id** | **float**| The menu item id. | 
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
+ **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
+ **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
+ **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
 
 ### Return type
 
@@ -446,7 +425,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: text/html
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -459,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_menu_items**
-> SearchMenuItems200Response search_menu_items()
+> SearchMenuItems200Response search_menu_items(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_menu_item_information=add_menu_item_information, offset=offset, number=number)
 
 Search Menu Items
 
@@ -470,14 +448,14 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
-from openapi_client.model.search_menu_items200_response import SearchMenuItems200Response
+import spoonacular
+from spoonacular.models.search_menu_items200_response import SearchMenuItems200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -487,16 +465,16 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
-    query = "burger" # str | The (natural language) search query. (optional)
+    api_instance = spoonacular.MenuItemsApi(api_client)
+    query = 'burger' # str | The (natural language) search query. (optional)
     min_calories = 50 # float | The minimum amount of calories the menu item must have. (optional)
     max_calories = 800 # float | The maximum amount of calories the menu item can have. (optional)
     min_carbs = 10 # float | The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -505,37 +483,38 @@ with openapi_client.ApiClient(configuration) as api_client:
     max_protein = 100 # float | The maximum amount of protein in grams the menu item can have. (optional)
     min_fat = 1 # float | The minimum amount of fat in grams the menu item must have. (optional)
     max_fat = 100 # float | The maximum amount of fat in grams the menu item can have. (optional)
-    add_menu_item_information = True # bool | If set to true, you get more information about the menu items returned. (optional)
-    offset = 0 # int | The number of results to skip (between 0 and 900). (optional)
-    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) if omitted the server will use the default value of 10
+    add_menu_item_information = true # bool | If set to true, you get more information about the menu items returned. (optional)
+    offset = 56 # int | The number of results to skip (between 0 and 900). (optional)
+    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search Menu Items
         api_response = api_instance.search_menu_items(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_menu_item_information=add_menu_item_information, offset=offset, number=number)
+        print("The response of MenuItemsApi->search_menu_items:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->search_menu_items: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional]
- **min_calories** | **float**| The minimum amount of calories the menu item must have. | [optional]
- **max_calories** | **float**| The maximum amount of calories the menu item can have. | [optional]
- **min_carbs** | **float**| The minimum amount of carbohydrates in grams the menu item must have. | [optional]
- **max_carbs** | **float**| The maximum amount of carbohydrates in grams the menu item can have. | [optional]
- **min_protein** | **float**| The minimum amount of protein in grams the menu item must have. | [optional]
- **max_protein** | **float**| The maximum amount of protein in grams the menu item can have. | [optional]
- **min_fat** | **float**| The minimum amount of fat in grams the menu item must have. | [optional]
- **max_fat** | **float**| The maximum amount of fat in grams the menu item can have. | [optional]
- **add_menu_item_information** | **bool**| If set to true, you get more information about the menu items returned. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] if omitted the server will use the default value of 10
+ **query** | **str**| The (natural language) search query. | [optional] 
+ **min_calories** | **float**| The minimum amount of calories the menu item must have. | [optional] 
+ **max_calories** | **float**| The maximum amount of calories the menu item can have. | [optional] 
+ **min_carbs** | **float**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] 
+ **max_carbs** | **float**| The maximum amount of carbohydrates in grams the menu item can have. | [optional] 
+ **min_protein** | **float**| The minimum amount of protein in grams the menu item must have. | [optional] 
+ **max_protein** | **float**| The maximum amount of protein in grams the menu item can have. | [optional] 
+ **min_fat** | **float**| The minimum amount of fat in grams the menu item must have. | [optional] 
+ **max_fat** | **float**| The maximum amount of fat in grams the menu item can have. | [optional] 
+ **add_menu_item_information** | **bool**| If set to true, you get more information about the menu items returned. | [optional] 
+ **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
@@ -550,7 +529,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -563,7 +541,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_menu_item_nutrition_by_id**
-> str visualize_menu_item_nutrition_by_id(id)
+> str visualize_menu_item_nutrition_by_id(id, default_css=default_css, accept=accept)
 
 Menu Item Nutrition by ID Widget
 
@@ -574,13 +552,13 @@ Visualize a menu item's nutritional information as HTML including CSS.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import menu_items_api
+import spoonacular
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -590,45 +568,38 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = menu_items_api.MenuItemsApi(api_client)
+    api_instance = spoonacular.MenuItemsApi(api_client)
     id = 1 # int | The item's id.
-    default_css = False # bool | Whether the default CSS should be added to the response. (optional) if omitted the server will use the default value of True
-    accept = "application/json" # str | Accept header. (optional)
+    default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
+    accept = 'application/json' # str | Accept header. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Menu Item Nutrition by ID Widget
-        api_response = api_instance.visualize_menu_item_nutrition_by_id(id)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MenuItemsApi->visualize_menu_item_nutrition_by_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Menu Item Nutrition by ID Widget
         api_response = api_instance.visualize_menu_item_nutrition_by_id(id, default_css=default_css, accept=accept)
+        print("The response of MenuItemsApi->visualize_menu_item_nutrition_by_id:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MenuItemsApi->visualize_menu_item_nutrition_by_id: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] if omitted the server will use the default value of True
- **accept** | **str**| Accept header. | [optional]
+ **id** | **int**| The item&#39;s id. | 
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
+ **accept** | **str**| Accept header. | [optional] 
 
 ### Return type
 
@@ -642,7 +613,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/html
-
 
 ### HTTP response details
 

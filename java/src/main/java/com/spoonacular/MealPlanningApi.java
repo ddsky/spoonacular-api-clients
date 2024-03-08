@@ -49,7 +49,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class MealPlanningApi {
     private ApiClient localVarApiClient;
@@ -125,7 +124,7 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/templates"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -159,25 +158,22 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addMealPlanTemplateValidateBeforeCall(String username, String hash, AddToMealPlanRequest addToMealPlanRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling addMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling addMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'addToMealPlanRequest' is set
         if (addToMealPlanRequest == null) {
             throw new ApiException("Missing the required parameter 'addToMealPlanRequest' when calling addMealPlanTemplate(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = addMealPlanTemplateCall(username, hash, addToMealPlanRequest, _callback);
-        return localVarCall;
+        return addMealPlanTemplateCall(username, hash, addToMealPlanRequest, _callback);
 
     }
 
@@ -294,7 +290,7 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/items"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -315,7 +311,8 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            "", "application/json"
+            "",
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -328,25 +325,22 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addToMealPlanValidateBeforeCall(String username, String hash, AddToMealPlanRequest addToMealPlanRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling addToMealPlan(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling addToMealPlan(Async)");
         }
-        
+
         // verify the required parameter 'addToMealPlanRequest' is set
         if (addToMealPlanRequest == null) {
             throw new ApiException("Missing the required parameter 'addToMealPlanRequest' when calling addToMealPlan(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = addToMealPlanCall(username, hash, addToMealPlanRequest, _callback);
-        return localVarCall;
+        return addToMealPlanCall(username, hash, addToMealPlanRequest, _callback);
 
     }
 
@@ -463,7 +457,7 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/items"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -484,7 +478,8 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            "", "application/json"
+            "",
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -497,25 +492,22 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addToShoppingListValidateBeforeCall(String username, String hash, AddToMealPlanRequest addToMealPlanRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling addToShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling addToShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'addToMealPlanRequest' is set
         if (addToMealPlanRequest == null) {
             throw new ApiException("Missing the required parameter 'addToMealPlanRequest' when calling addToShoppingList(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = addToShoppingListCall(username, hash, addToMealPlanRequest, _callback);
-        return localVarCall;
+        return addToShoppingListCall(username, hash, addToMealPlanRequest, _callback);
 
     }
 
@@ -633,8 +625,8 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/day/{date}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "date" + "\\}", localVarApiClient.escapeString(date.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "date" + "}", localVarApiClient.escapeString(date.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -668,30 +660,27 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call clearMealPlanDayValidateBeforeCall(String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling clearMealPlanDay(Async)");
         }
-        
+
         // verify the required parameter 'date' is set
         if (date == null) {
             throw new ApiException("Missing the required parameter 'date' when calling clearMealPlanDay(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling clearMealPlanDay(Async)");
         }
-        
+
         // verify the required parameter 'clearMealPlanDayRequest' is set
         if (clearMealPlanDayRequest == null) {
             throw new ApiException("Missing the required parameter 'clearMealPlanDayRequest' when calling clearMealPlanDay(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = clearMealPlanDayCall(username, date, hash, clearMealPlanDayRequest, _callback);
-        return localVarCall;
+        return clearMealPlanDayCall(username, date, hash, clearMealPlanDayRequest, _callback);
 
     }
 
@@ -825,7 +814,8 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            "", "application/json"
+            "",
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -838,15 +828,12 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call connectUserValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling connectUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = connectUserCall(body, _callback);
-        return localVarCall;
+        return connectUserCall(body, _callback);
 
     }
 
@@ -958,8 +945,8 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/items/{id}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -993,30 +980,27 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteFromMealPlanValidateBeforeCall(String username, BigDecimal id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling deleteFromMealPlan(Async)");
         }
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteFromMealPlan(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling deleteFromMealPlan(Async)");
         }
-        
+
         // verify the required parameter 'deleteFromMealPlanRequest' is set
         if (deleteFromMealPlanRequest == null) {
             throw new ApiException("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromMealPlan(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteFromMealPlanCall(username, id, hash, deleteFromMealPlanRequest, _callback);
-        return localVarCall;
+        return deleteFromMealPlanCall(username, id, hash, deleteFromMealPlanRequest, _callback);
 
     }
 
@@ -1137,8 +1121,8 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/items/{id}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1172,30 +1156,27 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteFromShoppingListValidateBeforeCall(String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling deleteFromShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteFromShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling deleteFromShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'deleteFromMealPlanRequest' is set
         if (deleteFromMealPlanRequest == null) {
             throw new ApiException("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromShoppingList(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteFromShoppingListCall(username, id, hash, deleteFromMealPlanRequest, _callback);
-        return localVarCall;
+        return deleteFromShoppingListCall(username, id, hash, deleteFromMealPlanRequest, _callback);
 
     }
 
@@ -1316,8 +1297,8 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/templates/{id}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1351,30 +1332,27 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteMealPlanTemplateValidateBeforeCall(String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling deleteMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling deleteMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'deleteFromMealPlanRequest' is set
         if (deleteFromMealPlanRequest == null) {
             throw new ApiException("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteMealPlanTemplate(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteMealPlanTemplateCall(username, id, hash, deleteFromMealPlanRequest, _callback);
-        return localVarCall;
+        return deleteMealPlanTemplateCall(username, id, hash, deleteFromMealPlanRequest, _callback);
 
     }
 
@@ -1527,7 +1505,6 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1540,10 +1517,7 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateMealPlanValidateBeforeCall(String timeFrame, BigDecimal targetCalories, String diet, String exclude, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = generateMealPlanCall(timeFrame, targetCalories, diet, exclude, _callback);
-        return localVarCall;
+        return generateMealPlanCall(timeFrame, targetCalories, diet, exclude, _callback);
 
     }
 
@@ -1665,9 +1639,9 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "start-date" + "\\}", localVarApiClient.escapeString(startDate.toString()))
-            .replaceAll("\\{" + "end-date" + "\\}", localVarApiClient.escapeString(endDate.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "start-date" + "}", localVarApiClient.escapeString(startDate.toString()))
+            .replace("{" + "end-date" + "}", localVarApiClient.escapeString(endDate.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1701,35 +1675,32 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateShoppingListValidateBeforeCall(String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling generateShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'startDate' is set
         if (startDate == null) {
             throw new ApiException("Missing the required parameter 'startDate' when calling generateShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'endDate' is set
         if (endDate == null) {
             throw new ApiException("Missing the required parameter 'endDate' when calling generateShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling generateShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'generateShoppingListRequest' is set
         if (generateShoppingListRequest == null) {
             throw new ApiException("Missing the required parameter 'generateShoppingListRequest' when calling generateShoppingList(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = generateShoppingListCall(username, startDate, endDate, hash, generateShoppingListRequest, _callback);
-        return localVarCall;
+        return generateShoppingListCall(username, startDate, endDate, hash, generateShoppingListRequest, _callback);
 
     }
 
@@ -1852,8 +1823,8 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/templates/{id}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1874,7 +1845,6 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1887,25 +1857,22 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getMealPlanTemplateValidateBeforeCall(String username, Integer id, String hash, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling getMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getMealPlanTemplate(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling getMealPlanTemplate(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getMealPlanTemplateCall(username, id, hash, _callback);
-        return localVarCall;
+        return getMealPlanTemplateCall(username, id, hash, _callback);
 
     }
 
@@ -2021,7 +1988,7 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/templates"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2042,7 +2009,6 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2055,20 +2021,17 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getMealPlanTemplatesValidateBeforeCall(String username, String hash, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling getMealPlanTemplates(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling getMealPlanTemplates(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getMealPlanTemplatesCall(username, hash, _callback);
-        return localVarCall;
+        return getMealPlanTemplatesCall(username, hash, _callback);
 
     }
 
@@ -2182,8 +2145,8 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/week/{start-date}"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()))
-            .replaceAll("\\{" + "start-date" + "\\}", localVarApiClient.escapeString(startDate.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
+            .replace("{" + "start-date" + "}", localVarApiClient.escapeString(startDate.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2204,7 +2167,6 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2217,25 +2179,22 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getMealPlanWeekValidateBeforeCall(String username, String startDate, String hash, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling getMealPlanWeek(Async)");
         }
-        
+
         // verify the required parameter 'startDate' is set
         if (startDate == null) {
             throw new ApiException("Missing the required parameter 'startDate' when calling getMealPlanWeek(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling getMealPlanWeek(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getMealPlanWeekCall(username, startDate, hash, _callback);
-        return localVarCall;
+        return getMealPlanWeekCall(username, startDate, hash, _callback);
 
     }
 
@@ -2351,7 +2310,7 @@ public class MealPlanningApi {
 
         // create path and map variables
         String localVarPath = "/mealplanner/{username}/shopping-list"
-            .replaceAll("\\{" + "username" + "\\}", localVarApiClient.escapeString(username.toString()));
+            .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2372,7 +2331,6 @@ public class MealPlanningApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2385,20 +2343,17 @@ public class MealPlanningApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getShoppingListValidateBeforeCall(String username, String hash, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling getShoppingList(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling getShoppingList(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getShoppingListCall(username, hash, _callback);
-        return localVarCall;
+        return getShoppingListCall(username, hash, _callback);
 
     }
 

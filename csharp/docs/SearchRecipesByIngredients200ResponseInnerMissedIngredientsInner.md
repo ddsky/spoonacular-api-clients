@@ -1,14 +1,14 @@
-# Org.OpenAPITools.Model.SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+# spoonacular.Model.SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aisle** | **string** |  | 
-**Amount** | **decimal?** |  | 
-**Id** | **int?** |  | 
+**Amount** | **decimal** |  | 
+**Id** | **int** |  | 
 **Image** | **string** |  | 
-**Meta** | **List<string>** |  | [optional] 
+**Meta** | **List&lt;string&gt;** |  | [optional] 
 **Name** | **string** |  | 
 **Original** | **string** |  | 
 **OriginalName** | **string** |  | 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner[]**](SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md) |  | [optional]
+**data_points** | [**\OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner[]**](SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md) |  | [optional]
 **image** | **string** |  |
 **link** | **string** |  |
 **name** | **string** |  |

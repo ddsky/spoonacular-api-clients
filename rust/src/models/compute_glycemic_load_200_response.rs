@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ComputeGlycemicLoad200Response {
     #[serde(rename = "totalGlycemicLoad")]
     pub total_glycemic_load: f32,

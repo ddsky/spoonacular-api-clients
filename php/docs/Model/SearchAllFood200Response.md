@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **total_results** | **int** |  |
 **limit** | **int** |  |
 **offset** | **int** |  |
-**search_results** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchAllFood200ResponseSearchResultsInner[]**](SearchAllFood200ResponseSearchResultsInner.md) |  |
+**search_results** | [**\OpenAPI\Client\Model\SearchAllFood200ResponseSearchResultsInner[]**](SearchAllFood200ResponseSearchResultsInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

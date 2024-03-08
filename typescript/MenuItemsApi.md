@@ -89,7 +89,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .MenuItemsApi(configuration);
 
 let body:.MenuItemsApiGetMenuItemInformationRequest = {
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
 };
 
@@ -103,7 +103,7 @@ apiInstance.getMenuItemInformation(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
 
 
 ### Return type
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 # **menuItemNutritionByIDImage**
 > any menuItemNutritionByIDImage()
 
-Visualize a menu item's nutritional information as HTML including CSS.
+Visualize a menu item\'s nutritional information as HTML including CSS.
 
 ### Example
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 # **menuItemNutritionLabelImage**
 > any menuItemNutritionLabelImage()
 
-Visualize a menu item's nutritional label information as an image.
+Visualize a menu item\'s nutritional label information as an image.
 
 ### Example
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **menuItemNutritionLabelWidget**
 > string menuItemNutritionLabelWidget()
 
-Visualize a menu item's nutritional label information as HTML including CSS.
+Visualize a menu item\'s nutritional label information as HTML including CSS.
 
 ### Example
 
@@ -292,7 +292,7 @@ apiInstance.menuItemNutritionLabelWidget(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**number**] | The menu item id. | defaults to undefined
- **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to undefined
+ **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
  **showOptionalNutrients** | [**boolean**] | Whether to show optional nutrients. | (optional) defaults to undefined
  **showZeroValues** | [**boolean**] | Whether to show zero values. | (optional) defaults to undefined
  **showIngredients** | [**boolean**] | Whether to show a list of ingredients. | (optional) defaults to undefined
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 # **searchMenuItems**
 > SearchMenuItems200Response searchMenuItems()
 
-Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
+Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald\'s Big Mac or Starbucks Mocha.
 
 ### Example
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
  **maxProtein** | [**number**] | The maximum amount of protein in grams the menu item can have. | (optional) defaults to undefined
  **minFat** | [**number**] | The minimum amount of fat in grams the menu item must have. | (optional) defaults to undefined
  **maxFat** | [**number**] | The maximum amount of fat in grams the menu item can have. | (optional) defaults to undefined
- **addMenuItemInformation** | [**boolean**]**Array<&#39;false&#39; &#124; &#39;true&#39;>** | If set to true, you get more information about the menu items returned. | (optional) defaults to undefined
+ **addMenuItemInformation** | [**boolean**] | If set to true, you get more information about the menu items returned. | (optional) defaults to undefined
  **offset** | [**number**] | The number of results to skip (between 0 and 900). | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 # **visualizeMenuItemNutritionByID**
 > string visualizeMenuItemNutritionByID()
 
-Visualize a menu item's nutritional information as HTML including CSS.
+Visualize a menu item\'s nutritional information as HTML including CSS.
 
 ### Example
 
@@ -428,7 +428,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .MenuItemsApi(configuration);
 
 let body:.MenuItemsApiVisualizeMenuItemNutritionByIDRequest = {
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
@@ -446,8 +446,8 @@ apiInstance.visualizeMenuItemNutritionByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
- **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
  **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
 
 

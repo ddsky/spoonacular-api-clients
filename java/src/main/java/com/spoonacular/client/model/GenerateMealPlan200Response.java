@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GenerateMealPlan200ResponseNutrients;
 import com.spoonacular.client.model.GetSimilarRecipes200ResponseInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -39,12 +36,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,8 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GenerateMealPlan200Response {
   public static final String SERIALIZED_NAME_MEALS = "meals";
   @SerializedName(SERIALIZED_NAME_MEALS)
@@ -63,16 +63,18 @@ public class GenerateMealPlan200Response {
   @SerializedName(SERIALIZED_NAME_NUTRIENTS)
   private GenerateMealPlan200ResponseNutrients nutrients;
 
-  public GenerateMealPlan200Response() { 
+  public GenerateMealPlan200Response() {
   }
 
   public GenerateMealPlan200Response meals(Set<GetSimilarRecipes200ResponseInner> meals) {
-    
     this.meals = meals;
     return this;
   }
 
   public GenerateMealPlan200Response addMealsItem(GetSimilarRecipes200ResponseInner mealsItem) {
+    if (this.meals == null) {
+      this.meals = new LinkedHashSet<>();
+    }
     this.meals.add(mealsItem);
     return this;
   }
@@ -82,12 +84,9 @@ public class GenerateMealPlan200Response {
    * @return meals
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetSimilarRecipes200ResponseInner> getMeals() {
     return meals;
   }
-
 
   public void setMeals(Set<GetSimilarRecipes200ResponseInner> meals) {
     this.meals = meals;
@@ -95,7 +94,6 @@ public class GenerateMealPlan200Response {
 
 
   public GenerateMealPlan200Response nutrients(GenerateMealPlan200ResponseNutrients nutrients) {
-    
     this.nutrients = nutrients;
     return this;
   }
@@ -105,12 +103,9 @@ public class GenerateMealPlan200Response {
    * @return nutrients
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public GenerateMealPlan200ResponseNutrients getNutrients() {
     return nutrients;
   }
-
 
   public void setNutrients(GenerateMealPlan200ResponseNutrients nutrients) {
     this.nutrients = nutrients;
@@ -174,50 +169,45 @@ public class GenerateMealPlan200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GenerateMealPlan200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GenerateMealPlan200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GenerateMealPlan200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GenerateMealPlan200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GenerateMealPlan200Response is not found in the empty JSON string", GenerateMealPlan200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GenerateMealPlan200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GenerateMealPlan200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GenerateMealPlan200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GenerateMealPlan200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      JsonArray jsonArraymeals = jsonObj.getAsJsonArray("meals");
-      if (jsonArraymeals != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("meals").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `meals` to be an array in the JSON string but got `%s`", jsonObj.get("meals").toString()));
-        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("meals").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `meals` to be an array in the JSON string but got `%s`", jsonObj.get("meals").toString()));
+      }
 
-        // validate the optional field `meals` (array)
-        for (int i = 0; i < jsonArraymeals.size(); i++) {
-          GetSimilarRecipes200ResponseInner.validateJsonObject(jsonArraymeals.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `nutrients`
-      if (jsonObj.getAsJsonObject("nutrients") != null) {
-        GenerateMealPlan200ResponseNutrients.validateJsonObject(jsonObj.getAsJsonObject("nutrients"));
-      }
+      JsonArray jsonArraymeals = jsonObj.getAsJsonArray("meals");
+      // validate the required field `meals` (array)
+      for (int i = 0; i < jsonArraymeals.size(); i++) {
+        GetSimilarRecipes200ResponseInner.validateJsonElement(jsonArraymeals.get(i));
+      };
+      // validate the required field `nutrients`
+      GenerateMealPlan200ResponseNutrients.validateJsonElement(jsonObj.get("nutrients"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -240,9 +230,9 @@ public class GenerateMealPlan200Response {
 
            @Override
            public GenerateMealPlan200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

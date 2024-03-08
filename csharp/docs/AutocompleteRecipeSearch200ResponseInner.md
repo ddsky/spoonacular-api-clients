@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.AutocompleteRecipeSearch200ResponseInner
+# spoonacular.Model.AutocompleteRecipeSearch200ResponseInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
 **ImageType** | **string** |  | 
 

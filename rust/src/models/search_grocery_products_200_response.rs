@@ -12,14 +12,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchGroceryProducts200Response {
     #[serde(rename = "products")]
     pub products: Vec<crate::models::AutocompleteRecipeSearch200ResponseInner>,
     #[serde(rename = "totalProducts")]
     pub total_products: i32,
     #[serde(rename = "type")]
-    pub _type: String,
+    pub r#type: String,
     #[serde(rename = "offset")]
     pub offset: i32,
     #[serde(rename = "number")]
@@ -28,11 +28,11 @@ pub struct SearchGroceryProducts200Response {
 
 impl SearchGroceryProducts200Response {
     /// 
-    pub fn new(products: Vec<crate::models::AutocompleteRecipeSearch200ResponseInner>, total_products: i32, _type: String, offset: i32, number: i32) -> SearchGroceryProducts200Response {
+    pub fn new(products: Vec<crate::models::AutocompleteRecipeSearch200ResponseInner>, total_products: i32, r#type: String, offset: i32, number: i32) -> SearchGroceryProducts200Response {
         SearchGroceryProducts200Response {
             products,
             total_products,
-            _type,
+            r#type,
             offset,
             number,
         }

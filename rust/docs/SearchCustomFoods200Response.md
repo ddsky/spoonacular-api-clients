@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **custom_foods** | [**Vec<crate::models::SearchCustomFoods200ResponseCustomFoodsInner>**](searchCustomFoods_200_response_customFoods_inner.md) |  | 
-**_type** | **String** |  | 
+**r#type** | **String** |  | 
 **offset** | **i32** |  | 
 **number** | **i32** |  | 
 
