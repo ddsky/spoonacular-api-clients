@@ -17,13 +17,15 @@ import com.spoonacular.client.ApiException;
 import com.spoonacular.client.Pair;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
-  private String bearerToken;
+  private Supplier<String> tokenSupplier;
 
   public HttpBearerAuth(String scheme) {
     this.scheme = scheme;
@@ -35,7 +37,7 @@ public class HttpBearerAuth implements Authentication {
    * @return The bearer token
    */
   public String getBearerToken() {
-    return bearerToken;
+    return tokenSupplier.get();
   }
 
   /**
@@ -44,12 +46,22 @@ public class HttpBearerAuth implements Authentication {
    * @param bearerToken The bearer token to send in the Authorization header
    */
   public void setBearerToken(String bearerToken) {
-    this.bearerToken = bearerToken;
+    this.tokenSupplier = () -> bearerToken;
+  }
+
+  /**
+   * Sets the supplier of tokens, which together with the scheme, will be sent as the value of the Authorization header.
+   *
+   * @param tokenSupplier The supplier of bearer tokens to send in the Authorization header
+   */
+  public void setBearerToken(Supplier<String> tokenSupplier) {
+    this.tokenSupplier = tokenSupplier;
   }
 
   @Override
   public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
                             String payload, String method, URI uri) throws ApiException {
+    String bearerToken = Optional.ofNullable(tokenSupplier).map(Supplier::get).orElse(null);
     if (bearerToken == null) {
       return;
     }

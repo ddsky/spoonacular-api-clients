@@ -1,4 +1,4 @@
-# com.spoonacular.client\MiscApi
+# \MiscApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_food_videos
 
-> crate::models::SearchFoodVideos200Response search_food_videos(query, _type, cuisine, diet, include_ingredients, exclude_ingredients, min_length, max_length, offset, number)
+> crate::models::SearchFoodVideos200Response search_food_videos(query, r#type, cuisine, diet, include_ingredients, exclude_ingredients, min_length, max_length, offset, number)
 Search Food Videos
 
 Find recipe and other food related videos.
@@ -272,7 +272,7 @@ Find recipe and other food related videos.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | Option<**String**> | The (natural language) search query. |  |
-**_type** | Option<**String**> | The type of the recipes. See a full list of supported meal types. |  |
+**r#type** | Option<**String**> | The type of the recipes. See a full list of supported meal types. |  |
 **cuisine** | Option<**String**> | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. |  |
 **diet** | Option<**String**> | The diet for which the recipes must be suitable. See a full list of supported diets. |  |
 **include_ingredients** | Option<**String**> | A comma-separated list of ingredients that the recipes should contain. |  |

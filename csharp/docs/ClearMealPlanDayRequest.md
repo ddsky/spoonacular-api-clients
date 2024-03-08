@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ClearMealPlanDayRequest
+# spoonacular.Model.ClearMealPlanDayRequest
 
 ## Properties
 

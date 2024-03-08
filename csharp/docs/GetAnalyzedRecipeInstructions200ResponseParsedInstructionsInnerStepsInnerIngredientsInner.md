@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+# spoonacular.Model.GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Name** | **string** |  | 
 **LocalizedName** | **string** |  | 
 **Image** | **string** |  | 

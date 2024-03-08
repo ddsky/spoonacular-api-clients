@@ -1,4 +1,4 @@
-# com.spoonacular.client\RecipesApi
+# \RecipesApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_recipes
 
-> crate::models::SearchRecipes200Response search_recipes(query, cuisine, exclude_cuisine, diet, intolerances, equipment, include_ingredients, exclude_ingredients, _type, instructions_required, fill_ingredients, add_recipe_information, add_recipe_nutrition, author, tags, recipe_box_id, title_match, max_ready_time, ignore_pantry, sort, sort_direction, min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, number, limit_license)
+> crate::models::SearchRecipes200Response search_recipes(query, cuisine, exclude_cuisine, diet, intolerances, equipment, include_ingredients, exclude_ingredients, r#type, instructions_required, fill_ingredients, add_recipe_information, add_recipe_nutrition, author, tags, recipe_box_id, title_match, max_ready_time, ignore_pantry, sort, sort_direction, min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, number, limit_license)
 Search Recipes
 
 Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
@@ -936,7 +936,7 @@ Name | Type | Description  | Required | Notes
 **equipment** | Option<**String**> | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\". |  |
 **include_ingredients** | Option<**String**> | A comma-separated list of ingredients that should/must be used in the recipes. |  |
 **exclude_ingredients** | Option<**String**> | A comma-separated list of ingredients or ingredient types that the recipes must not contain. |  |
-**_type** | Option<**String**> | The type of recipe. See a full list of supported meal types. |  |
+**r#type** | Option<**String**> | The type of recipe. See a full list of supported meal types. |  |
 **instructions_required** | Option<**bool**> | Whether the recipes must have instructions. |  |
 **fill_ingredients** | Option<**bool**> | Add information about the ingredients and whether they are used or missing in relation to the query. |  |
 **add_recipe_information** | Option<**bool**> | If set to true, you get more information about the recipes returned. |  |

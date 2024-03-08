@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasures
+# spoonacular.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasures
 
 ## Properties
 

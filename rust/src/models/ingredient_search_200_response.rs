@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct IngredientSearch200Response {
     #[serde(rename = "results")]
     pub results: Vec<crate::models::IngredientSearch200ResponseResultsInner>,

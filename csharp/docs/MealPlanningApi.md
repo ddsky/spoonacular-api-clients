@@ -1,26 +1,25 @@
-# com.spoonacular.MealPlanningApi
+# spoonacular.Api.MealPlanningApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**AddMealPlanTemplate**](MealPlanningApi.md#addmealplantemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
-[**AddToMealPlan**](MealPlanningApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
-[**AddToShoppingList**](MealPlanningApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
-[**ClearMealPlanDay**](MealPlanningApi.md#clearmealplanday) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
-[**ConnectUser**](MealPlanningApi.md#connectuser) | **POST** /users/connect | Connect User
-[**DeleteFromMealPlan**](MealPlanningApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
-[**DeleteFromShoppingList**](MealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
-[**DeleteMealPlanTemplate**](MealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
-[**GenerateMealPlan**](MealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
-[**GenerateShoppingList**](MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
-[**GetMealPlanTemplate**](MealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
-[**GetMealPlanTemplates**](MealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-[**GetMealPlanWeek**](MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
-[**GetShoppingList**](MealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**AddMealPlanTemplate**](MealPlanningApi.md#addmealplantemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template |
+| [**AddToMealPlan**](MealPlanningApi.md#addtomealplan) | **POST** /mealplanner/{username}/items | Add to Meal Plan |
+| [**AddToShoppingList**](MealPlanningApi.md#addtoshoppinglist) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List |
+| [**ClearMealPlanDay**](MealPlanningApi.md#clearmealplanday) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day |
+| [**ConnectUser**](MealPlanningApi.md#connectuser) | **POST** /users/connect | Connect User |
+| [**DeleteFromMealPlan**](MealPlanningApi.md#deletefrommealplan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan |
+| [**DeleteFromShoppingList**](MealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List |
+| [**DeleteMealPlanTemplate**](MealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template |
+| [**GenerateMealPlan**](MealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan |
+| [**GenerateShoppingList**](MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List |
+| [**GetMealPlanTemplate**](MealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template |
+| [**GetMealPlanTemplates**](MealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates |
+| [**GetMealPlanWeek**](MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week |
+| [**GetShoppingList**](MealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List |
 
-
-<a name="addmealplantemplate"></a>
+<a id="addmealplantemplate"></a>
 # **AddMealPlanTemplate**
 > AddMealPlanTemplate200Response AddMealPlanTemplate (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
 
@@ -30,24 +29,26 @@ Add a meal plan template for a user.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class AddMealPlanTemplateExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
             var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
@@ -58,22 +59,44 @@ namespace Example
                 AddMealPlanTemplate200Response result = apiInstance.AddMealPlanTemplate(username, hash, addToMealPlanRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.AddMealPlanTemplate: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.AddMealPlanTemplate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the AddMealPlanTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Meal Plan Template
+    ApiResponse<AddMealPlanTemplate200Response> response = apiInstance.AddMealPlanTemplateWithHttpInfo(username, hash, addToMealPlanRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.AddMealPlanTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **hash** | **string**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -88,9 +111,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: 
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addtomealplan"></a>
+<a id="addtomealplan"></a>
 # **AddToMealPlan**
 > Object AddToMealPlan (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
 
@@ -100,24 +132,26 @@ Add an item to the user's meal plan.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class AddToMealPlanExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = "hash_example";  // string | The private hash for the username.
             var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
@@ -128,22 +162,44 @@ namespace Example
                 Object result = apiInstance.AddToMealPlan(username, hash, addToMealPlanRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.AddToMealPlan: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.AddToMealPlan: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the AddToMealPlanWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add to Meal Plan
+    ApiResponse<Object> response = apiInstance.AddToMealPlanWithHttpInfo(username, hash, addToMealPlanRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.AddToMealPlanWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **hash** | **string**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -158,9 +214,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: , application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addtoshoppinglist"></a>
+<a id="addtoshoppinglist"></a>
 # **AddToShoppingList**
 > GenerateShoppingList200Response AddToShoppingList (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
 
@@ -170,24 +235,26 @@ Add an item to the current shopping list of a user.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class AddToShoppingListExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = "hash_example";  // string | The private hash for the username.
             var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
@@ -198,22 +265,44 @@ namespace Example
                 GenerateShoppingList200Response result = apiInstance.AddToShoppingList(username, hash, addToMealPlanRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.AddToShoppingList: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.AddToShoppingList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the AddToShoppingListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add to Shopping List
+    ApiResponse<GenerateShoppingList200Response> response = apiInstance.AddToShoppingListWithHttpInfo(username, hash, addToMealPlanRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.AddToShoppingListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **hash** | **string**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -228,9 +317,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: , application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="clearmealplanday"></a>
+<a id="clearmealplanday"></a>
 # **ClearMealPlanDay**
 > Object ClearMealPlanDay (string username, string date, string hash, ClearMealPlanDayRequest clearMealPlanDayRequest)
 
@@ -240,24 +338,26 @@ Delete all planned items from the user's meal plan for a specific day.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class ClearMealPlanDayExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var date = 2020-06-01;  // string | The date in the format yyyy-mm-dd.
             var hash = "hash_example";  // string | The private hash for the username.
@@ -269,23 +369,45 @@ namespace Example
                 Object result = apiInstance.ClearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.ClearMealPlanDay: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.ClearMealPlanDay: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the ClearMealPlanDayWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Clear Meal Plan Day
+    ApiResponse<Object> response = apiInstance.ClearMealPlanDayWithHttpInfo(username, date, hash, clearMealPlanDayRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.ClearMealPlanDayWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **date** | **string**| The date in the format yyyy-mm-dd. | 
- **hash** | **string**| The private hash for the username. | 
- **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **date** | **string** | The date in the format yyyy-mm-dd. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md) |  |  |
 
 ### Return type
 
@@ -300,9 +422,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: 
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="connectuser"></a>
+<a id="connectuser"></a>
 # **ConnectUser**
 > ConnectUser200Response ConnectUser (Object body)
 
@@ -312,24 +443,26 @@ In order to call user-specific endpoints, you need to connect your app's users t
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class ConnectUserExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var body = null;  // Object | 
 
             try
@@ -338,20 +471,42 @@ namespace Example
                 ConnectUser200Response result = apiInstance.ConnectUser(body);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.ConnectUser: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.ConnectUser: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the ConnectUserWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Connect User
+    ApiResponse<ConnectUser200Response> response = apiInstance.ConnectUserWithHttpInfo(body);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.ConnectUserWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **body** | **Object** |  |  |
 
 ### Return type
 
@@ -366,11 +521,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: , application/json
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletefrommealplan"></a>
+<a id="deletefrommealplan"></a>
 # **DeleteFromMealPlan**
-> Object DeleteFromMealPlan (string username, decimal? id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
+> Object DeleteFromMealPlan (string username, decimal id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
 
 Delete from Meal Plan
 
@@ -378,26 +542,28 @@ Delete an item from the user's meal plan.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class DeleteFromMealPlanExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 15678;  // decimal? | The shopping list item id.
+            var id = 15678;  // decimal | The shopping list item id.
             var hash = "hash_example";  // string | The private hash for the username.
             var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
@@ -407,23 +573,45 @@ namespace Example
                 Object result = apiInstance.DeleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.DeleteFromMealPlan: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.DeleteFromMealPlan: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the DeleteFromMealPlanWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete from Meal Plan
+    ApiResponse<Object> response = apiInstance.DeleteFromMealPlanWithHttpInfo(username, id, hash, deleteFromMealPlanRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.DeleteFromMealPlanWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **id** | **decimal?**| The shopping list item id. | 
- **hash** | **string**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **id** | **decimal** | The shopping list item id. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -438,11 +626,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: 
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletefromshoppinglist"></a>
+<a id="deletefromshoppinglist"></a>
 # **DeleteFromShoppingList**
-> Object DeleteFromShoppingList (string username, int? id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
+> Object DeleteFromShoppingList (string username, int id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
 
 Delete from Shopping List
 
@@ -450,26 +647,28 @@ Delete an item from the current shopping list of the user.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class DeleteFromShoppingListExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 1;  // int? | The item's id.
+            var id = 1;  // int | The item's id.
             var hash = "hash_example";  // string | The private hash for the username.
             var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
@@ -479,23 +678,45 @@ namespace Example
                 Object result = apiInstance.DeleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.DeleteFromShoppingList: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.DeleteFromShoppingList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the DeleteFromShoppingListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete from Shopping List
+    ApiResponse<Object> response = apiInstance.DeleteFromShoppingListWithHttpInfo(username, id, hash, deleteFromMealPlanRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.DeleteFromShoppingListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **id** | **int?**| The item&#39;s id. | 
- **hash** | **string**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **id** | **int** | The item&#39;s id. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -510,11 +731,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: 
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletemealplantemplate"></a>
+<a id="deletemealplantemplate"></a>
 # **DeleteMealPlanTemplate**
-> Object DeleteMealPlanTemplate (string username, int? id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
+> Object DeleteMealPlanTemplate (string username, int id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
 
 Delete Meal Plan Template
 
@@ -522,26 +752,28 @@ Delete a meal plan template for a user.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class DeleteMealPlanTemplateExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 1;  // int? | The item's id.
+            var id = 1;  // int | The item's id.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
             var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
@@ -551,23 +783,45 @@ namespace Example
                 Object result = apiInstance.DeleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.DeleteMealPlanTemplate: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.DeleteMealPlanTemplate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the DeleteMealPlanTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Meal Plan Template
+    ApiResponse<Object> response = apiInstance.DeleteMealPlanTemplateWithHttpInfo(username, id, hash, deleteFromMealPlanRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.DeleteMealPlanTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **id** | **int?**| The item&#39;s id. | 
- **hash** | **string**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **id** | **int** | The item&#39;s id. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -582,11 +836,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: 
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generatemealplan"></a>
+<a id="generatemealplan"></a>
 # **GenerateMealPlan**
-> GenerateMealPlan200Response GenerateMealPlan (string timeFrame, decimal? targetCalories, string diet, string exclude)
+> GenerateMealPlan200Response GenerateMealPlan (string? timeFrame = null, decimal? targetCalories = null, string? diet = null, string? exclude = null)
 
 Generate Meal Plan
 
@@ -594,28 +857,30 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class GenerateMealPlanExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
-            var timeFrame = day;  // string | Either for one \"day\" or an entire \"week\". (optional) 
+            var apiInstance = new MealPlanningApi(config);
+            var timeFrame = day;  // string? | Either for one \"day\" or an entire \"week\". (optional) 
             var targetCalories = 2000;  // decimal? | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. (optional) 
-            var diet = vegetarian;  // string | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. (optional) 
-            var exclude = shellfish, olives;  // string | A comma-separated list of allergens or ingredients that must be excluded. (optional) 
+            var diet = vegetarian;  // string? | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. (optional) 
+            var exclude = shellfish, olives;  // string? | A comma-separated list of allergens or ingredients that must be excluded. (optional) 
 
             try
             {
@@ -623,23 +888,45 @@ namespace Example
                 GenerateMealPlan200Response result = apiInstance.GenerateMealPlan(timeFrame, targetCalories, diet, exclude);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.GenerateMealPlan: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.GenerateMealPlan: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the GenerateMealPlanWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Generate Meal Plan
+    ApiResponse<GenerateMealPlan200Response> response = apiInstance.GenerateMealPlanWithHttpInfo(timeFrame, targetCalories, diet, exclude);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.GenerateMealPlanWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **timeFrame** | **string**| Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | [optional] 
- **targetCalories** | **decimal?**| What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | [optional] 
- **diet** | **string**| Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | [optional] 
- **exclude** | **string**| A comma-separated list of allergens or ingredients that must be excluded. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **timeFrame** | **string?** | Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | [optional]  |
+| **targetCalories** | **decimal?** | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | [optional]  |
+| **diet** | **string?** | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | [optional]  |
+| **exclude** | **string?** | A comma-separated list of allergens or ingredients that must be excluded. | [optional]  |
 
 ### Return type
 
@@ -654,9 +941,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateshoppinglist"></a>
+<a id="generateshoppinglist"></a>
 # **GenerateShoppingList**
 > GenerateShoppingList200Response GenerateShoppingList (string username, string startDate, string endDate, string hash, GenerateShoppingListRequest generateShoppingListRequest)
 
@@ -666,24 +962,26 @@ Generate the shopping list for a user from the meal planner in a given time fram
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class GenerateShoppingListExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var startDate = 2020-06-01;  // string | The start date in the format yyyy-mm-dd.
             var endDate = 2020-06-07;  // string | The end date in the format yyyy-mm-dd.
@@ -696,24 +994,46 @@ namespace Example
                 GenerateShoppingList200Response result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.GenerateShoppingList: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.GenerateShoppingList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the GenerateShoppingListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Generate Shopping List
+    ApiResponse<GenerateShoppingList200Response> response = apiInstance.GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash, generateShoppingListRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.GenerateShoppingListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **startDate** | **string**| The start date in the format yyyy-mm-dd. | 
- **endDate** | **string**| The end date in the format yyyy-mm-dd. | 
- **hash** | **string**| The private hash for the username. | 
- **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **startDate** | **string** | The start date in the format yyyy-mm-dd. |  |
+| **endDate** | **string** | The end date in the format yyyy-mm-dd. |  |
+| **hash** | **string** | The private hash for the username. |  |
+| **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md) |  |  |
 
 ### Return type
 
@@ -728,11 +1048,20 @@ Name | Type | Description  | Notes
  - **Content-Type**: 
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmealplantemplate"></a>
+<a id="getmealplantemplate"></a>
 # **GetMealPlanTemplate**
-> GetMealPlanTemplate200Response GetMealPlanTemplate (string username, int? id, string hash)
+> GetMealPlanTemplate200Response GetMealPlanTemplate (string username, int id, string hash)
 
 Get Meal Plan Template
 
@@ -740,26 +1069,28 @@ Get information about a meal plan template.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class GetMealPlanTemplateExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 1;  // int? | The item's id.
+            var id = 1;  // int | The item's id.
             var hash = "hash_example";  // string | The private hash for the username.
 
             try
@@ -768,22 +1099,44 @@ namespace Example
                 GetMealPlanTemplate200Response result = apiInstance.GetMealPlanTemplate(username, id, hash);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.GetMealPlanTemplate: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.GetMealPlanTemplate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the GetMealPlanTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Meal Plan Template
+    ApiResponse<GetMealPlanTemplate200Response> response = apiInstance.GetMealPlanTemplateWithHttpInfo(username, id, hash);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.GetMealPlanTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **id** | **int?**| The item&#39;s id. | 
- **hash** | **string**| The private hash for the username. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **id** | **int** | The item&#39;s id. |  |
+| **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
 
@@ -798,9 +1151,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmealplantemplates"></a>
+<a id="getmealplantemplates"></a>
 # **GetMealPlanTemplates**
 > GetMealPlanTemplates200Response GetMealPlanTemplates (string username, string hash)
 
@@ -810,24 +1172,26 @@ Get meal plan templates from user or public ones.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class GetMealPlanTemplatesExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = "hash_example";  // string | The private hash for the username.
 
@@ -837,21 +1201,43 @@ namespace Example
                 GetMealPlanTemplates200Response result = apiInstance.GetMealPlanTemplates(username, hash);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.GetMealPlanTemplates: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.GetMealPlanTemplates: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the GetMealPlanTemplatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Meal Plan Templates
+    ApiResponse<GetMealPlanTemplates200Response> response = apiInstance.GetMealPlanTemplatesWithHttpInfo(username, hash);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.GetMealPlanTemplatesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **hash** | **string**| The private hash for the username. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
 
@@ -866,9 +1252,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmealplanweek"></a>
+<a id="getmealplanweek"></a>
 # **GetMealPlanWeek**
 > GetMealPlanWeek200Response GetMealPlanWeek (string username, string startDate, string hash)
 
@@ -878,24 +1273,26 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class GetMealPlanWeekExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var startDate = 2020-06-01;  // string | The start date of the meal planned week in the format yyyy-mm-dd.
             var hash = "hash_example";  // string | The private hash for the username.
@@ -906,22 +1303,44 @@ namespace Example
                 GetMealPlanWeek200Response result = apiInstance.GetMealPlanWeek(username, startDate, hash);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.GetMealPlanWeek: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.GetMealPlanWeek: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the GetMealPlanWeekWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Meal Plan Week
+    ApiResponse<GetMealPlanWeek200Response> response = apiInstance.GetMealPlanWeekWithHttpInfo(username, startDate, hash);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.GetMealPlanWeekWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **startDate** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. | 
- **hash** | **string**| The private hash for the username. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **startDate** | **string** | The start date of the meal planned week in the format yyyy-mm-dd. |  |
+| **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
 
@@ -936,9 +1355,18 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getshoppinglist"></a>
+<a id="getshoppinglist"></a>
 # **GetShoppingList**
 > GetShoppingList200Response GetShoppingList (string username, string hash)
 
@@ -948,24 +1376,26 @@ Get the current shopping list for the given user.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using com.spoonacular;
-using Org.OpenAPITools.Client;
-using com.spoonacular.client.model;
+using spoonacular.Api;
+using spoonacular.Client;
+using spoonacular.Model;
 
 namespace Example
 {
     public class GetShoppingListExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.spoonacular.com";
             // Configure API key authorization: apiKeyScheme
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
+            config.AddApiKey("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
+            // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
-            var apiInstance = new MealPlanningApi();
+            var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = "hash_example";  // string | The private hash for the username.
 
@@ -975,21 +1405,43 @@ namespace Example
                 GetShoppingList200Response result = apiInstance.GetShoppingList(username, hash);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MealPlanningApi.GetShoppingList: " + e.Message );
+                Debug.Print("Exception when calling MealPlanningApi.GetShoppingList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
 ```
 
+#### Using the GetShoppingListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Shopping List
+    ApiResponse<GetShoppingList200Response> response = apiInstance.GetShoppingListWithHttpInfo(username, hash);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MealPlanningApi.GetShoppingListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. | 
- **hash** | **string**| The private hash for the username. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | The username. |  |
+| **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
 
@@ -1003,6 +1455,15 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

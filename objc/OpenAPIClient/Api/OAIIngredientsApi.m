@@ -8,6 +8,7 @@
 #import "OAIIngredientSearch200Response.h"
 #import "OAIMapIngredientsToGroceryProducts200ResponseInner.h"
 #import "OAIMapIngredientsToGroceryProductsRequest.h"
+#import "OAISet.h"
 
 
 @interface OAIIngredientsApi ()

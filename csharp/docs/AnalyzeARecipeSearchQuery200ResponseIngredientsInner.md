@@ -1,11 +1,11 @@
-# Org.OpenAPITools.Model.AnalyzeARecipeSearchQuery200ResponseIngredientsInner
+# spoonacular.Model.AnalyzeARecipeSearchQuery200ResponseIngredientsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Image** | **string** |  | 
-**Include** | **bool?** |  | 
+**Include** | **bool** |  | 
 **Name** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

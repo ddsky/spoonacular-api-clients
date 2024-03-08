@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetMealPlanWeek200ResponseDaysInnerItemsInner {
     #[serde(rename = "id")]
     pub id: i32,
@@ -20,18 +20,18 @@ pub struct GetMealPlanWeek200ResponseDaysInnerItemsInner {
     #[serde(rename = "position")]
     pub position: i32,
     #[serde(rename = "type")]
-    pub _type: String,
+    pub r#type: String,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
     pub value: Option<Box<crate::models::GetMealPlanWeek200ResponseDaysInnerItemsInnerValue>>,
 }
 
 impl GetMealPlanWeek200ResponseDaysInnerItemsInner {
-    pub fn new(id: i32, slot: i32, position: i32, _type: String) -> GetMealPlanWeek200ResponseDaysInnerItemsInner {
+    pub fn new(id: i32, slot: i32, position: i32, r#type: String) -> GetMealPlanWeek200ResponseDaysInnerItemsInner {
         GetMealPlanWeek200ResponseDaysInnerItemsInner {
             id,
             slot,
             position,
-            _type,
+            r#type,
             value: None,
         }
     }

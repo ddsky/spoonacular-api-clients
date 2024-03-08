@@ -1,12 +1,12 @@
-# Org.OpenAPITools.Model.AddToMealPlanRequest1
+# spoonacular.Model.AddToMealPlanRequest1
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **decimal?** |  | 
-**Slot** | **int?** |  | 
-**Position** | **int?** |  | 
+**Date** | **decimal** |  | 
+**Slot** | **int** |  | 
+**Position** | **int** |  | 
 **Type** | **string** |  | 
 **Value** | [**AddToMealPlanRequest1Value**](AddToMealPlanRequest1Value.md) |  | 
 

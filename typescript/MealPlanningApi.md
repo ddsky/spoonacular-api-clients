@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **addToMealPlan**
 > any addToMealPlan(addToMealPlanRequest)
 
-Add an item to the user's meal plan.
+Add an item to the user\'s meal plan.
 
 ### Example
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 # **clearMealPlanDay**
 > any clearMealPlanDay(clearMealPlanDayRequest)
 
-Delete all planned items from the user's meal plan for a specific day.
+Delete all planned items from the user\'s meal plan for a specific day.
 
 ### Example
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 # **connectUser**
 > ConnectUser200Response connectUser(body)
 
-In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
 
 ### Example
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 # **deleteFromMealPlan**
 > any deleteFromMealPlan(deleteFromMealPlanRequest)
 
-Delete an item from the user's meal plan.
+Delete an item from the user\'s meal plan.
 
 ### Example
 
@@ -433,7 +433,7 @@ const apiInstance = new .MealPlanningApi(configuration);
 let body:.MealPlanningApiDeleteFromShoppingListRequest = {
   // string | The username.
   username: "dsky",
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
   // string | The private hash for the username.
   hash: "hash_example",
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteFromMealPlanRequest** | **DeleteFromMealPlanRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
 
@@ -503,7 +503,7 @@ const apiInstance = new .MealPlanningApi(configuration);
 let body:.MealPlanningApiDeleteMealPlanTemplateRequest = {
   // string | The username.
   username: "dsky",
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
   // string | The private hash for the username.
   hash: "4b5v4398573406",
@@ -527,7 +527,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deleteFromMealPlanRequest** | **DeleteFromMealPlanRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
 
@@ -713,7 +713,7 @@ const apiInstance = new .MealPlanningApi(configuration);
 let body:.MealPlanningApiGetMealPlanTemplateRequest = {
   // string | The username.
   username: "dsky",
-  // number | The item's id.
+  // number | The item\'s id.
   id: 1,
   // string | The private hash for the username.
   hash: "hash_example",
@@ -730,7 +730,7 @@ apiInstance.getMealPlanTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | [**string**] | The username. | defaults to undefined
- **id** | [**number**] | The item&#39;s id. | defaults to undefined
+ **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
 
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 # **getMealPlanWeek**
 > GetMealPlanWeek200Response getMealPlanWeek()
 
-Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user\'s hash that can be found in his/her account.
 
 ### Example
 

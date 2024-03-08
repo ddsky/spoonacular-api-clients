@@ -10,7 +10,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**getWineRecommendation**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation |
 
 
-<a name="getDishPairingForWine"></a>
+<a id="getDishPairingForWine"></a>
 # **getDishPairingForWine**
 > GetDishPairingForWine200Response getDishPairingForWine(wine)
 
@@ -82,7 +82,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getWineDescription"></a>
+<a id="getWineDescription"></a>
 # **getWineDescription**
 > GetWineDescription200Response getWineDescription(wine)
 
@@ -154,7 +154,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getWinePairing"></a>
+<a id="getWinePairing"></a>
 # **getWinePairing**
 > GetWinePairing200Response getWinePairing(food, maxPrice)
 
@@ -228,7 +228,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getWineRecommendation"></a>
+<a id="getWineRecommendation"></a>
 # **getWineRecommendation**
 > GetWineRecommendation200Response getWineRecommendation(wine, maxPrice, minRating, number)
 

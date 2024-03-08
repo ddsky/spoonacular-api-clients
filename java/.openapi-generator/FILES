@@ -367,6 +367,14 @@ src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryPr
 src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.java
 src/main/java/com/spoonacular/client/model/SummarizeRecipe200Response.java
 src/main/java/com/spoonacular/client/model/TalkToChatbot200Response.java
+src/test/java/com/spoonacular/DefaultApiTest.java
+src/test/java/com/spoonacular/IngredientsApiTest.java
+src/test/java/com/spoonacular/MealPlanningApiTest.java
+src/test/java/com/spoonacular/MenuItemsApiTest.java
+src/test/java/com/spoonacular/MiscApiTest.java
+src/test/java/com/spoonacular/ProductsApiTest.java
+src/test/java/com/spoonacular/RecipesApiTest.java
+src/test/java/com/spoonacular/WineApiTest.java
 src/test/java/com/spoonacular/client/model/AddMealPlanTemplate200ResponseItemsInnerTest.java
 src/test/java/com/spoonacular/client/model/AddMealPlanTemplate200ResponseItemsInnerValueTest.java
 src/test/java/com/spoonacular/client/model/AddMealPlanTemplate200ResponseTest.java

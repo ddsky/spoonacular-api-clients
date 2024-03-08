@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.CreateRecipeCard200Response
+# spoonacular.Model.CreateRecipeCard200Response
 
 ## Properties
 

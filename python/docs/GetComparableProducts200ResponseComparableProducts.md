@@ -2,16 +2,33 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calories** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
-**likes** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
-**price** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
-**protein** | [**[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**spoonacular_score** | [**[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**sugar** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**calories** | **List[object]** |  | 
+**likes** | **List[object]** |  | 
+**price** | **List[object]** |  | 
+**protein** | [**List[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
+**spoonacular_score** | [**List[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
+**sugar** | **List[object]** |  | 
 
+## Example
+
+```python
+from spoonacular.models.get_comparable_products200_response_comparable_products import GetComparableProducts200ResponseComparableProducts
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetComparableProducts200ResponseComparableProducts from a JSON string
+get_comparable_products200_response_comparable_products_instance = GetComparableProducts200ResponseComparableProducts.from_json(json)
+# print the JSON string representation of the object
+print GetComparableProducts200ResponseComparableProducts.to_json()
+
+# convert the object into a dict
+get_comparable_products200_response_comparable_products_dict = get_comparable_products200_response_comparable_products_instance.to_dict()
+# create an instance of GetComparableProducts200ResponseComparableProducts from a dict
+get_comparable_products200_response_comparable_products_form_dict = get_comparable_products200_response_comparable_products.from_dict(get_comparable_products200_response_comparable_products_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

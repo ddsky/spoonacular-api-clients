@@ -1,11 +1,11 @@
-# Org.OpenAPITools.Model.AddMealPlanTemplate200ResponseItemsInnerValue
+# spoonacular.Model.AddMealPlanTemplate200ResponseItemsInnerValue
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | [optional] 
-**Servings** | **decimal?** |  | [optional] 
+**Id** | **int** |  | [optional] 
+**Servings** | **decimal** |  | [optional] 
 **Title** | **string** |  | [optional] 
 **ImageType** | **string** |  | [optional] 
 

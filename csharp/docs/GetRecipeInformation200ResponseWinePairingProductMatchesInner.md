@@ -1,17 +1,17 @@
-# Org.OpenAPITools.Model.GetRecipeInformation200ResponseWinePairingProductMatchesInner
+# spoonacular.Model.GetRecipeInformation200ResponseWinePairingProductMatchesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
 **Description** | **string** |  | 
 **Price** | **string** |  | 
 **ImageUrl** | **string** |  | 
-**AverageRating** | **decimal?** |  | 
-**RatingCount** | **int?** |  | 
-**Score** | **decimal?** |  | 
+**AverageRating** | **decimal** |  | 
+**RatingCount** | **int** |  | 
+**Score** | **decimal** |  | 
 **Link** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

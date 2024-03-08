@@ -1,20 +1,20 @@
-# com.spoonacular.client\ProductsApi
+# \ProductsAPI
 
 All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AutocompleteProductSearch**](ProductsApi.md#AutocompleteProductSearch) | **Get** /food/products/suggest | Autocomplete Product Search
-[**ClassifyGroceryProduct**](ProductsApi.md#ClassifyGroceryProduct) | **Post** /food/products/classify | Classify Grocery Product
-[**ClassifyGroceryProductBulk**](ProductsApi.md#ClassifyGroceryProductBulk) | **Post** /food/products/classifyBatch | Classify Grocery Product Bulk
-[**GetComparableProducts**](ProductsApi.md#GetComparableProducts) | **Get** /food/products/upc/{upc}/comparable | Get Comparable Products
-[**GetProductInformation**](ProductsApi.md#GetProductInformation) | **Get** /food/products/{id} | Get Product Information
-[**ProductNutritionByIDImage**](ProductsApi.md#ProductNutritionByIDImage) | **Get** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
-[**ProductNutritionLabelImage**](ProductsApi.md#ProductNutritionLabelImage) | **Get** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
-[**ProductNutritionLabelWidget**](ProductsApi.md#ProductNutritionLabelWidget) | **Get** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
-[**SearchGroceryProducts**](ProductsApi.md#SearchGroceryProducts) | **Get** /food/products/search | Search Grocery Products
-[**SearchGroceryProductsByUPC**](ProductsApi.md#SearchGroceryProductsByUPC) | **Get** /food/products/upc/{upc} | Search Grocery Products by UPC
-[**VisualizeProductNutritionByID**](ProductsApi.md#VisualizeProductNutritionByID) | **Get** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
+[**AutocompleteProductSearch**](ProductsAPI.md#AutocompleteProductSearch) | **Get** /food/products/suggest | Autocomplete Product Search
+[**ClassifyGroceryProduct**](ProductsAPI.md#ClassifyGroceryProduct) | **Post** /food/products/classify | Classify Grocery Product
+[**ClassifyGroceryProductBulk**](ProductsAPI.md#ClassifyGroceryProductBulk) | **Post** /food/products/classifyBatch | Classify Grocery Product Bulk
+[**GetComparableProducts**](ProductsAPI.md#GetComparableProducts) | **Get** /food/products/upc/{upc}/comparable | Get Comparable Products
+[**GetProductInformation**](ProductsAPI.md#GetProductInformation) | **Get** /food/products/{id} | Get Product Information
+[**ProductNutritionByIDImage**](ProductsAPI.md#ProductNutritionByIDImage) | **Get** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
+[**ProductNutritionLabelImage**](ProductsAPI.md#ProductNutritionLabelImage) | **Get** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
+[**ProductNutritionLabelWidget**](ProductsAPI.md#ProductNutritionLabelWidget) | **Get** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
+[**SearchGroceryProducts**](ProductsAPI.md#SearchGroceryProducts) | **Get** /food/products/search | Search Grocery Products
+[**SearchGroceryProductsByUPC**](ProductsAPI.md#SearchGroceryProductsByUPC) | **Get** /food/products/upc/{upc} | Search Grocery Products by UPC
+[**VisualizeProductNutritionByID**](ProductsAPI.md#VisualizeProductNutritionByID) | **Get** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
 
 
 
@@ -32,25 +32,25 @@ Autocomplete Product Search
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "chicke" // string | The (partial) search query.
-    number := int32(10) // int32 | The number of results to return (between 1 and 25). (optional)
+	query := "chicke" // string | The (partial) search query.
+	number := int32(10) // int32 | The number of results to return (between 1 and 25). (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.AutocompleteProductSearch(context.Background()).Query(query).Number(number).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.AutocompleteProductSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AutocompleteProductSearch`: AutocompleteProductSearch200Response
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.AutocompleteProductSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.AutocompleteProductSearch(context.Background()).Query(query).Number(number).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.AutocompleteProductSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AutocompleteProductSearch`: AutocompleteProductSearch200Response
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.AutocompleteProductSearch`: %v\n", resp)
 }
 ```
 
@@ -100,25 +100,25 @@ Classify Grocery Product
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    classifyGroceryProductRequest := *openapiclient.NewClassifyGroceryProductRequest("Title_example", "Upc_example", "PluCode_example") // ClassifyGroceryProductRequest | 
-    locale := "en_US" // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
+	classifyGroceryProductRequest := *openapiclient.NewClassifyGroceryProductRequest("Title_example", "Upc_example", "PluCode_example") // ClassifyGroceryProductRequest | 
+	locale := "en_US" // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.ClassifyGroceryProduct(context.Background()).ClassifyGroceryProductRequest(classifyGroceryProductRequest).Locale(locale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.ClassifyGroceryProduct``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ClassifyGroceryProduct`: ClassifyGroceryProduct200Response
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.ClassifyGroceryProduct`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.ClassifyGroceryProduct(context.Background()).ClassifyGroceryProductRequest(classifyGroceryProductRequest).Locale(locale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ClassifyGroceryProduct``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ClassifyGroceryProduct`: ClassifyGroceryProduct200Response
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ClassifyGroceryProduct`: %v\n", resp)
 }
 ```
 
@@ -168,25 +168,25 @@ Classify Grocery Product Bulk
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    classifyGroceryProductBulkRequestInner := []openapiclient.ClassifyGroceryProductBulkRequestInner{*openapiclient.NewClassifyGroceryProductBulkRequestInner("Title_example", "Upc_example", "PluCode_example")} // []ClassifyGroceryProductBulkRequestInner | 
-    locale := "en_US" // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
+	classifyGroceryProductBulkRequestInner := []openapiclient.ClassifyGroceryProductBulkRequestInner{*openapiclient.NewClassifyGroceryProductBulkRequestInner("Title_example", "Upc_example", "PluCode_example")} // []ClassifyGroceryProductBulkRequestInner | 
+	locale := "en_US" // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.ClassifyGroceryProductBulk(context.Background()).ClassifyGroceryProductBulkRequestInner(classifyGroceryProductBulkRequestInner).Locale(locale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.ClassifyGroceryProductBulk``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ClassifyGroceryProductBulk`: []ClassifyGroceryProductBulk200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.ClassifyGroceryProductBulk`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.ClassifyGroceryProductBulk(context.Background()).ClassifyGroceryProductBulkRequestInner(classifyGroceryProductBulkRequestInner).Locale(locale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ClassifyGroceryProductBulk``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ClassifyGroceryProductBulk`: []ClassifyGroceryProductBulk200ResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ClassifyGroceryProductBulk`: %v\n", resp)
 }
 ```
 
@@ -236,24 +236,24 @@ Get Comparable Products
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    upc := float32(33698816271) // float32 | The UPC of the product for which you want to find comparable products.
+	upc := float32(33698816271) // float32 | The UPC of the product for which you want to find comparable products.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.GetComparableProducts(context.Background(), upc).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.GetComparableProducts``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetComparableProducts`: GetComparableProducts200Response
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.GetComparableProducts`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.GetComparableProducts(context.Background(), upc).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.GetComparableProducts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetComparableProducts`: GetComparableProducts200Response
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.GetComparableProducts`: %v\n", resp)
 }
 ```
 
@@ -306,24 +306,24 @@ Get Product Information
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := int32(1) // int32 | The item's id.
+	id := int32(1) // int32 | The item's id.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.GetProductInformation(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.GetProductInformation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetProductInformation`: GetProductInformation200Response
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.GetProductInformation`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.GetProductInformation(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.GetProductInformation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetProductInformation`: GetProductInformation200Response
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.GetProductInformation`: %v\n", resp)
 }
 ```
 
@@ -376,24 +376,24 @@ Product Nutrition by ID Image
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(7657) // float32 | The id of the product.
+	id := float32(7657) // float32 | The id of the product.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.ProductNutritionByIDImage(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.ProductNutritionByIDImage``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductNutritionByIDImage`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.ProductNutritionByIDImage`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.ProductNutritionByIDImage(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ProductNutritionByIDImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductNutritionByIDImage`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ProductNutritionByIDImage`: %v\n", resp)
 }
 ```
 
@@ -446,27 +446,27 @@ Product Nutrition Label Image
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(22347) // float32 | The product id.
-    showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
-    showZeroValues := false // bool | Whether to show zero values. (optional)
-    showIngredients := false // bool | Whether to show a list of ingredients. (optional)
+	id := float32(22347) // float32 | The product id.
+	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
+	showZeroValues := false // bool | Whether to show zero values. (optional)
+	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.ProductNutritionLabelImage(context.Background(), id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.ProductNutritionLabelImage``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductNutritionLabelImage`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.ProductNutritionLabelImage`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.ProductNutritionLabelImage(context.Background(), id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ProductNutritionLabelImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductNutritionLabelImage`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ProductNutritionLabelImage`: %v\n", resp)
 }
 ```
 
@@ -522,28 +522,28 @@ Product Nutrition Label Widget
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(22347) // float32 | The product id.
-    defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-    showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
-    showZeroValues := false // bool | Whether to show zero values. (optional)
-    showIngredients := false // bool | Whether to show a list of ingredients. (optional)
+	id := float32(22347) // float32 | The product id.
+	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
+	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
+	showZeroValues := false // bool | Whether to show zero values. (optional)
+	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.ProductNutritionLabelWidget(context.Background(), id).DefaultCss(defaultCss).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.ProductNutritionLabelWidget``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductNutritionLabelWidget`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.ProductNutritionLabelWidget`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.ProductNutritionLabelWidget(context.Background(), id).DefaultCss(defaultCss).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ProductNutritionLabelWidget``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductNutritionLabelWidget`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ProductNutritionLabelWidget`: %v\n", resp)
 }
 ```
 
@@ -600,35 +600,35 @@ Search Grocery Products
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "burger" // string | The (natural language) search query. (optional)
-    minCalories := float32(50) // float32 | The minimum amount of calories the product must have. (optional)
-    maxCalories := float32(800) // float32 | The maximum amount of calories the product can have. (optional)
-    minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the product must have. (optional)
-    maxCarbs := float32(100) // float32 | The maximum amount of carbohydrates in grams the product can have. (optional)
-    minProtein := float32(10) // float32 | The minimum amount of protein in grams the product must have. (optional)
-    maxProtein := float32(100) // float32 | The maximum amount of protein in grams the product can have. (optional)
-    minFat := float32(1) // float32 | The minimum amount of fat in grams the product must have. (optional)
-    maxFat := float32(100) // float32 | The maximum amount of fat in grams the product can have. (optional)
-    addProductInformation := true // bool | If set to true, you get more information about the products returned. (optional)
-    offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
-    number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+	query := "burger" // string | The (natural language) search query. (optional)
+	minCalories := float32(50) // float32 | The minimum amount of calories the product must have. (optional)
+	maxCalories := float32(800) // float32 | The maximum amount of calories the product can have. (optional)
+	minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the product must have. (optional)
+	maxCarbs := float32(100) // float32 | The maximum amount of carbohydrates in grams the product can have. (optional)
+	minProtein := float32(10) // float32 | The minimum amount of protein in grams the product must have. (optional)
+	maxProtein := float32(100) // float32 | The maximum amount of protein in grams the product can have. (optional)
+	minFat := float32(1) // float32 | The minimum amount of fat in grams the product must have. (optional)
+	maxFat := float32(100) // float32 | The maximum amount of fat in grams the product can have. (optional)
+	addProductInformation := true // bool | If set to true, you get more information about the products returned. (optional)
+	offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
+	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.SearchGroceryProducts(context.Background()).Query(query).MinCalories(minCalories).MaxCalories(maxCalories).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinFat(minFat).MaxFat(maxFat).AddProductInformation(addProductInformation).Offset(offset).Number(number).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.SearchGroceryProducts``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SearchGroceryProducts`: SearchGroceryProducts200Response
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.SearchGroceryProducts`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.SearchGroceryProducts(context.Background()).Query(query).MinCalories(minCalories).MaxCalories(maxCalories).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinFat(minFat).MaxFat(maxFat).AddProductInformation(addProductInformation).Offset(offset).Number(number).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.SearchGroceryProducts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SearchGroceryProducts`: SearchGroceryProducts200Response
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.SearchGroceryProducts`: %v\n", resp)
 }
 ```
 
@@ -688,24 +688,24 @@ Search Grocery Products by UPC
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    upc := float32(41631000564) // float32 | The product's UPC.
+	upc := float32(41631000564) // float32 | The product's UPC.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.SearchGroceryProductsByUPC(context.Background(), upc).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.SearchGroceryProductsByUPC``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SearchGroceryProductsByUPC`: SearchGroceryProductsByUPC200Response
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.SearchGroceryProductsByUPC`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.SearchGroceryProductsByUPC(context.Background(), upc).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.SearchGroceryProductsByUPC``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SearchGroceryProductsByUPC`: SearchGroceryProductsByUPC200Response
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.SearchGroceryProductsByUPC`: %v\n", resp)
 }
 ```
 
@@ -758,26 +758,26 @@ Product Nutrition by ID Widget
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := int32(1) // int32 | The item's id.
-    defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-    accept := "application/json" // string | Accept header. (optional)
+	id := int32(1) // int32 | The item's id.
+	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
+	accept := "application/json" // string | Accept header. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductsApi.VisualizeProductNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductsApi.VisualizeProductNutritionByID``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VisualizeProductNutritionByID`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProductsApi.VisualizeProductNutritionByID`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductsAPI.VisualizeProductNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.VisualizeProductNutritionByID``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VisualizeProductNutritionByID`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.VisualizeProductNutritionByID`: %v\n", resp)
 }
 ```
 

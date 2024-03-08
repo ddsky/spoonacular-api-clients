@@ -71,10 +71,10 @@ import qualified Prelude as P
 newtype AddChildren = AddChildren { unAddChildren :: Bool } deriving (P.Eq, P.Show)
 
 -- ** AddMenuItemInformation
-newtype AddMenuItemInformation = AddMenuItemInformation { unAddMenuItemInformation :: E'Normalize } deriving (P.Eq, P.Show)
+newtype AddMenuItemInformation = AddMenuItemInformation { unAddMenuItemInformation :: Bool } deriving (P.Eq, P.Show)
 
 -- ** AddProductInformation
-newtype AddProductInformation = AddProductInformation { unAddProductInformation :: E'Normalize } deriving (P.Eq, P.Show)
+newtype AddProductInformation = AddProductInformation { unAddProductInformation :: Bool } deriving (P.Eq, P.Show)
 
 -- ** AddRecipeInformation
 newtype AddRecipeInformation = AddRecipeInformation { unAddRecipeInformation :: Bool } deriving (P.Eq, P.Show)
@@ -470,13 +470,7 @@ newtype MinVitaminK = MinVitaminK { unMinVitaminK :: Double } deriving (P.Eq, P.
 newtype MinZinc = MinZinc { unMinZinc :: Double } deriving (P.Eq, P.Show)
 
 -- ** Normalize
-newtype Normalize = Normalize { unNormalize :: E'Normalize } deriving (P.Eq, P.Show)
-
--- ** Normalize2
-newtype Normalize2 = Normalize2 { unNormalize2 :: E'Normalize2 } deriving (P.Eq, P.Show)
-
--- ** NormalizeBool
-newtype NormalizeBool = NormalizeBool { unNormalizeBool :: Bool } deriving (P.Eq, P.Show)
+newtype Normalize = Normalize { unNormalize :: Bool } deriving (P.Eq, P.Show)
 
 -- ** Number
 newtype Number = Number { unNumber :: Int } deriving (P.Eq, P.Show)
@@ -8248,62 +8242,6 @@ toE'Measure = \case
   "us" -> P.Right E'Measure'Us
   "metric" -> P.Right E'Measure'Metric
   s -> P.Left $ "toE'Measure: enum parse failure: " P.++ P.show s
-
-
--- ** E'Normalize
-
--- | Enum of 'Bool'
-data E'Normalize
-  = E'Normalize'False -- ^ @"false"@
-  | E'Normalize'True -- ^ @"true"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
-
-instance A.ToJSON E'Normalize where toJSON = A.toJSON . fromE'Normalize
-instance A.FromJSON E'Normalize where parseJSON o = P.either P.fail (pure . P.id) . toE'Normalize =<< A.parseJSON o
-instance WH.ToHttpApiData E'Normalize where toQueryParam = WH.toQueryParam . fromE'Normalize
-instance WH.FromHttpApiData E'Normalize where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Normalize
-instance MimeRender MimeMultipartFormData E'Normalize where mimeRender _ = mimeRenderDefaultMultipartFormData
-
--- | unwrap 'E'Normalize' enum
-fromE'Normalize :: E'Normalize -> Bool
-fromE'Normalize = \case
-  E'Normalize'False -> "false"
-  E'Normalize'True -> "true"
-
--- | parse 'E'Normalize' enum
-toE'Normalize :: Bool -> P.Either String E'Normalize
-toE'Normalize = \case
-  "false" -> P.Right E'Normalize'False
-  "true" -> P.Right E'Normalize'True
-  s -> P.Left $ "toE'Normalize: enum parse failure: " P.++ P.show s
-
-
--- ** E'Normalize2
-
--- | Enum of 'Bool'
-data E'Normalize2
-  = E'Normalize2'True -- ^ @"true"@
-  | E'Normalize2'False -- ^ @"false"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
-
-instance A.ToJSON E'Normalize2 where toJSON = A.toJSON . fromE'Normalize2
-instance A.FromJSON E'Normalize2 where parseJSON o = P.either P.fail (pure . P.id) . toE'Normalize2 =<< A.parseJSON o
-instance WH.ToHttpApiData E'Normalize2 where toQueryParam = WH.toQueryParam . fromE'Normalize2
-instance WH.FromHttpApiData E'Normalize2 where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Normalize2
-instance MimeRender MimeMultipartFormData E'Normalize2 where mimeRender _ = mimeRenderDefaultMultipartFormData
-
--- | unwrap 'E'Normalize2' enum
-fromE'Normalize2 :: E'Normalize2 -> Bool
-fromE'Normalize2 = \case
-  E'Normalize2'True -> "true"
-  E'Normalize2'False -> "false"
-
--- | parse 'E'Normalize2' enum
-toE'Normalize2 :: Bool -> P.Either String E'Normalize2
-toE'Normalize2 = \case
-  "true" -> P.Right E'Normalize2'True
-  "false" -> P.Right E'Normalize2'False
-  s -> P.Left $ "toE'Normalize2: enum parse failure: " P.++ P.show s
 
 
 -- * Auth Methods

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GuessNutritionByDishName200Response {
     #[serde(rename = "calories")]
     pub calories: Box<crate::models::GuessNutritionByDishName200ResponseCalories>,

@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.SearchSiteContent200ResponseArticlesInner
+# spoonacular.Model.SearchSiteContent200ResponseArticlesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataPoints** | **List<Object>** |  | [optional] 
+**DataPoints** | **List&lt;Object&gt;** |  | [optional] 
 **Image** | **string** |  | 
 **Link** | **string** |  | 
 **Name** | **string** |  | 

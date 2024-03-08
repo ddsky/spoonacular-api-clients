@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner {
     #[serde(rename = "number")]
     pub number: f32,

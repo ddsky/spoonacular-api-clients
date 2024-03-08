@@ -14,15 +14,13 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,12 +32,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -47,7 +49,7 @@ import com.spoonacular.client.JSON;
 /**
  * MapIngredientsToGroceryProducts200ResponseInnerProductsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -61,11 +63,10 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
   @SerializedName(SERIALIZED_NAME_UPC)
   private String upc;
 
-  public MapIngredientsToGroceryProducts200ResponseInnerProductsInner() { 
+  public MapIngredientsToGroceryProducts200ResponseInnerProductsInner() {
   }
 
   public MapIngredientsToGroceryProducts200ResponseInnerProductsInner id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -75,12 +76,9 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getId() {
     return id;
   }
-
 
   public void setId(Integer id) {
     this.id = id;
@@ -88,7 +86,6 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
 
 
   public MapIngredientsToGroceryProducts200ResponseInnerProductsInner title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -98,12 +95,9 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
    * @return title
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getTitle() {
     return title;
   }
-
 
   public void setTitle(String title) {
     this.title = title;
@@ -111,7 +105,6 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
 
 
   public MapIngredientsToGroceryProducts200ResponseInnerProductsInner upc(String upc) {
-    
     this.upc = upc;
     return this;
   }
@@ -121,12 +114,9 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
    * @return upc
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getUpc() {
     return upc;
   }
-
 
   public void setUpc(String upc) {
     this.upc = upc;
@@ -194,38 +184,37 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MapIngredientsToGroceryProducts200ResponseInnerProductsInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MapIngredientsToGroceryProducts200ResponseInnerProductsInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (MapIngredientsToGroceryProducts200ResponseInnerProductsInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MapIngredientsToGroceryProducts200ResponseInnerProductsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in MapIngredientsToGroceryProducts200ResponseInnerProductsInner is not found in the empty JSON string", MapIngredientsToGroceryProducts200ResponseInnerProductsInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MapIngredientsToGroceryProducts200ResponseInnerProductsInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MapIngredientsToGroceryProducts200ResponseInnerProductsInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MapIngredientsToGroceryProducts200ResponseInnerProductsInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : MapIngredientsToGroceryProducts200ResponseInnerProductsInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("upc") != null && !jsonObj.get("upc").isJsonPrimitive()) {
+      if (!jsonObj.get("upc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `upc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upc").toString()));
       }
   }
@@ -250,9 +239,9 @@ public class MapIngredientsToGroceryProducts200ResponseInnerProductsInner {
 
            @Override
            public MapIngredientsToGroceryProducts200ResponseInnerProductsInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -846,8 +846,8 @@ recipeTasteByIDImage (IdDouble id) =
 data RecipeTasteByIDImage  
 
 -- | /Optional Param/ "normalize" - Normalize to the strongest taste.
-instance HasOptionalParam RecipeTasteByIDImage NormalizeBool where
-  applyOptionalParam req (NormalizeBool xs) =
+instance HasOptionalParam RecipeTasteByIDImage Normalize where
+  applyOptionalParam req (Normalize xs) =
     req `addQuery` toQuery ("normalize", Just xs)
 
 -- | /Optional Param/ "rgb" - Red, green, blue values for the chart color.
@@ -2095,8 +2095,8 @@ instance HasOptionalParam VisualizeRecipeTaste ParamAccept where
     req `addHeader` toHeader ("Accept", xs)
 
 -- | /Optional Param/ "normalize" - Whether to normalize to the strongest taste.
-instance HasOptionalParam VisualizeRecipeTaste NormalizeBool where
-  applyOptionalParam req (NormalizeBool xs) =
+instance HasOptionalParam VisualizeRecipeTaste Normalize where
+  applyOptionalParam req (Normalize xs) =
     req `addQuery` toQuery ("normalize", Just xs)
 
 -- | /Optional Param/ "rgb" - Red, green, blue values for the chart color.
@@ -2131,8 +2131,8 @@ visualizeRecipeTasteByID (Id id) =
 data VisualizeRecipeTasteByID  
 
 -- | /Optional Param/ "normalize" - Whether to normalize to the strongest taste.
-instance HasOptionalParam VisualizeRecipeTasteByID Normalize2 where
-  applyOptionalParam req (Normalize2 xs) =
+instance HasOptionalParam VisualizeRecipeTasteByID Normalize where
+  applyOptionalParam req (Normalize xs) =
     req `addQuery` toQuery ("normalize", Just xs)
 
 -- | /Optional Param/ "rgb" - Red, green, blue values for the chart color.

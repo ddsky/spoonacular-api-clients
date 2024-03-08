@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.ImageAnalysisByURL200ResponseNutritionCalories;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * ImageAnalysisByURL200ResponseNutrition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class ImageAnalysisByURL200ResponseNutrition {
   public static final String SERIALIZED_NAME_RECIPES_USED = "recipesUsed";
   @SerializedName(SERIALIZED_NAME_RECIPES_USED)
@@ -70,11 +72,10 @@ public class ImageAnalysisByURL200ResponseNutrition {
   @SerializedName(SERIALIZED_NAME_CARBS)
   private ImageAnalysisByURL200ResponseNutritionCalories carbs;
 
-  public ImageAnalysisByURL200ResponseNutrition() { 
+  public ImageAnalysisByURL200ResponseNutrition() {
   }
 
   public ImageAnalysisByURL200ResponseNutrition recipesUsed(Integer recipesUsed) {
-    
     this.recipesUsed = recipesUsed;
     return this;
   }
@@ -84,12 +85,9 @@ public class ImageAnalysisByURL200ResponseNutrition {
    * @return recipesUsed
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getRecipesUsed() {
     return recipesUsed;
   }
-
 
   public void setRecipesUsed(Integer recipesUsed) {
     this.recipesUsed = recipesUsed;
@@ -97,7 +95,6 @@ public class ImageAnalysisByURL200ResponseNutrition {
 
 
   public ImageAnalysisByURL200ResponseNutrition calories(ImageAnalysisByURL200ResponseNutritionCalories calories) {
-    
     this.calories = calories;
     return this;
   }
@@ -107,12 +104,9 @@ public class ImageAnalysisByURL200ResponseNutrition {
    * @return calories
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ImageAnalysisByURL200ResponseNutritionCalories getCalories() {
     return calories;
   }
-
 
   public void setCalories(ImageAnalysisByURL200ResponseNutritionCalories calories) {
     this.calories = calories;
@@ -120,7 +114,6 @@ public class ImageAnalysisByURL200ResponseNutrition {
 
 
   public ImageAnalysisByURL200ResponseNutrition fat(ImageAnalysisByURL200ResponseNutritionCalories fat) {
-    
     this.fat = fat;
     return this;
   }
@@ -130,12 +123,9 @@ public class ImageAnalysisByURL200ResponseNutrition {
    * @return fat
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ImageAnalysisByURL200ResponseNutritionCalories getFat() {
     return fat;
   }
-
 
   public void setFat(ImageAnalysisByURL200ResponseNutritionCalories fat) {
     this.fat = fat;
@@ -143,7 +133,6 @@ public class ImageAnalysisByURL200ResponseNutrition {
 
 
   public ImageAnalysisByURL200ResponseNutrition protein(ImageAnalysisByURL200ResponseNutritionCalories protein) {
-    
     this.protein = protein;
     return this;
   }
@@ -153,12 +142,9 @@ public class ImageAnalysisByURL200ResponseNutrition {
    * @return protein
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ImageAnalysisByURL200ResponseNutritionCalories getProtein() {
     return protein;
   }
-
 
   public void setProtein(ImageAnalysisByURL200ResponseNutritionCalories protein) {
     this.protein = protein;
@@ -166,7 +152,6 @@ public class ImageAnalysisByURL200ResponseNutrition {
 
 
   public ImageAnalysisByURL200ResponseNutrition carbs(ImageAnalysisByURL200ResponseNutritionCalories carbs) {
-    
     this.carbs = carbs;
     return this;
   }
@@ -176,12 +161,9 @@ public class ImageAnalysisByURL200ResponseNutrition {
    * @return carbs
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public ImageAnalysisByURL200ResponseNutritionCalories getCarbs() {
     return carbs;
   }
-
 
   public void setCarbs(ImageAnalysisByURL200ResponseNutritionCalories carbs) {
     this.carbs = carbs;
@@ -257,50 +239,41 @@ public class ImageAnalysisByURL200ResponseNutrition {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ImageAnalysisByURL200ResponseNutrition
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutrition
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ImageAnalysisByURL200ResponseNutrition.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ImageAnalysisByURL200ResponseNutrition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ImageAnalysisByURL200ResponseNutrition is not found in the empty JSON string", ImageAnalysisByURL200ResponseNutrition.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ImageAnalysisByURL200ResponseNutrition.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageAnalysisByURL200ResponseNutrition` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageAnalysisByURL200ResponseNutrition` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ImageAnalysisByURL200ResponseNutrition.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // validate the optional field `calories`
-      if (jsonObj.getAsJsonObject("calories") != null) {
-        ImageAnalysisByURL200ResponseNutritionCalories.validateJsonObject(jsonObj.getAsJsonObject("calories"));
-      }
-      // validate the optional field `fat`
-      if (jsonObj.getAsJsonObject("fat") != null) {
-        ImageAnalysisByURL200ResponseNutritionCalories.validateJsonObject(jsonObj.getAsJsonObject("fat"));
-      }
-      // validate the optional field `protein`
-      if (jsonObj.getAsJsonObject("protein") != null) {
-        ImageAnalysisByURL200ResponseNutritionCalories.validateJsonObject(jsonObj.getAsJsonObject("protein"));
-      }
-      // validate the optional field `carbs`
-      if (jsonObj.getAsJsonObject("carbs") != null) {
-        ImageAnalysisByURL200ResponseNutritionCalories.validateJsonObject(jsonObj.getAsJsonObject("carbs"));
-      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `calories`
+      ImageAnalysisByURL200ResponseNutritionCalories.validateJsonElement(jsonObj.get("calories"));
+      // validate the required field `fat`
+      ImageAnalysisByURL200ResponseNutritionCalories.validateJsonElement(jsonObj.get("fat"));
+      // validate the required field `protein`
+      ImageAnalysisByURL200ResponseNutritionCalories.validateJsonElement(jsonObj.get("protein"));
+      // validate the required field `carbs`
+      ImageAnalysisByURL200ResponseNutritionCalories.validateJsonElement(jsonObj.get("carbs"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -323,9 +296,9 @@ public class ImageAnalysisByURL200ResponseNutrition {
 
            @Override
            public ImageAnalysisByURL200ResponseNutrition read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -1,16 +1,16 @@
-# com.spoonacular.client\MenuItemsApi
+# \MenuItemsAPI
 
 All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AutocompleteMenuItemSearch**](MenuItemsApi.md#AutocompleteMenuItemSearch) | **Get** /food/menuItems/suggest | Autocomplete Menu Item Search
-[**GetMenuItemInformation**](MenuItemsApi.md#GetMenuItemInformation) | **Get** /food/menuItems/{id} | Get Menu Item Information
-[**MenuItemNutritionByIDImage**](MenuItemsApi.md#MenuItemNutritionByIDImage) | **Get** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image
-[**MenuItemNutritionLabelImage**](MenuItemsApi.md#MenuItemNutritionLabelImage) | **Get** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image
-[**MenuItemNutritionLabelWidget**](MenuItemsApi.md#MenuItemNutritionLabelWidget) | **Get** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget
-[**SearchMenuItems**](MenuItemsApi.md#SearchMenuItems) | **Get** /food/menuItems/search | Search Menu Items
-[**VisualizeMenuItemNutritionByID**](MenuItemsApi.md#VisualizeMenuItemNutritionByID) | **Get** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget
+[**AutocompleteMenuItemSearch**](MenuItemsAPI.md#AutocompleteMenuItemSearch) | **Get** /food/menuItems/suggest | Autocomplete Menu Item Search
+[**GetMenuItemInformation**](MenuItemsAPI.md#GetMenuItemInformation) | **Get** /food/menuItems/{id} | Get Menu Item Information
+[**MenuItemNutritionByIDImage**](MenuItemsAPI.md#MenuItemNutritionByIDImage) | **Get** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image
+[**MenuItemNutritionLabelImage**](MenuItemsAPI.md#MenuItemNutritionLabelImage) | **Get** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image
+[**MenuItemNutritionLabelWidget**](MenuItemsAPI.md#MenuItemNutritionLabelWidget) | **Get** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget
+[**SearchMenuItems**](MenuItemsAPI.md#SearchMenuItems) | **Get** /food/menuItems/search | Search Menu Items
+[**VisualizeMenuItemNutritionByID**](MenuItemsAPI.md#VisualizeMenuItemNutritionByID) | **Get** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget
 
 
 
@@ -28,25 +28,25 @@ Autocomplete Menu Item Search
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "chicke" // string | The (partial) search query.
-    number := float32(10) // float32 | The number of results to return (between 1 and 25). (optional)
+	query := "chicke" // string | The (partial) search query.
+	number := float32(10) // float32 | The number of results to return (between 1 and 25). (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.AutocompleteMenuItemSearch(context.Background()).Query(query).Number(number).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.AutocompleteMenuItemSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AutocompleteMenuItemSearch`: AutocompleteMenuItemSearch200Response
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.AutocompleteMenuItemSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.AutocompleteMenuItemSearch(context.Background()).Query(query).Number(number).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.AutocompleteMenuItemSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AutocompleteMenuItemSearch`: AutocompleteMenuItemSearch200Response
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.AutocompleteMenuItemSearch`: %v\n", resp)
 }
 ```
 
@@ -96,24 +96,24 @@ Get Menu Item Information
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := int32(1) // int32 | The item's id.
+	id := int32(1) // int32 | The item's id.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.GetMenuItemInformation(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.GetMenuItemInformation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMenuItemInformation`: GetMenuItemInformation200Response
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.GetMenuItemInformation`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.GetMenuItemInformation(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.GetMenuItemInformation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMenuItemInformation`: GetMenuItemInformation200Response
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.GetMenuItemInformation`: %v\n", resp)
 }
 ```
 
@@ -166,24 +166,24 @@ Menu Item Nutrition by ID Image
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(424571) // float32 | The menu item id.
+	id := float32(424571) // float32 | The menu item id.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.MenuItemNutritionByIDImage(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.MenuItemNutritionByIDImage``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MenuItemNutritionByIDImage`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.MenuItemNutritionByIDImage`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.MenuItemNutritionByIDImage(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.MenuItemNutritionByIDImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MenuItemNutritionByIDImage`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.MenuItemNutritionByIDImage`: %v\n", resp)
 }
 ```
 
@@ -236,27 +236,27 @@ Menu Item Nutrition Label Image
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(342313) // float32 | The menu item id.
-    showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
-    showZeroValues := false // bool | Whether to show zero values. (optional)
-    showIngredients := false // bool | Whether to show a list of ingredients. (optional)
+	id := float32(342313) // float32 | The menu item id.
+	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
+	showZeroValues := false // bool | Whether to show zero values. (optional)
+	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.MenuItemNutritionLabelImage(context.Background(), id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.MenuItemNutritionLabelImage``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MenuItemNutritionLabelImage`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.MenuItemNutritionLabelImage`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.MenuItemNutritionLabelImage(context.Background(), id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.MenuItemNutritionLabelImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MenuItemNutritionLabelImage`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.MenuItemNutritionLabelImage`: %v\n", resp)
 }
 ```
 
@@ -312,28 +312,28 @@ Menu Item Nutrition Label Widget
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(342313) // float32 | The menu item id.
-    defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-    showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
-    showZeroValues := false // bool | Whether to show zero values. (optional)
-    showIngredients := false // bool | Whether to show a list of ingredients. (optional)
+	id := float32(342313) // float32 | The menu item id.
+	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
+	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
+	showZeroValues := false // bool | Whether to show zero values. (optional)
+	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.MenuItemNutritionLabelWidget(context.Background(), id).DefaultCss(defaultCss).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.MenuItemNutritionLabelWidget``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MenuItemNutritionLabelWidget`: string
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.MenuItemNutritionLabelWidget`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.MenuItemNutritionLabelWidget(context.Background(), id).DefaultCss(defaultCss).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.MenuItemNutritionLabelWidget``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MenuItemNutritionLabelWidget`: string
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.MenuItemNutritionLabelWidget`: %v\n", resp)
 }
 ```
 
@@ -390,35 +390,35 @@ Search Menu Items
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "burger" // string | The (natural language) search query. (optional)
-    minCalories := float32(50) // float32 | The minimum amount of calories the menu item must have. (optional)
-    maxCalories := float32(800) // float32 | The maximum amount of calories the menu item can have. (optional)
-    minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the menu item must have. (optional)
-    maxCarbs := float32(100) // float32 | The maximum amount of carbohydrates in grams the menu item can have. (optional)
-    minProtein := float32(10) // float32 | The minimum amount of protein in grams the menu item must have. (optional)
-    maxProtein := float32(100) // float32 | The maximum amount of protein in grams the menu item can have. (optional)
-    minFat := float32(1) // float32 | The minimum amount of fat in grams the menu item must have. (optional)
-    maxFat := float32(100) // float32 | The maximum amount of fat in grams the menu item can have. (optional)
-    addMenuItemInformation := true // bool | If set to true, you get more information about the menu items returned. (optional)
-    offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
-    number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
+	query := "burger" // string | The (natural language) search query. (optional)
+	minCalories := float32(50) // float32 | The minimum amount of calories the menu item must have. (optional)
+	maxCalories := float32(800) // float32 | The maximum amount of calories the menu item can have. (optional)
+	minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the menu item must have. (optional)
+	maxCarbs := float32(100) // float32 | The maximum amount of carbohydrates in grams the menu item can have. (optional)
+	minProtein := float32(10) // float32 | The minimum amount of protein in grams the menu item must have. (optional)
+	maxProtein := float32(100) // float32 | The maximum amount of protein in grams the menu item can have. (optional)
+	minFat := float32(1) // float32 | The minimum amount of fat in grams the menu item must have. (optional)
+	maxFat := float32(100) // float32 | The maximum amount of fat in grams the menu item can have. (optional)
+	addMenuItemInformation := true // bool | If set to true, you get more information about the menu items returned. (optional)
+	offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
+	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.SearchMenuItems(context.Background()).Query(query).MinCalories(minCalories).MaxCalories(maxCalories).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinFat(minFat).MaxFat(maxFat).AddMenuItemInformation(addMenuItemInformation).Offset(offset).Number(number).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.SearchMenuItems``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SearchMenuItems`: SearchMenuItems200Response
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.SearchMenuItems`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.SearchMenuItems(context.Background()).Query(query).MinCalories(minCalories).MaxCalories(maxCalories).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinFat(minFat).MaxFat(maxFat).AddMenuItemInformation(addMenuItemInformation).Offset(offset).Number(number).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.SearchMenuItems``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SearchMenuItems`: SearchMenuItems200Response
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.SearchMenuItems`: %v\n", resp)
 }
 ```
 
@@ -478,26 +478,26 @@ Menu Item Nutrition by ID Widget
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := int32(1) // int32 | The item's id.
-    defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-    accept := "application/json" // string | Accept header. (optional)
+	id := int32(1) // int32 | The item's id.
+	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
+	accept := "application/json" // string | Accept header. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MenuItemsApi.VisualizeMenuItemNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsApi.VisualizeMenuItemNutritionByID``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VisualizeMenuItemNutritionByID`: string
-    fmt.Fprintf(os.Stdout, "Response from `MenuItemsApi.VisualizeMenuItemNutritionByID`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MenuItemsAPI.VisualizeMenuItemNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.VisualizeMenuItemNutritionByID``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VisualizeMenuItemNutritionByID`: string
+	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.VisualizeMenuItemNutritionByID`: %v\n", resp)
 }
 ```
 

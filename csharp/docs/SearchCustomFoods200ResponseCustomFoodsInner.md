@@ -1,14 +1,14 @@
-# Org.OpenAPITools.Model.SearchCustomFoods200ResponseCustomFoodsInner
+# spoonacular.Model.SearchCustomFoods200ResponseCustomFoodsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
-**Servings** | **decimal?** |  | 
+**Servings** | **decimal** |  | 
 **ImageUrl** | **string** |  | 
-**Price** | **decimal?** |  | 
+**Price** | **decimal** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

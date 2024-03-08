@@ -1,26 +1,26 @@
-# com.spoonacular.client\MiscApi
+# OpenAPI\Client\MiscApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**detectFoodInText()**](MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
-[**getARandomFoodJoke()**](MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke
-[**getConversationSuggests()**](MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests
-[**getRandomFoodTrivia()**](MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia
-[**imageAnalysisByURL()**](MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
-[**imageClassificationByURL()**](MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
-[**searchAllFood()**](MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food
-[**searchCustomFoods()**](MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
-[**searchFoodVideos()**](MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
-[**searchSiteContent()**](MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
-[**talkToChatbot()**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**detectFoodInText()**](MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text |
+| [**getARandomFoodJoke()**](MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke |
+| [**getConversationSuggests()**](MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests |
+| [**getRandomFoodTrivia()**](MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia |
+| [**imageAnalysisByURL()**](MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL |
+| [**imageClassificationByURL()**](MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL |
+| [**searchAllFood()**](MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food |
+| [**searchCustomFoods()**](MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods |
+| [**searchFoodVideos()**](MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos |
+| [**searchSiteContent()**](MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content |
+| [**talkToChatbot()**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot |
 
 
 ## `detectFoodInText()`
 
 ```php
-detectFoodInText($content_type): \com.spoonacular.client\com.spoonacular.client.model\DetectFoodInText200Response
+detectFoodInText($content_type): \OpenAPI\Client\Model\DetectFoodInText200Response
 ```
 
 Detect Food in Text
@@ -35,12 +35,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -58,13 +58,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **content_type** | **string**| The content type. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\DetectFoodInText200Response**](../Model/DetectFoodInText200Response.md)
+[**\OpenAPI\Client\Model\DetectFoodInText200Response**](../Model/DetectFoodInText200Response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 ## `getARandomFoodJoke()`
 
 ```php
-getARandomFoodJoke(): \com.spoonacular.client\com.spoonacular.client.model\GetARandomFoodJoke200Response
+getARandomFoodJoke(): \OpenAPI\Client\Model\GetARandomFoodJoke200Response
 ```
 
 Random Food Joke
@@ -97,12 +97,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -123,7 +123,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetARandomFoodJoke200Response**](../Model/GetARandomFoodJoke200Response.md)
+[**\OpenAPI\Client\Model\GetARandomFoodJoke200Response**](../Model/GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ This endpoint does not need any parameter.
 ## `getConversationSuggests()`
 
 ```php
-getConversationSuggests($query, $number): \com.spoonacular.client\com.spoonacular.client.model\GetConversationSuggests200Response
+getConversationSuggests($query, $number): \OpenAPI\Client\Model\GetConversationSuggests200Response
 ```
 
 Conversation Suggests
@@ -156,12 +156,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -180,14 +180,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. |
- **number** | **float**| The number of suggestions to return (between 1 and 25). | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | |
+| **number** | **float**| The number of suggestions to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetConversationSuggests200Response**](../Model/GetConversationSuggests200Response.md)
+[**\OpenAPI\Client\Model\GetConversationSuggests200Response**](../Model/GetConversationSuggests200Response.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 ## `getRandomFoodTrivia()`
 
 ```php
-getRandomFoodTrivia(): \com.spoonacular.client\com.spoonacular.client.model\GetRandomFoodTrivia200Response
+getRandomFoodTrivia(): \OpenAPI\Client\Model\GetRandomFoodTrivia200Response
 ```
 
 Random Food Trivia
@@ -220,12 +220,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -246,7 +246,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetRandomFoodTrivia200Response**](../Model/GetRandomFoodTrivia200Response.md)
+[**\OpenAPI\Client\Model\GetRandomFoodTrivia200Response**](../Model/GetRandomFoodTrivia200Response.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ This endpoint does not need any parameter.
 ## `imageAnalysisByURL()`
 
 ```php
-imageAnalysisByURL($image_url): \com.spoonacular.client\com.spoonacular.client.model\ImageAnalysisByURL200Response
+imageAnalysisByURL($image_url): \OpenAPI\Client\Model\ImageAnalysisByURL200Response
 ```
 
 Image Analysis by URL
@@ -279,12 +279,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -302,13 +302,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_url** | **string**| The URL of the image to be analyzed. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **image_url** | **string**| The URL of the image to be analyzed. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ImageAnalysisByURL200Response**](../Model/ImageAnalysisByURL200Response.md)
+[**\OpenAPI\Client\Model\ImageAnalysisByURL200Response**](../Model/ImageAnalysisByURL200Response.md)
 
 ### Authorization
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 ## `imageClassificationByURL()`
 
 ```php
-imageClassificationByURL($image_url): \com.spoonacular.client\com.spoonacular.client.model\ImageClassificationByURL200Response
+imageClassificationByURL($image_url): \OpenAPI\Client\Model\ImageClassificationByURL200Response
 ```
 
 Image Classification by URL
@@ -341,12 +341,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -364,13 +364,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_url** | **string**| The URL of the image to be classified. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **image_url** | **string**| The URL of the image to be classified. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ImageClassificationByURL200Response**](../Model/ImageClassificationByURL200Response.md)
+[**\OpenAPI\Client\Model\ImageClassificationByURL200Response**](../Model/ImageClassificationByURL200Response.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 ## `searchAllFood()`
 
 ```php
-searchAllFood($query, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchAllFood200Response
+searchAllFood($query, $offset, $number): \OpenAPI\Client\Model\SearchAllFood200Response
 ```
 
 Search All Food
@@ -403,12 +403,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -428,15 +428,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The search query. |
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The search query. | |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchAllFood200Response**](../Model/SearchAllFood200Response.md)
+[**\OpenAPI\Client\Model\SearchAllFood200Response**](../Model/SearchAllFood200Response.md)
 
 ### Authorization
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 ## `searchCustomFoods()`
 
 ```php
-searchCustomFoods($username, $hash, $query, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchCustomFoods200Response
+searchCustomFoods($username, $hash, $query, $offset, $number): \OpenAPI\Client\Model\SearchCustomFoods200Response
 ```
 
 Search Custom Foods
@@ -469,12 +469,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -496,17 +496,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **hash** | **string**| The private hash for the username. |
- **query** | **string**| The (natural language) search query. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **hash** | **string**| The private hash for the username. | |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchCustomFoods200Response**](../Model/SearchCustomFoods200Response.md)
+[**\OpenAPI\Client\Model\SearchCustomFoods200Response**](../Model/SearchCustomFoods200Response.md)
 
 ### Authorization
 
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 ## `searchFoodVideos()`
 
 ```php
-searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchFoodVideos200Response
+searchFoodVideos($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number): \OpenAPI\Client\Model\SearchFoodVideos200Response
 ```
 
 Search Food Videos
@@ -539,12 +539,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -571,22 +571,22 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **type** | **string**| The type of the recipes. See a full list of supported meal types. | [optional]
- **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional]
- **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
- **include_ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional]
- **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **min_length** | **float**| Minimum video length in seconds. | [optional]
- **max_length** | **float**| Maximum video length in seconds. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **type** | **string**| The type of the recipes. See a full list of supported meal types. | [optional] |
+| **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] |
+| **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
+| **include_ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **exclude_ingredients** | **string**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] |
+| **min_length** | **float**| Minimum video length in seconds. | [optional] |
+| **max_length** | **float**| Maximum video length in seconds. | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchFoodVideos200Response**](../Model/SearchFoodVideos200Response.md)
+[**\OpenAPI\Client\Model\SearchFoodVideos200Response**](../Model/SearchFoodVideos200Response.md)
 
 ### Authorization
 
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 ## `searchSiteContent()`
 
 ```php
-searchSiteContent($query): \com.spoonacular.client\com.spoonacular.client.model\SearchSiteContent200Response
+searchSiteContent($query): \OpenAPI\Client\Model\SearchSiteContent200Response
 ```
 
 Search Site Content
@@ -619,12 +619,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -642,13 +642,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchSiteContent200Response**](../Model/SearchSiteContent200Response.md)
+[**\OpenAPI\Client\Model\SearchSiteContent200Response**](../Model/SearchSiteContent200Response.md)
 
 ### Authorization
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 ## `talkToChatbot()`
 
 ```php
-talkToChatbot($text, $context_id): \com.spoonacular.client\com.spoonacular.client.model\TalkToChatbot200Response
+talkToChatbot($text, $context_id): \OpenAPI\Client\Model\TalkToChatbot200Response
 ```
 
 Talk to Chatbot
@@ -681,12 +681,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MiscApi(
+$apiInstance = new OpenAPI\Client\Api\MiscApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -705,14 +705,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **text** | **string**| The request / question / answer from the user to the chatbot. |
- **context_id** | **string**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **text** | **string**| The request / question / answer from the user to the chatbot. | |
+| **context_id** | **string**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\TalkToChatbot200Response**](../Model/TalkToChatbot200Response.md)
+[**\OpenAPI\Client\Model\TalkToChatbot200Response**](../Model/TalkToChatbot200Response.md)
 
 ### Authorization
 

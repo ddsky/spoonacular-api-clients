@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetConversationSuggests200Response {
     #[serde(rename = "suggests")]
     pub suggests: Box<crate::models::GetConversationSuggests200ResponseSuggests>,

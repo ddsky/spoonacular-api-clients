@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetWineDescription200Response
+# spoonacular.Model.GetWineDescription200Response
 
 ## Properties
 

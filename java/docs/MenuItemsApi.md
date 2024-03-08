@@ -13,7 +13,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**visualizeMenuItemNutritionByID**](MenuItemsApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget |
 
 
-<a name="autocompleteMenuItemSearch"></a>
+<a id="autocompleteMenuItemSearch"></a>
 # **autocompleteMenuItemSearch**
 > AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, number)
 
@@ -87,7 +87,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getMenuItemInformation"></a>
+<a id="getMenuItemInformation"></a>
 # **getMenuItemInformation**
 > GetMenuItemInformation200Response getMenuItemInformation(id)
 
@@ -159,7 +159,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="menuItemNutritionByIDImage"></a>
+<a id="menuItemNutritionByIDImage"></a>
 # **menuItemNutritionByIDImage**
 > Object menuItemNutritionByIDImage(id)
 
@@ -231,7 +231,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="menuItemNutritionLabelImage"></a>
+<a id="menuItemNutritionLabelImage"></a>
 # **menuItemNutritionLabelImage**
 > Object menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
@@ -309,7 +309,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="menuItemNutritionLabelWidget"></a>
+<a id="menuItemNutritionLabelWidget"></a>
 # **menuItemNutritionLabelWidget**
 > String menuItemNutritionLabelWidget(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients)
 
@@ -389,7 +389,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchMenuItems"></a>
+<a id="searchMenuItems"></a>
 # **searchMenuItems**
 > SearchMenuItems200Response searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number)
 
@@ -428,7 +428,7 @@ public class Example {
     BigDecimal maxProtein = new BigDecimal("100"); // BigDecimal | The maximum amount of protein in grams the menu item can have.
     BigDecimal minFat = new BigDecimal("1"); // BigDecimal | The minimum amount of fat in grams the menu item must have.
     BigDecimal maxFat = new BigDecimal("100"); // BigDecimal | The maximum amount of fat in grams the menu item can have.
-    Boolean addMenuItemInformation = false; // Boolean | If set to true, you get more information about the menu items returned.
+    Boolean addMenuItemInformation = true; // Boolean | If set to true, you get more information about the menu items returned.
     Integer offset = 56; // Integer | The number of results to skip (between 0 and 900).
     Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
     try {
@@ -458,7 +458,7 @@ public class Example {
 | **maxProtein** | **BigDecimal**| The maximum amount of protein in grams the menu item can have. | [optional] |
 | **minFat** | **BigDecimal**| The minimum amount of fat in grams the menu item must have. | [optional] |
 | **maxFat** | **BigDecimal**| The maximum amount of fat in grams the menu item can have. | [optional] |
-| **addMenuItemInformation** | **Boolean**| If set to true, you get more information about the menu items returned. | [optional] [enum: false, true] |
+| **addMenuItemInformation** | **Boolean**| If set to true, you get more information about the menu items returned. | [optional] |
 | **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
@@ -483,7 +483,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeMenuItemNutritionByID"></a>
+<a id="visualizeMenuItemNutritionByID"></a>
 # **visualizeMenuItemNutritionByID**
 > String visualizeMenuItemNutritionByID(id, defaultCss, accept)
 

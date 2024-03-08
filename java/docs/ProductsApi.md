@@ -17,7 +17,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**visualizeProductNutritionByID**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget |
 
 
-<a name="autocompleteProductSearch"></a>
+<a id="autocompleteProductSearch"></a>
 # **autocompleteProductSearch**
 > AutocompleteProductSearch200Response autocompleteProductSearch(query, number)
 
@@ -91,7 +91,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="classifyGroceryProduct"></a>
+<a id="classifyGroceryProduct"></a>
 # **classifyGroceryProduct**
 > ClassifyGroceryProduct200Response classifyGroceryProduct(classifyGroceryProductRequest, locale)
 
@@ -165,7 +165,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="classifyGroceryProductBulk"></a>
+<a id="classifyGroceryProductBulk"></a>
 # **classifyGroceryProductBulk**
 > Set&lt;ClassifyGroceryProductBulk200ResponseInner&gt; classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, locale)
 
@@ -239,7 +239,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getComparableProducts"></a>
+<a id="getComparableProducts"></a>
 # **getComparableProducts**
 > GetComparableProducts200Response getComparableProducts(upc)
 
@@ -311,7 +311,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getProductInformation"></a>
+<a id="getProductInformation"></a>
 # **getProductInformation**
 > GetProductInformation200Response getProductInformation(id)
 
@@ -383,7 +383,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="productNutritionByIDImage"></a>
+<a id="productNutritionByIDImage"></a>
 # **productNutritionByIDImage**
 > Object productNutritionByIDImage(id)
 
@@ -455,7 +455,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="productNutritionLabelImage"></a>
+<a id="productNutritionLabelImage"></a>
 # **productNutritionLabelImage**
 > Object productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
@@ -533,7 +533,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="productNutritionLabelWidget"></a>
+<a id="productNutritionLabelWidget"></a>
 # **productNutritionLabelWidget**
 > String productNutritionLabelWidget(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients)
 
@@ -613,7 +613,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchGroceryProducts"></a>
+<a id="searchGroceryProducts"></a>
 # **searchGroceryProducts**
 > SearchGroceryProducts200Response searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number)
 
@@ -652,7 +652,7 @@ public class Example {
     BigDecimal maxProtein = new BigDecimal("100"); // BigDecimal | The maximum amount of protein in grams the product can have.
     BigDecimal minFat = new BigDecimal("1"); // BigDecimal | The minimum amount of fat in grams the product must have.
     BigDecimal maxFat = new BigDecimal("100"); // BigDecimal | The maximum amount of fat in grams the product can have.
-    Boolean addProductInformation = false; // Boolean | If set to true, you get more information about the products returned.
+    Boolean addProductInformation = true; // Boolean | If set to true, you get more information about the products returned.
     Integer offset = 56; // Integer | The number of results to skip (between 0 and 900).
     Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
     try {
@@ -682,7 +682,7 @@ public class Example {
 | **maxProtein** | **BigDecimal**| The maximum amount of protein in grams the product can have. | [optional] |
 | **minFat** | **BigDecimal**| The minimum amount of fat in grams the product must have. | [optional] |
 | **maxFat** | **BigDecimal**| The maximum amount of fat in grams the product can have. | [optional] |
-| **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] [enum: false, true] |
+| **addProductInformation** | **Boolean**| If set to true, you get more information about the products returned. | [optional] |
 | **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
@@ -707,7 +707,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchGroceryProductsByUPC"></a>
+<a id="searchGroceryProductsByUPC"></a>
 # **searchGroceryProductsByUPC**
 > SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC(upc)
 
@@ -779,7 +779,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeProductNutritionByID"></a>
+<a id="visualizeProductNutritionByID"></a>
 # **visualizeProductNutritionByID**
 > String visualizeProductNutritionByID(id, defaultCss, accept)
 

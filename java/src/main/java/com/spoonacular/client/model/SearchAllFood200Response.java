@@ -14,18 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchAllFood200ResponseSearchResultsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -38,12 +35,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -51,8 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchAllFood200Response {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
@@ -74,11 +74,10 @@ public class SearchAllFood200Response {
   @SerializedName(SERIALIZED_NAME_SEARCH_RESULTS)
   private Set<SearchAllFood200ResponseSearchResultsInner> searchResults = new LinkedHashSet<>();
 
-  public SearchAllFood200Response() { 
+  public SearchAllFood200Response() {
   }
 
   public SearchAllFood200Response query(String query) {
-    
     this.query = query;
     return this;
   }
@@ -88,12 +87,9 @@ public class SearchAllFood200Response {
    * @return query
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getQuery() {
     return query;
   }
-
 
   public void setQuery(String query) {
     this.query = query;
@@ -101,7 +97,6 @@ public class SearchAllFood200Response {
 
 
   public SearchAllFood200Response totalResults(Integer totalResults) {
-    
     this.totalResults = totalResults;
     return this;
   }
@@ -111,12 +106,9 @@ public class SearchAllFood200Response {
    * @return totalResults
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getTotalResults() {
     return totalResults;
   }
-
 
   public void setTotalResults(Integer totalResults) {
     this.totalResults = totalResults;
@@ -124,7 +116,6 @@ public class SearchAllFood200Response {
 
 
   public SearchAllFood200Response limit(Integer limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -134,12 +125,9 @@ public class SearchAllFood200Response {
    * @return limit
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getLimit() {
     return limit;
   }
-
 
   public void setLimit(Integer limit) {
     this.limit = limit;
@@ -147,7 +135,6 @@ public class SearchAllFood200Response {
 
 
   public SearchAllFood200Response offset(Integer offset) {
-    
     this.offset = offset;
     return this;
   }
@@ -157,12 +144,9 @@ public class SearchAllFood200Response {
    * @return offset
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getOffset() {
     return offset;
   }
-
 
   public void setOffset(Integer offset) {
     this.offset = offset;
@@ -170,12 +154,14 @@ public class SearchAllFood200Response {
 
 
   public SearchAllFood200Response searchResults(Set<SearchAllFood200ResponseSearchResultsInner> searchResults) {
-    
     this.searchResults = searchResults;
     return this;
   }
 
   public SearchAllFood200Response addSearchResultsItem(SearchAllFood200ResponseSearchResultsInner searchResultsItem) {
+    if (this.searchResults == null) {
+      this.searchResults = new LinkedHashSet<>();
+    }
     this.searchResults.add(searchResultsItem);
     return this;
   }
@@ -185,12 +171,9 @@ public class SearchAllFood200Response {
    * @return searchResults
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<SearchAllFood200ResponseSearchResultsInner> getSearchResults() {
     return searchResults;
   }
-
 
   public void setSearchResults(Set<SearchAllFood200ResponseSearchResultsInner> searchResults) {
     this.searchResults = searchResults;
@@ -266,49 +249,46 @@ public class SearchAllFood200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchAllFood200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchAllFood200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchAllFood200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchAllFood200Response is not found in the empty JSON string", SearchAllFood200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchAllFood200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAllFood200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAllFood200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SearchAllFood200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("query") != null && !jsonObj.get("query").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("query").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
       }
-      JsonArray jsonArraysearchResults = jsonObj.getAsJsonArray("searchResults");
-      if (jsonArraysearchResults != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("searchResults").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `searchResults` to be an array in the JSON string but got `%s`", jsonObj.get("searchResults").toString()));
-        }
-
-        // validate the optional field `searchResults` (array)
-        for (int i = 0; i < jsonArraysearchResults.size(); i++) {
-          SearchAllFood200ResponseSearchResultsInner.validateJsonObject(jsonArraysearchResults.get(i).getAsJsonObject());
-        };
+      // ensure the json data is an array
+      if (!jsonObj.get("searchResults").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `searchResults` to be an array in the JSON string but got `%s`", jsonObj.get("searchResults").toString()));
       }
+
+      JsonArray jsonArraysearchResults = jsonObj.getAsJsonArray("searchResults");
+      // validate the required field `searchResults` (array)
+      for (int i = 0; i < jsonArraysearchResults.size(); i++) {
+        SearchAllFood200ResponseSearchResultsInner.validateJsonElement(jsonArraysearchResults.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -331,9 +311,9 @@ public class SearchAllFood200Response {
 
            @Override
            public SearchAllFood200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

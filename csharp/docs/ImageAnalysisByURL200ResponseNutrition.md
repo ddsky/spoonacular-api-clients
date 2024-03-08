@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.ImageAnalysisByURL200ResponseNutrition
+# spoonacular.Model.ImageAnalysisByURL200ResponseNutrition
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipesUsed** | **int?** |  | 
+**RecipesUsed** | **int** |  | 
 **Calories** | [**ImageAnalysisByURL200ResponseNutritionCalories**](ImageAnalysisByURL200ResponseNutritionCalories.md) |  | 
 **Fat** | [**ImageAnalysisByURL200ResponseNutritionCalories**](ImageAnalysisByURL200ResponseNutritionCalories.md) |  | 
 **Protein** | [**ImageAnalysisByURL200ResponseNutritionCalories**](ImageAnalysisByURL200ResponseNutritionCalories.md) |  | 

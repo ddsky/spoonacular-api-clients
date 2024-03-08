@@ -23,6 +23,7 @@
 #import "OAISearchRecipes200Response.h"
 #import "OAISearchRecipesByIngredients200ResponseInner.h"
 #import "OAISearchRecipesByNutrients200ResponseInner.h"
+#import "OAISet.h"
 #import "OAISummarizeRecipe200Response.h"
 #import "OAIApi.h"
 

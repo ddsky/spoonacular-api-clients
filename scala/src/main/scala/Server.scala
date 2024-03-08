@@ -1,4 +1,4 @@
-package org.openapitools
+package spoonacular
 
 import io.finch._
 import io.finch.circe._
@@ -14,7 +14,7 @@ import com.twitter.util.{Await, Future}
 
 class Server {
 
-  // Loads implementation defined in resources/META-INF/services/org.openapitools.DataAccessor
+  // Loads implementation defined in resources/META-INF/services/spoonacular.DataAccessor
   val impls: Seq[DataAccessor] = LoadService[DataAccessor]()
   val db = if (impls.isEmpty) new DataAccessor { } else impls.head
 

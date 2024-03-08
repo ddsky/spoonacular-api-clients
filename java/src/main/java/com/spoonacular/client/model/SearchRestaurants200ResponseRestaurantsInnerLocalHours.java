@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200ResponseRestaurantsInnerLocalHours
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
   public static final String SERIALIZED_NAME_OPERATIONAL = "operational";
   @SerializedName(SERIALIZED_NAME_OPERATIONAL)
@@ -66,11 +68,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
   @SerializedName(SERIALIZED_NAME_DINE_IN)
   private SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational dineIn;
 
-  public SearchRestaurants200ResponseRestaurantsInnerLocalHours() { 
+  public SearchRestaurants200ResponseRestaurantsInnerLocalHours() {
   }
 
   public SearchRestaurants200ResponseRestaurantsInnerLocalHours operational(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational operational) {
-    
     this.operational = operational;
     return this;
   }
@@ -80,12 +81,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
    * @return operational
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getOperational() {
     return operational;
   }
-
 
   public void setOperational(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational operational) {
     this.operational = operational;
@@ -93,7 +91,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerLocalHours delivery(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational delivery) {
-    
     this.delivery = delivery;
     return this;
   }
@@ -103,12 +100,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
    * @return delivery
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getDelivery() {
     return delivery;
   }
-
 
   public void setDelivery(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational delivery) {
     this.delivery = delivery;
@@ -116,7 +110,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerLocalHours pickup(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational pickup) {
-    
     this.pickup = pickup;
     return this;
   }
@@ -126,12 +119,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
    * @return pickup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getPickup() {
     return pickup;
   }
-
 
   public void setPickup(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational pickup) {
     this.pickup = pickup;
@@ -139,7 +129,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerLocalHours dineIn(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational dineIn) {
-    
     this.dineIn = dineIn;
     return this;
   }
@@ -149,12 +138,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
    * @return dineIn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getDineIn() {
     return dineIn;
   }
-
 
   public void setDineIn(SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational dineIn) {
     this.dineIn = dineIn;
@@ -222,42 +208,41 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHours
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHours
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchRestaurants200ResponseRestaurantsInnerLocalHours.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchRestaurants200ResponseRestaurantsInnerLocalHours.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchRestaurants200ResponseRestaurantsInnerLocalHours is not found in the empty JSON string", SearchRestaurants200ResponseRestaurantsInnerLocalHours.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchRestaurants200ResponseRestaurantsInnerLocalHours.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchRestaurants200ResponseRestaurantsInnerLocalHours` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchRestaurants200ResponseRestaurantsInnerLocalHours` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `operational`
-      if (jsonObj.getAsJsonObject("operational") != null) {
-        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonObject(jsonObj.getAsJsonObject("operational"));
+      if (jsonObj.get("operational") != null && !jsonObj.get("operational").isJsonNull()) {
+        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonElement(jsonObj.get("operational"));
       }
       // validate the optional field `delivery`
-      if (jsonObj.getAsJsonObject("delivery") != null) {
-        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonObject(jsonObj.getAsJsonObject("delivery"));
+      if (jsonObj.get("delivery") != null && !jsonObj.get("delivery").isJsonNull()) {
+        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonElement(jsonObj.get("delivery"));
       }
       // validate the optional field `pickup`
-      if (jsonObj.getAsJsonObject("pickup") != null) {
-        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonObject(jsonObj.getAsJsonObject("pickup"));
+      if (jsonObj.get("pickup") != null && !jsonObj.get("pickup").isJsonNull()) {
+        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonElement(jsonObj.get("pickup"));
       }
       // validate the optional field `dine_in`
-      if (jsonObj.getAsJsonObject("dine_in") != null) {
-        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonObject(jsonObj.getAsJsonObject("dine_in"));
+      if (jsonObj.get("dine_in") != null && !jsonObj.get("dine_in").isJsonNull()) {
+        SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.validateJsonElement(jsonObj.get("dine_in"));
       }
   }
 
@@ -281,9 +266,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
 
            @Override
            public SearchRestaurants200ResponseRestaurantsInnerLocalHours read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetRecipeEquipmentByID200ResponseEquipmentInner
+# spoonacular.Model.GetRecipeEquipmentByID200ResponseEquipmentInner
 
 ## Properties
 

@@ -14,18 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -38,12 +35,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -51,11 +52,11 @@ import com.spoonacular.client.JSON;
 /**
  * SearchSiteContent200ResponseGroceryProductsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchSiteContent200ResponseGroceryProductsInner {
   public static final String SERIALIZED_NAME_DATA_POINTS = "dataPoints";
   @SerializedName(SERIALIZED_NAME_DATA_POINTS)
-  private Set<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner> dataPoints = null;
+  private Set<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner> dataPoints;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -69,11 +70,10 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public SearchSiteContent200ResponseGroceryProductsInner() { 
+  public SearchSiteContent200ResponseGroceryProductsInner() {
   }
 
   public SearchSiteContent200ResponseGroceryProductsInner dataPoints(Set<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner> dataPoints) {
-    
     this.dataPoints = dataPoints;
     return this;
   }
@@ -91,12 +91,9 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
    * @return dataPoints
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner> getDataPoints() {
     return dataPoints;
   }
-
 
   public void setDataPoints(Set<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner> dataPoints) {
     this.dataPoints = dataPoints;
@@ -104,7 +101,6 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
 
 
   public SearchSiteContent200ResponseGroceryProductsInner image(String image) {
-    
     this.image = image;
     return this;
   }
@@ -114,12 +110,9 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
    * @return image
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -127,7 +120,6 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
 
 
   public SearchSiteContent200ResponseGroceryProductsInner link(String link) {
-    
     this.link = link;
     return this;
   }
@@ -137,12 +129,9 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
    * @return link
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getLink() {
     return link;
   }
-
 
   public void setLink(String link) {
     this.link = link;
@@ -150,7 +139,6 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
 
 
   public SearchSiteContent200ResponseGroceryProductsInner name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -160,12 +148,9 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -236,53 +221,54 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchSiteContent200ResponseGroceryProductsInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchSiteContent200ResponseGroceryProductsInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchSiteContent200ResponseGroceryProductsInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchSiteContent200ResponseGroceryProductsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchSiteContent200ResponseGroceryProductsInner is not found in the empty JSON string", SearchSiteContent200ResponseGroceryProductsInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchSiteContent200ResponseGroceryProductsInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchSiteContent200ResponseGroceryProductsInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchSiteContent200ResponseGroceryProductsInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SearchSiteContent200ResponseGroceryProductsInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      JsonArray jsonArraydataPoints = jsonObj.getAsJsonArray("dataPoints");
-      if (jsonArraydataPoints != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("dataPoints").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `dataPoints` to be an array in the JSON string but got `%s`", jsonObj.get("dataPoints").toString()));
-        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("dataPoints") != null && !jsonObj.get("dataPoints").isJsonNull()) {
+        JsonArray jsonArraydataPoints = jsonObj.getAsJsonArray("dataPoints");
+        if (jsonArraydataPoints != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("dataPoints").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `dataPoints` to be an array in the JSON string but got `%s`", jsonObj.get("dataPoints").toString()));
+          }
 
-        // validate the optional field `dataPoints` (array)
-        for (int i = 0; i < jsonArraydataPoints.size(); i++) {
-          SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.validateJsonObject(jsonArraydataPoints.get(i).getAsJsonObject());
-        };
+          // validate the optional field `dataPoints` (array)
+          for (int i = 0; i < jsonArraydataPoints.size(); i++) {
+            SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.validateJsonElement(jsonArraydataPoints.get(i));
+          };
+        }
       }
-      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonPrimitive()) {
+      if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
+      if (!jsonObj.get("link").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
@@ -307,9 +293,9 @@ public class SearchSiteContent200ResponseGroceryProductsInner {
 
            @Override
            public SearchSiteContent200ResponseGroceryProductsInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -14,17 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetComparableProducts200ResponseComparableProductsProteinInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,12 +37,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetComparableProducts200ResponseComparableProducts
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetComparableProducts200ResponseComparableProducts {
   public static final String SERIALIZED_NAME_CALORIES = "calories";
   @SerializedName(SERIALIZED_NAME_CALORIES)
@@ -78,16 +80,18 @@ public class GetComparableProducts200ResponseComparableProducts {
   @SerializedName(SERIALIZED_NAME_SUGAR)
   private List<Object> sugar = new ArrayList<>();
 
-  public GetComparableProducts200ResponseComparableProducts() { 
+  public GetComparableProducts200ResponseComparableProducts() {
   }
 
   public GetComparableProducts200ResponseComparableProducts calories(List<Object> calories) {
-    
     this.calories = calories;
     return this;
   }
 
   public GetComparableProducts200ResponseComparableProducts addCaloriesItem(Object caloriesItem) {
+    if (this.calories == null) {
+      this.calories = new ArrayList<>();
+    }
     this.calories.add(caloriesItem);
     return this;
   }
@@ -97,12 +101,9 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return calories
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<Object> getCalories() {
     return calories;
   }
-
 
   public void setCalories(List<Object> calories) {
     this.calories = calories;
@@ -110,12 +111,14 @@ public class GetComparableProducts200ResponseComparableProducts {
 
 
   public GetComparableProducts200ResponseComparableProducts likes(List<Object> likes) {
-    
     this.likes = likes;
     return this;
   }
 
   public GetComparableProducts200ResponseComparableProducts addLikesItem(Object likesItem) {
+    if (this.likes == null) {
+      this.likes = new ArrayList<>();
+    }
     this.likes.add(likesItem);
     return this;
   }
@@ -125,12 +128,9 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return likes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<Object> getLikes() {
     return likes;
   }
-
 
   public void setLikes(List<Object> likes) {
     this.likes = likes;
@@ -138,12 +138,14 @@ public class GetComparableProducts200ResponseComparableProducts {
 
 
   public GetComparableProducts200ResponseComparableProducts price(List<Object> price) {
-    
     this.price = price;
     return this;
   }
 
   public GetComparableProducts200ResponseComparableProducts addPriceItem(Object priceItem) {
+    if (this.price == null) {
+      this.price = new ArrayList<>();
+    }
     this.price.add(priceItem);
     return this;
   }
@@ -153,12 +155,9 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return price
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<Object> getPrice() {
     return price;
   }
-
 
   public void setPrice(List<Object> price) {
     this.price = price;
@@ -166,12 +165,14 @@ public class GetComparableProducts200ResponseComparableProducts {
 
 
   public GetComparableProducts200ResponseComparableProducts protein(Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein) {
-    
     this.protein = protein;
     return this;
   }
 
   public GetComparableProducts200ResponseComparableProducts addProteinItem(GetComparableProducts200ResponseComparableProductsProteinInner proteinItem) {
+    if (this.protein == null) {
+      this.protein = new LinkedHashSet<>();
+    }
     this.protein.add(proteinItem);
     return this;
   }
@@ -181,12 +182,9 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return protein
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getProtein() {
     return protein;
   }
-
 
   public void setProtein(Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein) {
     this.protein = protein;
@@ -194,12 +192,14 @@ public class GetComparableProducts200ResponseComparableProducts {
 
 
   public GetComparableProducts200ResponseComparableProducts spoonacularScore(Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore) {
-    
     this.spoonacularScore = spoonacularScore;
     return this;
   }
 
   public GetComparableProducts200ResponseComparableProducts addSpoonacularScoreItem(GetComparableProducts200ResponseComparableProductsProteinInner spoonacularScoreItem) {
+    if (this.spoonacularScore == null) {
+      this.spoonacularScore = new LinkedHashSet<>();
+    }
     this.spoonacularScore.add(spoonacularScoreItem);
     return this;
   }
@@ -209,12 +209,9 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return spoonacularScore
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getSpoonacularScore() {
     return spoonacularScore;
   }
-
 
   public void setSpoonacularScore(Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore) {
     this.spoonacularScore = spoonacularScore;
@@ -222,12 +219,14 @@ public class GetComparableProducts200ResponseComparableProducts {
 
 
   public GetComparableProducts200ResponseComparableProducts sugar(List<Object> sugar) {
-    
     this.sugar = sugar;
     return this;
   }
 
   public GetComparableProducts200ResponseComparableProducts addSugarItem(Object sugarItem) {
+    if (this.sugar == null) {
+      this.sugar = new ArrayList<>();
+    }
     this.sugar.add(sugarItem);
     return this;
   }
@@ -237,12 +236,9 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return sugar
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<Object> getSugar() {
     return sugar;
   }
-
 
   public void setSugar(List<Object> sugar) {
     this.sugar = sugar;
@@ -322,72 +318,75 @@ public class GetComparableProducts200ResponseComparableProducts {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetComparableProducts200ResponseComparableProducts
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200ResponseComparableProducts
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetComparableProducts200ResponseComparableProducts.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetComparableProducts200ResponseComparableProducts.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetComparableProducts200ResponseComparableProducts is not found in the empty JSON string", GetComparableProducts200ResponseComparableProducts.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetComparableProducts200ResponseComparableProducts.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetComparableProducts200ResponseComparableProducts` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetComparableProducts200ResponseComparableProducts` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetComparableProducts200ResponseComparableProducts.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("calories") != null && !jsonObj.get("calories").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("calories") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("calories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `calories` to be an array in the JSON string but got `%s`", jsonObj.get("calories").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("likes") != null && !jsonObj.get("likes").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("likes") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("likes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `likes` to be an array in the JSON string but got `%s`", jsonObj.get("likes").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("price") != null && !jsonObj.get("price").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("price") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("price").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `price` to be an array in the JSON string but got `%s`", jsonObj.get("price").toString()));
       }
-      JsonArray jsonArrayprotein = jsonObj.getAsJsonArray("protein");
-      if (jsonArrayprotein != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("protein").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `protein` to be an array in the JSON string but got `%s`", jsonObj.get("protein").toString()));
-        }
-
-        // validate the optional field `protein` (array)
-        for (int i = 0; i < jsonArrayprotein.size(); i++) {
-          GetComparableProducts200ResponseComparableProductsProteinInner.validateJsonObject(jsonArrayprotein.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayspoonacularScore = jsonObj.getAsJsonArray("spoonacularScore");
-      if (jsonArrayspoonacularScore != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("spoonacularScore").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `spoonacularScore` to be an array in the JSON string but got `%s`", jsonObj.get("spoonacularScore").toString()));
-        }
-
-        // validate the optional field `spoonacularScore` (array)
-        for (int i = 0; i < jsonArrayspoonacularScore.size(); i++) {
-          GetComparableProducts200ResponseComparableProductsProteinInner.validateJsonObject(jsonArrayspoonacularScore.get(i).getAsJsonObject());
-        };
-      }
       // ensure the json data is an array
-      if (jsonObj.get("sugar") != null && !jsonObj.get("sugar").isJsonArray()) {
+      if (!jsonObj.get("protein").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `protein` to be an array in the JSON string but got `%s`", jsonObj.get("protein").toString()));
+      }
+
+      JsonArray jsonArrayprotein = jsonObj.getAsJsonArray("protein");
+      // validate the required field `protein` (array)
+      for (int i = 0; i < jsonArrayprotein.size(); i++) {
+        GetComparableProducts200ResponseComparableProductsProteinInner.validateJsonElement(jsonArrayprotein.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("spoonacularScore").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `spoonacularScore` to be an array in the JSON string but got `%s`", jsonObj.get("spoonacularScore").toString()));
+      }
+
+      JsonArray jsonArrayspoonacularScore = jsonObj.getAsJsonArray("spoonacularScore");
+      // validate the required field `spoonacularScore` (array)
+      for (int i = 0; i < jsonArrayspoonacularScore.size(); i++) {
+        GetComparableProducts200ResponseComparableProductsProteinInner.validateJsonElement(jsonArrayspoonacularScore.get(i));
+      };
+      // ensure the required json array is present
+      if (jsonObj.get("sugar") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("sugar").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sugar` to be an array in the JSON string but got `%s`", jsonObj.get("sugar").toString()));
       }
   }
@@ -412,9 +411,9 @@ public class GetComparableProducts200ResponseComparableProducts {
 
            @Override
            public GetComparableProducts200ResponseComparableProducts read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

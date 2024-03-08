@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetRandomFoodTrivia200Response
+# spoonacular.Model.GetRandomFoodTrivia200Response
 
 ## Properties
 

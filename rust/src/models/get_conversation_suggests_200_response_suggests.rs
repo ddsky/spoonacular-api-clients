@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetConversationSuggests200ResponseSuggests {
     #[serde(rename = "_")]
     pub _: Vec<crate::models::GetConversationSuggests200ResponseSuggestsInner>,

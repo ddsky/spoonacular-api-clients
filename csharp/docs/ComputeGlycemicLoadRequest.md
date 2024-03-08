@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.ComputeGlycemicLoadRequest
+# spoonacular.Model.ComputeGlycemicLoadRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ingredients** | **List<string>** |  | 
+**Ingredients** | **List&lt;string&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

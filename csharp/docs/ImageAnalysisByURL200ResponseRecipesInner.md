@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.ImageAnalysisByURL200ResponseRecipesInner
+# spoonacular.Model.ImageAnalysisByURL200ResponseRecipesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
 **ImageType** | **string** |  | 
 **Url** | **string** |  | 

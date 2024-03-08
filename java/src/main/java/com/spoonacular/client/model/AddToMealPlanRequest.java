@@ -14,15 +14,13 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,12 +32,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -47,7 +49,7 @@ import com.spoonacular.client.JSON;
 /**
  * AddToMealPlanRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class AddToMealPlanRequest {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
@@ -57,11 +59,10 @@ public class AddToMealPlanRequest {
   @SerializedName(SERIALIZED_NAME_HASH)
   private String hash;
 
-  public AddToMealPlanRequest() { 
+  public AddToMealPlanRequest() {
   }
 
   public AddToMealPlanRequest username(String username) {
-    
     this.username = username;
     return this;
   }
@@ -71,12 +72,9 @@ public class AddToMealPlanRequest {
    * @return username
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "dsky", required = true, value = "The username.")
-
   public String getUsername() {
     return username;
   }
-
 
   public void setUsername(String username) {
     this.username = username;
@@ -84,7 +82,6 @@ public class AddToMealPlanRequest {
 
 
   public AddToMealPlanRequest hash(String hash) {
-    
     this.hash = hash;
     return this;
   }
@@ -94,12 +91,9 @@ public class AddToMealPlanRequest {
    * @return hash
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "4b5v4398573406", required = true, value = "The private hash for the username.")
-
   public String getHash() {
     return hash;
   }
-
 
   public void setHash(String hash) {
     this.hash = hash;
@@ -163,38 +157,37 @@ public class AddToMealPlanRequest {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AddToMealPlanRequest
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AddToMealPlanRequest
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AddToMealPlanRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AddToMealPlanRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AddToMealPlanRequest is not found in the empty JSON string", AddToMealPlanRequest.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddToMealPlanRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddToMealPlanRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddToMealPlanRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddToMealPlanRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("username") != null && !jsonObj.get("username").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
-      if (jsonObj.get("hash") != null && !jsonObj.get("hash").isJsonPrimitive()) {
+      if (!jsonObj.get("hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash").toString()));
       }
   }
@@ -219,9 +212,9 @@ public class AddToMealPlanRequest {
 
            @Override
            public AddToMealPlanRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

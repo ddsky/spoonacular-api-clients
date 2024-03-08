@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing
+# spoonacular.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **decimal?** |  | 
+**Amount** | **decimal** |  | 
 **Unit** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

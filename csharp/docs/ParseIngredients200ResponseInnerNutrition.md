@@ -1,12 +1,12 @@
-# Org.OpenAPITools.Model.ParseIngredients200ResponseInnerNutrition
+# spoonacular.Model.ParseIngredients200ResponseInnerNutrition
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Nutrients** | [**List<ParseIngredients200ResponseInnerNutritionNutrientsInner>**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  | 
-**Properties** | [**List<ParseIngredients200ResponseInnerNutritionPropertiesInner>**](ParseIngredients200ResponseInnerNutritionPropertiesInner.md) |  | 
-**Flavonoids** | [**List<ParseIngredients200ResponseInnerNutritionPropertiesInner>**](ParseIngredients200ResponseInnerNutritionPropertiesInner.md) |  | 
+**Nutrients** | [**List&lt;ParseIngredients200ResponseInnerNutritionNutrientsInner&gt;**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  | 
+**Properties** | [**List&lt;ParseIngredients200ResponseInnerNutritionPropertiesInner&gt;**](ParseIngredients200ResponseInnerNutritionPropertiesInner.md) |  | 
+**Flavonoids** | [**List&lt;ParseIngredients200ResponseInnerNutritionPropertiesInner&gt;**](ParseIngredients200ResponseInnerNutritionPropertiesInner.md) |  | 
 **CaloricBreakdown** | [**ParseIngredients200ResponseInnerNutritionCaloricBreakdown**](ParseIngredients200ResponseInnerNutritionCaloricBreakdown.md) |  | 
 **WeightPerServing** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
 

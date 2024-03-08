@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
   public static final String SERIALIZED_NAME_METRIC = "metric";
   @SerializedName(SERIALIZED_NAME_METRIC)
@@ -58,11 +60,10 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
   @SerializedName(SERIALIZED_NAME_US)
   private GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric us;
 
-  public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures() { 
+  public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures() {
   }
 
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures metric(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric metric) {
-    
     this.metric = metric;
     return this;
   }
@@ -72,12 +73,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
    * @return metric
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric getMetric() {
     return metric;
   }
-
 
   public void setMetric(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric metric) {
     this.metric = metric;
@@ -85,7 +83,6 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
 
 
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures us(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric us) {
-    
     this.us = us;
     return this;
   }
@@ -95,12 +92,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
    * @return us
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric getUs() {
     return us;
   }
-
 
   public void setUs(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric us) {
     this.us = us;
@@ -164,42 +158,37 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures is not found in the empty JSON string", GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // validate the optional field `metric`
-      if (jsonObj.getAsJsonObject("metric") != null) {
-        GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.validateJsonObject(jsonObj.getAsJsonObject("metric"));
-      }
-      // validate the optional field `us`
-      if (jsonObj.getAsJsonObject("us") != null) {
-        GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.validateJsonObject(jsonObj.getAsJsonObject("us"));
-      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `metric`
+      GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.validateJsonElement(jsonObj.get("metric"));
+      // validate the required field `us`
+      GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.validateJsonElement(jsonObj.get("us"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -222,9 +211,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
 
            @Override
            public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

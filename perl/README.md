@@ -884,6 +884,7 @@ Class | Method | HTTP request | Description
 
 # DOCUMENTATION FOR AUTHORIZATION
 
+Authentication schemes defined for the API:
 ## apiKeyScheme
 
 - **Type**: API key

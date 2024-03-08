@@ -1,5 +1,4 @@
-import { ResponseContext, RequestContext, HttpFile } from '../http/http';
-import * as models from '../models/all';
+import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
 import { AddMealPlanTemplate200Response } from '../models/AddMealPlanTemplate200Response';
@@ -233,13 +232,13 @@ export interface DefaultApiSearchRestaurantsRequest {
      */
     query?: string
     /**
-     * The latitude of the user&#39;s location.
+     * The latitude of the user\&#39;s location.
      * @type number
      * @memberof DefaultApisearchRestaurants
      */
     lat?: number
     /**
-     * The longitude of the user&#39;s location.\&quot;.
+     * The longitude of the user\&#39;s location.\&quot;.
      * @type number
      * @memberof DefaultApisearchRestaurants
      */
@@ -251,7 +250,7 @@ export interface DefaultApiSearchRestaurantsRequest {
      */
     distance?: number
     /**
-     * The user&#39;s budget for a meal in USD.
+     * The user\&#39;s budget for a meal in USD.
      * @type number
      * @memberof DefaultApisearchRestaurants
      */
@@ -275,7 +274,7 @@ export interface DefaultApiSearchRestaurantsRequest {
      */
     isOpen?: boolean
     /**
-     * How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;.
+     * How to sort the results, one of the following \&#39;cheapest\&#39;, \&#39;fastest\&#39;, \&#39;rating\&#39;, \&#39;distance\&#39; or the default \&#39;relevance\&#39;.
      * @type string
      * @memberof DefaultApisearchRestaurants
      */
@@ -300,6 +299,15 @@ export class ObjectDefaultApi {
      * Analyze Recipe
      * @param param the request object
      */
+    public analyzeRecipeWithHttpInfo(param: DefaultApiAnalyzeRecipeRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.analyzeRecipeWithHttpInfo(param.analyzeRecipeRequest, param.language, param.includeNutrition, param.includeTaste,  options).toPromise();
+    }
+
+    /**
+     * This endpoint allows you to send raw recipe information, such as title, servings, and ingredients, to then see what we compute (badges, diets, nutrition, and more). This is useful if you have your own recipe data and want to enrich it with our semantic analysis.
+     * Analyze Recipe
+     * @param param the request object
+     */
     public analyzeRecipe(param: DefaultApiAnalyzeRecipeRequest, options?: Configuration): Promise<any> {
         return this.api.analyzeRecipe(param.analyzeRecipeRequest, param.language, param.includeNutrition, param.includeTaste,  options).toPromise();
     }
@@ -309,8 +317,26 @@ export class ObjectDefaultApi {
      * Create Recipe Card
      * @param param the request object
      */
+    public createRecipeCardGetWithHttpInfo(param: DefaultApiCreateRecipeCardGetRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.createRecipeCardGetWithHttpInfo(param.id, param.mask, param.backgroundImage, param.backgroundColor, param.fontColor,  options).toPromise();
+    }
+
+    /**
+     * Generate a recipe card for a recipe.
+     * Create Recipe Card
+     * @param param the request object
+     */
     public createRecipeCardGet(param: DefaultApiCreateRecipeCardGetRequest, options?: Configuration): Promise<any> {
         return this.api.createRecipeCardGet(param.id, param.mask, param.backgroundImage, param.backgroundColor, param.fontColor,  options).toPromise();
+    }
+
+    /**
+     * Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
+     * Search Restaurants
+     * @param param the request object
+     */
+    public searchRestaurantsWithHttpInfo(param: DefaultApiSearchRestaurantsRequest = {}, options?: Configuration): Promise<HttpInfo<SearchRestaurants200Response>> {
+        return this.api.searchRestaurantsWithHttpInfo(param.query, param.lat, param.lng, param.distance, param.budget, param.cuisine, param.minRating, param.isOpen, param.sort, param.page,  options).toPromise();
     }
 
     /**
@@ -353,7 +379,7 @@ export interface IngredientsApiAutocompleteIngredientSearchRequest {
      */
     intolerances?: string
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof IngredientsApiautocompleteIngredientSearch
      */
@@ -389,7 +415,7 @@ export interface IngredientsApiComputeIngredientAmountRequest {
 
 export interface IngredientsApiGetIngredientInformationRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof IngredientsApigetIngredientInformation
      */
@@ -419,7 +445,7 @@ export interface IngredientsApiGetIngredientSubstitutesRequest {
 
 export interface IngredientsApiGetIngredientSubstitutesByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof IngredientsApigetIngredientSubstitutesByID
      */
@@ -494,7 +520,7 @@ export interface IngredientsApiIngredientSearchRequest {
      */
     sort?: string
     /**
-     * The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+     * The direction in which to sort. Must be either \&#39;asc\&#39; (ascending) or \&#39;desc\&#39; (descending).
      * @type string
      * @memberof IngredientsApiingredientSearch
      */
@@ -512,7 +538,7 @@ export interface IngredientsApiIngredientSearchRequest {
      */
     number?: number
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof IngredientsApiingredientSearch
      */
@@ -527,7 +553,7 @@ export interface IngredientsApiIngredientsByIDImageRequest {
      */
     id: number
     /**
-     * Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
+     * Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      * @type &#39;us&#39; | &#39;metric&#39;
      * @memberof IngredientsApiingredientsByIDImage
      */
@@ -551,7 +577,7 @@ export interface IngredientsApiVisualizeIngredientsRequest {
      */
     contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof IngredientsApivisualizeIngredients
      */
@@ -576,8 +602,26 @@ export class ObjectIngredientsApi {
      * Autocomplete Ingredient Search
      * @param param the request object
      */
+    public autocompleteIngredientSearchWithHttpInfo(param: IngredientsApiAutocompleteIngredientSearchRequest = {}, options?: Configuration): Promise<HttpInfo<Set<AutocompleteIngredientSearch200ResponseInner>>> {
+        return this.api.autocompleteIngredientSearchWithHttpInfo(param.query, param.number, param.metaInformation, param.intolerances, param.language,  options).toPromise();
+    }
+
+    /**
+     * Autocomplete the entry of an ingredient.
+     * Autocomplete Ingredient Search
+     * @param param the request object
+     */
     public autocompleteIngredientSearch(param: IngredientsApiAutocompleteIngredientSearchRequest = {}, options?: Configuration): Promise<Set<AutocompleteIngredientSearch200ResponseInner>> {
         return this.api.autocompleteIngredientSearch(param.query, param.number, param.metaInformation, param.intolerances, param.language,  options).toPromise();
+    }
+
+    /**
+     * Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
+     * Compute Ingredient Amount
+     * @param param the request object
+     */
+    public computeIngredientAmountWithHttpInfo(param: IngredientsApiComputeIngredientAmountRequest, options?: Configuration): Promise<HttpInfo<ComputeIngredientAmount200Response>> {
+        return this.api.computeIngredientAmountWithHttpInfo(param.id, param.nutrient, param.target, param.unit,  options).toPromise();
     }
 
     /**
@@ -594,8 +638,26 @@ export class ObjectIngredientsApi {
      * Get Ingredient Information
      * @param param the request object
      */
+    public getIngredientInformationWithHttpInfo(param: IngredientsApiGetIngredientInformationRequest, options?: Configuration): Promise<HttpInfo<GetIngredientInformation200Response>> {
+        return this.api.getIngredientInformationWithHttpInfo(param.id, param.amount, param.unit,  options).toPromise();
+    }
+
+    /**
+     * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
+     * Get Ingredient Information
+     * @param param the request object
+     */
     public getIngredientInformation(param: IngredientsApiGetIngredientInformationRequest, options?: Configuration): Promise<GetIngredientInformation200Response> {
         return this.api.getIngredientInformation(param.id, param.amount, param.unit,  options).toPromise();
+    }
+
+    /**
+     * Search for substitutes for a given ingredient.
+     * Get Ingredient Substitutes
+     * @param param the request object
+     */
+    public getIngredientSubstitutesWithHttpInfo(param: IngredientsApiGetIngredientSubstitutesRequest, options?: Configuration): Promise<HttpInfo<GetIngredientSubstitutes200Response>> {
+        return this.api.getIngredientSubstitutesWithHttpInfo(param.ingredientName,  options).toPromise();
     }
 
     /**
@@ -612,8 +674,26 @@ export class ObjectIngredientsApi {
      * Get Ingredient Substitutes by ID
      * @param param the request object
      */
+    public getIngredientSubstitutesByIDWithHttpInfo(param: IngredientsApiGetIngredientSubstitutesByIDRequest, options?: Configuration): Promise<HttpInfo<GetIngredientSubstitutes200Response>> {
+        return this.api.getIngredientSubstitutesByIDWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Search for substitutes for a given ingredient.
+     * Get Ingredient Substitutes by ID
+     * @param param the request object
+     */
     public getIngredientSubstitutesByID(param: IngredientsApiGetIngredientSubstitutesByIDRequest, options?: Configuration): Promise<GetIngredientSubstitutes200Response> {
         return this.api.getIngredientSubstitutesByID(param.id,  options).toPromise();
+    }
+
+    /**
+     * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+     * Ingredient Search
+     * @param param the request object
+     */
+    public ingredientSearchWithHttpInfo(param: IngredientsApiIngredientSearchRequest = {}, options?: Configuration): Promise<HttpInfo<IngredientSearch200Response>> {
+        return this.api.ingredientSearchWithHttpInfo(param.query, param.addChildren, param.minProteinPercent, param.maxProteinPercent, param.minFatPercent, param.maxFatPercent, param.minCarbsPercent, param.maxCarbsPercent, param.metaInformation, param.intolerances, param.sort, param.sortDirection, param.offset, param.number, param.language,  options).toPromise();
     }
 
     /**
@@ -626,7 +706,16 @@ export class ObjectIngredientsApi {
     }
 
     /**
-     * Visualize a recipe's ingredient list.
+     * Visualize a recipe\'s ingredient list.
+     * Ingredients by ID Image
+     * @param param the request object
+     */
+    public ingredientsByIDImageWithHttpInfo(param: IngredientsApiIngredientsByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.ingredientsByIDImageWithHttpInfo(param.id, param.measure,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s ingredient list.
      * Ingredients by ID Image
      * @param param the request object
      */
@@ -639,8 +728,26 @@ export class ObjectIngredientsApi {
      * Map Ingredients to Grocery Products
      * @param param the request object
      */
+    public mapIngredientsToGroceryProductsWithHttpInfo(param: IngredientsApiMapIngredientsToGroceryProductsRequest, options?: Configuration): Promise<HttpInfo<Set<MapIngredientsToGroceryProducts200ResponseInner>>> {
+        return this.api.mapIngredientsToGroceryProductsWithHttpInfo(param.mapIngredientsToGroceryProductsRequest,  options).toPromise();
+    }
+
+    /**
+     * Map a set of ingredients to products you can buy in the grocery store.
+     * Map Ingredients to Grocery Products
+     * @param param the request object
+     */
     public mapIngredientsToGroceryProducts(param: IngredientsApiMapIngredientsToGroceryProductsRequest, options?: Configuration): Promise<Set<MapIngredientsToGroceryProducts200ResponseInner>> {
         return this.api.mapIngredientsToGroceryProducts(param.mapIngredientsToGroceryProductsRequest,  options).toPromise();
+    }
+
+    /**
+     * Visualize ingredients of a recipe. You can play around with that endpoint!
+     * Ingredients Widget
+     * @param param the request object
+     */
+    public visualizeIngredientsWithHttpInfo(param: IngredientsApiVisualizeIngredientsRequest = {}, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeIngredientsWithHttpInfo(param.contentType, param.language, param.accept,  options).toPromise();
     }
 
     /**
@@ -791,7 +898,7 @@ export interface MealPlanningApiDeleteFromShoppingListRequest {
      */
     username: string
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof MealPlanningApideleteFromShoppingList
      */
@@ -818,7 +925,7 @@ export interface MealPlanningApiDeleteMealPlanTemplateRequest {
      */
     username: string
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof MealPlanningApideleteMealPlanTemplate
      */
@@ -905,7 +1012,7 @@ export interface MealPlanningApiGetMealPlanTemplateRequest {
      */
     username: string
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof MealPlanningApigetMealPlanTemplate
      */
@@ -981,12 +1088,30 @@ export class ObjectMealPlanningApi {
      * Add Meal Plan Template
      * @param param the request object
      */
+    public addMealPlanTemplateWithHttpInfo(param: MealPlanningApiAddMealPlanTemplateRequest, options?: Configuration): Promise<HttpInfo<AddMealPlanTemplate200Response>> {
+        return this.api.addMealPlanTemplateWithHttpInfo(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Add a meal plan template for a user.
+     * Add Meal Plan Template
+     * @param param the request object
+     */
     public addMealPlanTemplate(param: MealPlanningApiAddMealPlanTemplateRequest, options?: Configuration): Promise<AddMealPlanTemplate200Response> {
         return this.api.addMealPlanTemplate(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
     }
 
     /**
-     * Add an item to the user's meal plan.
+     * Add an item to the user\'s meal plan.
+     * Add to Meal Plan
+     * @param param the request object
+     */
+    public addToMealPlanWithHttpInfo(param: MealPlanningApiAddToMealPlanRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.addToMealPlanWithHttpInfo(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Add an item to the user\'s meal plan.
      * Add to Meal Plan
      * @param param the request object
      */
@@ -999,12 +1124,30 @@ export class ObjectMealPlanningApi {
      * Add to Shopping List
      * @param param the request object
      */
+    public addToShoppingListWithHttpInfo(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
+        return this.api.addToShoppingListWithHttpInfo(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Add an item to the current shopping list of a user.
+     * Add to Shopping List
+     * @param param the request object
+     */
     public addToShoppingList(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<GenerateShoppingList200Response> {
         return this.api.addToShoppingList(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
     }
 
     /**
-     * Delete all planned items from the user's meal plan for a specific day.
+     * Delete all planned items from the user\'s meal plan for a specific day.
+     * Clear Meal Plan Day
+     * @param param the request object
+     */
+    public clearMealPlanDayWithHttpInfo(param: MealPlanningApiClearMealPlanDayRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.clearMealPlanDayWithHttpInfo(param.username, param.date, param.hash, param.clearMealPlanDayRequest,  options).toPromise();
+    }
+
+    /**
+     * Delete all planned items from the user\'s meal plan for a specific day.
      * Clear Meal Plan Day
      * @param param the request object
      */
@@ -1013,7 +1156,16 @@ export class ObjectMealPlanningApi {
     }
 
     /**
-     * In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+     * In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
+     * Connect User
+     * @param param the request object
+     */
+    public connectUserWithHttpInfo(param: MealPlanningApiConnectUserRequest, options?: Configuration): Promise<HttpInfo<ConnectUser200Response>> {
+        return this.api.connectUserWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
      * Connect User
      * @param param the request object
      */
@@ -1022,12 +1174,30 @@ export class ObjectMealPlanningApi {
     }
 
     /**
-     * Delete an item from the user's meal plan.
+     * Delete an item from the user\'s meal plan.
+     * Delete from Meal Plan
+     * @param param the request object
+     */
+    public deleteFromMealPlanWithHttpInfo(param: MealPlanningApiDeleteFromMealPlanRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.deleteFromMealPlanWithHttpInfo(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Delete an item from the user\'s meal plan.
      * Delete from Meal Plan
      * @param param the request object
      */
     public deleteFromMealPlan(param: MealPlanningApiDeleteFromMealPlanRequest, options?: Configuration): Promise<any> {
         return this.api.deleteFromMealPlan(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Delete an item from the current shopping list of the user.
+     * Delete from Shopping List
+     * @param param the request object
+     */
+    public deleteFromShoppingListWithHttpInfo(param: MealPlanningApiDeleteFromShoppingListRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.deleteFromShoppingListWithHttpInfo(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
     }
 
     /**
@@ -1044,8 +1214,26 @@ export class ObjectMealPlanningApi {
      * Delete Meal Plan Template
      * @param param the request object
      */
+    public deleteMealPlanTemplateWithHttpInfo(param: MealPlanningApiDeleteMealPlanTemplateRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.deleteMealPlanTemplateWithHttpInfo(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Delete a meal plan template for a user.
+     * Delete Meal Plan Template
+     * @param param the request object
+     */
     public deleteMealPlanTemplate(param: MealPlanningApiDeleteMealPlanTemplateRequest, options?: Configuration): Promise<any> {
         return this.api.deleteMealPlanTemplate(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+    }
+
+    /**
+     * Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
+     * Generate Meal Plan
+     * @param param the request object
+     */
+    public generateMealPlanWithHttpInfo(param: MealPlanningApiGenerateMealPlanRequest = {}, options?: Configuration): Promise<HttpInfo<GenerateMealPlan200Response>> {
+        return this.api.generateMealPlanWithHttpInfo(param.timeFrame, param.targetCalories, param.diet, param.exclude,  options).toPromise();
     }
 
     /**
@@ -1062,8 +1250,26 @@ export class ObjectMealPlanningApi {
      * Generate Shopping List
      * @param param the request object
      */
+    public generateShoppingListWithHttpInfo(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
+        return this.api.generateShoppingListWithHttpInfo(param.username, param.startDate, param.endDate, param.hash, param.generateShoppingListRequest,  options).toPromise();
+    }
+
+    /**
+     * Generate the shopping list for a user from the meal planner in a given time frame.
+     * Generate Shopping List
+     * @param param the request object
+     */
     public generateShoppingList(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<GenerateShoppingList200Response> {
         return this.api.generateShoppingList(param.username, param.startDate, param.endDate, param.hash, param.generateShoppingListRequest,  options).toPromise();
+    }
+
+    /**
+     * Get information about a meal plan template.
+     * Get Meal Plan Template
+     * @param param the request object
+     */
+    public getMealPlanTemplateWithHttpInfo(param: MealPlanningApiGetMealPlanTemplateRequest, options?: Configuration): Promise<HttpInfo<GetMealPlanTemplate200Response>> {
+        return this.api.getMealPlanTemplateWithHttpInfo(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1080,17 +1286,44 @@ export class ObjectMealPlanningApi {
      * Get Meal Plan Templates
      * @param param the request object
      */
+    public getMealPlanTemplatesWithHttpInfo(param: MealPlanningApiGetMealPlanTemplatesRequest, options?: Configuration): Promise<HttpInfo<GetMealPlanTemplates200Response>> {
+        return this.api.getMealPlanTemplatesWithHttpInfo(param.username, param.hash,  options).toPromise();
+    }
+
+    /**
+     * Get meal plan templates from user or public ones.
+     * Get Meal Plan Templates
+     * @param param the request object
+     */
     public getMealPlanTemplates(param: MealPlanningApiGetMealPlanTemplatesRequest, options?: Configuration): Promise<GetMealPlanTemplates200Response> {
         return this.api.getMealPlanTemplates(param.username, param.hash,  options).toPromise();
     }
 
     /**
-     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user\'s hash that can be found in his/her account.
+     * Get Meal Plan Week
+     * @param param the request object
+     */
+    public getMealPlanWeekWithHttpInfo(param: MealPlanningApiGetMealPlanWeekRequest, options?: Configuration): Promise<HttpInfo<GetMealPlanWeek200Response>> {
+        return this.api.getMealPlanWeekWithHttpInfo(param.username, param.startDate, param.hash,  options).toPromise();
+    }
+
+    /**
+     * Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user\'s hash that can be found in his/her account.
      * Get Meal Plan Week
      * @param param the request object
      */
     public getMealPlanWeek(param: MealPlanningApiGetMealPlanWeekRequest, options?: Configuration): Promise<GetMealPlanWeek200Response> {
         return this.api.getMealPlanWeek(param.username, param.startDate, param.hash,  options).toPromise();
+    }
+
+    /**
+     * Get the current shopping list for the given user.
+     * Get Shopping List
+     * @param param the request object
+     */
+    public getShoppingListWithHttpInfo(param: MealPlanningApiGetShoppingListRequest, options?: Configuration): Promise<HttpInfo<GetShoppingList200Response>> {
+        return this.api.getShoppingListWithHttpInfo(param.username, param.hash,  options).toPromise();
     }
 
     /**
@@ -1124,7 +1357,7 @@ export interface MenuItemsApiAutocompleteMenuItemSearchRequest {
 
 export interface MenuItemsApiGetMenuItemInformationRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof MenuItemsApigetMenuItemInformation
      */
@@ -1277,7 +1510,7 @@ export interface MenuItemsApiSearchMenuItemsRequest {
 
 export interface MenuItemsApiVisualizeMenuItemNutritionByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof MenuItemsApivisualizeMenuItemNutritionByID
      */
@@ -1308,8 +1541,26 @@ export class ObjectMenuItemsApi {
      * Autocomplete Menu Item Search
      * @param param the request object
      */
+    public autocompleteMenuItemSearchWithHttpInfo(param: MenuItemsApiAutocompleteMenuItemSearchRequest, options?: Configuration): Promise<HttpInfo<AutocompleteMenuItemSearch200Response>> {
+        return this.api.autocompleteMenuItemSearchWithHttpInfo(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
+     * Autocomplete Menu Item Search
+     * @param param the request object
+     */
     public autocompleteMenuItemSearch(param: MenuItemsApiAutocompleteMenuItemSearchRequest, options?: Configuration): Promise<AutocompleteMenuItemSearch200Response> {
         return this.api.autocompleteMenuItemSearch(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * Use a menu item id to get all available information about a menu item, such as nutrition.
+     * Get Menu Item Information
+     * @param param the request object
+     */
+    public getMenuItemInformationWithHttpInfo(param: MenuItemsApiGetMenuItemInformationRequest, options?: Configuration): Promise<HttpInfo<GetMenuItemInformation200Response>> {
+        return this.api.getMenuItemInformationWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1322,7 +1573,16 @@ export class ObjectMenuItemsApi {
     }
 
     /**
-     * Visualize a menu item's nutritional information as HTML including CSS.
+     * Visualize a menu item\'s nutritional information as HTML including CSS.
+     * Menu Item Nutrition by ID Image
+     * @param param the request object
+     */
+    public menuItemNutritionByIDImageWithHttpInfo(param: MenuItemsApiMenuItemNutritionByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.menuItemNutritionByIDImageWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Visualize a menu item\'s nutritional information as HTML including CSS.
      * Menu Item Nutrition by ID Image
      * @param param the request object
      */
@@ -1331,7 +1591,16 @@ export class ObjectMenuItemsApi {
     }
 
     /**
-     * Visualize a menu item's nutritional label information as an image.
+     * Visualize a menu item\'s nutritional label information as an image.
+     * Menu Item Nutrition Label Image
+     * @param param the request object
+     */
+    public menuItemNutritionLabelImageWithHttpInfo(param: MenuItemsApiMenuItemNutritionLabelImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.menuItemNutritionLabelImageWithHttpInfo(param.id, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Visualize a menu item\'s nutritional label information as an image.
      * Menu Item Nutrition Label Image
      * @param param the request object
      */
@@ -1340,7 +1609,16 @@ export class ObjectMenuItemsApi {
     }
 
     /**
-     * Visualize a menu item's nutritional label information as HTML including CSS.
+     * Visualize a menu item\'s nutritional label information as HTML including CSS.
+     * Menu Item Nutrition Label Widget
+     * @param param the request object
+     */
+    public menuItemNutritionLabelWidgetWithHttpInfo(param: MenuItemsApiMenuItemNutritionLabelWidgetRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.menuItemNutritionLabelWidgetWithHttpInfo(param.id, param.defaultCss, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Visualize a menu item\'s nutritional label information as HTML including CSS.
      * Menu Item Nutrition Label Widget
      * @param param the request object
      */
@@ -1349,7 +1627,16 @@ export class ObjectMenuItemsApi {
     }
 
     /**
-     * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
+     * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald\'s Big Mac or Starbucks Mocha.
+     * Search Menu Items
+     * @param param the request object
+     */
+    public searchMenuItemsWithHttpInfo(param: MenuItemsApiSearchMenuItemsRequest = {}, options?: Configuration): Promise<HttpInfo<SearchMenuItems200Response>> {
+        return this.api.searchMenuItemsWithHttpInfo(param.query, param.minCalories, param.maxCalories, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minFat, param.maxFat, param.addMenuItemInformation, param.offset, param.number,  options).toPromise();
+    }
+
+    /**
+     * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald\'s Big Mac or Starbucks Mocha.
      * Search Menu Items
      * @param param the request object
      */
@@ -1358,7 +1645,16 @@ export class ObjectMenuItemsApi {
     }
 
     /**
-     * Visualize a menu item's nutritional information as HTML including CSS.
+     * Visualize a menu item\'s nutritional information as HTML including CSS.
+     * Menu Item Nutrition by ID Widget
+     * @param param the request object
+     */
+    public visualizeMenuItemNutritionByIDWithHttpInfo(param: MenuItemsApiVisualizeMenuItemNutritionByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeMenuItemNutritionByIDWithHttpInfo(param.id, param.defaultCss, param.accept,  options).toPromise();
+    }
+
+    /**
+     * Visualize a menu item\'s nutritional information as HTML including CSS.
      * Menu Item Nutrition by ID Widget
      * @param param the request object
      */
@@ -1572,8 +1868,26 @@ export class ObjectMiscApi {
      * Detect Food in Text
      * @param param the request object
      */
+    public detectFoodInTextWithHttpInfo(param: MiscApiDetectFoodInTextRequest = {}, options?: Configuration): Promise<HttpInfo<DetectFoodInText200Response>> {
+        return this.api.detectFoodInTextWithHttpInfo(param.contentType,  options).toPromise();
+    }
+
+    /**
+     * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+     * Detect Food in Text
+     * @param param the request object
+     */
     public detectFoodInText(param: MiscApiDetectFoodInTextRequest = {}, options?: Configuration): Promise<DetectFoodInText200Response> {
         return this.api.detectFoodInText(param.contentType,  options).toPromise();
+    }
+
+    /**
+     * Get a random joke that is related to food. Caution: this is an endpoint for adults!
+     * Random Food Joke
+     * @param param the request object
+     */
+    public getARandomFoodJokeWithHttpInfo(param: MiscApiGetARandomFoodJokeRequest = {}, options?: Configuration): Promise<HttpInfo<GetARandomFoodJoke200Response>> {
+        return this.api.getARandomFoodJokeWithHttpInfo( options).toPromise();
     }
 
     /**
@@ -1590,8 +1904,26 @@ export class ObjectMiscApi {
      * Conversation Suggests
      * @param param the request object
      */
+    public getConversationSuggestsWithHttpInfo(param: MiscApiGetConversationSuggestsRequest, options?: Configuration): Promise<HttpInfo<GetConversationSuggests200Response>> {
+        return this.api.getConversationSuggestsWithHttpInfo(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * This endpoint returns suggestions for things the user can say or ask the chatbot.
+     * Conversation Suggests
+     * @param param the request object
+     */
     public getConversationSuggests(param: MiscApiGetConversationSuggestsRequest, options?: Configuration): Promise<GetConversationSuggests200Response> {
         return this.api.getConversationSuggests(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * Returns random food trivia.
+     * Random Food Trivia
+     * @param param the request object
+     */
+    public getRandomFoodTriviaWithHttpInfo(param: MiscApiGetRandomFoodTriviaRequest = {}, options?: Configuration): Promise<HttpInfo<GetRandomFoodTrivia200Response>> {
+        return this.api.getRandomFoodTriviaWithHttpInfo( options).toPromise();
     }
 
     /**
@@ -1608,8 +1940,26 @@ export class ObjectMiscApi {
      * Image Analysis by URL
      * @param param the request object
      */
+    public imageAnalysisByURLWithHttpInfo(param: MiscApiImageAnalysisByURLRequest, options?: Configuration): Promise<HttpInfo<ImageAnalysisByURL200Response>> {
+        return this.api.imageAnalysisByURLWithHttpInfo(param.imageUrl,  options).toPromise();
+    }
+
+    /**
+     * Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
+     * Image Analysis by URL
+     * @param param the request object
+     */
     public imageAnalysisByURL(param: MiscApiImageAnalysisByURLRequest, options?: Configuration): Promise<ImageAnalysisByURL200Response> {
         return this.api.imageAnalysisByURL(param.imageUrl,  options).toPromise();
+    }
+
+    /**
+     * Classify a food image.
+     * Image Classification by URL
+     * @param param the request object
+     */
+    public imageClassificationByURLWithHttpInfo(param: MiscApiImageClassificationByURLRequest, options?: Configuration): Promise<HttpInfo<ImageClassificationByURL200Response>> {
+        return this.api.imageClassificationByURLWithHttpInfo(param.imageUrl,  options).toPromise();
     }
 
     /**
@@ -1626,12 +1976,30 @@ export class ObjectMiscApi {
      * Search All Food
      * @param param the request object
      */
+    public searchAllFoodWithHttpInfo(param: MiscApiSearchAllFoodRequest, options?: Configuration): Promise<HttpInfo<SearchAllFood200Response>> {
+        return this.api.searchAllFoodWithHttpInfo(param.query, param.offset, param.number,  options).toPromise();
+    }
+
+    /**
+     * Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+     * Search All Food
+     * @param param the request object
+     */
     public searchAllFood(param: MiscApiSearchAllFoodRequest, options?: Configuration): Promise<SearchAllFood200Response> {
         return this.api.searchAllFood(param.query, param.offset, param.number,  options).toPromise();
     }
 
     /**
-     * Search custom foods in a user's account.
+     * Search custom foods in a user\'s account.
+     * Search Custom Foods
+     * @param param the request object
+     */
+    public searchCustomFoodsWithHttpInfo(param: MiscApiSearchCustomFoodsRequest, options?: Configuration): Promise<HttpInfo<SearchCustomFoods200Response>> {
+        return this.api.searchCustomFoodsWithHttpInfo(param.username, param.hash, param.query, param.offset, param.number,  options).toPromise();
+    }
+
+    /**
+     * Search custom foods in a user\'s account.
      * Search Custom Foods
      * @param param the request object
      */
@@ -1644,17 +2012,44 @@ export class ObjectMiscApi {
      * Search Food Videos
      * @param param the request object
      */
+    public searchFoodVideosWithHttpInfo(param: MiscApiSearchFoodVideosRequest = {}, options?: Configuration): Promise<HttpInfo<SearchFoodVideos200Response>> {
+        return this.api.searchFoodVideosWithHttpInfo(param.query, param.type, param.cuisine, param.diet, param.includeIngredients, param.excludeIngredients, param.minLength, param.maxLength, param.offset, param.number,  options).toPromise();
+    }
+
+    /**
+     * Find recipe and other food related videos.
+     * Search Food Videos
+     * @param param the request object
+     */
     public searchFoodVideos(param: MiscApiSearchFoodVideosRequest = {}, options?: Configuration): Promise<SearchFoodVideos200Response> {
         return this.api.searchFoodVideos(param.query, param.type, param.cuisine, param.diet, param.includeIngredients, param.excludeIngredients, param.minLength, param.maxLength, param.offset, param.number,  options).toPromise();
     }
 
     /**
-     * Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+     * Search spoonacular\'s site content. You\'ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+     * Search Site Content
+     * @param param the request object
+     */
+    public searchSiteContentWithHttpInfo(param: MiscApiSearchSiteContentRequest, options?: Configuration): Promise<HttpInfo<SearchSiteContent200Response>> {
+        return this.api.searchSiteContentWithHttpInfo(param.query,  options).toPromise();
+    }
+
+    /**
+     * Search spoonacular\'s site content. You\'ll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
      * Search Site Content
      * @param param the request object
      */
     public searchSiteContent(param: MiscApiSearchSiteContentRequest, options?: Configuration): Promise<SearchSiteContent200Response> {
         return this.api.searchSiteContent(param.query,  options).toPromise();
+    }
+
+    /**
+     * This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
+     * Talk to Chatbot
+     * @param param the request object
+     */
+    public talkToChatbotWithHttpInfo(param: MiscApiTalkToChatbotRequest, options?: Configuration): Promise<HttpInfo<TalkToChatbot200Response>> {
+        return this.api.talkToChatbotWithHttpInfo(param.text, param.contextId,  options).toPromise();
     }
 
     /**
@@ -1727,7 +2122,7 @@ export interface ProductsApiGetComparableProductsRequest {
 
 export interface ProductsApiGetProductInformationRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof ProductsApigetProductInformation
      */
@@ -1880,7 +2275,7 @@ export interface ProductsApiSearchGroceryProductsRequest {
 
 export interface ProductsApiSearchGroceryProductsByUPCRequest {
     /**
-     * The product&#39;s UPC.
+     * The product\&#39;s UPC.
      * @type number
      * @memberof ProductsApisearchGroceryProductsByUPC
      */
@@ -1889,7 +2284,7 @@ export interface ProductsApiSearchGroceryProductsByUPCRequest {
 
 export interface ProductsApiVisualizeProductNutritionByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof ProductsApivisualizeProductNutritionByID
      */
@@ -1920,8 +2315,26 @@ export class ObjectProductsApi {
      * Autocomplete Product Search
      * @param param the request object
      */
+    public autocompleteProductSearchWithHttpInfo(param: ProductsApiAutocompleteProductSearchRequest, options?: Configuration): Promise<HttpInfo<AutocompleteProductSearch200Response>> {
+        return this.api.autocompleteProductSearchWithHttpInfo(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
+     * Autocomplete Product Search
+     * @param param the request object
+     */
     public autocompleteProductSearch(param: ProductsApiAutocompleteProductSearchRequest, options?: Configuration): Promise<AutocompleteProductSearch200Response> {
         return this.api.autocompleteProductSearch(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
+     * Classify Grocery Product
+     * @param param the request object
+     */
+    public classifyGroceryProductWithHttpInfo(param: ProductsApiClassifyGroceryProductRequest, options?: Configuration): Promise<HttpInfo<ClassifyGroceryProduct200Response>> {
+        return this.api.classifyGroceryProductWithHttpInfo(param.classifyGroceryProductRequest, param.locale,  options).toPromise();
     }
 
     /**
@@ -1938,8 +2351,26 @@ export class ObjectProductsApi {
      * Classify Grocery Product Bulk
      * @param param the request object
      */
+    public classifyGroceryProductBulkWithHttpInfo(param: ProductsApiClassifyGroceryProductBulkRequest, options?: Configuration): Promise<HttpInfo<Set<ClassifyGroceryProductBulk200ResponseInner>>> {
+        return this.api.classifyGroceryProductBulkWithHttpInfo(param.classifyGroceryProductBulkRequestInner, param.locale,  options).toPromise();
+    }
+
+    /**
+     * Provide a set of product jsons, get back classified products.
+     * Classify Grocery Product Bulk
+     * @param param the request object
+     */
     public classifyGroceryProductBulk(param: ProductsApiClassifyGroceryProductBulkRequest, options?: Configuration): Promise<Set<ClassifyGroceryProductBulk200ResponseInner>> {
         return this.api.classifyGroceryProductBulk(param.classifyGroceryProductBulkRequestInner, param.locale,  options).toPromise();
+    }
+
+    /**
+     * Find comparable products to the given one.
+     * Get Comparable Products
+     * @param param the request object
+     */
+    public getComparableProductsWithHttpInfo(param: ProductsApiGetComparableProductsRequest, options?: Configuration): Promise<HttpInfo<GetComparableProducts200Response>> {
+        return this.api.getComparableProductsWithHttpInfo(param.upc,  options).toPromise();
     }
 
     /**
@@ -1956,12 +2387,30 @@ export class ObjectProductsApi {
      * Get Product Information
      * @param param the request object
      */
+    public getProductInformationWithHttpInfo(param: ProductsApiGetProductInformationRequest, options?: Configuration): Promise<HttpInfo<GetProductInformation200Response>> {
+        return this.api.getProductInformationWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
+     * Get Product Information
+     * @param param the request object
+     */
     public getProductInformation(param: ProductsApiGetProductInformationRequest, options?: Configuration): Promise<GetProductInformation200Response> {
         return this.api.getProductInformation(param.id,  options).toPromise();
     }
 
     /**
-     * Visualize a product's nutritional information as an image.
+     * Visualize a product\'s nutritional information as an image.
+     * Product Nutrition by ID Image
+     * @param param the request object
+     */
+    public productNutritionByIDImageWithHttpInfo(param: ProductsApiProductNutritionByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.productNutritionByIDImageWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Visualize a product\'s nutritional information as an image.
      * Product Nutrition by ID Image
      * @param param the request object
      */
@@ -1970,7 +2419,16 @@ export class ObjectProductsApi {
     }
 
     /**
-     * Get a product's nutrition label as an image.
+     * Get a product\'s nutrition label as an image.
+     * Product Nutrition Label Image
+     * @param param the request object
+     */
+    public productNutritionLabelImageWithHttpInfo(param: ProductsApiProductNutritionLabelImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.productNutritionLabelImageWithHttpInfo(param.id, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Get a product\'s nutrition label as an image.
      * Product Nutrition Label Image
      * @param param the request object
      */
@@ -1979,12 +2437,30 @@ export class ObjectProductsApi {
     }
 
     /**
-     * Get a product's nutrition label as an HTML widget.
+     * Get a product\'s nutrition label as an HTML widget.
+     * Product Nutrition Label Widget
+     * @param param the request object
+     */
+    public productNutritionLabelWidgetWithHttpInfo(param: ProductsApiProductNutritionLabelWidgetRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.productNutritionLabelWidgetWithHttpInfo(param.id, param.defaultCss, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Get a product\'s nutrition label as an HTML widget.
      * Product Nutrition Label Widget
      * @param param the request object
      */
     public productNutritionLabelWidget(param: ProductsApiProductNutritionLabelWidgetRequest, options?: Configuration): Promise<string> {
         return this.api.productNutritionLabelWidget(param.id, param.defaultCss, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Search packaged food products, such as frozen pizza or Greek yogurt.
+     * Search Grocery Products
+     * @param param the request object
+     */
+    public searchGroceryProductsWithHttpInfo(param: ProductsApiSearchGroceryProductsRequest = {}, options?: Configuration): Promise<HttpInfo<SearchGroceryProducts200Response>> {
+        return this.api.searchGroceryProductsWithHttpInfo(param.query, param.minCalories, param.maxCalories, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minFat, param.maxFat, param.addProductInformation, param.offset, param.number,  options).toPromise();
     }
 
     /**
@@ -2001,12 +2477,30 @@ export class ObjectProductsApi {
      * Search Grocery Products by UPC
      * @param param the request object
      */
+    public searchGroceryProductsByUPCWithHttpInfo(param: ProductsApiSearchGroceryProductsByUPCRequest, options?: Configuration): Promise<HttpInfo<SearchGroceryProductsByUPC200Response>> {
+        return this.api.searchGroceryProductsByUPCWithHttpInfo(param.upc,  options).toPromise();
+    }
+
+    /**
+     * Get information about a packaged food using its UPC.
+     * Search Grocery Products by UPC
+     * @param param the request object
+     */
     public searchGroceryProductsByUPC(param: ProductsApiSearchGroceryProductsByUPCRequest, options?: Configuration): Promise<SearchGroceryProductsByUPC200Response> {
         return this.api.searchGroceryProductsByUPC(param.upc,  options).toPromise();
     }
 
     /**
-     * Visualize a product's nutritional information as HTML including CSS.
+     * Visualize a product\'s nutritional information as HTML including CSS.
+     * Product Nutrition by ID Widget
+     * @param param the request object
+     */
+    public visualizeProductNutritionByIDWithHttpInfo(param: ProductsApiVisualizeProductNutritionByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeProductNutritionByIDWithHttpInfo(param.id, param.defaultCss, param.accept,  options).toPromise();
+    }
+
+    /**
+     * Visualize a product\'s nutritional information as HTML including CSS.
      * Product Nutrition by ID Widget
      * @param param the request object
      */
@@ -2069,7 +2563,7 @@ export interface RecipesApiComputeGlycemicLoadRequest {
      */
     computeGlycemicLoadRequest: ComputeGlycemicLoadRequest
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof RecipesApicomputeGlycemicLoad
      */
@@ -2156,7 +2650,7 @@ export interface RecipesApiExtractRecipeFromWebsiteRequest {
 
 export interface RecipesApiGetAnalyzedRecipeInstructionsRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetAnalyzedRecipeInstructions
      */
@@ -2192,7 +2686,7 @@ export interface RecipesApiGetRandomRecipesRequest {
 
 export interface RecipesApiGetRecipeEquipmentByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetRecipeEquipmentByID
      */
@@ -2201,7 +2695,7 @@ export interface RecipesApiGetRecipeEquipmentByIDRequest {
 
 export interface RecipesApiGetRecipeInformationRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetRecipeInformation
      */
@@ -2231,7 +2725,7 @@ export interface RecipesApiGetRecipeInformationBulkRequest {
 
 export interface RecipesApiGetRecipeIngredientsByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetRecipeIngredientsByID
      */
@@ -2240,7 +2734,7 @@ export interface RecipesApiGetRecipeIngredientsByIDRequest {
 
 export interface RecipesApiGetRecipeNutritionWidgetByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetRecipeNutritionWidgetByID
      */
@@ -2249,7 +2743,7 @@ export interface RecipesApiGetRecipeNutritionWidgetByIDRequest {
 
 export interface RecipesApiGetRecipePriceBreakdownByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetRecipePriceBreakdownByID
      */
@@ -2258,7 +2752,7 @@ export interface RecipesApiGetRecipePriceBreakdownByIDRequest {
 
 export interface RecipesApiGetRecipeTasteByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetRecipeTasteByID
      */
@@ -2273,7 +2767,7 @@ export interface RecipesApiGetRecipeTasteByIDRequest {
 
 export interface RecipesApiGetSimilarRecipesRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApigetSimilarRecipes
      */
@@ -2309,7 +2803,7 @@ export interface RecipesApiIngredientsByIDImageRequest {
      */
     id: number
     /**
-     * Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
+     * Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      * @type &#39;us&#39; | &#39;metric&#39;
      * @memberof RecipesApiingredientsByIDImage
      */
@@ -2324,7 +2818,7 @@ export interface RecipesApiParseIngredientsRequest {
      */
     contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof RecipesApiparseIngredients
      */
@@ -2447,13 +2941,13 @@ export interface RecipesApiSearchRecipesRequest {
      */
     query?: string
     /**
-     * The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
+     * The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as \&#39;OR\&#39;). See a full list of supported cuisines.
      * @type string
      * @memberof RecipesApisearchRecipes
      */
     cuisine?: string
     /**
-     * The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
+     * The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as \&#39;AND\&#39;). See a full list of supported cuisines.
      * @type string
      * @memberof RecipesApisearchRecipes
      */
@@ -2471,7 +2965,7 @@ export interface RecipesApiSearchRecipesRequest {
      */
     intolerances?: string
     /**
-     * The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
+     * The equipment required. Multiple values will be interpreted as \&#39;or\&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.
      * @type string
      * @memberof RecipesApisearchRecipes
      */
@@ -2561,7 +3055,7 @@ export interface RecipesApiSearchRecipesRequest {
      */
     sort?: string
     /**
-     * The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).
+     * The direction in which to sort. Must be either \&#39;asc\&#39; (ascending) or \&#39;desc\&#39; (descending).
      * @type string
      * @memberof RecipesApisearchRecipes
      */
@@ -3512,7 +4006,7 @@ export interface RecipesApiSearchRecipesByNutrientsRequest {
 
 export interface RecipesApiSummarizeRecipeRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApisummarizeRecipe
      */
@@ -3548,7 +4042,7 @@ export interface RecipesApiVisualizePriceBreakdownRequest {
      */
     accept?: 'application/json' | 'text/html' | 'media/_*'
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof RecipesApivisualizePriceBreakdown
      */
@@ -3557,7 +4051,7 @@ export interface RecipesApiVisualizePriceBreakdownRequest {
 
 export interface RecipesApiVisualizeRecipeEquipmentByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApivisualizeRecipeEquipmentByID
      */
@@ -3572,7 +4066,7 @@ export interface RecipesApiVisualizeRecipeEquipmentByIDRequest {
 
 export interface RecipesApiVisualizeRecipeIngredientsByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApivisualizeRecipeIngredientsByID
      */
@@ -3584,7 +4078,7 @@ export interface RecipesApiVisualizeRecipeIngredientsByIDRequest {
      */
     defaultCss?: boolean
     /**
-     * Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
+     * Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      * @type &#39;us&#39; | &#39;metric&#39;
      * @memberof RecipesApivisualizeRecipeIngredientsByID
      */
@@ -3605,7 +4099,7 @@ export interface RecipesApiVisualizeRecipeNutritionRequest {
      */
     accept?: 'application/json' | 'text/html' | 'media/_*'
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof RecipesApivisualizeRecipeNutrition
      */
@@ -3614,7 +4108,7 @@ export interface RecipesApiVisualizeRecipeNutritionRequest {
 
 export interface RecipesApiVisualizeRecipeNutritionByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApivisualizeRecipeNutritionByID
      */
@@ -3635,7 +4129,7 @@ export interface RecipesApiVisualizeRecipeNutritionByIDRequest {
 
 export interface RecipesApiVisualizeRecipePriceBreakdownByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApivisualizeRecipePriceBreakdownByID
      */
@@ -3650,7 +4144,7 @@ export interface RecipesApiVisualizeRecipePriceBreakdownByIDRequest {
 
 export interface RecipesApiVisualizeRecipeTasteRequest {
     /**
-     * The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+     * The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @type &#39;en&#39; | &#39;de&#39;
      * @memberof RecipesApivisualizeRecipeTaste
      */
@@ -3683,7 +4177,7 @@ export interface RecipesApiVisualizeRecipeTasteRequest {
 
 export interface RecipesApiVisualizeRecipeTasteByIDRequest {
     /**
-     * The item&#39;s id.
+     * The item\&#39;s id.
      * @type number
      * @memberof RecipesApivisualizeRecipeTasteByID
      */
@@ -3714,12 +4208,30 @@ export class ObjectRecipesApi {
      * Analyze a Recipe Search Query
      * @param param the request object
      */
+    public analyzeARecipeSearchQueryWithHttpInfo(param: RecipesApiAnalyzeARecipeSearchQueryRequest, options?: Configuration): Promise<HttpInfo<AnalyzeARecipeSearchQuery200Response>> {
+        return this.api.analyzeARecipeSearchQueryWithHttpInfo(param.q,  options).toPromise();
+    }
+
+    /**
+     * Parse a recipe search query to find out its intention.
+     * Analyze a Recipe Search Query
+     * @param param the request object
+     */
     public analyzeARecipeSearchQuery(param: RecipesApiAnalyzeARecipeSearchQueryRequest, options?: Configuration): Promise<AnalyzeARecipeSearchQuery200Response> {
         return this.api.analyzeARecipeSearchQuery(param.q,  options).toPromise();
     }
 
     /**
-     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
+     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe\'s instructions will be extracted independently of the step they\'re used in.
+     * Analyze Recipe Instructions
+     * @param param the request object
+     */
+    public analyzeRecipeInstructionsWithHttpInfo(param: RecipesApiAnalyzeRecipeInstructionsRequest = {}, options?: Configuration): Promise<HttpInfo<AnalyzeRecipeInstructions200Response>> {
+        return this.api.analyzeRecipeInstructionsWithHttpInfo(param.contentType,  options).toPromise();
+    }
+
+    /**
+     * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe\'s instructions will be extracted independently of the step they\'re used in.
      * Analyze Recipe Instructions
      * @param param the request object
      */
@@ -3732,17 +4244,44 @@ export class ObjectRecipesApi {
      * Autocomplete Recipe Search
      * @param param the request object
      */
+    public autocompleteRecipeSearchWithHttpInfo(param: RecipesApiAutocompleteRecipeSearchRequest = {}, options?: Configuration): Promise<HttpInfo<Set<AutocompleteRecipeSearch200ResponseInner>>> {
+        return this.api.autocompleteRecipeSearchWithHttpInfo(param.query, param.number,  options).toPromise();
+    }
+
+    /**
+     * Autocomplete a partial input to suggest possible recipe names.
+     * Autocomplete Recipe Search
+     * @param param the request object
+     */
     public autocompleteRecipeSearch(param: RecipesApiAutocompleteRecipeSearchRequest = {}, options?: Configuration): Promise<Set<AutocompleteRecipeSearch200ResponseInner>> {
         return this.api.autocompleteRecipeSearch(param.query, param.number,  options).toPromise();
     }
 
     /**
-     * Classify the recipe's cuisine.
+     * Classify the recipe\'s cuisine.
+     * Classify Cuisine
+     * @param param the request object
+     */
+    public classifyCuisineWithHttpInfo(param: RecipesApiClassifyCuisineRequest = {}, options?: Configuration): Promise<HttpInfo<ClassifyCuisine200Response>> {
+        return this.api.classifyCuisineWithHttpInfo(param.contentType,  options).toPromise();
+    }
+
+    /**
+     * Classify the recipe\'s cuisine.
      * Classify Cuisine
      * @param param the request object
      */
     public classifyCuisine(param: RecipesApiClassifyCuisineRequest = {}, options?: Configuration): Promise<ClassifyCuisine200Response> {
         return this.api.classifyCuisine(param.contentType,  options).toPromise();
+    }
+
+    /**
+     * Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
+     * Compute Glycemic Load
+     * @param param the request object
+     */
+    public computeGlycemicLoadWithHttpInfo(param: RecipesApiComputeGlycemicLoadRequest, options?: Configuration): Promise<HttpInfo<ComputeGlycemicLoad200Response>> {
+        return this.api.computeGlycemicLoadWithHttpInfo(param.computeGlycemicLoadRequest, param.language,  options).toPromise();
     }
 
     /**
@@ -3759,8 +4298,26 @@ export class ObjectRecipesApi {
      * Convert Amounts
      * @param param the request object
      */
+    public convertAmountsWithHttpInfo(param: RecipesApiConvertAmountsRequest, options?: Configuration): Promise<HttpInfo<ConvertAmounts200Response>> {
+        return this.api.convertAmountsWithHttpInfo(param.ingredientName, param.sourceAmount, param.sourceUnit, param.targetUnit,  options).toPromise();
+    }
+
+    /**
+     * Convert amounts like \"2 cups of flour to grams\".
+     * Convert Amounts
+     * @param param the request object
+     */
     public convertAmounts(param: RecipesApiConvertAmountsRequest, options?: Configuration): Promise<ConvertAmounts200Response> {
         return this.api.convertAmounts(param.ingredientName, param.sourceAmount, param.sourceUnit, param.targetUnit,  options).toPromise();
+    }
+
+    /**
+     * Generate a recipe card for a recipe.
+     * Create Recipe Card
+     * @param param the request object
+     */
+    public createRecipeCardWithHttpInfo(param: RecipesApiCreateRecipeCardRequest = {}, options?: Configuration): Promise<HttpInfo<CreateRecipeCard200Response>> {
+        return this.api.createRecipeCardWithHttpInfo(param.contentType,  options).toPromise();
     }
 
     /**
@@ -3773,7 +4330,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Visualize a recipe's equipment list as an image.
+     * Visualize a recipe\'s equipment list as an image.
+     * Equipment by ID Image
+     * @param param the request object
+     */
+    public equipmentByIDImageWithHttpInfo(param: RecipesApiEquipmentByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.equipmentByIDImageWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s equipment list as an image.
      * Equipment by ID Image
      * @param param the request object
      */
@@ -3786,12 +4352,30 @@ export class ObjectRecipesApi {
      * Extract Recipe from Website
      * @param param the request object
      */
+    public extractRecipeFromWebsiteWithHttpInfo(param: RecipesApiExtractRecipeFromWebsiteRequest, options?: Configuration): Promise<HttpInfo<GetRecipeInformation200Response>> {
+        return this.api.extractRecipeFromWebsiteWithHttpInfo(param.url, param.forceExtraction, param.analyze, param.includeNutrition, param.includeTaste,  options).toPromise();
+    }
+
+    /**
+     * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
+     * Extract Recipe from Website
+     * @param param the request object
+     */
     public extractRecipeFromWebsite(param: RecipesApiExtractRecipeFromWebsiteRequest, options?: Configuration): Promise<GetRecipeInformation200Response> {
         return this.api.extractRecipeFromWebsite(param.url, param.forceExtraction, param.analyze, param.includeNutrition, param.includeTaste,  options).toPromise();
     }
 
     /**
-     * Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
+     * Get an analyzed breakdown of a recipe\'s instructions. Each step is enriched with the ingredients and equipment required.
+     * Get Analyzed Recipe Instructions
+     * @param param the request object
+     */
+    public getAnalyzedRecipeInstructionsWithHttpInfo(param: RecipesApiGetAnalyzedRecipeInstructionsRequest, options?: Configuration): Promise<HttpInfo<GetAnalyzedRecipeInstructions200Response>> {
+        return this.api.getAnalyzedRecipeInstructionsWithHttpInfo(param.id, param.stepBreakdown,  options).toPromise();
+    }
+
+    /**
+     * Get an analyzed breakdown of a recipe\'s instructions. Each step is enriched with the ingredients and equipment required.
      * Get Analyzed Recipe Instructions
      * @param param the request object
      */
@@ -3804,17 +4388,44 @@ export class ObjectRecipesApi {
      * Get Random Recipes
      * @param param the request object
      */
+    public getRandomRecipesWithHttpInfo(param: RecipesApiGetRandomRecipesRequest = {}, options?: Configuration): Promise<HttpInfo<GetRandomRecipes200Response>> {
+        return this.api.getRandomRecipesWithHttpInfo(param.limitLicense, param.tags, param.number,  options).toPromise();
+    }
+
+    /**
+     * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
+     * Get Random Recipes
+     * @param param the request object
+     */
     public getRandomRecipes(param: RecipesApiGetRandomRecipesRequest = {}, options?: Configuration): Promise<GetRandomRecipes200Response> {
         return this.api.getRandomRecipes(param.limitLicense, param.tags, param.number,  options).toPromise();
     }
 
     /**
-     * Get a recipe's equipment list.
+     * Get a recipe\'s equipment list.
+     * Equipment by ID
+     * @param param the request object
+     */
+    public getRecipeEquipmentByIDWithHttpInfo(param: RecipesApiGetRecipeEquipmentByIDRequest, options?: Configuration): Promise<HttpInfo<GetRecipeEquipmentByID200Response>> {
+        return this.api.getRecipeEquipmentByIDWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s equipment list.
      * Equipment by ID
      * @param param the request object
      */
     public getRecipeEquipmentByID(param: RecipesApiGetRecipeEquipmentByIDRequest, options?: Configuration): Promise<GetRecipeEquipmentByID200Response> {
         return this.api.getRecipeEquipmentByID(param.id,  options).toPromise();
+    }
+
+    /**
+     * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
+     * Get Recipe Information
+     * @param param the request object
+     */
+    public getRecipeInformationWithHttpInfo(param: RecipesApiGetRecipeInformationRequest, options?: Configuration): Promise<HttpInfo<GetRecipeInformation200Response>> {
+        return this.api.getRecipeInformationWithHttpInfo(param.id, param.includeNutrition,  options).toPromise();
     }
 
     /**
@@ -3831,12 +4442,30 @@ export class ObjectRecipesApi {
      * Get Recipe Information Bulk
      * @param param the request object
      */
+    public getRecipeInformationBulkWithHttpInfo(param: RecipesApiGetRecipeInformationBulkRequest, options?: Configuration): Promise<HttpInfo<Set<GetRecipeInformationBulk200ResponseInner>>> {
+        return this.api.getRecipeInformationBulkWithHttpInfo(param.ids, param.includeNutrition,  options).toPromise();
+    }
+
+    /**
+     * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
+     * Get Recipe Information Bulk
+     * @param param the request object
+     */
     public getRecipeInformationBulk(param: RecipesApiGetRecipeInformationBulkRequest, options?: Configuration): Promise<Set<GetRecipeInformationBulk200ResponseInner>> {
         return this.api.getRecipeInformationBulk(param.ids, param.includeNutrition,  options).toPromise();
     }
 
     /**
-     * Get a recipe's ingredient list.
+     * Get a recipe\'s ingredient list.
+     * Ingredients by ID
+     * @param param the request object
+     */
+    public getRecipeIngredientsByIDWithHttpInfo(param: RecipesApiGetRecipeIngredientsByIDRequest, options?: Configuration): Promise<HttpInfo<GetRecipeIngredientsByID200Response>> {
+        return this.api.getRecipeIngredientsByIDWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s ingredient list.
      * Ingredients by ID
      * @param param the request object
      */
@@ -3845,7 +4474,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's nutrition data.
+     * Get a recipe\'s nutrition data.
+     * Nutrition by ID
+     * @param param the request object
+     */
+    public getRecipeNutritionWidgetByIDWithHttpInfo(param: RecipesApiGetRecipeNutritionWidgetByIDRequest, options?: Configuration): Promise<HttpInfo<GetRecipeNutritionWidgetByID200Response>> {
+        return this.api.getRecipeNutritionWidgetByIDWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s nutrition data.
      * Nutrition by ID
      * @param param the request object
      */
@@ -3854,7 +4492,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's price breakdown data.
+     * Get a recipe\'s price breakdown data.
+     * Price Breakdown by ID
+     * @param param the request object
+     */
+    public getRecipePriceBreakdownByIDWithHttpInfo(param: RecipesApiGetRecipePriceBreakdownByIDRequest, options?: Configuration): Promise<HttpInfo<GetRecipePriceBreakdownByID200Response>> {
+        return this.api.getRecipePriceBreakdownByIDWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s price breakdown data.
      * Price Breakdown by ID
      * @param param the request object
      */
@@ -3863,12 +4510,30 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * Taste by ID
+     * @param param the request object
+     */
+    public getRecipeTasteByIDWithHttpInfo(param: RecipesApiGetRecipeTasteByIDRequest, options?: Configuration): Promise<HttpInfo<GetRecipeTasteByID200Response>> {
+        return this.api.getRecipeTasteByIDWithHttpInfo(param.id, param.normalize,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Taste by ID
      * @param param the request object
      */
     public getRecipeTasteByID(param: RecipesApiGetRecipeTasteByIDRequest, options?: Configuration): Promise<GetRecipeTasteByID200Response> {
         return this.api.getRecipeTasteByID(param.id, param.normalize,  options).toPromise();
+    }
+
+    /**
+     * Find recipes which are similar to the given one.
+     * Get Similar Recipes
+     * @param param the request object
+     */
+    public getSimilarRecipesWithHttpInfo(param: RecipesApiGetSimilarRecipesRequest, options?: Configuration): Promise<HttpInfo<Set<GetSimilarRecipes200ResponseInner>>> {
+        return this.api.getSimilarRecipesWithHttpInfo(param.id, param.number, param.limitLicense,  options).toPromise();
     }
 
     /**
@@ -3885,12 +4550,30 @@ export class ObjectRecipesApi {
      * Guess Nutrition by Dish Name
      * @param param the request object
      */
+    public guessNutritionByDishNameWithHttpInfo(param: RecipesApiGuessNutritionByDishNameRequest, options?: Configuration): Promise<HttpInfo<GuessNutritionByDishName200Response>> {
+        return this.api.guessNutritionByDishNameWithHttpInfo(param.title,  options).toPromise();
+    }
+
+    /**
+     * Estimate the macronutrients of a dish based on its title.
+     * Guess Nutrition by Dish Name
+     * @param param the request object
+     */
     public guessNutritionByDishName(param: RecipesApiGuessNutritionByDishNameRequest, options?: Configuration): Promise<GuessNutritionByDishName200Response> {
         return this.api.guessNutritionByDishName(param.title,  options).toPromise();
     }
 
     /**
-     * Visualize a recipe's ingredient list.
+     * Visualize a recipe\'s ingredient list.
+     * Ingredients by ID Image
+     * @param param the request object
+     */
+    public ingredientsByIDImageWithHttpInfo(param: RecipesApiIngredientsByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.ingredientsByIDImageWithHttpInfo(param.id, param.measure,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s ingredient list.
      * Ingredients by ID Image
      * @param param the request object
      */
@@ -3903,12 +4586,30 @@ export class ObjectRecipesApi {
      * Parse Ingredients
      * @param param the request object
      */
+    public parseIngredientsWithHttpInfo(param: RecipesApiParseIngredientsRequest = {}, options?: Configuration): Promise<HttpInfo<Set<ParseIngredients200ResponseInner>>> {
+        return this.api.parseIngredientsWithHttpInfo(param.contentType, param.language,  options).toPromise();
+    }
+
+    /**
+     * Extract an ingredient from plain text.
+     * Parse Ingredients
+     * @param param the request object
+     */
     public parseIngredients(param: RecipesApiParseIngredientsRequest = {}, options?: Configuration): Promise<Set<ParseIngredients200ResponseInner>> {
         return this.api.parseIngredients(param.contentType, param.language,  options).toPromise();
     }
 
     /**
-     * Visualize a recipe's price breakdown.
+     * Visualize a recipe\'s price breakdown.
+     * Price Breakdown by ID Image
+     * @param param the request object
+     */
+    public priceBreakdownByIDImageWithHttpInfo(param: RecipesApiPriceBreakdownByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.priceBreakdownByIDImageWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s price breakdown.
      * Price Breakdown by ID Image
      * @param param the request object
      */
@@ -3921,12 +4622,30 @@ export class ObjectRecipesApi {
      * Quick Answer
      * @param param the request object
      */
+    public quickAnswerWithHttpInfo(param: RecipesApiQuickAnswerRequest, options?: Configuration): Promise<HttpInfo<QuickAnswer200Response>> {
+        return this.api.quickAnswerWithHttpInfo(param.q,  options).toPromise();
+    }
+
+    /**
+     * Answer a nutrition related natural language question.
+     * Quick Answer
+     * @param param the request object
+     */
     public quickAnswer(param: RecipesApiQuickAnswerRequest, options?: Configuration): Promise<QuickAnswer200Response> {
         return this.api.quickAnswer(param.q,  options).toPromise();
     }
 
     /**
-     * Visualize a recipe's nutritional information as an image.
+     * Visualize a recipe\'s nutritional information as an image.
+     * Recipe Nutrition by ID Image
+     * @param param the request object
+     */
+    public recipeNutritionByIDImageWithHttpInfo(param: RecipesApiRecipeNutritionByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.recipeNutritionByIDImageWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s nutritional information as an image.
      * Recipe Nutrition by ID Image
      * @param param the request object
      */
@@ -3935,7 +4654,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's nutrition label as an image.
+     * Get a recipe\'s nutrition label as an image.
+     * Recipe Nutrition Label Image
+     * @param param the request object
+     */
+    public recipeNutritionLabelImageWithHttpInfo(param: RecipesApiRecipeNutritionLabelImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.recipeNutritionLabelImageWithHttpInfo(param.id, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s nutrition label as an image.
      * Recipe Nutrition Label Image
      * @param param the request object
      */
@@ -3944,7 +4672,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's nutrition label as an HTML widget.
+     * Get a recipe\'s nutrition label as an HTML widget.
+     * Recipe Nutrition Label Widget
+     * @param param the request object
+     */
+    public recipeNutritionLabelWidgetWithHttpInfo(param: RecipesApiRecipeNutritionLabelWidgetRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.recipeNutritionLabelWidgetWithHttpInfo(param.id, param.defaultCss, param.showOptionalNutrients, param.showZeroValues, param.showIngredients,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s nutrition label as an HTML widget.
      * Recipe Nutrition Label Widget
      * @param param the request object
      */
@@ -3953,7 +4690,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * Get a recipe\'s taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * Recipe Taste by ID Image
+     * @param param the request object
+     */
+    public recipeTasteByIDImageWithHttpInfo(param: RecipesApiRecipeTasteByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.recipeTasteByIDImageWithHttpInfo(param.id, param.normalize, param.rgb,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Recipe Taste by ID Image
      * @param param the request object
      */
@@ -3966,17 +4712,44 @@ export class ObjectRecipesApi {
      * Search Recipes
      * @param param the request object
      */
+    public searchRecipesWithHttpInfo(param: RecipesApiSearchRecipesRequest = {}, options?: Configuration): Promise<HttpInfo<SearchRecipes200Response>> {
+        return this.api.searchRecipesWithHttpInfo(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.limitLicense,  options).toPromise();
+    }
+
+    /**
+     * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+     * Search Recipes
+     * @param param the request object
+     */
     public searchRecipes(param: RecipesApiSearchRecipesRequest = {}, options?: Configuration): Promise<SearchRecipes200Response> {
         return this.api.searchRecipes(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.limitLicense,  options).toPromise();
     }
 
     /**
-     *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
+     *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don\'t currently have (post shopping).         
+     * Search Recipes by Ingredients
+     * @param param the request object
+     */
+    public searchRecipesByIngredientsWithHttpInfo(param: RecipesApiSearchRecipesByIngredientsRequest = {}, options?: Configuration): Promise<HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>> {
+        return this.api.searchRecipesByIngredientsWithHttpInfo(param.ingredients, param.number, param.limitLicense, param.ranking, param.ignorePantry,  options).toPromise();
+    }
+
+    /**
+     *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don\'t currently have (post shopping).         
      * Search Recipes by Ingredients
      * @param param the request object
      */
     public searchRecipesByIngredients(param: RecipesApiSearchRecipesByIngredientsRequest = {}, options?: Configuration): Promise<Set<SearchRecipesByIngredients200ResponseInner>> {
         return this.api.searchRecipesByIngredients(param.ingredients, param.number, param.limitLicense, param.ranking, param.ignorePantry,  options).toPromise();
+    }
+
+    /**
+     * Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
+     * Search Recipes by Nutrients
+     * @param param the request object
+     */
+    public searchRecipesByNutrientsWithHttpInfo(param: RecipesApiSearchRecipesByNutrientsRequest = {}, options?: Configuration): Promise<HttpInfo<Set<SearchRecipesByNutrients200ResponseInner>>> {
+        return this.api.searchRecipesByNutrientsWithHttpInfo(param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.random, param.limitLicense,  options).toPromise();
     }
 
     /**
@@ -3993,8 +4766,26 @@ export class ObjectRecipesApi {
      * Summarize Recipe
      * @param param the request object
      */
+    public summarizeRecipeWithHttpInfo(param: RecipesApiSummarizeRecipeRequest, options?: Configuration): Promise<HttpInfo<SummarizeRecipe200Response>> {
+        return this.api.summarizeRecipeWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Automatically generate a short description that summarizes key information about the recipe.
+     * Summarize Recipe
+     * @param param the request object
+     */
     public summarizeRecipe(param: RecipesApiSummarizeRecipeRequest, options?: Configuration): Promise<SummarizeRecipe200Response> {
         return this.api.summarizeRecipe(param.id,  options).toPromise();
+    }
+
+    /**
+     * Visualize the equipment used to make a recipe.
+     * Equipment Widget
+     * @param param the request object
+     */
+    public visualizeEquipmentWithHttpInfo(param: RecipesApiVisualizeEquipmentRequest = {}, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeEquipmentWithHttpInfo(param.contentType, param.accept,  options).toPromise();
     }
 
     /**
@@ -4011,12 +4802,30 @@ export class ObjectRecipesApi {
      * Price Breakdown Widget
      * @param param the request object
      */
+    public visualizePriceBreakdownWithHttpInfo(param: RecipesApiVisualizePriceBreakdownRequest = {}, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizePriceBreakdownWithHttpInfo(param.contentType, param.accept, param.language,  options).toPromise();
+    }
+
+    /**
+     * Visualize the price breakdown of a recipe.
+     * Price Breakdown Widget
+     * @param param the request object
+     */
     public visualizePriceBreakdown(param: RecipesApiVisualizePriceBreakdownRequest = {}, options?: Configuration): Promise<string> {
         return this.api.visualizePriceBreakdown(param.contentType, param.accept, param.language,  options).toPromise();
     }
 
     /**
-     * Visualize a recipe's equipment list.
+     * Visualize a recipe\'s equipment list.
+     * Equipment by ID Widget
+     * @param param the request object
+     */
+    public visualizeRecipeEquipmentByIDWithHttpInfo(param: RecipesApiVisualizeRecipeEquipmentByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipeEquipmentByIDWithHttpInfo(param.id, param.defaultCss,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s equipment list.
      * Equipment by ID Widget
      * @param param the request object
      */
@@ -4025,7 +4834,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Visualize a recipe's ingredient list.
+     * Visualize a recipe\'s ingredient list.
+     * Ingredients by ID Widget
+     * @param param the request object
+     */
+    public visualizeRecipeIngredientsByIDWithHttpInfo(param: RecipesApiVisualizeRecipeIngredientsByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipeIngredientsByIDWithHttpInfo(param.id, param.defaultCss, param.measure,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s ingredient list.
      * Ingredients by ID Widget
      * @param param the request object
      */
@@ -4034,7 +4852,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Visualize a recipe's nutritional information as HTML including CSS.
+     * Visualize a recipe\'s nutritional information as HTML including CSS.
+     * Recipe Nutrition Widget
+     * @param param the request object
+     */
+    public visualizeRecipeNutritionWithHttpInfo(param: RecipesApiVisualizeRecipeNutritionRequest = {}, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipeNutritionWithHttpInfo(param.contentType, param.accept, param.language,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition Widget
      * @param param the request object
      */
@@ -4043,7 +4870,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Visualize a recipe's nutritional information as HTML including CSS.
+     * Visualize a recipe\'s nutritional information as HTML including CSS.
+     * Recipe Nutrition by ID Widget
+     * @param param the request object
+     */
+    public visualizeRecipeNutritionByIDWithHttpInfo(param: RecipesApiVisualizeRecipeNutritionByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipeNutritionByIDWithHttpInfo(param.id, param.defaultCss, param.accept,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition by ID Widget
      * @param param the request object
      */
@@ -4052,7 +4888,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Visualize a recipe's price breakdown.
+     * Visualize a recipe\'s price breakdown.
+     * Price Breakdown by ID Widget
+     * @param param the request object
+     */
+    public visualizeRecipePriceBreakdownByIDWithHttpInfo(param: RecipesApiVisualizeRecipePriceBreakdownByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipePriceBreakdownByIDWithHttpInfo(param.id, param.defaultCss,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s price breakdown.
      * Price Breakdown by ID Widget
      * @param param the request object
      */
@@ -4061,7 +4906,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+     * Visualize a recipe\'s taste information as HTML including CSS. You can play around with that endpoint!
+     * Recipe Taste Widget
+     * @param param the request object
+     */
+    public visualizeRecipeTasteWithHttpInfo(param: RecipesApiVisualizeRecipeTasteRequest = {}, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipeTasteWithHttpInfo(param.language, param.contentType, param.accept, param.normalize, param.rgb,  options).toPromise();
+    }
+
+    /**
+     * Visualize a recipe\'s taste information as HTML including CSS. You can play around with that endpoint!
      * Recipe Taste Widget
      * @param param the request object
      */
@@ -4070,7 +4924,16 @@ export class ObjectRecipesApi {
     }
 
     /**
-     * Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
+     * Recipe Taste by ID Widget
+     * @param param the request object
+     */
+    public visualizeRecipeTasteByIDWithHttpInfo(param: RecipesApiVisualizeRecipeTasteByIDRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.visualizeRecipeTasteByIDWithHttpInfo(param.id, param.normalize, param.rgb,  options).toPromise();
+    }
+
+    /**
+     * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Recipe Taste by ID Widget
      * @param param the request object
      */
@@ -4155,8 +5018,26 @@ export class ObjectWineApi {
      * Dish Pairing for Wine
      * @param param the request object
      */
+    public getDishPairingForWineWithHttpInfo(param: WineApiGetDishPairingForWineRequest, options?: Configuration): Promise<HttpInfo<GetDishPairingForWine200Response>> {
+        return this.api.getDishPairingForWineWithHttpInfo(param.wine,  options).toPromise();
+    }
+
+    /**
+     * Find a dish that goes well with a given wine.
+     * Dish Pairing for Wine
+     * @param param the request object
+     */
     public getDishPairingForWine(param: WineApiGetDishPairingForWineRequest, options?: Configuration): Promise<GetDishPairingForWine200Response> {
         return this.api.getDishPairingForWine(param.wine,  options).toPromise();
+    }
+
+    /**
+     * Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
+     * Wine Description
+     * @param param the request object
+     */
+    public getWineDescriptionWithHttpInfo(param: WineApiGetWineDescriptionRequest, options?: Configuration): Promise<HttpInfo<GetWineDescription200Response>> {
+        return this.api.getWineDescriptionWithHttpInfo(param.wine,  options).toPromise();
     }
 
     /**
@@ -4173,8 +5054,26 @@ export class ObjectWineApi {
      * Wine Pairing
      * @param param the request object
      */
+    public getWinePairingWithHttpInfo(param: WineApiGetWinePairingRequest, options?: Configuration): Promise<HttpInfo<GetWinePairing200Response>> {
+        return this.api.getWinePairingWithHttpInfo(param.food, param.maxPrice,  options).toPromise();
+    }
+
+    /**
+     * Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
+     * Wine Pairing
+     * @param param the request object
+     */
     public getWinePairing(param: WineApiGetWinePairingRequest, options?: Configuration): Promise<GetWinePairing200Response> {
         return this.api.getWinePairing(param.food, param.maxPrice,  options).toPromise();
+    }
+
+    /**
+     * Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
+     * Wine Recommendation
+     * @param param the request object
+     */
+    public getWineRecommendationWithHttpInfo(param: WineApiGetWineRecommendationRequest, options?: Configuration): Promise<HttpInfo<GetWineRecommendation200Response>> {
+        return this.api.getWineRecommendationWithHttpInfo(param.wine, param.maxPrice, param.minRating, param.number,  options).toPromise();
     }
 
     /**

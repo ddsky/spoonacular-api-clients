@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GetConversationSuggests200ResponseSuggestsInner
+# spoonacular.Model.GetConversationSuggests200ResponseSuggestsInner
 
 ## Properties
 

@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetMealPlanTemplate200ResponseDaysInnerItemsInner;
 import com.spoonacular.client.model.GetMealPlanWeek200ResponseDaysInnerNutritionSummary;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -39,12 +36,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,7 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetMealPlanTemplate200ResponseDaysInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetMealPlanTemplate200ResponseDaysInner {
   public static final String SERIALIZED_NAME_NUTRITION_SUMMARY = "nutritionSummary";
   @SerializedName(SERIALIZED_NAME_NUTRITION_SUMMARY)
@@ -76,13 +77,12 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner> items = null;
+  private Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner> items;
 
-  public GetMealPlanTemplate200ResponseDaysInner() { 
+  public GetMealPlanTemplate200ResponseDaysInner() {
   }
 
   public GetMealPlanTemplate200ResponseDaysInner nutritionSummary(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummary) {
-    
     this.nutritionSummary = nutritionSummary;
     return this;
   }
@@ -92,12 +92,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
    * @return nutritionSummary
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummary() {
     return nutritionSummary;
   }
-
 
   public void setNutritionSummary(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummary) {
     this.nutritionSummary = nutritionSummary;
@@ -105,7 +102,6 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
 
   public GetMealPlanTemplate200ResponseDaysInner nutritionSummaryBreakfast(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummaryBreakfast) {
-    
     this.nutritionSummaryBreakfast = nutritionSummaryBreakfast;
     return this;
   }
@@ -115,12 +111,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
    * @return nutritionSummaryBreakfast
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryBreakfast() {
     return nutritionSummaryBreakfast;
   }
-
 
   public void setNutritionSummaryBreakfast(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummaryBreakfast) {
     this.nutritionSummaryBreakfast = nutritionSummaryBreakfast;
@@ -128,7 +121,6 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
 
   public GetMealPlanTemplate200ResponseDaysInner nutritionSummaryLunch(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummaryLunch) {
-    
     this.nutritionSummaryLunch = nutritionSummaryLunch;
     return this;
   }
@@ -138,12 +130,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
    * @return nutritionSummaryLunch
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryLunch() {
     return nutritionSummaryLunch;
   }
-
 
   public void setNutritionSummaryLunch(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummaryLunch) {
     this.nutritionSummaryLunch = nutritionSummaryLunch;
@@ -151,7 +140,6 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
 
   public GetMealPlanTemplate200ResponseDaysInner nutritionSummaryDinner(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummaryDinner) {
-    
     this.nutritionSummaryDinner = nutritionSummaryDinner;
     return this;
   }
@@ -161,12 +149,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
    * @return nutritionSummaryDinner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryDinner() {
     return nutritionSummaryDinner;
   }
-
 
   public void setNutritionSummaryDinner(GetMealPlanWeek200ResponseDaysInnerNutritionSummary nutritionSummaryDinner) {
     this.nutritionSummaryDinner = nutritionSummaryDinner;
@@ -174,7 +159,6 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
 
   public GetMealPlanTemplate200ResponseDaysInner day(String day) {
-    
     this.day = day;
     return this;
   }
@@ -184,12 +168,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
    * @return day
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getDay() {
     return day;
   }
-
 
   public void setDay(String day) {
     this.day = day;
@@ -197,7 +178,6 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
 
   public GetMealPlanTemplate200ResponseDaysInner items(Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner> items) {
-    
     this.items = items;
     return this;
   }
@@ -215,12 +195,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
    * @return items
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner> getItems() {
     return items;
   }
-
 
   public void setItems(Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner> items) {
     this.items = items;
@@ -295,64 +272,65 @@ public class GetMealPlanTemplate200ResponseDaysInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetMealPlanTemplate200ResponseDaysInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetMealPlanTemplate200ResponseDaysInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetMealPlanTemplate200ResponseDaysInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetMealPlanTemplate200ResponseDaysInner is not found in the empty JSON string", GetMealPlanTemplate200ResponseDaysInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetMealPlanTemplate200ResponseDaysInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetMealPlanTemplate200ResponseDaysInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetMealPlanTemplate200ResponseDaysInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetMealPlanTemplate200ResponseDaysInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `nutritionSummary`
-      if (jsonObj.getAsJsonObject("nutritionSummary") != null) {
-        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonObject(jsonObj.getAsJsonObject("nutritionSummary"));
+      if (jsonObj.get("nutritionSummary") != null && !jsonObj.get("nutritionSummary").isJsonNull()) {
+        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonElement(jsonObj.get("nutritionSummary"));
       }
       // validate the optional field `nutritionSummaryBreakfast`
-      if (jsonObj.getAsJsonObject("nutritionSummaryBreakfast") != null) {
-        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonObject(jsonObj.getAsJsonObject("nutritionSummaryBreakfast"));
+      if (jsonObj.get("nutritionSummaryBreakfast") != null && !jsonObj.get("nutritionSummaryBreakfast").isJsonNull()) {
+        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonElement(jsonObj.get("nutritionSummaryBreakfast"));
       }
       // validate the optional field `nutritionSummaryLunch`
-      if (jsonObj.getAsJsonObject("nutritionSummaryLunch") != null) {
-        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonObject(jsonObj.getAsJsonObject("nutritionSummaryLunch"));
+      if (jsonObj.get("nutritionSummaryLunch") != null && !jsonObj.get("nutritionSummaryLunch").isJsonNull()) {
+        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonElement(jsonObj.get("nutritionSummaryLunch"));
       }
       // validate the optional field `nutritionSummaryDinner`
-      if (jsonObj.getAsJsonObject("nutritionSummaryDinner") != null) {
-        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonObject(jsonObj.getAsJsonObject("nutritionSummaryDinner"));
+      if (jsonObj.get("nutritionSummaryDinner") != null && !jsonObj.get("nutritionSummaryDinner").isJsonNull()) {
+        GetMealPlanWeek200ResponseDaysInnerNutritionSummary.validateJsonElement(jsonObj.get("nutritionSummaryDinner"));
       }
-      if (jsonObj.get("day") != null && !jsonObj.get("day").isJsonPrimitive()) {
+      if (!jsonObj.get("day").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `day` to be a primitive type in the JSON string but got `%s`", jsonObj.get("day").toString()));
       }
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      if (jsonArrayitems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("items").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
-        }
+      if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+        if (jsonArrayitems != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("items").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+          }
 
-        // validate the optional field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-          GetMealPlanTemplate200ResponseDaysInnerItemsInner.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+          // validate the optional field `items` (array)
+          for (int i = 0; i < jsonArrayitems.size(); i++) {
+            GetMealPlanTemplate200ResponseDaysInnerItemsInner.validateJsonElement(jsonArrayitems.get(i));
+          };
+        }
       }
   }
 
@@ -376,9 +354,9 @@ public class GetMealPlanTemplate200ResponseDaysInner {
 
            @Override
            public GetMealPlanTemplate200ResponseDaysInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

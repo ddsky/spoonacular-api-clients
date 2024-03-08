@@ -14,18 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetShoppingList200ResponseAislesInnerItemsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -38,12 +35,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -51,7 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetShoppingList200ResponseAislesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetShoppingList200ResponseAislesInner {
   public static final String SERIALIZED_NAME_AISLE = "aisle";
   @SerializedName(SERIALIZED_NAME_AISLE)
@@ -59,13 +60,12 @@ public class GetShoppingList200ResponseAislesInner {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private Set<GetShoppingList200ResponseAislesInnerItemsInner> items = null;
+  private Set<GetShoppingList200ResponseAislesInnerItemsInner> items;
 
-  public GetShoppingList200ResponseAislesInner() { 
+  public GetShoppingList200ResponseAislesInner() {
   }
 
   public GetShoppingList200ResponseAislesInner aisle(String aisle) {
-    
     this.aisle = aisle;
     return this;
   }
@@ -75,12 +75,9 @@ public class GetShoppingList200ResponseAislesInner {
    * @return aisle
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getAisle() {
     return aisle;
   }
-
 
   public void setAisle(String aisle) {
     this.aisle = aisle;
@@ -88,7 +85,6 @@ public class GetShoppingList200ResponseAislesInner {
 
 
   public GetShoppingList200ResponseAislesInner items(Set<GetShoppingList200ResponseAislesInnerItemsInner> items) {
-    
     this.items = items;
     return this;
   }
@@ -106,12 +102,9 @@ public class GetShoppingList200ResponseAislesInner {
    * @return items
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Set<GetShoppingList200ResponseAislesInnerItemsInner> getItems() {
     return items;
   }
-
 
   public void setItems(Set<GetShoppingList200ResponseAislesInnerItemsInner> items) {
     this.items = items;
@@ -174,48 +167,49 @@ public class GetShoppingList200ResponseAislesInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetShoppingList200ResponseAislesInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetShoppingList200ResponseAislesInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetShoppingList200ResponseAislesInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetShoppingList200ResponseAislesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetShoppingList200ResponseAislesInner is not found in the empty JSON string", GetShoppingList200ResponseAislesInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetShoppingList200ResponseAislesInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetShoppingList200ResponseAislesInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetShoppingList200ResponseAislesInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetShoppingList200ResponseAislesInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("aisle") != null && !jsonObj.get("aisle").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("aisle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aisle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aisle").toString()));
       }
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      if (jsonArrayitems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("items").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
-        }
+      if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
+        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
+        if (jsonArrayitems != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("items").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+          }
 
-        // validate the optional field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-          GetShoppingList200ResponseAislesInnerItemsInner.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+          // validate the optional field `items` (array)
+          for (int i = 0; i < jsonArrayitems.size(); i++) {
+            GetShoppingList200ResponseAislesInnerItemsInner.validateJsonElement(jsonArrayitems.get(i));
+          };
+        }
       }
   }
 
@@ -239,9 +233,9 @@ public class GetShoppingList200ResponseAislesInner {
 
            @Override
            public GetShoppingList200ResponseAislesInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

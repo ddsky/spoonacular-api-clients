@@ -1,4 +1,4 @@
-package org.openapitools
+package spoonacular
 
 /**
  * The parent error from which most API errors extend. Thrown whenever something in the api goes wrong.

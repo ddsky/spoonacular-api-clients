@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenerateMealPlan200ResponseNutrients {
     #[serde(rename = "calories")]
     pub calories: f32,

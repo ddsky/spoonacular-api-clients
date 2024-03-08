@@ -442,7 +442,7 @@ pub async fn search_custom_foods(configuration: &configuration::Configuration, u
 }
 
 /// Find recipe and other food related videos.
-pub async fn search_food_videos(configuration: &configuration::Configuration, query: Option<&str>, _type: Option<&str>, cuisine: Option<&str>, diet: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, min_length: Option<f32>, max_length: Option<f32>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchFoodVideos200Response, Error<SearchFoodVideosError>> {
+pub async fn search_food_videos(configuration: &configuration::Configuration, query: Option<&str>, r#type: Option<&str>, cuisine: Option<&str>, diet: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, min_length: Option<f32>, max_length: Option<f32>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchFoodVideos200Response, Error<SearchFoodVideosError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -453,7 +453,7 @@ pub async fn search_food_videos(configuration: &configuration::Configuration, qu
     if let Some(ref local_var_str) = query {
         local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_str) = _type {
+    if let Some(ref local_var_str) = r#type {
         local_var_req_builder = local_var_req_builder.query(&[("type", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = cuisine {

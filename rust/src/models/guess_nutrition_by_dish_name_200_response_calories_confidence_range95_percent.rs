@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent {
     #[serde(rename = "max")]
     pub max: f32,

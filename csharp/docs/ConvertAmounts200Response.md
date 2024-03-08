@@ -1,12 +1,12 @@
-# Org.OpenAPITools.Model.ConvertAmounts200Response
+# spoonacular.Model.ConvertAmounts200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceAmount** | **decimal?** |  | 
+**SourceAmount** | **decimal** |  | 
 **SourceUnit** | **string** |  | 
-**TargetAmount** | **decimal?** |  | 
+**TargetAmount** | **decimal** |  | 
 **TargetUnit** | **string** |  | 
 **Answer** | **string** |  | 
 

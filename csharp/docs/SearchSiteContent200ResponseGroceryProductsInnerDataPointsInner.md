@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+# spoonacular.Model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
 
 ## Properties
 

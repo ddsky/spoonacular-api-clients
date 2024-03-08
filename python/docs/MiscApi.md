@@ -1,4 +1,4 @@
-# openapi_client.MiscApi
+# spoonacular.MiscApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **detect_food_in_text**
-> DetectFoodInText200Response detect_food_in_text()
+> DetectFoodInText200Response detect_food_in_text(content_type=content_type)
 
 Detect Food in Text
 
@@ -29,14 +29,14 @@ Take any text and find all mentions of food contained within it. This task is al
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.detect_food_in_text200_response import DetectFoodInText200Response
+import spoonacular
+from spoonacular.models.detect_food_in_text200_response import DetectFoodInText200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -46,33 +46,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    content_type = "application/json" # str | The content type. (optional)
+    api_instance = spoonacular.MiscApi(api_client)
+    content_type = 'application/json' # str | The content type. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Detect Food in Text
         api_response = api_instance.detect_food_in_text(content_type=content_type)
+        print("The response of MiscApi->detect_food_in_text:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->detect_food_in_text: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional]
+ **content_type** | **str**| The content type. | [optional] 
 
 ### Return type
 
@@ -86,7 +87,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -111,14 +111,14 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.get_a_random_food_joke200_response import GetARandomFoodJoke200Response
+import spoonacular
+from spoonacular.models.get_a_random_food_joke200_response import GetARandomFoodJoke200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -128,27 +128,29 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
+    api_instance = spoonacular.MiscApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # Random Food Joke
         api_response = api_instance.get_a_random_food_joke()
+        print("The response of MiscApi->get_a_random_food_joke:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->get_a_random_food_joke: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -164,7 +166,6 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -177,7 +178,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_conversation_suggests**
-> GetConversationSuggests200Response get_conversation_suggests(query)
+> GetConversationSuggests200Response get_conversation_suggests(query, number=number)
 
 Conversation Suggests
 
@@ -188,14 +189,14 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.get_conversation_suggests200_response import GetConversationSuggests200Response
+import spoonacular
+from spoonacular.models.get_conversation_suggests200_response import GetConversationSuggests200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -205,43 +206,36 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    query = "tell" # str | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
+    api_instance = spoonacular.MiscApi(api_client)
+    query = 'tell' # str | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
     number = 5 # float | The number of suggestions to return (between 1 and 25). (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Conversation Suggests
-        api_response = api_instance.get_conversation_suggests(query)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MiscApi->get_conversation_suggests: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Conversation Suggests
         api_response = api_instance.get_conversation_suggests(query, number=number)
+        print("The response of MiscApi->get_conversation_suggests:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->get_conversation_suggests: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. |
- **number** | **float**| The number of suggestions to return (between 1 and 25). | [optional]
+ **query** | **str**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | 
+ **number** | **float**| The number of suggestions to return (between 1 and 25). | [optional] 
 
 ### Return type
 
@@ -255,7 +249,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -280,14 +273,14 @@ Returns random food trivia.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.get_random_food_trivia200_response import GetRandomFoodTrivia200Response
+import spoonacular
+from spoonacular.models.get_random_food_trivia200_response import GetRandomFoodTrivia200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -297,27 +290,29 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
+    api_instance = spoonacular.MiscApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # Random Food Trivia
         api_response = api_instance.get_random_food_trivia()
+        print("The response of MiscApi->get_random_food_trivia:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->get_random_food_trivia: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -332,7 +327,6 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -357,14 +351,14 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.image_analysis_by_url200_response import ImageAnalysisByURL200Response
+import spoonacular
+from spoonacular.models.image_analysis_by_url200_response import ImageAnalysisByURL200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -374,32 +368,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    image_url = "https://spoonacular.com/recipeImages/635350-240x150.jpg" # str | The URL of the image to be analyzed.
+    api_instance = spoonacular.MiscApi(api_client)
+    image_url = 'https://spoonacular.com/recipeImages/635350-240x150.jpg' # str | The URL of the image to be analyzed.
 
-    # example passing only required values which don't have defaults set
     try:
         # Image Analysis by URL
         api_response = api_instance.image_analysis_by_url(image_url)
+        print("The response of MiscApi->image_analysis_by_url:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->image_analysis_by_url: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **image_url** | **str**| The URL of the image to be analyzed. |
+ **image_url** | **str**| The URL of the image to be analyzed. | 
 
 ### Return type
 
@@ -413,7 +409,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -438,14 +433,14 @@ Classify a food image.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.image_classification_by_url200_response import ImageClassificationByURL200Response
+import spoonacular
+from spoonacular.models.image_classification_by_url200_response import ImageClassificationByURL200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -455,32 +450,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    image_url = "https://spoonacular.com/recipeImages/635350-240x150.jpg" # str | The URL of the image to be classified.
+    api_instance = spoonacular.MiscApi(api_client)
+    image_url = 'https://spoonacular.com/recipeImages/635350-240x150.jpg' # str | The URL of the image to be classified.
 
-    # example passing only required values which don't have defaults set
     try:
         # Image Classification by URL
         api_response = api_instance.image_classification_by_url(image_url)
+        print("The response of MiscApi->image_classification_by_url:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->image_classification_by_url: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **image_url** | **str**| The URL of the image to be classified. |
+ **image_url** | **str**| The URL of the image to be classified. | 
 
 ### Return type
 
@@ -495,7 +492,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -508,7 +504,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_all_food**
-> SearchAllFood200Response search_all_food(query)
+> SearchAllFood200Response search_all_food(query, offset=offset, number=number)
 
 Search All Food
 
@@ -519,14 +515,14 @@ Search all food content with one call. That includes recipes, grocery products, 
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.search_all_food200_response import SearchAllFood200Response
+import spoonacular
+from spoonacular.models.search_all_food200_response import SearchAllFood200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -536,45 +532,38 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    query = "apple" # str | The search query.
-    offset = 0 # int | The number of results to skip (between 0 and 900). (optional)
-    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) if omitted the server will use the default value of 10
+    api_instance = spoonacular.MiscApi(api_client)
+    query = 'apple' # str | The search query.
+    offset = 56 # int | The number of results to skip (between 0 and 900). (optional)
+    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Search All Food
-        api_response = api_instance.search_all_food(query)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MiscApi->search_all_food: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search All Food
         api_response = api_instance.search_all_food(query, offset=offset, number=number)
+        print("The response of MiscApi->search_all_food:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->search_all_food: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The search query. |
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] if omitted the server will use the default value of 10
+ **query** | **str**| The search query. | 
+ **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
@@ -589,7 +578,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -602,7 +590,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_custom_foods**
-> SearchCustomFoods200Response search_custom_foods(username, hash)
+> SearchCustomFoods200Response search_custom_foods(username, hash, query=query, offset=offset, number=number)
 
 Search Custom Foods
 
@@ -613,14 +601,14 @@ Search custom foods in a user's account.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.search_custom_foods200_response import SearchCustomFoods200Response
+import spoonacular
+from spoonacular.models.search_custom_foods200_response import SearchCustomFoods200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -630,49 +618,42 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    username = "dsky" # str | The username.
-    hash = "4b5v4398573406" # str | The private hash for the username.
-    query = "burger" # str | The (natural language) search query. (optional)
-    offset = 0 # int | The number of results to skip (between 0 and 900). (optional)
-    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) if omitted the server will use the default value of 10
+    api_instance = spoonacular.MiscApi(api_client)
+    username = 'dsky' # str | The username.
+    hash = '4b5v4398573406' # str | The private hash for the username.
+    query = 'burger' # str | The (natural language) search query. (optional)
+    offset = 56 # int | The number of results to skip (between 0 and 900). (optional)
+    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Search Custom Foods
-        api_response = api_instance.search_custom_foods(username, hash)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MiscApi->search_custom_foods: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search Custom Foods
         api_response = api_instance.search_custom_foods(username, hash, query=query, offset=offset, number=number)
+        print("The response of MiscApi->search_custom_foods:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->search_custom_foods: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| The username. |
- **hash** | **str**| The private hash for the username. |
- **query** | **str**| The (natural language) search query. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] if omitted the server will use the default value of 10
+ **username** | **str**| The username. | 
+ **hash** | **str**| The private hash for the username. | 
+ **query** | **str**| The (natural language) search query. | [optional] 
+ **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
@@ -687,7 +668,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -700,7 +680,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_food_videos**
-> SearchFoodVideos200Response search_food_videos()
+> SearchFoodVideos200Response search_food_videos(query=query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
 
 Search Food Videos
 
@@ -711,14 +691,14 @@ Find recipe and other food related videos.
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.search_food_videos200_response import SearchFoodVideos200Response
+import spoonacular
+from spoonacular.models.search_food_videos200_response import SearchFoodVideos200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -728,51 +708,52 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    query = "burger" # str | The (natural language) search query. (optional)
-    type = "main course" # str | The type of the recipes. See a full list of supported meal types. (optional)
-    cuisine = "italian" # str | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
-    diet = "vegetarian" # str | The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
-    include_ingredients = "tomato,cheese" # str | A comma-separated list of ingredients that the recipes should contain. (optional)
-    exclude_ingredients = "eggs" # str | A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
+    api_instance = spoonacular.MiscApi(api_client)
+    query = 'burger' # str | The (natural language) search query. (optional)
+    type = 'main course' # str | The type of the recipes. See a full list of supported meal types. (optional)
+    cuisine = 'italian' # str | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
+    diet = 'vegetarian' # str | The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
+    include_ingredients = 'tomato,cheese' # str | A comma-separated list of ingredients that the recipes should contain. (optional)
+    exclude_ingredients = 'eggs' # str | A comma-separated list of ingredients or ingredient types that the recipes must not contain. (optional)
     min_length = 0 # float | Minimum video length in seconds. (optional)
     max_length = 999 # float | Maximum video length in seconds. (optional)
-    offset = 0 # int | The number of results to skip (between 0 and 900). (optional)
-    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) if omitted the server will use the default value of 10
+    offset = 56 # int | The number of results to skip (between 0 and 900). (optional)
+    number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search Food Videos
         api_response = api_instance.search_food_videos(query=query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
+        print("The response of MiscApi->search_food_videos:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->search_food_videos: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional]
- **type** | **str**| The type of the recipes. See a full list of supported meal types. | [optional]
- **cuisine** | **str**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional]
- **diet** | **str**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
- **include_ingredients** | **str**| A comma-separated list of ingredients that the recipes should contain. | [optional]
- **exclude_ingredients** | **str**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **min_length** | **float**| Minimum video length in seconds. | [optional]
- **max_length** | **float**| Maximum video length in seconds. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] if omitted the server will use the default value of 10
+ **query** | **str**| The (natural language) search query. | [optional] 
+ **type** | **str**| The type of the recipes. See a full list of supported meal types. | [optional] 
+ **cuisine** | **str**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] 
+ **diet** | **str**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
+ **include_ingredients** | **str**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
+ **exclude_ingredients** | **str**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] 
+ **min_length** | **float**| Minimum video length in seconds. | [optional] 
+ **max_length** | **float**| Maximum video length in seconds. | [optional] 
+ **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
+ **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
 
@@ -786,7 +767,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -811,14 +791,14 @@ Search spoonacular's site content. You'll be able to find everything that you co
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.search_site_content200_response import SearchSiteContent200Response
+import spoonacular
+from spoonacular.models.search_site_content200_response import SearchSiteContent200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -828,32 +808,34 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    query = "past" # str | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
+    api_instance = spoonacular.MiscApi(api_client)
+    query = 'past' # str | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 
-    # example passing only required values which don't have defaults set
     try:
         # Search Site Content
         api_response = api_instance.search_site_content(query)
+        print("The response of MiscApi->search_site_content:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->search_site_content: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. |
+ **query** | **str**| The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. | 
 
 ### Return type
 
@@ -868,7 +850,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -881,7 +862,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **talk_to_chatbot**
-> TalkToChatbot200Response talk_to_chatbot(text)
+> TalkToChatbot200Response talk_to_chatbot(text, context_id=context_id)
 
 Talk to Chatbot
 
@@ -892,14 +873,14 @@ This endpoint can be used to have a conversation about food with the spoonacular
 * Api Key Authentication (apiKeyScheme):
 
 ```python
-import time
-import openapi_client
-from com.spoonacular import misc_api
-from openapi_client.model.talk_to_chatbot200_response import TalkToChatbot200Response
+import spoonacular
+from spoonacular.models.talk_to_chatbot200_response import TalkToChatbot200Response
+from spoonacular.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.spoonacular.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = spoonacular.Configuration(
     host = "https://api.spoonacular.com"
 )
 
@@ -909,43 +890,36 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = 'YOUR_API_KEY'
+configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = misc_api.MiscApi(api_client)
-    text = "donut recipes" # str | The request / question / answer from the user to the chatbot.
-    context_id = "342938" # str | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
+    api_instance = spoonacular.MiscApi(api_client)
+    text = 'donut recipes' # str | The request / question / answer from the user to the chatbot.
+    context_id = '342938' # str | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Talk to Chatbot
-        api_response = api_instance.talk_to_chatbot(text)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling MiscApi->talk_to_chatbot: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Talk to Chatbot
         api_response = api_instance.talk_to_chatbot(text, context_id=context_id)
+        print("The response of MiscApi->talk_to_chatbot:\n")
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling MiscApi->talk_to_chatbot: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **text** | **str**| The request / question / answer from the user to the chatbot. |
- **context_id** | **str**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional]
+ **text** | **str**| The request / question / answer from the user to the chatbot. | 
+ **context_id** | **str**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional] 
 
 ### Return type
 
@@ -959,7 +933,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

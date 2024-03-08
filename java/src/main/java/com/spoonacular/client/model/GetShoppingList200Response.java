@@ -14,19 +14,16 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.GetShoppingList200ResponseAislesInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -39,12 +36,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -52,8 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetShoppingList200Response {
   public static final String SERIALIZED_NAME_AISLES = "aisles";
   @SerializedName(SERIALIZED_NAME_AISLES)
@@ -71,16 +71,18 @@ public class GetShoppingList200Response {
   @SerializedName(SERIALIZED_NAME_END_DATE)
   private BigDecimal endDate;
 
-  public GetShoppingList200Response() { 
+  public GetShoppingList200Response() {
   }
 
   public GetShoppingList200Response aisles(Set<GetShoppingList200ResponseAislesInner> aisles) {
-    
     this.aisles = aisles;
     return this;
   }
 
   public GetShoppingList200Response addAislesItem(GetShoppingList200ResponseAislesInner aislesItem) {
+    if (this.aisles == null) {
+      this.aisles = new LinkedHashSet<>();
+    }
     this.aisles.add(aislesItem);
     return this;
   }
@@ -90,12 +92,9 @@ public class GetShoppingList200Response {
    * @return aisles
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<GetShoppingList200ResponseAislesInner> getAisles() {
     return aisles;
   }
-
 
   public void setAisles(Set<GetShoppingList200ResponseAislesInner> aisles) {
     this.aisles = aisles;
@@ -103,7 +102,6 @@ public class GetShoppingList200Response {
 
 
   public GetShoppingList200Response cost(BigDecimal cost) {
-    
     this.cost = cost;
     return this;
   }
@@ -113,12 +111,9 @@ public class GetShoppingList200Response {
    * @return cost
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getCost() {
     return cost;
   }
-
 
   public void setCost(BigDecimal cost) {
     this.cost = cost;
@@ -126,7 +121,6 @@ public class GetShoppingList200Response {
 
 
   public GetShoppingList200Response startDate(BigDecimal startDate) {
-    
     this.startDate = startDate;
     return this;
   }
@@ -136,12 +130,9 @@ public class GetShoppingList200Response {
    * @return startDate
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getStartDate() {
     return startDate;
   }
-
 
   public void setStartDate(BigDecimal startDate) {
     this.startDate = startDate;
@@ -149,7 +140,6 @@ public class GetShoppingList200Response {
 
 
   public GetShoppingList200Response endDate(BigDecimal endDate) {
-    
     this.endDate = endDate;
     return this;
   }
@@ -159,12 +149,9 @@ public class GetShoppingList200Response {
    * @return endDate
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getEndDate() {
     return endDate;
   }
-
 
   public void setEndDate(BigDecimal endDate) {
     this.endDate = endDate;
@@ -236,46 +223,43 @@ public class GetShoppingList200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetShoppingList200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetShoppingList200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetShoppingList200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetShoppingList200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetShoppingList200Response is not found in the empty JSON string", GetShoppingList200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetShoppingList200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetShoppingList200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetShoppingList200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetShoppingList200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      JsonArray jsonArrayaisles = jsonObj.getAsJsonArray("aisles");
-      if (jsonArrayaisles != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("aisles").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `aisles` to be an array in the JSON string but got `%s`", jsonObj.get("aisles").toString()));
-        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("aisles").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `aisles` to be an array in the JSON string but got `%s`", jsonObj.get("aisles").toString()));
+      }
 
-        // validate the optional field `aisles` (array)
-        for (int i = 0; i < jsonArrayaisles.size(); i++) {
-          GetShoppingList200ResponseAislesInner.validateJsonObject(jsonArrayaisles.get(i).getAsJsonObject());
-        };
-      }
+      JsonArray jsonArrayaisles = jsonObj.getAsJsonArray("aisles");
+      // validate the required field `aisles` (array)
+      for (int i = 0; i < jsonArrayaisles.size(); i++) {
+        GetShoppingList200ResponseAislesInner.validateJsonElement(jsonArrayaisles.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -298,9 +282,9 @@ public class GetShoppingList200Response {
 
            @Override
            public GetShoppingList200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

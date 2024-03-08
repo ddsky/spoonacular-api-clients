@@ -1,29 +1,29 @@
-# com.spoonacular.client\MealPlanningApi
+# OpenAPI\Client\MealPlanningApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addMealPlanTemplate()**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
-[**addToMealPlan()**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
-[**addToShoppingList()**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
-[**clearMealPlanDay()**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
-[**connectUser()**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
-[**deleteFromMealPlan()**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
-[**deleteFromShoppingList()**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
-[**deleteMealPlanTemplate()**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
-[**generateMealPlan()**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
-[**generateShoppingList()**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
-[**getMealPlanTemplate()**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
-[**getMealPlanTemplates()**](MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-[**getMealPlanWeek()**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
-[**getShoppingList()**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addMealPlanTemplate()**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template |
+| [**addToMealPlan()**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan |
+| [**addToShoppingList()**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List |
+| [**clearMealPlanDay()**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day |
+| [**connectUser()**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User |
+| [**deleteFromMealPlan()**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan |
+| [**deleteFromShoppingList()**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List |
+| [**deleteMealPlanTemplate()**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template |
+| [**generateMealPlan()**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan |
+| [**generateShoppingList()**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List |
+| [**getMealPlanTemplate()**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template |
+| [**getMealPlanTemplates()**](MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates |
+| [**getMealPlanWeek()**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week |
+| [**getShoppingList()**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List |
 
 
 ## `addMealPlanTemplate()`
 
 ```php
-addMealPlanTemplate($username, $hash, $add_to_meal_plan_request): \com.spoonacular.client\com.spoonacular.client.model\AddMealPlanTemplate200Response
+addMealPlanTemplate($username, $hash, $add_to_meal_plan_request): \OpenAPI\Client\Model\AddMealPlanTemplate200Response
 ```
 
 Add Meal Plan Template
@@ -38,12 +38,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
-$add_to_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest
+$add_to_meal_plan_request = new \OpenAPI\Client\Model\AddToMealPlanRequest(); // \OpenAPI\Client\Model\AddToMealPlanRequest
 
 try {
     $result = $apiInstance->addMealPlanTemplate($username, $hash, $add_to_meal_plan_request);
@@ -63,15 +63,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **hash** | **string**| The private hash for the username. |
- **add_to_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **hash** | **string**| The private hash for the username. | |
+| **add_to_meal_plan_request** | [**\OpenAPI\Client\Model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AddMealPlanTemplate200Response**](../Model/AddMealPlanTemplate200Response.md)
+[**\OpenAPI\Client\Model\AddMealPlanTemplate200Response**](../Model/AddMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -104,12 +104,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$add_to_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest
+$add_to_meal_plan_request = new \OpenAPI\Client\Model\AddToMealPlanRequest(); // \OpenAPI\Client\Model\AddToMealPlanRequest
 
 try {
     $result = $apiInstance->addToMealPlan($username, $hash, $add_to_meal_plan_request);
@@ -129,11 +129,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **hash** | **string**| The private hash for the username. |
- **add_to_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **hash** | **string**| The private hash for the username. | |
+| **add_to_meal_plan_request** | [**\OpenAPI\Client\Model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 ## `addToShoppingList()`
 
 ```php
-addToShoppingList($username, $hash, $add_to_meal_plan_request): \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response
+addToShoppingList($username, $hash, $add_to_meal_plan_request): \OpenAPI\Client\Model\GenerateShoppingList200Response
 ```
 
 Add to Shopping List
@@ -170,12 +170,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -183,7 +183,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$add_to_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest
+$add_to_meal_plan_request = new \OpenAPI\Client\Model\AddToMealPlanRequest(); // \OpenAPI\Client\Model\AddToMealPlanRequest
 
 try {
     $result = $apiInstance->addToShoppingList($username, $hash, $add_to_meal_plan_request);
@@ -195,15 +195,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **hash** | **string**| The private hash for the username. |
- **add_to_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **hash** | **string**| The private hash for the username. | |
+| **add_to_meal_plan_request** | [**\OpenAPI\Client\Model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
+[**\OpenAPI\Client\Model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -236,12 +236,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -250,7 +250,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $date = 2020-06-01; // string | The date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$clear_meal_plan_day_request = new \com.spoonacular.client\com.spoonacular.client.model\ClearMealPlanDayRequest(); // \com.spoonacular.client\com.spoonacular.client.model\ClearMealPlanDayRequest
+$clear_meal_plan_day_request = new \OpenAPI\Client\Model\ClearMealPlanDayRequest(); // \OpenAPI\Client\Model\ClearMealPlanDayRequest
 
 try {
     $result = $apiInstance->clearMealPlanDay($username, $date, $hash, $clear_meal_plan_day_request);
@@ -262,12 +262,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **date** | **string**| The date in the format yyyy-mm-dd. |
- **hash** | **string**| The private hash for the username. |
- **clear_meal_plan_day_request** | [**\com.spoonacular.client\com.spoonacular.client.model\ClearMealPlanDayRequest**](../Model/ClearMealPlanDayRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **date** | **string**| The date in the format yyyy-mm-dd. | |
+| **hash** | **string**| The private hash for the username. | |
+| **clear_meal_plan_day_request** | [**\OpenAPI\Client\Model\ClearMealPlanDayRequest**](../Model/ClearMealPlanDayRequest.md)|  | |
 
 ### Return type
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 ## `connectUser()`
 
 ```php
-connectUser($body): \com.spoonacular.client\com.spoonacular.client.model\ConnectUser200Response
+connectUser($body): \OpenAPI\Client\Model\ConnectUser200Response
 ```
 
 Connect User
@@ -304,12 +304,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -327,13 +327,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **object**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **body** | **object**|  | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ConnectUser200Response**](../Model/ConnectUser200Response.md)
+[**\OpenAPI\Client\Model\ConnectUser200Response**](../Model/ConnectUser200Response.md)
 
 ### Authorization
 
@@ -366,12 +366,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -380,7 +380,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 15678; // float | The shopping list item id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$delete_from_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest
+$delete_from_meal_plan_request = new \OpenAPI\Client\Model\DeleteFromMealPlanRequest(); // \OpenAPI\Client\Model\DeleteFromMealPlanRequest
 
 try {
     $result = $apiInstance->deleteFromMealPlan($username, $id, $hash, $delete_from_meal_plan_request);
@@ -392,12 +392,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **id** | **float**| The shopping list item id. |
- **hash** | **string**| The private hash for the username. |
- **delete_from_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **id** | **float**| The shopping list item id. | |
+| **hash** | **string**| The private hash for the username. | |
+| **delete_from_meal_plan_request** | [**\OpenAPI\Client\Model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -434,12 +434,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -448,7 +448,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$delete_from_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest
+$delete_from_meal_plan_request = new \OpenAPI\Client\Model\DeleteFromMealPlanRequest(); // \OpenAPI\Client\Model\DeleteFromMealPlanRequest
 
 try {
     $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $delete_from_meal_plan_request);
@@ -460,12 +460,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **id** | **int**| The item&#39;s id. |
- **hash** | **string**| The private hash for the username. |
- **delete_from_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **id** | **int**| The item&#39;s id. | |
+| **hash** | **string**| The private hash for the username. | |
+| **delete_from_meal_plan_request** | [**\OpenAPI\Client\Model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -502,12 +502,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -516,7 +516,7 @@ $apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 4b5v4398573406; // string | The private hash for the username.
-$delete_from_meal_plan_request = new \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest(); // \com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest
+$delete_from_meal_plan_request = new \OpenAPI\Client\Model\DeleteFromMealPlanRequest(); // \OpenAPI\Client\Model\DeleteFromMealPlanRequest
 
 try {
     $result = $apiInstance->deleteMealPlanTemplate($username, $id, $hash, $delete_from_meal_plan_request);
@@ -528,12 +528,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **id** | **int**| The item&#39;s id. |
- **hash** | **string**| The private hash for the username. |
- **delete_from_meal_plan_request** | [**\com.spoonacular.client\com.spoonacular.client.model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **id** | **int**| The item&#39;s id. | |
+| **hash** | **string**| The private hash for the username. | |
+| **delete_from_meal_plan_request** | [**\OpenAPI\Client\Model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 ## `generateMealPlan()`
 
 ```php
-generateMealPlan($time_frame, $target_calories, $diet, $exclude): \com.spoonacular.client\com.spoonacular.client.model\GenerateMealPlan200Response
+generateMealPlan($time_frame, $target_calories, $diet, $exclude): \OpenAPI\Client\Model\GenerateMealPlan200Response
 ```
 
 Generate Meal Plan
@@ -570,12 +570,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -596,16 +596,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **time_frame** | **string**| Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | [optional]
- **target_calories** | **float**| What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | [optional]
- **diet** | **string**| Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | [optional]
- **exclude** | **string**| A comma-separated list of allergens or ingredients that must be excluded. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **time_frame** | **string**| Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | [optional] |
+| **target_calories** | **float**| What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | [optional] |
+| **diet** | **string**| Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | [optional] |
+| **exclude** | **string**| A comma-separated list of allergens or ingredients that must be excluded. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GenerateMealPlan200Response**](../Model/GenerateMealPlan200Response.md)
+[**\OpenAPI\Client\Model\GenerateMealPlan200Response**](../Model/GenerateMealPlan200Response.md)
 
 ### Authorization
 
@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 ## `generateShoppingList()`
 
 ```php
-generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request): \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response
+generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request): \OpenAPI\Client\Model\GenerateShoppingList200Response
 ```
 
 Generate Shopping List
@@ -638,12 +638,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -653,7 +653,7 @@ $username = dsky; // string | The username.
 $start_date = 2020-06-01; // string | The start date in the format yyyy-mm-dd.
 $end_date = 2020-06-07; // string | The end date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$generate_shopping_list_request = new \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingListRequest(); // \com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingListRequest
+$generate_shopping_list_request = new \OpenAPI\Client\Model\GenerateShoppingListRequest(); // \OpenAPI\Client\Model\GenerateShoppingListRequest
 
 try {
     $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request);
@@ -665,17 +665,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **start_date** | **string**| The start date in the format yyyy-mm-dd. |
- **end_date** | **string**| The end date in the format yyyy-mm-dd. |
- **hash** | **string**| The private hash for the username. |
- **generate_shopping_list_request** | [**\com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingListRequest**](../Model/GenerateShoppingListRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **start_date** | **string**| The start date in the format yyyy-mm-dd. | |
+| **end_date** | **string**| The end date in the format yyyy-mm-dd. | |
+| **hash** | **string**| The private hash for the username. | |
+| **generate_shopping_list_request** | [**\OpenAPI\Client\Model\GenerateShoppingListRequest**](../Model/GenerateShoppingListRequest.md)|  | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
+[**\OpenAPI\Client\Model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
 
 ### Authorization
 
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 ## `getMealPlanTemplate()`
 
 ```php
-getMealPlanTemplate($username, $id, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplate200Response
+getMealPlanTemplate($username, $id, $hash): \OpenAPI\Client\Model\GetMealPlanTemplate200Response
 ```
 
 Get Meal Plan Template
@@ -708,12 +708,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -733,15 +733,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **id** | **int**| The item&#39;s id. |
- **hash** | **string**| The private hash for the username. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **id** | **int**| The item&#39;s id. | |
+| **hash** | **string**| The private hash for the username. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplate200Response**](../Model/GetMealPlanTemplate200Response.md)
+[**\OpenAPI\Client\Model\GetMealPlanTemplate200Response**](../Model/GetMealPlanTemplate200Response.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 ## `getMealPlanTemplates()`
 
 ```php
-getMealPlanTemplates($username, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplates200Response
+getMealPlanTemplates($username, $hash): \OpenAPI\Client\Model\GetMealPlanTemplates200Response
 ```
 
 Get Meal Plan Templates
@@ -774,12 +774,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -798,14 +798,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **hash** | **string**| The private hash for the username. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **hash** | **string**| The private hash for the username. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetMealPlanTemplates200Response**](../Model/GetMealPlanTemplates200Response.md)
+[**\OpenAPI\Client\Model\GetMealPlanTemplates200Response**](../Model/GetMealPlanTemplates200Response.md)
 
 ### Authorization
 
@@ -823,7 +823,7 @@ Name | Type | Description  | Notes
 ## `getMealPlanWeek()`
 
 ```php
-getMealPlanWeek($username, $start_date, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetMealPlanWeek200Response
+getMealPlanWeek($username, $start_date, $hash): \OpenAPI\Client\Model\GetMealPlanWeek200Response
 ```
 
 Get Meal Plan Week
@@ -838,12 +838,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -863,15 +863,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **start_date** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. |
- **hash** | **string**| The private hash for the username. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **start_date** | **string**| The start date of the meal planned week in the format yyyy-mm-dd. | |
+| **hash** | **string**| The private hash for the username. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetMealPlanWeek200Response**](../Model/GetMealPlanWeek200Response.md)
+[**\OpenAPI\Client\Model\GetMealPlanWeek200Response**](../Model/GetMealPlanWeek200Response.md)
 
 ### Authorization
 
@@ -889,7 +889,7 @@ Name | Type | Description  | Notes
 ## `getShoppingList()`
 
 ```php
-getShoppingList($username, $hash): \com.spoonacular.client\com.spoonacular.client.model\GetShoppingList200Response
+getShoppingList($username, $hash): \OpenAPI\Client\Model\GetShoppingList200Response
 ```
 
 Get Shopping List
@@ -904,12 +904,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MealPlanningApi(
+$apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -928,14 +928,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| The username. |
- **hash** | **string**| The private hash for the username. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **username** | **string**| The username. | |
+| **hash** | **string**| The private hash for the username. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetShoppingList200Response**](../Model/GetShoppingList200Response.md)
+[**\OpenAPI\Client\Model\GetShoppingList200Response**](../Model/GetShoppingList200Response.md)
 
 ### Authorization
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **products** | [**Vec<crate::models::AutocompleteRecipeSearch200ResponseInner>**](autocompleteRecipeSearch_200_response_inner.md) |  | 
 **total_products** | **i32** |  | 
-**_type** | **String** |  | 
+**r#type** | **String** |  | 
 **offset** | **i32** |  | 
 **number** | **i32** |  | 
 

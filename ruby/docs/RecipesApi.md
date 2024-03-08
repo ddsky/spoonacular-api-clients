@@ -1326,7 +1326,7 @@ end
 api_instance = OpenapiClient::RecipesApi.new
 id = 1 # Integer | The item's id.
 opts = {
-  normalize: false # Boolean | Normalize to the strongest taste.
+  normalize: true # Boolean | Normalize to the strongest taste.
 }
 
 begin

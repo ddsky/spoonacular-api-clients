@@ -14,18 +14,15 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.IngredientSearch200ResponseResultsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -38,12 +35,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -51,8 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class IngredientSearch200Response {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
@@ -70,16 +70,18 @@ public class IngredientSearch200Response {
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
   private Integer totalResults;
 
-  public IngredientSearch200Response() { 
+  public IngredientSearch200Response() {
   }
 
   public IngredientSearch200Response results(Set<IngredientSearch200ResponseResultsInner> results) {
-    
     this.results = results;
     return this;
   }
 
   public IngredientSearch200Response addResultsItem(IngredientSearch200ResponseResultsInner resultsItem) {
+    if (this.results == null) {
+      this.results = new LinkedHashSet<>();
+    }
     this.results.add(resultsItem);
     return this;
   }
@@ -89,12 +91,9 @@ public class IngredientSearch200Response {
    * @return results
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<IngredientSearch200ResponseResultsInner> getResults() {
     return results;
   }
-
 
   public void setResults(Set<IngredientSearch200ResponseResultsInner> results) {
     this.results = results;
@@ -102,7 +101,6 @@ public class IngredientSearch200Response {
 
 
   public IngredientSearch200Response offset(Integer offset) {
-    
     this.offset = offset;
     return this;
   }
@@ -112,12 +110,9 @@ public class IngredientSearch200Response {
    * @return offset
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getOffset() {
     return offset;
   }
-
 
   public void setOffset(Integer offset) {
     this.offset = offset;
@@ -125,7 +120,6 @@ public class IngredientSearch200Response {
 
 
   public IngredientSearch200Response number(Integer number) {
-    
     this.number = number;
     return this;
   }
@@ -135,12 +129,9 @@ public class IngredientSearch200Response {
    * @return number
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getNumber() {
     return number;
   }
-
 
   public void setNumber(Integer number) {
     this.number = number;
@@ -148,7 +139,6 @@ public class IngredientSearch200Response {
 
 
   public IngredientSearch200Response totalResults(Integer totalResults) {
-    
     this.totalResults = totalResults;
     return this;
   }
@@ -158,12 +148,9 @@ public class IngredientSearch200Response {
    * @return totalResults
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getTotalResults() {
     return totalResults;
   }
-
 
   public void setTotalResults(Integer totalResults) {
     this.totalResults = totalResults;
@@ -235,46 +222,43 @@ public class IngredientSearch200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to IngredientSearch200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to IngredientSearch200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (IngredientSearch200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!IngredientSearch200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in IngredientSearch200Response is not found in the empty JSON string", IngredientSearch200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IngredientSearch200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IngredientSearch200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IngredientSearch200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : IngredientSearch200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-      if (jsonArrayresults != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("results").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
-        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("results").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+      }
 
-        // validate the optional field `results` (array)
-        for (int i = 0; i < jsonArrayresults.size(); i++) {
-          IngredientSearch200ResponseResultsInner.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
-        };
-      }
+      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+      // validate the required field `results` (array)
+      for (int i = 0; i < jsonArrayresults.size(); i++) {
+        IngredientSearch200ResponseResultsInner.validateJsonElement(jsonArrayresults.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -297,9 +281,9 @@ public class IngredientSearch200Response {
 
            @Override
            public IngredientSearch200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

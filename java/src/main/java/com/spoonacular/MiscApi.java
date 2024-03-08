@@ -45,7 +45,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class MiscApi {
     private ApiClient localVarApiClient;
@@ -152,10 +151,7 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call detectFoodInTextValidateBeforeCall(String contentType, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = detectFoodInTextCall(contentType, _callback);
-        return localVarCall;
+        return detectFoodInTextCall(contentType, _callback);
 
     }
 
@@ -279,7 +275,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -292,10 +287,7 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getARandomFoodJokeValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getARandomFoodJokeCall(_callback);
-        return localVarCall;
+        return getARandomFoodJokeCall(_callback);
 
     }
 
@@ -426,7 +418,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -439,15 +430,12 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getConversationSuggestsValidateBeforeCall(String query, BigDecimal number, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling getConversationSuggests(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getConversationSuggestsCall(query, number, _callback);
-        return localVarCall;
+        return getConversationSuggestsCall(query, number, _callback);
 
     }
 
@@ -574,7 +562,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -587,10 +574,7 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRandomFoodTriviaValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getRandomFoodTriviaCall(_callback);
-        return localVarCall;
+        return getRandomFoodTriviaCall(_callback);
 
     }
 
@@ -716,7 +700,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -729,15 +712,12 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageAnalysisByURLValidateBeforeCall(String imageUrl, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'imageUrl' is set
         if (imageUrl == null) {
             throw new ApiException("Missing the required parameter 'imageUrl' when calling imageAnalysisByURL(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageAnalysisByURLCall(imageUrl, _callback);
-        return localVarCall;
+        return imageAnalysisByURLCall(imageUrl, _callback);
 
     }
 
@@ -866,7 +846,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -879,15 +858,12 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageClassificationByURLValidateBeforeCall(String imageUrl, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'imageUrl' is set
         if (imageUrl == null) {
             throw new ApiException("Missing the required parameter 'imageUrl' when calling imageClassificationByURL(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageClassificationByURLCall(imageUrl, _callback);
-        return localVarCall;
+        return imageClassificationByURLCall(imageUrl, _callback);
 
     }
 
@@ -1026,7 +1002,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1039,15 +1014,12 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchAllFoodValidateBeforeCall(String query, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling searchAllFood(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = searchAllFoodCall(query, offset, number, _callback);
-        return localVarCall;
+        return searchAllFoodCall(query, offset, number, _callback);
 
     }
 
@@ -1202,7 +1174,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1215,20 +1186,17 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchCustomFoodsValidateBeforeCall(String username, String hash, String query, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling searchCustomFoods(Async)");
         }
-        
+
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling searchCustomFoods(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = searchCustomFoodsCall(username, hash, query, offset, number, _callback);
-        return localVarCall;
+        return searchCustomFoodsCall(username, hash, query, offset, number, _callback);
 
     }
 
@@ -1414,7 +1382,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1427,10 +1394,7 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchFoodVideosValidateBeforeCall(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = searchFoodVideosCall(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, _callback);
-        return localVarCall;
+        return searchFoodVideosCall(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, _callback);
 
     }
 
@@ -1586,7 +1550,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1599,15 +1562,12 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchSiteContentValidateBeforeCall(String query, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling searchSiteContent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = searchSiteContentCall(query, _callback);
-        return localVarCall;
+        return searchSiteContentCall(query, _callback);
 
     }
 
@@ -1741,7 +1701,6 @@ public class MiscApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1754,15 +1713,12 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call talkToChatbotValidateBeforeCall(String text, String contextId, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'text' is set
         if (text == null) {
             throw new ApiException("Missing the required parameter 'text' when calling talkToChatbot(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = talkToChatbotCall(text, contextId, _callback);
-        return localVarCall;
+        return talkToChatbotCall(text, contextId, _callback);
 
     }
 

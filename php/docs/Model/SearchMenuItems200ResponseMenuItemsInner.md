@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **restaurant_chain** | **string** |  |
 **image** | **string** |  |
 **image_type** | **string** |  |
-**servings** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProductsByUPC200ResponseServings**](SearchGroceryProductsByUPC200ResponseServings.md) |  | [optional]
+**servings** | [**\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseServings**](SearchGroceryProductsByUPC200ResponseServings.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

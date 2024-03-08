@@ -47,7 +47,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**visualizeRecipeTasteByID**](RecipesApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget |
 
 
-<a name="analyzeARecipeSearchQuery"></a>
+<a id="analyzeARecipeSearchQuery"></a>
 # **analyzeARecipeSearchQuery**
 > AnalyzeARecipeSearchQuery200Response analyzeARecipeSearchQuery(q)
 
@@ -119,7 +119,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="analyzeRecipeInstructions"></a>
+<a id="analyzeRecipeInstructions"></a>
 # **analyzeRecipeInstructions**
 > AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(contentType)
 
@@ -191,7 +191,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="autocompleteRecipeSearch"></a>
+<a id="autocompleteRecipeSearch"></a>
 # **autocompleteRecipeSearch**
 > Set&lt;AutocompleteRecipeSearch200ResponseInner&gt; autocompleteRecipeSearch(query, number)
 
@@ -265,7 +265,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="classifyCuisine"></a>
+<a id="classifyCuisine"></a>
 # **classifyCuisine**
 > ClassifyCuisine200Response classifyCuisine(contentType)
 
@@ -337,7 +337,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="computeGlycemicLoad"></a>
+<a id="computeGlycemicLoad"></a>
 # **computeGlycemicLoad**
 > ComputeGlycemicLoad200Response computeGlycemicLoad(computeGlycemicLoadRequest, language)
 
@@ -411,7 +411,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="convertAmounts"></a>
+<a id="convertAmounts"></a>
 # **convertAmounts**
 > ConvertAmounts200Response convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit)
 
@@ -489,7 +489,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="createRecipeCard"></a>
+<a id="createRecipeCard"></a>
 # **createRecipeCard**
 > CreateRecipeCard200Response createRecipeCard(contentType)
 
@@ -561,7 +561,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="equipmentByIDImage"></a>
+<a id="equipmentByIDImage"></a>
 # **equipmentByIDImage**
 > Object equipmentByIDImage(id)
 
@@ -633,7 +633,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="extractRecipeFromWebsite"></a>
+<a id="extractRecipeFromWebsite"></a>
 # **extractRecipeFromWebsite**
 > GetRecipeInformation200Response extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
 
@@ -713,7 +713,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getAnalyzedRecipeInstructions"></a>
+<a id="getAnalyzedRecipeInstructions"></a>
 # **getAnalyzedRecipeInstructions**
 > GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, stepBreakdown)
 
@@ -787,7 +787,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRandomRecipes"></a>
+<a id="getRandomRecipes"></a>
 # **getRandomRecipes**
 > GetRandomRecipes200Response getRandomRecipes(limitLicense, tags, number)
 
@@ -863,7 +863,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipeEquipmentByID"></a>
+<a id="getRecipeEquipmentByID"></a>
 # **getRecipeEquipmentByID**
 > GetRecipeEquipmentByID200Response getRecipeEquipmentByID(id)
 
@@ -935,7 +935,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipeInformation"></a>
+<a id="getRecipeInformation"></a>
 # **getRecipeInformation**
 > GetRecipeInformation200Response getRecipeInformation(id, includeNutrition)
 
@@ -1009,7 +1009,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipeInformationBulk"></a>
+<a id="getRecipeInformationBulk"></a>
 # **getRecipeInformationBulk**
 > Set&lt;GetRecipeInformationBulk200ResponseInner&gt; getRecipeInformationBulk(ids, includeNutrition)
 
@@ -1083,7 +1083,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipeIngredientsByID"></a>
+<a id="getRecipeIngredientsByID"></a>
 # **getRecipeIngredientsByID**
 > GetRecipeIngredientsByID200Response getRecipeIngredientsByID(id)
 
@@ -1155,7 +1155,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipeNutritionWidgetByID"></a>
+<a id="getRecipeNutritionWidgetByID"></a>
 # **getRecipeNutritionWidgetByID**
 > GetRecipeNutritionWidgetByID200Response getRecipeNutritionWidgetByID(id)
 
@@ -1227,7 +1227,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipePriceBreakdownByID"></a>
+<a id="getRecipePriceBreakdownByID"></a>
 # **getRecipePriceBreakdownByID**
 > GetRecipePriceBreakdownByID200Response getRecipePriceBreakdownByID(id)
 
@@ -1299,7 +1299,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRecipeTasteByID"></a>
+<a id="getRecipeTasteByID"></a>
 # **getRecipeTasteByID**
 > GetRecipeTasteByID200Response getRecipeTasteByID(id, normalize)
 
@@ -1330,7 +1330,7 @@ public class Example {
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
     Integer id = 1; // Integer | The item's id.
-    Boolean normalize = false; // Boolean | Normalize to the strongest taste.
+    Boolean normalize = true; // Boolean | Normalize to the strongest taste.
     try {
       GetRecipeTasteByID200Response result = apiInstance.getRecipeTasteByID(id, normalize);
       System.out.println(result);
@@ -1350,7 +1350,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| The item&#39;s id. | |
-| **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to true] [enum: false, true] |
+| **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to true] |
 
 ### Return type
 
@@ -1373,7 +1373,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getSimilarRecipes"></a>
+<a id="getSimilarRecipes"></a>
 # **getSimilarRecipes**
 > Set&lt;GetSimilarRecipes200ResponseInner&gt; getSimilarRecipes(id, number, limitLicense)
 
@@ -1449,7 +1449,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="guessNutritionByDishName"></a>
+<a id="guessNutritionByDishName"></a>
 # **guessNutritionByDishName**
 > GuessNutritionByDishName200Response guessNutritionByDishName(title)
 
@@ -1521,7 +1521,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="ingredientsByIDImage"></a>
+<a id="ingredientsByIDImage"></a>
 # **ingredientsByIDImage**
 > Object ingredientsByIDImage(id, measure)
 
@@ -1595,7 +1595,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="parseIngredients"></a>
+<a id="parseIngredients"></a>
 # **parseIngredients**
 > Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(contentType, language)
 
@@ -1669,7 +1669,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="priceBreakdownByIDImage"></a>
+<a id="priceBreakdownByIDImage"></a>
 # **priceBreakdownByIDImage**
 > Object priceBreakdownByIDImage(id)
 
@@ -1741,7 +1741,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="quickAnswer"></a>
+<a id="quickAnswer"></a>
 # **quickAnswer**
 > QuickAnswer200Response quickAnswer(q)
 
@@ -1813,7 +1813,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="recipeNutritionByIDImage"></a>
+<a id="recipeNutritionByIDImage"></a>
 # **recipeNutritionByIDImage**
 > Object recipeNutritionByIDImage(id)
 
@@ -1885,7 +1885,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="recipeNutritionLabelImage"></a>
+<a id="recipeNutritionLabelImage"></a>
 # **recipeNutritionLabelImage**
 > Object recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
@@ -1963,7 +1963,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="recipeNutritionLabelWidget"></a>
+<a id="recipeNutritionLabelWidget"></a>
 # **recipeNutritionLabelWidget**
 > String recipeNutritionLabelWidget(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients)
 
@@ -2043,7 +2043,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="recipeTasteByIDImage"></a>
+<a id="recipeTasteByIDImage"></a>
 # **recipeTasteByIDImage**
 > Object recipeTasteByIDImage(id, normalize, rgb)
 
@@ -2119,7 +2119,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchRecipes"></a>
+<a id="searchRecipes"></a>
 # **searchRecipes**
 > SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
 
@@ -2381,7 +2381,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchRecipesByIngredients"></a>
+<a id="searchRecipesByIngredients"></a>
 # **searchRecipesByIngredients**
 > Set&lt;SearchRecipesByIngredients200ResponseInner&gt; searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
 
@@ -2461,7 +2461,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchRecipesByNutrients"></a>
+<a id="searchRecipesByNutrients"></a>
 # **searchRecipesByNutrients**
 > Set&lt;SearchRecipesByNutrients200ResponseInner&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
 
@@ -2683,7 +2683,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="summarizeRecipe"></a>
+<a id="summarizeRecipe"></a>
 # **summarizeRecipe**
 > SummarizeRecipe200Response summarizeRecipe(id)
 
@@ -2755,7 +2755,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeEquipment"></a>
+<a id="visualizeEquipment"></a>
 # **visualizeEquipment**
 > String visualizeEquipment(contentType, accept)
 
@@ -2829,7 +2829,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizePriceBreakdown"></a>
+<a id="visualizePriceBreakdown"></a>
 # **visualizePriceBreakdown**
 > String visualizePriceBreakdown(contentType, accept, language)
 
@@ -2905,7 +2905,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipeEquipmentByID"></a>
+<a id="visualizeRecipeEquipmentByID"></a>
 # **visualizeRecipeEquipmentByID**
 > String visualizeRecipeEquipmentByID(id, defaultCss)
 
@@ -2979,7 +2979,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipeIngredientsByID"></a>
+<a id="visualizeRecipeIngredientsByID"></a>
 # **visualizeRecipeIngredientsByID**
 > String visualizeRecipeIngredientsByID(id, defaultCss, measure)
 
@@ -3055,7 +3055,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipeNutrition"></a>
+<a id="visualizeRecipeNutrition"></a>
 # **visualizeRecipeNutrition**
 > String visualizeRecipeNutrition(contentType, accept, language)
 
@@ -3131,7 +3131,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipeNutritionByID"></a>
+<a id="visualizeRecipeNutritionByID"></a>
 # **visualizeRecipeNutritionByID**
 > String visualizeRecipeNutritionByID(id, defaultCss, accept)
 
@@ -3207,7 +3207,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipePriceBreakdownByID"></a>
+<a id="visualizeRecipePriceBreakdownByID"></a>
 # **visualizeRecipePriceBreakdownByID**
 > String visualizeRecipePriceBreakdownByID(id, defaultCss)
 
@@ -3281,7 +3281,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipeTaste"></a>
+<a id="visualizeRecipeTaste"></a>
 # **visualizeRecipeTaste**
 > String visualizeRecipeTaste(language, contentType, accept, normalize, rgb)
 
@@ -3361,7 +3361,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeRecipeTasteByID"></a>
+<a id="visualizeRecipeTasteByID"></a>
 # **visualizeRecipeTasteByID**
 > String visualizeRecipeTasteByID(id, normalize, rgb)
 
@@ -3413,7 +3413,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| The item&#39;s id. | |
-| **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true] [enum: true, false] |
+| **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true] |
 | **rgb** | **String**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type

@@ -17,7 +17,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**talkToChatbot**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot |
 
 
-<a name="detectFoodInText"></a>
+<a id="detectFoodInText"></a>
 # **detectFoodInText**
 > DetectFoodInText200Response detectFoodInText(contentType)
 
@@ -89,7 +89,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getARandomFoodJoke"></a>
+<a id="getARandomFoodJoke"></a>
 # **getARandomFoodJoke**
 > GetARandomFoodJoke200Response getARandomFoodJoke()
 
@@ -157,7 +157,7 @@ This endpoint does not need any parameter.
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getConversationSuggests"></a>
+<a id="getConversationSuggests"></a>
 # **getConversationSuggests**
 > GetConversationSuggests200Response getConversationSuggests(query, number)
 
@@ -231,7 +231,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getRandomFoodTrivia"></a>
+<a id="getRandomFoodTrivia"></a>
 # **getRandomFoodTrivia**
 > GetRandomFoodTrivia200Response getRandomFoodTrivia()
 
@@ -299,7 +299,7 @@ This endpoint does not need any parameter.
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="imageAnalysisByURL"></a>
+<a id="imageAnalysisByURL"></a>
 # **imageAnalysisByURL**
 > ImageAnalysisByURL200Response imageAnalysisByURL(imageUrl)
 
@@ -371,7 +371,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="imageClassificationByURL"></a>
+<a id="imageClassificationByURL"></a>
 # **imageClassificationByURL**
 > ImageClassificationByURL200Response imageClassificationByURL(imageUrl)
 
@@ -443,7 +443,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchAllFood"></a>
+<a id="searchAllFood"></a>
 # **searchAllFood**
 > SearchAllFood200Response searchAllFood(query, offset, number)
 
@@ -519,7 +519,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchCustomFoods"></a>
+<a id="searchCustomFoods"></a>
 # **searchCustomFoods**
 > SearchCustomFoods200Response searchCustomFoods(username, hash, query, offset, number)
 
@@ -599,7 +599,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchFoodVideos"></a>
+<a id="searchFoodVideos"></a>
 # **searchFoodVideos**
 > SearchFoodVideos200Response searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number)
 
@@ -689,7 +689,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchSiteContent"></a>
+<a id="searchSiteContent"></a>
 # **searchSiteContent**
 > SearchSiteContent200Response searchSiteContent(query)
 
@@ -761,7 +761,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="talkToChatbot"></a>
+<a id="talkToChatbot"></a>
 # **talkToChatbot**
 > TalkToChatbot200Response talkToChatbot(text, contextId)
 

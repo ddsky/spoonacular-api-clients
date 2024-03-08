@@ -1,19 +1,19 @@
-# com.spoonacular.client\WineApi
+# OpenAPI\Client\WineApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getDishPairingForWine()**](WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine
-[**getWineDescription()**](WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description
-[**getWinePairing()**](WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing
-[**getWineRecommendation()**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getDishPairingForWine()**](WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine |
+| [**getWineDescription()**](WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description |
+| [**getWinePairing()**](WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing |
+| [**getWineRecommendation()**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation |
 
 
 ## `getDishPairingForWine()`
 
 ```php
-getDishPairingForWine($wine): \com.spoonacular.client\com.spoonacular.client.model\GetDishPairingForWine200Response
+getDishPairingForWine($wine): \OpenAPI\Client\Model\GetDishPairingForWine200Response
 ```
 
 Dish Pairing for Wine
@@ -28,12 +28,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\WineApi(
+$apiInstance = new OpenAPI\Client\Api\WineApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,13 +51,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **string**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **wine** | **string**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetDishPairingForWine200Response**](../Model/GetDishPairingForWine200Response.md)
+[**\OpenAPI\Client\Model\GetDishPairingForWine200Response**](../Model/GetDishPairingForWine200Response.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 ## `getWineDescription()`
 
 ```php
-getWineDescription($wine): \com.spoonacular.client\com.spoonacular.client.model\GetWineDescription200Response
+getWineDescription($wine): \OpenAPI\Client\Model\GetWineDescription200Response
 ```
 
 Wine Description
@@ -90,12 +90,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\WineApi(
+$apiInstance = new OpenAPI\Client\Api\WineApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -113,13 +113,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **string**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **wine** | **string**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetWineDescription200Response**](../Model/GetWineDescription200Response.md)
+[**\OpenAPI\Client\Model\GetWineDescription200Response**](../Model/GetWineDescription200Response.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 ## `getWinePairing()`
 
 ```php
-getWinePairing($food, $max_price): \com.spoonacular.client\com.spoonacular.client.model\GetWinePairing200Response
+getWinePairing($food, $max_price): \OpenAPI\Client\Model\GetWinePairing200Response
 ```
 
 Wine Pairing
@@ -152,12 +152,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\WineApi(
+$apiInstance = new OpenAPI\Client\Api\WineApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -176,14 +176,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **food** | **string**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). |
- **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **food** | **string**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). | |
+| **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetWinePairing200Response**](../Model/GetWinePairing200Response.md)
+[**\OpenAPI\Client\Model\GetWinePairing200Response**](../Model/GetWinePairing200Response.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 ## `getWineRecommendation()`
 
 ```php
-getWineRecommendation($wine, $max_price, $min_rating, $number): \com.spoonacular.client\com.spoonacular.client.model\GetWineRecommendation200Response
+getWineRecommendation($wine, $max_price, $min_rating, $number): \OpenAPI\Client\Model\GetWineRecommendation200Response
 ```
 
 Wine Recommendation
@@ -216,12 +216,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\WineApi(
+$apiInstance = new OpenAPI\Client\Api\WineApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -242,16 +242,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **string**| The type of wine to get a specific product recommendation for. |
- **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional]
- **min_rating** | **float**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional]
- **number** | **float**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **wine** | **string**| The type of wine to get a specific product recommendation for. | |
+| **max_price** | **float**| The maximum price for the specific wine recommendation in USD. | [optional] |
+| **min_rating** | **float**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional] |
+| **number** | **float**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetWineRecommendation200Response**](../Model/GetWineRecommendation200Response.md)
+[**\OpenAPI\Client\Model\GetWineRecommendation200Response**](../Model/GetWineRecommendation200Response.md)
 
 ### Authorization
 

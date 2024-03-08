@@ -1,19 +1,19 @@
-# Org.OpenAPITools.Model.SearchRecipesByIngredients200ResponseInner
+# spoonacular.Model.SearchRecipesByIngredients200ResponseInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Image** | **string** |  | 
 **ImageType** | **string** |  | 
-**Likes** | **int?** |  | 
-**MissedIngredientCount** | **int?** |  | 
-**MissedIngredients** | [**List<SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner>**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  | 
+**Likes** | **int** |  | 
+**MissedIngredientCount** | **int** |  | 
+**MissedIngredients** | [**List&lt;SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner&gt;**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  | 
 **Title** | **string** |  | 
-**UnusedIngredients** | **List<Object>** |  | 
-**UsedIngredientCount** | **decimal?** |  | 
-**UsedIngredients** | [**List<SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner>**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  | 
+**UnusedIngredients** | **List&lt;Object&gt;** |  | 
+**UsedIngredientCount** | **decimal** |  | 
+**UsedIngredients** | [**List&lt;SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner&gt;**](SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

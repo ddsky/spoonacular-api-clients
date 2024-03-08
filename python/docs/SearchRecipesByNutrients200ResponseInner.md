@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **calories** | **float** |  | 
@@ -12,8 +13,24 @@ Name | Type | Description | Notes
 **image_type** | **str** |  | 
 **protein** | **str** |  | 
 **title** | **str** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.search_recipes_by_nutrients200_response_inner import SearchRecipesByNutrients200ResponseInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of SearchRecipesByNutrients200ResponseInner from a JSON string
+search_recipes_by_nutrients200_response_inner_instance = SearchRecipesByNutrients200ResponseInner.from_json(json)
+# print the JSON string representation of the object
+print SearchRecipesByNutrients200ResponseInner.to_json()
+
+# convert the object into a dict
+search_recipes_by_nutrients200_response_inner_dict = search_recipes_by_nutrients200_response_inner_instance.to_dict()
+# create an instance of SearchRecipesByNutrients200ResponseInner from a dict
+search_recipes_by_nutrients200_response_inner_form_dict = search_recipes_by_nutrients200_response_inner.from_dict(search_recipes_by_nutrients200_response_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

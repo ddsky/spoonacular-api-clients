@@ -38,7 +38,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class WineApi {
     private ApiClient localVarApiClient;
@@ -132,7 +131,6 @@ public class WineApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -145,15 +143,12 @@ public class WineApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDishPairingForWineValidateBeforeCall(String wine, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'wine' is set
         if (wine == null) {
             throw new ApiException("Missing the required parameter 'wine' when calling getDishPairingForWine(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getDishPairingForWineCall(wine, _callback);
-        return localVarCall;
+        return getDishPairingForWineCall(wine, _callback);
 
     }
 
@@ -282,7 +277,6 @@ public class WineApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -295,15 +289,12 @@ public class WineApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWineDescriptionValidateBeforeCall(String wine, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'wine' is set
         if (wine == null) {
             throw new ApiException("Missing the required parameter 'wine' when calling getWineDescription(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getWineDescriptionCall(wine, _callback);
-        return localVarCall;
+        return getWineDescriptionCall(wine, _callback);
 
     }
 
@@ -437,7 +428,6 @@ public class WineApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -450,15 +440,12 @@ public class WineApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWinePairingValidateBeforeCall(String food, BigDecimal maxPrice, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'food' is set
         if (food == null) {
             throw new ApiException("Missing the required parameter 'food' when calling getWinePairing(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getWinePairingCall(food, maxPrice, _callback);
-        return localVarCall;
+        return getWinePairingCall(food, maxPrice, _callback);
 
     }
 
@@ -605,7 +592,6 @@ public class WineApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -618,15 +604,12 @@ public class WineApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWineRecommendationValidateBeforeCall(String wine, BigDecimal maxPrice, BigDecimal minRating, BigDecimal number, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'wine' is set
         if (wine == null) {
             throw new ApiException("Missing the required parameter 'wine' when calling getWineRecommendation(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getWineRecommendationCall(wine, maxPrice, minRating, number, _callback);
-        return localVarCall;
+        return getWineRecommendationCall(wine, maxPrice, minRating, number, _callback);
 
     }
 

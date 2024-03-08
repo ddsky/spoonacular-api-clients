@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchAllFood200ResponseSearchResultsInnerResultsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,11 +80,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
 
-  public SearchAllFood200ResponseSearchResultsInnerResultsInner() { 
+  public SearchAllFood200ResponseSearchResultsInnerResultsInner() {
   }
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -92,12 +93,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -105,7 +103,6 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -115,12 +112,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -128,7 +122,6 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner image(String image) {
-    
     this.image = image;
     return this;
   }
@@ -138,12 +131,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return image
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -151,7 +141,6 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner link(String link) {
-    
     this.link = link;
     return this;
   }
@@ -161,12 +150,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return link
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-
   public String getLink() {
     return link;
   }
-
 
   public void setLink(String link) {
     this.link = link;
@@ -174,7 +160,6 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -184,12 +169,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -197,7 +179,6 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner relevance(BigDecimal relevance) {
-    
     this.relevance = relevance;
     return this;
   }
@@ -207,12 +188,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return relevance
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getRelevance() {
     return relevance;
   }
-
 
   public void setRelevance(BigDecimal relevance) {
     this.relevance = relevance;
@@ -220,7 +198,6 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
 
   public SearchAllFood200ResponseSearchResultsInnerResultsInner content(String content) {
-    
     this.content = content;
     return this;
   }
@@ -230,12 +207,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
    * @return content
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-
   public String getContent() {
     return content;
   }
-
 
   public void setContent(String content) {
     this.content = content;
@@ -319,50 +293,49 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchAllFood200ResponseSearchResultsInnerResultsInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200ResponseSearchResultsInnerResultsInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchAllFood200ResponseSearchResultsInnerResultsInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchAllFood200ResponseSearchResultsInnerResultsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchAllFood200ResponseSearchResultsInnerResultsInner is not found in the empty JSON string", SearchAllFood200ResponseSearchResultsInnerResultsInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchAllFood200ResponseSearchResultsInnerResultsInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAllFood200ResponseSearchResultsInnerResultsInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchAllFood200ResponseSearchResultsInnerResultsInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SearchAllFood200ResponseSearchResultsInnerResultsInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonPrimitive()) {
+      if ((jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) && !jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
+      if ((jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) && !jsonObj.get("link").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+      if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
+      if ((jsonObj.get("content") != null && !jsonObj.get("content").isJsonNull()) && !jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
       }
   }
@@ -387,9 +360,9 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
 
            @Override
            public SearchAllFood200ResponseSearchResultsInnerResultsInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

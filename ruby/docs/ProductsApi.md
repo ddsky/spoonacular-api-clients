@@ -647,7 +647,7 @@ opts = {
   max_protein: 100, # Float | The maximum amount of protein in grams the product can have.
   min_fat: 1, # Float | The minimum amount of fat in grams the product must have.
   max_fat: 100, # Float | The maximum amount of fat in grams the product can have.
-  add_product_information: false, # Boolean | If set to true, you get more information about the products returned.
+  add_product_information: true, # Boolean | If set to true, you get more information about the products returned.
   offset: 56, # Integer | The number of results to skip (between 0 and 900).
   number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }

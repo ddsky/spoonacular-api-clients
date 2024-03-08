@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AddToMealPlanRequest1 {
     #[serde(rename = "date")]
     pub date: f32,
@@ -21,19 +21,19 @@ pub struct AddToMealPlanRequest1 {
     #[serde(rename = "position")]
     pub position: i32,
     #[serde(rename = "type")]
-    pub _type: String,
+    pub r#type: String,
     #[serde(rename = "value")]
     pub value: Box<crate::models::AddToMealPlanRequest1Value>,
 }
 
 impl AddToMealPlanRequest1 {
     /// 
-    pub fn new(date: f32, slot: i32, position: i32, _type: String, value: crate::models::AddToMealPlanRequest1Value) -> AddToMealPlanRequest1 {
+    pub fn new(date: f32, slot: i32, position: i32, r#type: String, value: crate::models::AddToMealPlanRequest1Value) -> AddToMealPlanRequest1 {
         AddToMealPlanRequest1 {
             date,
             slot,
             position,
-            _type,
+            r#type,
             value: Box::new(value),
         }
     }

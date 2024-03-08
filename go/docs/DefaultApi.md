@@ -1,12 +1,12 @@
-# com.spoonacular.client\DefaultApi
+# \DefaultAPI
 
 All URIs are relative to *https://api.spoonacular.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AnalyzeRecipe**](DefaultApi.md#AnalyzeRecipe) | **Post** /recipes/analyze | Analyze Recipe
-[**CreateRecipeCardGet**](DefaultApi.md#CreateRecipeCardGet) | **Get** /recipes/{id}/card | Create Recipe Card
-[**SearchRestaurants**](DefaultApi.md#SearchRestaurants) | **Get** /food/restaurants/search | Search Restaurants
+[**AnalyzeRecipe**](DefaultAPI.md#AnalyzeRecipe) | **Post** /recipes/analyze | Analyze Recipe
+[**CreateRecipeCardGet**](DefaultAPI.md#CreateRecipeCardGet) | **Get** /recipes/{id}/card | Create Recipe Card
+[**SearchRestaurants**](DefaultAPI.md#SearchRestaurants) | **Get** /food/restaurants/search | Search Restaurants
 
 
 
@@ -24,27 +24,27 @@ Analyze Recipe
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    analyzeRecipeRequest := *openapiclient.NewAnalyzeRecipeRequest() // AnalyzeRecipeRequest | Example request body.
-    language := "en" // string | The input language, either \"en\" or \"de\". (optional)
-    includeNutrition := false // bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
-    includeTaste := false // bool | Whether taste data should be added to correctly parsed ingredients. (optional)
+	analyzeRecipeRequest := *openapiclient.NewAnalyzeRecipeRequest() // AnalyzeRecipeRequest | Example request body.
+	language := "en" // string | The input language, either \"en\" or \"de\". (optional)
+	includeNutrition := false // bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
+	includeTaste := false // bool | Whether taste data should be added to correctly parsed ingredients. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.AnalyzeRecipe(context.Background()).AnalyzeRecipeRequest(analyzeRecipeRequest).Language(language).IncludeNutrition(includeNutrition).IncludeTaste(includeTaste).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.AnalyzeRecipe``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AnalyzeRecipe`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.AnalyzeRecipe`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.AnalyzeRecipe(context.Background()).AnalyzeRecipeRequest(analyzeRecipeRequest).Language(language).IncludeNutrition(includeNutrition).IncludeTaste(includeTaste).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.AnalyzeRecipe``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AnalyzeRecipe`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.AnalyzeRecipe`: %v\n", resp)
 }
 ```
 
@@ -96,28 +96,28 @@ Create Recipe Card
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    id := float32(4632) // float32 | The recipe id.
-    mask := "ellipseMask" // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
-    backgroundImage := "background1" // string | The background image (\"none\",\"background1\", or \"background2\"). (optional)
-    backgroundColor := "ffffff" // string | The background color for the recipe card as a hex-string. (optional)
-    fontColor := "333333" // string | The font color for the recipe card as a hex-string. (optional)
+	id := float32(4632) // float32 | The recipe id.
+	mask := "ellipseMask" // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
+	backgroundImage := "background1" // string | The background image (\"none\",\"background1\", or \"background2\"). (optional)
+	backgroundColor := "ffffff" // string | The background color for the recipe card as a hex-string. (optional)
+	fontColor := "333333" // string | The font color for the recipe card as a hex-string. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.CreateRecipeCardGet(context.Background(), id).Mask(mask).BackgroundImage(backgroundImage).BackgroundColor(backgroundColor).FontColor(fontColor).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateRecipeCardGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateRecipeCardGet`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateRecipeCardGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateRecipeCardGet(context.Background(), id).Mask(mask).BackgroundImage(backgroundImage).BackgroundColor(backgroundColor).FontColor(fontColor).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateRecipeCardGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateRecipeCardGet`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateRecipeCardGet`: %v\n", resp)
 }
 ```
 
@@ -174,33 +174,33 @@ Search Restaurants
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
 )
 
 func main() {
-    query := "beach cafe" // string | The search query. (optional)
-    lat := float32(37.7786357) // float32 | The latitude of the user's location. (optional)
-    lng := float32(-122.3918135) // float32 | The longitude of the user's location.\". (optional)
-    distance := float32(2) // float32 | The distance around the location in miles. (optional)
-    budget := float32(20) // float32 | The user's budget for a meal in USD. (optional)
-    cuisine := "italian" // string | The cuisine of the restaurant. (optional)
-    minRating := float32(4.4) // float32 | The minimum rating of the restaurant between 0 and 5. (optional)
-    isOpen := true // bool | Whether the restaurant must be open at the time of search. (optional)
-    sort := "distance" // string | How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'. (optional)
-    page := float32(0) // float32 | The page number of results. (optional)
+	query := "beach cafe" // string | The search query. (optional)
+	lat := float32(37.7786357) // float32 | The latitude of the user's location. (optional)
+	lng := float32(-122.3918135) // float32 | The longitude of the user's location.\". (optional)
+	distance := float32(2) // float32 | The distance around the location in miles. (optional)
+	budget := float32(20) // float32 | The user's budget for a meal in USD. (optional)
+	cuisine := "italian" // string | The cuisine of the restaurant. (optional)
+	minRating := float32(4.4) // float32 | The minimum rating of the restaurant between 0 and 5. (optional)
+	isOpen := true // bool | Whether the restaurant must be open at the time of search. (optional)
+	sort := "distance" // string | How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'. (optional)
+	page := float32(0) // float32 | The page number of results. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.SearchRestaurants(context.Background()).Query(query).Lat(lat).Lng(lng).Distance(distance).Budget(budget).Cuisine(cuisine).MinRating(minRating).IsOpen(isOpen).Sort(sort).Page(page).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SearchRestaurants``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SearchRestaurants`: SearchRestaurants200Response
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.SearchRestaurants`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.SearchRestaurants(context.Background()).Query(query).Lat(lat).Lng(lng).Distance(distance).Budget(budget).Cuisine(cuisine).MinRating(minRating).IsOpen(isOpen).Sort(sort).Page(page).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.SearchRestaurants``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SearchRestaurants`: SearchRestaurants200Response
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.SearchRestaurants`: %v\n", resp)
 }
 ```
 

@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.MapIngredientsToGroceryProducts200ResponseInnerProductsInner
+# spoonacular.Model.MapIngredientsToGroceryProducts200ResponseInnerProductsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
 **Upc** | **string** |  | 
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aisles** | [**\com.spoonacular.client\com.spoonacular.client.model\GetShoppingList200ResponseAislesInner[]**](GetShoppingList200ResponseAislesInner.md) |  |
+**aisles** | [**\OpenAPI\Client\Model\GetShoppingList200ResponseAislesInner[]**](GetShoppingList200ResponseAislesInner.md) |  |
 **cost** | **float** |  |
 **start_date** | **float** |  |
 **end_date** | **float** |  |

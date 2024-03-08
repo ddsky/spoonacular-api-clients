@@ -12,14 +12,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchMenuItems200Response {
     #[serde(rename = "menuItems")]
     pub menu_items: Vec<crate::models::SearchMenuItems200ResponseMenuItemsInner>,
     #[serde(rename = "totalMenuItems")]
     pub total_menu_items: i32,
     #[serde(rename = "type")]
-    pub _type: String,
+    pub r#type: String,
     #[serde(rename = "offset")]
     pub offset: i32,
     #[serde(rename = "number")]
@@ -28,11 +28,11 @@ pub struct SearchMenuItems200Response {
 
 impl SearchMenuItems200Response {
     /// 
-    pub fn new(menu_items: Vec<crate::models::SearchMenuItems200ResponseMenuItemsInner>, total_menu_items: i32, _type: String, offset: i32, number: i32) -> SearchMenuItems200Response {
+    pub fn new(menu_items: Vec<crate::models::SearchMenuItems200ResponseMenuItemsInner>, total_menu_items: i32, r#type: String, offset: i32, number: i32) -> SearchMenuItems200Response {
         SearchMenuItems200Response {
             menu_items,
             total_menu_items,
-            _type,
+            r#type,
             offset,
             number,
         }

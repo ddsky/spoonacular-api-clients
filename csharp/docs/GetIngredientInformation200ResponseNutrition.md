@@ -1,11 +1,11 @@
-# Org.OpenAPITools.Model.GetIngredientInformation200ResponseNutrition
+# spoonacular.Model.GetIngredientInformation200ResponseNutrition
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Nutrients** | [**List<ParseIngredients200ResponseInnerNutritionNutrientsInner>**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  | 
-**Properties** | [**List<ParseIngredients200ResponseInnerNutritionPropertiesInner>**](ParseIngredients200ResponseInnerNutritionPropertiesInner.md) |  | 
+**Nutrients** | [**List&lt;ParseIngredients200ResponseInnerNutritionNutrientsInner&gt;**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  | 
+**Properties** | [**List&lt;ParseIngredients200ResponseInnerNutritionPropertiesInner&gt;**](ParseIngredients200ResponseInnerNutritionPropertiesInner.md) |  | 
 **CaloricBreakdown** | [**ParseIngredients200ResponseInnerNutritionCaloricBreakdown**](ParseIngredients200ResponseInnerNutritionCaloricBreakdown.md) |  | 
 **WeightPerServing** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
 

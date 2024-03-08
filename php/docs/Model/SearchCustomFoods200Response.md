@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**custom_foods** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchCustomFoods200ResponseCustomFoodsInner[]**](SearchCustomFoods200ResponseCustomFoodsInner.md) |  |
+**custom_foods** | [**\OpenAPI\Client\Model\SearchCustomFoods200ResponseCustomFoodsInner[]**](SearchCustomFoods200ResponseCustomFoodsInner.md) |  |
 **type** | **string** |  |
 **offset** | **int** |  |
 **number** | **int** |  |

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**menu_items** | [**\com.spoonacular.client\com.spoonacular.client.model\SearchMenuItems200ResponseMenuItemsInner[]**](SearchMenuItems200ResponseMenuItemsInner.md) |  |
+**menu_items** | [**\OpenAPI\Client\Model\SearchMenuItems200ResponseMenuItemsInner[]**](SearchMenuItems200ResponseMenuItemsInner.md) |  |
 **total_menu_items** | **int** |  |
 **type** | **string** |  |
 **offset** | **int** |  |

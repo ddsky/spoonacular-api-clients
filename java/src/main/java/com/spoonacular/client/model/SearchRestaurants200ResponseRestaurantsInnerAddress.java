@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,12 +33,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -48,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200ResponseRestaurantsInnerAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchRestaurants200ResponseRestaurantsInnerAddress {
   public static final String SERIALIZED_NAME_STREET_ADDR = "street_addr";
   @SerializedName(SERIALIZED_NAME_STREET_ADDR)
@@ -90,11 +92,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
   @SerializedName(SERIALIZED_NAME_LONGITUDE)
   private BigDecimal longitude;
 
-  public SearchRestaurants200ResponseRestaurantsInnerAddress() { 
+  public SearchRestaurants200ResponseRestaurantsInnerAddress() {
   }
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress streetAddr(String streetAddr) {
-    
     this.streetAddr = streetAddr;
     return this;
   }
@@ -104,12 +105,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return streetAddr
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getStreetAddr() {
     return streetAddr;
   }
-
 
   public void setStreetAddr(String streetAddr) {
     this.streetAddr = streetAddr;
@@ -117,7 +115,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress city(String city) {
-    
     this.city = city;
     return this;
   }
@@ -127,12 +124,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return city
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getCity() {
     return city;
   }
-
 
   public void setCity(String city) {
     this.city = city;
@@ -140,7 +134,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress state(String state) {
-    
     this.state = state;
     return this;
   }
@@ -150,12 +143,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getState() {
     return state;
   }
-
 
   public void setState(String state) {
     this.state = state;
@@ -163,7 +153,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress zipcode(String zipcode) {
-    
     this.zipcode = zipcode;
     return this;
   }
@@ -173,12 +162,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return zipcode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getZipcode() {
     return zipcode;
   }
-
 
   public void setZipcode(String zipcode) {
     this.zipcode = zipcode;
@@ -186,7 +172,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress country(String country) {
-    
     this.country = country;
     return this;
   }
@@ -196,12 +181,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getCountry() {
     return country;
   }
-
 
   public void setCountry(String country) {
     this.country = country;
@@ -209,7 +191,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress lat(BigDecimal lat) {
-    
     this.lat = lat;
     return this;
   }
@@ -219,12 +200,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return lat
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BigDecimal getLat() {
     return lat;
   }
-
 
   public void setLat(BigDecimal lat) {
     this.lat = lat;
@@ -232,7 +210,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress lon(BigDecimal lon) {
-    
     this.lon = lon;
     return this;
   }
@@ -242,12 +219,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return lon
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BigDecimal getLon() {
     return lon;
   }
-
 
   public void setLon(BigDecimal lon) {
     this.lon = lon;
@@ -255,7 +229,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress streetAddr2(String streetAddr2) {
-    
     this.streetAddr2 = streetAddr2;
     return this;
   }
@@ -265,12 +238,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return streetAddr2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getStreetAddr2() {
     return streetAddr2;
   }
-
 
   public void setStreetAddr2(String streetAddr2) {
     this.streetAddr2 = streetAddr2;
@@ -278,7 +248,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress latitude(BigDecimal latitude) {
-    
     this.latitude = latitude;
     return this;
   }
@@ -288,12 +257,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return latitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BigDecimal getLatitude() {
     return latitude;
   }
-
 
   public void setLatitude(BigDecimal latitude) {
     this.latitude = latitude;
@@ -301,7 +267,6 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
 
   public SearchRestaurants200ResponseRestaurantsInnerAddress longitude(BigDecimal longitude) {
-    
     this.longitude = longitude;
     return this;
   }
@@ -311,12 +276,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
    * @return longitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BigDecimal getLongitude() {
     return longitude;
   }
-
 
   public void setLongitude(BigDecimal longitude) {
     this.longitude = longitude;
@@ -402,43 +364,42 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerAddress
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerAddress
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchRestaurants200ResponseRestaurantsInnerAddress.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchRestaurants200ResponseRestaurantsInnerAddress.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchRestaurants200ResponseRestaurantsInnerAddress is not found in the empty JSON string", SearchRestaurants200ResponseRestaurantsInnerAddress.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchRestaurants200ResponseRestaurantsInnerAddress.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchRestaurants200ResponseRestaurantsInnerAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchRestaurants200ResponseRestaurantsInnerAddress` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      if (jsonObj.get("street_addr") != null && !jsonObj.get("street_addr").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("street_addr") != null && !jsonObj.get("street_addr").isJsonNull()) && !jsonObj.get("street_addr").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `street_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("street_addr").toString()));
       }
-      if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonPrimitive()) {
+      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      if (jsonObj.get("zipcode") != null && !jsonObj.get("zipcode").isJsonPrimitive()) {
+      if ((jsonObj.get("zipcode") != null && !jsonObj.get("zipcode").isJsonNull()) && !jsonObj.get("zipcode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `zipcode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zipcode").toString()));
       }
-      if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonPrimitive()) {
+      if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()) && !jsonObj.get("country").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
       }
-      if (jsonObj.get("street_addr_2") != null && !jsonObj.get("street_addr_2").isJsonPrimitive()) {
+      if ((jsonObj.get("street_addr_2") != null && !jsonObj.get("street_addr_2").isJsonNull()) && !jsonObj.get("street_addr_2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `street_addr_2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("street_addr_2").toString()));
       }
   }
@@ -463,9 +424,9 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
 
            @Override
            public SearchRestaurants200ResponseRestaurantsInnerAddress read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

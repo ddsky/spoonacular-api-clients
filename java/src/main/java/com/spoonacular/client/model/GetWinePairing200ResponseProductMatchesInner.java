@@ -14,16 +14,14 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -36,12 +34,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -49,7 +51,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetWinePairing200ResponseProductMatchesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class GetWinePairing200ResponseProductMatchesInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -87,11 +89,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
   @SerializedName(SERIALIZED_NAME_SCORE)
   private BigDecimal score;
 
-  public GetWinePairing200ResponseProductMatchesInner() { 
+  public GetWinePairing200ResponseProductMatchesInner() {
   }
 
   public GetWinePairing200ResponseProductMatchesInner id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -101,12 +102,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getId() {
     return id;
   }
-
 
   public void setId(Integer id) {
     this.id = id;
@@ -114,7 +112,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -124,12 +121,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return title
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getTitle() {
     return title;
   }
-
 
   public void setTitle(String title) {
     this.title = title;
@@ -137,7 +131,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner averageRating(BigDecimal averageRating) {
-    
     this.averageRating = averageRating;
     return this;
   }
@@ -147,12 +140,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return averageRating
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getAverageRating() {
     return averageRating;
   }
-
 
   public void setAverageRating(BigDecimal averageRating) {
     this.averageRating = averageRating;
@@ -160,7 +150,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner description(Object description) {
-    
     this.description = description;
     return this;
   }
@@ -170,12 +159,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Object getDescription() {
     return description;
   }
-
 
   public void setDescription(Object description) {
     this.description = description;
@@ -183,7 +169,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner imageUrl(String imageUrl) {
-    
     this.imageUrl = imageUrl;
     return this;
   }
@@ -193,12 +178,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return imageUrl
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImageUrl() {
     return imageUrl;
   }
-
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
@@ -206,7 +188,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner link(String link) {
-    
     this.link = link;
     return this;
   }
@@ -216,12 +197,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return link
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getLink() {
     return link;
   }
-
 
   public void setLink(String link) {
     this.link = link;
@@ -229,7 +207,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner price(String price) {
-    
     this.price = price;
     return this;
   }
@@ -239,12 +216,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return price
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getPrice() {
     return price;
   }
-
 
   public void setPrice(String price) {
     this.price = price;
@@ -252,7 +226,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner ratingCount(Integer ratingCount) {
-    
     this.ratingCount = ratingCount;
     return this;
   }
@@ -262,12 +235,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return ratingCount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getRatingCount() {
     return ratingCount;
   }
-
 
   public void setRatingCount(Integer ratingCount) {
     this.ratingCount = ratingCount;
@@ -275,7 +245,6 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
 
   public GetWinePairing200ResponseProductMatchesInner score(BigDecimal score) {
-    
     this.score = score;
     return this;
   }
@@ -285,12 +254,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
    * @return score
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getScore() {
     return score;
   }
-
 
   public void setScore(BigDecimal score) {
     this.score = score;
@@ -392,44 +358,43 @@ public class GetWinePairing200ResponseProductMatchesInner {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetWinePairing200ResponseProductMatchesInner
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to GetWinePairing200ResponseProductMatchesInner
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (GetWinePairing200ResponseProductMatchesInner.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetWinePairing200ResponseProductMatchesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetWinePairing200ResponseProductMatchesInner is not found in the empty JSON string", GetWinePairing200ResponseProductMatchesInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetWinePairing200ResponseProductMatchesInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetWinePairing200ResponseProductMatchesInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetWinePairing200ResponseProductMatchesInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetWinePairing200ResponseProductMatchesInner.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (jsonObj.get("imageUrl") != null && !jsonObj.get("imageUrl").isJsonPrimitive()) {
+      if (!jsonObj.get("imageUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageUrl").toString()));
       }
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonPrimitive()) {
+      if (!jsonObj.get("link").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
-      if (jsonObj.get("price") != null && !jsonObj.get("price").isJsonPrimitive()) {
+      if (!jsonObj.get("price").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `price` to be a primitive type in the JSON string but got `%s`", jsonObj.get("price").toString()));
       }
   }
@@ -454,9 +419,9 @@ public class GetWinePairing200ResponseProductMatchesInner {
 
            @Override
            public GetWinePairing200ResponseProductMatchesInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

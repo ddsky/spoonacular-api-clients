@@ -1,22 +1,22 @@
-# com.spoonacular.client\MenuItemsApi
+# OpenAPI\Client\MenuItemsApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autocompleteMenuItemSearch()**](MenuItemsApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
-[**getMenuItemInformation()**](MenuItemsApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
-[**menuItemNutritionByIDImage()**](MenuItemsApi.md#menuItemNutritionByIDImage) | **GET** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image
-[**menuItemNutritionLabelImage()**](MenuItemsApi.md#menuItemNutritionLabelImage) | **GET** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image
-[**menuItemNutritionLabelWidget()**](MenuItemsApi.md#menuItemNutritionLabelWidget) | **GET** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget
-[**searchMenuItems()**](MenuItemsApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
-[**visualizeMenuItemNutritionByID()**](MenuItemsApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**autocompleteMenuItemSearch()**](MenuItemsApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search |
+| [**getMenuItemInformation()**](MenuItemsApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information |
+| [**menuItemNutritionByIDImage()**](MenuItemsApi.md#menuItemNutritionByIDImage) | **GET** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image |
+| [**menuItemNutritionLabelImage()**](MenuItemsApi.md#menuItemNutritionLabelImage) | **GET** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image |
+| [**menuItemNutritionLabelWidget()**](MenuItemsApi.md#menuItemNutritionLabelWidget) | **GET** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget |
+| [**searchMenuItems()**](MenuItemsApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items |
+| [**visualizeMenuItemNutritionByID()**](MenuItemsApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget |
 
 
 ## `autocompleteMenuItemSearch()`
 
 ```php
-autocompleteMenuItemSearch($query, $number): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteMenuItemSearch200Response
+autocompleteMenuItemSearch($query, $number): \OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response
 ```
 
 Autocomplete Menu Item Search
@@ -31,12 +31,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -55,14 +55,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (partial) search query. |
- **number** | **float**| The number of results to return (between 1 and 25). | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (partial) search query. | |
+| **number** | **float**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteMenuItemSearch200Response**](../Model/AutocompleteMenuItemSearch200Response.md)
+[**\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response**](../Model/AutocompleteMenuItemSearch200Response.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `getMenuItemInformation()`
 
 ```php
-getMenuItemInformation($id): \com.spoonacular.client\com.spoonacular.client.model\GetMenuItemInformation200Response
+getMenuItemInformation($id): \OpenAPI\Client\Model\GetMenuItemInformation200Response
 ```
 
 Get Menu Item Information
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -118,13 +118,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetMenuItemInformation200Response**](../Model/GetMenuItemInformation200Response.md)
+[**\OpenAPI\Client\Model\GetMenuItemInformation200Response**](../Model/GetMenuItemInformation200Response.md)
 
 ### Authorization
 
@@ -157,12 +157,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -180,9 +180,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The menu item id. | |
 
 ### Return type
 
@@ -219,12 +219,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -245,12 +245,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. |
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The menu item id. | |
+| **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
+| **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
+| **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -287,12 +287,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -314,13 +314,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The menu item id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
+| **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
+| **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 ## `searchMenuItems()`
 
 ```php
-searchMenuItems($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchMenuItems200Response
+searchMenuItems($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number): \OpenAPI\Client\Model\SearchMenuItems200Response
 ```
 
 Search Menu Items
@@ -357,12 +357,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -391,24 +391,24 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **min_calories** | **float**| The minimum amount of calories the menu item must have. | [optional]
- **max_calories** | **float**| The maximum amount of calories the menu item can have. | [optional]
- **min_carbs** | **float**| The minimum amount of carbohydrates in grams the menu item must have. | [optional]
- **max_carbs** | **float**| The maximum amount of carbohydrates in grams the menu item can have. | [optional]
- **min_protein** | **float**| The minimum amount of protein in grams the menu item must have. | [optional]
- **max_protein** | **float**| The maximum amount of protein in grams the menu item can have. | [optional]
- **min_fat** | **float**| The minimum amount of fat in grams the menu item must have. | [optional]
- **max_fat** | **float**| The maximum amount of fat in grams the menu item can have. | [optional]
- **add_menu_item_information** | **bool**| If set to true, you get more information about the menu items returned. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **min_calories** | **float**| The minimum amount of calories the menu item must have. | [optional] |
+| **max_calories** | **float**| The maximum amount of calories the menu item can have. | [optional] |
+| **min_carbs** | **float**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] |
+| **max_carbs** | **float**| The maximum amount of carbohydrates in grams the menu item can have. | [optional] |
+| **min_protein** | **float**| The minimum amount of protein in grams the menu item must have. | [optional] |
+| **max_protein** | **float**| The maximum amount of protein in grams the menu item can have. | [optional] |
+| **min_fat** | **float**| The minimum amount of fat in grams the menu item must have. | [optional] |
+| **max_fat** | **float**| The maximum amount of fat in grams the menu item can have. | [optional] |
+| **add_menu_item_information** | **bool**| If set to true, you get more information about the menu items returned. | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchMenuItems200Response**](../Model/SearchMenuItems200Response.md)
+[**\OpenAPI\Client\Model\SearchMenuItems200Response**](../Model/SearchMenuItems200Response.md)
 
 ### Authorization
 
@@ -441,12 +441,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\MenuItemsApi(
+$apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -466,11 +466,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **string**| Accept header. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 

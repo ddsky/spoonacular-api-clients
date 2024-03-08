@@ -9,7 +9,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**searchRestaurants**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants |
 
 
-<a name="analyzeRecipe"></a>
+<a id="analyzeRecipe"></a>
 # **analyzeRecipe**
 > Object analyzeRecipe(analyzeRecipeRequest, language, includeNutrition, includeTaste)
 
@@ -87,7 +87,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="createRecipeCardGet"></a>
+<a id="createRecipeCardGet"></a>
 # **createRecipeCardGet**
 > Object createRecipeCardGet(id, mask, backgroundImage, backgroundColor, fontColor)
 
@@ -167,7 +167,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="searchRestaurants"></a>
+<a id="searchRestaurants"></a>
 # **searchRestaurants**
 > SearchRestaurants200Response searchRestaurants(query, lat, lng, distance, budget, cuisine, minRating, isOpen, sort, page)
 

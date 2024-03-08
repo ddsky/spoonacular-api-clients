@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dishes** | [**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeARecipeSearchQuery200ResponseDishesInner[]**](AnalyzeARecipeSearchQuery200ResponseDishesInner.md) |  |
-**ingredients** | [**\com.spoonacular.client\com.spoonacular.client.model\AnalyzeARecipeSearchQuery200ResponseIngredientsInner[]**](AnalyzeARecipeSearchQuery200ResponseIngredientsInner.md) |  |
+**dishes** | [**\OpenAPI\Client\Model\AnalyzeARecipeSearchQuery200ResponseDishesInner[]**](AnalyzeARecipeSearchQuery200ResponseDishesInner.md) |  |
+**ingredients** | [**\OpenAPI\Client\Model\AnalyzeARecipeSearchQuery200ResponseIngredientsInner[]**](AnalyzeARecipeSearchQuery200ResponseIngredientsInner.md) |  |
 **cuisines** | **string[]** |  |
 **modifiers** | **string[]** |  |
 

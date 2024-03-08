@@ -15,7 +15,7 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**visualizeIngredients**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget |
 
 
-<a name="autocompleteIngredientSearch"></a>
+<a id="autocompleteIngredientSearch"></a>
 # **autocompleteIngredientSearch**
 > Set&lt;AutocompleteIngredientSearch200ResponseInner&gt; autocompleteIngredientSearch(query, number, metaInformation, intolerances, language)
 
@@ -95,7 +95,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="computeIngredientAmount"></a>
+<a id="computeIngredientAmount"></a>
 # **computeIngredientAmount**
 > ComputeIngredientAmount200Response computeIngredientAmount(id, nutrient, target, unit)
 
@@ -173,7 +173,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getIngredientInformation"></a>
+<a id="getIngredientInformation"></a>
 # **getIngredientInformation**
 > GetIngredientInformation200Response getIngredientInformation(id, amount, unit)
 
@@ -249,7 +249,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getIngredientSubstitutes"></a>
+<a id="getIngredientSubstitutes"></a>
 # **getIngredientSubstitutes**
 > GetIngredientSubstitutes200Response getIngredientSubstitutes(ingredientName)
 
@@ -321,7 +321,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="getIngredientSubstitutesByID"></a>
+<a id="getIngredientSubstitutesByID"></a>
 # **getIngredientSubstitutesByID**
 > GetIngredientSubstitutes200Response getIngredientSubstitutesByID(id)
 
@@ -393,7 +393,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="ingredientSearch"></a>
+<a id="ingredientSearch"></a>
 # **ingredientSearch**
 > IngredientSearch200Response ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language)
 
@@ -493,7 +493,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="ingredientsByIDImage"></a>
+<a id="ingredientsByIDImage"></a>
 # **ingredientsByIDImage**
 > Object ingredientsByIDImage(id, measure)
 
@@ -567,7 +567,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="mapIngredientsToGroceryProducts"></a>
+<a id="mapIngredientsToGroceryProducts"></a>
 # **mapIngredientsToGroceryProducts**
 > Set&lt;MapIngredientsToGroceryProducts200ResponseInner&gt; mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest)
 
@@ -639,7 +639,7 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 
-<a name="visualizeIngredients"></a>
+<a id="visualizeIngredients"></a>
 # **visualizeIngredients**
 > String visualizeIngredients(contentType, language, accept)
 

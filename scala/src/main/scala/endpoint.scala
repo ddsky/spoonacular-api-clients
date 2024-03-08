@@ -1,4 +1,4 @@
-package org.openapitools
+package spoonacular
 
 import com.twitter.finagle.Service
 import com.twitter.finagle.http.{Request, Response}
@@ -9,7 +9,7 @@ import io.circe.{Encoder, Json}
 import io.finch.circe._
 import io.circe.generic.semiauto._
 
-import com.spoonacular._
+import org.openapitools.apis._
 
 /**
  * Provides the paths and endpoints for all the API's public service methods.

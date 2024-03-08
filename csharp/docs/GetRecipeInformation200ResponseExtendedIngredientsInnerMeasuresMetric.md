@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
+# spoonacular.Model.GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **decimal?** |  | 
+**Amount** | **decimal** |  | 
 **UnitLong** | **string** |  | 
 **UnitShort** | **string** |  | 
 

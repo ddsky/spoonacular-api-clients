@@ -1,10 +1,10 @@
-# Org.OpenAPITools.Model.SearchMenuItems200ResponseMenuItemsInner
+# spoonacular.Model.SearchMenuItems200ResponseMenuItemsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int?** |  | 
+**Id** | **int** |  | 
 **Title** | **string** |  | 
 **RestaurantChain** | **string** |  | 
 **Image** | **string** |  | 

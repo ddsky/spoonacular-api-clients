@@ -14,7 +14,6 @@
 package com.spoonacular.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,11 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseIngredientsInner;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,12 +40,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.spoonacular.client.JSON;
@@ -55,8 +57,7 @@ import com.spoonacular.client.JSON;
 /**
  * 
  */
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-03T17:09:45.164+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
 public class SearchGroceryProductsByUPC200Response {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -118,11 +119,10 @@ public class SearchGroceryProductsByUPC200Response {
   @SerializedName(SERIALIZED_NAME_SPOONACULAR_SCORE)
   private BigDecimal spoonacularScore;
 
-  public SearchGroceryProductsByUPC200Response() { 
+  public SearchGroceryProductsByUPC200Response() {
   }
 
   public SearchGroceryProductsByUPC200Response id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -132,12 +132,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Integer getId() {
     return id;
   }
-
 
   public void setId(Integer id) {
     this.id = id;
@@ -145,7 +142,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response title(String title) {
-    
     this.title = title;
     return this;
   }
@@ -155,12 +151,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return title
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getTitle() {
     return title;
   }
-
 
   public void setTitle(String title) {
     this.title = title;
@@ -168,12 +161,14 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response badges(List<String> badges) {
-    
     this.badges = badges;
     return this;
   }
 
   public SearchGroceryProductsByUPC200Response addBadgesItem(String badgesItem) {
+    if (this.badges == null) {
+      this.badges = new ArrayList<>();
+    }
     this.badges.add(badgesItem);
     return this;
   }
@@ -183,12 +178,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return badges
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getBadges() {
     return badges;
   }
-
 
   public void setBadges(List<String> badges) {
     this.badges = badges;
@@ -196,12 +188,14 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response importantBadges(List<String> importantBadges) {
-    
     this.importantBadges = importantBadges;
     return this;
   }
 
   public SearchGroceryProductsByUPC200Response addImportantBadgesItem(String importantBadgesItem) {
+    if (this.importantBadges == null) {
+      this.importantBadges = new ArrayList<>();
+    }
     this.importantBadges.add(importantBadgesItem);
     return this;
   }
@@ -211,12 +205,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return importantBadges
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getImportantBadges() {
     return importantBadges;
   }
-
 
   public void setImportantBadges(List<String> importantBadges) {
     this.importantBadges = importantBadges;
@@ -224,12 +215,14 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response breadcrumbs(List<String> breadcrumbs) {
-    
     this.breadcrumbs = breadcrumbs;
     return this;
   }
 
   public SearchGroceryProductsByUPC200Response addBreadcrumbsItem(String breadcrumbsItem) {
+    if (this.breadcrumbs == null) {
+      this.breadcrumbs = new ArrayList<>();
+    }
     this.breadcrumbs.add(breadcrumbsItem);
     return this;
   }
@@ -239,12 +232,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return breadcrumbs
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public List<String> getBreadcrumbs() {
     return breadcrumbs;
   }
-
 
   public void setBreadcrumbs(List<String> breadcrumbs) {
     this.breadcrumbs = breadcrumbs;
@@ -252,7 +242,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response generatedText(String generatedText) {
-    
     this.generatedText = generatedText;
     return this;
   }
@@ -262,12 +251,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return generatedText
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getGeneratedText() {
     return generatedText;
   }
-
 
   public void setGeneratedText(String generatedText) {
     this.generatedText = generatedText;
@@ -275,7 +261,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response imageType(String imageType) {
-    
     this.imageType = imageType;
     return this;
   }
@@ -285,12 +270,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return imageType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getImageType() {
     return imageType;
   }
-
 
   public void setImageType(String imageType) {
     this.imageType = imageType;
@@ -298,7 +280,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response ingredientCount(Integer ingredientCount) {
-    
     this.ingredientCount = ingredientCount;
     return this;
   }
@@ -308,12 +289,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return ingredientCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getIngredientCount() {
     return ingredientCount;
   }
-
 
   public void setIngredientCount(Integer ingredientCount) {
     this.ingredientCount = ingredientCount;
@@ -321,7 +299,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response ingredientList(String ingredientList) {
-    
     this.ingredientList = ingredientList;
     return this;
   }
@@ -331,12 +308,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return ingredientList
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public String getIngredientList() {
     return ingredientList;
   }
-
 
   public void setIngredientList(String ingredientList) {
     this.ingredientList = ingredientList;
@@ -344,12 +318,14 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response ingredients(Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients) {
-    
     this.ingredients = ingredients;
     return this;
   }
 
   public SearchGroceryProductsByUPC200Response addIngredientsItem(SearchGroceryProductsByUPC200ResponseIngredientsInner ingredientsItem) {
+    if (this.ingredients == null) {
+      this.ingredients = new LinkedHashSet<>();
+    }
     this.ingredients.add(ingredientsItem);
     return this;
   }
@@ -359,12 +335,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return ingredients
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> getIngredients() {
     return ingredients;
   }
-
 
   public void setIngredients(Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients) {
     this.ingredients = ingredients;
@@ -372,7 +345,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response likes(BigDecimal likes) {
-    
     this.likes = likes;
     return this;
   }
@@ -382,12 +354,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return likes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getLikes() {
     return likes;
   }
-
 
   public void setLikes(BigDecimal likes) {
     this.likes = likes;
@@ -395,7 +364,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response nutrition(SearchGroceryProductsByUPC200ResponseNutrition nutrition) {
-    
     this.nutrition = nutrition;
     return this;
   }
@@ -405,12 +373,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return nutrition
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public SearchGroceryProductsByUPC200ResponseNutrition getNutrition() {
     return nutrition;
   }
-
 
   public void setNutrition(SearchGroceryProductsByUPC200ResponseNutrition nutrition) {
     this.nutrition = nutrition;
@@ -418,7 +383,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response price(BigDecimal price) {
-    
     this.price = price;
     return this;
   }
@@ -428,12 +392,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return price
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getPrice() {
     return price;
   }
-
 
   public void setPrice(BigDecimal price) {
     this.price = price;
@@ -441,7 +402,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response servings(SearchGroceryProductsByUPC200ResponseServings servings) {
-    
     this.servings = servings;
     return this;
   }
@@ -451,12 +411,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return servings
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public SearchGroceryProductsByUPC200ResponseServings getServings() {
     return servings;
   }
-
 
   public void setServings(SearchGroceryProductsByUPC200ResponseServings servings) {
     this.servings = servings;
@@ -464,7 +421,6 @@ public class SearchGroceryProductsByUPC200Response {
 
 
   public SearchGroceryProductsByUPC200Response spoonacularScore(BigDecimal spoonacularScore) {
-    
     this.spoonacularScore = spoonacularScore;
     return this;
   }
@@ -474,12 +430,9 @@ public class SearchGroceryProductsByUPC200Response {
    * @return spoonacularScore
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public BigDecimal getSpoonacularScore() {
     return spoonacularScore;
   }
-
 
   public void setSpoonacularScore(BigDecimal spoonacularScore) {
     this.spoonacularScore = spoonacularScore;
@@ -594,78 +547,77 @@ public class SearchGroceryProductsByUPC200Response {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchGroceryProductsByUPC200Response
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchGroceryProductsByUPC200Response
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SearchGroceryProductsByUPC200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchGroceryProductsByUPC200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchGroceryProductsByUPC200Response is not found in the empty JSON string", SearchGroceryProductsByUPC200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchGroceryProductsByUPC200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchGroceryProductsByUPC200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchGroceryProductsByUPC200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SearchGroceryProductsByUPC200Response.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("badges") != null && !jsonObj.get("badges").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("badges") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("badges").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `badges` to be an array in the JSON string but got `%s`", jsonObj.get("badges").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("importantBadges") != null && !jsonObj.get("importantBadges").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("importantBadges") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("importantBadges").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `importantBadges` to be an array in the JSON string but got `%s`", jsonObj.get("importantBadges").toString()));
       }
-      // ensure the json data is an array
-      if (jsonObj.get("breadcrumbs") != null && !jsonObj.get("breadcrumbs").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("breadcrumbs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("breadcrumbs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `breadcrumbs` to be an array in the JSON string but got `%s`", jsonObj.get("breadcrumbs").toString()));
       }
-      if (jsonObj.get("generatedText") != null && !jsonObj.get("generatedText").isJsonPrimitive()) {
+      if (!jsonObj.get("generatedText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `generatedText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("generatedText").toString()));
       }
-      if (jsonObj.get("imageType") != null && !jsonObj.get("imageType").isJsonPrimitive()) {
+      if (!jsonObj.get("imageType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageType").toString()));
       }
-      if (jsonObj.get("ingredientList") != null && !jsonObj.get("ingredientList").isJsonPrimitive()) {
+      if (!jsonObj.get("ingredientList").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ingredientList` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ingredientList").toString()));
       }
-      JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
-      if (jsonArrayingredients != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("ingredients").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
-        }
+      // ensure the json data is an array
+      if (!jsonObj.get("ingredients").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
+      }
 
-        // validate the optional field `ingredients` (array)
-        for (int i = 0; i < jsonArrayingredients.size(); i++) {
-          SearchGroceryProductsByUPC200ResponseIngredientsInner.validateJsonObject(jsonArrayingredients.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `nutrition`
-      if (jsonObj.getAsJsonObject("nutrition") != null) {
-        SearchGroceryProductsByUPC200ResponseNutrition.validateJsonObject(jsonObj.getAsJsonObject("nutrition"));
-      }
-      // validate the optional field `servings`
-      if (jsonObj.getAsJsonObject("servings") != null) {
-        SearchGroceryProductsByUPC200ResponseServings.validateJsonObject(jsonObj.getAsJsonObject("servings"));
-      }
+      JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
+      // validate the required field `ingredients` (array)
+      for (int i = 0; i < jsonArrayingredients.size(); i++) {
+        SearchGroceryProductsByUPC200ResponseIngredientsInner.validateJsonElement(jsonArrayingredients.get(i));
+      };
+      // validate the required field `nutrition`
+      SearchGroceryProductsByUPC200ResponseNutrition.validateJsonElement(jsonObj.get("nutrition"));
+      // validate the required field `servings`
+      SearchGroceryProductsByUPC200ResponseServings.validateJsonElement(jsonObj.get("servings"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -688,9 +640,9 @@ public class SearchGroceryProductsByUPC200Response {
 
            @Override
            public SearchGroceryProductsByUPC200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GuessNutritionByDishName200ResponseCalories {
     #[serde(rename = "confidenceRange95Percent")]
     pub confidence_range95_percent: Box<crate::models::GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent>,

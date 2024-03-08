@@ -3,13 +3,30 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ingredients** | [**[GetRecipePriceBreakdownByID200ResponseIngredientsInner]**](GetRecipePriceBreakdownByID200ResponseIngredientsInner.md) |  | 
+**ingredients** | [**List[GetRecipePriceBreakdownByID200ResponseIngredientsInner]**](GetRecipePriceBreakdownByID200ResponseIngredientsInner.md) |  | 
 **total_cost** | **float** |  | 
 **total_cost_per_serving** | **float** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from spoonacular.models.get_recipe_price_breakdown_by_id200_response import GetRecipePriceBreakdownByID200Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of GetRecipePriceBreakdownByID200Response from a JSON string
+get_recipe_price_breakdown_by_id200_response_instance = GetRecipePriceBreakdownByID200Response.from_json(json)
+# print the JSON string representation of the object
+print GetRecipePriceBreakdownByID200Response.to_json()
+
+# convert the object into a dict
+get_recipe_price_breakdown_by_id200_response_dict = get_recipe_price_breakdown_by_id200_response_instance.to_dict()
+# create an instance of GetRecipePriceBreakdownByID200Response from a dict
+get_recipe_price_breakdown_by_id200_response_form_dict = get_recipe_price_breakdown_by_id200_response.from_dict(get_recipe_price_breakdown_by_id200_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

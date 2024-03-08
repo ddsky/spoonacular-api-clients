@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.DetectFoodInText200ResponseAnnotationsInner
+# spoonacular.Model.DetectFoodInText200ResponseAnnotationsInner
 
 ## Properties
 

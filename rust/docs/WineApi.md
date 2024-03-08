@@ -1,4 +1,4 @@
-# com.spoonacular.client\WineApi
+# \WineApi
 
 All URIs are relative to *https://api.spoonacular.com*
 

@@ -166,13 +166,13 @@ const apiInstance = new .DefaultApi(configuration);
 let body:.DefaultApiSearchRestaurantsRequest = {
   // string | The search query. (optional)
   query: "beach cafe",
-  // number | The latitude of the user's location. (optional)
+  // number | The latitude of the user\'s location. (optional)
   lat: 37.7786357,
-  // number | The longitude of the user's location.\". (optional)
+  // number | The longitude of the user\'s location.\". (optional)
   lng: -122.3918135,
   // number | The distance around the location in miles. (optional)
   distance: 2,
-  // number | The user's budget for a meal in USD. (optional)
+  // number | The user\'s budget for a meal in USD. (optional)
   budget: 20,
   // string | The cuisine of the restaurant. (optional)
   cuisine: "italian",
@@ -180,7 +180,7 @@ let body:.DefaultApiSearchRestaurantsRequest = {
   minRating: 4.4,
   // boolean | Whether the restaurant must be open at the time of search. (optional)
   isOpen: true,
-  // string | How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'. (optional)
+  // string | How to sort the results, one of the following \'cheapest\', \'fastest\', \'rating\', \'distance\' or the default \'relevance\'. (optional)
   sort: "distance",
   // number | The page number of results. (optional)
   page: 0,
@@ -197,14 +197,14 @@ apiInstance.searchRestaurants(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | [**string**] | The search query. | (optional) defaults to undefined
- **lat** | [**number**] | The latitude of the user&#39;s location. | (optional) defaults to undefined
- **lng** | [**number**] | The longitude of the user&#39;s location.\&quot;. | (optional) defaults to undefined
+ **lat** | [**number**] | The latitude of the user\&#39;s location. | (optional) defaults to undefined
+ **lng** | [**number**] | The longitude of the user\&#39;s location.\&quot;. | (optional) defaults to undefined
  **distance** | [**number**] | The distance around the location in miles. | (optional) defaults to undefined
- **budget** | [**number**] | The user&#39;s budget for a meal in USD. | (optional) defaults to undefined
+ **budget** | [**number**] | The user\&#39;s budget for a meal in USD. | (optional) defaults to undefined
  **cuisine** | [**string**] | The cuisine of the restaurant. | (optional) defaults to undefined
  **minRating** | [**number**] | The minimum rating of the restaurant between 0 and 5. | (optional) defaults to undefined
  **isOpen** | [**boolean**] | Whether the restaurant must be open at the time of search. | (optional) defaults to undefined
- **sort** | [**string**] | How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;. | (optional) defaults to undefined
+ **sort** | [**string**] | How to sort the results, one of the following \&#39;cheapest\&#39;, \&#39;fastest\&#39;, \&#39;rating\&#39;, \&#39;distance\&#39; or the default \&#39;relevance\&#39;. | (optional) defaults to undefined
  **page** | [**number**] | The page number of results. | (optional) defaults to undefined
 
 

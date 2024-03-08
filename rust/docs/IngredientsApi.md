@@ -1,4 +1,4 @@
-# com.spoonacular.client\IngredientsApi
+# \IngredientsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 

@@ -1,26 +1,26 @@
-# com.spoonacular.client\ProductsApi
+# OpenAPI\Client\ProductsApi
 
-All URIs are relative to https://api.spoonacular.com.
+All URIs are relative to https://api.spoonacular.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autocompleteProductSearch()**](ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search
-[**classifyGroceryProduct()**](ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
-[**classifyGroceryProductBulk()**](ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
-[**getComparableProducts()**](ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
-[**getProductInformation()**](ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
-[**productNutritionByIDImage()**](ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
-[**productNutritionLabelImage()**](ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
-[**productNutritionLabelWidget()**](ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
-[**searchGroceryProducts()**](ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
-[**searchGroceryProductsByUPC()**](ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
-[**visualizeProductNutritionByID()**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**autocompleteProductSearch()**](ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search |
+| [**classifyGroceryProduct()**](ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product |
+| [**classifyGroceryProductBulk()**](ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk |
+| [**getComparableProducts()**](ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products |
+| [**getProductInformation()**](ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information |
+| [**productNutritionByIDImage()**](ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image |
+| [**productNutritionLabelImage()**](ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image |
+| [**productNutritionLabelWidget()**](ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget |
+| [**searchGroceryProducts()**](ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products |
+| [**searchGroceryProductsByUPC()**](ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC |
+| [**visualizeProductNutritionByID()**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget |
 
 
 ## `autocompleteProductSearch()`
 
 ```php
-autocompleteProductSearch($query, $number): \com.spoonacular.client\com.spoonacular.client.model\AutocompleteProductSearch200Response
+autocompleteProductSearch($query, $number): \OpenAPI\Client\Model\AutocompleteProductSearch200Response
 ```
 
 Autocomplete Product Search
@@ -35,12 +35,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -59,14 +59,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (partial) search query. |
- **number** | **int**| The number of results to return (between 1 and 25). | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (partial) search query. | |
+| **number** | **int**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\AutocompleteProductSearch200Response**](../Model/AutocompleteProductSearch200Response.md)
+[**\OpenAPI\Client\Model\AutocompleteProductSearch200Response**](../Model/AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 ## `classifyGroceryProduct()`
 
 ```php
-classifyGroceryProduct($classify_grocery_product_request, $locale): \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProduct200Response
+classifyGroceryProduct($classify_grocery_product_request, $locale): \OpenAPI\Client\Model\ClassifyGroceryProduct200Response
 ```
 
 Classify Grocery Product
@@ -99,18 +99,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$classify_grocery_product_request = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductRequest
+$classify_grocery_product_request = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // \OpenAPI\Client\Model\ClassifyGroceryProductRequest
 $locale = en_US; // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try {
@@ -123,14 +123,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **classify_grocery_product_request** | [**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductRequest**](../Model/ClassifyGroceryProductRequest.md)|  |
- **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **classify_grocery_product_request** | [**\OpenAPI\Client\Model\ClassifyGroceryProductRequest**](../Model/ClassifyGroceryProductRequest.md)|  | |
+| **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProduct200Response**](../Model/ClassifyGroceryProduct200Response.md)
+[**\OpenAPI\Client\Model\ClassifyGroceryProduct200Response**](../Model/ClassifyGroceryProduct200Response.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 ## `classifyGroceryProductBulk()`
 
 ```php
-classifyGroceryProductBulk($classify_grocery_product_bulk_request_inner, $locale): \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulk200ResponseInner[]
+classifyGroceryProductBulk($classify_grocery_product_bulk_request_inner, $locale): \OpenAPI\Client\Model\ClassifyGroceryProductBulk200ResponseInner[]
 ```
 
 Classify Grocery Product Bulk
@@ -163,18 +163,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$classify_grocery_product_bulk_request_inner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // \com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulkRequestInner[]
+$classify_grocery_product_bulk_request_inner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // \OpenAPI\Client\Model\ClassifyGroceryProductBulkRequestInner[]
 $locale = en_US; // string | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 
 try {
@@ -187,14 +187,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **classify_grocery_product_bulk_request_inner** | [**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulkRequestInner[]**](../Model/ClassifyGroceryProductBulkRequestInner.md)|  |
- **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **classify_grocery_product_bulk_request_inner** | [**\OpenAPI\Client\Model\ClassifyGroceryProductBulkRequestInner[]**](../Model/ClassifyGroceryProductBulkRequestInner.md)|  | |
+| **locale** | **string**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\ClassifyGroceryProductBulk200ResponseInner[]**](../Model/ClassifyGroceryProductBulk200ResponseInner.md)
+[**\OpenAPI\Client\Model\ClassifyGroceryProductBulk200ResponseInner[]**](../Model/ClassifyGroceryProductBulk200ResponseInner.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 ## `getComparableProducts()`
 
 ```php
-getComparableProducts($upc): \com.spoonacular.client\com.spoonacular.client.model\GetComparableProducts200Response
+getComparableProducts($upc): \OpenAPI\Client\Model\GetComparableProducts200Response
 ```
 
 Get Comparable Products
@@ -227,12 +227,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -250,13 +250,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upc** | **float**| The UPC of the product for which you want to find comparable products. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **upc** | **float**| The UPC of the product for which you want to find comparable products. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetComparableProducts200Response**](../Model/GetComparableProducts200Response.md)
+[**\OpenAPI\Client\Model\GetComparableProducts200Response**](../Model/GetComparableProducts200Response.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 ## `getProductInformation()`
 
 ```php
-getProductInformation($id): \com.spoonacular.client\com.spoonacular.client.model\GetProductInformation200Response
+getProductInformation($id): \OpenAPI\Client\Model\GetProductInformation200Response
 ```
 
 Get Product Information
@@ -289,12 +289,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -312,13 +312,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\GetProductInformation200Response**](../Model/GetProductInformation200Response.md)
+[**\OpenAPI\Client\Model\GetProductInformation200Response**](../Model/GetProductInformation200Response.md)
 
 ### Authorization
 
@@ -351,12 +351,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -374,9 +374,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The id of the product. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The id of the product. | |
 
 ### Return type
 
@@ -413,12 +413,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -439,12 +439,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The product id. |
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The product id. | |
+| **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
+| **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
+| **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -481,12 +481,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -508,13 +508,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The product id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional]
- **show_zero_values** | **bool**| Whether to show zero values. | [optional]
- **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **float**| The product id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
+| **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
+| **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 ## `searchGroceryProducts()`
 
 ```php
-searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number): \com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProducts200Response
+searchGroceryProducts($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number): \OpenAPI\Client\Model\SearchGroceryProducts200Response
 ```
 
 Search Grocery Products
@@ -551,12 +551,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -585,24 +585,24 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional]
- **min_calories** | **float**| The minimum amount of calories the product must have. | [optional]
- **max_calories** | **float**| The maximum amount of calories the product can have. | [optional]
- **min_carbs** | **float**| The minimum amount of carbohydrates in grams the product must have. | [optional]
- **max_carbs** | **float**| The maximum amount of carbohydrates in grams the product can have. | [optional]
- **min_protein** | **float**| The minimum amount of protein in grams the product must have. | [optional]
- **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional]
- **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional]
- **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional]
- **add_product_information** | **bool**| If set to true, you get more information about the products returned. | [optional]
- **offset** | **int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| The (natural language) search query. | [optional] |
+| **min_calories** | **float**| The minimum amount of calories the product must have. | [optional] |
+| **max_calories** | **float**| The maximum amount of calories the product can have. | [optional] |
+| **min_carbs** | **float**| The minimum amount of carbohydrates in grams the product must have. | [optional] |
+| **max_carbs** | **float**| The maximum amount of carbohydrates in grams the product can have. | [optional] |
+| **min_protein** | **float**| The minimum amount of protein in grams the product must have. | [optional] |
+| **max_protein** | **float**| The maximum amount of protein in grams the product can have. | [optional] |
+| **min_fat** | **float**| The minimum amount of fat in grams the product must have. | [optional] |
+| **max_fat** | **float**| The maximum amount of fat in grams the product can have. | [optional] |
+| **add_product_information** | **bool**| If set to true, you get more information about the products returned. | [optional] |
+| **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProducts200Response**](../Model/SearchGroceryProducts200Response.md)
+[**\OpenAPI\Client\Model\SearchGroceryProducts200Response**](../Model/SearchGroceryProducts200Response.md)
 
 ### Authorization
 
@@ -620,7 +620,7 @@ Name | Type | Description  | Notes
 ## `searchGroceryProductsByUPC()`
 
 ```php
-searchGroceryProductsByUPC($upc): \com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProductsByUPC200Response
+searchGroceryProductsByUPC($upc): \OpenAPI\Client\Model\SearchGroceryProductsByUPC200Response
 ```
 
 Search Grocery Products by UPC
@@ -635,12 +635,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -658,13 +658,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upc** | **float**| The product&#39;s UPC. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **upc** | **float**| The product&#39;s UPC. | |
 
 ### Return type
 
-[**\com.spoonacular.client\com.spoonacular.client.model\SearchGroceryProductsByUPC200Response**](../Model/SearchGroceryProductsByUPC200Response.md)
+[**\OpenAPI\Client\Model\SearchGroceryProductsByUPC200Response**](../Model/SearchGroceryProductsByUPC200Response.md)
 
 ### Authorization
 
@@ -697,12 +697,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: apiKeyScheme
-$config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = com.spoonacular.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 
-$apiInstance = new com.spoonacular.client\Api\ProductsApi(
+$apiInstance = new OpenAPI\Client\Api\ProductsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -722,11 +722,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. |
- **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **string**| Accept header. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| The item&#39;s id. | |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 

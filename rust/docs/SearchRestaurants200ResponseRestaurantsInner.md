@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | Option<**String**> |  | [optional]
 **phone_number** | Option<**i32**> |  | [optional]
 **address** | Option<[**crate::models::SearchRestaurants200ResponseRestaurantsInnerAddress**](searchRestaurants_200_response_restaurants_inner_address.md)> |  | [optional]
-**_type** | Option<**String**> |  | [optional]
+**r#type** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
 **local_hours** | Option<[**crate::models::SearchRestaurants200ResponseRestaurantsInnerLocalHours**](searchRestaurants_200_response_restaurants_inner_local_hours.md)> |  | [optional]
 **cuisines** | Option<**Vec<String>**> |  | [optional]

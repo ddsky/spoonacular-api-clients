@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetRecipePriceBreakdownById200ResponseIngredientsInnerAmountMetric {
     #[serde(rename = "unit")]
     pub unit: String,

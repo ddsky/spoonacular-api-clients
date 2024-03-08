@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**\com.spoonacular.client\com.spoonacular.client.model\IngredientSearch200ResponseResultsInner[]**](IngredientSearch200ResponseResultsInner.md) |  |
+**results** | [**\OpenAPI\Client\Model\IngredientSearch200ResponseResultsInner[]**](IngredientSearch200ResponseResultsInner.md) |  |
 **offset** | **int** |  |
 **number** | **int** |  |
 **total_results** | **int** |  |
