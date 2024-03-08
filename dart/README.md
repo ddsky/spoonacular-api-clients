@@ -21,7 +21,7 @@ If this Dart package is published to Github, add the following dependency to you
 ```
 dependencies:
   openapi:
-    git: https://github.com/ddsky/spoonacular-api-clients/tree/main/dart/.git
+    git: https://github.com/ddsky/spoonacular-api-clients/tree/master/dart/.git
 ```
 
 ### Local

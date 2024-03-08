@@ -20,9 +20,9 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/ddsky/spoonacular-api-clients/tree/main/python/.git
+pip install git+https://github.com/ddsky/spoonacular-api-clients/tree/master/python/.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/ddsky/spoonacular-api-clients/tree/main/python/.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/ddsky/spoonacular-api-clients/tree/master/python/.git`)
 
 Then import the package:
 ```python

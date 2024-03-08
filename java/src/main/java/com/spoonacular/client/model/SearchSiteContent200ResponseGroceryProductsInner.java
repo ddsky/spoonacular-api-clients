@@ -52,7 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchSiteContent200ResponseGroceryProductsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T10:10:15.275701200+01:00[Europe/Berlin]")
 public class SearchSiteContent200ResponseGroceryProductsInner {
   public static final String SERIALIZED_NAME_DATA_POINTS = "dataPoints";
   @SerializedName(SERIALIZED_NAME_DATA_POINTS)

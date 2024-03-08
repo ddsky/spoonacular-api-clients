@@ -1,4 +1,4 @@
-module github.com/ddsky/spoonacular-api-clients/tree/main/go/
+module github.com/ddsky/spoonacular-api-clients/tree/master/go/
 
 go 1.18
 

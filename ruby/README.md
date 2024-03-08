@@ -39,9 +39,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/ddsky/spoonacular-api-clients/tree/main/ruby/, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby/, then add the following in the Gemfile:
 
-    gem 'openapi_client', :git => 'https://github.com/ddsky/spoonacular-api-clients/tree/main/ruby/.git'
+    gem 'openapi_client', :git => 'https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby/.git'
 
 ### Include the Ruby code directly
 
