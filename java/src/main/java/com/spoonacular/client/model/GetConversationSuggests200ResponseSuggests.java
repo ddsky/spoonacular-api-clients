@@ -52,7 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetConversationSuggests200ResponseSuggests
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T09:55:50.998178900+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T10:10:15.275701200+01:00[Europe/Berlin]")
 public class GetConversationSuggests200ResponseSuggests {
   public static final String SERIALIZED_NAME_U = "_";
   @SerializedName(SERIALIZED_NAME_U)

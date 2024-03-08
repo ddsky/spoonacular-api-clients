@@ -5,7 +5,7 @@ description = "spoonacular API"
 authors = ["David Urbansky <mail@spoonacular.com>"]
 license = "spoonacular API Terms"
 readme = "README.md"
-repository = "https://github.com/ddsky/spoonacular-api-clients/tree/main/python/"
+repository = "https://github.com/ddsky/spoonacular-api-clients/tree/master/python/"
 keywords = ["OpenAPI", "OpenAPI-Generator", "spoonacular API"]
 include = ["spoonacular/py.typed"]
 

@@ -59,11 +59,11 @@ npm run build
 
 #### git
 
-If the library is hosted at a git repository, e.g.https://github.com/ddsky/spoonacular-api-clients/tree/main/javascript/
+If the library is hosted at a git repository, e.g.https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript/
 then install it via:
 
 ```shell
-    npm install ddsky/spoonacular-api-clients/tree/main/javascript/ --save
+    npm install ddsky/spoonacular-api-clients/tree/master/javascript/ --save
 ```
 
 ### For browser

@@ -5,7 +5,7 @@
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ddsky/spoonacular-api-clients/tree/main/typescript/.git"
+    "url": "https://github.com/ddsky/spoonacular-api-clients/tree/master/typescript/.git"
   },
   "keywords": [
     "fetch",

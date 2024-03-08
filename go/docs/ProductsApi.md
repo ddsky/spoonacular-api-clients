@@ -35,7 +35,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -103,7 +103,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -171,7 +171,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -239,7 +239,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -309,7 +309,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -379,7 +379,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -449,7 +449,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -525,7 +525,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -603,7 +603,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -691,7 +691,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {
@@ -761,7 +761,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func main() {

@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/main/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
 )
 
 func Test_spoonacular_MenuItemsAPIService(t *testing.T) {

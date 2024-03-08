@@ -21,7 +21,7 @@ The SDK requires [**ARC (Automatic Reference Counting)**](http://stackoverflow.c
 Add the following to the Podfile:
 
 ```ruby
-pod 'OpenAPIClient', :git => 'https://github.com/ddsky/spoonacular-api-clients/tree/main/objc/.git'
+pod 'OpenAPIClient', :git => 'https://github.com/ddsky/spoonacular-api-clients/tree/master/objc/.git'
 ```
 
 To specify a particular branch, append `, :branch => 'branch-name-here'`

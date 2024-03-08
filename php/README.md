@@ -22,11 +22,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/ddsky/spoonacular-api-clients/tree/main/php/.git"
+      "url": "https://github.com/ddsky/spoonacular-api-clients/tree/master/php/.git"
     }
   ],
   "require": {
-    "ddsky/spoonacular-api-clients/tree/main/php/": "*@dev"
+    "ddsky/spoonacular-api-clients/tree/master/php/": "*@dev"
   }
 }
 ```

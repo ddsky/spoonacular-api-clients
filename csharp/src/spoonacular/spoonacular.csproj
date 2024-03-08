@@ -14,7 +14,7 @@
     <RootNamespace>spoonacular</RootNamespace>
     <Version>1.1.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\spoonacular.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/ddsky/spoonacular-api-clients/tree/main/csharp/.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ddsky/spoonacular-api-clients/tree/master/csharp/.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <Nullable>annotations</Nullable>
