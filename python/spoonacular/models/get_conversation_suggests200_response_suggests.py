@@ -29,7 +29,7 @@ class GetConversationSuggests200ResponseSuggests(BaseModel):
     """
     GetConversationSuggests200ResponseSuggests
     """ # noqa: E501
-    : Annotated[List[GetConversationSuggests200ResponseSuggestsInner], Field(min_length=0)] = Field(alias="_")
+    name: Annotated[List[GetConversationSuggests200ResponseSuggestsInner], Field(min_length=0)] = Field(alias="_")
     __properties: ClassVar[List[str]] = ["_"]
 
     model_config = {
