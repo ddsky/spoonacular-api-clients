@@ -56,12 +56,12 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property '_'
+        /// Test the property 'Underscore'
         /// </summary>
         [Fact]
-        public void _Test()
+        public void UnderscoreTest()
         {
-            // TODO unit test for the property '_'
+            // TODO unit test for the property 'Underscore'
         }
     }
 }
