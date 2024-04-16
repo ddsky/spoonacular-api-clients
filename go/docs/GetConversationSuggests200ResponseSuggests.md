@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_** | [**[]GetConversationSuggests200ResponseSuggestsInner**](GetConversationSuggests200ResponseSuggestsInner.md) |  | 
+**Underscore** | [**[]GetConversationSuggests200ResponseSuggestsInner**](GetConversationSuggests200ResponseSuggestsInner.md) |  | 
 
 ## Methods
 
 ### NewGetConversationSuggests200ResponseSuggests
 
-`func NewGetConversationSuggests200ResponseSuggests( []GetConversationSuggests200ResponseSuggestsInner, ) *GetConversationSuggests200ResponseSuggests`
+`func NewGetConversationSuggests200ResponseSuggests(underscore []GetConversationSuggests200ResponseSuggestsInner, ) *GetConversationSuggests200ResponseSuggests`
 
 NewGetConversationSuggests200ResponseSuggests instantiates a new GetConversationSuggests200ResponseSuggests object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewGetConversationSuggests200ResponseSuggestsWithDefaults instantiates a new Get
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### Get_
+### GetUnderscore
 
-`func (o *GetConversationSuggests200ResponseSuggests) Get_() []GetConversationSuggests200ResponseSuggestsInner`
+`func (o *GetConversationSuggests200ResponseSuggests) GetUnderscore() []GetConversationSuggests200ResponseSuggestsInner`
 
-Get_ returns the _ field if non-nil, zero value otherwise.
+GetUnderscore returns the Underscore field if non-nil, zero value otherwise.
 
-### Get_Ok
+### GetUnderscoreOk
 
-`func (o *GetConversationSuggests200ResponseSuggests) Get_Ok() (*[]GetConversationSuggests200ResponseSuggestsInner, bool)`
+`func (o *GetConversationSuggests200ResponseSuggests) GetUnderscoreOk() (*[]GetConversationSuggests200ResponseSuggestsInner, bool)`
 
-Get_Ok returns a tuple with the _ field if it's non-nil, zero value otherwise
+GetUnderscoreOk returns a tuple with the Underscore field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### Set_
+### SetUnderscore
 
-`func (o *GetConversationSuggests200ResponseSuggests) Set_(v []GetConversationSuggests200ResponseSuggestsInner)`
+`func (o *GetConversationSuggests200ResponseSuggests) SetUnderscore(v []GetConversationSuggests200ResponseSuggestsInner)`
 
-Set_ sets _ field to given value.
+SetUnderscore sets Underscore field to given value.
 
 
 
