@@ -22,7 +22,7 @@ var _ MappedNullable = &GetConversationSuggests200ResponseSuggests{}
 
 // GetConversationSuggests200ResponseSuggests struct for GetConversationSuggests200ResponseSuggests
 type GetConversationSuggests200ResponseSuggests struct {
-	_ []GetConversationSuggests200ResponseSuggestsInner `json:"_"`
+	Underscore []GetConversationSuggests200ResponseSuggestsInner `json:"_"`
 }
 
 type _GetConversationSuggests200ResponseSuggests GetConversationSuggests200ResponseSuggests
@@ -31,9 +31,9 @@ type _GetConversationSuggests200ResponseSuggests GetConversationSuggests200Respo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetConversationSuggests200ResponseSuggests( []GetConversationSuggests200ResponseSuggestsInner) *GetConversationSuggests200ResponseSuggests {
+func NewGetConversationSuggests200ResponseSuggests(underscore []GetConversationSuggests200ResponseSuggestsInner) *GetConversationSuggests200ResponseSuggests {
 	this := GetConversationSuggests200ResponseSuggests{}
-	this._ = 
+	this.Underscore = underscore
 	return &this
 }
 
@@ -45,28 +45,28 @@ func NewGetConversationSuggests200ResponseSuggestsWithDefaults() *GetConversatio
 	return &this
 }
 
-// Get_ returns the _ field value
-func (o *GetConversationSuggests200ResponseSuggests) Get_() []GetConversationSuggests200ResponseSuggestsInner {
+// GetUnderscore returns the Underscore field value
+func (o *GetConversationSuggests200ResponseSuggests) GetUnderscore() []GetConversationSuggests200ResponseSuggestsInner {
 	if o == nil {
 		var ret []GetConversationSuggests200ResponseSuggestsInner
 		return ret
 	}
 
-	return o._
+	return o.Underscore
 }
 
-// Get_Ok returns a tuple with the _ field value
+// GetUnderscoreOk returns a tuple with the Underscore field value
 // and a boolean to check if the value has been set.
-func (o *GetConversationSuggests200ResponseSuggests) Get_Ok() ([]GetConversationSuggests200ResponseSuggestsInner, bool) {
+func (o *GetConversationSuggests200ResponseSuggests) GetUnderscoreOk() ([]GetConversationSuggests200ResponseSuggestsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o._, true
+	return o.Underscore, true
 }
 
-// Set_ sets field value
-func (o *GetConversationSuggests200ResponseSuggests) Set_(v []GetConversationSuggests200ResponseSuggestsInner) {
-	o._ = v
+// SetUnderscore sets field value
+func (o *GetConversationSuggests200ResponseSuggests) SetUnderscore(v []GetConversationSuggests200ResponseSuggestsInner) {
+	o.Underscore = v
 }
 
 func (o GetConversationSuggests200ResponseSuggests) MarshalJSON() ([]byte, error) {
@@ -79,7 +79,7 @@ func (o GetConversationSuggests200ResponseSuggests) MarshalJSON() ([]byte, error
 
 func (o GetConversationSuggests200ResponseSuggests) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["_"] = o._
+	toSerialize["_"] = o.Underscore
 	return toSerialize, nil
 }
 

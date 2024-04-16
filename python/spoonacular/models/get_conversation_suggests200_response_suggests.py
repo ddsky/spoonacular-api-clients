@@ -29,7 +29,7 @@ class GetConversationSuggests200ResponseSuggests(BaseModel):
     """
     GetConversationSuggests200ResponseSuggests
     """ # noqa: E501
-    : Annotated[List[GetConversationSuggests200ResponseSuggestsInner], Field(min_length=0)] = Field(alias="_")
+    underscore: Annotated[List[GetConversationSuggests200ResponseSuggestsInner], Field(min_length=0)] = Field(alias="_")
     __properties: ClassVar[List[str]] = ["_"]
 
     model_config = {
@@ -71,10 +71,10 @@ class GetConversationSuggests200ResponseSuggests(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in  (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in underscore (list)
         _items = []
-        if self.:
-            for _item in self.:
+        if self.underscore:
+            for _item in self.underscore:
                 if _item:
                     _items.append(_item.to_dict())
             _dict['_'] = _items
