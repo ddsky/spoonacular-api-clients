@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200ResponseRestaurantsInnerLocalHours
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-08T10:10:15.275701200+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
   public static final String SERIALIZED_NAME_OPERATIONAL = "operational";
   @SerializedName(SERIALIZED_NAME_OPERATIONAL)
