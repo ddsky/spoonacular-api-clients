@@ -36,14 +36,14 @@ class TestGetConversationSuggests200ResponseSuggests(unittest.TestCase):
         model = GetConversationSuggests200ResponseSuggests()
         if include_optional:
             return GetConversationSuggests200ResponseSuggests(
-                 = [
+                underscore = [
                     spoonacular.models.get_conversation_suggests_200_response_suggests___inner.getConversationSuggests_200_response_suggests___inner(
                         name = '0', )
                     ]
             )
         else:
             return GetConversationSuggests200ResponseSuggests(
-                 = [
+                underscore = [
                     spoonacular.models.get_conversation_suggests_200_response_suggests___inner.getConversationSuggests_200_response_suggests___inner(
                         name = '0', )
                     ],

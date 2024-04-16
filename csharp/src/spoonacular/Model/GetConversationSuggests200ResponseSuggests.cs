@@ -40,22 +40,22 @@ namespace spoonacular.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConversationSuggests200ResponseSuggests" /> class.
         /// </summary>
-        /// <param name=""> (required).</param>
-        public GetConversationSuggests200ResponseSuggests(List<GetConversationSuggests200ResponseSuggestsInner>  = default(List<GetConversationSuggests200ResponseSuggestsInner>))
+        /// <param name="underscore">underscore (required).</param>
+        public GetConversationSuggests200ResponseSuggests(List<GetConversationSuggests200ResponseSuggestsInner> underscore = default(List<GetConversationSuggests200ResponseSuggestsInner>))
         {
-            // to ensure "" is required (not null)
-            if ( == null)
+            // to ensure "underscore" is required (not null)
+            if (underscore == null)
             {
-                throw new ArgumentNullException(" is a required property for GetConversationSuggests200ResponseSuggests and cannot be null");
+                throw new ArgumentNullException("underscore is a required property for GetConversationSuggests200ResponseSuggests and cannot be null");
             }
-            this._ = ;
+            this.Underscore = underscore;
         }
 
         /// <summary>
-        /// Gets or Sets _
+        /// Gets or Sets Underscore
         /// </summary>
         [DataMember(Name = "_", IsRequired = true, EmitDefaultValue = true)]
-        public List<GetConversationSuggests200ResponseSuggestsInner> _ { get; set; }
+        public List<GetConversationSuggests200ResponseSuggestsInner> Underscore { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +65,7 @@ namespace spoonacular.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetConversationSuggests200ResponseSuggests {\n");
-            sb.Append("  _: ").Append(_).Append("\n");
+            sb.Append("  Underscore: ").Append(Underscore).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

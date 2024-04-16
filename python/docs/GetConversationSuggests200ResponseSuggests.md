@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | [**List[GetConversationSuggests200ResponseSuggestsInner]**](GetConversationSuggests200ResponseSuggestsInner.md) |  | 
+**underscore** | [**List[GetConversationSuggests200ResponseSuggestsInner]**](GetConversationSuggests200ResponseSuggestsInner.md) |  | 
 
 ## Example
 
