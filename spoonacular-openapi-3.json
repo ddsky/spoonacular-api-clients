@@ -11231,28 +11231,6 @@
         "requestBody": {
           "required": true,
           "content": {
-            "": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "language": {
-                    "type": "string",
-                    "description": "The input language, either \"en\" or \"de\".",
-                    "example": "en"
-                  },
-                  "includeNutrition": {
-                    "type": "boolean",
-                    "description": "Whether nutrition data should be added to correctly parsed ingredients.",
-                    "example": false
-                  },
-                  "includeTaste": {
-                    "type": "boolean",
-                    "description": "Whether taste data should be added to correctly parsed ingredients.",
-                    "example": false
-                  }
-                }
-              }
-            },
             "application/json": {
               "schema": {
                 "type": "object",
@@ -21115,38 +21093,6 @@
             "description": "Not Found"
           }
         },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "date",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "date": {
-                    "type": "string",
-                    "description": "The date in the format yyyy-mm-dd.",
-                    "example": "2020-06-01"
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "name": "username",
@@ -21248,27 +21194,6 @@
         "requestBody": {
           "required": true,
           "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            },
             "application/json": {
               "schema": {
                 "description": "",
@@ -21413,38 +21338,6 @@
           },
           "404": {
             "description": "Not Found"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "id",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "id": {
-                    "type": "number",
-                    "description": "The shopping list item id.",
-                    "example": 15678
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            }
           }
         },
         "parameters": [
@@ -21886,32 +21779,6 @@
           },
           "404": {
             "description": "Not Found"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            }
           }
         },
         "parameters": [
@@ -24959,38 +24826,6 @@
             "description": "Not Found"
           }
         },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "id",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "id": {
-                    "type": "number",
-                    "description": "The shopping list item id.",
-                    "example": 15678
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "name": "username",
@@ -25543,44 +25378,6 @@
             "description": "Not Found"
           }
         },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "start-date",
-                  "end-date",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "start-date": {
-                    "type": "string",
-                    "description": "The start date in the format yyyy-mm-dd.",
-                    "example": "2020-06-01"
-                  },
-                  "end-date": {
-                    "type": "string",
-                    "description": "The end date in the format yyyy-mm-dd.",
-                    "example": "2020-06-07"
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "name": "username",
@@ -25716,11 +25513,6 @@
         "requestBody": {
           "required": true,
           "content": {
-            "": {
-              "schema": {
-                "type": "object"
-              }
-            },
             "application/json": {
               "schema": {
                 "description": "",
@@ -26017,27 +25809,6 @@
         "requestBody": {
           "required": true,
           "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            },
             "application/json": {
               "schema": {
                 "description": "",
@@ -26137,38 +25908,6 @@
           },
           "404": {
             "description": "Not Found"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "": {
-              "schema": {
-                "required": [
-                  "username",
-                  "id",
-                  "hash"
-                ],
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "description": "The username.",
-                    "example": "dsky"
-                  },
-                  "id": {
-                    "type": "number",
-                    "description": "The shopping list item id.",
-                    "example": 15678
-                  },
-                  "hash": {
-                    "type": "string",
-                    "description": "The private hash for the username.",
-                    "example": "4b5v4398573406"
-                  }
-                }
-              }
-            }
           }
         },
         "parameters": [
