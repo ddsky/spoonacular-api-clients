@@ -219,39 +219,48 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'language' => {
+    'title' => {
         datatype => 'string',
-        base_name => 'language',
-        description => 'The input language, either \&quot;en\&quot; or \&quot;de\&quot;.',
+        base_name => 'title',
+        description => '',
         format => '',
         read_only => '',
             },
-    'include_nutrition' => {
-        datatype => 'boolean',
-        base_name => 'includeNutrition',
-        description => 'Whether nutrition data should be added to correctly parsed ingredients.',
+    'servings' => {
+        datatype => 'int',
+        base_name => 'servings',
+        description => '',
         format => '',
         read_only => '',
             },
-    'include_taste' => {
-        datatype => 'boolean',
-        base_name => 'includeTaste',
-        description => 'Whether taste data should be added to correctly parsed ingredients.',
+    'ingredients' => {
+        datatype => 'ARRAY[string]',
+        base_name => 'ingredients',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'instructions' => {
+        datatype => 'string',
+        base_name => 'instructions',
+        description => '',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'language' => 'string',
-    'include_nutrition' => 'boolean',
-    'include_taste' => 'boolean'
+    'title' => 'string',
+    'servings' => 'int',
+    'ingredients' => 'ARRAY[string]',
+    'instructions' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
-    'language' => 'language',
-    'include_nutrition' => 'includeNutrition',
-    'include_taste' => 'includeTaste'
+    'title' => 'title',
+    'servings' => 'servings',
+    'ingredients' => 'ingredients',
+    'instructions' => 'instructions'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

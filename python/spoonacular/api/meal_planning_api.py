@@ -18,16 +18,15 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, Dict, Optional, Union
+from typing import Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.add_meal_plan_template200_response import AddMealPlanTemplate200Response
 from spoonacular.models.add_to_meal_plan_request import AddToMealPlanRequest
-from spoonacular.models.clear_meal_plan_day_request import ClearMealPlanDayRequest
+from spoonacular.models.add_to_shopping_list_request import AddToShoppingListRequest
 from spoonacular.models.connect_user200_response import ConnectUser200Response
-from spoonacular.models.delete_from_meal_plan_request import DeleteFromMealPlanRequest
+from spoonacular.models.connect_user_request import ConnectUserRequest
 from spoonacular.models.generate_meal_plan200_response import GenerateMealPlan200Response
 from spoonacular.models.generate_shopping_list200_response import GenerateShoppingList200Response
-from spoonacular.models.generate_shopping_list_request import GenerateShoppingListRequest
 from spoonacular.models.get_meal_plan_template200_response import GetMealPlanTemplate200Response
 from spoonacular.models.get_meal_plan_templates200_response import GetMealPlanTemplates200Response
 from spoonacular.models.get_meal_plan_week200_response import GetMealPlanWeek200Response
@@ -56,7 +55,6 @@ class MealPlanningApi:
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        add_to_meal_plan_request: AddToMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -78,8 +76,6 @@ class MealPlanningApi:
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param add_to_meal_plan_request: (required)
-        :type add_to_meal_plan_request: AddToMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -105,7 +101,6 @@ class MealPlanningApi:
         _param = self._add_meal_plan_template_serialize(
             username=username,
             hash=hash,
-            add_to_meal_plan_request=add_to_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -134,7 +129,6 @@ class MealPlanningApi:
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        add_to_meal_plan_request: AddToMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -156,8 +150,6 @@ class MealPlanningApi:
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param add_to_meal_plan_request: (required)
-        :type add_to_meal_plan_request: AddToMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -183,7 +175,6 @@ class MealPlanningApi:
         _param = self._add_meal_plan_template_serialize(
             username=username,
             hash=hash,
-            add_to_meal_plan_request=add_to_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -212,7 +203,6 @@ class MealPlanningApi:
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        add_to_meal_plan_request: AddToMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -234,8 +224,6 @@ class MealPlanningApi:
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param add_to_meal_plan_request: (required)
-        :type add_to_meal_plan_request: AddToMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -261,7 +249,6 @@ class MealPlanningApi:
         _param = self._add_meal_plan_template_serialize(
             username=username,
             hash=hash,
-            add_to_meal_plan_request=add_to_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -285,7 +272,6 @@ class MealPlanningApi:
         self,
         username,
         hash,
-        add_to_meal_plan_request,
         _request_auth,
         _content_type,
         _headers,
@@ -315,8 +301,6 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if add_to_meal_plan_request is not None:
-            _body_params = add_to_meal_plan_request
 
 
         # set the HTTP header `Accept`
@@ -326,19 +310,6 @@ class MealPlanningApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        ''
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -645,7 +616,6 @@ class MealPlanningApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        '', 
                         'application/json'
                     ]
                 )
@@ -681,7 +651,7 @@ class MealPlanningApi:
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        add_to_meal_plan_request: AddToMealPlanRequest,
+        add_to_shopping_list_request: AddToShoppingListRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -703,8 +673,8 @@ class MealPlanningApi:
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param add_to_meal_plan_request: (required)
-        :type add_to_meal_plan_request: AddToMealPlanRequest
+        :param add_to_shopping_list_request: (required)
+        :type add_to_shopping_list_request: AddToShoppingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -730,7 +700,7 @@ class MealPlanningApi:
         _param = self._add_to_shopping_list_serialize(
             username=username,
             hash=hash,
-            add_to_meal_plan_request=add_to_meal_plan_request,
+            add_to_shopping_list_request=add_to_shopping_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -759,7 +729,7 @@ class MealPlanningApi:
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        add_to_meal_plan_request: AddToMealPlanRequest,
+        add_to_shopping_list_request: AddToShoppingListRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -781,8 +751,8 @@ class MealPlanningApi:
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param add_to_meal_plan_request: (required)
-        :type add_to_meal_plan_request: AddToMealPlanRequest
+        :param add_to_shopping_list_request: (required)
+        :type add_to_shopping_list_request: AddToShoppingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -808,7 +778,7 @@ class MealPlanningApi:
         _param = self._add_to_shopping_list_serialize(
             username=username,
             hash=hash,
-            add_to_meal_plan_request=add_to_meal_plan_request,
+            add_to_shopping_list_request=add_to_shopping_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -837,7 +807,7 @@ class MealPlanningApi:
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        add_to_meal_plan_request: AddToMealPlanRequest,
+        add_to_shopping_list_request: AddToShoppingListRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -859,8 +829,8 @@ class MealPlanningApi:
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param add_to_meal_plan_request: (required)
-        :type add_to_meal_plan_request: AddToMealPlanRequest
+        :param add_to_shopping_list_request: (required)
+        :type add_to_shopping_list_request: AddToShoppingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -886,7 +856,7 @@ class MealPlanningApi:
         _param = self._add_to_shopping_list_serialize(
             username=username,
             hash=hash,
-            add_to_meal_plan_request=add_to_meal_plan_request,
+            add_to_shopping_list_request=add_to_shopping_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -910,7 +880,7 @@ class MealPlanningApi:
         self,
         username,
         hash,
-        add_to_meal_plan_request,
+        add_to_shopping_list_request,
         _request_auth,
         _content_type,
         _headers,
@@ -940,8 +910,8 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if add_to_meal_plan_request is not None:
-            _body_params = add_to_meal_plan_request
+        if add_to_shopping_list_request is not None:
+            _body_params = add_to_shopping_list_request
 
 
         # set the HTTP header `Accept`
@@ -958,7 +928,6 @@ class MealPlanningApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        '', 
                         'application/json'
                     ]
                 )
@@ -995,7 +964,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         var_date: Annotated[StrictStr, Field(description="The date in the format yyyy-mm-dd.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        clear_meal_plan_day_request: ClearMealPlanDayRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1019,8 +987,6 @@ class MealPlanningApi:
         :type var_date: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param clear_meal_plan_day_request: (required)
-        :type clear_meal_plan_day_request: ClearMealPlanDayRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1047,7 +1013,6 @@ class MealPlanningApi:
             username=username,
             var_date=var_date,
             hash=hash,
-            clear_meal_plan_day_request=clear_meal_plan_day_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1077,7 +1042,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         var_date: Annotated[StrictStr, Field(description="The date in the format yyyy-mm-dd.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        clear_meal_plan_day_request: ClearMealPlanDayRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1101,8 +1065,6 @@ class MealPlanningApi:
         :type var_date: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param clear_meal_plan_day_request: (required)
-        :type clear_meal_plan_day_request: ClearMealPlanDayRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1129,7 +1091,6 @@ class MealPlanningApi:
             username=username,
             var_date=var_date,
             hash=hash,
-            clear_meal_plan_day_request=clear_meal_plan_day_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1159,7 +1120,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         var_date: Annotated[StrictStr, Field(description="The date in the format yyyy-mm-dd.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        clear_meal_plan_day_request: ClearMealPlanDayRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1183,8 +1143,6 @@ class MealPlanningApi:
         :type var_date: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param clear_meal_plan_day_request: (required)
-        :type clear_meal_plan_day_request: ClearMealPlanDayRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1211,7 +1169,6 @@ class MealPlanningApi:
             username=username,
             var_date=var_date,
             hash=hash,
-            clear_meal_plan_day_request=clear_meal_plan_day_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1236,7 +1193,6 @@ class MealPlanningApi:
         username,
         var_date,
         hash,
-        clear_meal_plan_day_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1268,8 +1224,6 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if clear_meal_plan_day_request is not None:
-            _body_params = clear_meal_plan_day_request
 
 
         # set the HTTP header `Accept`
@@ -1279,19 +1233,6 @@ class MealPlanningApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        ''
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1319,7 +1260,7 @@ class MealPlanningApi:
     @validate_call
     def connect_user(
         self,
-        body: Dict[str, Any],
+        connect_user_request: ConnectUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1337,8 +1278,8 @@ class MealPlanningApi:
 
         In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 
-        :param body: (required)
-        :type body: object
+        :param connect_user_request: (required)
+        :type connect_user_request: ConnectUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1362,7 +1303,7 @@ class MealPlanningApi:
         """ # noqa: E501
 
         _param = self._connect_user_serialize(
-            body=body,
+            connect_user_request=connect_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1389,7 +1330,7 @@ class MealPlanningApi:
     @validate_call
     def connect_user_with_http_info(
         self,
-        body: Dict[str, Any],
+        connect_user_request: ConnectUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1407,8 +1348,8 @@ class MealPlanningApi:
 
         In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 
-        :param body: (required)
-        :type body: object
+        :param connect_user_request: (required)
+        :type connect_user_request: ConnectUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1432,7 +1373,7 @@ class MealPlanningApi:
         """ # noqa: E501
 
         _param = self._connect_user_serialize(
-            body=body,
+            connect_user_request=connect_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1459,7 +1400,7 @@ class MealPlanningApi:
     @validate_call
     def connect_user_without_preload_content(
         self,
-        body: Dict[str, Any],
+        connect_user_request: ConnectUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1477,8 +1418,8 @@ class MealPlanningApi:
 
         In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 
-        :param body: (required)
-        :type body: object
+        :param connect_user_request: (required)
+        :type connect_user_request: ConnectUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1502,7 +1443,7 @@ class MealPlanningApi:
         """ # noqa: E501
 
         _param = self._connect_user_serialize(
-            body=body,
+            connect_user_request=connect_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1524,7 +1465,7 @@ class MealPlanningApi:
 
     def _connect_user_serialize(
         self,
-        body,
+        connect_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1548,8 +1489,8 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if connect_user_request is not None:
+            _body_params = connect_user_request
 
 
         # set the HTTP header `Accept`
@@ -1566,7 +1507,6 @@ class MealPlanningApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        '', 
                         'application/json'
                     ]
                 )
@@ -1603,7 +1543,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[Union[StrictFloat, StrictInt], Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1627,8 +1566,6 @@ class MealPlanningApi:
         :type id: float
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1655,7 +1592,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1685,7 +1621,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[Union[StrictFloat, StrictInt], Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1709,8 +1644,6 @@ class MealPlanningApi:
         :type id: float
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1737,7 +1670,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1767,7 +1699,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[Union[StrictFloat, StrictInt], Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1791,8 +1722,6 @@ class MealPlanningApi:
         :type id: float
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1819,7 +1748,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1844,7 +1772,6 @@ class MealPlanningApi:
         username,
         id,
         hash,
-        delete_from_meal_plan_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1876,8 +1803,6 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if delete_from_meal_plan_request is not None:
-            _body_params = delete_from_meal_plan_request
 
 
         # set the HTTP header `Accept`
@@ -1887,19 +1812,6 @@ class MealPlanningApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        ''
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1930,7 +1842,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[StrictInt, Field(description="The item's id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1954,8 +1865,6 @@ class MealPlanningApi:
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1982,7 +1891,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2012,7 +1920,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[StrictInt, Field(description="The item's id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2036,8 +1943,6 @@ class MealPlanningApi:
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2064,7 +1969,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2094,7 +1998,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[StrictInt, Field(description="The item's id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2118,8 +2021,6 @@ class MealPlanningApi:
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2146,7 +2047,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2171,7 +2071,6 @@ class MealPlanningApi:
         username,
         id,
         hash,
-        delete_from_meal_plan_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2203,8 +2102,6 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if delete_from_meal_plan_request is not None:
-            _body_params = delete_from_meal_plan_request
 
 
         # set the HTTP header `Accept`
@@ -2214,19 +2111,6 @@ class MealPlanningApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        ''
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2257,7 +2141,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[StrictInt, Field(description="The item's id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2281,8 +2164,6 @@ class MealPlanningApi:
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2309,7 +2190,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2339,7 +2219,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[StrictInt, Field(description="The item's id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2363,8 +2242,6 @@ class MealPlanningApi:
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2391,7 +2268,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2421,7 +2297,6 @@ class MealPlanningApi:
         username: Annotated[StrictStr, Field(description="The username.")],
         id: Annotated[StrictInt, Field(description="The item's id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        delete_from_meal_plan_request: DeleteFromMealPlanRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2445,8 +2320,6 @@ class MealPlanningApi:
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param delete_from_meal_plan_request: (required)
-        :type delete_from_meal_plan_request: DeleteFromMealPlanRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2473,7 +2346,6 @@ class MealPlanningApi:
             username=username,
             id=id,
             hash=hash,
-            delete_from_meal_plan_request=delete_from_meal_plan_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2498,7 +2370,6 @@ class MealPlanningApi:
         username,
         id,
         hash,
-        delete_from_meal_plan_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2530,8 +2401,6 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if delete_from_meal_plan_request is not None:
-            _body_params = delete_from_meal_plan_request
 
 
         # set the HTTP header `Accept`
@@ -2541,19 +2410,6 @@ class MealPlanningApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        ''
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2905,7 +2761,6 @@ class MealPlanningApi:
         start_date: Annotated[StrictStr, Field(description="The start date in the format yyyy-mm-dd.")],
         end_date: Annotated[StrictStr, Field(description="The end date in the format yyyy-mm-dd.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        generate_shopping_list_request: GenerateShoppingListRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2931,8 +2786,6 @@ class MealPlanningApi:
         :type end_date: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param generate_shopping_list_request: (required)
-        :type generate_shopping_list_request: GenerateShoppingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2960,7 +2813,6 @@ class MealPlanningApi:
             start_date=start_date,
             end_date=end_date,
             hash=hash,
-            generate_shopping_list_request=generate_shopping_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2991,7 +2843,6 @@ class MealPlanningApi:
         start_date: Annotated[StrictStr, Field(description="The start date in the format yyyy-mm-dd.")],
         end_date: Annotated[StrictStr, Field(description="The end date in the format yyyy-mm-dd.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        generate_shopping_list_request: GenerateShoppingListRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3017,8 +2868,6 @@ class MealPlanningApi:
         :type end_date: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param generate_shopping_list_request: (required)
-        :type generate_shopping_list_request: GenerateShoppingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3046,7 +2895,6 @@ class MealPlanningApi:
             start_date=start_date,
             end_date=end_date,
             hash=hash,
-            generate_shopping_list_request=generate_shopping_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3077,7 +2925,6 @@ class MealPlanningApi:
         start_date: Annotated[StrictStr, Field(description="The start date in the format yyyy-mm-dd.")],
         end_date: Annotated[StrictStr, Field(description="The end date in the format yyyy-mm-dd.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        generate_shopping_list_request: GenerateShoppingListRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3103,8 +2950,6 @@ class MealPlanningApi:
         :type end_date: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param generate_shopping_list_request: (required)
-        :type generate_shopping_list_request: GenerateShoppingListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3132,7 +2977,6 @@ class MealPlanningApi:
             start_date=start_date,
             end_date=end_date,
             hash=hash,
-            generate_shopping_list_request=generate_shopping_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3158,7 +3002,6 @@ class MealPlanningApi:
         start_date,
         end_date,
         hash,
-        generate_shopping_list_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3192,8 +3035,6 @@ class MealPlanningApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if generate_shopping_list_request is not None:
-            _body_params = generate_shopping_list_request
 
 
         # set the HTTP header `Accept`
@@ -3203,19 +3044,6 @@ class MealPlanningApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        ''
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

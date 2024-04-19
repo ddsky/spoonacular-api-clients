@@ -110,7 +110,7 @@ func (a *DefaultAPIService) AnalyzeRecipeExecute(r ApiAnalyzeRecipeRequest) (map
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeTaste", r.includeTaste, "")
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"", "application/json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

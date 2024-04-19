@@ -76,7 +76,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

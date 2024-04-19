@@ -111,62 +111,48 @@ addMealPlanTemplate200ResponseItemsInnerValueImageTypeL f AddMealPlanTemplate200
 
 -- * AddToMealPlanRequest
 
--- | 'addToMealPlanRequestUsername' Lens
-addToMealPlanRequestUsernameL :: Lens_' AddToMealPlanRequest (Text)
-addToMealPlanRequestUsernameL f AddToMealPlanRequest{..} = (\addToMealPlanRequestUsername -> AddToMealPlanRequest { addToMealPlanRequestUsername, ..} ) <$> f addToMealPlanRequestUsername
-{-# INLINE addToMealPlanRequestUsernameL #-}
+-- | 'addToMealPlanRequestDate' Lens
+addToMealPlanRequestDateL :: Lens_' AddToMealPlanRequest (Double)
+addToMealPlanRequestDateL f AddToMealPlanRequest{..} = (\addToMealPlanRequestDate -> AddToMealPlanRequest { addToMealPlanRequestDate, ..} ) <$> f addToMealPlanRequestDate
+{-# INLINE addToMealPlanRequestDateL #-}
 
--- | 'addToMealPlanRequestHash' Lens
-addToMealPlanRequestHashL :: Lens_' AddToMealPlanRequest (Text)
-addToMealPlanRequestHashL f AddToMealPlanRequest{..} = (\addToMealPlanRequestHash -> AddToMealPlanRequest { addToMealPlanRequestHash, ..} ) <$> f addToMealPlanRequestHash
-{-# INLINE addToMealPlanRequestHashL #-}
+-- | 'addToMealPlanRequestSlot' Lens
+addToMealPlanRequestSlotL :: Lens_' AddToMealPlanRequest (Int)
+addToMealPlanRequestSlotL f AddToMealPlanRequest{..} = (\addToMealPlanRequestSlot -> AddToMealPlanRequest { addToMealPlanRequestSlot, ..} ) <$> f addToMealPlanRequestSlot
+{-# INLINE addToMealPlanRequestSlotL #-}
 
+-- | 'addToMealPlanRequestPosition' Lens
+addToMealPlanRequestPositionL :: Lens_' AddToMealPlanRequest (Int)
+addToMealPlanRequestPositionL f AddToMealPlanRequest{..} = (\addToMealPlanRequestPosition -> AddToMealPlanRequest { addToMealPlanRequestPosition, ..} ) <$> f addToMealPlanRequestPosition
+{-# INLINE addToMealPlanRequestPositionL #-}
 
+-- | 'addToMealPlanRequestType' Lens
+addToMealPlanRequestTypeL :: Lens_' AddToMealPlanRequest (Text)
+addToMealPlanRequestTypeL f AddToMealPlanRequest{..} = (\addToMealPlanRequestType -> AddToMealPlanRequest { addToMealPlanRequestType, ..} ) <$> f addToMealPlanRequestType
+{-# INLINE addToMealPlanRequestTypeL #-}
 
--- * AddToMealPlanRequest1
-
--- | 'addToMealPlanRequest1Date' Lens
-addToMealPlanRequest1DateL :: Lens_' AddToMealPlanRequest1 (Double)
-addToMealPlanRequest1DateL f AddToMealPlanRequest1{..} = (\addToMealPlanRequest1Date -> AddToMealPlanRequest1 { addToMealPlanRequest1Date, ..} ) <$> f addToMealPlanRequest1Date
-{-# INLINE addToMealPlanRequest1DateL #-}
-
--- | 'addToMealPlanRequest1Slot' Lens
-addToMealPlanRequest1SlotL :: Lens_' AddToMealPlanRequest1 (Int)
-addToMealPlanRequest1SlotL f AddToMealPlanRequest1{..} = (\addToMealPlanRequest1Slot -> AddToMealPlanRequest1 { addToMealPlanRequest1Slot, ..} ) <$> f addToMealPlanRequest1Slot
-{-# INLINE addToMealPlanRequest1SlotL #-}
-
--- | 'addToMealPlanRequest1Position' Lens
-addToMealPlanRequest1PositionL :: Lens_' AddToMealPlanRequest1 (Int)
-addToMealPlanRequest1PositionL f AddToMealPlanRequest1{..} = (\addToMealPlanRequest1Position -> AddToMealPlanRequest1 { addToMealPlanRequest1Position, ..} ) <$> f addToMealPlanRequest1Position
-{-# INLINE addToMealPlanRequest1PositionL #-}
-
--- | 'addToMealPlanRequest1Type' Lens
-addToMealPlanRequest1TypeL :: Lens_' AddToMealPlanRequest1 (Text)
-addToMealPlanRequest1TypeL f AddToMealPlanRequest1{..} = (\addToMealPlanRequest1Type -> AddToMealPlanRequest1 { addToMealPlanRequest1Type, ..} ) <$> f addToMealPlanRequest1Type
-{-# INLINE addToMealPlanRequest1TypeL #-}
-
--- | 'addToMealPlanRequest1Value' Lens
-addToMealPlanRequest1ValueL :: Lens_' AddToMealPlanRequest1 (AddToMealPlanRequest1Value)
-addToMealPlanRequest1ValueL f AddToMealPlanRequest1{..} = (\addToMealPlanRequest1Value -> AddToMealPlanRequest1 { addToMealPlanRequest1Value, ..} ) <$> f addToMealPlanRequest1Value
-{-# INLINE addToMealPlanRequest1ValueL #-}
+-- | 'addToMealPlanRequestValue' Lens
+addToMealPlanRequestValueL :: Lens_' AddToMealPlanRequest (AddToMealPlanRequestValue)
+addToMealPlanRequestValueL f AddToMealPlanRequest{..} = (\addToMealPlanRequestValue -> AddToMealPlanRequest { addToMealPlanRequestValue, ..} ) <$> f addToMealPlanRequestValue
+{-# INLINE addToMealPlanRequestValueL #-}
 
 
 
--- * AddToMealPlanRequest1Value
+-- * AddToMealPlanRequestValue
 
--- | 'addToMealPlanRequest1ValueIngredients' Lens
-addToMealPlanRequest1ValueIngredientsL :: Lens_' AddToMealPlanRequest1Value ([AddToMealPlanRequest1ValueIngredientsInner])
-addToMealPlanRequest1ValueIngredientsL f AddToMealPlanRequest1Value{..} = (\addToMealPlanRequest1ValueIngredients -> AddToMealPlanRequest1Value { addToMealPlanRequest1ValueIngredients, ..} ) <$> f addToMealPlanRequest1ValueIngredients
-{-# INLINE addToMealPlanRequest1ValueIngredientsL #-}
+-- | 'addToMealPlanRequestValueIngredients' Lens
+addToMealPlanRequestValueIngredientsL :: Lens_' AddToMealPlanRequestValue ([AddToMealPlanRequestValueIngredientsInner])
+addToMealPlanRequestValueIngredientsL f AddToMealPlanRequestValue{..} = (\addToMealPlanRequestValueIngredients -> AddToMealPlanRequestValue { addToMealPlanRequestValueIngredients, ..} ) <$> f addToMealPlanRequestValueIngredients
+{-# INLINE addToMealPlanRequestValueIngredientsL #-}
 
 
 
--- * AddToMealPlanRequest1ValueIngredientsInner
+-- * AddToMealPlanRequestValueIngredientsInner
 
--- | 'addToMealPlanRequest1ValueIngredientsInnerName' Lens
-addToMealPlanRequest1ValueIngredientsInnerNameL :: Lens_' AddToMealPlanRequest1ValueIngredientsInner (Text)
-addToMealPlanRequest1ValueIngredientsInnerNameL f AddToMealPlanRequest1ValueIngredientsInner{..} = (\addToMealPlanRequest1ValueIngredientsInnerName -> AddToMealPlanRequest1ValueIngredientsInner { addToMealPlanRequest1ValueIngredientsInnerName, ..} ) <$> f addToMealPlanRequest1ValueIngredientsInnerName
-{-# INLINE addToMealPlanRequest1ValueIngredientsInnerNameL #-}
+-- | 'addToMealPlanRequestValueIngredientsInnerName' Lens
+addToMealPlanRequestValueIngredientsInnerNameL :: Lens_' AddToMealPlanRequestValueIngredientsInner (Text)
+addToMealPlanRequestValueIngredientsInnerNameL f AddToMealPlanRequestValueIngredientsInner{..} = (\addToMealPlanRequestValueIngredientsInnerName -> AddToMealPlanRequestValueIngredientsInner { addToMealPlanRequestValueIngredientsInnerName, ..} ) <$> f addToMealPlanRequestValueIngredientsInnerName
+{-# INLINE addToMealPlanRequestValueIngredientsInnerNameL #-}
 
 
 
@@ -343,44 +329,25 @@ analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients
 
 -- * AnalyzeRecipeRequest
 
--- | 'analyzeRecipeRequestLanguage' Lens
-analyzeRecipeRequestLanguageL :: Lens_' AnalyzeRecipeRequest (Maybe Text)
-analyzeRecipeRequestLanguageL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestLanguage -> AnalyzeRecipeRequest { analyzeRecipeRequestLanguage, ..} ) <$> f analyzeRecipeRequestLanguage
-{-# INLINE analyzeRecipeRequestLanguageL #-}
+-- | 'analyzeRecipeRequestTitle' Lens
+analyzeRecipeRequestTitleL :: Lens_' AnalyzeRecipeRequest (Maybe Text)
+analyzeRecipeRequestTitleL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestTitle -> AnalyzeRecipeRequest { analyzeRecipeRequestTitle, ..} ) <$> f analyzeRecipeRequestTitle
+{-# INLINE analyzeRecipeRequestTitleL #-}
 
--- | 'analyzeRecipeRequestIncludeNutrition' Lens
-analyzeRecipeRequestIncludeNutritionL :: Lens_' AnalyzeRecipeRequest (Maybe Bool)
-analyzeRecipeRequestIncludeNutritionL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestIncludeNutrition -> AnalyzeRecipeRequest { analyzeRecipeRequestIncludeNutrition, ..} ) <$> f analyzeRecipeRequestIncludeNutrition
-{-# INLINE analyzeRecipeRequestIncludeNutritionL #-}
+-- | 'analyzeRecipeRequestServings' Lens
+analyzeRecipeRequestServingsL :: Lens_' AnalyzeRecipeRequest (Maybe Int)
+analyzeRecipeRequestServingsL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestServings -> AnalyzeRecipeRequest { analyzeRecipeRequestServings, ..} ) <$> f analyzeRecipeRequestServings
+{-# INLINE analyzeRecipeRequestServingsL #-}
 
--- | 'analyzeRecipeRequestIncludeTaste' Lens
-analyzeRecipeRequestIncludeTasteL :: Lens_' AnalyzeRecipeRequest (Maybe Bool)
-analyzeRecipeRequestIncludeTasteL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestIncludeTaste -> AnalyzeRecipeRequest { analyzeRecipeRequestIncludeTaste, ..} ) <$> f analyzeRecipeRequestIncludeTaste
-{-# INLINE analyzeRecipeRequestIncludeTasteL #-}
+-- | 'analyzeRecipeRequestIngredients' Lens
+analyzeRecipeRequestIngredientsL :: Lens_' AnalyzeRecipeRequest (Maybe [Text])
+analyzeRecipeRequestIngredientsL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestIngredients -> AnalyzeRecipeRequest { analyzeRecipeRequestIngredients, ..} ) <$> f analyzeRecipeRequestIngredients
+{-# INLINE analyzeRecipeRequestIngredientsL #-}
 
-
-
--- * AnalyzeRecipeRequest1
-
--- | 'analyzeRecipeRequest1Title' Lens
-analyzeRecipeRequest1TitleL :: Lens_' AnalyzeRecipeRequest1 (Maybe Text)
-analyzeRecipeRequest1TitleL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Title -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Title, ..} ) <$> f analyzeRecipeRequest1Title
-{-# INLINE analyzeRecipeRequest1TitleL #-}
-
--- | 'analyzeRecipeRequest1Servings' Lens
-analyzeRecipeRequest1ServingsL :: Lens_' AnalyzeRecipeRequest1 (Maybe Int)
-analyzeRecipeRequest1ServingsL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Servings -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Servings, ..} ) <$> f analyzeRecipeRequest1Servings
-{-# INLINE analyzeRecipeRequest1ServingsL #-}
-
--- | 'analyzeRecipeRequest1Ingredients' Lens
-analyzeRecipeRequest1IngredientsL :: Lens_' AnalyzeRecipeRequest1 (Maybe [Text])
-analyzeRecipeRequest1IngredientsL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Ingredients -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Ingredients, ..} ) <$> f analyzeRecipeRequest1Ingredients
-{-# INLINE analyzeRecipeRequest1IngredientsL #-}
-
--- | 'analyzeRecipeRequest1Instructions' Lens
-analyzeRecipeRequest1InstructionsL :: Lens_' AnalyzeRecipeRequest1 (Maybe Text)
-analyzeRecipeRequest1InstructionsL f AnalyzeRecipeRequest1{..} = (\analyzeRecipeRequest1Instructions -> AnalyzeRecipeRequest1 { analyzeRecipeRequest1Instructions, ..} ) <$> f analyzeRecipeRequest1Instructions
-{-# INLINE analyzeRecipeRequest1InstructionsL #-}
+-- | 'analyzeRecipeRequestInstructions' Lens
+analyzeRecipeRequestInstructionsL :: Lens_' AnalyzeRecipeRequest (Maybe Text)
+analyzeRecipeRequestInstructionsL f AnalyzeRecipeRequest{..} = (\analyzeRecipeRequestInstructions -> AnalyzeRecipeRequest { analyzeRecipeRequestInstructions, ..} ) <$> f analyzeRecipeRequestInstructions
+{-# INLINE analyzeRecipeRequestInstructionsL #-}
 
 
 
@@ -579,25 +546,6 @@ classifyGroceryProductRequestPluCodeL f ClassifyGroceryProductRequest{..} = (\cl
 
 
 
--- * ClearMealPlanDayRequest
-
--- | 'clearMealPlanDayRequestUsername' Lens
-clearMealPlanDayRequestUsernameL :: Lens_' ClearMealPlanDayRequest (Text)
-clearMealPlanDayRequestUsernameL f ClearMealPlanDayRequest{..} = (\clearMealPlanDayRequestUsername -> ClearMealPlanDayRequest { clearMealPlanDayRequestUsername, ..} ) <$> f clearMealPlanDayRequestUsername
-{-# INLINE clearMealPlanDayRequestUsernameL #-}
-
--- | 'clearMealPlanDayRequestDate' Lens
-clearMealPlanDayRequestDateL :: Lens_' ClearMealPlanDayRequest (Text)
-clearMealPlanDayRequestDateL f ClearMealPlanDayRequest{..} = (\clearMealPlanDayRequestDate -> ClearMealPlanDayRequest { clearMealPlanDayRequestDate, ..} ) <$> f clearMealPlanDayRequestDate
-{-# INLINE clearMealPlanDayRequestDateL #-}
-
--- | 'clearMealPlanDayRequestHash' Lens
-clearMealPlanDayRequestHashL :: Lens_' ClearMealPlanDayRequest (Text)
-clearMealPlanDayRequestHashL f ClearMealPlanDayRequest{..} = (\clearMealPlanDayRequestHash -> ClearMealPlanDayRequest { clearMealPlanDayRequestHash, ..} ) <$> f clearMealPlanDayRequestHash
-{-# INLINE clearMealPlanDayRequestHashL #-}
-
-
-
 -- * ComputeGlycemicLoad200Response
 
 -- | 'computeGlycemicLoad200ResponseTotalGlycemicLoad' Lens
@@ -735,25 +683,6 @@ createRecipeCard200ResponseUrlL f CreateRecipeCard200Response{..} = (\createReci
 
 
 
--- * DeleteFromMealPlanRequest
-
--- | 'deleteFromMealPlanRequestUsername' Lens
-deleteFromMealPlanRequestUsernameL :: Lens_' DeleteFromMealPlanRequest (Text)
-deleteFromMealPlanRequestUsernameL f DeleteFromMealPlanRequest{..} = (\deleteFromMealPlanRequestUsername -> DeleteFromMealPlanRequest { deleteFromMealPlanRequestUsername, ..} ) <$> f deleteFromMealPlanRequestUsername
-{-# INLINE deleteFromMealPlanRequestUsernameL #-}
-
--- | 'deleteFromMealPlanRequestId' Lens
-deleteFromMealPlanRequestIdL :: Lens_' DeleteFromMealPlanRequest (Double)
-deleteFromMealPlanRequestIdL f DeleteFromMealPlanRequest{..} = (\deleteFromMealPlanRequestId -> DeleteFromMealPlanRequest { deleteFromMealPlanRequestId, ..} ) <$> f deleteFromMealPlanRequestId
-{-# INLINE deleteFromMealPlanRequestIdL #-}
-
--- | 'deleteFromMealPlanRequestHash' Lens
-deleteFromMealPlanRequestHashL :: Lens_' DeleteFromMealPlanRequest (Text)
-deleteFromMealPlanRequestHashL f DeleteFromMealPlanRequest{..} = (\deleteFromMealPlanRequestHash -> DeleteFromMealPlanRequest { deleteFromMealPlanRequestHash, ..} ) <$> f deleteFromMealPlanRequestHash
-{-# INLINE deleteFromMealPlanRequestHashL #-}
-
-
-
 -- * DetectFoodInText200Response
 
 -- | 'detectFoodInText200ResponseAnnotations' Lens
@@ -841,30 +770,6 @@ generateShoppingList200ResponseStartDateL f GenerateShoppingList200Response{..} 
 generateShoppingList200ResponseEndDateL :: Lens_' GenerateShoppingList200Response (Double)
 generateShoppingList200ResponseEndDateL f GenerateShoppingList200Response{..} = (\generateShoppingList200ResponseEndDate -> GenerateShoppingList200Response { generateShoppingList200ResponseEndDate, ..} ) <$> f generateShoppingList200ResponseEndDate
 {-# INLINE generateShoppingList200ResponseEndDateL #-}
-
-
-
--- * GenerateShoppingListRequest
-
--- | 'generateShoppingListRequestUsername' Lens
-generateShoppingListRequestUsernameL :: Lens_' GenerateShoppingListRequest (Text)
-generateShoppingListRequestUsernameL f GenerateShoppingListRequest{..} = (\generateShoppingListRequestUsername -> GenerateShoppingListRequest { generateShoppingListRequestUsername, ..} ) <$> f generateShoppingListRequestUsername
-{-# INLINE generateShoppingListRequestUsernameL #-}
-
--- | 'generateShoppingListRequestStartDate' Lens
-generateShoppingListRequestStartDateL :: Lens_' GenerateShoppingListRequest (Text)
-generateShoppingListRequestStartDateL f GenerateShoppingListRequest{..} = (\generateShoppingListRequestStartDate -> GenerateShoppingListRequest { generateShoppingListRequestStartDate, ..} ) <$> f generateShoppingListRequestStartDate
-{-# INLINE generateShoppingListRequestStartDateL #-}
-
--- | 'generateShoppingListRequestEndDate' Lens
-generateShoppingListRequestEndDateL :: Lens_' GenerateShoppingListRequest (Text)
-generateShoppingListRequestEndDateL f GenerateShoppingListRequest{..} = (\generateShoppingListRequestEndDate -> GenerateShoppingListRequest { generateShoppingListRequestEndDate, ..} ) <$> f generateShoppingListRequestEndDate
-{-# INLINE generateShoppingListRequestEndDateL #-}
-
--- | 'generateShoppingListRequestHash' Lens
-generateShoppingListRequestHashL :: Lens_' GenerateShoppingListRequest (Text)
-generateShoppingListRequestHashL f GenerateShoppingListRequest{..} = (\generateShoppingListRequestHash -> GenerateShoppingListRequest { generateShoppingListRequestHash, ..} ) <$> f generateShoppingListRequestHash
-{-# INLINE generateShoppingListRequestHashL #-}
 
 
 

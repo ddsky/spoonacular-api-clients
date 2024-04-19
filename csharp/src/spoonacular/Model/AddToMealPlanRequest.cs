@@ -40,39 +40,59 @@ namespace spoonacular.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddToMealPlanRequest" /> class.
         /// </summary>
-        /// <param name="username">The username. (required).</param>
-        /// <param name="hash">The private hash for the username. (required).</param>
-        public AddToMealPlanRequest(string username = default(string), string hash = default(string))
+        /// <param name="date">date (required).</param>
+        /// <param name="slot">slot (required).</param>
+        /// <param name="position">position (required).</param>
+        /// <param name="type">type (required).</param>
+        /// <param name="value">value (required).</param>
+        public AddToMealPlanRequest(decimal date = default(decimal), int slot = default(int), int position = default(int), string type = default(string), AddToMealPlanRequestValue value = default(AddToMealPlanRequestValue))
         {
-            // to ensure "username" is required (not null)
-            if (username == null)
+            this.Date = date;
+            this.Slot = slot;
+            this.Position = position;
+            // to ensure "type" is required (not null)
+            if (type == null)
             {
-                throw new ArgumentNullException("username is a required property for AddToMealPlanRequest and cannot be null");
+                throw new ArgumentNullException("type is a required property for AddToMealPlanRequest and cannot be null");
             }
-            this.Username = username;
-            // to ensure "hash" is required (not null)
-            if (hash == null)
+            this.Type = type;
+            // to ensure "value" is required (not null)
+            if (value == null)
             {
-                throw new ArgumentNullException("hash is a required property for AddToMealPlanRequest and cannot be null");
+                throw new ArgumentNullException("value is a required property for AddToMealPlanRequest and cannot be null");
             }
-            this.Hash = hash;
+            this.Value = value;
         }
 
         /// <summary>
-        /// The username.
+        /// Gets or Sets Date
         /// </summary>
-        /// <value>The username.</value>
-        /// <example>dsky</example>
-        [DataMember(Name = "username", IsRequired = true, EmitDefaultValue = true)]
-        public string Username { get; set; }
+        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Date { get; set; }
 
         /// <summary>
-        /// The private hash for the username.
+        /// Gets or Sets Slot
         /// </summary>
-        /// <value>The private hash for the username.</value>
-        /// <example>4b5v4398573406</example>
-        [DataMember(Name = "hash", IsRequired = true, EmitDefaultValue = true)]
-        public string Hash { get; set; }
+        [DataMember(Name = "slot", IsRequired = true, EmitDefaultValue = true)]
+        public int Slot { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Position
+        /// </summary>
+        [DataMember(Name = "position", IsRequired = true, EmitDefaultValue = true)]
+        public int Position { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Value
+        /// </summary>
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
+        public AddToMealPlanRequestValue Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,8 +102,11 @@ namespace spoonacular.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AddToMealPlanRequest {\n");
-            sb.Append("  Username: ").Append(Username).Append("\n");
-            sb.Append("  Hash: ").Append(Hash).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Slot: ").Append(Slot).Append("\n");
+            sb.Append("  Position: ").Append(Position).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,6 +127,12 @@ namespace spoonacular.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
             yield break;
         }
     }

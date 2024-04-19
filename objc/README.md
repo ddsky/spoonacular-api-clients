@@ -48,9 +48,8 @@ Import the following:
 #import <OpenAPIClient/OAIAddMealPlanTemplate200ResponseItemsInner.h>
 #import <OpenAPIClient/OAIAddMealPlanTemplate200ResponseItemsInnerValue.h>
 #import <OpenAPIClient/OAIAddToMealPlanRequest.h>
-#import <OpenAPIClient/OAIAddToMealPlanRequest1.h>
-#import <OpenAPIClient/OAIAddToMealPlanRequest1Value.h>
-#import <OpenAPIClient/OAIAddToMealPlanRequest1ValueIngredientsInner.h>
+#import <OpenAPIClient/OAIAddToMealPlanRequestValue.h>
+#import <OpenAPIClient/OAIAddToMealPlanRequestValueIngredientsInner.h>
 #import <OpenAPIClient/OAIAddToShoppingListRequest.h>
 #import <OpenAPIClient/OAIAnalyzeARecipeSearchQuery200Response.h>
 #import <OpenAPIClient/OAIAnalyzeARecipeSearchQuery200ResponseDishesInner.h>
@@ -61,7 +60,6 @@ Import the following:
 #import <OpenAPIClient/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.h>
 #import <OpenAPIClient/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.h>
 #import <OpenAPIClient/OAIAnalyzeRecipeRequest.h>
-#import <OpenAPIClient/OAIAnalyzeRecipeRequest1.h>
 #import <OpenAPIClient/OAIAutocompleteIngredientSearch200ResponseInner.h>
 #import <OpenAPIClient/OAIAutocompleteMenuItemSearch200Response.h>
 #import <OpenAPIClient/OAIAutocompleteProductSearch200Response.h>
@@ -72,7 +70,6 @@ Import the following:
 #import <OpenAPIClient/OAIClassifyGroceryProductBulk200ResponseInner.h>
 #import <OpenAPIClient/OAIClassifyGroceryProductBulkRequestInner.h>
 #import <OpenAPIClient/OAIClassifyGroceryProductRequest.h>
-#import <OpenAPIClient/OAIClearMealPlanDayRequest.h>
 #import <OpenAPIClient/OAIComputeGlycemicLoad200Response.h>
 #import <OpenAPIClient/OAIComputeGlycemicLoad200ResponseIngredientsInner.h>
 #import <OpenAPIClient/OAIComputeGlycemicLoadRequest.h>
@@ -81,13 +78,11 @@ Import the following:
 #import <OpenAPIClient/OAIConnectUserRequest.h>
 #import <OpenAPIClient/OAIConvertAmounts200Response.h>
 #import <OpenAPIClient/OAICreateRecipeCard200Response.h>
-#import <OpenAPIClient/OAIDeleteFromMealPlanRequest.h>
 #import <OpenAPIClient/OAIDetectFoodInText200Response.h>
 #import <OpenAPIClient/OAIDetectFoodInText200ResponseAnnotationsInner.h>
 #import <OpenAPIClient/OAIGenerateMealPlan200Response.h>
 #import <OpenAPIClient/OAIGenerateMealPlan200ResponseNutrients.h>
 #import <OpenAPIClient/OAIGenerateShoppingList200Response.h>
-#import <OpenAPIClient/OAIGenerateShoppingListRequest.h>
 #import <OpenAPIClient/OAIGetARandomFoodJoke200Response.h>
 #import <OpenAPIClient/OAIGetAnalyzedRecipeInstructions200Response.h>
 #import <OpenAPIClient/OAIGetAnalyzedRecipeInstructions200ResponseIngredientsInner.h>
@@ -233,7 +228,7 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-OAIAnalyzeRecipeRequest* *analyzeRecipeRequest = [[OAIAnalyzeRecipeRequest alloc] init]; // Example request body.
+OAIAnalyzeRecipeRequest* *analyzeRecipeRequest = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "}; // Example request body.
 NSString* *language = en; // The input language, either \"en\" or \"de\". (optional)
 NSNumber* *includeNutrition = false; // Whether nutrition data should be added to correctly parsed ingredients. (optional)
 NSNumber* *includeTaste = false; // Whether taste data should be added to correctly parsed ingredients. (optional)
@@ -370,9 +365,8 @@ Class | Method | HTTP request | Description
  - [OAIAddMealPlanTemplate200ResponseItemsInner](docs/OAIAddMealPlanTemplate200ResponseItemsInner.md)
  - [OAIAddMealPlanTemplate200ResponseItemsInnerValue](docs/OAIAddMealPlanTemplate200ResponseItemsInnerValue.md)
  - [OAIAddToMealPlanRequest](docs/OAIAddToMealPlanRequest.md)
- - [OAIAddToMealPlanRequest1](docs/OAIAddToMealPlanRequest1.md)
- - [OAIAddToMealPlanRequest1Value](docs/OAIAddToMealPlanRequest1Value.md)
- - [OAIAddToMealPlanRequest1ValueIngredientsInner](docs/OAIAddToMealPlanRequest1ValueIngredientsInner.md)
+ - [OAIAddToMealPlanRequestValue](docs/OAIAddToMealPlanRequestValue.md)
+ - [OAIAddToMealPlanRequestValueIngredientsInner](docs/OAIAddToMealPlanRequestValueIngredientsInner.md)
  - [OAIAddToShoppingListRequest](docs/OAIAddToShoppingListRequest.md)
  - [OAIAnalyzeARecipeSearchQuery200Response](docs/OAIAnalyzeARecipeSearchQuery200Response.md)
  - [OAIAnalyzeARecipeSearchQuery200ResponseDishesInner](docs/OAIAnalyzeARecipeSearchQuery200ResponseDishesInner.md)
@@ -383,7 +377,6 @@ Class | Method | HTTP request | Description
  - [OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
  - [OAIAnalyzeRecipeRequest](docs/OAIAnalyzeRecipeRequest.md)
- - [OAIAnalyzeRecipeRequest1](docs/OAIAnalyzeRecipeRequest1.md)
  - [OAIAutocompleteIngredientSearch200ResponseInner](docs/OAIAutocompleteIngredientSearch200ResponseInner.md)
  - [OAIAutocompleteMenuItemSearch200Response](docs/OAIAutocompleteMenuItemSearch200Response.md)
  - [OAIAutocompleteProductSearch200Response](docs/OAIAutocompleteProductSearch200Response.md)
@@ -394,7 +387,6 @@ Class | Method | HTTP request | Description
  - [OAIClassifyGroceryProductBulk200ResponseInner](docs/OAIClassifyGroceryProductBulk200ResponseInner.md)
  - [OAIClassifyGroceryProductBulkRequestInner](docs/OAIClassifyGroceryProductBulkRequestInner.md)
  - [OAIClassifyGroceryProductRequest](docs/OAIClassifyGroceryProductRequest.md)
- - [OAIClearMealPlanDayRequest](docs/OAIClearMealPlanDayRequest.md)
  - [OAIComputeGlycemicLoad200Response](docs/OAIComputeGlycemicLoad200Response.md)
  - [OAIComputeGlycemicLoad200ResponseIngredientsInner](docs/OAIComputeGlycemicLoad200ResponseIngredientsInner.md)
  - [OAIComputeGlycemicLoadRequest](docs/OAIComputeGlycemicLoadRequest.md)
@@ -403,13 +395,11 @@ Class | Method | HTTP request | Description
  - [OAIConnectUserRequest](docs/OAIConnectUserRequest.md)
  - [OAIConvertAmounts200Response](docs/OAIConvertAmounts200Response.md)
  - [OAICreateRecipeCard200Response](docs/OAICreateRecipeCard200Response.md)
- - [OAIDeleteFromMealPlanRequest](docs/OAIDeleteFromMealPlanRequest.md)
  - [OAIDetectFoodInText200Response](docs/OAIDetectFoodInText200Response.md)
  - [OAIDetectFoodInText200ResponseAnnotationsInner](docs/OAIDetectFoodInText200ResponseAnnotationsInner.md)
  - [OAIGenerateMealPlan200Response](docs/OAIGenerateMealPlan200Response.md)
  - [OAIGenerateMealPlan200ResponseNutrients](docs/OAIGenerateMealPlan200ResponseNutrients.md)
  - [OAIGenerateShoppingList200Response](docs/OAIGenerateShoppingList200Response.md)
- - [OAIGenerateShoppingListRequest](docs/OAIGenerateShoppingListRequest.md)
  - [OAIGetARandomFoodJoke200Response](docs/OAIGetARandomFoodJoke200Response.md)
  - [OAIGetAnalyzedRecipeInstructions200Response](docs/OAIGetAnalyzedRecipeInstructions200Response.md)
  - [OAIGetAnalyzedRecipeInstructions200ResponseIngredientsInner](docs/OAIGetAnalyzedRecipeInstructions200ResponseIngredientsInner.md)

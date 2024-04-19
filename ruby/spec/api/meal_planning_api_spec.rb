@@ -37,7 +37,6 @@ describe 'MealPlanningApi' do
   # Add a meal plan template for a user.
   # @param username The username.
   # @param hash The private hash for the username.
-  # @param add_to_meal_plan_request 
   # @param [Hash] opts the optional parameters
   # @return [AddMealPlanTemplate200Response]
   describe 'add_meal_plan_template test' do
@@ -65,7 +64,7 @@ describe 'MealPlanningApi' do
   # Add an item to the current shopping list of a user.
   # @param username The username.
   # @param hash The private hash for the username.
-  # @param add_to_meal_plan_request 
+  # @param add_to_shopping_list_request 
   # @param [Hash] opts the optional parameters
   # @return [GenerateShoppingList200Response]
   describe 'add_to_shopping_list test' do
@@ -80,7 +79,6 @@ describe 'MealPlanningApi' do
   # @param username The username.
   # @param date The date in the format yyyy-mm-dd.
   # @param hash The private hash for the username.
-  # @param clear_meal_plan_day_request 
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'clear_meal_plan_day test' do
@@ -92,7 +90,7 @@ describe 'MealPlanningApi' do
   # unit tests for connect_user
   # Connect User
   # In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
-  # @param body 
+  # @param connect_user_request 
   # @param [Hash] opts the optional parameters
   # @return [ConnectUser200Response]
   describe 'connect_user test' do
@@ -107,7 +105,6 @@ describe 'MealPlanningApi' do
   # @param username The username.
   # @param id The shopping list item id.
   # @param hash The private hash for the username.
-  # @param delete_from_meal_plan_request 
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'delete_from_meal_plan test' do
@@ -122,7 +119,6 @@ describe 'MealPlanningApi' do
   # @param username The username.
   # @param id The item&#39;s id.
   # @param hash The private hash for the username.
-  # @param delete_from_meal_plan_request 
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'delete_from_shopping_list test' do
@@ -137,7 +133,6 @@ describe 'MealPlanningApi' do
   # @param username The username.
   # @param id The item&#39;s id.
   # @param hash The private hash for the username.
-  # @param delete_from_meal_plan_request 
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'delete_meal_plan_template test' do
@@ -168,7 +163,6 @@ describe 'MealPlanningApi' do
   # @param start_date The start date in the format yyyy-mm-dd.
   # @param end_date The end date in the format yyyy-mm-dd.
   # @param hash The private hash for the username.
-  # @param generate_shopping_list_request 
   # @param [Hash] opts the optional parameters
   # @return [GenerateShoppingList200Response]
   describe 'generate_shopping_list test' do

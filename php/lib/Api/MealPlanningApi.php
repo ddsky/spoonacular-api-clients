@@ -73,37 +73,34 @@ class MealPlanningApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'addMealPlanTemplate' => [
-            '',
+            'application/json',
         ],
         'addToMealPlan' => [
-            '',
             'application/json',
         ],
         'addToShoppingList' => [
-            '',
             'application/json',
         ],
         'clearMealPlanDay' => [
-            '',
+            'application/json',
         ],
         'connectUser' => [
-            '',
             'application/json',
         ],
         'deleteFromMealPlan' => [
-            '',
+            'application/json',
         ],
         'deleteFromShoppingList' => [
-            '',
+            'application/json',
         ],
         'deleteMealPlanTemplate' => [
-            '',
+            'application/json',
         ],
         'generateMealPlan' => [
             'application/json',
         ],
         'generateShoppingList' => [
-            '',
+            'application/json',
         ],
         'getMealPlanTemplate' => [
             'application/json',
@@ -172,16 +169,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request add_to_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AddMealPlanTemplate200Response
      */
-    public function addMealPlanTemplate($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
+    public function addMealPlanTemplate($username, $hash, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
     {
-        list($response) = $this->addMealPlanTemplateWithHttpInfo($username, $hash, $add_to_meal_plan_request, $contentType);
+        list($response) = $this->addMealPlanTemplateWithHttpInfo($username, $hash, $contentType);
         return $response;
     }
 
@@ -192,16 +188,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AddMealPlanTemplate200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addMealPlanTemplateWithHttpInfo($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
+    public function addMealPlanTemplateWithHttpInfo($username, $hash, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
     {
-        $request = $this->addMealPlanTemplateRequest($username, $hash, $add_to_meal_plan_request, $contentType);
+        $request = $this->addMealPlanTemplateRequest($username, $hash, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -318,15 +313,14 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addMealPlanTemplateAsync($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
+    public function addMealPlanTemplateAsync($username, $hash, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
     {
-        return $this->addMealPlanTemplateAsyncWithHttpInfo($username, $hash, $add_to_meal_plan_request, $contentType)
+        return $this->addMealPlanTemplateAsyncWithHttpInfo($username, $hash, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -341,16 +335,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addMealPlanTemplateAsyncWithHttpInfo($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
+    public function addMealPlanTemplateAsyncWithHttpInfo($username, $hash, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AddMealPlanTemplate200Response';
-        $request = $this->addMealPlanTemplateRequest($username, $hash, $add_to_meal_plan_request, $contentType);
+        $request = $this->addMealPlanTemplateRequest($username, $hash, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -393,13 +386,12 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addMealPlanTemplateRequest($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
+    public function addMealPlanTemplateRequest($username, $hash, string $contentType = self::contentTypes['addMealPlanTemplate'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -413,13 +405,6 @@ class MealPlanningApi
         if ($hash === null || (is_array($hash) && count($hash) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $hash when calling addMealPlanTemplate'
-            );
-        }
-
-        // verify the required parameter 'add_to_meal_plan_request' is set
-        if ($add_to_meal_plan_request === null || (is_array($add_to_meal_plan_request) && count($add_to_meal_plan_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $add_to_meal_plan_request when calling addMealPlanTemplate'
             );
         }
 
@@ -459,14 +444,7 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($add_to_meal_plan_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_to_meal_plan_request));
-            } else {
-                $httpBody = $add_to_meal_plan_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -876,16 +854,16 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request add_to_meal_plan_request (required)
+     * @param  \OpenAPI\Client\Model\AddToShoppingListRequest $add_to_shopping_list_request add_to_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addToShoppingList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GenerateShoppingList200Response
      */
-    public function addToShoppingList($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addToShoppingList'][0])
+    public function addToShoppingList($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
-        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $add_to_meal_plan_request, $contentType);
+        list($response) = $this->addToShoppingListWithHttpInfo($username, $hash, $add_to_shopping_list_request, $contentType);
         return $response;
     }
 
@@ -896,16 +874,16 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
+     * @param  \OpenAPI\Client\Model\AddToShoppingListRequest $add_to_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addToShoppingList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GenerateShoppingList200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addToShoppingListWithHttpInfo($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addToShoppingList'][0])
+    public function addToShoppingListWithHttpInfo($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
-        $request = $this->addToShoppingListRequest($username, $hash, $add_to_meal_plan_request, $contentType);
+        $request = $this->addToShoppingListRequest($username, $hash, $add_to_shopping_list_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1022,15 +1000,15 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
+     * @param  \OpenAPI\Client\Model\AddToShoppingListRequest $add_to_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addToShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToShoppingListAsync($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addToShoppingList'][0])
+    public function addToShoppingListAsync($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
-        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $add_to_meal_plan_request, $contentType)
+        return $this->addToShoppingListAsyncWithHttpInfo($username, $hash, $add_to_shopping_list_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1045,16 +1023,16 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
+     * @param  \OpenAPI\Client\Model\AddToShoppingListRequest $add_to_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addToShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addToShoppingList'][0])
+    public function addToShoppingListAsyncWithHttpInfo($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GenerateShoppingList200Response';
-        $request = $this->addToShoppingListRequest($username, $hash, $add_to_meal_plan_request, $contentType);
+        $request = $this->addToShoppingListRequest($username, $hash, $add_to_shopping_list_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1097,13 +1075,13 @@ class MealPlanningApi
      *
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\AddToMealPlanRequest $add_to_meal_plan_request (required)
+     * @param  \OpenAPI\Client\Model\AddToShoppingListRequest $add_to_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addToShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addToShoppingListRequest($username, $hash, $add_to_meal_plan_request, string $contentType = self::contentTypes['addToShoppingList'][0])
+    public function addToShoppingListRequest($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -1120,10 +1098,10 @@ class MealPlanningApi
             );
         }
 
-        // verify the required parameter 'add_to_meal_plan_request' is set
-        if ($add_to_meal_plan_request === null || (is_array($add_to_meal_plan_request) && count($add_to_meal_plan_request) === 0)) {
+        // verify the required parameter 'add_to_shopping_list_request' is set
+        if ($add_to_shopping_list_request === null || (is_array($add_to_shopping_list_request) && count($add_to_shopping_list_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $add_to_meal_plan_request when calling addToShoppingList'
+                'Missing the required parameter $add_to_shopping_list_request when calling addToShoppingList'
             );
         }
 
@@ -1163,12 +1141,12 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($add_to_meal_plan_request)) {
+        if (isset($add_to_shopping_list_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_to_meal_plan_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($add_to_shopping_list_request));
             } else {
-                $httpBody = $add_to_meal_plan_request;
+                $httpBody = $add_to_shopping_list_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1229,16 +1207,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  string $date The date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\ClearMealPlanDayRequest $clear_meal_plan_day_request clear_meal_plan_day_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clearMealPlanDay'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clearMealPlanDay($username, $date, $hash, $clear_meal_plan_day_request, string $contentType = self::contentTypes['clearMealPlanDay'][0])
+    public function clearMealPlanDay($username, $date, $hash, string $contentType = self::contentTypes['clearMealPlanDay'][0])
     {
-        list($response) = $this->clearMealPlanDayWithHttpInfo($username, $date, $hash, $clear_meal_plan_day_request, $contentType);
+        list($response) = $this->clearMealPlanDayWithHttpInfo($username, $date, $hash, $contentType);
         return $response;
     }
 
@@ -1250,16 +1227,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  string $date The date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\ClearMealPlanDayRequest $clear_meal_plan_day_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clearMealPlanDay'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clearMealPlanDayWithHttpInfo($username, $date, $hash, $clear_meal_plan_day_request, string $contentType = self::contentTypes['clearMealPlanDay'][0])
+    public function clearMealPlanDayWithHttpInfo($username, $date, $hash, string $contentType = self::contentTypes['clearMealPlanDay'][0])
     {
-        $request = $this->clearMealPlanDayRequest($username, $date, $hash, $clear_meal_plan_day_request, $contentType);
+        $request = $this->clearMealPlanDayRequest($username, $date, $hash, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1377,15 +1353,14 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  string $date The date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\ClearMealPlanDayRequest $clear_meal_plan_day_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clearMealPlanDay'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clearMealPlanDayAsync($username, $date, $hash, $clear_meal_plan_day_request, string $contentType = self::contentTypes['clearMealPlanDay'][0])
+    public function clearMealPlanDayAsync($username, $date, $hash, string $contentType = self::contentTypes['clearMealPlanDay'][0])
     {
-        return $this->clearMealPlanDayAsyncWithHttpInfo($username, $date, $hash, $clear_meal_plan_day_request, $contentType)
+        return $this->clearMealPlanDayAsyncWithHttpInfo($username, $date, $hash, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1401,16 +1376,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  string $date The date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\ClearMealPlanDayRequest $clear_meal_plan_day_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clearMealPlanDay'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clearMealPlanDayAsyncWithHttpInfo($username, $date, $hash, $clear_meal_plan_day_request, string $contentType = self::contentTypes['clearMealPlanDay'][0])
+    public function clearMealPlanDayAsyncWithHttpInfo($username, $date, $hash, string $contentType = self::contentTypes['clearMealPlanDay'][0])
     {
         $returnType = 'object';
-        $request = $this->clearMealPlanDayRequest($username, $date, $hash, $clear_meal_plan_day_request, $contentType);
+        $request = $this->clearMealPlanDayRequest($username, $date, $hash, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1454,13 +1428,12 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  string $date The date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\ClearMealPlanDayRequest $clear_meal_plan_day_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clearMealPlanDay'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clearMealPlanDayRequest($username, $date, $hash, $clear_meal_plan_day_request, string $contentType = self::contentTypes['clearMealPlanDay'][0])
+    public function clearMealPlanDayRequest($username, $date, $hash, string $contentType = self::contentTypes['clearMealPlanDay'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -1481,13 +1454,6 @@ class MealPlanningApi
         if ($hash === null || (is_array($hash) && count($hash) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $hash when calling clearMealPlanDay'
-            );
-        }
-
-        // verify the required parameter 'clear_meal_plan_day_request' is set
-        if ($clear_meal_plan_day_request === null || (is_array($clear_meal_plan_day_request) && count($clear_meal_plan_day_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $clear_meal_plan_day_request when calling clearMealPlanDay'
             );
         }
 
@@ -1535,14 +1501,7 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($clear_meal_plan_day_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clear_meal_plan_day_request));
-            } else {
-                $httpBody = $clear_meal_plan_day_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1598,16 +1557,16 @@ class MealPlanningApi
      *
      * Connect User
      *
-     * @param  object $body body (required)
+     * @param  \OpenAPI\Client\Model\ConnectUserRequest $connect_user_request connect_user_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['connectUser'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ConnectUser200Response
      */
-    public function connectUser($body, string $contentType = self::contentTypes['connectUser'][0])
+    public function connectUser($connect_user_request, string $contentType = self::contentTypes['connectUser'][0])
     {
-        list($response) = $this->connectUserWithHttpInfo($body, $contentType);
+        list($response) = $this->connectUserWithHttpInfo($connect_user_request, $contentType);
         return $response;
     }
 
@@ -1616,16 +1575,16 @@ class MealPlanningApi
      *
      * Connect User
      *
-     * @param  object $body (required)
+     * @param  \OpenAPI\Client\Model\ConnectUserRequest $connect_user_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['connectUser'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ConnectUser200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function connectUserWithHttpInfo($body, string $contentType = self::contentTypes['connectUser'][0])
+    public function connectUserWithHttpInfo($connect_user_request, string $contentType = self::contentTypes['connectUser'][0])
     {
-        $request = $this->connectUserRequest($body, $contentType);
+        $request = $this->connectUserRequest($connect_user_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1740,15 +1699,15 @@ class MealPlanningApi
      *
      * Connect User
      *
-     * @param  object $body (required)
+     * @param  \OpenAPI\Client\Model\ConnectUserRequest $connect_user_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['connectUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function connectUserAsync($body, string $contentType = self::contentTypes['connectUser'][0])
+    public function connectUserAsync($connect_user_request, string $contentType = self::contentTypes['connectUser'][0])
     {
-        return $this->connectUserAsyncWithHttpInfo($body, $contentType)
+        return $this->connectUserAsyncWithHttpInfo($connect_user_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1761,16 +1720,16 @@ class MealPlanningApi
      *
      * Connect User
      *
-     * @param  object $body (required)
+     * @param  \OpenAPI\Client\Model\ConnectUserRequest $connect_user_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['connectUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function connectUserAsyncWithHttpInfo($body, string $contentType = self::contentTypes['connectUser'][0])
+    public function connectUserAsyncWithHttpInfo($connect_user_request, string $contentType = self::contentTypes['connectUser'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ConnectUser200Response';
-        $request = $this->connectUserRequest($body, $contentType);
+        $request = $this->connectUserRequest($connect_user_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1811,19 +1770,19 @@ class MealPlanningApi
     /**
      * Create request for operation 'connectUser'
      *
-     * @param  object $body (required)
+     * @param  \OpenAPI\Client\Model\ConnectUserRequest $connect_user_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['connectUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function connectUserRequest($body, string $contentType = self::contentTypes['connectUser'][0])
+    public function connectUserRequest($connect_user_request, string $contentType = self::contentTypes['connectUser'][0])
     {
 
-        // verify the required parameter 'body' is set
-        if ($body === null || (is_array($body) && count($body) === 0)) {
+        // verify the required parameter 'connect_user_request' is set
+        if ($connect_user_request === null || (is_array($connect_user_request) && count($connect_user_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling connectUser'
+                'Missing the required parameter $connect_user_request when calling connectUser'
             );
         }
 
@@ -1846,12 +1805,12 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($body)) {
+        if (isset($connect_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($connect_user_request));
             } else {
-                $httpBody = $body;
+                $httpBody = $connect_user_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1912,16 +1871,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteFromMealPlan($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
+    public function deleteFromMealPlan($username, $id, $hash, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
     {
-        list($response) = $this->deleteFromMealPlanWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        list($response) = $this->deleteFromMealPlanWithHttpInfo($username, $id, $hash, $contentType);
         return $response;
     }
 
@@ -1933,16 +1891,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFromMealPlanWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
+    public function deleteFromMealPlanWithHttpInfo($username, $id, $hash, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
     {
-        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2060,15 +2017,14 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromMealPlanAsync($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
+    public function deleteFromMealPlanAsync($username, $id, $hash, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
     {
-        return $this->deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, $contentType)
+        return $this->deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2084,16 +2040,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
+    public function deleteFromMealPlanAsyncWithHttpInfo($username, $id, $hash, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
     {
         $returnType = 'object';
-        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        $request = $this->deleteFromMealPlanRequest($username, $id, $hash, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2137,13 +2092,12 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  float $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFromMealPlanRequest($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
+    public function deleteFromMealPlanRequest($username, $id, $hash, string $contentType = self::contentTypes['deleteFromMealPlan'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -2164,13 +2118,6 @@ class MealPlanningApi
         if ($hash === null || (is_array($hash) && count($hash) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $hash when calling deleteFromMealPlan'
-            );
-        }
-
-        // verify the required parameter 'delete_from_meal_plan_request' is set
-        if ($delete_from_meal_plan_request === null || (is_array($delete_from_meal_plan_request) && count($delete_from_meal_plan_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $delete_from_meal_plan_request when calling deleteFromMealPlan'
             );
         }
 
@@ -2218,14 +2165,7 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($delete_from_meal_plan_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delete_from_meal_plan_request));
-            } else {
-                $httpBody = $delete_from_meal_plan_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2284,16 +2224,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteFromShoppingList($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
+    public function deleteFromShoppingList($username, $id, $hash, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
     {
-        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        list($response) = $this->deleteFromShoppingListWithHttpInfo($username, $id, $hash, $contentType);
         return $response;
     }
 
@@ -2305,16 +2244,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
+    public function deleteFromShoppingListWithHttpInfo($username, $id, $hash, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
     {
-        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2432,15 +2370,14 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromShoppingListAsync($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
+    public function deleteFromShoppingListAsync($username, $id, $hash, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
     {
-        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, $contentType)
+        return $this->deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2456,16 +2393,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
+    public function deleteFromShoppingListAsyncWithHttpInfo($username, $id, $hash, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
     {
         $returnType = 'object';
-        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        $request = $this->deleteFromShoppingListRequest($username, $id, $hash, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2509,13 +2445,12 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFromShoppingListRequest($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
+    public function deleteFromShoppingListRequest($username, $id, $hash, string $contentType = self::contentTypes['deleteFromShoppingList'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -2536,13 +2471,6 @@ class MealPlanningApi
         if ($hash === null || (is_array($hash) && count($hash) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $hash when calling deleteFromShoppingList'
-            );
-        }
-
-        // verify the required parameter 'delete_from_meal_plan_request' is set
-        if ($delete_from_meal_plan_request === null || (is_array($delete_from_meal_plan_request) && count($delete_from_meal_plan_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $delete_from_meal_plan_request when calling deleteFromShoppingList'
             );
         }
 
@@ -2590,14 +2518,7 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($delete_from_meal_plan_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delete_from_meal_plan_request));
-            } else {
-                $httpBody = $delete_from_meal_plan_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2656,16 +2577,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteMealPlanTemplate($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
+    public function deleteMealPlanTemplate($username, $id, $hash, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
     {
-        list($response) = $this->deleteMealPlanTemplateWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        list($response) = $this->deleteMealPlanTemplateWithHttpInfo($username, $id, $hash, $contentType);
         return $response;
     }
 
@@ -2677,16 +2597,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMealPlanTemplateWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
+    public function deleteMealPlanTemplateWithHttpInfo($username, $id, $hash, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
     {
-        $request = $this->deleteMealPlanTemplateRequest($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        $request = $this->deleteMealPlanTemplateRequest($username, $id, $hash, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2804,15 +2723,14 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMealPlanTemplateAsync($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
+    public function deleteMealPlanTemplateAsync($username, $id, $hash, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
     {
-        return $this->deleteMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, $contentType)
+        return $this->deleteMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2828,16 +2746,15 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
+    public function deleteMealPlanTemplateAsyncWithHttpInfo($username, $id, $hash, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
     {
         $returnType = 'object';
-        $request = $this->deleteMealPlanTemplateRequest($username, $id, $hash, $delete_from_meal_plan_request, $contentType);
+        $request = $this->deleteMealPlanTemplateRequest($username, $id, $hash, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2881,13 +2798,12 @@ class MealPlanningApi
      * @param  string $username The username. (required)
      * @param  int $id The item&#39;s id. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\DeleteFromMealPlanRequest $delete_from_meal_plan_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMealPlanTemplateRequest($username, $id, $hash, $delete_from_meal_plan_request, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
+    public function deleteMealPlanTemplateRequest($username, $id, $hash, string $contentType = self::contentTypes['deleteMealPlanTemplate'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -2908,13 +2824,6 @@ class MealPlanningApi
         if ($hash === null || (is_array($hash) && count($hash) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $hash when calling deleteMealPlanTemplate'
-            );
-        }
-
-        // verify the required parameter 'delete_from_meal_plan_request' is set
-        if ($delete_from_meal_plan_request === null || (is_array($delete_from_meal_plan_request) && count($delete_from_meal_plan_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $delete_from_meal_plan_request when calling deleteMealPlanTemplate'
             );
         }
 
@@ -2962,14 +2871,7 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($delete_from_meal_plan_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delete_from_meal_plan_request));
-            } else {
-                $httpBody = $delete_from_meal_plan_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3381,16 +3283,15 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\GenerateShoppingListRequest $generate_shopping_list_request generate_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateShoppingList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GenerateShoppingList200Response
      */
-    public function generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request, string $contentType = self::contentTypes['generateShoppingList'][0])
+    public function generateShoppingList($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
-        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $generate_shopping_list_request, $contentType);
+        list($response) = $this->generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $contentType);
         return $response;
     }
 
@@ -3403,16 +3304,15 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\GenerateShoppingListRequest $generate_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateShoppingList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GenerateShoppingList200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, $generate_shopping_list_request, string $contentType = self::contentTypes['generateShoppingList'][0])
+    public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
-        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $generate_shopping_list_request, $contentType);
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3531,15 +3431,14 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\GenerateShoppingListRequest $generate_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, $generate_shopping_list_request, string $contentType = self::contentTypes['generateShoppingList'][0])
+    public function generateShoppingListAsync($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
-        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $generate_shopping_list_request, $contentType)
+        return $this->generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3556,16 +3455,15 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\GenerateShoppingListRequest $generate_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, $generate_shopping_list_request, string $contentType = self::contentTypes['generateShoppingList'][0])
+    public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GenerateShoppingList200Response';
-        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $generate_shopping_list_request, $contentType);
+        $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3610,13 +3508,12 @@ class MealPlanningApi
      * @param  string $start_date The start date in the format yyyy-mm-dd. (required)
      * @param  string $end_date The end date in the format yyyy-mm-dd. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  \OpenAPI\Client\Model\GenerateShoppingListRequest $generate_shopping_list_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateShoppingList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function generateShoppingListRequest($username, $start_date, $end_date, $hash, $generate_shopping_list_request, string $contentType = self::contentTypes['generateShoppingList'][0])
+    public function generateShoppingListRequest($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
 
         // verify the required parameter 'username' is set
@@ -3644,13 +3541,6 @@ class MealPlanningApi
         if ($hash === null || (is_array($hash) && count($hash) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $hash when calling generateShoppingList'
-            );
-        }
-
-        // verify the required parameter 'generate_shopping_list_request' is set
-        if ($generate_shopping_list_request === null || (is_array($generate_shopping_list_request) && count($generate_shopping_list_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $generate_shopping_list_request when calling generateShoppingList'
             );
         }
 
@@ -3706,14 +3596,7 @@ class MealPlanningApi
         );
 
         // for model (json/xml)
-        if (isset($generate_shopping_list_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($generate_shopping_list_request));
-            } else {
-                $httpBody = $generate_shopping_list_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

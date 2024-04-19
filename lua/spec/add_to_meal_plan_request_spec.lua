@@ -16,15 +16,36 @@ Please update as you see appropriate
 describe("add_to_meal_plan_request", function()
   local spoonacular_add_to_meal_plan_request = require "spoonacular.model.add_to_meal_plan_request"
 
-  -- unit tests for the property 'username'
-  describe("property username test", function()
+  -- unit tests for the property 'date'
+  describe("property date test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
   end)
 
-  -- unit tests for the property 'hash'
-  describe("property hash test", function()
+  -- unit tests for the property 'slot'
+  describe("property slot test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'position'
+  describe("property position test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'type'
+  describe("property type test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'value'
+  describe("property value test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

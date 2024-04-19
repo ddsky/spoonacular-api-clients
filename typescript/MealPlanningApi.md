@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **addMealPlanTemplate**
-> AddMealPlanTemplate200Response addMealPlanTemplate(addToMealPlanRequest)
+> AddMealPlanTemplate200Response addMealPlanTemplate()
 
 Add a meal plan template for a user.
 
@@ -40,11 +40,6 @@ let body:.MealPlanningApiAddMealPlanTemplateRequest = {
   username: "dsky",
   // string | The private hash for the username.
   hash: "4b5v4398573406",
-  // AddToMealPlanRequest
-  addToMealPlanRequest: {
-    username: "dsky",
-    hash: "4b5v4398573406",
-  },
 };
 
 apiInstance.addMealPlanTemplate(body).then((data:any) => {
@@ -57,7 +52,6 @@ apiInstance.addMealPlanTemplate(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addToMealPlanRequest** | **AddToMealPlanRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
@@ -72,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -108,8 +102,17 @@ let body:.MealPlanningApiAddToMealPlanRequest = {
   hash: "hash_example",
   // AddToMealPlanRequest
   addToMealPlanRequest: {
-    username: "dsky",
-    hash: "4b5v4398573406",
+    date: 3.14,
+    slot: 1,
+    position: 1,
+    type: "type_example",
+    value: {
+      ingredients: [
+        {
+          name: "name_example",
+        },
+      ],
+    },
   },
 };
 
@@ -138,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -153,7 +156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(addToMealPlanRequest)
+> GenerateShoppingList200Response addToShoppingList(addToShoppingListRequest)
 
 Add an item to the current shopping list of a user.
 
@@ -172,10 +175,11 @@ let body:.MealPlanningApiAddToShoppingListRequest = {
   username: "dsky",
   // string | The private hash for the username.
   hash: "hash_example",
-  // AddToMealPlanRequest
-  addToMealPlanRequest: {
-    username: "dsky",
-    hash: "4b5v4398573406",
+  // AddToShoppingListRequest
+  addToShoppingListRequest: {
+    item: "item_example",
+    aisle: "aisle_example",
+    parse: true,
   },
 };
 
@@ -189,7 +193,7 @@ apiInstance.addToShoppingList(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addToMealPlanRequest** | **AddToMealPlanRequest**|  |
+ **addToShoppingListRequest** | **AddToShoppingListRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
@@ -204,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -219,7 +223,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **clearMealPlanDay**
-> any clearMealPlanDay(clearMealPlanDayRequest)
+> any clearMealPlanDay()
 
 Delete all planned items from the user\'s meal plan for a specific day.
 
@@ -240,12 +244,6 @@ let body:.MealPlanningApiClearMealPlanDayRequest = {
   date: "2020-06-01",
   // string | The private hash for the username.
   hash: "hash_example",
-  // ClearMealPlanDayRequest
-  clearMealPlanDayRequest: {
-    username: "dsky",
-    date: "2020-06-01",
-    hash: "4b5v4398573406",
-  },
 };
 
 apiInstance.clearMealPlanDay(body).then((data:any) => {
@@ -258,7 +256,6 @@ apiInstance.clearMealPlanDay(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clearMealPlanDayRequest** | **ClearMealPlanDayRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **date** | [**string**] | The date in the format yyyy-mm-dd. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
@@ -274,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -289,7 +286,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **connectUser**
-> ConnectUser200Response connectUser(body)
+> ConnectUser200Response connectUser(connectUserRequest)
 
 In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
 
@@ -304,8 +301,13 @@ const configuration = .createConfiguration();
 const apiInstance = new .MealPlanningApi(configuration);
 
 let body:.MealPlanningApiConnectUserRequest = {
-  // any
-  body: {},
+  // ConnectUserRequest
+  connectUserRequest: {
+    username: "username_example",
+    firstName: "firstName_example",
+    lastName: "lastName_example",
+    email: "email_example",
+  },
 };
 
 apiInstance.connectUser(body).then((data:any) => {
@@ -318,7 +320,7 @@ apiInstance.connectUser(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **any**|  |
+ **connectUserRequest** | **ConnectUserRequest**|  |
 
 
 ### Return type
@@ -331,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -346,7 +348,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteFromMealPlan**
-> any deleteFromMealPlan(deleteFromMealPlanRequest)
+> any deleteFromMealPlan()
 
 Delete an item from the user\'s meal plan.
 
@@ -367,12 +369,6 @@ let body:.MealPlanningApiDeleteFromMealPlanRequest = {
   id: 15678,
   // string | The private hash for the username.
   hash: "hash_example",
-  // DeleteFromMealPlanRequest
-  deleteFromMealPlanRequest: {
-    username: "dsky",
-    id: 15678,
-    hash: "4b5v4398573406",
-  },
 };
 
 apiInstance.deleteFromMealPlan(body).then((data:any) => {
@@ -385,7 +381,6 @@ apiInstance.deleteFromMealPlan(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deleteFromMealPlanRequest** | **DeleteFromMealPlanRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **id** | [**number**] | The shopping list item id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
@@ -401,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -416,7 +411,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteFromShoppingList**
-> any deleteFromShoppingList(deleteFromMealPlanRequest)
+> any deleteFromShoppingList()
 
 Delete an item from the current shopping list of the user.
 
@@ -437,12 +432,6 @@ let body:.MealPlanningApiDeleteFromShoppingListRequest = {
   id: 1,
   // string | The private hash for the username.
   hash: "hash_example",
-  // DeleteFromMealPlanRequest
-  deleteFromMealPlanRequest: {
-    username: "dsky",
-    id: 15678,
-    hash: "4b5v4398573406",
-  },
 };
 
 apiInstance.deleteFromShoppingList(body).then((data:any) => {
@@ -455,7 +444,6 @@ apiInstance.deleteFromShoppingList(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deleteFromMealPlanRequest** | **DeleteFromMealPlanRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
@@ -471,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -486,7 +474,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **deleteMealPlanTemplate**
-> any deleteMealPlanTemplate(deleteFromMealPlanRequest)
+> any deleteMealPlanTemplate()
 
 Delete a meal plan template for a user.
 
@@ -507,12 +495,6 @@ let body:.MealPlanningApiDeleteMealPlanTemplateRequest = {
   id: 1,
   // string | The private hash for the username.
   hash: "4b5v4398573406",
-  // DeleteFromMealPlanRequest
-  deleteFromMealPlanRequest: {
-    username: "dsky",
-    id: 15678,
-    hash: "4b5v4398573406",
-  },
 };
 
 apiInstance.deleteMealPlanTemplate(body).then((data:any) => {
@@ -525,7 +507,6 @@ apiInstance.deleteMealPlanTemplate(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deleteFromMealPlanRequest** | **DeleteFromMealPlanRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
@@ -541,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -622,7 +603,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList(generateShoppingListRequest)
+> GenerateShoppingList200Response generateShoppingList()
 
 Generate the shopping list for a user from the meal planner in a given time frame.
 
@@ -645,13 +626,6 @@ let body:.MealPlanningApiGenerateShoppingListRequest = {
   endDate: "2020-06-07",
   // string | The private hash for the username.
   hash: "hash_example",
-  // GenerateShoppingListRequest
-  generateShoppingListRequest: {
-    username: "dsky",
-    startDate: "2020-06-01",
-    endDate: "2020-06-07",
-    hash: "4b5v4398573406",
-  },
 };
 
 apiInstance.generateShoppingList(body).then((data:any) => {
@@ -664,7 +638,6 @@ apiInstance.generateShoppingList(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **generateShoppingListRequest** | **GenerateShoppingListRequest**|  |
  **username** | [**string**] | The username. | defaults to undefined
  **startDate** | [**string**] | The start date in the format yyyy-mm-dd. | defaults to undefined
  **endDate** | [**string**] | The end date in the format yyyy-mm-dd. | defaults to undefined
@@ -681,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

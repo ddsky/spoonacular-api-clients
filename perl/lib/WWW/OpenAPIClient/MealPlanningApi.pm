@@ -55,7 +55,6 @@ sub new {
 #
 # @param string $username The username. (required)
 # @param string $hash The private hash for the username. (required)
-# @param AddToMealPlanRequest $add_to_meal_plan_request  (required)
 {
     my $params = {
     'username' => {
@@ -66,11 +65,6 @@ sub new {
     'hash' => {
         data_type => 'string',
         description => 'The private hash for the username.',
-        required => '1',
-    },
-    'add_to_meal_plan_request' => {
-        data_type => 'AddToMealPlanRequest',
-        description => '',
         required => '1',
     },
     };
@@ -95,11 +89,6 @@ sub add_meal_plan_template {
       croak("Missing the required parameter 'hash' when calling add_meal_plan_template");
     }
 
-    # verify the required parameter 'add_to_meal_plan_request' is set
-    unless (exists $args{'add_to_meal_plan_request'}) {
-      croak("Missing the required parameter 'add_to_meal_plan_request' when calling add_meal_plan_template");
-    }
-
     # parse inputs
     my $_resource_path = '/mealplanner/{username}/templates';
 
@@ -113,7 +102,7 @@ sub add_meal_plan_template {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
     if ( exists $args{'hash'}) {
@@ -128,11 +117,6 @@ sub add_meal_plan_template {
     }
 
     my $_body_data;
-    # body params
-    if ( exists $args{'add_to_meal_plan_request'}) {
-        $_body_data = $args{'add_to_meal_plan_request'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
 
@@ -212,7 +196,7 @@ sub add_to_meal_plan {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('', 'application/json');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
     # query params
     if ( exists $args{'hash'}) {
@@ -253,7 +237,7 @@ sub add_to_meal_plan {
 #
 # @param string $username The username. (required)
 # @param string $hash The private hash for the username. (required)
-# @param AddToMealPlanRequest $add_to_meal_plan_request  (required)
+# @param AddToShoppingListRequest $add_to_shopping_list_request  (required)
 {
     my $params = {
     'username' => {
@@ -266,8 +250,8 @@ sub add_to_meal_plan {
         description => 'The private hash for the username.',
         required => '1',
     },
-    'add_to_meal_plan_request' => {
-        data_type => 'AddToMealPlanRequest',
+    'add_to_shopping_list_request' => {
+        data_type => 'AddToShoppingListRequest',
         description => '',
         required => '1',
     },
@@ -293,9 +277,9 @@ sub add_to_shopping_list {
       croak("Missing the required parameter 'hash' when calling add_to_shopping_list");
     }
 
-    # verify the required parameter 'add_to_meal_plan_request' is set
-    unless (exists $args{'add_to_meal_plan_request'}) {
-      croak("Missing the required parameter 'add_to_meal_plan_request' when calling add_to_shopping_list");
+    # verify the required parameter 'add_to_shopping_list_request' is set
+    unless (exists $args{'add_to_shopping_list_request'}) {
+      croak("Missing the required parameter 'add_to_shopping_list_request' when calling add_to_shopping_list");
     }
 
     # parse inputs
@@ -311,7 +295,7 @@ sub add_to_shopping_list {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('', 'application/json');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
     # query params
     if ( exists $args{'hash'}) {
@@ -327,8 +311,8 @@ sub add_to_shopping_list {
 
     my $_body_data;
     # body params
-    if ( exists $args{'add_to_meal_plan_request'}) {
-        $_body_data = $args{'add_to_meal_plan_request'};
+    if ( exists $args{'add_to_shopping_list_request'}) {
+        $_body_data = $args{'add_to_shopping_list_request'};
     }
 
     # authentication setting, if any
@@ -353,7 +337,6 @@ sub add_to_shopping_list {
 # @param string $username The username. (required)
 # @param string $date The date in the format yyyy-mm-dd. (required)
 # @param string $hash The private hash for the username. (required)
-# @param ClearMealPlanDayRequest $clear_meal_plan_day_request  (required)
 {
     my $params = {
     'username' => {
@@ -369,11 +352,6 @@ sub add_to_shopping_list {
     'hash' => {
         data_type => 'string',
         description => 'The private hash for the username.',
-        required => '1',
-    },
-    'clear_meal_plan_day_request' => {
-        data_type => 'ClearMealPlanDayRequest',
-        description => '',
         required => '1',
     },
     };
@@ -403,11 +381,6 @@ sub clear_meal_plan_day {
       croak("Missing the required parameter 'hash' when calling clear_meal_plan_day");
     }
 
-    # verify the required parameter 'clear_meal_plan_day_request' is set
-    unless (exists $args{'clear_meal_plan_day_request'}) {
-      croak("Missing the required parameter 'clear_meal_plan_day_request' when calling clear_meal_plan_day");
-    }
-
     # parse inputs
     my $_resource_path = '/mealplanner/{username}/day/{date}';
 
@@ -421,7 +394,7 @@ sub clear_meal_plan_day {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
     if ( exists $args{'hash'}) {
@@ -443,11 +416,6 @@ sub clear_meal_plan_day {
     }
 
     my $_body_data;
-    # body params
-    if ( exists $args{'clear_meal_plan_day_request'}) {
-        $_body_data = $args{'clear_meal_plan_day_request'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
 
@@ -467,11 +435,11 @@ sub clear_meal_plan_day {
 #
 # Connect User
 #
-# @param object $body  (required)
+# @param ConnectUserRequest $connect_user_request  (required)
 {
     my $params = {
-    'body' => {
-        data_type => 'object',
+    'connect_user_request' => {
+        data_type => 'ConnectUserRequest',
         description => '',
         required => '1',
     },
@@ -487,9 +455,9 @@ sub clear_meal_plan_day {
 sub connect_user {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'body' is set
-    unless (exists $args{'body'}) {
-      croak("Missing the required parameter 'body' when calling connect_user");
+    # verify the required parameter 'connect_user_request' is set
+    unless (exists $args{'connect_user_request'}) {
+      croak("Missing the required parameter 'connect_user_request' when calling connect_user");
     }
 
     # parse inputs
@@ -505,12 +473,12 @@ sub connect_user {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('', 'application/json');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
     my $_body_data;
     # body params
-    if ( exists $args{'body'}) {
-        $_body_data = $args{'body'};
+    if ( exists $args{'connect_user_request'}) {
+        $_body_data = $args{'connect_user_request'};
     }
 
     # authentication setting, if any
@@ -535,7 +503,6 @@ sub connect_user {
 # @param string $username The username. (required)
 # @param double $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
-# @param DeleteFromMealPlanRequest $delete_from_meal_plan_request  (required)
 {
     my $params = {
     'username' => {
@@ -551,11 +518,6 @@ sub connect_user {
     'hash' => {
         data_type => 'string',
         description => 'The private hash for the username.',
-        required => '1',
-    },
-    'delete_from_meal_plan_request' => {
-        data_type => 'DeleteFromMealPlanRequest',
-        description => '',
         required => '1',
     },
     };
@@ -585,11 +547,6 @@ sub delete_from_meal_plan {
       croak("Missing the required parameter 'hash' when calling delete_from_meal_plan");
     }
 
-    # verify the required parameter 'delete_from_meal_plan_request' is set
-    unless (exists $args{'delete_from_meal_plan_request'}) {
-      croak("Missing the required parameter 'delete_from_meal_plan_request' when calling delete_from_meal_plan");
-    }
-
     # parse inputs
     my $_resource_path = '/mealplanner/{username}/items/{id}';
 
@@ -603,7 +560,7 @@ sub delete_from_meal_plan {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
     if ( exists $args{'hash'}) {
@@ -625,11 +582,6 @@ sub delete_from_meal_plan {
     }
 
     my $_body_data;
-    # body params
-    if ( exists $args{'delete_from_meal_plan_request'}) {
-        $_body_data = $args{'delete_from_meal_plan_request'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
 
@@ -652,7 +604,6 @@ sub delete_from_meal_plan {
 # @param string $username The username. (required)
 # @param int $id The item&#39;s id. (required)
 # @param string $hash The private hash for the username. (required)
-# @param DeleteFromMealPlanRequest $delete_from_meal_plan_request  (required)
 {
     my $params = {
     'username' => {
@@ -668,11 +619,6 @@ sub delete_from_meal_plan {
     'hash' => {
         data_type => 'string',
         description => 'The private hash for the username.',
-        required => '1',
-    },
-    'delete_from_meal_plan_request' => {
-        data_type => 'DeleteFromMealPlanRequest',
-        description => '',
         required => '1',
     },
     };
@@ -702,11 +648,6 @@ sub delete_from_shopping_list {
       croak("Missing the required parameter 'hash' when calling delete_from_shopping_list");
     }
 
-    # verify the required parameter 'delete_from_meal_plan_request' is set
-    unless (exists $args{'delete_from_meal_plan_request'}) {
-      croak("Missing the required parameter 'delete_from_meal_plan_request' when calling delete_from_shopping_list");
-    }
-
     # parse inputs
     my $_resource_path = '/mealplanner/{username}/shopping-list/items/{id}';
 
@@ -720,7 +661,7 @@ sub delete_from_shopping_list {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
     if ( exists $args{'hash'}) {
@@ -742,11 +683,6 @@ sub delete_from_shopping_list {
     }
 
     my $_body_data;
-    # body params
-    if ( exists $args{'delete_from_meal_plan_request'}) {
-        $_body_data = $args{'delete_from_meal_plan_request'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
 
@@ -769,7 +705,6 @@ sub delete_from_shopping_list {
 # @param string $username The username. (required)
 # @param int $id The item&#39;s id. (required)
 # @param string $hash The private hash for the username. (required)
-# @param DeleteFromMealPlanRequest $delete_from_meal_plan_request  (required)
 {
     my $params = {
     'username' => {
@@ -785,11 +720,6 @@ sub delete_from_shopping_list {
     'hash' => {
         data_type => 'string',
         description => 'The private hash for the username.',
-        required => '1',
-    },
-    'delete_from_meal_plan_request' => {
-        data_type => 'DeleteFromMealPlanRequest',
-        description => '',
         required => '1',
     },
     };
@@ -819,11 +749,6 @@ sub delete_meal_plan_template {
       croak("Missing the required parameter 'hash' when calling delete_meal_plan_template");
     }
 
-    # verify the required parameter 'delete_from_meal_plan_request' is set
-    unless (exists $args{'delete_from_meal_plan_request'}) {
-      croak("Missing the required parameter 'delete_from_meal_plan_request' when calling delete_meal_plan_template");
-    }
-
     # parse inputs
     my $_resource_path = '/mealplanner/{username}/templates/{id}';
 
@@ -837,7 +762,7 @@ sub delete_meal_plan_template {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
     if ( exists $args{'hash'}) {
@@ -859,11 +784,6 @@ sub delete_meal_plan_template {
     }
 
     my $_body_data;
-    # body params
-    if ( exists $args{'delete_from_meal_plan_request'}) {
-        $_body_data = $args{'delete_from_meal_plan_request'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
 
@@ -980,7 +900,6 @@ sub generate_meal_plan {
 # @param string $start_date The start date in the format yyyy-mm-dd. (required)
 # @param string $end_date The end date in the format yyyy-mm-dd. (required)
 # @param string $hash The private hash for the username. (required)
-# @param GenerateShoppingListRequest $generate_shopping_list_request  (required)
 {
     my $params = {
     'username' => {
@@ -1001,11 +920,6 @@ sub generate_meal_plan {
     'hash' => {
         data_type => 'string',
         description => 'The private hash for the username.',
-        required => '1',
-    },
-    'generate_shopping_list_request' => {
-        data_type => 'GenerateShoppingListRequest',
-        description => '',
         required => '1',
     },
     };
@@ -1040,11 +954,6 @@ sub generate_shopping_list {
       croak("Missing the required parameter 'hash' when calling generate_shopping_list");
     }
 
-    # verify the required parameter 'generate_shopping_list_request' is set
-    unless (exists $args{'generate_shopping_list_request'}) {
-      croak("Missing the required parameter 'generate_shopping_list_request' when calling generate_shopping_list");
-    }
-
     # parse inputs
     my $_resource_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}';
 
@@ -1058,7 +967,7 @@ sub generate_shopping_list {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
     if ( exists $args{'hash'}) {
@@ -1087,11 +996,6 @@ sub generate_shopping_list {
     }
 
     my $_body_data;
-    # body params
-    if ( exists $args{'generate_shopping_list_request'}) {
-        $_body_data = $args{'generate_shopping_list_request'};
-    }
-
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
 

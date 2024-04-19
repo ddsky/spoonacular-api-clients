@@ -14,9 +14,8 @@ src/main/groovy/org/openapitools/model/AddMealPlanTemplate200Response.groovy
 src/main/groovy/org/openapitools/model/AddMealPlanTemplate200ResponseItemsInner.groovy
 src/main/groovy/org/openapitools/model/AddMealPlanTemplate200ResponseItemsInnerValue.groovy
 src/main/groovy/org/openapitools/model/AddToMealPlanRequest.groovy
-src/main/groovy/org/openapitools/model/AddToMealPlanRequest1.groovy
-src/main/groovy/org/openapitools/model/AddToMealPlanRequest1Value.groovy
-src/main/groovy/org/openapitools/model/AddToMealPlanRequest1ValueIngredientsInner.groovy
+src/main/groovy/org/openapitools/model/AddToMealPlanRequestValue.groovy
+src/main/groovy/org/openapitools/model/AddToMealPlanRequestValueIngredientsInner.groovy
 src/main/groovy/org/openapitools/model/AddToShoppingListRequest.groovy
 src/main/groovy/org/openapitools/model/AnalyzeARecipeSearchQuery200Response.groovy
 src/main/groovy/org/openapitools/model/AnalyzeARecipeSearchQuery200ResponseDishesInner.groovy
@@ -27,7 +26,6 @@ src/main/groovy/org/openapitools/model/AnalyzeRecipeInstructions200ResponseParse
 src/main/groovy/org/openapitools/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.groovy
 src/main/groovy/org/openapitools/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.groovy
 src/main/groovy/org/openapitools/model/AnalyzeRecipeRequest.groovy
-src/main/groovy/org/openapitools/model/AnalyzeRecipeRequest1.groovy
 src/main/groovy/org/openapitools/model/AutocompleteIngredientSearch200ResponseInner.groovy
 src/main/groovy/org/openapitools/model/AutocompleteMenuItemSearch200Response.groovy
 src/main/groovy/org/openapitools/model/AutocompleteProductSearch200Response.groovy
@@ -38,7 +36,6 @@ src/main/groovy/org/openapitools/model/ClassifyGroceryProduct200Response.groovy
 src/main/groovy/org/openapitools/model/ClassifyGroceryProductBulk200ResponseInner.groovy
 src/main/groovy/org/openapitools/model/ClassifyGroceryProductBulkRequestInner.groovy
 src/main/groovy/org/openapitools/model/ClassifyGroceryProductRequest.groovy
-src/main/groovy/org/openapitools/model/ClearMealPlanDayRequest.groovy
 src/main/groovy/org/openapitools/model/ComputeGlycemicLoad200Response.groovy
 src/main/groovy/org/openapitools/model/ComputeGlycemicLoad200ResponseIngredientsInner.groovy
 src/main/groovy/org/openapitools/model/ComputeGlycemicLoadRequest.groovy
@@ -47,13 +44,11 @@ src/main/groovy/org/openapitools/model/ConnectUser200Response.groovy
 src/main/groovy/org/openapitools/model/ConnectUserRequest.groovy
 src/main/groovy/org/openapitools/model/ConvertAmounts200Response.groovy
 src/main/groovy/org/openapitools/model/CreateRecipeCard200Response.groovy
-src/main/groovy/org/openapitools/model/DeleteFromMealPlanRequest.groovy
 src/main/groovy/org/openapitools/model/DetectFoodInText200Response.groovy
 src/main/groovy/org/openapitools/model/DetectFoodInText200ResponseAnnotationsInner.groovy
 src/main/groovy/org/openapitools/model/GenerateMealPlan200Response.groovy
 src/main/groovy/org/openapitools/model/GenerateMealPlan200ResponseNutrients.groovy
 src/main/groovy/org/openapitools/model/GenerateShoppingList200Response.groovy
-src/main/groovy/org/openapitools/model/GenerateShoppingListRequest.groovy
 src/main/groovy/org/openapitools/model/GetARandomFoodJoke200Response.groovy
 src/main/groovy/org/openapitools/model/GetAnalyzedRecipeInstructions200Response.groovy
 src/main/groovy/org/openapitools/model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.groovy

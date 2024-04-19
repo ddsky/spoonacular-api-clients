@@ -34,14 +34,17 @@ OAIAnalyzeRecipe_request::~OAIAnalyzeRecipe_request() {}
 
 void OAIAnalyzeRecipe_request::initializeModel() {
 
-    m_language_isSet = false;
-    m_language_isValid = false;
+    m_title_isSet = false;
+    m_title_isValid = false;
 
-    m_include_nutrition_isSet = false;
-    m_include_nutrition_isValid = false;
+    m_servings_isSet = false;
+    m_servings_isValid = false;
 
-    m_include_taste_isSet = false;
-    m_include_taste_isValid = false;
+    m_ingredients_isSet = false;
+    m_ingredients_isValid = false;
+
+    m_instructions_isSet = false;
+    m_instructions_isValid = false;
 }
 
 void OAIAnalyzeRecipe_request::fromJson(QString jsonString) {
@@ -53,14 +56,17 @@ void OAIAnalyzeRecipe_request::fromJson(QString jsonString) {
 
 void OAIAnalyzeRecipe_request::fromJsonObject(QJsonObject json) {
 
-    m_language_isValid = ::OpenAPI::fromJsonValue(m_language, json[QString("language")]);
-    m_language_isSet = !json[QString("language")].isNull() && m_language_isValid;
+    m_title_isValid = ::OpenAPI::fromJsonValue(m_title, json[QString("title")]);
+    m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 
-    m_include_nutrition_isValid = ::OpenAPI::fromJsonValue(m_include_nutrition, json[QString("includeNutrition")]);
-    m_include_nutrition_isSet = !json[QString("includeNutrition")].isNull() && m_include_nutrition_isValid;
+    m_servings_isValid = ::OpenAPI::fromJsonValue(m_servings, json[QString("servings")]);
+    m_servings_isSet = !json[QString("servings")].isNull() && m_servings_isValid;
 
-    m_include_taste_isValid = ::OpenAPI::fromJsonValue(m_include_taste, json[QString("includeTaste")]);
-    m_include_taste_isSet = !json[QString("includeTaste")].isNull() && m_include_taste_isValid;
+    m_ingredients_isValid = ::OpenAPI::fromJsonValue(m_ingredients, json[QString("ingredients")]);
+    m_ingredients_isSet = !json[QString("ingredients")].isNull() && m_ingredients_isValid;
+
+    m_instructions_isValid = ::OpenAPI::fromJsonValue(m_instructions, json[QString("instructions")]);
+    m_instructions_isSet = !json[QString("instructions")].isNull() && m_instructions_isValid;
 }
 
 QString OAIAnalyzeRecipe_request::asJson() const {
@@ -72,80 +78,104 @@ QString OAIAnalyzeRecipe_request::asJson() const {
 
 QJsonObject OAIAnalyzeRecipe_request::asJsonObject() const {
     QJsonObject obj;
-    if (m_language_isSet) {
-        obj.insert(QString("language"), ::OpenAPI::toJsonValue(m_language));
+    if (m_title_isSet) {
+        obj.insert(QString("title"), ::OpenAPI::toJsonValue(m_title));
     }
-    if (m_include_nutrition_isSet) {
-        obj.insert(QString("includeNutrition"), ::OpenAPI::toJsonValue(m_include_nutrition));
+    if (m_servings_isSet) {
+        obj.insert(QString("servings"), ::OpenAPI::toJsonValue(m_servings));
     }
-    if (m_include_taste_isSet) {
-        obj.insert(QString("includeTaste"), ::OpenAPI::toJsonValue(m_include_taste));
+    if (m_ingredients.size() > 0) {
+        obj.insert(QString("ingredients"), ::OpenAPI::toJsonValue(m_ingredients));
+    }
+    if (m_instructions_isSet) {
+        obj.insert(QString("instructions"), ::OpenAPI::toJsonValue(m_instructions));
     }
     return obj;
 }
 
-QString OAIAnalyzeRecipe_request::getLanguage() const {
-    return m_language;
+QString OAIAnalyzeRecipe_request::getTitle() const {
+    return m_title;
 }
-void OAIAnalyzeRecipe_request::setLanguage(const QString &language) {
-    m_language = language;
-    m_language_isSet = true;
-}
-
-bool OAIAnalyzeRecipe_request::is_language_Set() const{
-    return m_language_isSet;
+void OAIAnalyzeRecipe_request::setTitle(const QString &title) {
+    m_title = title;
+    m_title_isSet = true;
 }
 
-bool OAIAnalyzeRecipe_request::is_language_Valid() const{
-    return m_language_isValid;
+bool OAIAnalyzeRecipe_request::is_title_Set() const{
+    return m_title_isSet;
 }
 
-bool OAIAnalyzeRecipe_request::isIncludeNutrition() const {
-    return m_include_nutrition;
-}
-void OAIAnalyzeRecipe_request::setIncludeNutrition(const bool &include_nutrition) {
-    m_include_nutrition = include_nutrition;
-    m_include_nutrition_isSet = true;
+bool OAIAnalyzeRecipe_request::is_title_Valid() const{
+    return m_title_isValid;
 }
 
-bool OAIAnalyzeRecipe_request::is_include_nutrition_Set() const{
-    return m_include_nutrition_isSet;
+qint32 OAIAnalyzeRecipe_request::getServings() const {
+    return m_servings;
+}
+void OAIAnalyzeRecipe_request::setServings(const qint32 &servings) {
+    m_servings = servings;
+    m_servings_isSet = true;
 }
 
-bool OAIAnalyzeRecipe_request::is_include_nutrition_Valid() const{
-    return m_include_nutrition_isValid;
+bool OAIAnalyzeRecipe_request::is_servings_Set() const{
+    return m_servings_isSet;
 }
 
-bool OAIAnalyzeRecipe_request::isIncludeTaste() const {
-    return m_include_taste;
-}
-void OAIAnalyzeRecipe_request::setIncludeTaste(const bool &include_taste) {
-    m_include_taste = include_taste;
-    m_include_taste_isSet = true;
+bool OAIAnalyzeRecipe_request::is_servings_Valid() const{
+    return m_servings_isValid;
 }
 
-bool OAIAnalyzeRecipe_request::is_include_taste_Set() const{
-    return m_include_taste_isSet;
+QList<QString> OAIAnalyzeRecipe_request::getIngredients() const {
+    return m_ingredients;
+}
+void OAIAnalyzeRecipe_request::setIngredients(const QList<QString> &ingredients) {
+    m_ingredients = ingredients;
+    m_ingredients_isSet = true;
 }
 
-bool OAIAnalyzeRecipe_request::is_include_taste_Valid() const{
-    return m_include_taste_isValid;
+bool OAIAnalyzeRecipe_request::is_ingredients_Set() const{
+    return m_ingredients_isSet;
+}
+
+bool OAIAnalyzeRecipe_request::is_ingredients_Valid() const{
+    return m_ingredients_isValid;
+}
+
+QString OAIAnalyzeRecipe_request::getInstructions() const {
+    return m_instructions;
+}
+void OAIAnalyzeRecipe_request::setInstructions(const QString &instructions) {
+    m_instructions = instructions;
+    m_instructions_isSet = true;
+}
+
+bool OAIAnalyzeRecipe_request::is_instructions_Set() const{
+    return m_instructions_isSet;
+}
+
+bool OAIAnalyzeRecipe_request::is_instructions_Valid() const{
+    return m_instructions_isValid;
 }
 
 bool OAIAnalyzeRecipe_request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_language_isSet) {
+        if (m_title_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_include_nutrition_isSet) {
+        if (m_servings_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_include_taste_isSet) {
+        if (m_ingredients.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_instructions_isSet) {
             isObjectUpdated = true;
             break;
         }

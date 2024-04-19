@@ -12,37 +12,76 @@
 
 package com.spoonacular.client.model;
 
+import com.spoonacular.client.model.AddToMealPlanRequestValue;
+import java.math.BigDecimal;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * 
+ **/
 @ApiModel(description = "")
 public class AddToMealPlanRequest {
   
-  @SerializedName("username")
-  private String username = null;
-  @SerializedName("hash")
-  private String hash = null;
+  @SerializedName("date")
+  private BigDecimal date = null;
+  @SerializedName("slot")
+  private Integer slot = null;
+  @SerializedName("position")
+  private Integer position = null;
+  @SerializedName("type")
+  private String type = null;
+  @SerializedName("value")
+  private AddToMealPlanRequestValue value = null;
 
   /**
-   * The username.
    **/
-  @ApiModelProperty(required = true, value = "The username.")
-  public String getUsername() {
-    return username;
+  @ApiModelProperty(required = true, value = "")
+  public BigDecimal getDate() {
+    return date;
   }
-  public void setUsername(String username) {
-    this.username = username;
+  public void setDate(BigDecimal date) {
+    this.date = date;
   }
 
   /**
-   * The private hash for the username.
    **/
-  @ApiModelProperty(required = true, value = "The private hash for the username.")
-  public String getHash() {
-    return hash;
+  @ApiModelProperty(required = true, value = "")
+  public Integer getSlot() {
+    return slot;
   }
-  public void setHash(String hash) {
-    this.hash = hash;
+  public void setSlot(Integer slot) {
+    this.slot = slot;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public Integer getPosition() {
+    return position;
+  }
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public AddToMealPlanRequestValue getValue() {
+    return value;
+  }
+  public void setValue(AddToMealPlanRequestValue value) {
+    this.value = value;
   }
 
 
@@ -55,15 +94,21 @@ public class AddToMealPlanRequest {
       return false;
     }
     AddToMealPlanRequest addToMealPlanRequest = (AddToMealPlanRequest) o;
-    return (this.username == null ? addToMealPlanRequest.username == null : this.username.equals(addToMealPlanRequest.username)) &&
-        (this.hash == null ? addToMealPlanRequest.hash == null : this.hash.equals(addToMealPlanRequest.hash));
+    return (this.date == null ? addToMealPlanRequest.date == null : this.date.equals(addToMealPlanRequest.date)) &&
+        (this.slot == null ? addToMealPlanRequest.slot == null : this.slot.equals(addToMealPlanRequest.slot)) &&
+        (this.position == null ? addToMealPlanRequest.position == null : this.position.equals(addToMealPlanRequest.position)) &&
+        (this.type == null ? addToMealPlanRequest.type == null : this.type.equals(addToMealPlanRequest.type)) &&
+        (this.value == null ? addToMealPlanRequest.value == null : this.value.equals(addToMealPlanRequest.value));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.username == null ? 0: this.username.hashCode());
-    result = 31 * result + (this.hash == null ? 0: this.hash.hashCode());
+    result = 31 * result + (this.date == null ? 0: this.date.hashCode());
+    result = 31 * result + (this.slot == null ? 0: this.slot.hashCode());
+    result = 31 * result + (this.position == null ? 0: this.position.hashCode());
+    result = 31 * result + (this.type == null ? 0: this.type.hashCode());
+    result = 31 * result + (this.value == null ? 0: this.value.hashCode());
     return result;
   }
 
@@ -72,8 +117,11 @@ public class AddToMealPlanRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddToMealPlanRequest {\n");
     
-    sb.append("  username: ").append(username).append("\n");
-    sb.append("  hash: ").append(hash).append("\n");
+    sb.append("  date: ").append(date).append("\n");
+    sb.append("  slot: ").append(slot).append("\n");
+    sb.append("  position: ").append(position).append("\n");
+    sb.append("  type: ").append(type).append("\n");
+    sb.append("  value: ").append(value).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

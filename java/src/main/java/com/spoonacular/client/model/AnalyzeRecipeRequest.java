@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,75 +53,106 @@ import com.spoonacular.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalyzeRecipeRequest {
-  public static final String SERIALIZED_NAME_LANGUAGE = "language";
-  @SerializedName(SERIALIZED_NAME_LANGUAGE)
-  private String language;
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
-  public static final String SERIALIZED_NAME_INCLUDE_NUTRITION = "includeNutrition";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_NUTRITION)
-  private Boolean includeNutrition;
+  public static final String SERIALIZED_NAME_SERVINGS = "servings";
+  @SerializedName(SERIALIZED_NAME_SERVINGS)
+  private Integer servings;
 
-  public static final String SERIALIZED_NAME_INCLUDE_TASTE = "includeTaste";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_TASTE)
-  private Boolean includeTaste;
+  public static final String SERIALIZED_NAME_INGREDIENTS = "ingredients";
+  @SerializedName(SERIALIZED_NAME_INGREDIENTS)
+  private List<String> ingredients;
+
+  public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
+  @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
+  private String instructions;
 
   public AnalyzeRecipeRequest() {
   }
 
-  public AnalyzeRecipeRequest language(String language) {
-    this.language = language;
+  public AnalyzeRecipeRequest title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * The input language, either \&quot;en\&quot; or \&quot;de\&quot;.
-   * @return language
+   * Get title
+   * @return title
   **/
   @javax.annotation.Nullable
-  public String getLanguage() {
-    return language;
+  public String getTitle() {
+    return title;
   }
 
-  public void setLanguage(String language) {
-    this.language = language;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
-  public AnalyzeRecipeRequest includeNutrition(Boolean includeNutrition) {
-    this.includeNutrition = includeNutrition;
+  public AnalyzeRecipeRequest servings(Integer servings) {
+    this.servings = servings;
     return this;
   }
 
    /**
-   * Whether nutrition data should be added to correctly parsed ingredients.
-   * @return includeNutrition
+   * Get servings
+   * @return servings
   **/
   @javax.annotation.Nullable
-  public Boolean getIncludeNutrition() {
-    return includeNutrition;
+  public Integer getServings() {
+    return servings;
   }
 
-  public void setIncludeNutrition(Boolean includeNutrition) {
-    this.includeNutrition = includeNutrition;
+  public void setServings(Integer servings) {
+    this.servings = servings;
   }
 
 
-  public AnalyzeRecipeRequest includeTaste(Boolean includeTaste) {
-    this.includeTaste = includeTaste;
+  public AnalyzeRecipeRequest ingredients(List<String> ingredients) {
+    this.ingredients = ingredients;
+    return this;
+  }
+
+  public AnalyzeRecipeRequest addIngredientsItem(String ingredientsItem) {
+    if (this.ingredients == null) {
+      this.ingredients = new ArrayList<>();
+    }
+    this.ingredients.add(ingredientsItem);
     return this;
   }
 
    /**
-   * Whether taste data should be added to correctly parsed ingredients.
-   * @return includeTaste
+   * Get ingredients
+   * @return ingredients
   **/
   @javax.annotation.Nullable
-  public Boolean getIncludeTaste() {
-    return includeTaste;
+  public List<String> getIngredients() {
+    return ingredients;
   }
 
-  public void setIncludeTaste(Boolean includeTaste) {
-    this.includeTaste = includeTaste;
+  public void setIngredients(List<String> ingredients) {
+    this.ingredients = ingredients;
+  }
+
+
+  public AnalyzeRecipeRequest instructions(String instructions) {
+    this.instructions = instructions;
+    return this;
+  }
+
+   /**
+   * Get instructions
+   * @return instructions
+  **/
+  @javax.annotation.Nullable
+  public String getInstructions() {
+    return instructions;
+  }
+
+  public void setInstructions(String instructions) {
+    this.instructions = instructions;
   }
 
 
@@ -133,23 +166,25 @@ public class AnalyzeRecipeRequest {
       return false;
     }
     AnalyzeRecipeRequest analyzeRecipeRequest = (AnalyzeRecipeRequest) o;
-    return Objects.equals(this.language, analyzeRecipeRequest.language) &&
-        Objects.equals(this.includeNutrition, analyzeRecipeRequest.includeNutrition) &&
-        Objects.equals(this.includeTaste, analyzeRecipeRequest.includeTaste);
+    return Objects.equals(this.title, analyzeRecipeRequest.title) &&
+        Objects.equals(this.servings, analyzeRecipeRequest.servings) &&
+        Objects.equals(this.ingredients, analyzeRecipeRequest.ingredients) &&
+        Objects.equals(this.instructions, analyzeRecipeRequest.instructions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, includeNutrition, includeTaste);
+    return Objects.hash(title, servings, ingredients, instructions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalyzeRecipeRequest {\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    includeNutrition: ").append(toIndentedString(includeNutrition)).append("\n");
-    sb.append("    includeTaste: ").append(toIndentedString(includeTaste)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    servings: ").append(toIndentedString(servings)).append("\n");
+    sb.append("    ingredients: ").append(toIndentedString(ingredients)).append("\n");
+    sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,9 +207,10 @@ public class AnalyzeRecipeRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("language");
-    openapiFields.add("includeNutrition");
-    openapiFields.add("includeTaste");
+    openapiFields.add("title");
+    openapiFields.add("servings");
+    openapiFields.add("ingredients");
+    openapiFields.add("instructions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -201,8 +237,15 @@ public class AnalyzeRecipeRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("language") != null && !jsonObj.get("language").isJsonNull()) && !jsonObj.get("language").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ingredients") != null && !jsonObj.get("ingredients").isJsonNull() && !jsonObj.get("ingredients").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ingredients` to be an array in the JSON string but got `%s`", jsonObj.get("ingredients").toString()));
+      }
+      if ((jsonObj.get("instructions") != null && !jsonObj.get("instructions").isJsonNull()) && !jsonObj.get("instructions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
       }
   }
 

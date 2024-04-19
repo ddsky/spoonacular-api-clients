@@ -18,7 +18,6 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `username` (String.t): The username.
   - `hash` (String.t): The private hash for the username.
-  - `add_to_meal_plan_request` (AddToMealPlanRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -26,14 +25,14 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, SpoonacularAPI.Model.AddMealPlanTemplate200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec add_meal_plan_template(Tesla.Env.client, String.t, String.t, SpoonacularAPI.Model.AddToMealPlanRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.AddMealPlanTemplate200Response.t} | {:error, Tesla.Env.t}
-  def add_meal_plan_template(connection, username, hash, add_to_meal_plan_request, _opts \\ []) do
+  @spec add_meal_plan_template(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.AddMealPlanTemplate200Response.t} | {:error, Tesla.Env.t}
+  def add_meal_plan_template(connection, username, hash, _opts \\ []) do
     request =
       %{}
       |> method(:post)
       |> url("/mealplanner/#{username}/templates")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, add_to_meal_plan_request)
+      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -92,7 +91,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `username` (String.t): The username.
   - `hash` (String.t): The private hash for the username.
-  - `add_to_meal_plan_request` (AddToMealPlanRequest): 
+  - `add_to_shopping_list_request` (AddToShoppingListRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -100,14 +99,14 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, SpoonacularAPI.Model.AddToMealPlanRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t} | {:error, Tesla.Env.t}
-  def add_to_shopping_list(connection, username, hash, add_to_meal_plan_request, _opts \\ []) do
+  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, SpoonacularAPI.Model.AddToShoppingListRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t} | {:error, Tesla.Env.t}
+  def add_to_shopping_list(connection, username, hash, add_to_shopping_list_request, _opts \\ []) do
     request =
       %{}
       |> method(:post)
       |> url("/mealplanner/#{username}/shopping-list/items")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, add_to_meal_plan_request)
+      |> add_param(:body, :body, add_to_shopping_list_request)
       |> Enum.into([])
 
     connection
@@ -130,7 +129,6 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `username` (String.t): The username.
   - `date` (String.t): The date in the format yyyy-mm-dd.
   - `hash` (String.t): The private hash for the username.
-  - `clear_meal_plan_day_request` (ClearMealPlanDayRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -138,14 +136,13 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec clear_meal_plan_day(Tesla.Env.client, String.t, String.t, String.t, SpoonacularAPI.Model.ClearMealPlanDayRequest.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
-  def clear_meal_plan_day(connection, username, date, hash, clear_meal_plan_day_request, _opts \\ []) do
+  @spec clear_meal_plan_day(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  def clear_meal_plan_day(connection, username, date, hash, _opts \\ []) do
     request =
       %{}
       |> method(:delete)
       |> url("/mealplanner/#{username}/day/#{date}")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, clear_meal_plan_day_request)
       |> Enum.into([])
 
     connection
@@ -165,7 +162,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `body` (map()): 
+  - `connect_user_request` (ConnectUserRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -173,13 +170,13 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, SpoonacularAPI.Model.ConnectUser200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec connect_user(Tesla.Env.client, %{optional(String.t) => }, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ConnectUser200Response.t} | {:error, Tesla.Env.t}
-  def connect_user(connection, body, _opts \\ []) do
+  @spec connect_user(Tesla.Env.client, SpoonacularAPI.Model.ConnectUserRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ConnectUser200Response.t} | {:error, Tesla.Env.t}
+  def connect_user(connection, connect_user_request, _opts \\ []) do
     request =
       %{}
       |> method(:post)
       |> url("/users/connect")
-      |> add_param(:body, :body, body)
+      |> add_param(:body, :body, connect_user_request)
       |> Enum.into([])
 
     connection
@@ -202,7 +199,6 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `username` (String.t): The username.
   - `id` (float()): The shopping list item id.
   - `hash` (String.t): The private hash for the username.
-  - `delete_from_meal_plan_request` (DeleteFromMealPlanRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -210,14 +206,13 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_from_meal_plan(Tesla.Env.client, String.t, float(), String.t, SpoonacularAPI.Model.DeleteFromMealPlanRequest.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
-  def delete_from_meal_plan(connection, username, id, hash, delete_from_meal_plan_request, _opts \\ []) do
+  @spec delete_from_meal_plan(Tesla.Env.client, String.t, float(), String.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_meal_plan(connection, username, id, hash, _opts \\ []) do
     request =
       %{}
       |> method(:delete)
       |> url("/mealplanner/#{username}/items/#{id}")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, delete_from_meal_plan_request)
       |> Enum.into([])
 
     connection
@@ -240,7 +235,6 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `username` (String.t): The username.
   - `id` (integer()): The item's id.
   - `hash` (String.t): The private hash for the username.
-  - `delete_from_meal_plan_request` (DeleteFromMealPlanRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -248,14 +242,13 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_from_shopping_list(Tesla.Env.client, String.t, integer(), String.t, SpoonacularAPI.Model.DeleteFromMealPlanRequest.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
-  def delete_from_shopping_list(connection, username, id, hash, delete_from_meal_plan_request, _opts \\ []) do
+  @spec delete_from_shopping_list(Tesla.Env.client, String.t, integer(), String.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_from_shopping_list(connection, username, id, hash, _opts \\ []) do
     request =
       %{}
       |> method(:delete)
       |> url("/mealplanner/#{username}/shopping-list/items/#{id}")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, delete_from_meal_plan_request)
       |> Enum.into([])
 
     connection
@@ -278,7 +271,6 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `username` (String.t): The username.
   - `id` (integer()): The item's id.
   - `hash` (String.t): The private hash for the username.
-  - `delete_from_meal_plan_request` (DeleteFromMealPlanRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -286,14 +278,13 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_meal_plan_template(Tesla.Env.client, String.t, integer(), String.t, SpoonacularAPI.Model.DeleteFromMealPlanRequest.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
-  def delete_meal_plan_template(connection, username, id, hash, delete_from_meal_plan_request, _opts \\ []) do
+  @spec delete_meal_plan_template(Tesla.Env.client, String.t, integer(), String.t, keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  def delete_meal_plan_template(connection, username, id, hash, _opts \\ []) do
     request =
       %{}
       |> method(:delete)
       |> url("/mealplanner/#{username}/templates/#{id}")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, delete_from_meal_plan_request)
       |> Enum.into([])
 
     connection
@@ -361,7 +352,6 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `start_date` (String.t): The start date in the format yyyy-mm-dd.
   - `end_date` (String.t): The end date in the format yyyy-mm-dd.
   - `hash` (String.t): The private hash for the username.
-  - `generate_shopping_list_request` (GenerateShoppingListRequest): 
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -369,14 +359,14 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, SpoonacularAPI.Model.GenerateShoppingListRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t} | {:error, Tesla.Env.t}
-  def generate_shopping_list(connection, username, start_date, end_date, hash, generate_shopping_list_request, _opts \\ []) do
+  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t} | {:error, Tesla.Env.t}
+  def generate_shopping_list(connection, username, start_date, end_date, hash, _opts \\ []) do
     request =
       %{}
       |> method(:post)
       |> url("/mealplanner/#{username}/shopping-list/#{start_date}/#{end_date}")
       |> add_param(:query, :hash, hash)
-      |> add_param(:body, :body, generate_shopping_list_request)
+      |> ensure_body()
       |> Enum.into([])
 
     connection

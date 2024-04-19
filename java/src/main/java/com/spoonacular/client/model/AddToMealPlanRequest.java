@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.AddToMealPlanRequestValue;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -47,56 +49,125 @@ import java.util.Set;
 import com.spoonacular.client.JSON;
 
 /**
- * AddToMealPlanRequest
+ * 
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AddToMealPlanRequest {
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  private String username;
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  private BigDecimal date;
 
-  public static final String SERIALIZED_NAME_HASH = "hash";
-  @SerializedName(SERIALIZED_NAME_HASH)
-  private String hash;
+  public static final String SERIALIZED_NAME_SLOT = "slot";
+  @SerializedName(SERIALIZED_NAME_SLOT)
+  private Integer slot;
+
+  public static final String SERIALIZED_NAME_POSITION = "position";
+  @SerializedName(SERIALIZED_NAME_POSITION)
+  private Integer position;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private AddToMealPlanRequestValue value;
 
   public AddToMealPlanRequest() {
   }
 
-  public AddToMealPlanRequest username(String username) {
-    this.username = username;
+  public AddToMealPlanRequest date(BigDecimal date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * The username.
-   * @return username
+   * Get date
+   * @return date
   **/
   @javax.annotation.Nonnull
-  public String getUsername() {
-    return username;
+  public BigDecimal getDate() {
+    return date;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setDate(BigDecimal date) {
+    this.date = date;
   }
 
 
-  public AddToMealPlanRequest hash(String hash) {
-    this.hash = hash;
+  public AddToMealPlanRequest slot(Integer slot) {
+    this.slot = slot;
     return this;
   }
 
    /**
-   * The private hash for the username.
-   * @return hash
+   * Get slot
+   * @return slot
   **/
   @javax.annotation.Nonnull
-  public String getHash() {
-    return hash;
+  public Integer getSlot() {
+    return slot;
   }
 
-  public void setHash(String hash) {
-    this.hash = hash;
+  public void setSlot(Integer slot) {
+    this.slot = slot;
+  }
+
+
+  public AddToMealPlanRequest position(Integer position) {
+    this.position = position;
+    return this;
+  }
+
+   /**
+   * Get position
+   * @return position
+  **/
+  @javax.annotation.Nonnull
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
+
+  public AddToMealPlanRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public AddToMealPlanRequest value(AddToMealPlanRequestValue value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @javax.annotation.Nonnull
+  public AddToMealPlanRequestValue getValue() {
+    return value;
+  }
+
+  public void setValue(AddToMealPlanRequestValue value) {
+    this.value = value;
   }
 
 
@@ -110,21 +181,27 @@ public class AddToMealPlanRequest {
       return false;
     }
     AddToMealPlanRequest addToMealPlanRequest = (AddToMealPlanRequest) o;
-    return Objects.equals(this.username, addToMealPlanRequest.username) &&
-        Objects.equals(this.hash, addToMealPlanRequest.hash);
+    return Objects.equals(this.date, addToMealPlanRequest.date) &&
+        Objects.equals(this.slot, addToMealPlanRequest.slot) &&
+        Objects.equals(this.position, addToMealPlanRequest.position) &&
+        Objects.equals(this.type, addToMealPlanRequest.type) &&
+        Objects.equals(this.value, addToMealPlanRequest.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, hash);
+    return Objects.hash(date, slot, position, type, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddToMealPlanRequest {\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -147,13 +224,19 @@ public class AddToMealPlanRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("username");
-    openapiFields.add("hash");
+    openapiFields.add("date");
+    openapiFields.add("slot");
+    openapiFields.add("position");
+    openapiFields.add("type");
+    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("username");
-    openapiRequiredFields.add("hash");
+    openapiRequiredFields.add("date");
+    openapiRequiredFields.add("slot");
+    openapiRequiredFields.add("position");
+    openapiRequiredFields.add("type");
+    openapiRequiredFields.add("value");
   }
 
  /**
@@ -184,12 +267,11 @@ public class AddToMealPlanRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if (!jsonObj.get("hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash").toString()));
-      }
+      // validate the required field `value`
+      AddToMealPlanRequestValue.validateJsonElement(jsonObj.get("value"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

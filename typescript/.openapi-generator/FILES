@@ -30,9 +30,8 @@ models/AddMealPlanTemplate200Response.ts
 models/AddMealPlanTemplate200ResponseItemsInner.ts
 models/AddMealPlanTemplate200ResponseItemsInnerValue.ts
 models/AddToMealPlanRequest.ts
-models/AddToMealPlanRequest1.ts
-models/AddToMealPlanRequest1Value.ts
-models/AddToMealPlanRequest1ValueIngredientsInner.ts
+models/AddToMealPlanRequestValue.ts
+models/AddToMealPlanRequestValueIngredientsInner.ts
 models/AddToShoppingListRequest.ts
 models/AnalyzeARecipeSearchQuery200Response.ts
 models/AnalyzeARecipeSearchQuery200ResponseDishesInner.ts
@@ -43,7 +42,6 @@ models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.ts
 models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.ts
 models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.ts
 models/AnalyzeRecipeRequest.ts
-models/AnalyzeRecipeRequest1.ts
 models/AutocompleteIngredientSearch200ResponseInner.ts
 models/AutocompleteMenuItemSearch200Response.ts
 models/AutocompleteProductSearch200Response.ts
@@ -54,7 +52,6 @@ models/ClassifyGroceryProduct200Response.ts
 models/ClassifyGroceryProductBulk200ResponseInner.ts
 models/ClassifyGroceryProductBulkRequestInner.ts
 models/ClassifyGroceryProductRequest.ts
-models/ClearMealPlanDayRequest.ts
 models/ComputeGlycemicLoad200Response.ts
 models/ComputeGlycemicLoad200ResponseIngredientsInner.ts
 models/ComputeGlycemicLoadRequest.ts
@@ -63,13 +60,11 @@ models/ConnectUser200Response.ts
 models/ConnectUserRequest.ts
 models/ConvertAmounts200Response.ts
 models/CreateRecipeCard200Response.ts
-models/DeleteFromMealPlanRequest.ts
 models/DetectFoodInText200Response.ts
 models/DetectFoodInText200ResponseAnnotationsInner.ts
 models/GenerateMealPlan200Response.ts
 models/GenerateMealPlan200ResponseNutrients.ts
 models/GenerateShoppingList200Response.ts
-models/GenerateShoppingListRequest.ts
 models/GetARandomFoodJoke200Response.ts
 models/GetAnalyzedRecipeInstructions200Response.ts
 models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.ts

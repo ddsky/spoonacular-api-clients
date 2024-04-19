@@ -18,18 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
+from spoonacular.models.add_to_meal_plan_request_value import AddToMealPlanRequestValue
 from typing import Optional, Set
 from typing_extensions import Self
 
 class AddToMealPlanRequest(BaseModel):
     """
-    AddToMealPlanRequest
+    
     """ # noqa: E501
-    username: StrictStr = Field(description="The username.")
-    hash: StrictStr = Field(description="The private hash for the username.")
-    __properties: ClassVar[List[str]] = ["username", "hash"]
+    var_date: Union[StrictFloat, StrictInt] = Field(alias="date")
+    slot: StrictInt
+    position: StrictInt
+    type: Annotated[str, Field(min_length=1, strict=True)]
+    value: AddToMealPlanRequestValue
+    __properties: ClassVar[List[str]] = ["date", "slot", "position", "type", "value"]
 
     model_config = {
         "populate_by_name": True,
@@ -70,6 +75,9 @@ class AddToMealPlanRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of value
+        if self.value:
+            _dict['value'] = self.value.to_dict()
         return _dict
 
     @classmethod
@@ -82,8 +90,11 @@ class AddToMealPlanRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "username": obj.get("username"),
-            "hash": obj.get("hash")
+            "date": obj.get("date"),
+            "slot": obj.get("slot"),
+            "position": obj.get("position"),
+            "type": obj.get("type"),
+            "value": AddToMealPlanRequestValue.from_dict(obj["value"]) if obj.get("value") is not None else None
         })
         return _obj
 

@@ -1,12 +1,16 @@
 # AddToMealPlanRequest
 
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **str** | The username. | 
-**hash** | **str** | The private hash for the username. | 
+**var_date** | **float** |  | 
+**slot** | **int** |  | 
+**position** | **int** |  | 
+**type** | **str** |  | 
+**value** | [**AddToMealPlanRequestValue**](AddToMealPlanRequestValue.md) |  | 
 
 ## Example
 

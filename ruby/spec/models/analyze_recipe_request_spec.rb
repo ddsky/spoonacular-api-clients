@@ -27,19 +27,25 @@ describe OpenapiClient::AnalyzeRecipeRequest do
     end
   end
 
-  describe 'test attribute "language"' do
+  describe 'test attribute "title"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "include_nutrition"' do
+  describe 'test attribute "servings"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "include_taste"' do
+  describe 'test attribute "ingredients"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "instructions"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -109,7 +109,7 @@ sub analyze_recipe {
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
-    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('', 'application/json');
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
 
     # query params
     if ( exists $args{'language'}) {

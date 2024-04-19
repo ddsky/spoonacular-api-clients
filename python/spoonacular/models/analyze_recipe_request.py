@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictStr
+from pydantic import BaseModel, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,10 +27,11 @@ class AnalyzeRecipeRequest(BaseModel):
     """
     AnalyzeRecipeRequest
     """ # noqa: E501
-    language: Optional[StrictStr] = Field(default=None, description="The input language, either \"en\" or \"de\".")
-    include_nutrition: Optional[StrictBool] = Field(default=None, description="Whether nutrition data should be added to correctly parsed ingredients.", alias="includeNutrition")
-    include_taste: Optional[StrictBool] = Field(default=None, description="Whether taste data should be added to correctly parsed ingredients.", alias="includeTaste")
-    __properties: ClassVar[List[str]] = ["language", "includeNutrition", "includeTaste"]
+    title: Optional[StrictStr] = None
+    servings: Optional[StrictInt] = None
+    ingredients: Optional[List[StrictStr]] = None
+    instructions: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["title", "servings", "ingredients", "instructions"]
 
     model_config = {
         "populate_by_name": True,
@@ -83,9 +84,10 @@ class AnalyzeRecipeRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "language": obj.get("language"),
-            "includeNutrition": obj.get("includeNutrition"),
-            "includeTaste": obj.get("includeTaste")
+            "title": obj.get("title"),
+            "servings": obj.get("servings"),
+            "ingredients": obj.get("ingredients"),
+            "instructions": obj.get("instructions")
         })
         return _obj
 
