@@ -13,38 +13,36 @@
 import { HttpFile } from '../http/http';
 
 export class AnalyzeRecipeRequest {
-    /**
-    * The input language, either \"en\" or \"de\".
-    */
-    'language'?: string;
-    /**
-    * Whether nutrition data should be added to correctly parsed ingredients.
-    */
-    'includeNutrition'?: boolean;
-    /**
-    * Whether taste data should be added to correctly parsed ingredients.
-    */
-    'includeTaste'?: boolean;
+    'title'?: string;
+    'servings'?: number;
+    'ingredients'?: Array<string>;
+    'instructions'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "language",
-            "baseName": "language",
+            "name": "title",
+            "baseName": "title",
             "type": "string",
             "format": ""
         },
         {
-            "name": "includeNutrition",
-            "baseName": "includeNutrition",
-            "type": "boolean",
+            "name": "servings",
+            "baseName": "servings",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "includeTaste",
-            "baseName": "includeTaste",
-            "type": "boolean",
+            "name": "ingredients",
+            "baseName": "ingredients",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "instructions",
+            "baseName": "instructions",
+            "type": "string",
             "format": ""
         }    ];
 

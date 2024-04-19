@@ -21,12 +21,14 @@
 
 #include <QJsonObject>
 
+#include "OAIAddToMealPlan_request_value.h"
 #include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIAddToMealPlan_request_value;
 
 class OAIAddToMealPlan_request : public OAIObject {
 public:
@@ -39,15 +41,30 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getUsername() const;
-    void setUsername(const QString &username);
-    bool is_username_Set() const;
-    bool is_username_Valid() const;
+    double getDate() const;
+    void setDate(const double &date);
+    bool is_date_Set() const;
+    bool is_date_Valid() const;
 
-    QString getHash() const;
-    void setHash(const QString &hash);
-    bool is_hash_Set() const;
-    bool is_hash_Valid() const;
+    qint32 getSlot() const;
+    void setSlot(const qint32 &slot);
+    bool is_slot_Set() const;
+    bool is_slot_Valid() const;
+
+    qint32 getPosition() const;
+    void setPosition(const qint32 &position);
+    bool is_position_Set() const;
+    bool is_position_Valid() const;
+
+    QString getType() const;
+    void setType(const QString &type);
+    bool is_type_Set() const;
+    bool is_type_Valid() const;
+
+    OAIAddToMealPlan_request_value getValue() const;
+    void setValue(const OAIAddToMealPlan_request_value &value);
+    bool is_value_Set() const;
+    bool is_value_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -55,13 +72,25 @@ public:
 private:
     void initializeModel();
 
-    QString m_username;
-    bool m_username_isSet;
-    bool m_username_isValid;
+    double m_date;
+    bool m_date_isSet;
+    bool m_date_isValid;
 
-    QString m_hash;
-    bool m_hash_isSet;
-    bool m_hash_isValid;
+    qint32 m_slot;
+    bool m_slot_isSet;
+    bool m_slot_isValid;
+
+    qint32 m_position;
+    bool m_position_isSet;
+    bool m_position_isValid;
+
+    QString m_type;
+    bool m_type_isSet;
+    bool m_type_isValid;
+
+    OAIAddToMealPlan_request_value m_value;
+    bool m_value_isSet;
+    bool m_value_isValid;
 };
 
 } // namespace OpenAPI

@@ -5,9 +5,8 @@ import { AddMealPlanTemplate200Response } from '../models/AddMealPlanTemplate200
 import { AddMealPlanTemplate200ResponseItemsInner } from '../models/AddMealPlanTemplate200ResponseItemsInner';
 import { AddMealPlanTemplate200ResponseItemsInnerValue } from '../models/AddMealPlanTemplate200ResponseItemsInnerValue';
 import { AddToMealPlanRequest } from '../models/AddToMealPlanRequest';
-import { AddToMealPlanRequest1 } from '../models/AddToMealPlanRequest1';
-import { AddToMealPlanRequest1Value } from '../models/AddToMealPlanRequest1Value';
-import { AddToMealPlanRequest1ValueIngredientsInner } from '../models/AddToMealPlanRequest1ValueIngredientsInner';
+import { AddToMealPlanRequestValue } from '../models/AddToMealPlanRequestValue';
+import { AddToMealPlanRequestValueIngredientsInner } from '../models/AddToMealPlanRequestValueIngredientsInner';
 import { AddToShoppingListRequest } from '../models/AddToShoppingListRequest';
 import { AnalyzeARecipeSearchQuery200Response } from '../models/AnalyzeARecipeSearchQuery200Response';
 import { AnalyzeARecipeSearchQuery200ResponseDishesInner } from '../models/AnalyzeARecipeSearchQuery200ResponseDishesInner';
@@ -18,7 +17,6 @@ import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from '../
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
 import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
-import { AnalyzeRecipeRequest1 } from '../models/AnalyzeRecipeRequest1';
 import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
 import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
 import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
@@ -29,7 +27,6 @@ import { ClassifyGroceryProduct200Response } from '../models/ClassifyGroceryProd
 import { ClassifyGroceryProductBulk200ResponseInner } from '../models/ClassifyGroceryProductBulk200ResponseInner';
 import { ClassifyGroceryProductBulkRequestInner } from '../models/ClassifyGroceryProductBulkRequestInner';
 import { ClassifyGroceryProductRequest } from '../models/ClassifyGroceryProductRequest';
-import { ClearMealPlanDayRequest } from '../models/ClearMealPlanDayRequest';
 import { ComputeGlycemicLoad200Response } from '../models/ComputeGlycemicLoad200Response';
 import { ComputeGlycemicLoad200ResponseIngredientsInner } from '../models/ComputeGlycemicLoad200ResponseIngredientsInner';
 import { ComputeGlycemicLoadRequest } from '../models/ComputeGlycemicLoadRequest';
@@ -38,13 +35,11 @@ import { ConnectUser200Response } from '../models/ConnectUser200Response';
 import { ConnectUserRequest } from '../models/ConnectUserRequest';
 import { ConvertAmounts200Response } from '../models/ConvertAmounts200Response';
 import { CreateRecipeCard200Response } from '../models/CreateRecipeCard200Response';
-import { DeleteFromMealPlanRequest } from '../models/DeleteFromMealPlanRequest';
 import { DetectFoodInText200Response } from '../models/DetectFoodInText200Response';
 import { DetectFoodInText200ResponseAnnotationsInner } from '../models/DetectFoodInText200ResponseAnnotationsInner';
 import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
 import { GenerateMealPlan200ResponseNutrients } from '../models/GenerateMealPlan200ResponseNutrients';
 import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
-import { GenerateShoppingListRequest } from '../models/GenerateShoppingListRequest';
 import { GetARandomFoodJoke200Response } from '../models/GetARandomFoodJoke200Response';
 import { GetAnalyzedRecipeInstructions200Response } from '../models/GetAnalyzedRecipeInstructions200Response';
 import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
@@ -541,10 +536,9 @@ export class PromiseMealPlanningApi {
      * Add Meal Plan Template
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
      */
-    public addMealPlanTemplateWithHttpInfo(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, _options?: Configuration): Promise<HttpInfo<AddMealPlanTemplate200Response>> {
-        const result = this.api.addMealPlanTemplateWithHttpInfo(username, hash, addToMealPlanRequest, _options);
+    public addMealPlanTemplateWithHttpInfo(username: string, hash: string, _options?: Configuration): Promise<HttpInfo<AddMealPlanTemplate200Response>> {
+        const result = this.api.addMealPlanTemplateWithHttpInfo(username, hash, _options);
         return result.toPromise();
     }
 
@@ -553,10 +547,9 @@ export class PromiseMealPlanningApi {
      * Add Meal Plan Template
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
      */
-    public addMealPlanTemplate(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, _options?: Configuration): Promise<AddMealPlanTemplate200Response> {
-        const result = this.api.addMealPlanTemplate(username, hash, addToMealPlanRequest, _options);
+    public addMealPlanTemplate(username: string, hash: string, _options?: Configuration): Promise<AddMealPlanTemplate200Response> {
+        const result = this.api.addMealPlanTemplate(username, hash, _options);
         return result.toPromise();
     }
 
@@ -589,10 +582,10 @@ export class PromiseMealPlanningApi {
      * Add to Shopping List
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
+     * @param addToShoppingListRequest 
      */
-    public addToShoppingListWithHttpInfo(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, _options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
-        const result = this.api.addToShoppingListWithHttpInfo(username, hash, addToMealPlanRequest, _options);
+    public addToShoppingListWithHttpInfo(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
+        const result = this.api.addToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest, _options);
         return result.toPromise();
     }
 
@@ -601,10 +594,10 @@ export class PromiseMealPlanningApi {
      * Add to Shopping List
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
+     * @param addToShoppingListRequest 
      */
-    public addToShoppingList(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, _options?: Configuration): Promise<GenerateShoppingList200Response> {
-        const result = this.api.addToShoppingList(username, hash, addToMealPlanRequest, _options);
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Promise<GenerateShoppingList200Response> {
+        const result = this.api.addToShoppingList(username, hash, addToShoppingListRequest, _options);
         return result.toPromise();
     }
 
@@ -614,10 +607,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param date The date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param clearMealPlanDayRequest 
      */
-    public clearMealPlanDayWithHttpInfo(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, _options?: Configuration): Promise<HttpInfo<any>> {
-        const result = this.api.clearMealPlanDayWithHttpInfo(username, date, hash, clearMealPlanDayRequest, _options);
+    public clearMealPlanDayWithHttpInfo(username: string, date: string, hash: string, _options?: Configuration): Promise<HttpInfo<any>> {
+        const result = this.api.clearMealPlanDayWithHttpInfo(username, date, hash, _options);
         return result.toPromise();
     }
 
@@ -627,30 +619,29 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param date The date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param clearMealPlanDayRequest 
      */
-    public clearMealPlanDay(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, _options?: Configuration): Promise<any> {
-        const result = this.api.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest, _options);
+    public clearMealPlanDay(username: string, date: string, hash: string, _options?: Configuration): Promise<any> {
+        const result = this.api.clearMealPlanDay(username, date, hash, _options);
         return result.toPromise();
     }
 
     /**
      * In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
      * Connect User
-     * @param body 
+     * @param connectUserRequest 
      */
-    public connectUserWithHttpInfo(body: any, _options?: Configuration): Promise<HttpInfo<ConnectUser200Response>> {
-        const result = this.api.connectUserWithHttpInfo(body, _options);
+    public connectUserWithHttpInfo(connectUserRequest: ConnectUserRequest, _options?: Configuration): Promise<HttpInfo<ConnectUser200Response>> {
+        const result = this.api.connectUserWithHttpInfo(connectUserRequest, _options);
         return result.toPromise();
     }
 
     /**
      * In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
      * Connect User
-     * @param body 
+     * @param connectUserRequest 
      */
-    public connectUser(body: any, _options?: Configuration): Promise<ConnectUser200Response> {
-        const result = this.api.connectUser(body, _options);
+    public connectUser(connectUserRequest: ConnectUserRequest, _options?: Configuration): Promise<ConnectUser200Response> {
+        const result = this.api.connectUser(connectUserRequest, _options);
         return result.toPromise();
     }
 
@@ -660,10 +651,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param id The shopping list item id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public deleteFromMealPlanWithHttpInfo(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<HttpInfo<any>> {
-        const result = this.api.deleteFromMealPlanWithHttpInfo(username, id, hash, deleteFromMealPlanRequest, _options);
+    public deleteFromMealPlanWithHttpInfo(username: string, id: number, hash: string, _options?: Configuration): Promise<HttpInfo<any>> {
+        const result = this.api.deleteFromMealPlanWithHttpInfo(username, id, hash, _options);
         return result.toPromise();
     }
 
@@ -673,10 +663,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param id The shopping list item id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public deleteFromMealPlan(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest, _options);
+    public deleteFromMealPlan(username: string, id: number, hash: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteFromMealPlan(username, id, hash, _options);
         return result.toPromise();
     }
 
@@ -686,10 +675,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public deleteFromShoppingListWithHttpInfo(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<HttpInfo<any>> {
-        const result = this.api.deleteFromShoppingListWithHttpInfo(username, id, hash, deleteFromMealPlanRequest, _options);
+    public deleteFromShoppingListWithHttpInfo(username: string, id: number, hash: string, _options?: Configuration): Promise<HttpInfo<any>> {
+        const result = this.api.deleteFromShoppingListWithHttpInfo(username, id, hash, _options);
         return result.toPromise();
     }
 
@@ -699,10 +687,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public deleteFromShoppingList(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest, _options);
+    public deleteFromShoppingList(username: string, id: number, hash: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteFromShoppingList(username, id, hash, _options);
         return result.toPromise();
     }
 
@@ -712,10 +699,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public deleteMealPlanTemplateWithHttpInfo(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<HttpInfo<any>> {
-        const result = this.api.deleteMealPlanTemplateWithHttpInfo(username, id, hash, deleteFromMealPlanRequest, _options);
+    public deleteMealPlanTemplateWithHttpInfo(username: string, id: number, hash: string, _options?: Configuration): Promise<HttpInfo<any>> {
+        const result = this.api.deleteMealPlanTemplateWithHttpInfo(username, id, hash, _options);
         return result.toPromise();
     }
 
@@ -725,10 +711,9 @@ export class PromiseMealPlanningApi {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public deleteMealPlanTemplate(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<any> {
-        const result = this.api.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest, _options);
+    public deleteMealPlanTemplate(username: string, id: number, hash: string, _options?: Configuration): Promise<any> {
+        const result = this.api.deleteMealPlanTemplate(username, id, hash, _options);
         return result.toPromise();
     }
 
@@ -765,10 +750,9 @@ export class PromiseMealPlanningApi {
      * @param startDate The start date in the format yyyy-mm-dd.
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param generateShoppingListRequest 
      */
-    public generateShoppingListWithHttpInfo(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, _options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
-        const result = this.api.generateShoppingListWithHttpInfo(username, startDate, endDate, hash, generateShoppingListRequest, _options);
+    public generateShoppingListWithHttpInfo(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
+        const result = this.api.generateShoppingListWithHttpInfo(username, startDate, endDate, hash, _options);
         return result.toPromise();
     }
 
@@ -779,10 +763,9 @@ export class PromiseMealPlanningApi {
      * @param startDate The start date in the format yyyy-mm-dd.
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param generateShoppingListRequest 
      */
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, _options?: Configuration): Promise<GenerateShoppingList200Response> {
-        const result = this.api.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest, _options);
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Promise<GenerateShoppingList200Response> {
+        const result = this.api.generateShoppingList(username, startDate, endDate, hash, _options);
         return result.toPromise();
     }
 

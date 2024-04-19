@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import "OAIAnalyzeRecipeRequest.h"
-#import "OAIAnalyzeRecipeRequest1.h"
 #import "OAISearchRestaurants200Response.h"
 #import "OAIApi.h"
 

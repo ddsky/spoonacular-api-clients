@@ -18,16 +18,12 @@ local basexx = require "basexx"
 -- model import
 local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
 local spoonacular_add_meal_plan_template_200_response = require "spoonacular.model.add_meal_plan_template_200_response"
-local spoonacular_add_to_meal_plan_request_1 = require "spoonacular.model.add_to_meal_plan_request_1"
-local spoonacular_add_to_shopping_list_request = require "spoonacular.model.add_to_shopping_list_request"
 local spoonacular_add_to_meal_plan_request = require "spoonacular.model.add_to_meal_plan_request"
-local spoonacular_clear_meal_plan_day_request = require "spoonacular.model.clear_meal_plan_day_request"
+local spoonacular_add_to_shopping_list_request = require "spoonacular.model.add_to_shopping_list_request"
 local spoonacular_connect_user_200_response = require "spoonacular.model.connect_user_200_response"
 local spoonacular_connect_user_request = require "spoonacular.model.connect_user_request"
-local spoonacular_delete_from_meal_plan_request = require "spoonacular.model.delete_from_meal_plan_request"
 local spoonacular_generate_meal_plan_200_response = require "spoonacular.model.generate_meal_plan_200_response"
 local spoonacular_generate_shopping_list_200_response = require "spoonacular.model.generate_shopping_list_200_response"
-local spoonacular_generate_shopping_list_request = require "spoonacular.model.generate_shopping_list_request"
 local spoonacular_get_meal_plan_template_200_response = require "spoonacular.model.get_meal_plan_template_200_response"
 local spoonacular_get_meal_plan_templates_200_response = require "spoonacular.model.get_meal_plan_templates_200_response"
 local spoonacular_get_meal_plan_week_200_response = require "spoonacular.model.get_meal_plan_week_200_response"
@@ -59,7 +55,7 @@ local function new_meal_planning_api(authority, basePath, schemes)
 	}, meal_planning_api_mt)
 end
 
-function meal_planning_api:add_meal_plan_template(username, hash, add_to_meal_plan_request)
+function meal_planning_api:add_meal_plan_template(username, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -70,15 +66,9 @@ function meal_planning_api:add_meal_plan_template(username, hash, add_to_meal_pl
 
 	-- set HTTP verb
 	req.headers:upsert(":method", "POST")
-	-- TODO: create a function to select proper accept
-	--local var_content_type = { "" }
-	req.headers:upsert("accept", "")
-
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
-
-	req:set_body(dkjson.encode(add_to_meal_plan_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -127,8 +117,8 @@ function meal_planning_api:add_to_meal_plan(username, hash, add_to_meal_plan_req
 	-- set HTTP verb
 	req.headers:upsert(":method", "POST")
 	-- TODO: create a function to select proper accept
-	--local var_content_type = { "", "application/json" }
-	req.headers:upsert("accept", "")
+	--local var_content_type = { "application/json" }
+	req.headers:upsert("accept", "application/json")
 
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
@@ -171,7 +161,7 @@ function meal_planning_api:add_to_meal_plan(username, hash, add_to_meal_plan_req
 	end
 end
 
-function meal_planning_api:add_to_shopping_list(username, hash, add_to_meal_plan_request)
+function meal_planning_api:add_to_shopping_list(username, hash, add_to_shopping_list_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -183,14 +173,14 @@ function meal_planning_api:add_to_shopping_list(username, hash, add_to_meal_plan
 	-- set HTTP verb
 	req.headers:upsert(":method", "POST")
 	-- TODO: create a function to select proper accept
-	--local var_content_type = { "", "application/json" }
-	req.headers:upsert("accept", "")
+	--local var_content_type = { "application/json" }
+	req.headers:upsert("accept", "application/json")
 
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(add_to_meal_plan_request))
+	req:set_body(dkjson.encode(add_to_shopping_list_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -227,7 +217,7 @@ function meal_planning_api:add_to_shopping_list(username, hash, add_to_meal_plan
 	end
 end
 
-function meal_planning_api:clear_meal_plan_day(username, date, hash, clear_meal_plan_day_request)
+function meal_planning_api:clear_meal_plan_day(username, date, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -238,15 +228,9 @@ function meal_planning_api:clear_meal_plan_day(username, date, hash, clear_meal_
 
 	-- set HTTP verb
 	req.headers:upsert(":method", "DELETE")
-	-- TODO: create a function to select proper accept
-	--local var_content_type = { "" }
-	req.headers:upsert("accept", "")
-
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
-
-	req:set_body(dkjson.encode(clear_meal_plan_day_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -283,7 +267,7 @@ function meal_planning_api:clear_meal_plan_day(username, date, hash, clear_meal_
 	end
 end
 
-function meal_planning_api:connect_user(body)
+function meal_planning_api:connect_user(connect_user_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -295,14 +279,14 @@ function meal_planning_api:connect_user(body)
 	-- set HTTP verb
 	req.headers:upsert(":method", "POST")
 	-- TODO: create a function to select proper accept
-	--local var_content_type = { "", "application/json" }
-	req.headers:upsert("accept", "")
+	--local var_content_type = { "application/json" }
+	req.headers:upsert("accept", "application/json")
 
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(body))
+	req:set_body(dkjson.encode(connect_user_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -339,7 +323,7 @@ function meal_planning_api:connect_user(body)
 	end
 end
 
-function meal_planning_api:delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request)
+function meal_planning_api:delete_from_meal_plan(username, id, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -350,15 +334,9 @@ function meal_planning_api:delete_from_meal_plan(username, id, hash, delete_from
 
 	-- set HTTP verb
 	req.headers:upsert(":method", "DELETE")
-	-- TODO: create a function to select proper accept
-	--local var_content_type = { "" }
-	req.headers:upsert("accept", "")
-
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
-
-	req:set_body(dkjson.encode(delete_from_meal_plan_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -395,7 +373,7 @@ function meal_planning_api:delete_from_meal_plan(username, id, hash, delete_from
 	end
 end
 
-function meal_planning_api:delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request)
+function meal_planning_api:delete_from_shopping_list(username, id, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -406,15 +384,9 @@ function meal_planning_api:delete_from_shopping_list(username, id, hash, delete_
 
 	-- set HTTP verb
 	req.headers:upsert(":method", "DELETE")
-	-- TODO: create a function to select proper accept
-	--local var_content_type = { "" }
-	req.headers:upsert("accept", "")
-
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
-
-	req:set_body(dkjson.encode(delete_from_meal_plan_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -451,7 +423,7 @@ function meal_planning_api:delete_from_shopping_list(username, id, hash, delete_
 	end
 end
 
-function meal_planning_api:delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request)
+function meal_planning_api:delete_meal_plan_template(username, id, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -462,15 +434,9 @@ function meal_planning_api:delete_meal_plan_template(username, id, hash, delete_
 
 	-- set HTTP verb
 	req.headers:upsert(":method", "DELETE")
-	-- TODO: create a function to select proper accept
-	--local var_content_type = { "" }
-	req.headers:upsert("accept", "")
-
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
-
-	req:set_body(dkjson.encode(delete_from_meal_plan_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
@@ -557,7 +523,7 @@ function meal_planning_api:generate_meal_plan(time_frame, target_calories, diet,
 	end
 end
 
-function meal_planning_api:generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request)
+function meal_planning_api:generate_shopping_list(username, start_date, end_date, hash)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -568,15 +534,9 @@ function meal_planning_api:generate_shopping_list(username, start_date, end_date
 
 	-- set HTTP verb
 	req.headers:upsert(":method", "POST")
-	-- TODO: create a function to select proper accept
-	--local var_content_type = { "" }
-	req.headers:upsert("accept", "")
-
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
-
-	req:set_body(dkjson.encode(generate_shopping_list_request))
 
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then

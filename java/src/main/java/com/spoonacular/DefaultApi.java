@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import com.spoonacular.client.model.AnalyzeRecipeRequest;
-import com.spoonacular.client.model.AnalyzeRecipeRequest1;
 import java.math.BigDecimal;
 import com.spoonacular.client.model.SearchRestaurants200Response;
 
@@ -141,7 +140,6 @@ public class DefaultApi {
         }
 
         final String[] localVarContentTypes = {
-            "",
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);

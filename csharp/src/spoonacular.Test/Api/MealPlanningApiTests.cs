@@ -64,8 +64,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string hash = null;
-            //AddToMealPlanRequest addToMealPlanRequest = null;
-            //var response = instance.AddMealPlanTemplate(username, hash, addToMealPlanRequest);
+            //var response = instance.AddMealPlanTemplate(username, hash);
             //Assert.IsType<AddMealPlanTemplate200Response>(response);
         }
 
@@ -92,8 +91,8 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string hash = null;
-            //AddToMealPlanRequest addToMealPlanRequest = null;
-            //var response = instance.AddToShoppingList(username, hash, addToMealPlanRequest);
+            //AddToShoppingListRequest addToShoppingListRequest = null;
+            //var response = instance.AddToShoppingList(username, hash, addToShoppingListRequest);
             //Assert.IsType<GenerateShoppingList200Response>(response);
         }
 
@@ -107,8 +106,7 @@ namespace spoonacular.Test.Api
             //string username = null;
             //string date = null;
             //string hash = null;
-            //ClearMealPlanDayRequest clearMealPlanDayRequest = null;
-            //var response = instance.ClearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
+            //var response = instance.ClearMealPlanDay(username, date, hash);
             //Assert.IsType<Object>(response);
         }
 
@@ -119,8 +117,8 @@ namespace spoonacular.Test.Api
         public void ConnectUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Object body = null;
-            //var response = instance.ConnectUser(body);
+            //ConnectUserRequest connectUserRequest = null;
+            //var response = instance.ConnectUser(connectUserRequest);
             //Assert.IsType<ConnectUser200Response>(response);
         }
 
@@ -134,8 +132,7 @@ namespace spoonacular.Test.Api
             //string username = null;
             //decimal id = null;
             //string hash = null;
-            //DeleteFromMealPlanRequest deleteFromMealPlanRequest = null;
-            //var response = instance.DeleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
+            //var response = instance.DeleteFromMealPlan(username, id, hash);
             //Assert.IsType<Object>(response);
         }
 
@@ -149,8 +146,7 @@ namespace spoonacular.Test.Api
             //string username = null;
             //int id = null;
             //string hash = null;
-            //DeleteFromMealPlanRequest deleteFromMealPlanRequest = null;
-            //var response = instance.DeleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
+            //var response = instance.DeleteFromShoppingList(username, id, hash);
             //Assert.IsType<Object>(response);
         }
 
@@ -164,8 +160,7 @@ namespace spoonacular.Test.Api
             //string username = null;
             //int id = null;
             //string hash = null;
-            //DeleteFromMealPlanRequest deleteFromMealPlanRequest = null;
-            //var response = instance.DeleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
+            //var response = instance.DeleteMealPlanTemplate(username, id, hash);
             //Assert.IsType<Object>(response);
         }
 
@@ -195,8 +190,7 @@ namespace spoonacular.Test.Api
             //string startDate = null;
             //string endDate = null;
             //string hash = null;
-            //GenerateShoppingListRequest generateShoppingListRequest = null;
-            //var response = instance.GenerateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
+            //var response = instance.GenerateShoppingList(username, startDate, endDate, hash);
             //Assert.IsType<GenerateShoppingList200Response>(response);
         }
 

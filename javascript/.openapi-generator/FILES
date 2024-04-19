@@ -7,9 +7,8 @@ docs/AddMealPlanTemplate200Response.md
 docs/AddMealPlanTemplate200ResponseItemsInner.md
 docs/AddMealPlanTemplate200ResponseItemsInnerValue.md
 docs/AddToMealPlanRequest.md
-docs/AddToMealPlanRequest1.md
-docs/AddToMealPlanRequest1Value.md
-docs/AddToMealPlanRequest1ValueIngredientsInner.md
+docs/AddToMealPlanRequestValue.md
+docs/AddToMealPlanRequestValueIngredientsInner.md
 docs/AddToShoppingListRequest.md
 docs/AnalyzeARecipeSearchQuery200Response.md
 docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md
@@ -20,7 +19,6 @@ docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
 docs/AnalyzeRecipeRequest.md
-docs/AnalyzeRecipeRequest1.md
 docs/AutocompleteIngredientSearch200ResponseInner.md
 docs/AutocompleteMenuItemSearch200Response.md
 docs/AutocompleteProductSearch200Response.md
@@ -31,7 +29,6 @@ docs/ClassifyGroceryProduct200Response.md
 docs/ClassifyGroceryProductBulk200ResponseInner.md
 docs/ClassifyGroceryProductBulkRequestInner.md
 docs/ClassifyGroceryProductRequest.md
-docs/ClearMealPlanDayRequest.md
 docs/ComputeGlycemicLoad200Response.md
 docs/ComputeGlycemicLoad200ResponseIngredientsInner.md
 docs/ComputeGlycemicLoadRequest.md
@@ -41,13 +38,11 @@ docs/ConnectUserRequest.md
 docs/ConvertAmounts200Response.md
 docs/CreateRecipeCard200Response.md
 docs/DefaultApi.md
-docs/DeleteFromMealPlanRequest.md
 docs/DetectFoodInText200Response.md
 docs/DetectFoodInText200ResponseAnnotationsInner.md
 docs/GenerateMealPlan200Response.md
 docs/GenerateMealPlan200ResponseNutrients.md
 docs/GenerateShoppingList200Response.md
-docs/GenerateShoppingListRequest.md
 docs/GetARandomFoodJoke200Response.md
 docs/GetAnalyzedRecipeInstructions200Response.md
 docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md
@@ -187,9 +182,8 @@ src/model/AddMealPlanTemplate200Response.js
 src/model/AddMealPlanTemplate200ResponseItemsInner.js
 src/model/AddMealPlanTemplate200ResponseItemsInnerValue.js
 src/model/AddToMealPlanRequest.js
-src/model/AddToMealPlanRequest1.js
-src/model/AddToMealPlanRequest1Value.js
-src/model/AddToMealPlanRequest1ValueIngredientsInner.js
+src/model/AddToMealPlanRequestValue.js
+src/model/AddToMealPlanRequestValueIngredientsInner.js
 src/model/AddToShoppingListRequest.js
 src/model/AnalyzeARecipeSearchQuery200Response.js
 src/model/AnalyzeARecipeSearchQuery200ResponseDishesInner.js
@@ -200,7 +194,6 @@ src/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.js
 src/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.js
 src/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.js
 src/model/AnalyzeRecipeRequest.js
-src/model/AnalyzeRecipeRequest1.js
 src/model/AutocompleteIngredientSearch200ResponseInner.js
 src/model/AutocompleteMenuItemSearch200Response.js
 src/model/AutocompleteProductSearch200Response.js
@@ -211,7 +204,6 @@ src/model/ClassifyGroceryProduct200Response.js
 src/model/ClassifyGroceryProductBulk200ResponseInner.js
 src/model/ClassifyGroceryProductBulkRequestInner.js
 src/model/ClassifyGroceryProductRequest.js
-src/model/ClearMealPlanDayRequest.js
 src/model/ComputeGlycemicLoad200Response.js
 src/model/ComputeGlycemicLoad200ResponseIngredientsInner.js
 src/model/ComputeGlycemicLoadRequest.js
@@ -220,13 +212,11 @@ src/model/ConnectUser200Response.js
 src/model/ConnectUserRequest.js
 src/model/ConvertAmounts200Response.js
 src/model/CreateRecipeCard200Response.js
-src/model/DeleteFromMealPlanRequest.js
 src/model/DetectFoodInText200Response.js
 src/model/DetectFoodInText200ResponseAnnotationsInner.js
 src/model/GenerateMealPlan200Response.js
 src/model/GenerateMealPlan200ResponseNutrients.js
 src/model/GenerateShoppingList200Response.js
-src/model/GenerateShoppingListRequest.js
 src/model/GetARandomFoodJoke200Response.js
 src/model/GetAnalyzedRecipeInstructions200Response.js
 src/model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.js
@@ -354,9 +344,8 @@ test/model/AddMealPlanTemplate200Response.spec.js
 test/model/AddMealPlanTemplate200ResponseItemsInner.spec.js
 test/model/AddMealPlanTemplate200ResponseItemsInnerValue.spec.js
 test/model/AddToMealPlanRequest.spec.js
-test/model/AddToMealPlanRequest1.spec.js
-test/model/AddToMealPlanRequest1Value.spec.js
-test/model/AddToMealPlanRequest1ValueIngredientsInner.spec.js
+test/model/AddToMealPlanRequestValue.spec.js
+test/model/AddToMealPlanRequestValueIngredientsInner.spec.js
 test/model/AddToShoppingListRequest.spec.js
 test/model/AnalyzeARecipeSearchQuery200Response.spec.js
 test/model/AnalyzeARecipeSearchQuery200ResponseDishesInner.spec.js
@@ -367,7 +356,6 @@ test/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.spec.js
 test/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.spec.js
 test/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.spec.js
 test/model/AnalyzeRecipeRequest.spec.js
-test/model/AnalyzeRecipeRequest1.spec.js
 test/model/AutocompleteIngredientSearch200ResponseInner.spec.js
 test/model/AutocompleteMenuItemSearch200Response.spec.js
 test/model/AutocompleteProductSearch200Response.spec.js
@@ -378,7 +366,6 @@ test/model/ClassifyGroceryProduct200Response.spec.js
 test/model/ClassifyGroceryProductBulk200ResponseInner.spec.js
 test/model/ClassifyGroceryProductBulkRequestInner.spec.js
 test/model/ClassifyGroceryProductRequest.spec.js
-test/model/ClearMealPlanDayRequest.spec.js
 test/model/ComputeGlycemicLoad200Response.spec.js
 test/model/ComputeGlycemicLoad200ResponseIngredientsInner.spec.js
 test/model/ComputeGlycemicLoadRequest.spec.js
@@ -387,13 +374,11 @@ test/model/ConnectUser200Response.spec.js
 test/model/ConnectUserRequest.spec.js
 test/model/ConvertAmounts200Response.spec.js
 test/model/CreateRecipeCard200Response.spec.js
-test/model/DeleteFromMealPlanRequest.spec.js
 test/model/DetectFoodInText200Response.spec.js
 test/model/DetectFoodInText200ResponseAnnotationsInner.spec.js
 test/model/GenerateMealPlan200Response.spec.js
 test/model/GenerateMealPlan200ResponseNutrients.spec.js
 test/model/GenerateShoppingList200Response.spec.js
-test/model/GenerateShoppingListRequest.spec.js
 test/model/GetARandomFoodJoke200Response.spec.js
 test/model/GetAnalyzedRecipeInstructions200Response.spec.js
 test/model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.spec.js

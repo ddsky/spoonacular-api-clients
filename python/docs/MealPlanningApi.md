@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **add_meal_plan_template**
-> AddMealPlanTemplate200Response add_meal_plan_template(username, hash, add_to_meal_plan_request)
+> AddMealPlanTemplate200Response add_meal_plan_template(username, hash)
 
 Add Meal Plan Template
 
@@ -34,7 +34,6 @@ Add a meal plan template for a user.
 ```python
 import spoonacular
 from spoonacular.models.add_meal_plan_template200_response import AddMealPlanTemplate200Response
-from spoonacular.models.add_to_meal_plan_request import AddToMealPlanRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -61,11 +60,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
     hash = '4b5v4398573406' # str | The private hash for the username.
-    add_to_meal_plan_request = spoonacular.AddToMealPlanRequest() # AddToMealPlanRequest | 
 
     try:
         # Add Meal Plan Template
-        api_response = api_instance.add_meal_plan_template(username, hash, add_to_meal_plan_request)
+        api_response = api_instance.add_meal_plan_template(username, hash)
         print("The response of MealPlanningApi->add_meal_plan_template:\n")
         pprint(api_response)
     except Exception as e:
@@ -81,7 +79,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
  **hash** | **str**| The private hash for the username. | 
- **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -93,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -147,7 +144,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
     hash = 'hash_example' # str | The private hash for the username.
-    add_to_meal_plan_request = spoonacular.AddToMealPlanRequest() # AddToMealPlanRequest | 
+    add_to_meal_plan_request = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}} # AddToMealPlanRequest | 
 
     try:
         # Add to Meal Plan
@@ -179,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -194,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_shopping_list**
-> GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_meal_plan_request)
+> GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
 
 Add to Shopping List
 
@@ -206,7 +203,7 @@ Add an item to the current shopping list of a user.
 
 ```python
 import spoonacular
-from spoonacular.models.add_to_meal_plan_request import AddToMealPlanRequest
+from spoonacular.models.add_to_shopping_list_request import AddToShoppingListRequest
 from spoonacular.models.generate_shopping_list200_response import GenerateShoppingList200Response
 from spoonacular.rest import ApiException
 from pprint import pprint
@@ -234,11 +231,11 @@ with spoonacular.ApiClient(configuration) as api_client:
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
     hash = 'hash_example' # str | The private hash for the username.
-    add_to_meal_plan_request = spoonacular.AddToMealPlanRequest() # AddToMealPlanRequest | 
+    add_to_shopping_list_request = {"item":"1 package baking powder","aisle":"Baking","parse":true} # AddToShoppingListRequest | 
 
     try:
         # Add to Shopping List
-        api_response = api_instance.add_to_shopping_list(username, hash, add_to_meal_plan_request)
+        api_response = api_instance.add_to_shopping_list(username, hash, add_to_shopping_list_request)
         print("The response of MealPlanningApi->add_to_shopping_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -254,7 +251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
  **hash** | **str**| The private hash for the username. | 
- **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+ **add_to_shopping_list_request** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -266,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -281,7 +278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clear_meal_plan_day**
-> object clear_meal_plan_day(username, var_date, hash, clear_meal_plan_day_request)
+> object clear_meal_plan_day(username, var_date, hash)
 
 Clear Meal Plan Day
 
@@ -293,7 +290,6 @@ Delete all planned items from the user's meal plan for a specific day.
 
 ```python
 import spoonacular
-from spoonacular.models.clear_meal_plan_day_request import ClearMealPlanDayRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -321,11 +317,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     username = 'dsky' # str | The username.
     var_date = '2020-06-01' # str | The date in the format yyyy-mm-dd.
     hash = 'hash_example' # str | The private hash for the username.
-    clear_meal_plan_day_request = spoonacular.ClearMealPlanDayRequest() # ClearMealPlanDayRequest | 
 
     try:
         # Clear Meal Plan Day
-        api_response = api_instance.clear_meal_plan_day(username, var_date, hash, clear_meal_plan_day_request)
+        api_response = api_instance.clear_meal_plan_day(username, var_date, hash)
         print("The response of MealPlanningApi->clear_meal_plan_day:\n")
         pprint(api_response)
     except Exception as e:
@@ -342,7 +337,6 @@ Name | Type | Description  | Notes
  **username** | **str**| The username. | 
  **var_date** | **str**| The date in the format yyyy-mm-dd. | 
  **hash** | **str**| The private hash for the username. | 
- **clear_meal_plan_day_request** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -354,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -369,7 +363,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connect_user**
-> ConnectUser200Response connect_user(body)
+> ConnectUser200Response connect_user(connect_user_request)
 
 Connect User
 
@@ -382,6 +376,7 @@ In order to call user-specific endpoints, you need to connect your app's users t
 ```python
 import spoonacular
 from spoonacular.models.connect_user200_response import ConnectUser200Response
+from spoonacular.models.connect_user_request import ConnectUserRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -406,11 +401,11 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MealPlanningApi(api_client)
-    body = None # object | 
+    connect_user_request = {"username":"your user's name","firstName":"your user's first name","lastName":"your user's last name","email":"your user's email"} # ConnectUserRequest | 
 
     try:
         # Connect User
-        api_response = api_instance.connect_user(body)
+        api_response = api_instance.connect_user(connect_user_request)
         print("The response of MealPlanningApi->connect_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -424,7 +419,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  | 
+ **connect_user_request** | [**ConnectUserRequest**](ConnectUserRequest.md)|  | 
 
 ### Return type
 
@@ -436,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -451,7 +446,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_meal_plan**
-> object delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request)
+> object delete_from_meal_plan(username, id, hash)
 
 Delete from Meal Plan
 
@@ -463,7 +458,6 @@ Delete an item from the user's meal plan.
 
 ```python
 import spoonacular
-from spoonacular.models.delete_from_meal_plan_request import DeleteFromMealPlanRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -491,11 +485,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     username = 'dsky' # str | The username.
     id = 15678 # float | The shopping list item id.
     hash = 'hash_example' # str | The private hash for the username.
-    delete_from_meal_plan_request = spoonacular.DeleteFromMealPlanRequest() # DeleteFromMealPlanRequest | 
 
     try:
         # Delete from Meal Plan
-        api_response = api_instance.delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request)
+        api_response = api_instance.delete_from_meal_plan(username, id, hash)
         print("The response of MealPlanningApi->delete_from_meal_plan:\n")
         pprint(api_response)
     except Exception as e:
@@ -512,7 +505,6 @@ Name | Type | Description  | Notes
  **username** | **str**| The username. | 
  **id** | **float**| The shopping list item id. | 
  **hash** | **str**| The private hash for the username. | 
- **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -524,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -539,7 +531,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_shopping_list**
-> object delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request)
+> object delete_from_shopping_list(username, id, hash)
 
 Delete from Shopping List
 
@@ -551,7 +543,6 @@ Delete an item from the current shopping list of the user.
 
 ```python
 import spoonacular
-from spoonacular.models.delete_from_meal_plan_request import DeleteFromMealPlanRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -579,11 +570,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     username = 'dsky' # str | The username.
     id = 1 # int | The item's id.
     hash = 'hash_example' # str | The private hash for the username.
-    delete_from_meal_plan_request = spoonacular.DeleteFromMealPlanRequest() # DeleteFromMealPlanRequest | 
 
     try:
         # Delete from Shopping List
-        api_response = api_instance.delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request)
+        api_response = api_instance.delete_from_shopping_list(username, id, hash)
         print("The response of MealPlanningApi->delete_from_shopping_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -600,7 +590,6 @@ Name | Type | Description  | Notes
  **username** | **str**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **str**| The private hash for the username. | 
- **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -612,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -627,7 +616,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_meal_plan_template**
-> object delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request)
+> object delete_meal_plan_template(username, id, hash)
 
 Delete Meal Plan Template
 
@@ -639,7 +628,6 @@ Delete a meal plan template for a user.
 
 ```python
 import spoonacular
-from spoonacular.models.delete_from_meal_plan_request import DeleteFromMealPlanRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -667,11 +655,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     username = 'dsky' # str | The username.
     id = 1 # int | The item's id.
     hash = '4b5v4398573406' # str | The private hash for the username.
-    delete_from_meal_plan_request = spoonacular.DeleteFromMealPlanRequest() # DeleteFromMealPlanRequest | 
 
     try:
         # Delete Meal Plan Template
-        api_response = api_instance.delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request)
+        api_response = api_instance.delete_meal_plan_template(username, id, hash)
         print("The response of MealPlanningApi->delete_meal_plan_template:\n")
         pprint(api_response)
     except Exception as e:
@@ -688,7 +675,6 @@ Name | Type | Description  | Notes
  **username** | **str**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **str**| The private hash for the username. | 
- **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -700,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -803,7 +789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_shopping_list**
-> GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request)
+> GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
 
 Generate Shopping List
 
@@ -816,7 +802,6 @@ Generate the shopping list for a user from the meal planner in a given time fram
 ```python
 import spoonacular
 from spoonacular.models.generate_shopping_list200_response import GenerateShoppingList200Response
-from spoonacular.models.generate_shopping_list_request import GenerateShoppingListRequest
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -845,11 +830,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     start_date = '2020-06-01' # str | The start date in the format yyyy-mm-dd.
     end_date = '2020-06-07' # str | The end date in the format yyyy-mm-dd.
     hash = 'hash_example' # str | The private hash for the username.
-    generate_shopping_list_request = spoonacular.GenerateShoppingListRequest() # GenerateShoppingListRequest | 
 
     try:
         # Generate Shopping List
-        api_response = api_instance.generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request)
+        api_response = api_instance.generate_shopping_list(username, start_date, end_date, hash)
         print("The response of MealPlanningApi->generate_shopping_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -867,7 +851,6 @@ Name | Type | Description  | Notes
  **start_date** | **str**| The start date in the format yyyy-mm-dd. | 
  **end_date** | **str**| The end date in the format yyyy-mm-dd. | 
  **hash** | **str**| The private hash for the username. | 
- **generate_shopping_list_request** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -879,7 +862,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

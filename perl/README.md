@@ -250,9 +250,8 @@ use WWW::OpenAPIClient::Object::AddMealPlanTemplate200Response;
 use WWW::OpenAPIClient::Object::AddMealPlanTemplate200ResponseItemsInner;
 use WWW::OpenAPIClient::Object::AddMealPlanTemplate200ResponseItemsInnerValue;
 use WWW::OpenAPIClient::Object::AddToMealPlanRequest;
-use WWW::OpenAPIClient::Object::AddToMealPlanRequest1;
-use WWW::OpenAPIClient::Object::AddToMealPlanRequest1Value;
-use WWW::OpenAPIClient::Object::AddToMealPlanRequest1ValueIngredientsInner;
+use WWW::OpenAPIClient::Object::AddToMealPlanRequestValue;
+use WWW::OpenAPIClient::Object::AddToMealPlanRequestValueIngredientsInner;
 use WWW::OpenAPIClient::Object::AddToShoppingListRequest;
 use WWW::OpenAPIClient::Object::AnalyzeARecipeSearchQuery200Response;
 use WWW::OpenAPIClient::Object::AnalyzeARecipeSearchQuery200ResponseDishesInner;
@@ -263,7 +262,6 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstru
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest;
-use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest1;
 use WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner;
 use WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response;
@@ -274,7 +272,6 @@ use WWW::OpenAPIClient::Object::ClassifyGroceryProduct200Response;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulk200ResponseInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulkRequestInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest;
-use WWW::OpenAPIClient::Object::ClearMealPlanDayRequest;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200Response;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest;
@@ -283,13 +280,11 @@ use WWW::OpenAPIClient::Object::ConnectUser200Response;
 use WWW::OpenAPIClient::Object::ConnectUserRequest;
 use WWW::OpenAPIClient::Object::ConvertAmounts200Response;
 use WWW::OpenAPIClient::Object::CreateRecipeCard200Response;
-use WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest;
 use WWW::OpenAPIClient::Object::DetectFoodInText200Response;
 use WWW::OpenAPIClient::Object::DetectFoodInText200ResponseAnnotationsInner;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200Response;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200ResponseNutrients;
 use WWW::OpenAPIClient::Object::GenerateShoppingList200Response;
-use WWW::OpenAPIClient::Object::GenerateShoppingListRequest;
 use WWW::OpenAPIClient::Object::GetARandomFoodJoke200Response;
 use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200Response;
 use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseIngredientsInner;
@@ -430,9 +425,8 @@ use WWW::OpenAPIClient::Object::AddMealPlanTemplate200Response;
 use WWW::OpenAPIClient::Object::AddMealPlanTemplate200ResponseItemsInner;
 use WWW::OpenAPIClient::Object::AddMealPlanTemplate200ResponseItemsInnerValue;
 use WWW::OpenAPIClient::Object::AddToMealPlanRequest;
-use WWW::OpenAPIClient::Object::AddToMealPlanRequest1;
-use WWW::OpenAPIClient::Object::AddToMealPlanRequest1Value;
-use WWW::OpenAPIClient::Object::AddToMealPlanRequest1ValueIngredientsInner;
+use WWW::OpenAPIClient::Object::AddToMealPlanRequestValue;
+use WWW::OpenAPIClient::Object::AddToMealPlanRequestValueIngredientsInner;
 use WWW::OpenAPIClient::Object::AddToShoppingListRequest;
 use WWW::OpenAPIClient::Object::AnalyzeARecipeSearchQuery200Response;
 use WWW::OpenAPIClient::Object::AnalyzeARecipeSearchQuery200ResponseDishesInner;
@@ -443,7 +437,6 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstru
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest;
-use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest1;
 use WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner;
 use WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response;
@@ -454,7 +447,6 @@ use WWW::OpenAPIClient::Object::ClassifyGroceryProduct200Response;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulk200ResponseInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulkRequestInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest;
-use WWW::OpenAPIClient::Object::ClearMealPlanDayRequest;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200Response;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest;
@@ -463,13 +455,11 @@ use WWW::OpenAPIClient::Object::ConnectUser200Response;
 use WWW::OpenAPIClient::Object::ConnectUserRequest;
 use WWW::OpenAPIClient::Object::ConvertAmounts200Response;
 use WWW::OpenAPIClient::Object::CreateRecipeCard200Response;
-use WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest;
 use WWW::OpenAPIClient::Object::DetectFoodInText200Response;
 use WWW::OpenAPIClient::Object::DetectFoodInText200ResponseAnnotationsInner;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200Response;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200ResponseNutrients;
 use WWW::OpenAPIClient::Object::GenerateShoppingList200Response;
-use WWW::OpenAPIClient::Object::GenerateShoppingListRequest;
 use WWW::OpenAPIClient::Object::GetARandomFoodJoke200Response;
 use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200Response;
 use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseIngredientsInner;
@@ -725,9 +715,8 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::AddMealPlanTemplate200ResponseItemsInner](docs/AddMealPlanTemplate200ResponseItemsInner.md)
  - [WWW::OpenAPIClient::Object::AddMealPlanTemplate200ResponseItemsInnerValue](docs/AddMealPlanTemplate200ResponseItemsInnerValue.md)
  - [WWW::OpenAPIClient::Object::AddToMealPlanRequest](docs/AddToMealPlanRequest.md)
- - [WWW::OpenAPIClient::Object::AddToMealPlanRequest1](docs/AddToMealPlanRequest1.md)
- - [WWW::OpenAPIClient::Object::AddToMealPlanRequest1Value](docs/AddToMealPlanRequest1Value.md)
- - [WWW::OpenAPIClient::Object::AddToMealPlanRequest1ValueIngredientsInner](docs/AddToMealPlanRequest1ValueIngredientsInner.md)
+ - [WWW::OpenAPIClient::Object::AddToMealPlanRequestValue](docs/AddToMealPlanRequestValue.md)
+ - [WWW::OpenAPIClient::Object::AddToMealPlanRequestValueIngredientsInner](docs/AddToMealPlanRequestValueIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::AddToShoppingListRequest](docs/AddToShoppingListRequest.md)
  - [WWW::OpenAPIClient::Object::AnalyzeARecipeSearchQuery200Response](docs/AnalyzeARecipeSearchQuery200Response.md)
  - [WWW::OpenAPIClient::Object::AnalyzeARecipeSearchQuery200ResponseDishesInner](docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md)
@@ -738,7 +727,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
- - [WWW::OpenAPIClient::Object::AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -749,7 +737,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ClassifyGroceryProductBulk200ResponseInner](docs/ClassifyGroceryProductBulk200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::ClassifyGroceryProductBulkRequestInner](docs/ClassifyGroceryProductBulkRequestInner.md)
  - [WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest](docs/ClassifyGroceryProductRequest.md)
- - [WWW::OpenAPIClient::Object::ClearMealPlanDayRequest](docs/ClearMealPlanDayRequest.md)
  - [WWW::OpenAPIClient::Object::ComputeGlycemicLoad200Response](docs/ComputeGlycemicLoad200Response.md)
  - [WWW::OpenAPIClient::Object::ComputeGlycemicLoad200ResponseIngredientsInner](docs/ComputeGlycemicLoad200ResponseIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest](docs/ComputeGlycemicLoadRequest.md)
@@ -758,13 +745,11 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ConnectUserRequest](docs/ConnectUserRequest.md)
  - [WWW::OpenAPIClient::Object::ConvertAmounts200Response](docs/ConvertAmounts200Response.md)
  - [WWW::OpenAPIClient::Object::CreateRecipeCard200Response](docs/CreateRecipeCard200Response.md)
- - [WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest](docs/DeleteFromMealPlanRequest.md)
  - [WWW::OpenAPIClient::Object::DetectFoodInText200Response](docs/DetectFoodInText200Response.md)
  - [WWW::OpenAPIClient::Object::DetectFoodInText200ResponseAnnotationsInner](docs/DetectFoodInText200ResponseAnnotationsInner.md)
  - [WWW::OpenAPIClient::Object::GenerateMealPlan200Response](docs/GenerateMealPlan200Response.md)
  - [WWW::OpenAPIClient::Object::GenerateMealPlan200ResponseNutrients](docs/GenerateMealPlan200ResponseNutrients.md)
  - [WWW::OpenAPIClient::Object::GenerateShoppingList200Response](docs/GenerateShoppingList200Response.md)
- - [WWW::OpenAPIClient::Object::GenerateShoppingListRequest](docs/GenerateShoppingListRequest.md)
  - [WWW::OpenAPIClient::Object::GetARandomFoodJoke200Response](docs/GetARandomFoodJoke200Response.md)
  - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200Response](docs/GetAnalyzedRecipeInstructions200Response.md)
  - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseIngredientsInner](docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md)

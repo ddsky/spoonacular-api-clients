@@ -4,7 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **String** | The username. | 
-**hash** | **String** | The private hash for the username. | 
+**date** | **Number** |  | 
+**slot** | **Number** |  | 
+**position** | **Number** |  | 
+**type** | **String** |  | 
+**value** | [**AddToMealPlanRequestValue**](AddToMealPlanRequestValue.md) |  | 
 
 

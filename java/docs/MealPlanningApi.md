@@ -22,7 +22,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="addMealPlanTemplate"></a>
 # **addMealPlanTemplate**
-> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
+> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash)
 
 Add Meal Plan Template
 
@@ -52,9 +52,8 @@ public class Example {
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
     String username = "dsky"; // String | The username.
     String hash = "4b5v4398573406"; // String | The private hash for the username.
-    AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
     try {
-      AddMealPlanTemplate200Response result = apiInstance.addMealPlanTemplate(username, hash, addToMealPlanRequest);
+      AddMealPlanTemplate200Response result = apiInstance.addMealPlanTemplate(username, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#addMealPlanTemplate");
@@ -73,7 +72,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **username** | **String**| The username. | |
 | **hash** | **String**| The private hash for the username. | |
-| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -85,7 +83,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -161,7 +159,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -174,7 +172,7 @@ public class Example {
 
 <a id="addToShoppingList"></a>
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
+> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -204,9 +202,9 @@ public class Example {
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
     String username = "dsky"; // String | The username.
     String hash = "hash_example"; // String | The private hash for the username.
-    AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
+    AddToShoppingListRequest addToShoppingListRequest = new AddToShoppingListRequest(); // AddToShoppingListRequest | 
     try {
-      GenerateShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToMealPlanRequest);
+      GenerateShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#addToShoppingList");
@@ -225,7 +223,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **username** | **String**| The username. | |
 | **hash** | **String**| The private hash for the username. | |
-| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | |
+| **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  | |
 
 ### Return type
 
@@ -237,7 +235,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -250,7 +248,7 @@ public class Example {
 
 <a id="clearMealPlanDay"></a>
 # **clearMealPlanDay**
-> Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
+> Object clearMealPlanDay(username, date, hash)
 
 Clear Meal Plan Day
 
@@ -281,9 +279,8 @@ public class Example {
     String username = "dsky"; // String | The username.
     String date = "2020-06-01"; // String | The date in the format yyyy-mm-dd.
     String hash = "hash_example"; // String | The private hash for the username.
-    ClearMealPlanDayRequest clearMealPlanDayRequest = new ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
     try {
-      Object result = apiInstance.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
+      Object result = apiInstance.clearMealPlanDay(username, date, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#clearMealPlanDay");
@@ -303,7 +300,6 @@ public class Example {
 | **username** | **String**| The username. | |
 | **date** | **String**| The date in the format yyyy-mm-dd. | |
 | **hash** | **String**| The private hash for the username. | |
-| **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | |
 
 ### Return type
 
@@ -315,7 +311,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -328,7 +324,7 @@ public class Example {
 
 <a id="connectUser"></a>
 # **connectUser**
-> ConnectUser200Response connectUser(body)
+> ConnectUser200Response connectUser(connectUserRequest)
 
 Connect User
 
@@ -356,9 +352,9 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
-    Object body = null; // Object | 
+    ConnectUserRequest connectUserRequest = new ConnectUserRequest(); // ConnectUserRequest | 
     try {
-      ConnectUser200Response result = apiInstance.connectUser(body);
+      ConnectUser200Response result = apiInstance.connectUser(connectUserRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#connectUser");
@@ -375,7 +371,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **Object**|  | |
+| **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md)|  | |
 
 ### Return type
 
@@ -387,7 +383,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -400,7 +396,7 @@ public class Example {
 
 <a id="deleteFromMealPlan"></a>
 # **deleteFromMealPlan**
-> Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromMealPlan(username, id, hash)
 
 Delete from Meal Plan
 
@@ -431,9 +427,8 @@ public class Example {
     String username = "dsky"; // String | The username.
     BigDecimal id = new BigDecimal("15678"); // BigDecimal | The shopping list item id.
     String hash = "hash_example"; // String | The private hash for the username.
-    DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
     try {
-      Object result = apiInstance.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
+      Object result = apiInstance.deleteFromMealPlan(username, id, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#deleteFromMealPlan");
@@ -453,7 +448,6 @@ public class Example {
 | **username** | **String**| The username. | |
 | **id** | **BigDecimal**| The shopping list item id. | |
 | **hash** | **String**| The private hash for the username. | |
-| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -465,7 +459,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -478,7 +472,7 @@ public class Example {
 
 <a id="deleteFromShoppingList"></a>
 # **deleteFromShoppingList**
-> Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromShoppingList(username, id, hash)
 
 Delete from Shopping List
 
@@ -509,9 +503,8 @@ public class Example {
     String username = "dsky"; // String | The username.
     Integer id = 1; // Integer | The item's id.
     String hash = "hash_example"; // String | The private hash for the username.
-    DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
     try {
-      Object result = apiInstance.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
+      Object result = apiInstance.deleteFromShoppingList(username, id, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#deleteFromShoppingList");
@@ -531,7 +524,6 @@ public class Example {
 | **username** | **String**| The username. | |
 | **id** | **Integer**| The item&#39;s id. | |
 | **hash** | **String**| The private hash for the username. | |
-| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -543,7 +535,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -556,7 +548,7 @@ public class Example {
 
 <a id="deleteMealPlanTemplate"></a>
 # **deleteMealPlanTemplate**
-> Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteMealPlanTemplate(username, id, hash)
 
 Delete Meal Plan Template
 
@@ -587,9 +579,8 @@ public class Example {
     String username = "dsky"; // String | The username.
     Integer id = 1; // Integer | The item's id.
     String hash = "4b5v4398573406"; // String | The private hash for the username.
-    DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
     try {
-      Object result = apiInstance.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
+      Object result = apiInstance.deleteMealPlanTemplate(username, id, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#deleteMealPlanTemplate");
@@ -609,7 +600,6 @@ public class Example {
 | **username** | **String**| The username. | |
 | **id** | **Integer**| The item&#39;s id. | |
 | **hash** | **String**| The private hash for the username. | |
-| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -621,7 +611,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -712,7 +702,7 @@ public class Example {
 
 <a id="generateShoppingList"></a>
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
+> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -744,9 +734,8 @@ public class Example {
     String startDate = "2020-06-01"; // String | The start date in the format yyyy-mm-dd.
     String endDate = "2020-06-07"; // String | The end date in the format yyyy-mm-dd.
     String hash = "hash_example"; // String | The private hash for the username.
-    GenerateShoppingListRequest generateShoppingListRequest = new GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
     try {
-      GenerateShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
+      GenerateShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#generateShoppingList");
@@ -767,7 +756,6 @@ public class Example {
 | **startDate** | **String**| The start date in the format yyyy-mm-dd. | |
 | **endDate** | **String**| The end date in the format yyyy-mm-dd. | |
 | **hash** | **String**| The private hash for the username. | |
-| **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | |
 
 ### Return type
 
@@ -779,7 +767,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

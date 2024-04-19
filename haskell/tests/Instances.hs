@@ -152,36 +152,27 @@ instance Arbitrary AddToMealPlanRequest where
 genAddToMealPlanRequest :: Int -> Gen AddToMealPlanRequest
 genAddToMealPlanRequest n =
   AddToMealPlanRequest
-    <$> arbitrary -- addToMealPlanRequestUsername :: Text
-    <*> arbitrary -- addToMealPlanRequestHash :: Text
+    <$> arbitrary -- addToMealPlanRequestDate :: Double
+    <*> arbitrary -- addToMealPlanRequestSlot :: Int
+    <*> arbitrary -- addToMealPlanRequestPosition :: Int
+    <*> arbitrary -- addToMealPlanRequestType :: Text
+    <*> arbitraryReduced n -- addToMealPlanRequestValue :: AddToMealPlanRequestValue
   
-instance Arbitrary AddToMealPlanRequest1 where
-  arbitrary = sized genAddToMealPlanRequest1
+instance Arbitrary AddToMealPlanRequestValue where
+  arbitrary = sized genAddToMealPlanRequestValue
 
-genAddToMealPlanRequest1 :: Int -> Gen AddToMealPlanRequest1
-genAddToMealPlanRequest1 n =
-  AddToMealPlanRequest1
-    <$> arbitrary -- addToMealPlanRequest1Date :: Double
-    <*> arbitrary -- addToMealPlanRequest1Slot :: Int
-    <*> arbitrary -- addToMealPlanRequest1Position :: Int
-    <*> arbitrary -- addToMealPlanRequest1Type :: Text
-    <*> arbitraryReduced n -- addToMealPlanRequest1Value :: AddToMealPlanRequest1Value
+genAddToMealPlanRequestValue :: Int -> Gen AddToMealPlanRequestValue
+genAddToMealPlanRequestValue n =
+  AddToMealPlanRequestValue
+    <$> arbitraryReduced n -- addToMealPlanRequestValueIngredients :: [AddToMealPlanRequestValueIngredientsInner]
   
-instance Arbitrary AddToMealPlanRequest1Value where
-  arbitrary = sized genAddToMealPlanRequest1Value
+instance Arbitrary AddToMealPlanRequestValueIngredientsInner where
+  arbitrary = sized genAddToMealPlanRequestValueIngredientsInner
 
-genAddToMealPlanRequest1Value :: Int -> Gen AddToMealPlanRequest1Value
-genAddToMealPlanRequest1Value n =
-  AddToMealPlanRequest1Value
-    <$> arbitraryReduced n -- addToMealPlanRequest1ValueIngredients :: [AddToMealPlanRequest1ValueIngredientsInner]
-  
-instance Arbitrary AddToMealPlanRequest1ValueIngredientsInner where
-  arbitrary = sized genAddToMealPlanRequest1ValueIngredientsInner
-
-genAddToMealPlanRequest1ValueIngredientsInner :: Int -> Gen AddToMealPlanRequest1ValueIngredientsInner
-genAddToMealPlanRequest1ValueIngredientsInner n =
-  AddToMealPlanRequest1ValueIngredientsInner
-    <$> arbitrary -- addToMealPlanRequest1ValueIngredientsInnerName :: Text
+genAddToMealPlanRequestValueIngredientsInner :: Int -> Gen AddToMealPlanRequestValueIngredientsInner
+genAddToMealPlanRequestValueIngredientsInner n =
+  AddToMealPlanRequestValueIngredientsInner
+    <$> arbitrary -- addToMealPlanRequestValueIngredientsInnerName :: Text
   
 instance Arbitrary AddToShoppingListRequest where
   arbitrary = sized genAddToShoppingListRequest
@@ -279,20 +270,10 @@ instance Arbitrary AnalyzeRecipeRequest where
 genAnalyzeRecipeRequest :: Int -> Gen AnalyzeRecipeRequest
 genAnalyzeRecipeRequest n =
   AnalyzeRecipeRequest
-    <$> arbitraryReducedMaybe n -- analyzeRecipeRequestLanguage :: Maybe Text
-    <*> arbitraryReducedMaybe n -- analyzeRecipeRequestIncludeNutrition :: Maybe Bool
-    <*> arbitraryReducedMaybe n -- analyzeRecipeRequestIncludeTaste :: Maybe Bool
-  
-instance Arbitrary AnalyzeRecipeRequest1 where
-  arbitrary = sized genAnalyzeRecipeRequest1
-
-genAnalyzeRecipeRequest1 :: Int -> Gen AnalyzeRecipeRequest1
-genAnalyzeRecipeRequest1 n =
-  AnalyzeRecipeRequest1
-    <$> arbitraryReducedMaybe n -- analyzeRecipeRequest1Title :: Maybe Text
-    <*> arbitraryReducedMaybe n -- analyzeRecipeRequest1Servings :: Maybe Int
-    <*> arbitraryReducedMaybe n -- analyzeRecipeRequest1Ingredients :: Maybe [Text]
-    <*> arbitraryReducedMaybe n -- analyzeRecipeRequest1Instructions :: Maybe Text
+    <$> arbitraryReducedMaybe n -- analyzeRecipeRequestTitle :: Maybe Text
+    <*> arbitraryReducedMaybe n -- analyzeRecipeRequestServings :: Maybe Int
+    <*> arbitraryReducedMaybe n -- analyzeRecipeRequestIngredients :: Maybe [Text]
+    <*> arbitraryReducedMaybe n -- analyzeRecipeRequestInstructions :: Maybe Text
   
 instance Arbitrary AutocompleteIngredientSearch200ResponseInner where
   arbitrary = sized genAutocompleteIngredientSearch200ResponseInner
@@ -395,16 +376,6 @@ genClassifyGroceryProductRequest n =
     <*> arbitrary -- classifyGroceryProductRequestUpc :: Text
     <*> arbitrary -- classifyGroceryProductRequestPluCode :: Text
   
-instance Arbitrary ClearMealPlanDayRequest where
-  arbitrary = sized genClearMealPlanDayRequest
-
-genClearMealPlanDayRequest :: Int -> Gen ClearMealPlanDayRequest
-genClearMealPlanDayRequest n =
-  ClearMealPlanDayRequest
-    <$> arbitrary -- clearMealPlanDayRequestUsername :: Text
-    <*> arbitrary -- clearMealPlanDayRequestDate :: Text
-    <*> arbitrary -- clearMealPlanDayRequestHash :: Text
-  
 instance Arbitrary ComputeGlycemicLoad200Response where
   arbitrary = sized genComputeGlycemicLoad200Response
 
@@ -482,16 +453,6 @@ genCreateRecipeCard200Response n =
   CreateRecipeCard200Response
     <$> arbitrary -- createRecipeCard200ResponseUrl :: Text
   
-instance Arbitrary DeleteFromMealPlanRequest where
-  arbitrary = sized genDeleteFromMealPlanRequest
-
-genDeleteFromMealPlanRequest :: Int -> Gen DeleteFromMealPlanRequest
-genDeleteFromMealPlanRequest n =
-  DeleteFromMealPlanRequest
-    <$> arbitrary -- deleteFromMealPlanRequestUsername :: Text
-    <*> arbitrary -- deleteFromMealPlanRequestId :: Double
-    <*> arbitrary -- deleteFromMealPlanRequestHash :: Text
-  
 instance Arbitrary DetectFoodInText200Response where
   arbitrary = sized genDetectFoodInText200Response
 
@@ -540,17 +501,6 @@ genGenerateShoppingList200Response n =
     <*> arbitrary -- generateShoppingList200ResponseCost :: Double
     <*> arbitrary -- generateShoppingList200ResponseStartDate :: Double
     <*> arbitrary -- generateShoppingList200ResponseEndDate :: Double
-  
-instance Arbitrary GenerateShoppingListRequest where
-  arbitrary = sized genGenerateShoppingListRequest
-
-genGenerateShoppingListRequest :: Int -> Gen GenerateShoppingListRequest
-genGenerateShoppingListRequest n =
-  GenerateShoppingListRequest
-    <$> arbitrary -- generateShoppingListRequestUsername :: Text
-    <*> arbitrary -- generateShoppingListRequestStartDate :: Text
-    <*> arbitrary -- generateShoppingListRequestEndDate :: Text
-    <*> arbitrary -- generateShoppingListRequestHash :: Text
   
 instance Arbitrary GetARandomFoodJoke200Response where
   arbitrary = sized genGetARandomFoodJoke200Response

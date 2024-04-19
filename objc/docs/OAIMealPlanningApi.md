@@ -24,7 +24,6 @@ Method | HTTP request | Description
 ```objc
 -(NSURLSessionTask*) addMealPlanTemplateWithUsername: (NSString*) username
     hash: (NSString*) hash
-    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
         completionHandler: (void (^)(OAIAddMealPlanTemplate200Response* output, NSError* error)) handler;
 ```
 
@@ -44,14 +43,12 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 NSString* username = dsky; // The username.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIAddToMealPlanRequest* addToMealPlanRequest = [[OAIAddToMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Add Meal Plan Template
 [apiInstance addMealPlanTemplateWithUsername:username
               hash:hash
-              addToMealPlanRequest:addToMealPlanRequest
           completionHandler: ^(OAIAddMealPlanTemplate200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -68,7 +65,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **addToMealPlanRequest** | [**OAIAddToMealPlanRequest***](OAIAddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -80,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,7 +105,7 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 NSString* username = dsky; // The username.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIAddToMealPlanRequest* addToMealPlanRequest = [[OAIAddToMealPlanRequest alloc] init]; // 
+OAIAddToMealPlanRequest* addToMealPlanRequest = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}}; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -145,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -154,7 +150,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
+    addToShoppingListRequest: (OAIAddToShoppingListRequest*) addToShoppingListRequest
         completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler;
 ```
 
@@ -174,14 +170,14 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 NSString* username = dsky; // The username.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIAddToMealPlanRequest* addToMealPlanRequest = [[OAIAddToMealPlanRequest alloc] init]; // 
+OAIAddToShoppingListRequest* addToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true}; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Add to Shopping List
 [apiInstance addToShoppingListWithUsername:username
               hash:hash
-              addToMealPlanRequest:addToMealPlanRequest
+              addToShoppingListRequest:addToShoppingListRequest
           completionHandler: ^(OAIGenerateShoppingList200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -198,7 +194,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **NSString***| The username. | 
  **hash** | **NSString***| The private hash for the username. | 
- **addToMealPlanRequest** | [**OAIAddToMealPlanRequest***](OAIAddToMealPlanRequest.md)|  | 
+ **addToShoppingListRequest** | [**OAIAddToShoppingListRequest***](OAIAddToShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -210,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -220,7 +216,6 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) clearMealPlanDayWithUsername: (NSString*) username
     date: (NSString*) date
     hash: (NSString*) hash
-    clearMealPlanDayRequest: (OAIClearMealPlanDayRequest*) clearMealPlanDayRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -241,7 +236,6 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 NSString* username = dsky; // The username.
 NSString* date = 2020-06-01; // The date in the format yyyy-mm-dd.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIClearMealPlanDayRequest* clearMealPlanDayRequest = [[OAIClearMealPlanDayRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -249,7 +243,6 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance clearMealPlanDayWithUsername:username
               date:date
               hash:hash
-              clearMealPlanDayRequest:clearMealPlanDayRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -267,7 +260,6 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **date** | **NSString***| The date in the format yyyy-mm-dd. | 
  **hash** | **NSString***| The private hash for the username. | 
- **clearMealPlanDayRequest** | [**OAIClearMealPlanDayRequest***](OAIClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -279,14 +271,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connectUser**
 ```objc
--(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
+-(NSURLSessionTask*) connectUserWithConnectUserRequest: (OAIConnectUserRequest*) connectUserRequest
         completionHandler: (void (^)(OAIConnectUser200Response* output, NSError* error)) handler;
 ```
 
@@ -304,12 +296,12 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSObject* body = NULL; // 
+OAIConnectUserRequest* connectUserRequest = {"username":"your user's name","firstName":"your user's first name","lastName":"your user's last name","email":"your user's email"}; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 // Connect User
-[apiInstance connectUserWithBody:body
+[apiInstance connectUserWithConnectUserRequest:connectUserRequest
           completionHandler: ^(OAIConnectUser200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -324,7 +316,7 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **NSObject***|  | 
+ **connectUserRequest** | [**OAIConnectUserRequest***](OAIConnectUserRequest.md)|  | 
 
 ### Return type
 
@@ -336,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -346,7 +338,6 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -367,7 +358,6 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 NSString* username = dsky; // The username.
 NSNumber* _id = 15678; // The shopping list item id.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIDeleteFromMealPlanRequest* deleteFromMealPlanRequest = [[OAIDeleteFromMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -375,7 +365,6 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance deleteFromMealPlanWithUsername:username
               _id:_id
               hash:hash
-              deleteFromMealPlanRequest:deleteFromMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -393,7 +382,6 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The shopping list item id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**OAIDeleteFromMealPlanRequest***](OAIDeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -405,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -415,7 +403,6 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -436,7 +423,6 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 NSString* username = dsky; // The username.
 NSNumber* _id = 1; // The item's id.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIDeleteFromMealPlanRequest* deleteFromMealPlanRequest = [[OAIDeleteFromMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -444,7 +430,6 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance deleteFromShoppingListWithUsername:username
               _id:_id
               hash:hash
-              deleteFromMealPlanRequest:deleteFromMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -462,7 +447,6 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The item&#39;s id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**OAIDeleteFromMealPlanRequest***](OAIDeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -474,7 +458,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -484,7 +468,6 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) deleteMealPlanTemplateWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
         completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
@@ -505,7 +488,6 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 NSString* username = dsky; // The username.
 NSNumber* _id = 1; // The item's id.
 NSString* hash = 4b5v4398573406; // The private hash for the username.
-OAIDeleteFromMealPlanRequest* deleteFromMealPlanRequest = [[OAIDeleteFromMealPlanRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -513,7 +495,6 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 [apiInstance deleteMealPlanTemplateWithUsername:username
               _id:_id
               hash:hash
-              deleteFromMealPlanRequest:deleteFromMealPlanRequest
           completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -531,7 +512,6 @@ Name | Type | Description  | Notes
  **username** | **NSString***| The username. | 
  **_id** | **NSNumber***| The item&#39;s id. | 
  **hash** | **NSString***| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**OAIDeleteFromMealPlanRequest***](OAIDeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -543,7 +523,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -623,7 +603,6 @@ Name | Type | Description  | Notes
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    generateShoppingListRequest: (OAIGenerateShoppingListRequest*) generateShoppingListRequest
         completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler;
 ```
 
@@ -645,7 +624,6 @@ NSString* username = dsky; // The username.
 NSString* startDate = 2020-06-01; // The start date in the format yyyy-mm-dd.
 NSString* endDate = 2020-06-07; // The end date in the format yyyy-mm-dd.
 NSString* hash = @"hash_example"; // The private hash for the username.
-OAIGenerateShoppingListRequest* generateShoppingListRequest = [[OAIGenerateShoppingListRequest alloc] init]; // 
 
 OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
 
@@ -654,7 +632,6 @@ OAIMealPlanningApi*apiInstance = [[OAIMealPlanningApi alloc] init];
               startDate:startDate
               endDate:endDate
               hash:hash
-              generateShoppingListRequest:generateShoppingListRequest
           completionHandler: ^(OAIGenerateShoppingList200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -673,7 +650,6 @@ Name | Type | Description  | Notes
  **startDate** | **NSString***| The start date in the format yyyy-mm-dd. | 
  **endDate** | **NSString***| The end date in the format yyyy-mm-dd. | 
  **hash** | **NSString***| The private hash for the username. | 
- **generateShoppingListRequest** | [**OAIGenerateShoppingListRequest***](OAIGenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -685,7 +661,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

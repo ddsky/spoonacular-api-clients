@@ -36,9 +36,12 @@ class TestAnalyzeRecipeRequest(unittest.TestCase):
         model = AnalyzeRecipeRequest()
         if include_optional:
             return AnalyzeRecipeRequest(
-                language = 'en',
-                include_nutrition = False,
-                include_taste = False
+                title = '',
+                servings = 56,
+                ingredients = [
+                    ''
+                    ],
+                instructions = ''
             )
         else:
             return AnalyzeRecipeRequest(

@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include <QList>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -39,20 +40,25 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getLanguage() const;
-    void setLanguage(const QString &language);
-    bool is_language_Set() const;
-    bool is_language_Valid() const;
+    QString getTitle() const;
+    void setTitle(const QString &title);
+    bool is_title_Set() const;
+    bool is_title_Valid() const;
 
-    bool isIncludeNutrition() const;
-    void setIncludeNutrition(const bool &include_nutrition);
-    bool is_include_nutrition_Set() const;
-    bool is_include_nutrition_Valid() const;
+    qint32 getServings() const;
+    void setServings(const qint32 &servings);
+    bool is_servings_Set() const;
+    bool is_servings_Valid() const;
 
-    bool isIncludeTaste() const;
-    void setIncludeTaste(const bool &include_taste);
-    bool is_include_taste_Set() const;
-    bool is_include_taste_Valid() const;
+    QList<QString> getIngredients() const;
+    void setIngredients(const QList<QString> &ingredients);
+    bool is_ingredients_Set() const;
+    bool is_ingredients_Valid() const;
+
+    QString getInstructions() const;
+    void setInstructions(const QString &instructions);
+    bool is_instructions_Set() const;
+    bool is_instructions_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -60,17 +66,21 @@ public:
 private:
     void initializeModel();
 
-    QString m_language;
-    bool m_language_isSet;
-    bool m_language_isValid;
+    QString m_title;
+    bool m_title_isSet;
+    bool m_title_isValid;
 
-    bool m_include_nutrition;
-    bool m_include_nutrition_isSet;
-    bool m_include_nutrition_isValid;
+    qint32 m_servings;
+    bool m_servings_isSet;
+    bool m_servings_isValid;
 
-    bool m_include_taste;
-    bool m_include_taste_isSet;
-    bool m_include_taste_isValid;
+    QList<QString> m_ingredients;
+    bool m_ingredients_isSet;
+    bool m_ingredients_isValid;
+
+    QString m_instructions;
+    bool m_instructions_isSet;
+    bool m_instructions_isValid;
 };
 
 } // namespace OpenAPI

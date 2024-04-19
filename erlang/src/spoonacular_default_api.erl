@@ -22,7 +22,7 @@ analyze_recipe(Ctx, SpoonacularAnalyzeRecipeRequest, Optional) ->
     QS = lists:flatten([])++spoonacular_utils:optional_params(['language', 'includeNutrition', 'includeTaste'], _OptionalParams),
     Headers = [],
     Body1 = SpoonacularAnalyzeRecipeRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>, <<"application/json">>]),
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).

@@ -13,23 +13,23 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyzeRecipeRequest {
-    /// The input language, either \"en\" or \"de\".
-    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<String>,
-    /// Whether nutrition data should be added to correctly parsed ingredients.
-    #[serde(rename = "includeNutrition", skip_serializing_if = "Option::is_none")]
-    pub include_nutrition: Option<bool>,
-    /// Whether taste data should be added to correctly parsed ingredients.
-    #[serde(rename = "includeTaste", skip_serializing_if = "Option::is_none")]
-    pub include_taste: Option<bool>,
+    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "servings", skip_serializing_if = "Option::is_none")]
+    pub servings: Option<i32>,
+    #[serde(rename = "ingredients", skip_serializing_if = "Option::is_none")]
+    pub ingredients: Option<Vec<String>>,
+    #[serde(rename = "instructions", skip_serializing_if = "Option::is_none")]
+    pub instructions: Option<String>,
 }
 
 impl AnalyzeRecipeRequest {
     pub fn new() -> AnalyzeRecipeRequest {
         AnalyzeRecipeRequest {
-            language: None,
-            include_nutrition: None,
-            include_taste: None,
+            title: None,
+            servings: None,
+            ingredients: None,
+            instructions: None,
         }
     }
 }

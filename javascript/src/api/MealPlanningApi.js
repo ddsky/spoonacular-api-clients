@@ -15,15 +15,11 @@
 import ApiClient from "../ApiClient";
 import AddMealPlanTemplate200Response from '../model/AddMealPlanTemplate200Response';
 import AddToMealPlanRequest from '../model/AddToMealPlanRequest';
-import AddToMealPlanRequest1 from '../model/AddToMealPlanRequest1';
 import AddToShoppingListRequest from '../model/AddToShoppingListRequest';
-import ClearMealPlanDayRequest from '../model/ClearMealPlanDayRequest';
 import ConnectUser200Response from '../model/ConnectUser200Response';
 import ConnectUserRequest from '../model/ConnectUserRequest';
-import DeleteFromMealPlanRequest from '../model/DeleteFromMealPlanRequest';
 import GenerateMealPlan200Response from '../model/GenerateMealPlan200Response';
 import GenerateShoppingList200Response from '../model/GenerateShoppingList200Response';
-import GenerateShoppingListRequest from '../model/GenerateShoppingListRequest';
 import GetMealPlanTemplate200Response from '../model/GetMealPlanTemplate200Response';
 import GetMealPlanTemplates200Response from '../model/GetMealPlanTemplates200Response';
 import GetMealPlanWeek200Response from '../model/GetMealPlanWeek200Response';
@@ -61,12 +57,11 @@ export default class MealPlanningApi {
      * Add a meal plan template for a user.
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/AddToMealPlanRequest} addToMealPlanRequest 
      * @param {module:api/MealPlanningApi~addMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AddMealPlanTemplate200Response}
      */
-    addMealPlanTemplate(username, hash, addToMealPlanRequest, callback) {
-      let postBody = addToMealPlanRequest;
+    addMealPlanTemplate(username, hash, callback) {
+      let postBody = null;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling addMealPlanTemplate");
@@ -74,10 +69,6 @@ export default class MealPlanningApi {
       // verify the required parameter 'hash' is set
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling addMealPlanTemplate");
-      }
-      // verify the required parameter 'addToMealPlanRequest' is set
-      if (addToMealPlanRequest === undefined || addToMealPlanRequest === null) {
-        throw new Error("Missing the required parameter 'addToMealPlanRequest' when calling addMealPlanTemplate");
       }
 
       let pathParams = {
@@ -92,7 +83,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = [''];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = AddMealPlanTemplate200Response;
       return this.apiClient.callApi(
@@ -146,7 +137,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = ['', 'application/json'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
@@ -169,12 +160,12 @@ export default class MealPlanningApi {
      * Add an item to the current shopping list of a user.
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/AddToMealPlanRequest} addToMealPlanRequest 
+     * @param {module:model/AddToShoppingListRequest} addToShoppingListRequest 
      * @param {module:api/MealPlanningApi~addToShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GenerateShoppingList200Response}
      */
-    addToShoppingList(username, hash, addToMealPlanRequest, callback) {
-      let postBody = addToMealPlanRequest;
+    addToShoppingList(username, hash, addToShoppingListRequest, callback) {
+      let postBody = addToShoppingListRequest;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling addToShoppingList");
@@ -183,9 +174,9 @@ export default class MealPlanningApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling addToShoppingList");
       }
-      // verify the required parameter 'addToMealPlanRequest' is set
-      if (addToMealPlanRequest === undefined || addToMealPlanRequest === null) {
-        throw new Error("Missing the required parameter 'addToMealPlanRequest' when calling addToShoppingList");
+      // verify the required parameter 'addToShoppingListRequest' is set
+      if (addToShoppingListRequest === undefined || addToShoppingListRequest === null) {
+        throw new Error("Missing the required parameter 'addToShoppingListRequest' when calling addToShoppingList");
       }
 
       let pathParams = {
@@ -200,7 +191,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = ['', 'application/json'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = GenerateShoppingList200Response;
       return this.apiClient.callApi(
@@ -224,12 +215,11 @@ export default class MealPlanningApi {
      * @param {String} username The username.
      * @param {String} date The date in the format yyyy-mm-dd.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/ClearMealPlanDayRequest} clearMealPlanDayRequest 
      * @param {module:api/MealPlanningApi~clearMealPlanDayCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    clearMealPlanDay(username, date, hash, clearMealPlanDayRequest, callback) {
-      let postBody = clearMealPlanDayRequest;
+    clearMealPlanDay(username, date, hash, callback) {
+      let postBody = null;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling clearMealPlanDay");
@@ -241,10 +231,6 @@ export default class MealPlanningApi {
       // verify the required parameter 'hash' is set
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling clearMealPlanDay");
-      }
-      // verify the required parameter 'clearMealPlanDayRequest' is set
-      if (clearMealPlanDayRequest === undefined || clearMealPlanDayRequest === null) {
-        throw new Error("Missing the required parameter 'clearMealPlanDayRequest' when calling clearMealPlanDay");
       }
 
       let pathParams = {
@@ -260,7 +246,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = [''];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
@@ -281,15 +267,15 @@ export default class MealPlanningApi {
     /**
      * Connect User
      * In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
-     * @param {Object.<String, Object>} body 
+     * @param {module:model/ConnectUserRequest} connectUserRequest 
      * @param {module:api/MealPlanningApi~connectUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectUser200Response}
      */
-    connectUser(body, callback) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling connectUser");
+    connectUser(connectUserRequest, callback) {
+      let postBody = connectUserRequest;
+      // verify the required parameter 'connectUserRequest' is set
+      if (connectUserRequest === undefined || connectUserRequest === null) {
+        throw new Error("Missing the required parameter 'connectUserRequest' when calling connectUser");
       }
 
       let pathParams = {
@@ -302,7 +288,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = ['', 'application/json'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = ConnectUser200Response;
       return this.apiClient.callApi(
@@ -326,12 +312,11 @@ export default class MealPlanningApi {
      * @param {String} username The username.
      * @param {Number} id The shopping list item id.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/DeleteFromMealPlanRequest} deleteFromMealPlanRequest 
      * @param {module:api/MealPlanningApi~deleteFromMealPlanCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest, callback) {
-      let postBody = deleteFromMealPlanRequest;
+    deleteFromMealPlan(username, id, hash, callback) {
+      let postBody = null;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling deleteFromMealPlan");
@@ -343,10 +328,6 @@ export default class MealPlanningApi {
       // verify the required parameter 'hash' is set
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling deleteFromMealPlan");
-      }
-      // verify the required parameter 'deleteFromMealPlanRequest' is set
-      if (deleteFromMealPlanRequest === undefined || deleteFromMealPlanRequest === null) {
-        throw new Error("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromMealPlan");
       }
 
       let pathParams = {
@@ -362,7 +343,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = [''];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
@@ -386,12 +367,11 @@ export default class MealPlanningApi {
      * @param {String} username The username.
      * @param {Number} id The item's id.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/DeleteFromMealPlanRequest} deleteFromMealPlanRequest 
      * @param {module:api/MealPlanningApi~deleteFromShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest, callback) {
-      let postBody = deleteFromMealPlanRequest;
+    deleteFromShoppingList(username, id, hash, callback) {
+      let postBody = null;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling deleteFromShoppingList");
@@ -403,10 +383,6 @@ export default class MealPlanningApi {
       // verify the required parameter 'hash' is set
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling deleteFromShoppingList");
-      }
-      // verify the required parameter 'deleteFromMealPlanRequest' is set
-      if (deleteFromMealPlanRequest === undefined || deleteFromMealPlanRequest === null) {
-        throw new Error("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromShoppingList");
       }
 
       let pathParams = {
@@ -422,7 +398,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = [''];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
@@ -446,12 +422,11 @@ export default class MealPlanningApi {
      * @param {String} username The username.
      * @param {Number} id The item's id.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/DeleteFromMealPlanRequest} deleteFromMealPlanRequest 
      * @param {module:api/MealPlanningApi~deleteMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest, callback) {
-      let postBody = deleteFromMealPlanRequest;
+    deleteMealPlanTemplate(username, id, hash, callback) {
+      let postBody = null;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling deleteMealPlanTemplate");
@@ -463,10 +438,6 @@ export default class MealPlanningApi {
       // verify the required parameter 'hash' is set
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling deleteMealPlanTemplate");
-      }
-      // verify the required parameter 'deleteFromMealPlanRequest' is set
-      if (deleteFromMealPlanRequest === undefined || deleteFromMealPlanRequest === null) {
-        throw new Error("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteMealPlanTemplate");
       }
 
       let pathParams = {
@@ -482,7 +453,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = [''];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
@@ -554,12 +525,11 @@ export default class MealPlanningApi {
      * @param {String} startDate The start date in the format yyyy-mm-dd.
      * @param {String} endDate The end date in the format yyyy-mm-dd.
      * @param {String} hash The private hash for the username.
-     * @param {module:model/GenerateShoppingListRequest} generateShoppingListRequest 
      * @param {module:api/MealPlanningApi~generateShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GenerateShoppingList200Response}
      */
-    generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest, callback) {
-      let postBody = generateShoppingListRequest;
+    generateShoppingList(username, startDate, endDate, hash, callback) {
+      let postBody = null;
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling generateShoppingList");
@@ -576,10 +546,6 @@ export default class MealPlanningApi {
       if (hash === undefined || hash === null) {
         throw new Error("Missing the required parameter 'hash' when calling generateShoppingList");
       }
-      // verify the required parameter 'generateShoppingListRequest' is set
-      if (generateShoppingListRequest === undefined || generateShoppingListRequest === null) {
-        throw new Error("Missing the required parameter 'generateShoppingListRequest' when calling generateShoppingList");
-      }
 
       let pathParams = {
         'username': username,
@@ -595,7 +561,7 @@ export default class MealPlanningApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = [''];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GenerateShoppingList200Response;
       return this.apiClient.callApi(

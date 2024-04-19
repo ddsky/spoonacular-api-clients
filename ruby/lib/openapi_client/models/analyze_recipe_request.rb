@@ -15,21 +15,21 @@ require 'time'
 
 module OpenapiClient
   class AnalyzeRecipeRequest
-    # The input language, either \"en\" or \"de\".
-    attr_accessor :language
+    attr_accessor :title
 
-    # Whether nutrition data should be added to correctly parsed ingredients.
-    attr_accessor :include_nutrition
+    attr_accessor :servings
 
-    # Whether taste data should be added to correctly parsed ingredients.
-    attr_accessor :include_taste
+    attr_accessor :ingredients
+
+    attr_accessor :instructions
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'language' => :'language',
-        :'include_nutrition' => :'includeNutrition',
-        :'include_taste' => :'includeTaste'
+        :'title' => :'title',
+        :'servings' => :'servings',
+        :'ingredients' => :'ingredients',
+        :'instructions' => :'instructions'
       }
     end
 
@@ -41,9 +41,10 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'language' => :'String',
-        :'include_nutrition' => :'Boolean',
-        :'include_taste' => :'Boolean'
+        :'title' => :'String',
+        :'servings' => :'Integer',
+        :'ingredients' => :'Array<String>',
+        :'instructions' => :'String'
       }
     end
 
@@ -68,16 +69,22 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
 
-      if attributes.key?(:'include_nutrition')
-        self.include_nutrition = attributes[:'include_nutrition']
+      if attributes.key?(:'servings')
+        self.servings = attributes[:'servings']
       end
 
-      if attributes.key?(:'include_taste')
-        self.include_taste = attributes[:'include_taste']
+      if attributes.key?(:'ingredients')
+        if (value = attributes[:'ingredients']).is_a?(Array)
+          self.ingredients = value
+        end
+      end
+
+      if attributes.key?(:'instructions')
+        self.instructions = attributes[:'instructions']
       end
     end
 
@@ -101,9 +108,10 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          language == o.language &&
-          include_nutrition == o.include_nutrition &&
-          include_taste == o.include_taste
+          title == o.title &&
+          servings == o.servings &&
+          ingredients == o.ingredients &&
+          instructions == o.instructions
     end
 
     # @see the `==` method
@@ -115,7 +123,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [language, include_nutrition, include_taste].hash
+      [title, servings, ingredients, instructions].hash
     end
 
     # Builds the object from hash

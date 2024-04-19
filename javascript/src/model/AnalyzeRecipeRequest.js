@@ -47,14 +47,17 @@ class AnalyzeRecipeRequest {
         if (data) {
             obj = obj || new AnalyzeRecipeRequest();
 
-            if (data.hasOwnProperty('language')) {
-                obj['language'] = ApiClient.convertToType(data['language'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('includeNutrition')) {
-                obj['includeNutrition'] = ApiClient.convertToType(data['includeNutrition'], 'Boolean');
+            if (data.hasOwnProperty('servings')) {
+                obj['servings'] = ApiClient.convertToType(data['servings'], 'Number');
             }
-            if (data.hasOwnProperty('includeTaste')) {
-                obj['includeTaste'] = ApiClient.convertToType(data['includeTaste'], 'Boolean');
+            if (data.hasOwnProperty('ingredients')) {
+                obj['ingredients'] = ApiClient.convertToType(data['ingredients'], ['String']);
+            }
+            if (data.hasOwnProperty('instructions')) {
+                obj['instructions'] = ApiClient.convertToType(data['instructions'], 'String');
             }
         }
         return obj;
@@ -67,8 +70,16 @@ class AnalyzeRecipeRequest {
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['language'] && !(typeof data['language'] === 'string' || data['language'] instanceof String)) {
-            throw new Error("Expected the field `language` to be a primitive type in the JSON string but got " + data['language']);
+        if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
+            throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ingredients'])) {
+            throw new Error("Expected the field `ingredients` to be an array in the JSON data but got " + data['ingredients']);
+        }
+        // ensure the json data is a string
+        if (data['instructions'] && !(typeof data['instructions'] === 'string' || data['instructions'] instanceof String)) {
+            throw new Error("Expected the field `instructions` to be a primitive type in the JSON string but got " + data['instructions']);
         }
 
         return true;
@@ -80,22 +91,24 @@ class AnalyzeRecipeRequest {
 
 
 /**
- * The input language, either \"en\" or \"de\".
- * @member {String} language
+ * @member {String} title
  */
-AnalyzeRecipeRequest.prototype['language'] = undefined;
+AnalyzeRecipeRequest.prototype['title'] = undefined;
 
 /**
- * Whether nutrition data should be added to correctly parsed ingredients.
- * @member {Boolean} includeNutrition
+ * @member {Number} servings
  */
-AnalyzeRecipeRequest.prototype['includeNutrition'] = undefined;
+AnalyzeRecipeRequest.prototype['servings'] = undefined;
 
 /**
- * Whether taste data should be added to correctly parsed ingredients.
- * @member {Boolean} includeTaste
+ * @member {Array.<String>} ingredients
  */
-AnalyzeRecipeRequest.prototype['includeTaste'] = undefined;
+AnalyzeRecipeRequest.prototype['ingredients'] = undefined;
+
+/**
+ * @member {String} instructions
+ */
+AnalyzeRecipeRequest.prototype['instructions'] = undefined;
 
 
 

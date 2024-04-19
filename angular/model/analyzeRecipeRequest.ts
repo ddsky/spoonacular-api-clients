@@ -12,17 +12,9 @@
 
 
 export interface AnalyzeRecipeRequest { 
-    /**
-     * The input language, either \"en\" or \"de\".
-     */
-    language?: string;
-    /**
-     * Whether nutrition data should be added to correctly parsed ingredients.
-     */
-    includeNutrition?: boolean;
-    /**
-     * Whether taste data should be added to correctly parsed ingredients.
-     */
-    includeTaste?: boolean;
+    title?: string;
+    servings?: number;
+    ingredients?: Array<string>;
+    instructions?: string;
 }
 

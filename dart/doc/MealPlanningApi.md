@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **addMealPlanTemplate**
-> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
+> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash)
 
 Add Meal Plan Template
 
@@ -43,10 +43,9 @@ import 'package:openapi/api.dart';
 final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
 final hash = 4b5v4398573406; // String | The private hash for the username.
-final addToMealPlanRequest = AddToMealPlanRequest(); // AddToMealPlanRequest | 
 
 try {
-    final result = api_instance.addMealPlanTemplate(username, hash, addToMealPlanRequest);
+    final result = api_instance.addMealPlanTemplate(username, hash);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->addMealPlanTemplate: $e\n');
@@ -59,7 +58,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -71,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -122,13 +120,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
+> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -145,10 +143,10 @@ import 'package:openapi/api.dart';
 final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
 final hash = hash_example; // String | The private hash for the username.
-final addToMealPlanRequest = AddToMealPlanRequest(); // AddToMealPlanRequest | 
+final addToShoppingListRequest = AddToShoppingListRequest(); // AddToShoppingListRequest | 
 
 try {
-    final result = api_instance.addToShoppingList(username, hash, addToMealPlanRequest);
+    final result = api_instance.addToShoppingList(username, hash, addToShoppingListRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->addToShoppingList: $e\n');
@@ -161,7 +159,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+ **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -173,13 +171,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clearMealPlanDay**
-> Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
+> Object clearMealPlanDay(username, date, hash)
 
 Clear Meal Plan Day
 
@@ -197,10 +195,9 @@ final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
 final date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
 final hash = hash_example; // String | The private hash for the username.
-final clearMealPlanDayRequest = ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
 
 try {
-    final result = api_instance.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
+    final result = api_instance.clearMealPlanDay(username, date, hash);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->clearMealPlanDay: $e\n');
@@ -214,7 +211,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **date** | **String**| The date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -226,13 +222,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connectUser**
-> ConnectUser200Response connectUser(body)
+> ConnectUser200Response connectUser(connectUserRequest)
 
 Connect User
 
@@ -247,10 +243,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MealPlanningApi();
-final body = Object(); // Object | 
+final connectUserRequest = ConnectUserRequest(); // ConnectUserRequest | 
 
 try {
-    final result = api_instance.connectUser(body);
+    final result = api_instance.connectUser(connectUserRequest);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->connectUser: $e\n');
@@ -261,7 +257,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+ **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md)|  | 
 
 ### Return type
 
@@ -273,13 +269,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteFromMealPlan**
-> Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromMealPlan(username, id, hash)
 
 Delete from Meal Plan
 
@@ -297,10 +293,9 @@ final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
 final id = 15678; // num | The shopping list item id.
 final hash = hash_example; // String | The private hash for the username.
-final deleteFromMealPlanRequest = DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
 try {
-    final result = api_instance.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
+    final result = api_instance.deleteFromMealPlan(username, id, hash);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->deleteFromMealPlan: $e\n');
@@ -314,7 +309,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **num**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -326,13 +320,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteFromShoppingList**
-> Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromShoppingList(username, id, hash)
 
 Delete from Shopping List
 
@@ -350,10 +344,9 @@ final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
 final id = 1; // int | The item's id.
 final hash = hash_example; // String | The private hash for the username.
-final deleteFromMealPlanRequest = DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
 try {
-    final result = api_instance.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
+    final result = api_instance.deleteFromShoppingList(username, id, hash);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->deleteFromShoppingList: $e\n');
@@ -367,7 +360,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **int**| The item's id. | 
  **hash** | **String**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -379,13 +371,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteMealPlanTemplate**
-> Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteMealPlanTemplate(username, id, hash)
 
 Delete Meal Plan Template
 
@@ -403,10 +395,9 @@ final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
 final id = 1; // int | The item's id.
 final hash = 4b5v4398573406; // String | The private hash for the username.
-final deleteFromMealPlanRequest = DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
 try {
-    final result = api_instance.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
+    final result = api_instance.deleteMealPlanTemplate(username, id, hash);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->deleteMealPlanTemplate: $e\n');
@@ -420,7 +411,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **int**| The item's id. | 
  **hash** | **String**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -432,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -491,7 +481,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
+> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -510,10 +500,9 @@ final username = dsky; // String | The username.
 final startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 final endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 final hash = hash_example; // String | The private hash for the username.
-final generateShoppingListRequest = GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
 
 try {
-    final result = api_instance.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
+    final result = api_instance.generateShoppingList(username, startDate, endDate, hash);
     print(result);
 } catch (e) {
     print('Exception when calling MealPlanningApi->generateShoppingList: $e\n');
@@ -528,7 +517,6 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | 
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -540,7 +528,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

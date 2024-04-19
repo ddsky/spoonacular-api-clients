@@ -90,7 +90,7 @@ trait DataAccessor {
         * 
         * @return A AddMealPlanTemplate200Response
         */
-        def MealPlanning_addMealPlanTemplate(username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,AddMealPlanTemplate200Response] = Left(TODO)
+        def MealPlanning_addMealPlanTemplate(username: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,AddMealPlanTemplate200Response] = Left(TODO)
 
         /**
         * 
@@ -102,37 +102,37 @@ trait DataAccessor {
         * 
         * @return A GenerateShoppingList200Response
         */
-        def MealPlanning_addToShoppingList(username: String, hash: String, addToMealPlanRequest: AddToMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,GenerateShoppingList200Response] = Left(TODO)
+        def MealPlanning_addToShoppingList(username: String, hash: String, addToShoppingListRequest: AddToShoppingListRequest, authParamapiKeyScheme: String): Either[CommonError,GenerateShoppingList200Response] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_clearMealPlanDay(username: String, date: String, hash: String, clearMealPlanDayRequest: ClearMealPlanDayRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_clearMealPlanDay(username: String, date: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
         * @return A ConnectUser200Response
         */
-        def MealPlanning_connectUser(body: Object, authParamapiKeyScheme: String): Either[CommonError,ConnectUser200Response] = Left(TODO)
+        def MealPlanning_connectUser(connectUserRequest: ConnectUserRequest, authParamapiKeyScheme: String): Either[CommonError,ConnectUser200Response] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_deleteFromMealPlan(username: String, id: BigDecimal, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_deleteFromMealPlan(username: String, id: BigDecimal, hash: String, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_deleteFromShoppingList(username: String, id: Int, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_deleteFromShoppingList(username: String, id: Int, hash: String, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
         * @return A Object
         */
-        def MealPlanning_deleteMealPlanTemplate(username: String, id: Int, hash: String, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MealPlanning_deleteMealPlanTemplate(username: String, id: Int, hash: String, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
 
         /**
         * 
@@ -144,7 +144,7 @@ trait DataAccessor {
         * 
         * @return A GenerateShoppingList200Response
         */
-        def MealPlanning_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, generateShoppingListRequest: GenerateShoppingListRequest, authParamapiKeyScheme: String): Either[CommonError,GenerateShoppingList200Response] = Left(TODO)
+        def MealPlanning_generateShoppingList(username: String, startDate: String, endDate: String, hash: String, authParamapiKeyScheme: String): Either[CommonError,GenerateShoppingList200Response] = Left(TODO)
 
         /**
         * 

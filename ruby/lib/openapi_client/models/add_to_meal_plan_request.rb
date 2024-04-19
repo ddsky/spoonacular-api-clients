@@ -14,18 +14,26 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # 
   class AddToMealPlanRequest
-    # The username.
-    attr_accessor :username
+    attr_accessor :date
 
-    # The private hash for the username.
-    attr_accessor :hash
+    attr_accessor :slot
+
+    attr_accessor :position
+
+    attr_accessor :type
+
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'username' => :'username',
-        :'hash' => :'hash'
+        :'date' => :'date',
+        :'slot' => :'slot',
+        :'position' => :'position',
+        :'type' => :'type',
+        :'value' => :'value'
       }
     end
 
@@ -37,8 +45,11 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'username' => :'String',
-        :'hash' => :'String'
+        :'date' => :'Float',
+        :'slot' => :'Integer',
+        :'position' => :'Integer',
+        :'type' => :'String',
+        :'value' => :'AddToMealPlanRequestValue'
       }
     end
 
@@ -63,16 +74,34 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'username')
-        self.username = attributes[:'username']
+      if attributes.key?(:'date')
+        self.date = attributes[:'date']
       else
-        self.username = nil
+        self.date = nil
       end
 
-      if attributes.key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.key?(:'slot')
+        self.slot = attributes[:'slot']
       else
-        self.hash = nil
+        self.slot = nil
+      end
+
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
+      else
+        self.position = nil
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = nil
+      end
+
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
+      else
+        self.value = nil
       end
     end
 
@@ -81,12 +110,28 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @username.nil?
-        invalid_properties.push('invalid value for "username", username cannot be nil.')
+      if @date.nil?
+        invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
 
-      if @hash.nil?
-        invalid_properties.push('invalid value for "hash", hash cannot be nil.')
+      if @slot.nil?
+        invalid_properties.push('invalid value for "slot", slot cannot be nil.')
+      end
+
+      if @position.nil?
+        invalid_properties.push('invalid value for "position", position cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
+      if @type.to_s.length < 1
+        invalid_properties.push('invalid value for "type", the character length must be great than or equal to 1.')
+      end
+
+      if @value.nil?
+        invalid_properties.push('invalid value for "value", value cannot be nil.')
       end
 
       invalid_properties
@@ -96,9 +141,27 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @username.nil?
-      return false if @hash.nil?
+      return false if @date.nil?
+      return false if @slot.nil?
+      return false if @position.nil?
+      return false if @type.nil?
+      return false if @type.to_s.length < 1
+      return false if @value.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] type Value to be assigned
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'type cannot be nil'
+      end
+
+      if type.to_s.length < 1
+        fail ArgumentError, 'invalid value for "type", the character length must be great than or equal to 1.'
+      end
+
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -106,8 +169,11 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          username == o.username &&
-          hash == o.hash
+          date == o.date &&
+          slot == o.slot &&
+          position == o.position &&
+          type == o.type &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -119,7 +185,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [username, hash].hash
+      [date, slot, position, type, value].hash
     end
 
     # Builds the object from hash

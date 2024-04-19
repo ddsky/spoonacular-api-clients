@@ -20,12 +20,10 @@ var _ MappedNullable = &AnalyzeRecipeRequest{}
 
 // AnalyzeRecipeRequest struct for AnalyzeRecipeRequest
 type AnalyzeRecipeRequest struct {
-	// The input language, either \"en\" or \"de\".
-	Language *string `json:"language,omitempty"`
-	// Whether nutrition data should be added to correctly parsed ingredients.
-	IncludeNutrition *bool `json:"includeNutrition,omitempty"`
-	// Whether taste data should be added to correctly parsed ingredients.
-	IncludeTaste *bool `json:"includeTaste,omitempty"`
+	Title *string `json:"title,omitempty"`
+	Servings *int32 `json:"servings,omitempty"`
+	Ingredients []string `json:"ingredients,omitempty"`
+	Instructions *string `json:"instructions,omitempty"`
 }
 
 // NewAnalyzeRecipeRequest instantiates a new AnalyzeRecipeRequest object
@@ -45,100 +43,132 @@ func NewAnalyzeRecipeRequestWithDefaults() *AnalyzeRecipeRequest {
 	return &this
 }
 
-// GetLanguage returns the Language field value if set, zero value otherwise.
-func (o *AnalyzeRecipeRequest) GetLanguage() string {
-	if o == nil || IsNil(o.Language) {
+// GetTitle returns the Title field value if set, zero value otherwise.
+func (o *AnalyzeRecipeRequest) GetTitle() string {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Language
+	return *o.Title
 }
 
-// GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnalyzeRecipeRequest) GetLanguageOk() (*string, bool) {
-	if o == nil || IsNil(o.Language) {
+func (o *AnalyzeRecipeRequest) GetTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Language, true
+	return o.Title, true
 }
 
-// HasLanguage returns a boolean if a field has been set.
-func (o *AnalyzeRecipeRequest) HasLanguage() bool {
-	if o != nil && !IsNil(o.Language) {
+// HasTitle returns a boolean if a field has been set.
+func (o *AnalyzeRecipeRequest) HasTitle() bool {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetLanguage gets a reference to the given string and assigns it to the Language field.
-func (o *AnalyzeRecipeRequest) SetLanguage(v string) {
-	o.Language = &v
+// SetTitle gets a reference to the given string and assigns it to the Title field.
+func (o *AnalyzeRecipeRequest) SetTitle(v string) {
+	o.Title = &v
 }
 
-// GetIncludeNutrition returns the IncludeNutrition field value if set, zero value otherwise.
-func (o *AnalyzeRecipeRequest) GetIncludeNutrition() bool {
-	if o == nil || IsNil(o.IncludeNutrition) {
-		var ret bool
+// GetServings returns the Servings field value if set, zero value otherwise.
+func (o *AnalyzeRecipeRequest) GetServings() int32 {
+	if o == nil || IsNil(o.Servings) {
+		var ret int32
 		return ret
 	}
-	return *o.IncludeNutrition
+	return *o.Servings
 }
 
-// GetIncludeNutritionOk returns a tuple with the IncludeNutrition field value if set, nil otherwise
+// GetServingsOk returns a tuple with the Servings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnalyzeRecipeRequest) GetIncludeNutritionOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeNutrition) {
+func (o *AnalyzeRecipeRequest) GetServingsOk() (*int32, bool) {
+	if o == nil || IsNil(o.Servings) {
 		return nil, false
 	}
-	return o.IncludeNutrition, true
+	return o.Servings, true
 }
 
-// HasIncludeNutrition returns a boolean if a field has been set.
-func (o *AnalyzeRecipeRequest) HasIncludeNutrition() bool {
-	if o != nil && !IsNil(o.IncludeNutrition) {
+// HasServings returns a boolean if a field has been set.
+func (o *AnalyzeRecipeRequest) HasServings() bool {
+	if o != nil && !IsNil(o.Servings) {
 		return true
 	}
 
 	return false
 }
 
-// SetIncludeNutrition gets a reference to the given bool and assigns it to the IncludeNutrition field.
-func (o *AnalyzeRecipeRequest) SetIncludeNutrition(v bool) {
-	o.IncludeNutrition = &v
+// SetServings gets a reference to the given int32 and assigns it to the Servings field.
+func (o *AnalyzeRecipeRequest) SetServings(v int32) {
+	o.Servings = &v
 }
 
-// GetIncludeTaste returns the IncludeTaste field value if set, zero value otherwise.
-func (o *AnalyzeRecipeRequest) GetIncludeTaste() bool {
-	if o == nil || IsNil(o.IncludeTaste) {
-		var ret bool
+// GetIngredients returns the Ingredients field value if set, zero value otherwise.
+func (o *AnalyzeRecipeRequest) GetIngredients() []string {
+	if o == nil || IsNil(o.Ingredients) {
+		var ret []string
 		return ret
 	}
-	return *o.IncludeTaste
+	return o.Ingredients
 }
 
-// GetIncludeTasteOk returns a tuple with the IncludeTaste field value if set, nil otherwise
+// GetIngredientsOk returns a tuple with the Ingredients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnalyzeRecipeRequest) GetIncludeTasteOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeTaste) {
+func (o *AnalyzeRecipeRequest) GetIngredientsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Ingredients) {
 		return nil, false
 	}
-	return o.IncludeTaste, true
+	return o.Ingredients, true
 }
 
-// HasIncludeTaste returns a boolean if a field has been set.
-func (o *AnalyzeRecipeRequest) HasIncludeTaste() bool {
-	if o != nil && !IsNil(o.IncludeTaste) {
+// HasIngredients returns a boolean if a field has been set.
+func (o *AnalyzeRecipeRequest) HasIngredients() bool {
+	if o != nil && !IsNil(o.Ingredients) {
 		return true
 	}
 
 	return false
 }
 
-// SetIncludeTaste gets a reference to the given bool and assigns it to the IncludeTaste field.
-func (o *AnalyzeRecipeRequest) SetIncludeTaste(v bool) {
-	o.IncludeTaste = &v
+// SetIngredients gets a reference to the given []string and assigns it to the Ingredients field.
+func (o *AnalyzeRecipeRequest) SetIngredients(v []string) {
+	o.Ingredients = v
+}
+
+// GetInstructions returns the Instructions field value if set, zero value otherwise.
+func (o *AnalyzeRecipeRequest) GetInstructions() string {
+	if o == nil || IsNil(o.Instructions) {
+		var ret string
+		return ret
+	}
+	return *o.Instructions
+}
+
+// GetInstructionsOk returns a tuple with the Instructions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnalyzeRecipeRequest) GetInstructionsOk() (*string, bool) {
+	if o == nil || IsNil(o.Instructions) {
+		return nil, false
+	}
+	return o.Instructions, true
+}
+
+// HasInstructions returns a boolean if a field has been set.
+func (o *AnalyzeRecipeRequest) HasInstructions() bool {
+	if o != nil && !IsNil(o.Instructions) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstructions gets a reference to the given string and assigns it to the Instructions field.
+func (o *AnalyzeRecipeRequest) SetInstructions(v string) {
+	o.Instructions = &v
 }
 
 func (o AnalyzeRecipeRequest) MarshalJSON() ([]byte, error) {
@@ -151,14 +181,17 @@ func (o AnalyzeRecipeRequest) MarshalJSON() ([]byte, error) {
 
 func (o AnalyzeRecipeRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Language) {
-		toSerialize["language"] = o.Language
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
-	if !IsNil(o.IncludeNutrition) {
-		toSerialize["includeNutrition"] = o.IncludeNutrition
+	if !IsNil(o.Servings) {
+		toSerialize["servings"] = o.Servings
 	}
-	if !IsNil(o.IncludeTaste) {
-		toSerialize["includeTaste"] = o.IncludeTaste
+	if !IsNil(o.Ingredients) {
+		toSerialize["ingredients"] = o.Ingredients
+	}
+	if !IsNil(o.Instructions) {
+		toSerialize["instructions"] = o.Instructions
 	}
 	return toSerialize, nil
 }

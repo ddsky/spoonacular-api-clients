@@ -2,7 +2,6 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AnalyzeRecipeRequest
-import org.openapitools.model.AnalyzeRecipeRequest1
 import java.math.BigDecimal
 import org.openapitools.model.SearchRestaurants200Response
 
@@ -36,7 +35,7 @@ class DefaultApi {
         }
 
 
-        contentType = '';
+        contentType = 'application/json';
         bodyParams = analyzeRecipeRequest
 
 

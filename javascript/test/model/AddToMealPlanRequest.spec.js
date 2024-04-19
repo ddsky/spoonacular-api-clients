@@ -54,14 +54,32 @@
       //expect(instance).to.be.a(SpoonacularApi.AddToMealPlanRequest);
     });
 
-    it('should have the property username (base name: "username")', function() {
-      // uncomment below and update the code to test the property username
+    it('should have the property date (base name: "date")', function() {
+      // uncomment below and update the code to test the property date
       //var instance = new SpoonacularApi.AddToMealPlanRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property hash (base name: "hash")', function() {
-      // uncomment below and update the code to test the property hash
+    it('should have the property slot (base name: "slot")', function() {
+      // uncomment below and update the code to test the property slot
+      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property position (base name: "position")', function() {
+      // uncomment below and update the code to test the property position
+      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property value (base name: "value")', function() {
+      // uncomment below and update the code to test the property value
       //var instance = new SpoonacularApi.AddToMealPlanRequest();
       //expect(instance).to.be();
     });

@@ -7,9 +7,8 @@ docs/AddMealPlanTemplate200Response.md
 docs/AddMealPlanTemplate200ResponseItemsInner.md
 docs/AddMealPlanTemplate200ResponseItemsInnerValue.md
 docs/AddToMealPlanRequest.md
-docs/AddToMealPlanRequest1.md
-docs/AddToMealPlanRequest1Value.md
-docs/AddToMealPlanRequest1ValueIngredientsInner.md
+docs/AddToMealPlanRequestValue.md
+docs/AddToMealPlanRequestValueIngredientsInner.md
 docs/AddToShoppingListRequest.md
 docs/AnalyzeARecipeSearchQuery200Response.md
 docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md
@@ -20,7 +19,6 @@ docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
 docs/AnalyzeRecipeRequest.md
-docs/AnalyzeRecipeRequest1.md
 docs/AutocompleteIngredientSearch200ResponseInner.md
 docs/AutocompleteMenuItemSearch200Response.md
 docs/AutocompleteProductSearch200Response.md
@@ -31,7 +29,6 @@ docs/ClassifyGroceryProduct200Response.md
 docs/ClassifyGroceryProductBulk200ResponseInner.md
 docs/ClassifyGroceryProductBulkRequestInner.md
 docs/ClassifyGroceryProductRequest.md
-docs/ClearMealPlanDayRequest.md
 docs/ComputeGlycemicLoad200Response.md
 docs/ComputeGlycemicLoad200ResponseIngredientsInner.md
 docs/ComputeGlycemicLoadRequest.md
@@ -41,13 +38,11 @@ docs/ConnectUserRequest.md
 docs/ConvertAmounts200Response.md
 docs/CreateRecipeCard200Response.md
 docs/DefaultApi.md
-docs/DeleteFromMealPlanRequest.md
 docs/DetectFoodInText200Response.md
 docs/DetectFoodInText200ResponseAnnotationsInner.md
 docs/GenerateMealPlan200Response.md
 docs/GenerateMealPlan200ResponseNutrients.md
 docs/GenerateShoppingList200Response.md
-docs/GenerateShoppingListRequest.md
 docs/GetARandomFoodJoke200Response.md
 docs/GetAnalyzedRecipeInstructions200Response.md
 docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md
@@ -186,9 +181,8 @@ src/models/add_meal_plan_template_200_response.rs
 src/models/add_meal_plan_template_200_response_items_inner.rs
 src/models/add_meal_plan_template_200_response_items_inner_value.rs
 src/models/add_to_meal_plan_request.rs
-src/models/add_to_meal_plan_request_1.rs
-src/models/add_to_meal_plan_request_1_value.rs
-src/models/add_to_meal_plan_request_1_value_ingredients_inner.rs
+src/models/add_to_meal_plan_request_value.rs
+src/models/add_to_meal_plan_request_value_ingredients_inner.rs
 src/models/add_to_shopping_list_request.rs
 src/models/analyze_a_recipe_search_query_200_response.rs
 src/models/analyze_a_recipe_search_query_200_response_dishes_inner.rs
@@ -199,7 +193,6 @@ src/models/analyze_recipe_instructions_200_response_parsed_instructions_inner.rs
 src/models/analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner.rs
 src/models/analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.rs
 src/models/analyze_recipe_request.rs
-src/models/analyze_recipe_request_1.rs
 src/models/autocomplete_ingredient_search_200_response_inner.rs
 src/models/autocomplete_menu_item_search_200_response.rs
 src/models/autocomplete_product_search_200_response.rs
@@ -210,7 +203,6 @@ src/models/classify_grocery_product_200_response.rs
 src/models/classify_grocery_product_bulk_200_response_inner.rs
 src/models/classify_grocery_product_bulk_request_inner.rs
 src/models/classify_grocery_product_request.rs
-src/models/clear_meal_plan_day_request.rs
 src/models/compute_glycemic_load_200_response.rs
 src/models/compute_glycemic_load_200_response_ingredients_inner.rs
 src/models/compute_glycemic_load_request.rs
@@ -219,13 +211,11 @@ src/models/connect_user_200_response.rs
 src/models/connect_user_request.rs
 src/models/convert_amounts_200_response.rs
 src/models/create_recipe_card_200_response.rs
-src/models/delete_from_meal_plan_request.rs
 src/models/detect_food_in_text_200_response.rs
 src/models/detect_food_in_text_200_response_annotations_inner.rs
 src/models/generate_meal_plan_200_response.rs
 src/models/generate_meal_plan_200_response_nutrients.rs
 src/models/generate_shopping_list_200_response.rs
-src/models/generate_shopping_list_request.rs
 src/models/get_a_random_food_joke_200_response.rs
 src/models/get_analyzed_recipe_instructions_200_response.rs
 src/models/get_analyzed_recipe_instructions_200_response_ingredients_inner.rs

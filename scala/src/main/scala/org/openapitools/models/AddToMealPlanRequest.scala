@@ -5,14 +5,22 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
+import org.openapitools.models.AddToMealPlanRequestValue
+import org.openapitools.models.BigDecimal
 
 /**
  * 
- * @param username The username.
- * @param hash The private hash for the username.
+ * @param date 
+ * @param slot 
+ * @param position 
+ * @param _type 
+ * @param value 
  */
-case class AddToMealPlanRequest(username: String,
-                hash: String
+case class AddToMealPlanRequest(date: BigDecimal,
+                slot: Int,
+                position: Int,
+                _type: String,
+                value: AddToMealPlanRequestValue
                 )
 
 object AddToMealPlanRequest {

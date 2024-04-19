@@ -5,16 +5,19 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
+import scala.collection.immutable.Seq
 
 /**
  * 
- * @param language The input language, either \"en\" or \"de\".
- * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
- * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
+ * @param title 
+ * @param servings 
+ * @param ingredients 
+ * @param instructions 
  */
-case class AnalyzeRecipeRequest(language: Option[String],
-                includeNutrition: Option[Boolean],
-                includeTaste: Option[Boolean]
+case class AnalyzeRecipeRequest(title: Option[String],
+                servings: Option[Int],
+                ingredients: Option[Seq[String]],
+                instructions: Option[String]
                 )
 
 object AnalyzeRecipeRequest {

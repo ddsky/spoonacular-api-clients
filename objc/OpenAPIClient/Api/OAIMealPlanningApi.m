@@ -3,15 +3,11 @@
 #import "OAIApiClient.h"
 #import "OAIAddMealPlanTemplate200Response.h"
 #import "OAIAddToMealPlanRequest.h"
-#import "OAIAddToMealPlanRequest1.h"
 #import "OAIAddToShoppingListRequest.h"
-#import "OAIClearMealPlanDayRequest.h"
 #import "OAIConnectUser200Response.h"
 #import "OAIConnectUserRequest.h"
-#import "OAIDeleteFromMealPlanRequest.h"
 #import "OAIGenerateMealPlan200Response.h"
 #import "OAIGenerateShoppingList200Response.h"
-#import "OAIGenerateShoppingListRequest.h"
 #import "OAIGetMealPlanTemplate200Response.h"
 #import "OAIGetMealPlanTemplates200Response.h"
 #import "OAIGetMealPlanWeek200Response.h"
@@ -70,13 +66,10 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param addToMealPlanRequest  
-///
 ///  @returns OAIAddMealPlanTemplate200Response*
 ///
 -(NSURLSessionTask*) addMealPlanTemplateWithUsername: (NSString*) username
     hash: (NSString*) hash
-    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
     completionHandler: (void (^)(OAIAddMealPlanTemplate200Response* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -94,17 +87,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         NSParameterAssert(hash);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
-            NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'addToMealPlanRequest' is set
-    if (addToMealPlanRequest == nil) {
-        NSParameterAssert(addToMealPlanRequest);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"addToMealPlanRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -134,7 +116,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -142,7 +124,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = addToMealPlanRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -234,7 +215,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"", @"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -270,13 +251,13 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param addToMealPlanRequest  
+///  @param addToShoppingListRequest  
 ///
 ///  @returns OAIGenerateShoppingList200Response*
 ///
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
+    addToShoppingListRequest: (OAIAddToShoppingListRequest*) addToShoppingListRequest
     completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -300,11 +281,11 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'addToMealPlanRequest' is set
-    if (addToMealPlanRequest == nil) {
-        NSParameterAssert(addToMealPlanRequest);
+    // verify the required parameter 'addToShoppingListRequest' is set
+    if (addToShoppingListRequest == nil) {
+        NSParameterAssert(addToShoppingListRequest);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"addToMealPlanRequest"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"addToShoppingListRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -334,7 +315,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"", @"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -342,7 +323,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = addToMealPlanRequest;
+    bodyParam = addToShoppingListRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -372,14 +353,11 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param clearMealPlanDayRequest  
-///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) clearMealPlanDayWithUsername: (NSString*) username
     date: (NSString*) date
     hash: (NSString*) hash
-    clearMealPlanDayRequest: (OAIClearMealPlanDayRequest*) clearMealPlanDayRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -414,17 +392,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'clearMealPlanDayRequest' is set
-    if (clearMealPlanDayRequest == nil) {
-        NSParameterAssert(clearMealPlanDayRequest);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"clearMealPlanDayRequest"] };
-            NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/day/{date}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -451,7 +418,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -459,7 +426,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = clearMealPlanDayRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"
@@ -483,17 +449,17 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 /// Connect User
 /// In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
-///  @param body  
+///  @param connectUserRequest  
 ///
 ///  @returns OAIConnectUser200Response*
 ///
--(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
+-(NSURLSessionTask*) connectUserWithConnectUserRequest: (OAIConnectUserRequest*) connectUserRequest
     completionHandler: (void (^)(OAIConnectUser200Response* output, NSError* error)) handler {
-    // verify the required parameter 'body' is set
-    if (body == nil) {
-        NSParameterAssert(body);
+    // verify the required parameter 'connectUserRequest' is set
+    if (connectUserRequest == nil) {
+        NSParameterAssert(connectUserRequest);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"body"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"connectUserRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -517,7 +483,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"", @"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -525,7 +491,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = body;
+    bodyParam = connectUserRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -555,14 +521,11 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param deleteFromMealPlanRequest  
-///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -591,17 +554,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         NSParameterAssert(hash);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
-            NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == nil) {
-        NSParameterAssert(deleteFromMealPlanRequest);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"deleteFromMealPlanRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -634,7 +586,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -642,7 +594,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = deleteFromMealPlanRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"
@@ -672,14 +623,11 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param deleteFromMealPlanRequest  
-///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -708,17 +656,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         NSParameterAssert(hash);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"hash"] };
-            NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == nil) {
-        NSParameterAssert(deleteFromMealPlanRequest);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"deleteFromMealPlanRequest"] };
             NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -751,7 +688,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -759,7 +696,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = deleteFromMealPlanRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"
@@ -789,14 +725,11 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param deleteFromMealPlanRequest  
-///
 ///  @returns NSObject*
 ///
 -(NSURLSessionTask*) deleteMealPlanTemplateWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -831,17 +764,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == nil) {
-        NSParameterAssert(deleteFromMealPlanRequest);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"deleteFromMealPlanRequest"] };
-            NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/templates/{id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -868,7 +790,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -876,7 +798,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = deleteFromMealPlanRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"DELETE"
@@ -983,15 +904,12 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
 ///
 ///  @param hash The private hash for the username. 
 ///
-///  @param generateShoppingListRequest  
-///
 ///  @returns OAIGenerateShoppingList200Response*
 ///
 -(NSURLSessionTask*) generateShoppingListWithUsername: (NSString*) username
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    generateShoppingListRequest: (OAIGenerateShoppingListRequest*) generateShoppingListRequest
     completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler {
     // verify the required parameter 'username' is set
     if (username == nil) {
@@ -1037,17 +955,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'generateShoppingListRequest' is set
-    if (generateShoppingListRequest == nil) {
-        NSParameterAssert(generateShoppingListRequest);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"generateShoppingListRequest"] };
-            NSError* error = [NSError errorWithDomain:kOAIMealPlanningApiErrorDomain code:kOAIMealPlanningApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list/{start-date}/{end-date}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -1077,7 +984,7 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@""]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];
@@ -1085,7 +992,6 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = generateShoppingListRequest;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

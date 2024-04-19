@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**language** | **str** | The input language, either \&quot;en\&quot; or \&quot;de\&quot;. | [optional] 
-**include_nutrition** | **bool** | Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
-**include_taste** | **bool** | Whether taste data should be added to correctly parsed ingredients. | [optional] 
+**title** | **str** |  | [optional] 
+**servings** | **int** |  | [optional] 
+**ingredients** | **List[str]** |  | [optional] 
+**instructions** | **str** |  | [optional] 
 
 ## Example
 

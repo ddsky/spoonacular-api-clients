@@ -20,12 +20,13 @@ import (
 // checks if the AddToMealPlanRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AddToMealPlanRequest{}
 
-// AddToMealPlanRequest struct for AddToMealPlanRequest
+// AddToMealPlanRequest 
 type AddToMealPlanRequest struct {
-	// The username.
-	Username string `json:"username"`
-	// The private hash for the username.
-	Hash string `json:"hash"`
+	Date float32 `json:"date"`
+	Slot int32 `json:"slot"`
+	Position int32 `json:"position"`
+	Type string `json:"type"`
+	Value AddToMealPlanRequestValue `json:"value"`
 }
 
 type _AddToMealPlanRequest AddToMealPlanRequest
@@ -34,10 +35,13 @@ type _AddToMealPlanRequest AddToMealPlanRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddToMealPlanRequest(username string, hash string) *AddToMealPlanRequest {
+func NewAddToMealPlanRequest(date float32, slot int32, position int32, type_ string, value AddToMealPlanRequestValue) *AddToMealPlanRequest {
 	this := AddToMealPlanRequest{}
-	this.Username = username
-	this.Hash = hash
+	this.Date = date
+	this.Slot = slot
+	this.Position = position
+	this.Type = type_
+	this.Value = value
 	return &this
 }
 
@@ -49,52 +53,124 @@ func NewAddToMealPlanRequestWithDefaults() *AddToMealPlanRequest {
 	return &this
 }
 
-// GetUsername returns the Username field value
-func (o *AddToMealPlanRequest) GetUsername() string {
+// GetDate returns the Date field value
+func (o *AddToMealPlanRequest) GetDate() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Date
+}
+
+// GetDateOk returns a tuple with the Date field value
+// and a boolean to check if the value has been set.
+func (o *AddToMealPlanRequest) GetDateOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Date, true
+}
+
+// SetDate sets field value
+func (o *AddToMealPlanRequest) SetDate(v float32) {
+	o.Date = v
+}
+
+// GetSlot returns the Slot field value
+func (o *AddToMealPlanRequest) GetSlot() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Slot
+}
+
+// GetSlotOk returns a tuple with the Slot field value
+// and a boolean to check if the value has been set.
+func (o *AddToMealPlanRequest) GetSlotOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Slot, true
+}
+
+// SetSlot sets field value
+func (o *AddToMealPlanRequest) SetSlot(v int32) {
+	o.Slot = v
+}
+
+// GetPosition returns the Position field value
+func (o *AddToMealPlanRequest) GetPosition() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Position
+}
+
+// GetPositionOk returns a tuple with the Position field value
+// and a boolean to check if the value has been set.
+func (o *AddToMealPlanRequest) GetPositionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Position, true
+}
+
+// SetPosition sets field value
+func (o *AddToMealPlanRequest) SetPosition(v int32) {
+	o.Position = v
+}
+
+// GetType returns the Type field value
+func (o *AddToMealPlanRequest) GetType() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Username
+	return o.Type
 }
 
-// GetUsernameOk returns a tuple with the Username field value
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *AddToMealPlanRequest) GetUsernameOk() (*string, bool) {
+func (o *AddToMealPlanRequest) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Username, true
+	return &o.Type, true
 }
 
-// SetUsername sets field value
-func (o *AddToMealPlanRequest) SetUsername(v string) {
-	o.Username = v
+// SetType sets field value
+func (o *AddToMealPlanRequest) SetType(v string) {
+	o.Type = v
 }
 
-// GetHash returns the Hash field value
-func (o *AddToMealPlanRequest) GetHash() string {
+// GetValue returns the Value field value
+func (o *AddToMealPlanRequest) GetValue() AddToMealPlanRequestValue {
 	if o == nil {
-		var ret string
+		var ret AddToMealPlanRequestValue
 		return ret
 	}
 
-	return o.Hash
+	return o.Value
 }
 
-// GetHashOk returns a tuple with the Hash field value
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *AddToMealPlanRequest) GetHashOk() (*string, bool) {
+func (o *AddToMealPlanRequest) GetValueOk() (*AddToMealPlanRequestValue, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Hash, true
+	return &o.Value, true
 }
 
-// SetHash sets field value
-func (o *AddToMealPlanRequest) SetHash(v string) {
-	o.Hash = v
+// SetValue sets field value
+func (o *AddToMealPlanRequest) SetValue(v AddToMealPlanRequestValue) {
+	o.Value = v
 }
 
 func (o AddToMealPlanRequest) MarshalJSON() ([]byte, error) {
@@ -107,8 +183,11 @@ func (o AddToMealPlanRequest) MarshalJSON() ([]byte, error) {
 
 func (o AddToMealPlanRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["username"] = o.Username
-	toSerialize["hash"] = o.Hash
+	toSerialize["date"] = o.Date
+	toSerialize["slot"] = o.Slot
+	toSerialize["position"] = o.Position
+	toSerialize["type"] = o.Type
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 
@@ -117,8 +196,11 @@ func (o *AddToMealPlanRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"username",
-		"hash",
+		"date",
+		"slot",
+		"position",
+		"type",
+		"value",
 	}
 
 	allProperties := make(map[string]interface{})

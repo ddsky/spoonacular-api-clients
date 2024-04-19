@@ -8,9 +8,8 @@ docs/AddMealPlanTemplate200Response.md
 docs/AddMealPlanTemplate200ResponseItemsInner.md
 docs/AddMealPlanTemplate200ResponseItemsInnerValue.md
 docs/AddToMealPlanRequest.md
-docs/AddToMealPlanRequest1.md
-docs/AddToMealPlanRequest1Value.md
-docs/AddToMealPlanRequest1ValueIngredientsInner.md
+docs/AddToMealPlanRequestValue.md
+docs/AddToMealPlanRequestValueIngredientsInner.md
 docs/AddToShoppingListRequest.md
 docs/AnalyzeARecipeSearchQuery200Response.md
 docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md
@@ -21,7 +20,6 @@ docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
 docs/AnalyzeRecipeRequest.md
-docs/AnalyzeRecipeRequest1.md
 docs/AutocompleteIngredientSearch200ResponseInner.md
 docs/AutocompleteMenuItemSearch200Response.md
 docs/AutocompleteProductSearch200Response.md
@@ -32,7 +30,6 @@ docs/ClassifyGroceryProduct200Response.md
 docs/ClassifyGroceryProductBulk200ResponseInner.md
 docs/ClassifyGroceryProductBulkRequestInner.md
 docs/ClassifyGroceryProductRequest.md
-docs/ClearMealPlanDayRequest.md
 docs/ComputeGlycemicLoad200Response.md
 docs/ComputeGlycemicLoad200ResponseIngredientsInner.md
 docs/ComputeGlycemicLoadRequest.md
@@ -42,13 +39,11 @@ docs/ConnectUserRequest.md
 docs/ConvertAmounts200Response.md
 docs/CreateRecipeCard200Response.md
 docs/DefaultApi.md
-docs/DeleteFromMealPlanRequest.md
 docs/DetectFoodInText200Response.md
 docs/DetectFoodInText200ResponseAnnotationsInner.md
 docs/GenerateMealPlan200Response.md
 docs/GenerateMealPlan200ResponseNutrients.md
 docs/GenerateShoppingList200Response.md
-docs/GenerateShoppingListRequest.md
 docs/GetARandomFoodJoke200Response.md
 docs/GetAnalyzedRecipeInstructions200Response.md
 docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md
@@ -184,9 +179,8 @@ lib/WWW/OpenAPIClient/Object/AddMealPlanTemplate200Response.pm
 lib/WWW/OpenAPIClient/Object/AddMealPlanTemplate200ResponseItemsInner.pm
 lib/WWW/OpenAPIClient/Object/AddMealPlanTemplate200ResponseItemsInnerValue.pm
 lib/WWW/OpenAPIClient/Object/AddToMealPlanRequest.pm
-lib/WWW/OpenAPIClient/Object/AddToMealPlanRequest1.pm
-lib/WWW/OpenAPIClient/Object/AddToMealPlanRequest1Value.pm
-lib/WWW/OpenAPIClient/Object/AddToMealPlanRequest1ValueIngredientsInner.pm
+lib/WWW/OpenAPIClient/Object/AddToMealPlanRequestValue.pm
+lib/WWW/OpenAPIClient/Object/AddToMealPlanRequestValueIngredientsInner.pm
 lib/WWW/OpenAPIClient/Object/AddToShoppingListRequest.pm
 lib/WWW/OpenAPIClient/Object/AnalyzeARecipeSearchQuery200Response.pm
 lib/WWW/OpenAPIClient/Object/AnalyzeARecipeSearchQuery200ResponseDishesInner.pm
@@ -197,7 +191,6 @@ lib/WWW/OpenAPIClient/Object/AnalyzeRecipeInstructions200ResponseParsedInstructi
 lib/WWW/OpenAPIClient/Object/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.pm
 lib/WWW/OpenAPIClient/Object/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.pm
 lib/WWW/OpenAPIClient/Object/AnalyzeRecipeRequest.pm
-lib/WWW/OpenAPIClient/Object/AnalyzeRecipeRequest1.pm
 lib/WWW/OpenAPIClient/Object/AutocompleteIngredientSearch200ResponseInner.pm
 lib/WWW/OpenAPIClient/Object/AutocompleteMenuItemSearch200Response.pm
 lib/WWW/OpenAPIClient/Object/AutocompleteProductSearch200Response.pm
@@ -208,7 +201,6 @@ lib/WWW/OpenAPIClient/Object/ClassifyGroceryProduct200Response.pm
 lib/WWW/OpenAPIClient/Object/ClassifyGroceryProductBulk200ResponseInner.pm
 lib/WWW/OpenAPIClient/Object/ClassifyGroceryProductBulkRequestInner.pm
 lib/WWW/OpenAPIClient/Object/ClassifyGroceryProductRequest.pm
-lib/WWW/OpenAPIClient/Object/ClearMealPlanDayRequest.pm
 lib/WWW/OpenAPIClient/Object/ComputeGlycemicLoad200Response.pm
 lib/WWW/OpenAPIClient/Object/ComputeGlycemicLoad200ResponseIngredientsInner.pm
 lib/WWW/OpenAPIClient/Object/ComputeGlycemicLoadRequest.pm
@@ -217,13 +209,11 @@ lib/WWW/OpenAPIClient/Object/ConnectUser200Response.pm
 lib/WWW/OpenAPIClient/Object/ConnectUserRequest.pm
 lib/WWW/OpenAPIClient/Object/ConvertAmounts200Response.pm
 lib/WWW/OpenAPIClient/Object/CreateRecipeCard200Response.pm
-lib/WWW/OpenAPIClient/Object/DeleteFromMealPlanRequest.pm
 lib/WWW/OpenAPIClient/Object/DetectFoodInText200Response.pm
 lib/WWW/OpenAPIClient/Object/DetectFoodInText200ResponseAnnotationsInner.pm
 lib/WWW/OpenAPIClient/Object/GenerateMealPlan200Response.pm
 lib/WWW/OpenAPIClient/Object/GenerateMealPlan200ResponseNutrients.pm
 lib/WWW/OpenAPIClient/Object/GenerateShoppingList200Response.pm
-lib/WWW/OpenAPIClient/Object/GenerateShoppingListRequest.pm
 lib/WWW/OpenAPIClient/Object/GetARandomFoodJoke200Response.pm
 lib/WWW/OpenAPIClient/Object/GetAnalyzedRecipeInstructions200Response.pm
 lib/WWW/OpenAPIClient/Object/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.pm
@@ -347,10 +337,9 @@ lib/WWW/OpenAPIClient/WineApi.pm
 t/AddMealPlanTemplate200ResponseItemsInnerTest.t
 t/AddMealPlanTemplate200ResponseItemsInnerValueTest.t
 t/AddMealPlanTemplate200ResponseTest.t
-t/AddToMealPlanRequest1Test.t
-t/AddToMealPlanRequest1ValueIngredientsInnerTest.t
-t/AddToMealPlanRequest1ValueTest.t
 t/AddToMealPlanRequestTest.t
+t/AddToMealPlanRequestValueIngredientsInnerTest.t
+t/AddToMealPlanRequestValueTest.t
 t/AddToShoppingListRequestTest.t
 t/AnalyzeARecipeSearchQuery200ResponseDishesInnerTest.t
 t/AnalyzeARecipeSearchQuery200ResponseIngredientsInnerTest.t
@@ -360,7 +349,6 @@ t/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredien
 t/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerTest.t
 t/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerTest.t
 t/AnalyzeRecipeInstructions200ResponseTest.t
-t/AnalyzeRecipeRequest1Test.t
 t/AnalyzeRecipeRequestTest.t
 t/AutocompleteIngredientSearch200ResponseInnerTest.t
 t/AutocompleteMenuItemSearch200ResponseTest.t
@@ -372,7 +360,6 @@ t/ClassifyGroceryProduct200ResponseTest.t
 t/ClassifyGroceryProductBulk200ResponseInnerTest.t
 t/ClassifyGroceryProductBulkRequestInnerTest.t
 t/ClassifyGroceryProductRequestTest.t
-t/ClearMealPlanDayRequestTest.t
 t/ComputeGlycemicLoad200ResponseIngredientsInnerTest.t
 t/ComputeGlycemicLoad200ResponseTest.t
 t/ComputeGlycemicLoadRequestTest.t
@@ -382,13 +369,11 @@ t/ConnectUserRequestTest.t
 t/ConvertAmounts200ResponseTest.t
 t/CreateRecipeCard200ResponseTest.t
 t/DefaultApiTest.t
-t/DeleteFromMealPlanRequestTest.t
 t/DetectFoodInText200ResponseAnnotationsInnerTest.t
 t/DetectFoodInText200ResponseTest.t
 t/GenerateMealPlan200ResponseNutrientsTest.t
 t/GenerateMealPlan200ResponseTest.t
 t/GenerateShoppingList200ResponseTest.t
-t/GenerateShoppingListRequestTest.t
 t/GetARandomFoodJoke200ResponseTest.t
 t/GetAnalyzedRecipeInstructions200ResponseIngredientsInnerTest.t
 t/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerTest.t

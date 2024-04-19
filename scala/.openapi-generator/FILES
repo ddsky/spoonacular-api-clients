@@ -20,9 +20,8 @@ src/main/scala/org/openapitools/models/AddMealPlanTemplate200Response.scala
 src/main/scala/org/openapitools/models/AddMealPlanTemplate200ResponseItemsInner.scala
 src/main/scala/org/openapitools/models/AddMealPlanTemplate200ResponseItemsInnerValue.scala
 src/main/scala/org/openapitools/models/AddToMealPlanRequest.scala
-src/main/scala/org/openapitools/models/AddToMealPlanRequest1.scala
-src/main/scala/org/openapitools/models/AddToMealPlanRequest1Value.scala
-src/main/scala/org/openapitools/models/AddToMealPlanRequest1ValueIngredientsInner.scala
+src/main/scala/org/openapitools/models/AddToMealPlanRequestValue.scala
+src/main/scala/org/openapitools/models/AddToMealPlanRequestValueIngredientsInner.scala
 src/main/scala/org/openapitools/models/AddToShoppingListRequest.scala
 src/main/scala/org/openapitools/models/AnalyzeARecipeSearchQuery200Response.scala
 src/main/scala/org/openapitools/models/AnalyzeARecipeSearchQuery200ResponseDishesInner.scala
@@ -33,7 +32,6 @@ src/main/scala/org/openapitools/models/AnalyzeRecipeInstructions200ResponseParse
 src/main/scala/org/openapitools/models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.scala
 src/main/scala/org/openapitools/models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.scala
 src/main/scala/org/openapitools/models/AnalyzeRecipeRequest.scala
-src/main/scala/org/openapitools/models/AnalyzeRecipeRequest1.scala
 src/main/scala/org/openapitools/models/AutocompleteIngredientSearch200ResponseInner.scala
 src/main/scala/org/openapitools/models/AutocompleteMenuItemSearch200Response.scala
 src/main/scala/org/openapitools/models/AutocompleteProductSearch200Response.scala
@@ -44,7 +42,6 @@ src/main/scala/org/openapitools/models/ClassifyGroceryProduct200Response.scala
 src/main/scala/org/openapitools/models/ClassifyGroceryProductBulk200ResponseInner.scala
 src/main/scala/org/openapitools/models/ClassifyGroceryProductBulkRequestInner.scala
 src/main/scala/org/openapitools/models/ClassifyGroceryProductRequest.scala
-src/main/scala/org/openapitools/models/ClearMealPlanDayRequest.scala
 src/main/scala/org/openapitools/models/ComputeGlycemicLoad200Response.scala
 src/main/scala/org/openapitools/models/ComputeGlycemicLoad200ResponseIngredientsInner.scala
 src/main/scala/org/openapitools/models/ComputeGlycemicLoadRequest.scala
@@ -53,13 +50,11 @@ src/main/scala/org/openapitools/models/ConnectUser200Response.scala
 src/main/scala/org/openapitools/models/ConnectUserRequest.scala
 src/main/scala/org/openapitools/models/ConvertAmounts200Response.scala
 src/main/scala/org/openapitools/models/CreateRecipeCard200Response.scala
-src/main/scala/org/openapitools/models/DeleteFromMealPlanRequest.scala
 src/main/scala/org/openapitools/models/DetectFoodInText200Response.scala
 src/main/scala/org/openapitools/models/DetectFoodInText200ResponseAnnotationsInner.scala
 src/main/scala/org/openapitools/models/GenerateMealPlan200Response.scala
 src/main/scala/org/openapitools/models/GenerateMealPlan200ResponseNutrients.scala
 src/main/scala/org/openapitools/models/GenerateShoppingList200Response.scala
-src/main/scala/org/openapitools/models/GenerateShoppingListRequest.scala
 src/main/scala/org/openapitools/models/GetARandomFoodJoke200Response.scala
 src/main/scala/org/openapitools/models/GetAnalyzedRecipeInstructions200Response.scala
 src/main/scala/org/openapitools/models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.scala

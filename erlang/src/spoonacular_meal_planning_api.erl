@@ -1,15 +1,15 @@
 -module(spoonacular_meal_planning_api).
 
--export([add_meal_plan_template/4, add_meal_plan_template/5,
+-export([add_meal_plan_template/3, add_meal_plan_template/4,
          add_to_meal_plan/4, add_to_meal_plan/5,
          add_to_shopping_list/4, add_to_shopping_list/5,
-         clear_meal_plan_day/5, clear_meal_plan_day/6,
+         clear_meal_plan_day/4, clear_meal_plan_day/5,
          connect_user/2, connect_user/3,
-         delete_from_meal_plan/5, delete_from_meal_plan/6,
-         delete_from_shopping_list/5, delete_from_shopping_list/6,
-         delete_meal_plan_template/5, delete_meal_plan_template/6,
+         delete_from_meal_plan/4, delete_from_meal_plan/5,
+         delete_from_shopping_list/4, delete_from_shopping_list/5,
+         delete_meal_plan_template/4, delete_meal_plan_template/5,
          generate_meal_plan/1, generate_meal_plan/2,
-         generate_shopping_list/6, generate_shopping_list/7,
+         generate_shopping_list/5, generate_shopping_list/6,
          get_meal_plan_template/4, get_meal_plan_template/5,
          get_meal_plan_templates/3, get_meal_plan_templates/4,
          get_meal_plan_week/4, get_meal_plan_week/5,
@@ -19,12 +19,12 @@
 
 %% @doc Add Meal Plan Template
 %% Add a meal plan template for a user.
--spec add_meal_plan_template(ctx:ctx(), binary(), binary(), spoonacular_add_to_meal_plan_request:spoonacular_add_to_meal_plan_request()) -> {ok, spoonacular_add_meal_plan_template_200_response:spoonacular_add_meal_plan_template_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_meal_plan_template(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest) ->
-    add_meal_plan_template(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, #{}).
+-spec add_meal_plan_template(ctx:ctx(), binary(), binary()) -> {ok, spoonacular_add_meal_plan_template_200_response:spoonacular_add_meal_plan_template_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_meal_plan_template(Ctx, Username, Hash) ->
+    add_meal_plan_template(Ctx, Username, Hash, #{}).
 
--spec add_meal_plan_template(ctx:ctx(), binary(), binary(), spoonacular_add_to_meal_plan_request:spoonacular_add_to_meal_plan_request(), maps:map()) -> {ok, spoonacular_add_meal_plan_template_200_response:spoonacular_add_meal_plan_template_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_meal_plan_template(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, Optional) ->
+-spec add_meal_plan_template(ctx:ctx(), binary(), binary(), maps:map()) -> {ok, spoonacular_add_meal_plan_template_200_response:spoonacular_add_meal_plan_template_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_meal_plan_template(Ctx, Username, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -32,8 +32,8 @@ add_meal_plan_template(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, Opt
     Path = [?BASE_URL, "/mealplanner/", Username, "/templates"],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularAddToMealPlanRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
@@ -54,19 +54,19 @@ add_to_meal_plan(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, Optional)
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
     Body1 = SpoonacularAddToMealPlanRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>, <<"application/json">>]),
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Add to Shopping List
 %% Add an item to the current shopping list of a user.
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_meal_plan_request:spoonacular_add_to_meal_plan_request()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest) ->
-    add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, #{}).
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_shopping_list_request:spoonacular_add_to_shopping_list_request()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToShoppingListRequest) ->
+    add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToShoppingListRequest, #{}).
 
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_meal_plan_request:spoonacular_add_to_meal_plan_request(), maps:map()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, Optional) ->
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_shopping_list_request:spoonacular_add_to_shopping_list_request(), maps:map()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToShoppingListRequest, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -74,20 +74,20 @@ add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, Optio
     Path = [?BASE_URL, "/mealplanner/", Username, "/shopping-list/items"],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularAddToMealPlanRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>, <<"application/json">>]),
+    Body1 = SpoonacularAddToShoppingListRequest,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Clear Meal Plan Day
 %% Delete all planned items from the user's meal plan for a specific day.
--spec clear_meal_plan_day(ctx:ctx(), binary(), binary(), binary(), spoonacular_clear_meal_plan_day_request:spoonacular_clear_meal_plan_day_request()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularClearMealPlanDayRequest) ->
-    clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularClearMealPlanDayRequest, #{}).
+-spec clear_meal_plan_day(ctx:ctx(), binary(), binary(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+clear_meal_plan_day(Ctx, Username, Date, Hash) ->
+    clear_meal_plan_day(Ctx, Username, Date, Hash, #{}).
 
--spec clear_meal_plan_day(ctx:ctx(), binary(), binary(), binary(), spoonacular_clear_meal_plan_day_request:spoonacular_clear_meal_plan_day_request(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularClearMealPlanDayRequest, Optional) ->
+-spec clear_meal_plan_day(ctx:ctx(), binary(), binary(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+clear_meal_plan_day(Ctx, Username, Date, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -95,20 +95,20 @@ clear_meal_plan_day(Ctx, Username, Date, Hash, SpoonacularClearMealPlanDayReques
     Path = [?BASE_URL, "/mealplanner/", Username, "/day/", Date, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularClearMealPlanDayRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Connect User
 %% In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
--spec connect_user(ctx:ctx(), maps:map()) -> {ok, spoonacular_connect_user_200_response:spoonacular_connect_user_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-connect_user(Ctx, Body) ->
-    connect_user(Ctx, Body, #{}).
+-spec connect_user(ctx:ctx(), spoonacular_connect_user_request:spoonacular_connect_user_request()) -> {ok, spoonacular_connect_user_200_response:spoonacular_connect_user_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+connect_user(Ctx, SpoonacularConnectUserRequest) ->
+    connect_user(Ctx, SpoonacularConnectUserRequest, #{}).
 
--spec connect_user(ctx:ctx(), maps:map(), maps:map()) -> {ok, spoonacular_connect_user_200_response:spoonacular_connect_user_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-connect_user(Ctx, Body, Optional) ->
+-spec connect_user(ctx:ctx(), spoonacular_connect_user_request:spoonacular_connect_user_request(), maps:map()) -> {ok, spoonacular_connect_user_200_response:spoonacular_connect_user_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+connect_user(Ctx, SpoonacularConnectUserRequest, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -116,20 +116,20 @@ connect_user(Ctx, Body, Optional) ->
     Path = [?BASE_URL, "/users/connect"],
     QS = [],
     Headers = [],
-    Body1 = Body,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>, <<"application/json">>]),
+    Body1 = SpoonacularConnectUserRequest,
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Delete from Meal Plan
 %% Delete an item from the user's meal plan.
--spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), spoonacular_delete_from_meal_plan_request:spoonacular_delete_from_meal_plan_request()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest) ->
-    delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest, #{}).
+-spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_meal_plan(Ctx, Username, Id, Hash) ->
+    delete_from_meal_plan(Ctx, Username, Id, Hash, #{}).
 
--spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), spoonacular_delete_from_meal_plan_request:spoonacular_delete_from_meal_plan_request(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest, Optional) ->
+-spec delete_from_meal_plan(ctx:ctx(), binary(), integer(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_meal_plan(Ctx, Username, Id, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -137,20 +137,20 @@ delete_from_meal_plan(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequ
     Path = [?BASE_URL, "/mealplanner/", Username, "/items/", Id, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularDeleteFromMealPlanRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Delete from Shopping List
 %% Delete an item from the current shopping list of the user.
--spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_delete_from_meal_plan_request:spoonacular_delete_from_meal_plan_request()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest) ->
-    delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest, #{}).
+-spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_shopping_list(Ctx, Username, Id, Hash) ->
+    delete_from_shopping_list(Ctx, Username, Id, Hash, #{}).
 
--spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), spoonacular_delete_from_meal_plan_request:spoonacular_delete_from_meal_plan_request(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest, Optional) ->
+-spec delete_from_shopping_list(ctx:ctx(), binary(), integer(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_from_shopping_list(Ctx, Username, Id, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -158,20 +158,20 @@ delete_from_shopping_list(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlan
     Path = [?BASE_URL, "/mealplanner/", Username, "/shopping-list/items/", Id, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularDeleteFromMealPlanRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Delete Meal Plan Template
 %% Delete a meal plan template for a user.
--spec delete_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), spoonacular_delete_from_meal_plan_request:spoonacular_delete_from_meal_plan_request()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest) ->
-    delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest, #{}).
+-spec delete_meal_plan_template(ctx:ctx(), binary(), integer(), binary()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_meal_plan_template(Ctx, Username, Id, Hash) ->
+    delete_meal_plan_template(Ctx, Username, Id, Hash, #{}).
 
--spec delete_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), spoonacular_delete_from_meal_plan_request:spoonacular_delete_from_meal_plan_request(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlanRequest, Optional) ->
+-spec delete_meal_plan_template(ctx:ctx(), binary(), integer(), binary(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+delete_meal_plan_template(Ctx, Username, Id, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -179,8 +179,8 @@ delete_meal_plan_template(Ctx, Username, Id, Hash, SpoonacularDeleteFromMealPlan
     Path = [?BASE_URL, "/mealplanner/", Username, "/templates/", Id, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularDeleteFromMealPlanRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
@@ -208,12 +208,12 @@ generate_meal_plan(Ctx, Optional) ->
 
 %% @doc Generate Shopping List
 %% Generate the shopping list for a user from the meal planner in a given time frame.
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_generate_shopping_list_request:spoonacular_generate_shopping_list_request()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularGenerateShoppingListRequest) ->
-    generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularGenerateShoppingListRequest, #{}).
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash) ->
+    generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, #{}).
 
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), spoonacular_generate_shopping_list_request:spoonacular_generate_shopping_list_request(), maps:map()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularGenerateShoppingListRequest, Optional) ->
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), maps:map()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
@@ -221,8 +221,8 @@ generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, SpoonacularGener
     Path = [?BASE_URL, "/mealplanner/", Username, "/shopping-list/", StartDate, "/", EndDate, ""],
     QS = lists:flatten([{<<"hash">>, Hash}])++spoonacular_utils:optional_params([], _OptionalParams),
     Headers = [],
-    Body1 = SpoonacularGenerateShoppingListRequest,
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"">>]),
+    Body1 = [],
+    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
     spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).

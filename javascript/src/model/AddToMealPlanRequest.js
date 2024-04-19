@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AddToMealPlanRequestValue from './AddToMealPlanRequestValue';
 
 /**
  * The AddToMealPlanRequest model module.
@@ -21,13 +22,17 @@ import ApiClient from '../ApiClient';
 class AddToMealPlanRequest {
     /**
      * Constructs a new <code>AddToMealPlanRequest</code>.
+     * 
      * @alias module:model/AddToMealPlanRequest
-     * @param username {String} The username.
-     * @param hash {String} The private hash for the username.
+     * @param date {Number} 
+     * @param slot {Number} 
+     * @param position {Number} 
+     * @param type {String} 
+     * @param value {module:model/AddToMealPlanRequestValue} 
      */
-    constructor(username, hash) { 
+    constructor(date, slot, position, type, value) { 
         
-        AddToMealPlanRequest.initialize(this, username, hash);
+        AddToMealPlanRequest.initialize(this, date, slot, position, type, value);
     }
 
     /**
@@ -35,9 +40,12 @@ class AddToMealPlanRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, hash) { 
-        obj['username'] = username;
-        obj['hash'] = hash;
+    static initialize(obj, date, slot, position, type, value) { 
+        obj['date'] = date;
+        obj['slot'] = slot;
+        obj['position'] = position;
+        obj['type'] = type;
+        obj['value'] = value;
     }
 
     /**
@@ -51,11 +59,20 @@ class AddToMealPlanRequest {
         if (data) {
             obj = obj || new AddToMealPlanRequest();
 
-            if (data.hasOwnProperty('username')) {
-                obj['username'] = ApiClient.convertToType(data['username'], 'String');
+            if (data.hasOwnProperty('date')) {
+                obj['date'] = ApiClient.convertToType(data['date'], 'Number');
             }
-            if (data.hasOwnProperty('hash')) {
-                obj['hash'] = ApiClient.convertToType(data['hash'], 'String');
+            if (data.hasOwnProperty('slot')) {
+                obj['slot'] = ApiClient.convertToType(data['slot'], 'Number');
+            }
+            if (data.hasOwnProperty('position')) {
+                obj['position'] = ApiClient.convertToType(data['position'], 'Number');
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = AddToMealPlanRequestValue.constructFromObject(data['value']);
             }
         }
         return obj;
@@ -74,12 +91,12 @@ class AddToMealPlanRequest {
             }
         }
         // ensure the json data is a string
-        if (data['username'] && !(typeof data['username'] === 'string' || data['username'] instanceof String)) {
-            throw new Error("Expected the field `username` to be a primitive type in the JSON string but got " + data['username']);
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
         }
-        // ensure the json data is a string
-        if (data['hash'] && !(typeof data['hash'] === 'string' || data['hash'] instanceof String)) {
-            throw new Error("Expected the field `hash` to be a primitive type in the JSON string but got " + data['hash']);
+        // validate the optional field `value`
+        if (data['value']) { // data not null
+          AddToMealPlanRequestValue.validateJSON(data['value']);
         }
 
         return true;
@@ -88,19 +105,32 @@ class AddToMealPlanRequest {
 
 }
 
-AddToMealPlanRequest.RequiredProperties = ["username", "hash"];
+AddToMealPlanRequest.RequiredProperties = ["date", "slot", "position", "type", "value"];
 
 /**
- * The username.
- * @member {String} username
+ * @member {Number} date
  */
-AddToMealPlanRequest.prototype['username'] = undefined;
+AddToMealPlanRequest.prototype['date'] = undefined;
 
 /**
- * The private hash for the username.
- * @member {String} hash
+ * @member {Number} slot
  */
-AddToMealPlanRequest.prototype['hash'] = undefined;
+AddToMealPlanRequest.prototype['slot'] = undefined;
+
+/**
+ * @member {Number} position
+ */
+AddToMealPlanRequest.prototype['position'] = undefined;
+
+/**
+ * @member {String} type
+ */
+AddToMealPlanRequest.prototype['type'] = undefined;
+
+/**
+ * @member {module:model/AddToMealPlanRequestValue} value
+ */
+AddToMealPlanRequest.prototype['value'] = undefined;
 
 
 

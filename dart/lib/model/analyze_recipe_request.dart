@@ -13,70 +13,73 @@ part of openapi.api;
 class AnalyzeRecipeRequest {
   /// Returns a new [AnalyzeRecipeRequest] instance.
   AnalyzeRecipeRequest({
-    this.language,
-    this.includeNutrition,
-    this.includeTaste,
+    this.title,
+    this.servings,
+    this.ingredients = const [],
+    this.instructions,
   });
 
-  /// The input language, either \"en\" or \"de\".
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? language;
+  String? title;
 
-  /// Whether nutrition data should be added to correctly parsed ingredients.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  bool? includeNutrition;
+  int? servings;
 
-  /// Whether taste data should be added to correctly parsed ingredients.
+  List<String> ingredients;
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  bool? includeTaste;
+  String? instructions;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AnalyzeRecipeRequest &&
-    other.language == language &&
-    other.includeNutrition == includeNutrition &&
-    other.includeTaste == includeTaste;
+    other.title == title &&
+    other.servings == servings &&
+    _deepEquality.equals(other.ingredients, ingredients) &&
+    other.instructions == instructions;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (language == null ? 0 : language!.hashCode) +
-    (includeNutrition == null ? 0 : includeNutrition!.hashCode) +
-    (includeTaste == null ? 0 : includeTaste!.hashCode);
+    (title == null ? 0 : title!.hashCode) +
+    (servings == null ? 0 : servings!.hashCode) +
+    (ingredients.hashCode) +
+    (instructions == null ? 0 : instructions!.hashCode);
 
   @override
-  String toString() => 'AnalyzeRecipeRequest[language=$language, includeNutrition=$includeNutrition, includeTaste=$includeTaste]';
+  String toString() => 'AnalyzeRecipeRequest[title=$title, servings=$servings, ingredients=$ingredients, instructions=$instructions]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.language != null) {
-      json[r'language'] = this.language;
+    if (this.title != null) {
+      json[r'title'] = this.title;
     } else {
-      json[r'language'] = null;
+      json[r'title'] = null;
     }
-    if (this.includeNutrition != null) {
-      json[r'includeNutrition'] = this.includeNutrition;
+    if (this.servings != null) {
+      json[r'servings'] = this.servings;
     } else {
-      json[r'includeNutrition'] = null;
+      json[r'servings'] = null;
     }
-    if (this.includeTaste != null) {
-      json[r'includeTaste'] = this.includeTaste;
+      json[r'ingredients'] = this.ingredients;
+    if (this.instructions != null) {
+      json[r'instructions'] = this.instructions;
     } else {
-      json[r'includeTaste'] = null;
+      json[r'instructions'] = null;
     }
     return json;
   }
@@ -100,9 +103,12 @@ class AnalyzeRecipeRequest {
       }());
 
       return AnalyzeRecipeRequest(
-        language: mapValueOfType<String>(json, r'language'),
-        includeNutrition: mapValueOfType<bool>(json, r'includeNutrition'),
-        includeTaste: mapValueOfType<bool>(json, r'includeTaste'),
+        title: mapValueOfType<String>(json, r'title'),
+        servings: mapValueOfType<int>(json, r'servings'),
+        ingredients: json[r'ingredients'] is Iterable
+            ? (json[r'ingredients'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
+        instructions: mapValueOfType<String>(json, r'instructions'),
       );
     }
     return null;

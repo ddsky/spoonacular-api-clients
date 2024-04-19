@@ -13,34 +13,50 @@ part of openapi.api;
 class AddToMealPlanRequest {
   /// Returns a new [AddToMealPlanRequest] instance.
   AddToMealPlanRequest({
-    required this.username,
-    required this.hash,
+    required this.date,
+    required this.slot,
+    required this.position,
+    required this.type,
+    required this.value,
   });
 
-  /// The username.
-  String username;
+  num date;
 
-  /// The private hash for the username.
-  String hash;
+  int slot;
+
+  int position;
+
+  String type;
+
+  AddToMealPlanRequestValue value;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AddToMealPlanRequest &&
-    other.username == username &&
-    other.hash == hash;
+    other.date == date &&
+    other.slot == slot &&
+    other.position == position &&
+    other.type == type &&
+    other.value == value;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (username.hashCode) +
-    (hash.hashCode);
+    (date.hashCode) +
+    (slot.hashCode) +
+    (position.hashCode) +
+    (type.hashCode) +
+    (value.hashCode);
 
   @override
-  String toString() => 'AddToMealPlanRequest[username=$username, hash=$hash]';
+  String toString() => 'AddToMealPlanRequest[date=$date, slot=$slot, position=$position, type=$type, value=$value]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'username'] = this.username;
-      json[r'hash'] = this.hash;
+      json[r'date'] = this.date;
+      json[r'slot'] = this.slot;
+      json[r'position'] = this.position;
+      json[r'type'] = this.type;
+      json[r'value'] = this.value;
     return json;
   }
 
@@ -63,8 +79,11 @@ class AddToMealPlanRequest {
       }());
 
       return AddToMealPlanRequest(
-        username: mapValueOfType<String>(json, r'username')!,
-        hash: mapValueOfType<String>(json, r'hash')!,
+        date: num.parse('${json[r'date']}'),
+        slot: mapValueOfType<int>(json, r'slot')!,
+        position: mapValueOfType<int>(json, r'position')!,
+        type: mapValueOfType<String>(json, r'type')!,
+        value: AddToMealPlanRequestValue.fromJson(json[r'value'])!,
       );
     }
     return null;
@@ -112,8 +131,11 @@ class AddToMealPlanRequest {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'username',
-    'hash',
+    'date',
+    'slot',
+    'position',
+    'type',
+    'value',
   };
 }
 

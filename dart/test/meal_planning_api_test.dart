@@ -21,7 +21,7 @@ void main() {
     //
     // Add a meal plan template for a user.
     //
-    //Future<AddMealPlanTemplate200Response> addMealPlanTemplate(String username, String hash, AddToMealPlanRequest addToMealPlanRequest) async
+    //Future<AddMealPlanTemplate200Response> addMealPlanTemplate(String username, String hash) async
     test('test addMealPlanTemplate', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Add an item to the current shopping list of a user.
     //
-    //Future<GenerateShoppingList200Response> addToShoppingList(String username, String hash, AddToMealPlanRequest addToMealPlanRequest) async
+    //Future<GenerateShoppingList200Response> addToShoppingList(String username, String hash, AddToShoppingListRequest addToShoppingListRequest) async
     test('test addToShoppingList', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Delete all planned items from the user's meal plan for a specific day.
     //
-    //Future<Object> clearMealPlanDay(String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest) async
+    //Future<Object> clearMealPlanDay(String username, String date, String hash) async
     test('test clearMealPlanDay', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
     //
-    //Future<ConnectUser200Response> connectUser(Object body) async
+    //Future<ConnectUser200Response> connectUser(ConnectUserRequest connectUserRequest) async
     test('test connectUser', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Delete an item from the user's meal plan.
     //
-    //Future<Object> deleteFromMealPlan(String username, num id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest) async
+    //Future<Object> deleteFromMealPlan(String username, num id, String hash) async
     test('test deleteFromMealPlan', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Delete an item from the current shopping list of the user.
     //
-    //Future<Object> deleteFromShoppingList(String username, int id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest) async
+    //Future<Object> deleteFromShoppingList(String username, int id, String hash) async
     test('test deleteFromShoppingList', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Delete a meal plan template for a user.
     //
-    //Future<Object> deleteMealPlanTemplate(String username, int id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest) async
+    //Future<Object> deleteMealPlanTemplate(String username, int id, String hash) async
     test('test deleteMealPlanTemplate', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Generate the shopping list for a user from the meal planner in a given time frame.
     //
-    //Future<GenerateShoppingList200Response> generateShoppingList(String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest) async
+    //Future<GenerateShoppingList200Response> generateShoppingList(String username, String startDate, String endDate, String hash) async
     test('test generateShoppingList', () async {
       // TODO
     });

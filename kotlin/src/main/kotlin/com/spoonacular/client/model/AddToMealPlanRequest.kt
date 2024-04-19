@@ -15,6 +15,7 @@
 
 package com.spoonacular.client.model
 
+import com.spoonacular.client.model.AddToMealPlanRequestValue
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,20 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param username The username.
- * @param hash The private hash for the username.
+ * @param date 
+ * @param slot 
+ * @param position 
+ * @param type 
+ * @param `value` 
  */
 
 
 data class AddToMealPlanRequest (
 
-    /* The username. */
-    @Json(name = "username")
-    val username: kotlin.String,
+    @Json(name = "date")
+    val date: java.math.BigDecimal,
 
-    /* The private hash for the username. */
-    @Json(name = "hash")
-    val hash: kotlin.String
+    @Json(name = "slot")
+    val slot: kotlin.Int,
+
+    @Json(name = "position")
+    val position: kotlin.Int,
+
+    @Json(name = "type")
+    val type: kotlin.String,
+
+    @Json(name = "value")
+    val `value`: AddToMealPlanRequestValue
 
 )
 

@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import AnalyzeRecipeRequest from '../model/AnalyzeRecipeRequest';
-import AnalyzeRecipeRequest1 from '../model/AnalyzeRecipeRequest1';
 import SearchRestaurants200Response from '../model/SearchRestaurants200Response';
 
 /**
@@ -76,7 +75,7 @@ export default class DefaultApi {
       };
 
       let authNames = ['apiKeyScheme'];
-      let contentTypes = ['', 'application/json'];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(

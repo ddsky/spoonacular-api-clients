@@ -29,15 +29,13 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [AddToMealPlanRequest] addToMealPlanRequest (required):
-  Future<Response> addMealPlanTemplateWithHttpInfo(String username, String hash, AddToMealPlanRequest addToMealPlanRequest,) async {
+  Future<Response> addMealPlanTemplateWithHttpInfo(String username, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/templates'
       .replaceAll('{username}', username);
 
     // ignore: prefer_final_locals
-    Object? postBody = addToMealPlanRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -45,7 +43,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>[''];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -70,10 +68,8 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [AddToMealPlanRequest] addToMealPlanRequest (required):
-  Future<AddMealPlanTemplate200Response?> addMealPlanTemplate(String username, String hash, AddToMealPlanRequest addToMealPlanRequest,) async {
-    final response = await addMealPlanTemplateWithHttpInfo(username, hash, addToMealPlanRequest,);
+  Future<AddMealPlanTemplate200Response?> addMealPlanTemplate(String username, String hash,) async {
+    final response = await addMealPlanTemplateWithHttpInfo(username, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -116,7 +112,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>['application/json', ''];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -172,14 +168,14 @@ class MealPlanningApi {
   /// * [String] hash (required):
   ///   The private hash for the username.
   ///
-  /// * [AddToMealPlanRequest] addToMealPlanRequest (required):
-  Future<Response> addToShoppingListWithHttpInfo(String username, String hash, AddToMealPlanRequest addToMealPlanRequest,) async {
+  /// * [AddToShoppingListRequest] addToShoppingListRequest (required):
+  Future<Response> addToShoppingListWithHttpInfo(String username, String hash, AddToShoppingListRequest addToShoppingListRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/shopping-list/items'
       .replaceAll('{username}', username);
 
     // ignore: prefer_final_locals
-    Object? postBody = addToMealPlanRequest;
+    Object? postBody = addToShoppingListRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -187,7 +183,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>['application/json', ''];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -213,9 +209,9 @@ class MealPlanningApi {
   /// * [String] hash (required):
   ///   The private hash for the username.
   ///
-  /// * [AddToMealPlanRequest] addToMealPlanRequest (required):
-  Future<GenerateShoppingList200Response?> addToShoppingList(String username, String hash, AddToMealPlanRequest addToMealPlanRequest,) async {
-    final response = await addToShoppingListWithHttpInfo(username, hash, addToMealPlanRequest,);
+  /// * [AddToShoppingListRequest] addToShoppingListRequest (required):
+  Future<GenerateShoppingList200Response?> addToShoppingList(String username, String hash, AddToShoppingListRequest addToShoppingListRequest,) async {
+    final response = await addToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -245,16 +241,14 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [ClearMealPlanDayRequest] clearMealPlanDayRequest (required):
-  Future<Response> clearMealPlanDayWithHttpInfo(String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest,) async {
+  Future<Response> clearMealPlanDayWithHttpInfo(String username, String date, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/day/{date}'
       .replaceAll('{username}', username)
       .replaceAll('{date}', date);
 
     // ignore: prefer_final_locals
-    Object? postBody = clearMealPlanDayRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -262,7 +256,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>[''];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -290,10 +284,8 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [ClearMealPlanDayRequest] clearMealPlanDayRequest (required):
-  Future<Object?> clearMealPlanDay(String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest,) async {
-    final response = await clearMealPlanDayWithHttpInfo(username, date, hash, clearMealPlanDayRequest,);
+  Future<Object?> clearMealPlanDay(String username, String date, String hash,) async {
+    final response = await clearMealPlanDayWithHttpInfo(username, date, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -315,19 +307,19 @@ class MealPlanningApi {
   ///
   /// Parameters:
   ///
-  /// * [Object] body (required):
-  Future<Response> connectUserWithHttpInfo(Object body,) async {
+  /// * [ConnectUserRequest] connectUserRequest (required):
+  Future<Response> connectUserWithHttpInfo(ConnectUserRequest connectUserRequest,) async {
     // ignore: prefer_const_declarations
     final path = r'/users/connect';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = connectUserRequest;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json', ''];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -347,9 +339,9 @@ class MealPlanningApi {
   ///
   /// Parameters:
   ///
-  /// * [Object] body (required):
-  Future<ConnectUser200Response?> connectUser(Object body,) async {
-    final response = await connectUserWithHttpInfo(body,);
+  /// * [ConnectUserRequest] connectUserRequest (required):
+  Future<ConnectUser200Response?> connectUser(ConnectUserRequest connectUserRequest,) async {
+    final response = await connectUserWithHttpInfo(connectUserRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -379,16 +371,14 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [DeleteFromMealPlanRequest] deleteFromMealPlanRequest (required):
-  Future<Response> deleteFromMealPlanWithHttpInfo(String username, num id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest,) async {
+  Future<Response> deleteFromMealPlanWithHttpInfo(String username, num id, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/items/{id}'
       .replaceAll('{username}', username)
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = deleteFromMealPlanRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -396,7 +386,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>[''];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -424,10 +414,8 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [DeleteFromMealPlanRequest] deleteFromMealPlanRequest (required):
-  Future<Object?> deleteFromMealPlan(String username, num id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest,) async {
-    final response = await deleteFromMealPlanWithHttpInfo(username, id, hash, deleteFromMealPlanRequest,);
+  Future<Object?> deleteFromMealPlan(String username, num id, String hash,) async {
+    final response = await deleteFromMealPlanWithHttpInfo(username, id, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -457,16 +445,14 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [DeleteFromMealPlanRequest] deleteFromMealPlanRequest (required):
-  Future<Response> deleteFromShoppingListWithHttpInfo(String username, int id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest,) async {
+  Future<Response> deleteFromShoppingListWithHttpInfo(String username, int id, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/shopping-list/items/{id}'
       .replaceAll('{username}', username)
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = deleteFromMealPlanRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -474,7 +460,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>[''];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -502,10 +488,8 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [DeleteFromMealPlanRequest] deleteFromMealPlanRequest (required):
-  Future<Object?> deleteFromShoppingList(String username, int id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest,) async {
-    final response = await deleteFromShoppingListWithHttpInfo(username, id, hash, deleteFromMealPlanRequest,);
+  Future<Object?> deleteFromShoppingList(String username, int id, String hash,) async {
+    final response = await deleteFromShoppingListWithHttpInfo(username, id, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -535,16 +519,14 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [DeleteFromMealPlanRequest] deleteFromMealPlanRequest (required):
-  Future<Response> deleteMealPlanTemplateWithHttpInfo(String username, int id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest,) async {
+  Future<Response> deleteMealPlanTemplateWithHttpInfo(String username, int id, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/templates/{id}'
       .replaceAll('{username}', username)
       .replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = deleteFromMealPlanRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -552,7 +534,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>[''];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -580,10 +562,8 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [DeleteFromMealPlanRequest] deleteFromMealPlanRequest (required):
-  Future<Object?> deleteMealPlanTemplate(String username, int id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest,) async {
-    final response = await deleteMealPlanTemplateWithHttpInfo(username, id, hash, deleteFromMealPlanRequest,);
+  Future<Object?> deleteMealPlanTemplate(String username, int id, String hash,) async {
+    final response = await deleteMealPlanTemplateWithHttpInfo(username, id, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -705,9 +685,7 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [GenerateShoppingListRequest] generateShoppingListRequest (required):
-  Future<Response> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest,) async {
+  Future<Response> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/shopping-list/{start-date}/{end-date}'
       .replaceAll('{username}', username)
@@ -715,7 +693,7 @@ class MealPlanningApi {
       .replaceAll('{end-date}', endDate);
 
     // ignore: prefer_final_locals
-    Object? postBody = generateShoppingListRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -723,7 +701,7 @@ class MealPlanningApi {
 
       queryParams.addAll(_queryParams('', 'hash', hash));
 
-    const contentTypes = <String>[''];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -754,10 +732,8 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  ///
-  /// * [GenerateShoppingListRequest] generateShoppingListRequest (required):
-  Future<GenerateShoppingList200Response?> generateShoppingList(String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest,) async {
-    final response = await generateShoppingListWithHttpInfo(username, startDate, endDate, hash, generateShoppingListRequest,);
+  Future<GenerateShoppingList200Response?> generateShoppingList(String username, String startDate, String endDate, String hash,) async {
+    final response = await generateShoppingListWithHttpInfo(username, startDate, endDate, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

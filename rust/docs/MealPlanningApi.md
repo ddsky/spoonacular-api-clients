@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## add_meal_plan_template
 
-> crate::models::AddMealPlanTemplate200Response add_meal_plan_template(username, hash, add_to_meal_plan_request)
+> crate::models::AddMealPlanTemplate200Response add_meal_plan_template(username, hash)
 Add Meal Plan Template
 
 Add a meal plan template for a user.
@@ -35,7 +35,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  | [required] |
 
 ### Return type
 
@@ -47,7 +46,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -79,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -87,7 +86,7 @@ Name | Type | Description  | Required | Notes
 
 ## add_to_shopping_list
 
-> crate::models::GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_meal_plan_request)
+> crate::models::GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -99,7 +98,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  | [required] |
+**add_to_shopping_list_request** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md) |  | [required] |
 
 ### Return type
 
@@ -111,7 +110,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -119,7 +118,7 @@ Name | Type | Description  | Required | Notes
 
 ## clear_meal_plan_day
 
-> serde_json::Value clear_meal_plan_day(username, date, hash, clear_meal_plan_day_request)
+> serde_json::Value clear_meal_plan_day(username, date, hash)
 Clear Meal Plan Day
 
 Delete all planned items from the user's meal plan for a specific day.
@@ -132,7 +131,6 @@ Name | Type | Description  | Required | Notes
 **username** | **String** | The username. | [required] |
 **date** | **String** | The date in the format yyyy-mm-dd. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**clear_meal_plan_day_request** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md) |  | [required] |
 
 ### Return type
 
@@ -144,7 +142,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -152,7 +150,7 @@ Name | Type | Description  | Required | Notes
 
 ## connect_user
 
-> crate::models::ConnectUser200Response connect_user(body)
+> crate::models::ConnectUser200Response connect_user(connect_user_request)
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
@@ -162,7 +160,7 @@ In order to call user-specific endpoints, you need to connect your app's users t
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | **serde_json::Value** |  | [required] |
+**connect_user_request** | [**ConnectUserRequest**](ConnectUserRequest.md) |  | [required] |
 
 ### Return type
 
@@ -174,7 +172,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -182,7 +180,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_from_meal_plan
 
-> serde_json::Value delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request)
+> serde_json::Value delete_from_meal_plan(username, id, hash)
 Delete from Meal Plan
 
 Delete an item from the user's meal plan.
@@ -195,7 +193,6 @@ Name | Type | Description  | Required | Notes
 **username** | **String** | The username. | [required] |
 **id** | **f32** | The shopping list item id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  | [required] |
 
 ### Return type
 
@@ -207,7 +204,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -215,7 +212,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_from_shopping_list
 
-> serde_json::Value delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request)
+> serde_json::Value delete_from_shopping_list(username, id, hash)
 Delete from Shopping List
 
 Delete an item from the current shopping list of the user.
@@ -228,7 +225,6 @@ Name | Type | Description  | Required | Notes
 **username** | **String** | The username. | [required] |
 **id** | **i32** | The item's id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  | [required] |
 
 ### Return type
 
@@ -240,7 +236,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -248,7 +244,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_meal_plan_template
 
-> serde_json::Value delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request)
+> serde_json::Value delete_meal_plan_template(username, id, hash)
 Delete Meal Plan Template
 
 Delete a meal plan template for a user.
@@ -261,7 +257,6 @@ Name | Type | Description  | Required | Notes
 **username** | **String** | The username. | [required] |
 **id** | **i32** | The item's id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  | [required] |
 
 ### Return type
 
@@ -273,7 +268,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -314,7 +309,7 @@ Name | Type | Description  | Required | Notes
 
 ## generate_shopping_list
 
-> crate::models::GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request)
+> crate::models::GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -328,7 +323,6 @@ Name | Type | Description  | Required | Notes
 **start_date** | **String** | The start date in the format yyyy-mm-dd. | [required] |
 **end_date** | **String** | The end date in the format yyyy-mm-dd. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**generate_shopping_list_request** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md) |  | [required] |
 
 ### Return type
 
@@ -340,7 +334,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Language** | Pointer to **string** | The input language, either \&quot;en\&quot; or \&quot;de\&quot;. | [optional] 
-**IncludeNutrition** | Pointer to **bool** | Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
-**IncludeTaste** | Pointer to **bool** | Whether taste data should be added to correctly parsed ingredients. | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Servings** | Pointer to **int32** |  | [optional] 
+**Ingredients** | Pointer to **[]string** |  | [optional] 
+**Instructions** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -27,80 +28,105 @@ NewAnalyzeRecipeRequestWithDefaults instantiates a new AnalyzeRecipeRequest obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetLanguage
+### GetTitle
 
-`func (o *AnalyzeRecipeRequest) GetLanguage() string`
+`func (o *AnalyzeRecipeRequest) GetTitle() string`
 
-GetLanguage returns the Language field if non-nil, zero value otherwise.
+GetTitle returns the Title field if non-nil, zero value otherwise.
 
-### GetLanguageOk
+### GetTitleOk
 
-`func (o *AnalyzeRecipeRequest) GetLanguageOk() (*string, bool)`
+`func (o *AnalyzeRecipeRequest) GetTitleOk() (*string, bool)`
 
-GetLanguageOk returns a tuple with the Language field if it's non-nil, zero value otherwise
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLanguage
+### SetTitle
 
-`func (o *AnalyzeRecipeRequest) SetLanguage(v string)`
+`func (o *AnalyzeRecipeRequest) SetTitle(v string)`
 
-SetLanguage sets Language field to given value.
+SetTitle sets Title field to given value.
 
-### HasLanguage
+### HasTitle
 
-`func (o *AnalyzeRecipeRequest) HasLanguage() bool`
+`func (o *AnalyzeRecipeRequest) HasTitle() bool`
 
-HasLanguage returns a boolean if a field has been set.
+HasTitle returns a boolean if a field has been set.
 
-### GetIncludeNutrition
+### GetServings
 
-`func (o *AnalyzeRecipeRequest) GetIncludeNutrition() bool`
+`func (o *AnalyzeRecipeRequest) GetServings() int32`
 
-GetIncludeNutrition returns the IncludeNutrition field if non-nil, zero value otherwise.
+GetServings returns the Servings field if non-nil, zero value otherwise.
 
-### GetIncludeNutritionOk
+### GetServingsOk
 
-`func (o *AnalyzeRecipeRequest) GetIncludeNutritionOk() (*bool, bool)`
+`func (o *AnalyzeRecipeRequest) GetServingsOk() (*int32, bool)`
 
-GetIncludeNutritionOk returns a tuple with the IncludeNutrition field if it's non-nil, zero value otherwise
+GetServingsOk returns a tuple with the Servings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIncludeNutrition
+### SetServings
 
-`func (o *AnalyzeRecipeRequest) SetIncludeNutrition(v bool)`
+`func (o *AnalyzeRecipeRequest) SetServings(v int32)`
 
-SetIncludeNutrition sets IncludeNutrition field to given value.
+SetServings sets Servings field to given value.
 
-### HasIncludeNutrition
+### HasServings
 
-`func (o *AnalyzeRecipeRequest) HasIncludeNutrition() bool`
+`func (o *AnalyzeRecipeRequest) HasServings() bool`
 
-HasIncludeNutrition returns a boolean if a field has been set.
+HasServings returns a boolean if a field has been set.
 
-### GetIncludeTaste
+### GetIngredients
 
-`func (o *AnalyzeRecipeRequest) GetIncludeTaste() bool`
+`func (o *AnalyzeRecipeRequest) GetIngredients() []string`
 
-GetIncludeTaste returns the IncludeTaste field if non-nil, zero value otherwise.
+GetIngredients returns the Ingredients field if non-nil, zero value otherwise.
 
-### GetIncludeTasteOk
+### GetIngredientsOk
 
-`func (o *AnalyzeRecipeRequest) GetIncludeTasteOk() (*bool, bool)`
+`func (o *AnalyzeRecipeRequest) GetIngredientsOk() (*[]string, bool)`
 
-GetIncludeTasteOk returns a tuple with the IncludeTaste field if it's non-nil, zero value otherwise
+GetIngredientsOk returns a tuple with the Ingredients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIncludeTaste
+### SetIngredients
 
-`func (o *AnalyzeRecipeRequest) SetIncludeTaste(v bool)`
+`func (o *AnalyzeRecipeRequest) SetIngredients(v []string)`
 
-SetIncludeTaste sets IncludeTaste field to given value.
+SetIngredients sets Ingredients field to given value.
 
-### HasIncludeTaste
+### HasIngredients
 
-`func (o *AnalyzeRecipeRequest) HasIncludeTaste() bool`
+`func (o *AnalyzeRecipeRequest) HasIngredients() bool`
 
-HasIncludeTaste returns a boolean if a field has been set.
+HasIngredients returns a boolean if a field has been set.
+
+### GetInstructions
+
+`func (o *AnalyzeRecipeRequest) GetInstructions() string`
+
+GetInstructions returns the Instructions field if non-nil, zero value otherwise.
+
+### GetInstructionsOk
+
+`func (o *AnalyzeRecipeRequest) GetInstructionsOk() (*string, bool)`
+
+GetInstructionsOk returns a tuple with the Instructions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstructions
+
+`func (o *AnalyzeRecipeRequest) SetInstructions(v string)`
+
+SetInstructions sets Instructions field to given value.
+
+### HasInstructions
+
+`func (o *AnalyzeRecipeRequest) HasInstructions() bool`
+
+HasInstructions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

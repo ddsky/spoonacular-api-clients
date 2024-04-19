@@ -34,11 +34,20 @@ OAIAddToMealPlan_request::~OAIAddToMealPlan_request() {}
 
 void OAIAddToMealPlan_request::initializeModel() {
 
-    m_username_isSet = false;
-    m_username_isValid = false;
+    m_date_isSet = false;
+    m_date_isValid = false;
 
-    m_hash_isSet = false;
-    m_hash_isValid = false;
+    m_slot_isSet = false;
+    m_slot_isValid = false;
+
+    m_position_isSet = false;
+    m_position_isValid = false;
+
+    m_type_isSet = false;
+    m_type_isValid = false;
+
+    m_value_isSet = false;
+    m_value_isValid = false;
 }
 
 void OAIAddToMealPlan_request::fromJson(QString jsonString) {
@@ -50,11 +59,20 @@ void OAIAddToMealPlan_request::fromJson(QString jsonString) {
 
 void OAIAddToMealPlan_request::fromJsonObject(QJsonObject json) {
 
-    m_username_isValid = ::OpenAPI::fromJsonValue(m_username, json[QString("username")]);
-    m_username_isSet = !json[QString("username")].isNull() && m_username_isValid;
+    m_date_isValid = ::OpenAPI::fromJsonValue(m_date, json[QString("date")]);
+    m_date_isSet = !json[QString("date")].isNull() && m_date_isValid;
 
-    m_hash_isValid = ::OpenAPI::fromJsonValue(m_hash, json[QString("hash")]);
-    m_hash_isSet = !json[QString("hash")].isNull() && m_hash_isValid;
+    m_slot_isValid = ::OpenAPI::fromJsonValue(m_slot, json[QString("slot")]);
+    m_slot_isSet = !json[QString("slot")].isNull() && m_slot_isValid;
+
+    m_position_isValid = ::OpenAPI::fromJsonValue(m_position, json[QString("position")]);
+    m_position_isSet = !json[QString("position")].isNull() && m_position_isValid;
+
+    m_type_isValid = ::OpenAPI::fromJsonValue(m_type, json[QString("type")]);
+    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
+
+    m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("value")]);
+    m_value_isSet = !json[QString("value")].isNull() && m_value_isValid;
 }
 
 QString OAIAddToMealPlan_request::asJson() const {
@@ -66,56 +84,128 @@ QString OAIAddToMealPlan_request::asJson() const {
 
 QJsonObject OAIAddToMealPlan_request::asJsonObject() const {
     QJsonObject obj;
-    if (m_username_isSet) {
-        obj.insert(QString("username"), ::OpenAPI::toJsonValue(m_username));
+    if (m_date_isSet) {
+        obj.insert(QString("date"), ::OpenAPI::toJsonValue(m_date));
     }
-    if (m_hash_isSet) {
-        obj.insert(QString("hash"), ::OpenAPI::toJsonValue(m_hash));
+    if (m_slot_isSet) {
+        obj.insert(QString("slot"), ::OpenAPI::toJsonValue(m_slot));
+    }
+    if (m_position_isSet) {
+        obj.insert(QString("position"), ::OpenAPI::toJsonValue(m_position));
+    }
+    if (m_type_isSet) {
+        obj.insert(QString("type"), ::OpenAPI::toJsonValue(m_type));
+    }
+    if (m_value.isSet()) {
+        obj.insert(QString("value"), ::OpenAPI::toJsonValue(m_value));
     }
     return obj;
 }
 
-QString OAIAddToMealPlan_request::getUsername() const {
-    return m_username;
+double OAIAddToMealPlan_request::getDate() const {
+    return m_date;
 }
-void OAIAddToMealPlan_request::setUsername(const QString &username) {
-    m_username = username;
-    m_username_isSet = true;
-}
-
-bool OAIAddToMealPlan_request::is_username_Set() const{
-    return m_username_isSet;
+void OAIAddToMealPlan_request::setDate(const double &date) {
+    m_date = date;
+    m_date_isSet = true;
 }
 
-bool OAIAddToMealPlan_request::is_username_Valid() const{
-    return m_username_isValid;
+bool OAIAddToMealPlan_request::is_date_Set() const{
+    return m_date_isSet;
 }
 
-QString OAIAddToMealPlan_request::getHash() const {
-    return m_hash;
-}
-void OAIAddToMealPlan_request::setHash(const QString &hash) {
-    m_hash = hash;
-    m_hash_isSet = true;
+bool OAIAddToMealPlan_request::is_date_Valid() const{
+    return m_date_isValid;
 }
 
-bool OAIAddToMealPlan_request::is_hash_Set() const{
-    return m_hash_isSet;
+qint32 OAIAddToMealPlan_request::getSlot() const {
+    return m_slot;
+}
+void OAIAddToMealPlan_request::setSlot(const qint32 &slot) {
+    m_slot = slot;
+    m_slot_isSet = true;
 }
 
-bool OAIAddToMealPlan_request::is_hash_Valid() const{
-    return m_hash_isValid;
+bool OAIAddToMealPlan_request::is_slot_Set() const{
+    return m_slot_isSet;
+}
+
+bool OAIAddToMealPlan_request::is_slot_Valid() const{
+    return m_slot_isValid;
+}
+
+qint32 OAIAddToMealPlan_request::getPosition() const {
+    return m_position;
+}
+void OAIAddToMealPlan_request::setPosition(const qint32 &position) {
+    m_position = position;
+    m_position_isSet = true;
+}
+
+bool OAIAddToMealPlan_request::is_position_Set() const{
+    return m_position_isSet;
+}
+
+bool OAIAddToMealPlan_request::is_position_Valid() const{
+    return m_position_isValid;
+}
+
+QString OAIAddToMealPlan_request::getType() const {
+    return m_type;
+}
+void OAIAddToMealPlan_request::setType(const QString &type) {
+    m_type = type;
+    m_type_isSet = true;
+}
+
+bool OAIAddToMealPlan_request::is_type_Set() const{
+    return m_type_isSet;
+}
+
+bool OAIAddToMealPlan_request::is_type_Valid() const{
+    return m_type_isValid;
+}
+
+OAIAddToMealPlan_request_value OAIAddToMealPlan_request::getValue() const {
+    return m_value;
+}
+void OAIAddToMealPlan_request::setValue(const OAIAddToMealPlan_request_value &value) {
+    m_value = value;
+    m_value_isSet = true;
+}
+
+bool OAIAddToMealPlan_request::is_value_Set() const{
+    return m_value_isSet;
+}
+
+bool OAIAddToMealPlan_request::is_value_Valid() const{
+    return m_value_isValid;
 }
 
 bool OAIAddToMealPlan_request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_username_isSet) {
+        if (m_date_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_hash_isSet) {
+        if (m_slot_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_position_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_type_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_value.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -125,7 +215,7 @@ bool OAIAddToMealPlan_request::isSet() const {
 
 bool OAIAddToMealPlan_request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_username_isValid && m_hash_isValid && true;
+    return m_date_isValid && m_slot_isValid && m_position_isValid && m_type_isValid && m_value_isValid && true;
 }
 
 } // namespace OpenAPI

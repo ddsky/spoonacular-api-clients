@@ -5,9 +5,8 @@ import { AddMealPlanTemplate200Response } from '../models/AddMealPlanTemplate200
 import { AddMealPlanTemplate200ResponseItemsInner } from '../models/AddMealPlanTemplate200ResponseItemsInner';
 import { AddMealPlanTemplate200ResponseItemsInnerValue } from '../models/AddMealPlanTemplate200ResponseItemsInnerValue';
 import { AddToMealPlanRequest } from '../models/AddToMealPlanRequest';
-import { AddToMealPlanRequest1 } from '../models/AddToMealPlanRequest1';
-import { AddToMealPlanRequest1Value } from '../models/AddToMealPlanRequest1Value';
-import { AddToMealPlanRequest1ValueIngredientsInner } from '../models/AddToMealPlanRequest1ValueIngredientsInner';
+import { AddToMealPlanRequestValue } from '../models/AddToMealPlanRequestValue';
+import { AddToMealPlanRequestValueIngredientsInner } from '../models/AddToMealPlanRequestValueIngredientsInner';
 import { AddToShoppingListRequest } from '../models/AddToShoppingListRequest';
 import { AnalyzeARecipeSearchQuery200Response } from '../models/AnalyzeARecipeSearchQuery200Response';
 import { AnalyzeARecipeSearchQuery200ResponseDishesInner } from '../models/AnalyzeARecipeSearchQuery200ResponseDishesInner';
@@ -18,7 +17,6 @@ import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from '../
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
 import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
-import { AnalyzeRecipeRequest1 } from '../models/AnalyzeRecipeRequest1';
 import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
 import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
 import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
@@ -29,7 +27,6 @@ import { ClassifyGroceryProduct200Response } from '../models/ClassifyGroceryProd
 import { ClassifyGroceryProductBulk200ResponseInner } from '../models/ClassifyGroceryProductBulk200ResponseInner';
 import { ClassifyGroceryProductBulkRequestInner } from '../models/ClassifyGroceryProductBulkRequestInner';
 import { ClassifyGroceryProductRequest } from '../models/ClassifyGroceryProductRequest';
-import { ClearMealPlanDayRequest } from '../models/ClearMealPlanDayRequest';
 import { ComputeGlycemicLoad200Response } from '../models/ComputeGlycemicLoad200Response';
 import { ComputeGlycemicLoad200ResponseIngredientsInner } from '../models/ComputeGlycemicLoad200ResponseIngredientsInner';
 import { ComputeGlycemicLoadRequest } from '../models/ComputeGlycemicLoadRequest';
@@ -38,13 +35,11 @@ import { ConnectUser200Response } from '../models/ConnectUser200Response';
 import { ConnectUserRequest } from '../models/ConnectUserRequest';
 import { ConvertAmounts200Response } from '../models/ConvertAmounts200Response';
 import { CreateRecipeCard200Response } from '../models/CreateRecipeCard200Response';
-import { DeleteFromMealPlanRequest } from '../models/DeleteFromMealPlanRequest';
 import { DetectFoodInText200Response } from '../models/DetectFoodInText200Response';
 import { DetectFoodInText200ResponseAnnotationsInner } from '../models/DetectFoodInText200ResponseAnnotationsInner';
 import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
 import { GenerateMealPlan200ResponseNutrients } from '../models/GenerateMealPlan200ResponseNutrients';
 import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
-import { GenerateShoppingListRequest } from '../models/GenerateShoppingListRequest';
 import { GetARandomFoodJoke200Response } from '../models/GetARandomFoodJoke200Response';
 import { GetAnalyzedRecipeInstructions200Response } from '../models/GetAnalyzedRecipeInstructions200Response';
 import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
@@ -777,12 +772,6 @@ export interface MealPlanningApiAddMealPlanTemplateRequest {
      * @memberof MealPlanningApiaddMealPlanTemplate
      */
     hash: string
-    /**
-     * 
-     * @type AddToMealPlanRequest
-     * @memberof MealPlanningApiaddMealPlanTemplate
-     */
-    addToMealPlanRequest: AddToMealPlanRequest
 }
 
 export interface MealPlanningApiAddToMealPlanRequest {
@@ -821,10 +810,10 @@ export interface MealPlanningApiAddToShoppingListRequest {
     hash: string
     /**
      * 
-     * @type AddToMealPlanRequest
+     * @type AddToShoppingListRequest
      * @memberof MealPlanningApiaddToShoppingList
      */
-    addToMealPlanRequest: AddToMealPlanRequest
+    addToShoppingListRequest: AddToShoppingListRequest
 }
 
 export interface MealPlanningApiClearMealPlanDayRequest {
@@ -846,21 +835,15 @@ export interface MealPlanningApiClearMealPlanDayRequest {
      * @memberof MealPlanningApiclearMealPlanDay
      */
     hash: string
-    /**
-     * 
-     * @type ClearMealPlanDayRequest
-     * @memberof MealPlanningApiclearMealPlanDay
-     */
-    clearMealPlanDayRequest: ClearMealPlanDayRequest
 }
 
 export interface MealPlanningApiConnectUserRequest {
     /**
      * 
-     * @type any
+     * @type ConnectUserRequest
      * @memberof MealPlanningApiconnectUser
      */
-    body: any
+    connectUserRequest: ConnectUserRequest
 }
 
 export interface MealPlanningApiDeleteFromMealPlanRequest {
@@ -882,12 +865,6 @@ export interface MealPlanningApiDeleteFromMealPlanRequest {
      * @memberof MealPlanningApideleteFromMealPlan
      */
     hash: string
-    /**
-     * 
-     * @type DeleteFromMealPlanRequest
-     * @memberof MealPlanningApideleteFromMealPlan
-     */
-    deleteFromMealPlanRequest: DeleteFromMealPlanRequest
 }
 
 export interface MealPlanningApiDeleteFromShoppingListRequest {
@@ -909,12 +886,6 @@ export interface MealPlanningApiDeleteFromShoppingListRequest {
      * @memberof MealPlanningApideleteFromShoppingList
      */
     hash: string
-    /**
-     * 
-     * @type DeleteFromMealPlanRequest
-     * @memberof MealPlanningApideleteFromShoppingList
-     */
-    deleteFromMealPlanRequest: DeleteFromMealPlanRequest
 }
 
 export interface MealPlanningApiDeleteMealPlanTemplateRequest {
@@ -936,12 +907,6 @@ export interface MealPlanningApiDeleteMealPlanTemplateRequest {
      * @memberof MealPlanningApideleteMealPlanTemplate
      */
     hash: string
-    /**
-     * 
-     * @type DeleteFromMealPlanRequest
-     * @memberof MealPlanningApideleteMealPlanTemplate
-     */
-    deleteFromMealPlanRequest: DeleteFromMealPlanRequest
 }
 
 export interface MealPlanningApiGenerateMealPlanRequest {
@@ -996,12 +961,6 @@ export interface MealPlanningApiGenerateShoppingListRequest {
      * @memberof MealPlanningApigenerateShoppingList
      */
     hash: string
-    /**
-     * 
-     * @type GenerateShoppingListRequest
-     * @memberof MealPlanningApigenerateShoppingList
-     */
-    generateShoppingListRequest: GenerateShoppingListRequest
 }
 
 export interface MealPlanningApiGetMealPlanTemplateRequest {
@@ -1089,7 +1048,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public addMealPlanTemplateWithHttpInfo(param: MealPlanningApiAddMealPlanTemplateRequest, options?: Configuration): Promise<HttpInfo<AddMealPlanTemplate200Response>> {
-        return this.api.addMealPlanTemplateWithHttpInfo(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+        return this.api.addMealPlanTemplateWithHttpInfo(param.username, param.hash,  options).toPromise();
     }
 
     /**
@@ -1098,7 +1057,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public addMealPlanTemplate(param: MealPlanningApiAddMealPlanTemplateRequest, options?: Configuration): Promise<AddMealPlanTemplate200Response> {
-        return this.api.addMealPlanTemplate(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+        return this.api.addMealPlanTemplate(param.username, param.hash,  options).toPromise();
     }
 
     /**
@@ -1125,7 +1084,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public addToShoppingListWithHttpInfo(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
-        return this.api.addToShoppingListWithHttpInfo(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+        return this.api.addToShoppingListWithHttpInfo(param.username, param.hash, param.addToShoppingListRequest,  options).toPromise();
     }
 
     /**
@@ -1134,7 +1093,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public addToShoppingList(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<GenerateShoppingList200Response> {
-        return this.api.addToShoppingList(param.username, param.hash, param.addToMealPlanRequest,  options).toPromise();
+        return this.api.addToShoppingList(param.username, param.hash, param.addToShoppingListRequest,  options).toPromise();
     }
 
     /**
@@ -1143,7 +1102,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public clearMealPlanDayWithHttpInfo(param: MealPlanningApiClearMealPlanDayRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.clearMealPlanDayWithHttpInfo(param.username, param.date, param.hash, param.clearMealPlanDayRequest,  options).toPromise();
+        return this.api.clearMealPlanDayWithHttpInfo(param.username, param.date, param.hash,  options).toPromise();
     }
 
     /**
@@ -1152,7 +1111,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public clearMealPlanDay(param: MealPlanningApiClearMealPlanDayRequest, options?: Configuration): Promise<any> {
-        return this.api.clearMealPlanDay(param.username, param.date, param.hash, param.clearMealPlanDayRequest,  options).toPromise();
+        return this.api.clearMealPlanDay(param.username, param.date, param.hash,  options).toPromise();
     }
 
     /**
@@ -1161,7 +1120,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public connectUserWithHttpInfo(param: MealPlanningApiConnectUserRequest, options?: Configuration): Promise<HttpInfo<ConnectUser200Response>> {
-        return this.api.connectUserWithHttpInfo(param.body,  options).toPromise();
+        return this.api.connectUserWithHttpInfo(param.connectUserRequest,  options).toPromise();
     }
 
     /**
@@ -1170,7 +1129,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public connectUser(param: MealPlanningApiConnectUserRequest, options?: Configuration): Promise<ConnectUser200Response> {
-        return this.api.connectUser(param.body,  options).toPromise();
+        return this.api.connectUser(param.connectUserRequest,  options).toPromise();
     }
 
     /**
@@ -1179,7 +1138,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public deleteFromMealPlanWithHttpInfo(param: MealPlanningApiDeleteFromMealPlanRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.deleteFromMealPlanWithHttpInfo(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+        return this.api.deleteFromMealPlanWithHttpInfo(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1188,7 +1147,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public deleteFromMealPlan(param: MealPlanningApiDeleteFromMealPlanRequest, options?: Configuration): Promise<any> {
-        return this.api.deleteFromMealPlan(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+        return this.api.deleteFromMealPlan(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1197,7 +1156,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public deleteFromShoppingListWithHttpInfo(param: MealPlanningApiDeleteFromShoppingListRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.deleteFromShoppingListWithHttpInfo(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+        return this.api.deleteFromShoppingListWithHttpInfo(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1206,7 +1165,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public deleteFromShoppingList(param: MealPlanningApiDeleteFromShoppingListRequest, options?: Configuration): Promise<any> {
-        return this.api.deleteFromShoppingList(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+        return this.api.deleteFromShoppingList(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1215,7 +1174,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public deleteMealPlanTemplateWithHttpInfo(param: MealPlanningApiDeleteMealPlanTemplateRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.deleteMealPlanTemplateWithHttpInfo(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+        return this.api.deleteMealPlanTemplateWithHttpInfo(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1224,7 +1183,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public deleteMealPlanTemplate(param: MealPlanningApiDeleteMealPlanTemplateRequest, options?: Configuration): Promise<any> {
-        return this.api.deleteMealPlanTemplate(param.username, param.id, param.hash, param.deleteFromMealPlanRequest,  options).toPromise();
+        return this.api.deleteMealPlanTemplate(param.username, param.id, param.hash,  options).toPromise();
     }
 
     /**
@@ -1251,7 +1210,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public generateShoppingListWithHttpInfo(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
-        return this.api.generateShoppingListWithHttpInfo(param.username, param.startDate, param.endDate, param.hash, param.generateShoppingListRequest,  options).toPromise();
+        return this.api.generateShoppingListWithHttpInfo(param.username, param.startDate, param.endDate, param.hash,  options).toPromise();
     }
 
     /**
@@ -1260,7 +1219,7 @@ export class ObjectMealPlanningApi {
      * @param param the request object
      */
     public generateShoppingList(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<GenerateShoppingList200Response> {
-        return this.api.generateShoppingList(param.username, param.startDate, param.endDate, param.hash, param.generateShoppingListRequest,  options).toPromise();
+        return this.api.generateShoppingList(param.username, param.startDate, param.endDate, param.hash,  options).toPromise();
     }
 
     /**

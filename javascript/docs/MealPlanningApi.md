@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## addMealPlanTemplate
 
-> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
+> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash)
 
 Add Meal Plan Template
 
@@ -43,8 +43,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let hash = 4b5v4398573406; // String | The private hash for the username.
-let addToMealPlanRequest = new SpoonacularApi.AddToMealPlanRequest(); // AddToMealPlanRequest | 
-apiInstance.addMealPlanTemplate(username, hash, addToMealPlanRequest, (error, data, response) => {
+apiInstance.addMealPlanTemplate(username, hash, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -60,7 +59,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -72,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -98,7 +96,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
-let addToMealPlanRequest = new SpoonacularApi.AddToMealPlanRequest(); // AddToMealPlanRequest | 
+let addToMealPlanRequest = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}}; // AddToMealPlanRequest | 
 apiInstance.addToMealPlan(username, hash, addToMealPlanRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -127,13 +125,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addToShoppingList
 
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
+> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -153,8 +151,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
-let addToMealPlanRequest = new SpoonacularApi.AddToMealPlanRequest(); // AddToMealPlanRequest | 
-apiInstance.addToShoppingList(username, hash, addToMealPlanRequest, (error, data, response) => {
+let addToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true}; // AddToShoppingListRequest | 
+apiInstance.addToShoppingList(username, hash, addToShoppingListRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -170,7 +168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+ **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -182,13 +180,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## clearMealPlanDay
 
-> Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
+> Object clearMealPlanDay(username, date, hash)
 
 Clear Meal Plan Day
 
@@ -209,8 +207,7 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
-let clearMealPlanDayRequest = new SpoonacularApi.ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
-apiInstance.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest, (error, data, response) => {
+apiInstance.clearMealPlanDay(username, date, hash, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -227,7 +224,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **date** | **String**| The date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -239,13 +235,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## connectUser
 
-> ConnectUser200Response connectUser(body)
+> ConnectUser200Response connectUser(connectUserRequest)
 
 Connect User
 
@@ -263,8 +259,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let body = {key: null}; // Object | 
-apiInstance.connectUser(body, (error, data, response) => {
+let connectUserRequest = {"username":"your user's name","firstName":"your user's first name","lastName":"your user's last name","email":"your user's email"}; // ConnectUserRequest | 
+apiInstance.connectUser(connectUserRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -278,7 +274,7 @@ apiInstance.connectUser(body, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+ **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md)|  | 
 
 ### Return type
 
@@ -290,13 +286,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## deleteFromMealPlan
 
-> Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromMealPlan(username, id, hash)
 
 Delete from Meal Plan
 
@@ -317,8 +313,7 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
-let deleteFromMealPlanRequest = new SpoonacularApi.DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
-apiInstance.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest, (error, data, response) => {
+apiInstance.deleteFromMealPlan(username, id, hash, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -335,7 +330,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Number**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -347,13 +341,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## deleteFromShoppingList
 
-> Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromShoppingList(username, id, hash)
 
 Delete from Shopping List
 
@@ -374,8 +368,7 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let id = 1; // Number | The item's id.
 let hash = "hash_example"; // String | The private hash for the username.
-let deleteFromMealPlanRequest = new SpoonacularApi.DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
-apiInstance.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest, (error, data, response) => {
+apiInstance.deleteFromShoppingList(username, id, hash, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -392,7 +385,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Number**| The item&#39;s id. | 
  **hash** | **String**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -404,13 +396,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## deleteMealPlanTemplate
 
-> Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteMealPlanTemplate(username, id, hash)
 
 Delete Meal Plan Template
 
@@ -431,8 +423,7 @@ let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = dsky; // String | The username.
 let id = 1; // Number | The item's id.
 let hash = 4b5v4398573406; // String | The private hash for the username.
-let deleteFromMealPlanRequest = new SpoonacularApi.DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
-apiInstance.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest, (error, data, response) => {
+apiInstance.deleteMealPlanTemplate(username, id, hash, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -449,7 +440,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | 
  **id** | **Number**| The item&#39;s id. | 
  **hash** | **String**| The private hash for the username. | 
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -461,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -526,7 +516,7 @@ Name | Type | Description  | Notes
 
 ## generateShoppingList
 
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
+> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -548,8 +538,7 @@ let username = dsky; // String | The username.
 let startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 let endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
-let generateShoppingListRequest = new SpoonacularApi.GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
-apiInstance.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest, (error, data, response) => {
+apiInstance.generateShoppingList(username, startDate, endDate, hash, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -567,7 +556,6 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | 
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | 
  **hash** | **String**| The private hash for the username. | 
- **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -579,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
