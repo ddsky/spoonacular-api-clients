@@ -23,23 +23,15 @@ import { AddMealPlanTemplate200Response } from '../model/addMealPlanTemplate200R
 // @ts-ignore
 import { AddToMealPlanRequest } from '../model/addToMealPlanRequest';
 // @ts-ignore
-import { AddToMealPlanRequest1 } from '../model/addToMealPlanRequest1';
-// @ts-ignore
 import { AddToShoppingListRequest } from '../model/addToShoppingListRequest';
-// @ts-ignore
-import { ClearMealPlanDayRequest } from '../model/clearMealPlanDayRequest';
 // @ts-ignore
 import { ConnectUser200Response } from '../model/connectUser200Response';
 // @ts-ignore
 import { ConnectUserRequest } from '../model/connectUserRequest';
 // @ts-ignore
-import { DeleteFromMealPlanRequest } from '../model/deleteFromMealPlanRequest';
-// @ts-ignore
 import { GenerateMealPlan200Response } from '../model/generateMealPlan200Response';
 // @ts-ignore
 import { GenerateShoppingList200Response } from '../model/generateShoppingList200Response';
-// @ts-ignore
-import { GenerateShoppingListRequest } from '../model/generateShoppingListRequest';
 // @ts-ignore
 import { GetMealPlanTemplate200Response } from '../model/getMealPlanTemplate200Response';
 // @ts-ignore
@@ -124,22 +116,18 @@ export class MealPlanningService {
      * Add a meal plan template for a user.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addMealPlanTemplate(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<AddMealPlanTemplate200Response>;
-    public addMealPlanTemplate(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AddMealPlanTemplate200Response>>;
-    public addMealPlanTemplate(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AddMealPlanTemplate200Response>>;
-    public addMealPlanTemplate(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public addMealPlanTemplate(username: string, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<AddMealPlanTemplate200Response>;
+    public addMealPlanTemplate(username: string, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AddMealPlanTemplate200Response>>;
+    public addMealPlanTemplate(username: string, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AddMealPlanTemplate200Response>>;
+    public addMealPlanTemplate(username: string, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling addMealPlanTemplate.');
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling addMealPlanTemplate.');
-        }
-        if (addToMealPlanRequest === null || addToMealPlanRequest === undefined) {
-            throw new Error('Required parameter addToMealPlanRequest was null or undefined when calling addMealPlanTemplate.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -180,15 +168,6 @@ export class MealPlanningService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            ''
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
             if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
@@ -204,7 +183,6 @@ export class MealPlanningService {
         return this.httpClient.request<AddMealPlanTemplate200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: addToMealPlanRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -279,7 +257,6 @@ export class MealPlanningService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
-            '',
             'application/json'
         ];
         const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
@@ -319,22 +296,22 @@ export class MealPlanningService {
      * Add an item to the current shopping list of a user.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
+     * @param addToShoppingListRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addToShoppingList(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GenerateShoppingList200Response>;
-    public addToShoppingList(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GenerateShoppingList200Response>>;
-    public addToShoppingList(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GenerateShoppingList200Response>>;
-    public addToShoppingList(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GenerateShoppingList200Response>;
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GenerateShoppingList200Response>>;
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GenerateShoppingList200Response>>;
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling addToShoppingList.');
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling addToShoppingList.');
         }
-        if (addToMealPlanRequest === null || addToMealPlanRequest === undefined) {
-            throw new Error('Required parameter addToMealPlanRequest was null or undefined when calling addToShoppingList.');
+        if (addToShoppingListRequest === null || addToShoppingListRequest === undefined) {
+            throw new Error('Required parameter addToShoppingListRequest was null or undefined when calling addToShoppingList.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -377,7 +354,6 @@ export class MealPlanningService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
-            '',
             'application/json'
         ];
         const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
@@ -400,7 +376,7 @@ export class MealPlanningService {
         return this.httpClient.request<GenerateShoppingList200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: addToMealPlanRequest,
+                body: addToShoppingListRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -418,14 +394,13 @@ export class MealPlanningService {
      * @param username The username.
      * @param date The date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param clearMealPlanDayRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public clearMealPlanDay(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public clearMealPlanDay(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public clearMealPlanDay(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
-    public clearMealPlanDay(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public clearMealPlanDay(username: string, date: string, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
+    public clearMealPlanDay(username: string, date: string, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
+    public clearMealPlanDay(username: string, date: string, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public clearMealPlanDay(username: string, date: string, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling clearMealPlanDay.');
         }
@@ -434,9 +409,6 @@ export class MealPlanningService {
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling clearMealPlanDay.');
-        }
-        if (clearMealPlanDayRequest === null || clearMealPlanDayRequest === undefined) {
-            throw new Error('Required parameter clearMealPlanDayRequest was null or undefined when calling clearMealPlanDay.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -477,15 +449,6 @@ export class MealPlanningService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            ''
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
             if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
@@ -501,7 +464,6 @@ export class MealPlanningService {
         return this.httpClient.request<object>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: clearMealPlanDayRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -516,16 +478,16 @@ export class MealPlanningService {
     /**
      * Connect User
      * In order to call user-specific endpoints, you need to connect your app\&#39;s users to spoonacular users.
-     * @param body 
+     * @param connectUserRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public connectUser(body: object, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ConnectUser200Response>;
-    public connectUser(body: object, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectUser200Response>>;
-    public connectUser(body: object, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectUser200Response>>;
-    public connectUser(body: object, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling connectUser.');
+    public connectUser(connectUserRequest: ConnectUserRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ConnectUser200Response>;
+    public connectUser(connectUserRequest: ConnectUserRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ConnectUser200Response>>;
+    public connectUser(connectUserRequest: ConnectUserRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ConnectUser200Response>>;
+    public connectUser(connectUserRequest: ConnectUserRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (connectUserRequest === null || connectUserRequest === undefined) {
+            throw new Error('Required parameter connectUserRequest was null or undefined when calling connectUser.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -562,7 +524,6 @@ export class MealPlanningService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
-            '',
             'application/json'
         ];
         const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
@@ -585,7 +546,7 @@ export class MealPlanningService {
         return this.httpClient.request<ConnectUser200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: body,
+                body: connectUserRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -602,14 +563,13 @@ export class MealPlanningService {
      * @param username The username.
      * @param id The shopping list item id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteFromMealPlan(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public deleteFromMealPlan(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public deleteFromMealPlan(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
-    public deleteFromMealPlan(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public deleteFromMealPlan(username: string, id: number, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
+    public deleteFromMealPlan(username: string, id: number, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
+    public deleteFromMealPlan(username: string, id: number, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public deleteFromMealPlan(username: string, id: number, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling deleteFromMealPlan.');
         }
@@ -618,9 +578,6 @@ export class MealPlanningService {
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling deleteFromMealPlan.');
-        }
-        if (deleteFromMealPlanRequest === null || deleteFromMealPlanRequest === undefined) {
-            throw new Error('Required parameter deleteFromMealPlanRequest was null or undefined when calling deleteFromMealPlan.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -661,15 +618,6 @@ export class MealPlanningService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            ''
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
             if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
@@ -685,7 +633,6 @@ export class MealPlanningService {
         return this.httpClient.request<object>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: deleteFromMealPlanRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -703,14 +650,13 @@ export class MealPlanningService {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteFromShoppingList(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public deleteFromShoppingList(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public deleteFromShoppingList(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
-    public deleteFromShoppingList(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public deleteFromShoppingList(username: string, id: number, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
+    public deleteFromShoppingList(username: string, id: number, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
+    public deleteFromShoppingList(username: string, id: number, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public deleteFromShoppingList(username: string, id: number, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling deleteFromShoppingList.');
         }
@@ -719,9 +665,6 @@ export class MealPlanningService {
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling deleteFromShoppingList.');
-        }
-        if (deleteFromMealPlanRequest === null || deleteFromMealPlanRequest === undefined) {
-            throw new Error('Required parameter deleteFromMealPlanRequest was null or undefined when calling deleteFromShoppingList.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -762,15 +705,6 @@ export class MealPlanningService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            ''
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
             if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
@@ -786,7 +720,6 @@ export class MealPlanningService {
         return this.httpClient.request<object>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: deleteFromMealPlanRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -804,14 +737,13 @@ export class MealPlanningService {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteMealPlanTemplate(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public deleteMealPlanTemplate(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public deleteMealPlanTemplate(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
-    public deleteMealPlanTemplate(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public deleteMealPlanTemplate(username: string, id: number, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<object>;
+    public deleteMealPlanTemplate(username: string, id: number, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
+    public deleteMealPlanTemplate(username: string, id: number, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public deleteMealPlanTemplate(username: string, id: number, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling deleteMealPlanTemplate.');
         }
@@ -820,9 +752,6 @@ export class MealPlanningService {
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling deleteMealPlanTemplate.');
-        }
-        if (deleteFromMealPlanRequest === null || deleteFromMealPlanRequest === undefined) {
-            throw new Error('Required parameter deleteFromMealPlanRequest was null or undefined when calling deleteMealPlanTemplate.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -863,15 +792,6 @@ export class MealPlanningService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            ''
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
             if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
@@ -887,7 +807,6 @@ export class MealPlanningService {
         return this.httpClient.request<object>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: deleteFromMealPlanRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -997,14 +916,13 @@ export class MealPlanningService {
      * @param startDate The start date in the format yyyy-mm-dd.
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param generateShoppingListRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GenerateShoppingList200Response>;
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GenerateShoppingList200Response>>;
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GenerateShoppingList200Response>>;
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GenerateShoppingList200Response>;
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GenerateShoppingList200Response>>;
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GenerateShoppingList200Response>>;
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling generateShoppingList.');
         }
@@ -1016,9 +934,6 @@ export class MealPlanningService {
         }
         if (hash === null || hash === undefined) {
             throw new Error('Required parameter hash was null or undefined when calling generateShoppingList.');
-        }
-        if (generateShoppingListRequest === null || generateShoppingListRequest === undefined) {
-            throw new Error('Required parameter generateShoppingListRequest was null or undefined when calling generateShoppingList.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -1059,15 +974,6 @@ export class MealPlanningService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            ''
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
             if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
@@ -1083,7 +989,6 @@ export class MealPlanningService {
         return this.httpClient.request<GenerateShoppingList200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: generateShoppingListRequest,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

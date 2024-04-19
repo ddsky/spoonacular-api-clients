@@ -19,10 +19,13 @@ local function cast_add_to_meal_plan_request(t)
 	return setmetatable(t, add_to_meal_plan_request_mt)
 end
 
-local function new_add_to_meal_plan_request(username, hash)
+local function new_add_to_meal_plan_request(date, slot, position, type, value)
 	return cast_add_to_meal_plan_request({
-		["username"] = username;
-		["hash"] = hash;
+		["date"] = date;
+		["slot"] = slot;
+		["position"] = position;
+		["type"] = type;
+		["value"] = value;
 	})
 end
 

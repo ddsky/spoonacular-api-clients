@@ -4,14 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | **string** | The username. | 
-**Hash** | **string** | The private hash for the username. | 
+**Date** | **float32** |  | 
+**Slot** | **int32** |  | 
+**Position** | **int32** |  | 
+**Type** | **string** |  | 
+**Value** | [**AddToMealPlanRequestValue**](AddToMealPlanRequestValue.md) |  | 
 
 ## Methods
 
 ### NewAddToMealPlanRequest
 
-`func NewAddToMealPlanRequest(username string, hash string, ) *AddToMealPlanRequest`
+`func NewAddToMealPlanRequest(date float32, slot int32, position int32, type_ string, value AddToMealPlanRequestValue, ) *AddToMealPlanRequest`
 
 NewAddToMealPlanRequest instantiates a new AddToMealPlanRequest object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +29,104 @@ NewAddToMealPlanRequestWithDefaults instantiates a new AddToMealPlanRequest obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetUsername
+### GetDate
 
-`func (o *AddToMealPlanRequest) GetUsername() string`
+`func (o *AddToMealPlanRequest) GetDate() float32`
 
-GetUsername returns the Username field if non-nil, zero value otherwise.
+GetDate returns the Date field if non-nil, zero value otherwise.
 
-### GetUsernameOk
+### GetDateOk
 
-`func (o *AddToMealPlanRequest) GetUsernameOk() (*string, bool)`
+`func (o *AddToMealPlanRequest) GetDateOk() (*float32, bool)`
 
-GetUsernameOk returns a tuple with the Username field if it's non-nil, zero value otherwise
+GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsername
+### SetDate
 
-`func (o *AddToMealPlanRequest) SetUsername(v string)`
+`func (o *AddToMealPlanRequest) SetDate(v float32)`
 
-SetUsername sets Username field to given value.
+SetDate sets Date field to given value.
 
 
-### GetHash
+### GetSlot
 
-`func (o *AddToMealPlanRequest) GetHash() string`
+`func (o *AddToMealPlanRequest) GetSlot() int32`
 
-GetHash returns the Hash field if non-nil, zero value otherwise.
+GetSlot returns the Slot field if non-nil, zero value otherwise.
 
-### GetHashOk
+### GetSlotOk
 
-`func (o *AddToMealPlanRequest) GetHashOk() (*string, bool)`
+`func (o *AddToMealPlanRequest) GetSlotOk() (*int32, bool)`
 
-GetHashOk returns a tuple with the Hash field if it's non-nil, zero value otherwise
+GetSlotOk returns a tuple with the Slot field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHash
+### SetSlot
 
-`func (o *AddToMealPlanRequest) SetHash(v string)`
+`func (o *AddToMealPlanRequest) SetSlot(v int32)`
 
-SetHash sets Hash field to given value.
+SetSlot sets Slot field to given value.
+
+
+### GetPosition
+
+`func (o *AddToMealPlanRequest) GetPosition() int32`
+
+GetPosition returns the Position field if non-nil, zero value otherwise.
+
+### GetPositionOk
+
+`func (o *AddToMealPlanRequest) GetPositionOk() (*int32, bool)`
+
+GetPositionOk returns a tuple with the Position field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPosition
+
+`func (o *AddToMealPlanRequest) SetPosition(v int32)`
+
+SetPosition sets Position field to given value.
+
+
+### GetType
+
+`func (o *AddToMealPlanRequest) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *AddToMealPlanRequest) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *AddToMealPlanRequest) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetValue
+
+`func (o *AddToMealPlanRequest) GetValue() AddToMealPlanRequestValue`
+
+GetValue returns the Value field if non-nil, zero value otherwise.
+
+### GetValueOk
+
+`func (o *AddToMealPlanRequest) GetValueOk() (*AddToMealPlanRequestValue, bool)`
+
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValue
+
+`func (o *AddToMealPlanRequest) SetValue(v AddToMealPlanRequestValue)`
+
+SetValue sets Value field to given value.
 
 
 

@@ -2,7 +2,6 @@
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
 #import "OAIAnalyzeRecipeRequest.h"
-#import "OAIAnalyzeRecipeRequest1.h"
 #import "OAISearchRestaurants200Response.h"
 
 
@@ -106,7 +105,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"", @"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"apiKeyScheme"];

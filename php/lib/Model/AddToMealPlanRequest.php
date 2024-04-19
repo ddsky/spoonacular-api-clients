@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * AddToMealPlanRequest Class Doc Comment
  *
  * @category Class
+ * @description 
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,8 +59,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'username' => 'string',
-        'hash' => 'string'
+        'date' => 'float',
+        'slot' => 'int',
+        'position' => 'int',
+        'type' => 'string',
+        'value' => '\OpenAPI\Client\Model\AddToMealPlanRequestValue'
     ];
 
     /**
@@ -70,8 +74,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'username' => null,
-        'hash' => null
+        'date' => null,
+        'slot' => null,
+        'position' => null,
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -80,8 +87,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'username' => false,
-        'hash' => false
+        'date' => false,
+        'slot' => false,
+        'position' => false,
+        'type' => false,
+        'value' => false
     ];
 
     /**
@@ -170,8 +180,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'username' => 'username',
-        'hash' => 'hash'
+        'date' => 'date',
+        'slot' => 'slot',
+        'position' => 'position',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -180,8 +193,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'username' => 'setUsername',
-        'hash' => 'setHash'
+        'date' => 'setDate',
+        'slot' => 'setSlot',
+        'position' => 'setPosition',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -190,8 +206,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'username' => 'getUsername',
-        'hash' => 'getHash'
+        'date' => 'getDate',
+        'slot' => 'getSlot',
+        'position' => 'getPosition',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -251,8 +270,11 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('hash', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('slot', $data ?? [], null);
+        $this->setIfExists('position', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
     }
 
     /**
@@ -282,11 +304,24 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
         }
-        if ($this->container['hash'] === null) {
-            $invalidProperties[] = "'hash' can't be null";
+        if ($this->container['slot'] === null) {
+            $invalidProperties[] = "'slot' can't be null";
+        }
+        if ($this->container['position'] === null) {
+            $invalidProperties[] = "'position' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ((mb_strlen($this->container['type']) < 1)) {
+            $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +339,141 @@ class AddToMealPlanRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets username
+     * Gets date
      *
-     * @return string
+     * @return float
      */
-    public function getUsername()
+    public function getDate()
     {
-        return $this->container['username'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets username
+     * Sets date
      *
-     * @param string $username The username.
+     * @param float $date date
      *
      * @return self
      */
-    public function setUsername($username)
+    public function setDate($date)
     {
-        if (is_null($username)) {
-            throw new \InvalidArgumentException('non-nullable username cannot be null');
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
-        $this->container['username'] = $username;
+        $this->container['date'] = $date;
 
         return $this;
     }
 
     /**
-     * Gets hash
+     * Gets slot
      *
-     * @return string
+     * @return int
      */
-    public function getHash()
+    public function getSlot()
     {
-        return $this->container['hash'];
+        return $this->container['slot'];
     }
 
     /**
-     * Sets hash
+     * Sets slot
      *
-     * @param string $hash The private hash for the username.
+     * @param int $slot slot
      *
      * @return self
      */
-    public function setHash($hash)
+    public function setSlot($slot)
     {
-        if (is_null($hash)) {
-            throw new \InvalidArgumentException('non-nullable hash cannot be null');
+        if (is_null($slot)) {
+            throw new \InvalidArgumentException('non-nullable slot cannot be null');
         }
-        $this->container['hash'] = $hash;
+        $this->container['slot'] = $slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->container['position'];
+    }
+
+    /**
+     * Sets position
+     *
+     * @param int $position position
+     *
+     * @return self
+     */
+    public function setPosition($position)
+    {
+        if (is_null($position)) {
+            throw new \InvalidArgumentException('non-nullable position cannot be null');
+        }
+        $this->container['position'] = $position;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+
+        if ((mb_strlen($type) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $type when calling AddToMealPlanRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return \OpenAPI\Client\Model\AddToMealPlanRequestValue
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param \OpenAPI\Client\Model\AddToMealPlanRequestValue $value value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $this->container['value'] = $value;
 
         return $this;
     }

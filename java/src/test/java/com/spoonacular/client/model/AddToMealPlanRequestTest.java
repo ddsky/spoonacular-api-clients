@@ -18,7 +18,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.AddToMealPlanRequestValue;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -38,19 +40,43 @@ public class AddToMealPlanRequestTest {
     }
 
     /**
-     * Test the property 'username'
+     * Test the property 'date'
      */
     @Test
-    public void usernameTest() {
-        // TODO: test username
+    public void dateTest() {
+        // TODO: test date
     }
 
     /**
-     * Test the property 'hash'
+     * Test the property 'slot'
      */
     @Test
-    public void hashTest() {
-        // TODO: test hash
+    public void slotTest() {
+        // TODO: test slot
+    }
+
+    /**
+     * Test the property 'position'
+     */
+    @Test
+    public void positionTest() {
+        // TODO: test position
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
     }
 
 }

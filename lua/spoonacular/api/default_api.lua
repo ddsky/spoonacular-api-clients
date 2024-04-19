@@ -17,7 +17,6 @@ local basexx = require "basexx"
 
 -- model import
 local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
-local spoonacular_analyze_recipe_request_1 = require "spoonacular.model.analyze_recipe_request_1"
 local spoonacular_analyze_recipe_request = require "spoonacular.model.analyze_recipe_request"
 local spoonacular_search_restaurants_200_response = require "spoonacular.model.search_restaurants_200_response"
 
@@ -59,8 +58,8 @@ function default_api:analyze_recipe(analyze_recipe_request, language, include_nu
 	-- set HTTP verb
 	req.headers:upsert(":method", "POST")
 	-- TODO: create a function to select proper accept
-	--local var_content_type = { "", "application/json" }
-	req.headers:upsert("accept", "")
+	--local var_content_type = { "application/json" }
+	req.headers:upsert("accept", "application/json")
 
 	-- TODO: create a function to select proper content-type
 	--local var_accept = { "application/json" }

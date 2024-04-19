@@ -81,27 +81,36 @@ class AnalyzeRecipeRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "language"
+     * Test attribute "title"
      */
-    public function testPropertyLanguage()
+    public function testPropertyTitle()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "include_nutrition"
+     * Test attribute "servings"
      */
-    public function testPropertyIncludeNutrition()
+    public function testPropertyServings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "include_taste"
+     * Test attribute "ingredients"
      */
-    public function testPropertyIncludeTaste()
+    public function testPropertyIngredients()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "instructions"
+     */
+    public function testPropertyInstructions()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

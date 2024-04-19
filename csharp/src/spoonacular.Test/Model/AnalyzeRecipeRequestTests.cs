@@ -56,30 +56,39 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Language'
+        /// Test the property 'Title'
         /// </summary>
         [Fact]
-        public void LanguageTest()
+        public void TitleTest()
         {
-            // TODO unit test for the property 'Language'
+            // TODO unit test for the property 'Title'
         }
 
         /// <summary>
-        /// Test the property 'IncludeNutrition'
+        /// Test the property 'Servings'
         /// </summary>
         [Fact]
-        public void IncludeNutritionTest()
+        public void ServingsTest()
         {
-            // TODO unit test for the property 'IncludeNutrition'
+            // TODO unit test for the property 'Servings'
         }
 
         /// <summary>
-        /// Test the property 'IncludeTaste'
+        /// Test the property 'Ingredients'
         /// </summary>
         [Fact]
-        public void IncludeTasteTest()
+        public void IngredientsTest()
         {
-            // TODO unit test for the property 'IncludeTaste'
+            // TODO unit test for the property 'Ingredients'
+        }
+
+        /// <summary>
+        /// Test the property 'Instructions'
+        /// </summary>
+        [Fact]
+        public void InstructionsTest()
+        {
+            // TODO unit test for the property 'Instructions'
         }
     }
 }

@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **add_meal_plan_template**
-> AddMealPlanTemplate200Response add_meal_plan_template(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request)
+> AddMealPlanTemplate200Response add_meal_plan_template(username => $username, hash => $hash)
 
 Add Meal Plan Template
 
@@ -46,10 +46,9 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
 my $username = dsky; # string | The username.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
-my $add_to_meal_plan_request = WWW::OpenAPIClient::Object::AddToMealPlanRequest->new(); # AddToMealPlanRequest | 
 
 eval {
-    my $result = $api_instance->add_meal_plan_template(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request);
+    my $result = $api_instance->add_meal_plan_template(username => $username, hash => $hash);
     print Dumper($result);
 };
 if ($@) {
@@ -63,7 +62,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -75,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -130,13 +128,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_shopping_list**
-> GenerateShoppingList200Response add_to_shopping_list(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request)
+> GenerateShoppingList200Response add_to_shopping_list(username => $username, hash => $hash, add_to_shopping_list_request => $add_to_shopping_list_request)
 
 Add to Shopping List
 
@@ -156,10 +154,10 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 
 my $username = dsky; # string | The username.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $add_to_meal_plan_request = WWW::OpenAPIClient::Object::AddToMealPlanRequest->new(); # AddToMealPlanRequest | 
+my $add_to_shopping_list_request = WWW::OpenAPIClient::Object::AddToShoppingListRequest->new(); # AddToShoppingListRequest | 
 
 eval {
-    my $result = $api_instance->add_to_shopping_list(username => $username, hash => $hash, add_to_meal_plan_request => $add_to_meal_plan_request);
+    my $result = $api_instance->add_to_shopping_list(username => $username, hash => $hash, add_to_shopping_list_request => $add_to_shopping_list_request);
     print Dumper($result);
 };
 if ($@) {
@@ -173,7 +171,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | 
+ **add_to_shopping_list_request** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -185,13 +183,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clear_meal_plan_day**
-> object clear_meal_plan_day(username => $username, date => $date, hash => $hash, clear_meal_plan_day_request => $clear_meal_plan_day_request)
+> object clear_meal_plan_day(username => $username, date => $date, hash => $hash)
 
 Clear Meal Plan Day
 
@@ -212,10 +210,9 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 my $username = dsky; # string | The username.
 my $date = 2020-06-01; # string | The date in the format yyyy-mm-dd.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $clear_meal_plan_day_request = WWW::OpenAPIClient::Object::ClearMealPlanDayRequest->new(); # ClearMealPlanDayRequest | 
 
 eval {
-    my $result = $api_instance->clear_meal_plan_day(username => $username, date => $date, hash => $hash, clear_meal_plan_day_request => $clear_meal_plan_day_request);
+    my $result = $api_instance->clear_meal_plan_day(username => $username, date => $date, hash => $hash);
     print Dumper($result);
 };
 if ($@) {
@@ -230,7 +227,6 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **date** | **string**| The date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **clear_meal_plan_day_request** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  | 
 
 ### Return type
 
@@ -242,13 +238,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **connect_user**
-> ConnectUser200Response connect_user(body => $body)
+> ConnectUser200Response connect_user(connect_user_request => $connect_user_request)
 
 Connect User
 
@@ -266,10 +262,10 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $body = WWW::OpenAPIClient::Object::object->new(); # object | 
+my $connect_user_request = WWW::OpenAPIClient::Object::ConnectUserRequest->new(); # ConnectUserRequest | 
 
 eval {
-    my $result = $api_instance->connect_user(body => $body);
+    my $result = $api_instance->connect_user(connect_user_request => $connect_user_request);
     print Dumper($result);
 };
 if ($@) {
@@ -281,7 +277,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**|  | 
+ **connect_user_request** | [**ConnectUserRequest**](ConnectUserRequest.md)|  | 
 
 ### Return type
 
@@ -293,13 +289,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_meal_plan**
-> object delete_from_meal_plan(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request)
+> object delete_from_meal_plan(username => $username, id => $id, hash => $hash)
 
 Delete from Meal Plan
 
@@ -320,10 +316,9 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 my $username = dsky; # string | The username.
 my $id = 15678; # double | The shopping list item id.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $delete_from_meal_plan_request = WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest->new(); # DeleteFromMealPlanRequest | 
 
 eval {
-    my $result = $api_instance->delete_from_meal_plan(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request);
+    my $result = $api_instance->delete_from_meal_plan(username => $username, id => $id, hash => $hash);
     print Dumper($result);
 };
 if ($@) {
@@ -338,7 +333,6 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **double**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
- **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -350,13 +344,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_from_shopping_list**
-> object delete_from_shopping_list(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request)
+> object delete_from_shopping_list(username => $username, id => $id, hash => $hash)
 
 Delete from Shopping List
 
@@ -377,10 +371,9 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 my $username = dsky; # string | The username.
 my $id = 1; # int | The item's id.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $delete_from_meal_plan_request = WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest->new(); # DeleteFromMealPlanRequest | 
 
 eval {
-    my $result = $api_instance->delete_from_shopping_list(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request);
+    my $result = $api_instance->delete_from_shopping_list(username => $username, id => $id, hash => $hash);
     print Dumper($result);
 };
 if ($@) {
@@ -395,7 +388,6 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -407,13 +399,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_meal_plan_template**
-> object delete_meal_plan_template(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request)
+> object delete_meal_plan_template(username => $username, id => $id, hash => $hash)
 
 Delete Meal Plan Template
 
@@ -434,10 +426,9 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 my $username = dsky; # string | The username.
 my $id = 1; # int | The item's id.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
-my $delete_from_meal_plan_request = WWW::OpenAPIClient::Object::DeleteFromMealPlanRequest->new(); # DeleteFromMealPlanRequest | 
 
 eval {
-    my $result = $api_instance->delete_meal_plan_template(username => $username, id => $id, hash => $hash, delete_from_meal_plan_request => $delete_from_meal_plan_request);
+    my $result = $api_instance->delete_meal_plan_template(username => $username, id => $id, hash => $hash);
     print Dumper($result);
 };
 if ($@) {
@@ -452,7 +443,6 @@ Name | Type | Description  | Notes
  **username** | **string**| The username. | 
  **id** | **int**| The item&#39;s id. | 
  **hash** | **string**| The private hash for the username. | 
- **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  | 
 
 ### Return type
 
@@ -464,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -527,7 +517,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_shopping_list**
-> GenerateShoppingList200Response generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, generate_shopping_list_request => $generate_shopping_list_request)
+> GenerateShoppingList200Response generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash)
 
 Generate Shopping List
 
@@ -549,10 +539,9 @@ my $username = dsky; # string | The username.
 my $start_date = 2020-06-01; # string | The start date in the format yyyy-mm-dd.
 my $end_date = 2020-06-07; # string | The end date in the format yyyy-mm-dd.
 my $hash = "hash_example"; # string | The private hash for the username.
-my $generate_shopping_list_request = WWW::OpenAPIClient::Object::GenerateShoppingListRequest->new(); # GenerateShoppingListRequest | 
 
 eval {
-    my $result = $api_instance->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash, generate_shopping_list_request => $generate_shopping_list_request);
+    my $result = $api_instance->generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash);
     print Dumper($result);
 };
 if ($@) {
@@ -568,7 +557,6 @@ Name | Type | Description  | Notes
  **start_date** | **string**| The start date in the format yyyy-mm-dd. | 
  **end_date** | **string**| The end date in the format yyyy-mm-dd. | 
  **hash** | **string**| The private hash for the username. | 
- **generate_shopping_list_request** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  | 
 
 ### Return type
 
@@ -580,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -157,7 +157,7 @@ pub enum GetShoppingListError {
 
 
 /// Add a meal plan template for a user.
-pub async fn add_meal_plan_template(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_meal_plan_request: crate::models::AddToMealPlanRequest) -> Result<crate::models::AddMealPlanTemplate200Response, Error<AddMealPlanTemplateError>> {
+pub async fn add_meal_plan_template(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<crate::models::AddMealPlanTemplate200Response, Error<AddMealPlanTemplateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -177,7 +177,6 @@ pub async fn add_meal_plan_template(configuration: &configuration::Configuration
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&add_to_meal_plan_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -233,7 +232,7 @@ pub async fn add_to_meal_plan(configuration: &configuration::Configuration, user
 }
 
 /// Add an item to the current shopping list of a user.
-pub async fn add_to_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_meal_plan_request: crate::models::AddToMealPlanRequest) -> Result<crate::models::GenerateShoppingList200Response, Error<AddToShoppingListError>> {
+pub async fn add_to_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_shopping_list_request: crate::models::AddToShoppingListRequest) -> Result<crate::models::GenerateShoppingList200Response, Error<AddToShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -253,7 +252,7 @@ pub async fn add_to_shopping_list(configuration: &configuration::Configuration, 
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&add_to_meal_plan_request);
+    local_var_req_builder = local_var_req_builder.json(&add_to_shopping_list_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -271,7 +270,7 @@ pub async fn add_to_shopping_list(configuration: &configuration::Configuration, 
 }
 
 /// Delete all planned items from the user's meal plan for a specific day.
-pub async fn clear_meal_plan_day(configuration: &configuration::Configuration, username: &str, date: &str, hash: &str, clear_meal_plan_day_request: crate::models::ClearMealPlanDayRequest) -> Result<serde_json::Value, Error<ClearMealPlanDayError>> {
+pub async fn clear_meal_plan_day(configuration: &configuration::Configuration, username: &str, date: &str, hash: &str) -> Result<serde_json::Value, Error<ClearMealPlanDayError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -291,7 +290,6 @@ pub async fn clear_meal_plan_day(configuration: &configuration::Configuration, u
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&clear_meal_plan_day_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -309,7 +307,7 @@ pub async fn clear_meal_plan_day(configuration: &configuration::Configuration, u
 }
 
 /// In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
-pub async fn connect_user(configuration: &configuration::Configuration, body: serde_json::Value) -> Result<crate::models::ConnectUser200Response, Error<ConnectUserError>> {
+pub async fn connect_user(configuration: &configuration::Configuration, connect_user_request: crate::models::ConnectUserRequest) -> Result<crate::models::ConnectUser200Response, Error<ConnectUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -328,7 +326,7 @@ pub async fn connect_user(configuration: &configuration::Configuration, body: se
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&body);
+    local_var_req_builder = local_var_req_builder.json(&connect_user_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -346,7 +344,7 @@ pub async fn connect_user(configuration: &configuration::Configuration, body: se
 }
 
 /// Delete an item from the user's meal plan.
-pub async fn delete_from_meal_plan(configuration: &configuration::Configuration, username: &str, id: f32, hash: &str, delete_from_meal_plan_request: crate::models::DeleteFromMealPlanRequest) -> Result<serde_json::Value, Error<DeleteFromMealPlanError>> {
+pub async fn delete_from_meal_plan(configuration: &configuration::Configuration, username: &str, id: f32, hash: &str) -> Result<serde_json::Value, Error<DeleteFromMealPlanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -366,7 +364,6 @@ pub async fn delete_from_meal_plan(configuration: &configuration::Configuration,
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&delete_from_meal_plan_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -384,7 +381,7 @@ pub async fn delete_from_meal_plan(configuration: &configuration::Configuration,
 }
 
 /// Delete an item from the current shopping list of the user.
-pub async fn delete_from_shopping_list(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str, delete_from_meal_plan_request: crate::models::DeleteFromMealPlanRequest) -> Result<serde_json::Value, Error<DeleteFromShoppingListError>> {
+pub async fn delete_from_shopping_list(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str) -> Result<serde_json::Value, Error<DeleteFromShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -404,7 +401,6 @@ pub async fn delete_from_shopping_list(configuration: &configuration::Configurat
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&delete_from_meal_plan_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -422,7 +418,7 @@ pub async fn delete_from_shopping_list(configuration: &configuration::Configurat
 }
 
 /// Delete a meal plan template for a user.
-pub async fn delete_meal_plan_template(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str, delete_from_meal_plan_request: crate::models::DeleteFromMealPlanRequest) -> Result<serde_json::Value, Error<DeleteMealPlanTemplateError>> {
+pub async fn delete_meal_plan_template(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str) -> Result<serde_json::Value, Error<DeleteMealPlanTemplateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -442,7 +438,6 @@ pub async fn delete_meal_plan_template(configuration: &configuration::Configurat
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&delete_from_meal_plan_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -508,7 +503,7 @@ pub async fn generate_meal_plan(configuration: &configuration::Configuration, ti
 }
 
 /// Generate the shopping list for a user from the meal planner in a given time frame.
-pub async fn generate_shopping_list(configuration: &configuration::Configuration, username: &str, start_date: &str, end_date: &str, hash: &str, generate_shopping_list_request: crate::models::GenerateShoppingListRequest) -> Result<crate::models::GenerateShoppingList200Response, Error<GenerateShoppingListError>> {
+pub async fn generate_shopping_list(configuration: &configuration::Configuration, username: &str, start_date: &str, end_date: &str, hash: &str) -> Result<crate::models::GenerateShoppingList200Response, Error<GenerateShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -528,7 +523,6 @@ pub async fn generate_shopping_list(configuration: &configuration::Configuration
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&generate_shopping_list_request);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -58,9 +58,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'language' => 'string',
-        'include_nutrition' => 'bool',
-        'include_taste' => 'bool'
+        'title' => 'string',
+        'servings' => 'int',
+        'ingredients' => 'string[]',
+        'instructions' => 'string'
     ];
 
     /**
@@ -71,9 +72,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'language' => null,
-        'include_nutrition' => null,
-        'include_taste' => null
+        'title' => null,
+        'servings' => null,
+        'ingredients' => null,
+        'instructions' => null
     ];
 
     /**
@@ -82,9 +84,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'language' => false,
-        'include_nutrition' => false,
-        'include_taste' => false
+        'title' => false,
+        'servings' => false,
+        'ingredients' => false,
+        'instructions' => false
     ];
 
     /**
@@ -173,9 +176,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'language' => 'language',
-        'include_nutrition' => 'includeNutrition',
-        'include_taste' => 'includeTaste'
+        'title' => 'title',
+        'servings' => 'servings',
+        'ingredients' => 'ingredients',
+        'instructions' => 'instructions'
     ];
 
     /**
@@ -184,9 +188,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'language' => 'setLanguage',
-        'include_nutrition' => 'setIncludeNutrition',
-        'include_taste' => 'setIncludeTaste'
+        'title' => 'setTitle',
+        'servings' => 'setServings',
+        'ingredients' => 'setIngredients',
+        'instructions' => 'setInstructions'
     ];
 
     /**
@@ -195,9 +200,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'language' => 'getLanguage',
-        'include_nutrition' => 'getIncludeNutrition',
-        'include_taste' => 'getIncludeTaste'
+        'title' => 'getTitle',
+        'servings' => 'getServings',
+        'ingredients' => 'getIngredients',
+        'instructions' => 'getInstructions'
     ];
 
     /**
@@ -257,9 +263,10 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('language', $data ?? [], null);
-        $this->setIfExists('include_nutrition', $data ?? [], null);
-        $this->setIfExists('include_taste', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('servings', $data ?? [], null);
+        $this->setIfExists('ingredients', $data ?? [], null);
+        $this->setIfExists('instructions', $data ?? [], null);
     }
 
     /**
@@ -305,82 +312,109 @@ class AnalyzeRecipeRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets language
+     * Gets title
      *
      * @return string|null
      */
-    public function getLanguage()
+    public function getTitle()
     {
-        return $this->container['language'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets language
+     * Sets title
      *
-     * @param string|null $language The input language, either \"en\" or \"de\".
+     * @param string|null $title title
      *
      * @return self
      */
-    public function setLanguage($language)
+    public function setTitle($title)
     {
-        if (is_null($language)) {
-            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['language'] = $language;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets include_nutrition
+     * Gets servings
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getIncludeNutrition()
+    public function getServings()
     {
-        return $this->container['include_nutrition'];
+        return $this->container['servings'];
     }
 
     /**
-     * Sets include_nutrition
+     * Sets servings
      *
-     * @param bool|null $include_nutrition Whether nutrition data should be added to correctly parsed ingredients.
+     * @param int|null $servings servings
      *
      * @return self
      */
-    public function setIncludeNutrition($include_nutrition)
+    public function setServings($servings)
     {
-        if (is_null($include_nutrition)) {
-            throw new \InvalidArgumentException('non-nullable include_nutrition cannot be null');
+        if (is_null($servings)) {
+            throw new \InvalidArgumentException('non-nullable servings cannot be null');
         }
-        $this->container['include_nutrition'] = $include_nutrition;
+        $this->container['servings'] = $servings;
 
         return $this;
     }
 
     /**
-     * Gets include_taste
+     * Gets ingredients
      *
-     * @return bool|null
+     * @return string[]|null
      */
-    public function getIncludeTaste()
+    public function getIngredients()
     {
-        return $this->container['include_taste'];
+        return $this->container['ingredients'];
     }
 
     /**
-     * Sets include_taste
+     * Sets ingredients
      *
-     * @param bool|null $include_taste Whether taste data should be added to correctly parsed ingredients.
+     * @param string[]|null $ingredients ingredients
      *
      * @return self
      */
-    public function setIncludeTaste($include_taste)
+    public function setIngredients($ingredients)
     {
-        if (is_null($include_taste)) {
-            throw new \InvalidArgumentException('non-nullable include_taste cannot be null');
+        if (is_null($ingredients)) {
+            throw new \InvalidArgumentException('non-nullable ingredients cannot be null');
         }
-        $this->container['include_taste'] = $include_taste;
+        $this->container['ingredients'] = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Gets instructions
+     *
+     * @return string|null
+     */
+    public function getInstructions()
+    {
+        return $this->container['instructions'];
+    }
+
+    /**
+     * Sets instructions
+     *
+     * @param string|null $instructions instructions
+     *
+     * @return self
+     */
+    public function setInstructions($instructions)
+    {
+        if (is_null($instructions)) {
+            throw new \InvalidArgumentException('non-nullable instructions cannot be null');
+        }
+        $this->container['instructions'] = $instructions;
 
         return $this;
     }

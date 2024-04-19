@@ -104,9 +104,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddMealPlanTemplate200ResponseItemsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddMealPlanTemplate200ResponseItemsInnerValue.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToMealPlanRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToMealPlanRequest1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToMealPlanRequest1Value.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToMealPlanRequest1ValueIngredientsInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToMealPlanRequestValue.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToMealPlanRequestValueIngredientsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AddToShoppingListRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AnalyzeARecipeSearchQuery200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AnalyzeARecipeSearchQuery200ResponseDishesInner.CustomTypeAdapterFactory());
@@ -117,7 +116,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AnalyzeRecipeRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AnalyzeRecipeRequest1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AutocompleteMenuItemSearch200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.AutocompleteProductSearch200Response.CustomTypeAdapterFactory());
@@ -128,7 +126,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ClassifyGroceryProductBulk200ResponseInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ClassifyGroceryProductRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ClearMealPlanDayRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ComputeGlycemicLoad200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ComputeGlycemicLoad200ResponseIngredientsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ComputeGlycemicLoadRequest.CustomTypeAdapterFactory());
@@ -137,13 +134,11 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ConnectUserRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.ConvertAmounts200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.CreateRecipeCard200Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.DeleteFromMealPlanRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.DetectFoodInText200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.DetectFoodInText200ResponseAnnotationsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GenerateMealPlan200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GenerateMealPlan200ResponseNutrients.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GenerateShoppingList200Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GenerateShoppingListRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GetARandomFoodJoke200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner.CustomTypeAdapterFactory());

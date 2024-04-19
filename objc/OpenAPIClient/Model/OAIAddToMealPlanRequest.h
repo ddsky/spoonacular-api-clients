@@ -14,6 +14,9 @@
 */
 
 
+#import "OAIAddToMealPlanRequestValue.h"
+@protocol OAIAddToMealPlanRequestValue;
+@class OAIAddToMealPlanRequestValue;
 
 
 
@@ -22,11 +25,15 @@
 
 @interface OAIAddToMealPlanRequest : OAIObject
 
-/* The username. 
- */
-@property(nonatomic) NSString* username;
-/* The private hash for the username. 
- */
-@property(nonatomic) NSString* hash;
+
+@property(nonatomic) NSNumber* date;
+
+@property(nonatomic) NSNumber* slot;
+
+@property(nonatomic) NSNumber* position;
+
+@property(nonatomic) NSString* type;
+
+@property(nonatomic) OAIAddToMealPlanRequestValue* value;
 
 @end

@@ -22,7 +22,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 ## add_meal_plan_template
 
-> <AddMealPlanTemplate200Response> add_meal_plan_template(username, hash, add_to_meal_plan_request)
+> <AddMealPlanTemplate200Response> add_meal_plan_template(username, hash)
 
 Add Meal Plan Template
 
@@ -44,11 +44,10 @@ end
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 hash = '4b5v4398573406' # String | The private hash for the username.
-add_to_meal_plan_request = OpenapiClient::AddToMealPlanRequest.new({username: 'dsky', hash: '4b5v4398573406'}) # AddToMealPlanRequest | 
 
 begin
   # Add Meal Plan Template
-  result = api_instance.add_meal_plan_template(username, hash, add_to_meal_plan_request)
+  result = api_instance.add_meal_plan_template(username, hash)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->add_meal_plan_template: #{e}"
@@ -59,12 +58,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AddMealPlanTemplate200Response>, Integer, Hash)> add_meal_plan_template_with_http_info(username, hash, add_to_meal_plan_request)
+> <Array(<AddMealPlanTemplate200Response>, Integer, Hash)> add_meal_plan_template_with_http_info(username, hash)
 
 ```ruby
 begin
   # Add Meal Plan Template
-  data, status_code, headers = api_instance.add_meal_plan_template_with_http_info(username, hash, add_to_meal_plan_request)
+  data, status_code, headers = api_instance.add_meal_plan_template_with_http_info(username, hash)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AddMealPlanTemplate200Response>
@@ -79,7 +78,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **username** | **String** | The username. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -91,7 +89,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -119,7 +117,7 @@ end
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 hash = 'hash_example' # String | The private hash for the username.
-add_to_meal_plan_request = OpenapiClient::AddToMealPlanRequest.new({username: 'dsky', hash: '4b5v4398573406'}) # AddToMealPlanRequest | 
+add_to_meal_plan_request = OpenapiClient::AddToMealPlanRequest.new({date: 3.56, slot: 37, position: 37, type: 'type_example', value: OpenapiClient::AddToMealPlanRequestValue.new({ingredients: [OpenapiClient::AddToMealPlanRequestValueIngredientsInner.new({name: 'name_example'})]})}) # AddToMealPlanRequest | 
 
 begin
   # Add to Meal Plan
@@ -166,13 +164,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## add_to_shopping_list
 
-> <GenerateShoppingList200Response> add_to_shopping_list(username, hash, add_to_meal_plan_request)
+> <GenerateShoppingList200Response> add_to_shopping_list(username, hash, add_to_shopping_list_request)
 
 Add to Shopping List
 
@@ -194,11 +192,11 @@ end
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 hash = 'hash_example' # String | The private hash for the username.
-add_to_meal_plan_request = OpenapiClient::AddToMealPlanRequest.new({username: 'dsky', hash: '4b5v4398573406'}) # AddToMealPlanRequest | 
+add_to_shopping_list_request = OpenapiClient::AddToShoppingListRequest.new({item: 'item_example', aisle: 'aisle_example', parse: false}) # AddToShoppingListRequest | 
 
 begin
   # Add to Shopping List
-  result = api_instance.add_to_shopping_list(username, hash, add_to_meal_plan_request)
+  result = api_instance.add_to_shopping_list(username, hash, add_to_shopping_list_request)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->add_to_shopping_list: #{e}"
@@ -209,12 +207,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateShoppingList200Response>, Integer, Hash)> add_to_shopping_list_with_http_info(username, hash, add_to_meal_plan_request)
+> <Array(<GenerateShoppingList200Response>, Integer, Hash)> add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request)
 
 ```ruby
 begin
   # Add to Shopping List
-  data, status_code, headers = api_instance.add_to_shopping_list_with_http_info(username, hash, add_to_meal_plan_request)
+  data, status_code, headers = api_instance.add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <GenerateShoppingList200Response>
@@ -229,7 +227,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **username** | **String** | The username. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **add_to_meal_plan_request** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
+| **add_to_shopping_list_request** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md) |  |  |
 
 ### Return type
 
@@ -241,13 +239,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## clear_meal_plan_day
 
-> Object clear_meal_plan_day(username, date, hash, clear_meal_plan_day_request)
+> Object clear_meal_plan_day(username, date, hash)
 
 Clear Meal Plan Day
 
@@ -270,11 +268,10 @@ api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 date = '2020-06-01' # String | The date in the format yyyy-mm-dd.
 hash = 'hash_example' # String | The private hash for the username.
-clear_meal_plan_day_request = OpenapiClient::ClearMealPlanDayRequest.new({username: 'dsky', date: '2020-06-01', hash: '4b5v4398573406'}) # ClearMealPlanDayRequest | 
 
 begin
   # Clear Meal Plan Day
-  result = api_instance.clear_meal_plan_day(username, date, hash, clear_meal_plan_day_request)
+  result = api_instance.clear_meal_plan_day(username, date, hash)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->clear_meal_plan_day: #{e}"
@@ -285,12 +282,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> clear_meal_plan_day_with_http_info(username, date, hash, clear_meal_plan_day_request)
+> <Array(Object, Integer, Hash)> clear_meal_plan_day_with_http_info(username, date, hash)
 
 ```ruby
 begin
   # Clear Meal Plan Day
-  data, status_code, headers = api_instance.clear_meal_plan_day_with_http_info(username, date, hash, clear_meal_plan_day_request)
+  data, status_code, headers = api_instance.clear_meal_plan_day_with_http_info(username, date, hash)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -306,7 +303,6 @@ end
 | **username** | **String** | The username. |  |
 | **date** | **String** | The date in the format yyyy-mm-dd. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **clear_meal_plan_day_request** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md) |  |  |
 
 ### Return type
 
@@ -318,13 +314,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## connect_user
 
-> <ConnectUser200Response> connect_user(body)
+> <ConnectUser200Response> connect_user(connect_user_request)
 
 Connect User
 
@@ -344,11 +340,11 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MealPlanningApi.new
-body = { ... } # Object | 
+connect_user_request = OpenapiClient::ConnectUserRequest.new({username: 'username_example', first_name: 'first_name_example', last_name: 'last_name_example', email: 'email_example'}) # ConnectUserRequest | 
 
 begin
   # Connect User
-  result = api_instance.connect_user(body)
+  result = api_instance.connect_user(connect_user_request)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->connect_user: #{e}"
@@ -359,12 +355,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ConnectUser200Response>, Integer, Hash)> connect_user_with_http_info(body)
+> <Array(<ConnectUser200Response>, Integer, Hash)> connect_user_with_http_info(connect_user_request)
 
 ```ruby
 begin
   # Connect User
-  data, status_code, headers = api_instance.connect_user_with_http_info(body)
+  data, status_code, headers = api_instance.connect_user_with_http_info(connect_user_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ConnectUser200Response>
@@ -377,7 +373,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | **Object** |  |  |
+| **connect_user_request** | [**ConnectUserRequest**](ConnectUserRequest.md) |  |  |
 
 ### Return type
 
@@ -389,13 +385,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## delete_from_meal_plan
 
-> Object delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request)
+> Object delete_from_meal_plan(username, id, hash)
 
 Delete from Meal Plan
 
@@ -418,11 +414,10 @@ api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 id = 15678 # Float | The shopping list item id.
 hash = 'hash_example' # String | The private hash for the username.
-delete_from_meal_plan_request = OpenapiClient::DeleteFromMealPlanRequest.new({username: 'dsky', id: 15678, hash: '4b5v4398573406'}) # DeleteFromMealPlanRequest | 
 
 begin
   # Delete from Meal Plan
-  result = api_instance.delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request)
+  result = api_instance.delete_from_meal_plan(username, id, hash)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->delete_from_meal_plan: #{e}"
@@ -433,12 +428,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_from_meal_plan_with_http_info(username, id, hash, delete_from_meal_plan_request)
+> <Array(Object, Integer, Hash)> delete_from_meal_plan_with_http_info(username, id, hash)
 
 ```ruby
 begin
   # Delete from Meal Plan
-  data, status_code, headers = api_instance.delete_from_meal_plan_with_http_info(username, id, hash, delete_from_meal_plan_request)
+  data, status_code, headers = api_instance.delete_from_meal_plan_with_http_info(username, id, hash)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -454,7 +449,6 @@ end
 | **username** | **String** | The username. |  |
 | **id** | **Float** | The shopping list item id. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -466,13 +460,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## delete_from_shopping_list
 
-> Object delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request)
+> Object delete_from_shopping_list(username, id, hash)
 
 Delete from Shopping List
 
@@ -495,11 +489,10 @@ api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 id = 1 # Integer | The item's id.
 hash = 'hash_example' # String | The private hash for the username.
-delete_from_meal_plan_request = OpenapiClient::DeleteFromMealPlanRequest.new({username: 'dsky', id: 15678, hash: '4b5v4398573406'}) # DeleteFromMealPlanRequest | 
 
 begin
   # Delete from Shopping List
-  result = api_instance.delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request)
+  result = api_instance.delete_from_shopping_list(username, id, hash)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->delete_from_shopping_list: #{e}"
@@ -510,12 +503,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_from_shopping_list_with_http_info(username, id, hash, delete_from_meal_plan_request)
+> <Array(Object, Integer, Hash)> delete_from_shopping_list_with_http_info(username, id, hash)
 
 ```ruby
 begin
   # Delete from Shopping List
-  data, status_code, headers = api_instance.delete_from_shopping_list_with_http_info(username, id, hash, delete_from_meal_plan_request)
+  data, status_code, headers = api_instance.delete_from_shopping_list_with_http_info(username, id, hash)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -531,7 +524,6 @@ end
 | **username** | **String** | The username. |  |
 | **id** | **Integer** | The item&#39;s id. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -543,13 +535,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## delete_meal_plan_template
 
-> Object delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request)
+> Object delete_meal_plan_template(username, id, hash)
 
 Delete Meal Plan Template
 
@@ -572,11 +564,10 @@ api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
 id = 1 # Integer | The item's id.
 hash = '4b5v4398573406' # String | The private hash for the username.
-delete_from_meal_plan_request = OpenapiClient::DeleteFromMealPlanRequest.new({username: 'dsky', id: 15678, hash: '4b5v4398573406'}) # DeleteFromMealPlanRequest | 
 
 begin
   # Delete Meal Plan Template
-  result = api_instance.delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request)
+  result = api_instance.delete_meal_plan_template(username, id, hash)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->delete_meal_plan_template: #{e}"
@@ -587,12 +578,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_meal_plan_template_with_http_info(username, id, hash, delete_from_meal_plan_request)
+> <Array(Object, Integer, Hash)> delete_meal_plan_template_with_http_info(username, id, hash)
 
 ```ruby
 begin
   # Delete Meal Plan Template
-  data, status_code, headers = api_instance.delete_meal_plan_template_with_http_info(username, id, hash, delete_from_meal_plan_request)
+  data, status_code, headers = api_instance.delete_meal_plan_template_with_http_info(username, id, hash)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -608,7 +599,6 @@ end
 | **username** | **String** | The username. |  |
 | **id** | **Integer** | The item&#39;s id. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **delete_from_meal_plan_request** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -620,7 +610,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -705,7 +695,7 @@ end
 
 ## generate_shopping_list
 
-> <GenerateShoppingList200Response> generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request)
+> <GenerateShoppingList200Response> generate_shopping_list(username, start_date, end_date, hash)
 
 Generate Shopping List
 
@@ -729,11 +719,10 @@ username = 'dsky' # String | The username.
 start_date = '2020-06-01' # String | The start date in the format yyyy-mm-dd.
 end_date = '2020-06-07' # String | The end date in the format yyyy-mm-dd.
 hash = 'hash_example' # String | The private hash for the username.
-generate_shopping_list_request = OpenapiClient::GenerateShoppingListRequest.new({username: 'dsky', start_date: '2020-06-01', end_date: '2020-06-07', hash: '4b5v4398573406'}) # GenerateShoppingListRequest | 
 
 begin
   # Generate Shopping List
-  result = api_instance.generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request)
+  result = api_instance.generate_shopping_list(username, start_date, end_date, hash)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->generate_shopping_list: #{e}"
@@ -744,12 +733,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateShoppingList200Response>, Integer, Hash)> generate_shopping_list_with_http_info(username, start_date, end_date, hash, generate_shopping_list_request)
+> <Array(<GenerateShoppingList200Response>, Integer, Hash)> generate_shopping_list_with_http_info(username, start_date, end_date, hash)
 
 ```ruby
 begin
   # Generate Shopping List
-  data, status_code, headers = api_instance.generate_shopping_list_with_http_info(username, start_date, end_date, hash, generate_shopping_list_request)
+  data, status_code, headers = api_instance.generate_shopping_list_with_http_info(username, start_date, end_date, hash)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <GenerateShoppingList200Response>
@@ -766,7 +755,6 @@ end
 | **start_date** | **String** | The start date in the format yyyy-mm-dd. |  |
 | **end_date** | **String** | The end date in the format yyyy-mm-dd. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **generate_shopping_list_request** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md) |  |  |
 
 ### Return type
 
@@ -778,7 +766,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

@@ -1,15 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "OAIAddMealPlanTemplate200Response.h"
 #import "OAIAddToMealPlanRequest.h"
-#import "OAIAddToMealPlanRequest1.h"
 #import "OAIAddToShoppingListRequest.h"
-#import "OAIClearMealPlanDayRequest.h"
 #import "OAIConnectUser200Response.h"
 #import "OAIConnectUserRequest.h"
-#import "OAIDeleteFromMealPlanRequest.h"
 #import "OAIGenerateMealPlan200Response.h"
 #import "OAIGenerateShoppingList200Response.h"
-#import "OAIGenerateShoppingListRequest.h"
 #import "OAIGetMealPlanTemplate200Response.h"
 #import "OAIGetMealPlanTemplates200Response.h"
 #import "OAIGetMealPlanWeek200Response.h"
@@ -42,7 +38,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///
 /// @param username The username.
 /// @param hash The private hash for the username.
-/// @param addToMealPlanRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -52,7 +47,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @return OAIAddMealPlanTemplate200Response*
 -(NSURLSessionTask*) addMealPlanTemplateWithUsername: (NSString*) username
     hash: (NSString*) hash
-    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
     completionHandler: (void (^)(OAIAddMealPlanTemplate200Response* output, NSError* error)) handler;
 
 
@@ -80,7 +74,7 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///
 /// @param username The username.
 /// @param hash The private hash for the username.
-/// @param addToMealPlanRequest 
+/// @param addToShoppingListRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -90,7 +84,7 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @return OAIGenerateShoppingList200Response*
 -(NSURLSessionTask*) addToShoppingListWithUsername: (NSString*) username
     hash: (NSString*) hash
-    addToMealPlanRequest: (OAIAddToMealPlanRequest*) addToMealPlanRequest
+    addToShoppingListRequest: (OAIAddToShoppingListRequest*) addToShoppingListRequest
     completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler;
 
 
@@ -100,7 +94,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param username The username.
 /// @param date The date in the format yyyy-mm-dd.
 /// @param hash The private hash for the username.
-/// @param clearMealPlanDayRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -111,14 +104,13 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 -(NSURLSessionTask*) clearMealPlanDayWithUsername: (NSString*) username
     date: (NSString*) date
     hash: (NSString*) hash
-    clearMealPlanDayRequest: (OAIClearMealPlanDayRequest*) clearMealPlanDayRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
 /// Connect User
 /// In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
 ///
-/// @param body 
+/// @param connectUserRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -126,7 +118,7 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return OAIConnectUser200Response*
--(NSURLSessionTask*) connectUserWithBody: (NSObject*) body
+-(NSURLSessionTask*) connectUserWithConnectUserRequest: (OAIConnectUserRequest*) connectUserRequest
     completionHandler: (void (^)(OAIConnectUser200Response* output, NSError* error)) handler;
 
 
@@ -136,7 +128,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param username The username.
 /// @param _id The shopping list item id.
 /// @param hash The private hash for the username.
-/// @param deleteFromMealPlanRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -147,7 +138,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 -(NSURLSessionTask*) deleteFromMealPlanWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -157,7 +147,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param username The username.
 /// @param _id The item&#39;s id.
 /// @param hash The private hash for the username.
-/// @param deleteFromMealPlanRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -168,7 +157,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 -(NSURLSessionTask*) deleteFromShoppingListWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -178,7 +166,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param username The username.
 /// @param _id The item&#39;s id.
 /// @param hash The private hash for the username.
-/// @param deleteFromMealPlanRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -189,7 +176,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 -(NSURLSessionTask*) deleteMealPlanTemplateWithUsername: (NSString*) username
     _id: (NSNumber*) _id
     hash: (NSString*) hash
-    deleteFromMealPlanRequest: (OAIDeleteFromMealPlanRequest*) deleteFromMealPlanRequest
     completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
@@ -221,7 +207,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
 /// @param startDate The start date in the format yyyy-mm-dd.
 /// @param endDate The end date in the format yyyy-mm-dd.
 /// @param hash The private hash for the username.
-/// @param generateShoppingListRequest 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -233,7 +218,6 @@ extern NSInteger kOAIMealPlanningApiMissingParamErrorCode;
     startDate: (NSString*) startDate
     endDate: (NSString*) endDate
     hash: (NSString*) hash
-    generateShoppingListRequest: (OAIGenerateShoppingListRequest*) generateShoppingListRequest
     completionHandler: (void (^)(OAIGenerateShoppingList200Response* output, NSError* error)) handler;
 
 

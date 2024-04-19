@@ -64,7 +64,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        AnalyzeRecipeRequest analyzeRecipeRequest = new AnalyzeRecipeRequest(); // AnalyzeRecipeRequest | Example request body.
+        AnalyzeRecipeRequest analyzeRecipeRequest = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "}; // AnalyzeRecipeRequest | Example request body.
         String language = en; // String | The input language, either \"en\" or \"de\".
         Boolean includeNutrition = false; // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
         Boolean includeTaste = false; // Boolean | Whether taste data should be added to correctly parsed ingredients.
@@ -194,9 +194,8 @@ Class | Method | HTTP request | Description
  - [AddMealPlanTemplate200ResponseItemsInner](docs/AddMealPlanTemplate200ResponseItemsInner.md)
  - [AddMealPlanTemplate200ResponseItemsInnerValue](docs/AddMealPlanTemplate200ResponseItemsInnerValue.md)
  - [AddToMealPlanRequest](docs/AddToMealPlanRequest.md)
- - [AddToMealPlanRequest1](docs/AddToMealPlanRequest1.md)
- - [AddToMealPlanRequest1Value](docs/AddToMealPlanRequest1Value.md)
- - [AddToMealPlanRequest1ValueIngredientsInner](docs/AddToMealPlanRequest1ValueIngredientsInner.md)
+ - [AddToMealPlanRequestValue](docs/AddToMealPlanRequestValue.md)
+ - [AddToMealPlanRequestValueIngredientsInner](docs/AddToMealPlanRequestValueIngredientsInner.md)
  - [AddToShoppingListRequest](docs/AddToShoppingListRequest.md)
  - [AnalyzeARecipeSearchQuery200Response](docs/AnalyzeARecipeSearchQuery200Response.md)
  - [AnalyzeARecipeSearchQuery200ResponseDishesInner](docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md)
@@ -207,7 +206,6 @@ Class | Method | HTTP request | Description
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
  - [AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
- - [AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -218,7 +216,6 @@ Class | Method | HTTP request | Description
  - [ClassifyGroceryProductBulk200ResponseInner](docs/ClassifyGroceryProductBulk200ResponseInner.md)
  - [ClassifyGroceryProductBulkRequestInner](docs/ClassifyGroceryProductBulkRequestInner.md)
  - [ClassifyGroceryProductRequest](docs/ClassifyGroceryProductRequest.md)
- - [ClearMealPlanDayRequest](docs/ClearMealPlanDayRequest.md)
  - [ComputeGlycemicLoad200Response](docs/ComputeGlycemicLoad200Response.md)
  - [ComputeGlycemicLoad200ResponseIngredientsInner](docs/ComputeGlycemicLoad200ResponseIngredientsInner.md)
  - [ComputeGlycemicLoadRequest](docs/ComputeGlycemicLoadRequest.md)
@@ -227,13 +224,11 @@ Class | Method | HTTP request | Description
  - [ConnectUserRequest](docs/ConnectUserRequest.md)
  - [ConvertAmounts200Response](docs/ConvertAmounts200Response.md)
  - [CreateRecipeCard200Response](docs/CreateRecipeCard200Response.md)
- - [DeleteFromMealPlanRequest](docs/DeleteFromMealPlanRequest.md)
  - [DetectFoodInText200Response](docs/DetectFoodInText200Response.md)
  - [DetectFoodInText200ResponseAnnotationsInner](docs/DetectFoodInText200ResponseAnnotationsInner.md)
  - [GenerateMealPlan200Response](docs/GenerateMealPlan200Response.md)
  - [GenerateMealPlan200ResponseNutrients](docs/GenerateMealPlan200ResponseNutrients.md)
  - [GenerateShoppingList200Response](docs/GenerateShoppingList200Response.md)
- - [GenerateShoppingListRequest](docs/GenerateShoppingListRequest.md)
  - [GetARandomFoodJoke200Response](docs/GetARandomFoodJoke200Response.md)
  - [GetAnalyzedRecipeInstructions200Response](docs/GetAnalyzedRecipeInstructions200Response.md)
  - [GetAnalyzedRecipeInstructions200ResponseIngredientsInner](docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md)

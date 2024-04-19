@@ -8,17 +8,26 @@ defmodule SpoonacularAPI.Model.AddToMealPlanRequest do
 
   @derive Jason.Encoder
   defstruct [
-    :username,
-    :hash
+    :date,
+    :slot,
+    :position,
+    :type,
+    :value
   ]
 
   @type t :: %__MODULE__{
-    :username => String.t,
-    :hash => String.t
+    :date => float(),
+    :slot => integer(),
+    :position => integer(),
+    :type => String.t,
+    :value => SpoonacularAPI.Model.AddToMealPlanRequestValue.t
   }
+
+  alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
+     |> Deserializer.deserialize(:value, :struct, SpoonacularAPI.Model.AddToMealPlanRequestValue)
   end
 end
 

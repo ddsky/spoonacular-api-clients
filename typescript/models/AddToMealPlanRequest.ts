@@ -10,31 +10,50 @@
  * Do not edit the class manually.
  */
 
+import { AddToMealPlanRequestValue } from '../models/AddToMealPlanRequestValue';
 import { HttpFile } from '../http/http';
 
+/**
+* 
+*/
 export class AddToMealPlanRequest {
-    /**
-    * The username.
-    */
-    'username': string;
-    /**
-    * The private hash for the username.
-    */
-    'hash': string;
+    'date': number;
+    'slot': number;
+    'position': number;
+    'type': string;
+    'value': AddToMealPlanRequestValue;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "username",
-            "baseName": "username",
+            "name": "date",
+            "baseName": "date",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "slot",
+            "baseName": "slot",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "position",
+            "baseName": "position",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
             "type": "string",
             "format": ""
         },
         {
-            "name": "hash",
-            "baseName": "hash",
-            "type": "string",
+            "name": "value",
+            "baseName": "value",
+            "type": "AddToMealPlanRequestValue",
             "format": ""
         }    ];
 

@@ -56,21 +56,48 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Username'
+        /// Test the property 'Date'
         /// </summary>
         [Fact]
-        public void UsernameTest()
+        public void DateTest()
         {
-            // TODO unit test for the property 'Username'
+            // TODO unit test for the property 'Date'
         }
 
         /// <summary>
-        /// Test the property 'Hash'
+        /// Test the property 'Slot'
         /// </summary>
         [Fact]
-        public void HashTest()
+        public void SlotTest()
         {
-            // TODO unit test for the property 'Hash'
+            // TODO unit test for the property 'Slot'
+        }
+
+        /// <summary>
+        /// Test the property 'Position'
+        /// </summary>
+        [Fact]
+        public void PositionTest()
+        {
+            // TODO unit test for the property 'Position'
+        }
+
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+
+        /// <summary>
+        /// Test the property 'Value'
+        /// </summary>
+        [Fact]
+        public void ValueTest()
+        {
+            // TODO unit test for the property 'Value'
         }
     }
 }

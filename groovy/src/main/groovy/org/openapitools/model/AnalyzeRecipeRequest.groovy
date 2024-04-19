@@ -3,13 +3,17 @@ package org.openapitools.model;
 import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @Canonical
 class AnalyzeRecipeRequest {
-    /* The input language, either \"en\" or \"de\". */
-    String language
-    /* Whether nutrition data should be added to correctly parsed ingredients. */
-    Boolean includeNutrition
-    /* Whether taste data should be added to correctly parsed ingredients. */
-    Boolean includeTaste
+    
+    String title
+    
+    Integer servings
+    
+    List<String> ingredients
+    
+    String instructions
 }

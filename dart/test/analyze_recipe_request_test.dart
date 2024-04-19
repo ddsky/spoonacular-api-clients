@@ -16,21 +16,23 @@ void main() {
   // final instance = AnalyzeRecipeRequest();
 
   group('test AnalyzeRecipeRequest', () {
-    // The input language, either \"en\" or \"de\".
-    // String language
-    test('to test the property `language`', () async {
+    // String title
+    test('to test the property `title`', () async {
       // TODO
     });
 
-    // Whether nutrition data should be added to correctly parsed ingredients.
-    // bool includeNutrition
-    test('to test the property `includeNutrition`', () async {
+    // int servings
+    test('to test the property `servings`', () async {
       // TODO
     });
 
-    // Whether taste data should be added to correctly parsed ingredients.
-    // bool includeTaste
-    test('to test the property `includeTaste`', () async {
+    // List<String> ingredients (default value: const [])
+    test('to test the property `ingredients`', () async {
+      // TODO
+    });
+
+    // String instructions
+    test('to test the property `instructions`', () async {
       // TODO
     });
 

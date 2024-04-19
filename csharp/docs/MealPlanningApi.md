@@ -21,7 +21,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="addmealplantemplate"></a>
 # **AddMealPlanTemplate**
-> AddMealPlanTemplate200Response AddMealPlanTemplate (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
+> AddMealPlanTemplate200Response AddMealPlanTemplate (string username, string hash)
 
 Add Meal Plan Template
 
@@ -51,12 +51,11 @@ namespace Example
             var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
-            var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 
             try
             {
                 // Add Meal Plan Template
-                AddMealPlanTemplate200Response result = apiInstance.AddMealPlanTemplate(username, hash, addToMealPlanRequest);
+                AddMealPlanTemplate200Response result = apiInstance.AddMealPlanTemplate(username, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -77,7 +76,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add Meal Plan Template
-    ApiResponse<AddMealPlanTemplate200Response> response = apiInstance.AddMealPlanTemplateWithHttpInfo(username, hash, addToMealPlanRequest);
+    ApiResponse<AddMealPlanTemplate200Response> response = apiInstance.AddMealPlanTemplateWithHttpInfo(username, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -96,7 +95,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **username** | **string** | The username. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -108,7 +106,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -211,7 +209,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -227,7 +225,7 @@ catch (ApiException e)
 
 <a id="addtoshoppinglist"></a>
 # **AddToShoppingList**
-> GenerateShoppingList200Response AddToShoppingList (string username, string hash, AddToMealPlanRequest addToMealPlanRequest)
+> GenerateShoppingList200Response AddToShoppingList (string username, string hash, AddToShoppingListRequest addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -257,12 +255,12 @@ namespace Example
             var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
             var hash = "hash_example";  // string | The private hash for the username.
-            var addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
+            var addToShoppingListRequest = new AddToShoppingListRequest(); // AddToShoppingListRequest | 
 
             try
             {
                 // Add to Shopping List
-                GenerateShoppingList200Response result = apiInstance.AddToShoppingList(username, hash, addToMealPlanRequest);
+                GenerateShoppingList200Response result = apiInstance.AddToShoppingList(username, hash, addToShoppingListRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -283,7 +281,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add to Shopping List
-    ApiResponse<GenerateShoppingList200Response> response = apiInstance.AddToShoppingListWithHttpInfo(username, hash, addToMealPlanRequest);
+    ApiResponse<GenerateShoppingList200Response> response = apiInstance.AddToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -302,7 +300,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **username** | **string** | The username. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md) |  |  |
+| **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md) |  |  |
 
 ### Return type
 
@@ -314,7 +312,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -330,7 +328,7 @@ catch (ApiException e)
 
 <a id="clearmealplanday"></a>
 # **ClearMealPlanDay**
-> Object ClearMealPlanDay (string username, string date, string hash, ClearMealPlanDayRequest clearMealPlanDayRequest)
+> Object ClearMealPlanDay (string username, string date, string hash)
 
 Clear Meal Plan Day
 
@@ -361,12 +359,11 @@ namespace Example
             var username = dsky;  // string | The username.
             var date = 2020-06-01;  // string | The date in the format yyyy-mm-dd.
             var hash = "hash_example";  // string | The private hash for the username.
-            var clearMealPlanDayRequest = new ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
 
             try
             {
                 // Clear Meal Plan Day
-                Object result = apiInstance.ClearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
+                Object result = apiInstance.ClearMealPlanDay(username, date, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -387,7 +384,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Clear Meal Plan Day
-    ApiResponse<Object> response = apiInstance.ClearMealPlanDayWithHttpInfo(username, date, hash, clearMealPlanDayRequest);
+    ApiResponse<Object> response = apiInstance.ClearMealPlanDayWithHttpInfo(username, date, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -407,7 +404,6 @@ catch (ApiException e)
 | **username** | **string** | The username. |  |
 | **date** | **string** | The date in the format yyyy-mm-dd. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md) |  |  |
 
 ### Return type
 
@@ -419,7 +415,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -435,7 +431,7 @@ catch (ApiException e)
 
 <a id="connectuser"></a>
 # **ConnectUser**
-> ConnectUser200Response ConnectUser (Object body)
+> ConnectUser200Response ConnectUser (ConnectUserRequest connectUserRequest)
 
 Connect User
 
@@ -463,12 +459,12 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MealPlanningApi(config);
-            var body = null;  // Object | 
+            var connectUserRequest = new ConnectUserRequest(); // ConnectUserRequest | 
 
             try
             {
                 // Connect User
-                ConnectUser200Response result = apiInstance.ConnectUser(body);
+                ConnectUser200Response result = apiInstance.ConnectUser(connectUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -489,7 +485,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Connect User
-    ApiResponse<ConnectUser200Response> response = apiInstance.ConnectUserWithHttpInfo(body);
+    ApiResponse<ConnectUser200Response> response = apiInstance.ConnectUserWithHttpInfo(connectUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -506,7 +502,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **Object** |  |  |
+| **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md) |  |  |
 
 ### Return type
 
@@ -518,7 +514,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -534,7 +530,7 @@ catch (ApiException e)
 
 <a id="deletefrommealplan"></a>
 # **DeleteFromMealPlan**
-> Object DeleteFromMealPlan (string username, decimal id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
+> Object DeleteFromMealPlan (string username, decimal id, string hash)
 
 Delete from Meal Plan
 
@@ -565,12 +561,11 @@ namespace Example
             var username = dsky;  // string | The username.
             var id = 15678;  // decimal | The shopping list item id.
             var hash = "hash_example";  // string | The private hash for the username.
-            var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
             try
             {
                 // Delete from Meal Plan
-                Object result = apiInstance.DeleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
+                Object result = apiInstance.DeleteFromMealPlan(username, id, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -591,7 +586,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete from Meal Plan
-    ApiResponse<Object> response = apiInstance.DeleteFromMealPlanWithHttpInfo(username, id, hash, deleteFromMealPlanRequest);
+    ApiResponse<Object> response = apiInstance.DeleteFromMealPlanWithHttpInfo(username, id, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -611,7 +606,6 @@ catch (ApiException e)
 | **username** | **string** | The username. |  |
 | **id** | **decimal** | The shopping list item id. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -623,7 +617,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -639,7 +633,7 @@ catch (ApiException e)
 
 <a id="deletefromshoppinglist"></a>
 # **DeleteFromShoppingList**
-> Object DeleteFromShoppingList (string username, int id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
+> Object DeleteFromShoppingList (string username, int id, string hash)
 
 Delete from Shopping List
 
@@ -670,12 +664,11 @@ namespace Example
             var username = dsky;  // string | The username.
             var id = 1;  // int | The item's id.
             var hash = "hash_example";  // string | The private hash for the username.
-            var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
             try
             {
                 // Delete from Shopping List
-                Object result = apiInstance.DeleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
+                Object result = apiInstance.DeleteFromShoppingList(username, id, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -696,7 +689,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete from Shopping List
-    ApiResponse<Object> response = apiInstance.DeleteFromShoppingListWithHttpInfo(username, id, hash, deleteFromMealPlanRequest);
+    ApiResponse<Object> response = apiInstance.DeleteFromShoppingListWithHttpInfo(username, id, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -716,7 +709,6 @@ catch (ApiException e)
 | **username** | **string** | The username. |  |
 | **id** | **int** | The item&#39;s id. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -728,7 +720,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -744,7 +736,7 @@ catch (ApiException e)
 
 <a id="deletemealplantemplate"></a>
 # **DeleteMealPlanTemplate**
-> Object DeleteMealPlanTemplate (string username, int id, string hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest)
+> Object DeleteMealPlanTemplate (string username, int id, string hash)
 
 Delete Meal Plan Template
 
@@ -775,12 +767,11 @@ namespace Example
             var username = dsky;  // string | The username.
             var id = 1;  // int | The item's id.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
-            var deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 
             try
             {
                 // Delete Meal Plan Template
-                Object result = apiInstance.DeleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
+                Object result = apiInstance.DeleteMealPlanTemplate(username, id, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -801,7 +792,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete Meal Plan Template
-    ApiResponse<Object> response = apiInstance.DeleteMealPlanTemplateWithHttpInfo(username, id, hash, deleteFromMealPlanRequest);
+    ApiResponse<Object> response = apiInstance.DeleteMealPlanTemplateWithHttpInfo(username, id, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -821,7 +812,6 @@ catch (ApiException e)
 | **username** | **string** | The username. |  |
 | **id** | **int** | The item&#39;s id. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md) |  |  |
 
 ### Return type
 
@@ -833,7 +823,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -954,7 +944,7 @@ catch (ApiException e)
 
 <a id="generateshoppinglist"></a>
 # **GenerateShoppingList**
-> GenerateShoppingList200Response GenerateShoppingList (string username, string startDate, string endDate, string hash, GenerateShoppingListRequest generateShoppingListRequest)
+> GenerateShoppingList200Response GenerateShoppingList (string username, string startDate, string endDate, string hash)
 
 Generate Shopping List
 
@@ -986,12 +976,11 @@ namespace Example
             var startDate = 2020-06-01;  // string | The start date in the format yyyy-mm-dd.
             var endDate = 2020-06-07;  // string | The end date in the format yyyy-mm-dd.
             var hash = "hash_example";  // string | The private hash for the username.
-            var generateShoppingListRequest = new GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
 
             try
             {
                 // Generate Shopping List
-                GenerateShoppingList200Response result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
+                GenerateShoppingList200Response result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1012,7 +1001,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Generate Shopping List
-    ApiResponse<GenerateShoppingList200Response> response = apiInstance.GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash, generateShoppingListRequest);
+    ApiResponse<GenerateShoppingList200Response> response = apiInstance.GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1033,7 +1022,6 @@ catch (ApiException e)
 | **startDate** | **string** | The start date in the format yyyy-mm-dd. |  |
 | **endDate** | **string** | The end date in the format yyyy-mm-dd. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md) |  |  |
 
 ### Return type
 
@@ -1045,7 +1033,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: 
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

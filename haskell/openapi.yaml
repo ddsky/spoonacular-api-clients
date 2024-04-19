@@ -6010,9 +6010,6 @@ paths:
         style: form
       requestBody:
         content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/analyzeRecipe_request'
           application/json:
             examples:
               Example 1:
@@ -6029,7 +6026,7 @@ paths:
                     with salt. Add the pasta to the water once boiling and cook until
                     al dente. Reserve 2 cups of cooking water and drain the pasta. '
             schema:
-              $ref: '#/components/schemas/analyzeRecipe_request_1'
+              $ref: '#/components/schemas/analyzeRecipe_request'
         description: Example request body.
         required: true
       responses:
@@ -10252,12 +10249,6 @@ paths:
         schema:
           type: string
         style: form
-      requestBody:
-        content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/clearMealPlanDay_request'
-        required: true
       responses:
         "200":
           content:
@@ -10302,9 +10293,6 @@ paths:
         style: form
       requestBody:
         content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/addToMealPlan_request'
           application/json:
             examples:
               example-1:
@@ -10317,7 +10305,7 @@ paths:
                     ingredients:
                     - name: 1 banana
             schema:
-              $ref: '#/components/schemas/addToMealPlan_request_1'
+              $ref: '#/components/schemas/addToMealPlan_request'
         required: true
       responses:
         "200":
@@ -10381,12 +10369,6 @@ paths:
         schema:
           type: string
         style: form
-      requestBody:
-        content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/deleteFromMealPlan_request'
-        required: true
       responses:
         "200":
           content:
@@ -10485,12 +10467,6 @@ paths:
           example: 4b5v4398573406
           type: string
         style: form
-      requestBody:
-        content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/addToMealPlan_request'
-        required: true
       responses:
         "200":
           content:
@@ -10596,12 +10572,6 @@ paths:
           example: 4b5v4398573406
           type: string
         style: form
-      requestBody:
-        content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/deleteFromMealPlan_request'
-        required: true
       responses:
         "200":
           content:
@@ -11692,12 +11662,6 @@ paths:
         schema:
           type: string
         style: form
-      requestBody:
-        content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/generateShoppingList_request'
-        required: true
       responses:
         "200":
           content:
@@ -11751,9 +11715,6 @@ paths:
       parameters: []
       requestBody:
         content:
-          ? ""
-          : schema:
-              type: object
           application/json:
             examples:
               example-1:
@@ -11814,9 +11775,6 @@ paths:
         style: form
       requestBody:
         content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/addToMealPlan_request'
           application/json:
             examples:
               example-1:
@@ -11903,12 +11861,6 @@ paths:
         schema:
           type: string
         style: form
-      requestBody:
-        content:
-          ? ""
-          : schema:
-              $ref: '#/components/schemas/deleteFromMealPlan_request'
-        required: true
       responses:
         "200":
           content:
@@ -16541,22 +16493,6 @@ components:
             name: frying pan
     analyzeRecipe_request:
       properties:
-        language:
-          description: "The input language, either \"en\" or \"de\"."
-          example: en
-          type: string
-        includeNutrition:
-          description: Whether nutrition data should be added to correctly parsed
-            ingredients.
-          example: false
-          type: boolean
-        includeTaste:
-          description: Whether taste data should be added to correctly parsed ingredients.
-          example: false
-          type: boolean
-      type: object
-    analyzeRecipe_request_1:
-      properties:
         title:
           type: string
         servings:
@@ -20000,40 +19936,7 @@ components:
                 title: "BBQ Steak Pizza, 9"
                 image: https://images.spoonacular.com/file/wximages/378557-312x231.png
                 imageType: png
-    clearMealPlanDay_request:
-      properties:
-        username:
-          description: The username.
-          example: dsky
-          type: string
-        date:
-          description: The date in the format yyyy-mm-dd.
-          example: 2020-06-01
-          type: string
-        hash:
-          description: The private hash for the username.
-          example: 4b5v4398573406
-          type: string
-      required:
-      - date
-      - hash
-      - username
-      type: object
-    addToMealPlan_request:
-      properties:
-        username:
-          description: The username.
-          example: dsky
-          type: string
-        hash:
-          description: The private hash for the username.
-          example: 4b5v4398573406
-          type: string
-      required:
-      - hash
-      - username
-      type: object
-    addToMealPlan_request_1_value_ingredients_inner:
+    addToMealPlan_request_value_ingredients_inner:
       properties:
         name:
           minLength: 1
@@ -20041,18 +19944,18 @@ components:
       required:
       - name
       type: object
-    addToMealPlan_request_1_value:
+    addToMealPlan_request_value:
       properties:
         ingredients:
           items:
-            $ref: '#/components/schemas/addToMealPlan_request_1_value_ingredients_inner'
+            $ref: '#/components/schemas/addToMealPlan_request_value_ingredients_inner'
           minItems: 0
           type: array
           uniqueItems: true
       required:
       - ingredients
       type: object
-    addToMealPlan_request_1:
+    addToMealPlan_request:
       description: ""
       properties:
         date:
@@ -20065,7 +19968,7 @@ components:
           minLength: 1
           type: string
         value:
-          $ref: '#/components/schemas/addToMealPlan_request_1_value'
+          $ref: '#/components/schemas/addToMealPlan_request_value'
       required:
       - date
       - position
@@ -20082,25 +19985,6 @@ components:
           value:
             ingredients:
             - name: 1 banana
-    deleteFromMealPlan_request:
-      properties:
-        username:
-          description: The username.
-          example: dsky
-          type: string
-        id:
-          description: The shopping list item id.
-          example: 15678
-          type: number
-        hash:
-          description: The private hash for the username.
-          example: 4b5v4398573406
-          type: string
-      required:
-      - hash
-      - id
-      - username
-      type: object
     getMealPlanTemplates_200_response:
       description: ""
       example:
@@ -21650,30 +21534,6 @@ components:
           cost: 1.43
           startDate: 1588291200
           endDate: 1588896000
-    generateShoppingList_request:
-      properties:
-        username:
-          description: The username.
-          example: dsky
-          type: string
-        start-date:
-          description: The start date in the format yyyy-mm-dd.
-          example: 2020-06-01
-          type: string
-        end-date:
-          description: The end date in the format yyyy-mm-dd.
-          example: 2020-06-07
-          type: string
-        hash:
-          description: The private hash for the username.
-          example: 4b5v4398573406
-          type: string
-      required:
-      - end-date
-      - hash
-      - start-date
-      - username
-      type: object
     generateShoppingList_200_response:
       description: ""
       example:

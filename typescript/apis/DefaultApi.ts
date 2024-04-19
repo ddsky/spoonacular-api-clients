@@ -9,7 +9,6 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
-import { AnalyzeRecipeRequest1 } from '../models/AnalyzeRecipeRequest1';
 import { SearchRestaurants200Response } from '../models/SearchRestaurants200Response';
 
 /**
@@ -62,8 +61,6 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
-            "",
-        
             "application/json"
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);

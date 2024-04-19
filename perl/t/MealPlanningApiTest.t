@@ -35,8 +35,7 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 # uncomment below and update the test
 #my $add_meal_plan_template_username = undef; # replace NULL with a proper value
 #my $add_meal_plan_template_hash = undef; # replace NULL with a proper value
-#my $add_meal_plan_template_add_to_meal_plan_request = undef; # replace NULL with a proper value
-#my $add_meal_plan_template_result = $api->add_meal_plan_template(username => $add_meal_plan_template_username, hash => $add_meal_plan_template_hash, add_to_meal_plan_request => $add_meal_plan_template_add_to_meal_plan_request);
+#my $add_meal_plan_template_result = $api->add_meal_plan_template(username => $add_meal_plan_template_username, hash => $add_meal_plan_template_hash);
 
 #
 # add_to_meal_plan test
@@ -53,8 +52,8 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 # uncomment below and update the test
 #my $add_to_shopping_list_username = undef; # replace NULL with a proper value
 #my $add_to_shopping_list_hash = undef; # replace NULL with a proper value
-#my $add_to_shopping_list_add_to_meal_plan_request = undef; # replace NULL with a proper value
-#my $add_to_shopping_list_result = $api->add_to_shopping_list(username => $add_to_shopping_list_username, hash => $add_to_shopping_list_hash, add_to_meal_plan_request => $add_to_shopping_list_add_to_meal_plan_request);
+#my $add_to_shopping_list_add_to_shopping_list_request = undef; # replace NULL with a proper value
+#my $add_to_shopping_list_result = $api->add_to_shopping_list(username => $add_to_shopping_list_username, hash => $add_to_shopping_list_hash, add_to_shopping_list_request => $add_to_shopping_list_add_to_shopping_list_request);
 
 #
 # clear_meal_plan_day test
@@ -63,15 +62,14 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 #my $clear_meal_plan_day_username = undef; # replace NULL with a proper value
 #my $clear_meal_plan_day_date = undef; # replace NULL with a proper value
 #my $clear_meal_plan_day_hash = undef; # replace NULL with a proper value
-#my $clear_meal_plan_day_clear_meal_plan_day_request = undef; # replace NULL with a proper value
-#my $clear_meal_plan_day_result = $api->clear_meal_plan_day(username => $clear_meal_plan_day_username, date => $clear_meal_plan_day_date, hash => $clear_meal_plan_day_hash, clear_meal_plan_day_request => $clear_meal_plan_day_clear_meal_plan_day_request);
+#my $clear_meal_plan_day_result = $api->clear_meal_plan_day(username => $clear_meal_plan_day_username, date => $clear_meal_plan_day_date, hash => $clear_meal_plan_day_hash);
 
 #
 # connect_user test
 #
 # uncomment below and update the test
-#my $connect_user_body = undef; # replace NULL with a proper value
-#my $connect_user_result = $api->connect_user(body => $connect_user_body);
+#my $connect_user_connect_user_request = undef; # replace NULL with a proper value
+#my $connect_user_result = $api->connect_user(connect_user_request => $connect_user_connect_user_request);
 
 #
 # delete_from_meal_plan test
@@ -80,8 +78,7 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 #my $delete_from_meal_plan_username = undef; # replace NULL with a proper value
 #my $delete_from_meal_plan_id = undef; # replace NULL with a proper value
 #my $delete_from_meal_plan_hash = undef; # replace NULL with a proper value
-#my $delete_from_meal_plan_delete_from_meal_plan_request = undef; # replace NULL with a proper value
-#my $delete_from_meal_plan_result = $api->delete_from_meal_plan(username => $delete_from_meal_plan_username, id => $delete_from_meal_plan_id, hash => $delete_from_meal_plan_hash, delete_from_meal_plan_request => $delete_from_meal_plan_delete_from_meal_plan_request);
+#my $delete_from_meal_plan_result = $api->delete_from_meal_plan(username => $delete_from_meal_plan_username, id => $delete_from_meal_plan_id, hash => $delete_from_meal_plan_hash);
 
 #
 # delete_from_shopping_list test
@@ -90,8 +87,7 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 #my $delete_from_shopping_list_username = undef; # replace NULL with a proper value
 #my $delete_from_shopping_list_id = undef; # replace NULL with a proper value
 #my $delete_from_shopping_list_hash = undef; # replace NULL with a proper value
-#my $delete_from_shopping_list_delete_from_meal_plan_request = undef; # replace NULL with a proper value
-#my $delete_from_shopping_list_result = $api->delete_from_shopping_list(username => $delete_from_shopping_list_username, id => $delete_from_shopping_list_id, hash => $delete_from_shopping_list_hash, delete_from_meal_plan_request => $delete_from_shopping_list_delete_from_meal_plan_request);
+#my $delete_from_shopping_list_result = $api->delete_from_shopping_list(username => $delete_from_shopping_list_username, id => $delete_from_shopping_list_id, hash => $delete_from_shopping_list_hash);
 
 #
 # delete_meal_plan_template test
@@ -100,8 +96,7 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 #my $delete_meal_plan_template_username = undef; # replace NULL with a proper value
 #my $delete_meal_plan_template_id = undef; # replace NULL with a proper value
 #my $delete_meal_plan_template_hash = undef; # replace NULL with a proper value
-#my $delete_meal_plan_template_delete_from_meal_plan_request = undef; # replace NULL with a proper value
-#my $delete_meal_plan_template_result = $api->delete_meal_plan_template(username => $delete_meal_plan_template_username, id => $delete_meal_plan_template_id, hash => $delete_meal_plan_template_hash, delete_from_meal_plan_request => $delete_meal_plan_template_delete_from_meal_plan_request);
+#my $delete_meal_plan_template_result = $api->delete_meal_plan_template(username => $delete_meal_plan_template_username, id => $delete_meal_plan_template_id, hash => $delete_meal_plan_template_hash);
 
 #
 # generate_meal_plan test
@@ -121,8 +116,7 @@ isa_ok($api, 'WWW::OpenAPIClient::MealPlanningApi');
 #my $generate_shopping_list_start_date = undef; # replace NULL with a proper value
 #my $generate_shopping_list_end_date = undef; # replace NULL with a proper value
 #my $generate_shopping_list_hash = undef; # replace NULL with a proper value
-#my $generate_shopping_list_generate_shopping_list_request = undef; # replace NULL with a proper value
-#my $generate_shopping_list_result = $api->generate_shopping_list(username => $generate_shopping_list_username, start_date => $generate_shopping_list_start_date, end_date => $generate_shopping_list_end_date, hash => $generate_shopping_list_hash, generate_shopping_list_request => $generate_shopping_list_generate_shopping_list_request);
+#my $generate_shopping_list_result = $api->generate_shopping_list(username => $generate_shopping_list_username, start_date => $generate_shopping_list_start_date, end_date => $generate_shopping_list_end_date, hash => $generate_shopping_list_hash);
 
 #
 # get_meal_plan_template test

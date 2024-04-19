@@ -4,7 +4,6 @@ import java.io._
 import spoonacular._
 import org.openapitools.models._
 import org.openapitools.models.AnalyzeRecipeRequest
-import org.openapitools.models.AnalyzeRecipeRequest1
 import org.openapitools.models.BigDecimal
 import org.openapitools.models.SearchRestaurants200Response
 import io.finch.circe._

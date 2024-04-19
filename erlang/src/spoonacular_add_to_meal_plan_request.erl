@@ -5,13 +5,22 @@
 -export_type([spoonacular_add_to_meal_plan_request/0]).
 
 -type spoonacular_add_to_meal_plan_request() ::
-    #{ 'username' := binary(),
-       'hash' := binary()
+    #{ 'date' := integer(),
+       'slot' := integer(),
+       'position' := integer(),
+       'type' := binary(),
+       'value' := spoonacular_add_to_meal_plan_request_value:spoonacular_add_to_meal_plan_request_value()
      }.
 
-encode(#{ 'username' := Username,
-          'hash' := Hash
+encode(#{ 'date' := Date,
+          'slot' := Slot,
+          'position' := Position,
+          'type' := Type,
+          'value' := Value
         }) ->
-    #{ 'username' => Username,
-       'hash' => Hash
+    #{ 'date' => Date,
+       'slot' => Slot,
+       'position' => Position,
+       'type' => Type,
+       'value' => Value
      }.

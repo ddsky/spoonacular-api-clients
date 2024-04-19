@@ -7,9 +7,10 @@
 
 (def analyze-recipe-request-data
   {
-   (ds/opt :language) string?
-   (ds/opt :includeNutrition) boolean?
-   (ds/opt :includeTaste) boolean?
+   (ds/opt :title) string?
+   (ds/opt :servings) int?
+   (ds/opt :ingredients) (s/coll-of string?)
+   (ds/opt :instructions) string?
    })
 
 (def analyze-recipe-request-spec

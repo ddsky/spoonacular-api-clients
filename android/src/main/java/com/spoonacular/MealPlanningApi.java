@@ -25,16 +25,12 @@ import com.android.volley.VolleyError;
 
 import com.spoonacular.client.model.AddMealPlanTemplate200Response;
 import com.spoonacular.client.model.AddToMealPlanRequest;
-import com.spoonacular.client.model.AddToMealPlanRequest1;
 import com.spoonacular.client.model.AddToShoppingListRequest;
 import java.math.BigDecimal;
-import com.spoonacular.client.model.ClearMealPlanDayRequest;
 import com.spoonacular.client.model.ConnectUser200Response;
 import com.spoonacular.client.model.ConnectUserRequest;
-import com.spoonacular.client.model.DeleteFromMealPlanRequest;
 import com.spoonacular.client.model.GenerateMealPlan200Response;
 import com.spoonacular.client.model.GenerateShoppingList200Response;
-import com.spoonacular.client.model.GenerateShoppingListRequest;
 import com.spoonacular.client.model.GetMealPlanTemplate200Response;
 import com.spoonacular.client.model.GetMealPlanTemplates200Response;
 import com.spoonacular.client.model.GetMealPlanWeek200Response;
@@ -75,11 +71,10 @@ public class MealPlanningApi {
   * Add a meal plan template for a user.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @param addToMealPlanRequest 
    * @return AddMealPlanTemplate200Response
   */
-  public AddMealPlanTemplate200Response addMealPlanTemplate (String username, String hash, AddToMealPlanRequest addToMealPlanRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = addToMealPlanRequest;
+  public AddMealPlanTemplate200Response addMealPlanTemplate (String username, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling addMealPlanTemplate",
@@ -89,11 +84,6 @@ public class MealPlanningApi {
     if (hash == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling addMealPlanTemplate",
         new ApiException(400, "Missing the required parameter 'hash' when calling addMealPlanTemplate"));
-    }
-    // verify the required parameter 'addToMealPlanRequest' is set
-    if (addToMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'addToMealPlanRequest' when calling addMealPlanTemplate",
-        new ApiException(400, "Missing the required parameter 'addToMealPlanRequest' when calling addMealPlanTemplate"));
     }
 
     // create path and map variables
@@ -107,7 +97,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      ""
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -149,10 +138,10 @@ public class MealPlanningApi {
       /**
    * Add Meal Plan Template
    * Add a meal plan template for a user.
-   * @param username The username.   * @param hash The private hash for the username.   * @param addToMealPlanRequest 
+   * @param username The username.   * @param hash The private hash for the username.
   */
-  public void addMealPlanTemplate (String username, String hash, AddToMealPlanRequest addToMealPlanRequest, final Response.Listener<AddMealPlanTemplate200Response> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = addToMealPlanRequest;
+  public void addMealPlanTemplate (String username, String hash, final Response.Listener<AddMealPlanTemplate200Response> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -163,11 +152,6 @@ public class MealPlanningApi {
     if (hash == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling addMealPlanTemplate",
         new ApiException(400, "Missing the required parameter 'hash' when calling addMealPlanTemplate"));
-    }
-    // verify the required parameter 'addToMealPlanRequest' is set
-    if (addToMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'addToMealPlanRequest' when calling addMealPlanTemplate",
-        new ApiException(400, "Missing the required parameter 'addToMealPlanRequest' when calling addMealPlanTemplate"));
     }
 
     // create path and map variables
@@ -184,7 +168,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      ""
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -259,7 +243,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      "",
       "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -337,7 +320,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      "","application/json"
+      "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -380,11 +363,11 @@ public class MealPlanningApi {
   * Add an item to the current shopping list of a user.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @param addToMealPlanRequest 
+   * @param addToShoppingListRequest 
    * @return GenerateShoppingList200Response
   */
-  public GenerateShoppingList200Response addToShoppingList (String username, String hash, AddToMealPlanRequest addToMealPlanRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = addToMealPlanRequest;
+  public GenerateShoppingList200Response addToShoppingList (String username, String hash, AddToShoppingListRequest addToShoppingListRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = addToShoppingListRequest;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling addToShoppingList",
@@ -395,10 +378,10 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling addToShoppingList",
         new ApiException(400, "Missing the required parameter 'hash' when calling addToShoppingList"));
     }
-    // verify the required parameter 'addToMealPlanRequest' is set
-    if (addToMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'addToMealPlanRequest' when calling addToShoppingList",
-        new ApiException(400, "Missing the required parameter 'addToMealPlanRequest' when calling addToShoppingList"));
+    // verify the required parameter 'addToShoppingListRequest' is set
+    if (addToShoppingListRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'addToShoppingListRequest' when calling addToShoppingList",
+        new ApiException(400, "Missing the required parameter 'addToShoppingListRequest' when calling addToShoppingList"));
     }
 
     // create path and map variables
@@ -412,7 +395,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      "",
       "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -455,10 +437,10 @@ public class MealPlanningApi {
       /**
    * Add to Shopping List
    * Add an item to the current shopping list of a user.
-   * @param username The username.   * @param hash The private hash for the username.   * @param addToMealPlanRequest 
+   * @param username The username.   * @param hash The private hash for the username.   * @param addToShoppingListRequest 
   */
-  public void addToShoppingList (String username, String hash, AddToMealPlanRequest addToMealPlanRequest, final Response.Listener<GenerateShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = addToMealPlanRequest;
+  public void addToShoppingList (String username, String hash, AddToShoppingListRequest addToShoppingListRequest, final Response.Listener<GenerateShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = addToShoppingListRequest;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -470,10 +452,10 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling addToShoppingList",
         new ApiException(400, "Missing the required parameter 'hash' when calling addToShoppingList"));
     }
-    // verify the required parameter 'addToMealPlanRequest' is set
-    if (addToMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'addToMealPlanRequest' when calling addToShoppingList",
-        new ApiException(400, "Missing the required parameter 'addToMealPlanRequest' when calling addToShoppingList"));
+    // verify the required parameter 'addToShoppingListRequest' is set
+    if (addToShoppingListRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'addToShoppingListRequest' when calling addToShoppingList",
+        new ApiException(400, "Missing the required parameter 'addToShoppingListRequest' when calling addToShoppingList"));
     }
 
     // create path and map variables
@@ -490,7 +472,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      "","application/json"
+      "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -534,11 +516,10 @@ public class MealPlanningApi {
    * @param username The username.
    * @param date The date in the format yyyy-mm-dd.
    * @param hash The private hash for the username.
-   * @param clearMealPlanDayRequest 
    * @return Object
   */
-  public Object clearMealPlanDay (String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = clearMealPlanDayRequest;
+  public Object clearMealPlanDay (String username, String date, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling clearMealPlanDay",
@@ -554,11 +535,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling clearMealPlanDay",
         new ApiException(400, "Missing the required parameter 'hash' when calling clearMealPlanDay"));
     }
-    // verify the required parameter 'clearMealPlanDayRequest' is set
-    if (clearMealPlanDayRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'clearMealPlanDayRequest' when calling clearMealPlanDay",
-        new ApiException(400, "Missing the required parameter 'clearMealPlanDayRequest' when calling clearMealPlanDay"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/day/{date}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "date" + "\\}", apiInvoker.escapeString(date.toString()));
@@ -571,7 +547,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      ""
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -613,10 +588,10 @@ public class MealPlanningApi {
       /**
    * Clear Meal Plan Day
    * Delete all planned items from the user&#39;s meal plan for a specific day.
-   * @param username The username.   * @param date The date in the format yyyy-mm-dd.   * @param hash The private hash for the username.   * @param clearMealPlanDayRequest 
+   * @param username The username.   * @param date The date in the format yyyy-mm-dd.   * @param hash The private hash for the username.
   */
-  public void clearMealPlanDay (String username, String date, String hash, ClearMealPlanDayRequest clearMealPlanDayRequest, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = clearMealPlanDayRequest;
+  public void clearMealPlanDay (String username, String date, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -633,11 +608,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling clearMealPlanDay",
         new ApiException(400, "Missing the required parameter 'hash' when calling clearMealPlanDay"));
     }
-    // verify the required parameter 'clearMealPlanDayRequest' is set
-    if (clearMealPlanDayRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'clearMealPlanDayRequest' when calling clearMealPlanDay",
-        new ApiException(400, "Missing the required parameter 'clearMealPlanDayRequest' when calling clearMealPlanDay"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/day/{date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "date" + "\\}", apiInvoker.escapeString(date.toString()));
@@ -653,7 +623,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      ""
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -694,15 +664,15 @@ public class MealPlanningApi {
   /**
   * Connect User
   * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
-   * @param body 
+   * @param connectUserRequest 
    * @return ConnectUser200Response
   */
-  public ConnectUser200Response connectUser (Object body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = body;
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'body' when calling connectUser",
-        new ApiException(400, "Missing the required parameter 'body' when calling connectUser"));
+  public ConnectUser200Response connectUser (ConnectUserRequest connectUserRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = connectUserRequest;
+    // verify the required parameter 'connectUserRequest' is set
+    if (connectUserRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'connectUserRequest' when calling connectUser",
+        new ApiException(400, "Missing the required parameter 'connectUserRequest' when calling connectUser"));
     }
 
     // create path and map variables
@@ -715,7 +685,6 @@ public class MealPlanningApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     String[] contentTypes = {
-      "",
       "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -758,15 +727,15 @@ public class MealPlanningApi {
       /**
    * Connect User
    * In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
-   * @param body 
+   * @param connectUserRequest 
   */
-  public void connectUser (Object body, final Response.Listener<ConnectUser200Response> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = body;
+  public void connectUser (ConnectUserRequest connectUserRequest, final Response.Listener<ConnectUser200Response> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = connectUserRequest;
 
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'body' when calling connectUser",
-        new ApiException(400, "Missing the required parameter 'body' when calling connectUser"));
+    // verify the required parameter 'connectUserRequest' is set
+    if (connectUserRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'connectUserRequest' when calling connectUser",
+        new ApiException(400, "Missing the required parameter 'connectUserRequest' when calling connectUser"));
     }
 
     // create path and map variables
@@ -782,7 +751,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      "","application/json"
+      "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -826,11 +795,10 @@ public class MealPlanningApi {
    * @param username The username.
    * @param id The shopping list item id.
    * @param hash The private hash for the username.
-   * @param deleteFromMealPlanRequest 
    * @return Object
   */
-  public Object deleteFromMealPlan (String username, BigDecimal id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = deleteFromMealPlanRequest;
+  public Object deleteFromMealPlan (String username, BigDecimal id, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling deleteFromMealPlan",
@@ -846,11 +814,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling deleteFromMealPlan",
         new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromMealPlan"));
     }
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromMealPlan",
-        new ApiException(400, "Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromMealPlan"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/items/{id}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
@@ -863,7 +826,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      ""
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -905,10 +867,10 @@ public class MealPlanningApi {
       /**
    * Delete from Meal Plan
    * Delete an item from the user&#39;s meal plan.
-   * @param username The username.   * @param id The shopping list item id.   * @param hash The private hash for the username.   * @param deleteFromMealPlanRequest 
+   * @param username The username.   * @param id The shopping list item id.   * @param hash The private hash for the username.
   */
-  public void deleteFromMealPlan (String username, BigDecimal id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = deleteFromMealPlanRequest;
+  public void deleteFromMealPlan (String username, BigDecimal id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -925,11 +887,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling deleteFromMealPlan",
         new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromMealPlan"));
     }
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromMealPlan",
-        new ApiException(400, "Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromMealPlan"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/items/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
@@ -945,7 +902,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      ""
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -989,11 +946,10 @@ public class MealPlanningApi {
    * @param username The username.
    * @param id The item&#39;s id.
    * @param hash The private hash for the username.
-   * @param deleteFromMealPlanRequest 
    * @return Object
   */
-  public Object deleteFromShoppingList (String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = deleteFromMealPlanRequest;
+  public Object deleteFromShoppingList (String username, Integer id, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling deleteFromShoppingList",
@@ -1009,11 +965,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling deleteFromShoppingList",
         new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromShoppingList"));
     }
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromShoppingList",
-        new ApiException(400, "Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromShoppingList"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/shopping-list/items/{id}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
@@ -1026,7 +977,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      ""
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -1068,10 +1018,10 @@ public class MealPlanningApi {
       /**
    * Delete from Shopping List
    * Delete an item from the current shopping list of the user.
-   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.   * @param deleteFromMealPlanRequest 
+   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.
   */
-  public void deleteFromShoppingList (String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = deleteFromMealPlanRequest;
+  public void deleteFromShoppingList (String username, Integer id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -1088,11 +1038,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling deleteFromShoppingList",
         new ApiException(400, "Missing the required parameter 'hash' when calling deleteFromShoppingList"));
     }
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromShoppingList",
-        new ApiException(400, "Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteFromShoppingList"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/shopping-list/items/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
@@ -1108,7 +1053,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      ""
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -1152,11 +1097,10 @@ public class MealPlanningApi {
    * @param username The username.
    * @param id The item&#39;s id.
    * @param hash The private hash for the username.
-   * @param deleteFromMealPlanRequest 
    * @return Object
   */
-  public Object deleteMealPlanTemplate (String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = deleteFromMealPlanRequest;
+  public Object deleteMealPlanTemplate (String username, Integer id, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling deleteMealPlanTemplate",
@@ -1172,11 +1116,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling deleteMealPlanTemplate",
         new ApiException(400, "Missing the required parameter 'hash' when calling deleteMealPlanTemplate"));
     }
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteMealPlanTemplate",
-        new ApiException(400, "Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteMealPlanTemplate"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/templates/{id}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
@@ -1189,7 +1128,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      ""
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -1231,10 +1169,10 @@ public class MealPlanningApi {
       /**
    * Delete Meal Plan Template
    * Delete a meal plan template for a user.
-   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.   * @param deleteFromMealPlanRequest 
+   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.
   */
-  public void deleteMealPlanTemplate (String username, Integer id, String hash, DeleteFromMealPlanRequest deleteFromMealPlanRequest, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = deleteFromMealPlanRequest;
+  public void deleteMealPlanTemplate (String username, Integer id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -1251,11 +1189,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling deleteMealPlanTemplate",
         new ApiException(400, "Missing the required parameter 'hash' when calling deleteMealPlanTemplate"));
     }
-    // verify the required parameter 'deleteFromMealPlanRequest' is set
-    if (deleteFromMealPlanRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteMealPlanTemplate",
-        new ApiException(400, "Missing the required parameter 'deleteFromMealPlanRequest' when calling deleteMealPlanTemplate"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/templates/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
@@ -1271,7 +1204,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      ""
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -1444,11 +1377,10 @@ public class MealPlanningApi {
    * @param startDate The start date in the format yyyy-mm-dd.
    * @param endDate The end date in the format yyyy-mm-dd.
    * @param hash The private hash for the username.
-   * @param generateShoppingListRequest 
    * @return GenerateShoppingList200Response
   */
-  public GenerateShoppingList200Response generateShoppingList (String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = generateShoppingListRequest;
+  public GenerateShoppingList200Response generateShoppingList (String username, String startDate, String endDate, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling generateShoppingList",
@@ -1469,11 +1401,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling generateShoppingList",
         new ApiException(400, "Missing the required parameter 'hash' when calling generateShoppingList"));
     }
-    // verify the required parameter 'generateShoppingListRequest' is set
-    if (generateShoppingListRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'generateShoppingListRequest' when calling generateShoppingList",
-        new ApiException(400, "Missing the required parameter 'generateShoppingListRequest' when calling generateShoppingList"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end-date" + "\\}", apiInvoker.escapeString(endDate.toString()));
@@ -1486,7 +1413,6 @@ public class MealPlanningApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hash", hash));
     String[] contentTypes = {
-      ""
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -1528,10 +1454,10 @@ public class MealPlanningApi {
       /**
    * Generate Shopping List
    * Generate the shopping list for a user from the meal planner in a given time frame.
-   * @param username The username.   * @param startDate The start date in the format yyyy-mm-dd.   * @param endDate The end date in the format yyyy-mm-dd.   * @param hash The private hash for the username.   * @param generateShoppingListRequest 
+   * @param username The username.   * @param startDate The start date in the format yyyy-mm-dd.   * @param endDate The end date in the format yyyy-mm-dd.   * @param hash The private hash for the username.
   */
-  public void generateShoppingList (String username, String startDate, String endDate, String hash, GenerateShoppingListRequest generateShoppingListRequest, final Response.Listener<GenerateShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = generateShoppingListRequest;
+  public void generateShoppingList (String username, String startDate, String endDate, String hash, final Response.Listener<GenerateShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
 
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -1553,11 +1479,6 @@ public class MealPlanningApi {
       VolleyError error = new VolleyError("Missing the required parameter 'hash' when calling generateShoppingList",
         new ApiException(400, "Missing the required parameter 'hash' when calling generateShoppingList"));
     }
-    // verify the required parameter 'generateShoppingListRequest' is set
-    if (generateShoppingListRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'generateShoppingListRequest' when calling generateShoppingList",
-        new ApiException(400, "Missing the required parameter 'generateShoppingListRequest' when calling generateShoppingList"));
-    }
 
     // create path and map variables
     String path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end-date" + "\\}", apiInvoker.escapeString(endDate.toString()));
@@ -1573,7 +1494,7 @@ public class MealPlanningApi {
 
 
     String[] contentTypes = {
-      ""
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 

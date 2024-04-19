@@ -23,11 +23,10 @@ module OpenapiClient
     # Add a meal plan template for a user.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param add_to_meal_plan_request [AddToMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [AddMealPlanTemplate200Response]
-    def add_meal_plan_template(username, hash, add_to_meal_plan_request, opts = {})
-      data, _status_code, _headers = add_meal_plan_template_with_http_info(username, hash, add_to_meal_plan_request, opts)
+    def add_meal_plan_template(username, hash, opts = {})
+      data, _status_code, _headers = add_meal_plan_template_with_http_info(username, hash, opts)
       data
     end
 
@@ -35,10 +34,9 @@ module OpenapiClient
     # Add a meal plan template for a user.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param add_to_meal_plan_request [AddToMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AddMealPlanTemplate200Response, Integer, Hash)>] AddMealPlanTemplate200Response data, response status code and response headers
-    def add_meal_plan_template_with_http_info(username, hash, add_to_meal_plan_request, opts = {})
+    def add_meal_plan_template_with_http_info(username, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.add_meal_plan_template ...'
       end
@@ -49,10 +47,6 @@ module OpenapiClient
       # verify the required parameter 'hash' is set
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.add_meal_plan_template"
-      end
-      # verify the required parameter 'add_to_meal_plan_request' is set
-      if @api_client.config.client_side_validation && add_to_meal_plan_request.nil?
-        fail ArgumentError, "Missing the required parameter 'add_to_meal_plan_request' when calling MealPlanningApi.add_meal_plan_template"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/templates'.sub('{' + 'username' + '}', CGI.escape(username.to_s))
@@ -65,17 +59,12 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type([''])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(add_to_meal_plan_request)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type] || 'AddMealPlanTemplate200Response'
@@ -147,7 +136,7 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['', 'application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
@@ -185,11 +174,11 @@ module OpenapiClient
     # Add an item to the current shopping list of a user.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param add_to_meal_plan_request [AddToMealPlanRequest] 
+    # @param add_to_shopping_list_request [AddToShoppingListRequest] 
     # @param [Hash] opts the optional parameters
     # @return [GenerateShoppingList200Response]
-    def add_to_shopping_list(username, hash, add_to_meal_plan_request, opts = {})
-      data, _status_code, _headers = add_to_shopping_list_with_http_info(username, hash, add_to_meal_plan_request, opts)
+    def add_to_shopping_list(username, hash, add_to_shopping_list_request, opts = {})
+      data, _status_code, _headers = add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request, opts)
       data
     end
 
@@ -197,10 +186,10 @@ module OpenapiClient
     # Add an item to the current shopping list of a user.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
-    # @param add_to_meal_plan_request [AddToMealPlanRequest] 
+    # @param add_to_shopping_list_request [AddToShoppingListRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GenerateShoppingList200Response, Integer, Hash)>] GenerateShoppingList200Response data, response status code and response headers
-    def add_to_shopping_list_with_http_info(username, hash, add_to_meal_plan_request, opts = {})
+    def add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.add_to_shopping_list ...'
       end
@@ -212,9 +201,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.add_to_shopping_list"
       end
-      # verify the required parameter 'add_to_meal_plan_request' is set
-      if @api_client.config.client_side_validation && add_to_meal_plan_request.nil?
-        fail ArgumentError, "Missing the required parameter 'add_to_meal_plan_request' when calling MealPlanningApi.add_to_shopping_list"
+      # verify the required parameter 'add_to_shopping_list_request' is set
+      if @api_client.config.client_side_validation && add_to_shopping_list_request.nil?
+        fail ArgumentError, "Missing the required parameter 'add_to_shopping_list_request' when calling MealPlanningApi.add_to_shopping_list"
       end
       # resource path
       local_var_path = '/mealplanner/{username}/shopping-list/items'.sub('{' + 'username' + '}', CGI.escape(username.to_s))
@@ -228,7 +217,7 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['', 'application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
@@ -237,7 +226,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(add_to_meal_plan_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(add_to_shopping_list_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'GenerateShoppingList200Response'
@@ -267,11 +256,10 @@ module OpenapiClient
     # @param username [String] The username.
     # @param date [String] The date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
-    # @param clear_meal_plan_day_request [ClearMealPlanDayRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def clear_meal_plan_day(username, date, hash, clear_meal_plan_day_request, opts = {})
-      data, _status_code, _headers = clear_meal_plan_day_with_http_info(username, date, hash, clear_meal_plan_day_request, opts)
+    def clear_meal_plan_day(username, date, hash, opts = {})
+      data, _status_code, _headers = clear_meal_plan_day_with_http_info(username, date, hash, opts)
       data
     end
 
@@ -280,10 +268,9 @@ module OpenapiClient
     # @param username [String] The username.
     # @param date [String] The date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
-    # @param clear_meal_plan_day_request [ClearMealPlanDayRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def clear_meal_plan_day_with_http_info(username, date, hash, clear_meal_plan_day_request, opts = {})
+    def clear_meal_plan_day_with_http_info(username, date, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.clear_meal_plan_day ...'
       end
@@ -299,10 +286,6 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.clear_meal_plan_day"
       end
-      # verify the required parameter 'clear_meal_plan_day_request' is set
-      if @api_client.config.client_side_validation && clear_meal_plan_day_request.nil?
-        fail ArgumentError, "Missing the required parameter 'clear_meal_plan_day_request' when calling MealPlanningApi.clear_meal_plan_day"
-      end
       # resource path
       local_var_path = '/mealplanner/{username}/day/{date}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'date' + '}', CGI.escape(date.to_s))
 
@@ -314,17 +297,12 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type([''])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(clear_meal_plan_day_request)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -351,26 +329,26 @@ module OpenapiClient
 
     # Connect User
     # In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
-    # @param body [Object] 
+    # @param connect_user_request [ConnectUserRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ConnectUser200Response]
-    def connect_user(body, opts = {})
-      data, _status_code, _headers = connect_user_with_http_info(body, opts)
+    def connect_user(connect_user_request, opts = {})
+      data, _status_code, _headers = connect_user_with_http_info(connect_user_request, opts)
       data
     end
 
     # Connect User
     # In order to call user-specific endpoints, you need to connect your app&#39;s users to spoonacular users.
-    # @param body [Object] 
+    # @param connect_user_request [ConnectUserRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ConnectUser200Response, Integer, Hash)>] ConnectUser200Response data, response status code and response headers
-    def connect_user_with_http_info(body, opts = {})
+    def connect_user_with_http_info(connect_user_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.connect_user ...'
       end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MealPlanningApi.connect_user"
+      # verify the required parameter 'connect_user_request' is set
+      if @api_client.config.client_side_validation && connect_user_request.nil?
+        fail ArgumentError, "Missing the required parameter 'connect_user_request' when calling MealPlanningApi.connect_user"
       end
       # resource path
       local_var_path = '/users/connect'
@@ -383,7 +361,7 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['', 'application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
@@ -392,7 +370,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(connect_user_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'ConnectUser200Response'
@@ -422,11 +400,10 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Float] The shopping list item id.
     # @param hash [String] The private hash for the username.
-    # @param delete_from_meal_plan_request [DeleteFromMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def delete_from_meal_plan(username, id, hash, delete_from_meal_plan_request, opts = {})
-      data, _status_code, _headers = delete_from_meal_plan_with_http_info(username, id, hash, delete_from_meal_plan_request, opts)
+    def delete_from_meal_plan(username, id, hash, opts = {})
+      data, _status_code, _headers = delete_from_meal_plan_with_http_info(username, id, hash, opts)
       data
     end
 
@@ -435,10 +412,9 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Float] The shopping list item id.
     # @param hash [String] The private hash for the username.
-    # @param delete_from_meal_plan_request [DeleteFromMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def delete_from_meal_plan_with_http_info(username, id, hash, delete_from_meal_plan_request, opts = {})
+    def delete_from_meal_plan_with_http_info(username, id, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.delete_from_meal_plan ...'
       end
@@ -454,10 +430,6 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.delete_from_meal_plan"
       end
-      # verify the required parameter 'delete_from_meal_plan_request' is set
-      if @api_client.config.client_side_validation && delete_from_meal_plan_request.nil?
-        fail ArgumentError, "Missing the required parameter 'delete_from_meal_plan_request' when calling MealPlanningApi.delete_from_meal_plan"
-      end
       # resource path
       local_var_path = '/mealplanner/{username}/items/{id}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
@@ -469,17 +441,12 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type([''])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(delete_from_meal_plan_request)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -509,11 +476,10 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Integer] The item&#39;s id.
     # @param hash [String] The private hash for the username.
-    # @param delete_from_meal_plan_request [DeleteFromMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def delete_from_shopping_list(username, id, hash, delete_from_meal_plan_request, opts = {})
-      data, _status_code, _headers = delete_from_shopping_list_with_http_info(username, id, hash, delete_from_meal_plan_request, opts)
+    def delete_from_shopping_list(username, id, hash, opts = {})
+      data, _status_code, _headers = delete_from_shopping_list_with_http_info(username, id, hash, opts)
       data
     end
 
@@ -522,10 +488,9 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Integer] The item&#39;s id.
     # @param hash [String] The private hash for the username.
-    # @param delete_from_meal_plan_request [DeleteFromMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def delete_from_shopping_list_with_http_info(username, id, hash, delete_from_meal_plan_request, opts = {})
+    def delete_from_shopping_list_with_http_info(username, id, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.delete_from_shopping_list ...'
       end
@@ -541,10 +506,6 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.delete_from_shopping_list"
       end
-      # verify the required parameter 'delete_from_meal_plan_request' is set
-      if @api_client.config.client_side_validation && delete_from_meal_plan_request.nil?
-        fail ArgumentError, "Missing the required parameter 'delete_from_meal_plan_request' when calling MealPlanningApi.delete_from_shopping_list"
-      end
       # resource path
       local_var_path = '/mealplanner/{username}/shopping-list/items/{id}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
@@ -556,17 +517,12 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type([''])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(delete_from_meal_plan_request)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -596,11 +552,10 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Integer] The item&#39;s id.
     # @param hash [String] The private hash for the username.
-    # @param delete_from_meal_plan_request [DeleteFromMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def delete_meal_plan_template(username, id, hash, delete_from_meal_plan_request, opts = {})
-      data, _status_code, _headers = delete_meal_plan_template_with_http_info(username, id, hash, delete_from_meal_plan_request, opts)
+    def delete_meal_plan_template(username, id, hash, opts = {})
+      data, _status_code, _headers = delete_meal_plan_template_with_http_info(username, id, hash, opts)
       data
     end
 
@@ -609,10 +564,9 @@ module OpenapiClient
     # @param username [String] The username.
     # @param id [Integer] The item&#39;s id.
     # @param hash [String] The private hash for the username.
-    # @param delete_from_meal_plan_request [DeleteFromMealPlanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def delete_meal_plan_template_with_http_info(username, id, hash, delete_from_meal_plan_request, opts = {})
+    def delete_meal_plan_template_with_http_info(username, id, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.delete_meal_plan_template ...'
       end
@@ -628,10 +582,6 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.delete_meal_plan_template"
       end
-      # verify the required parameter 'delete_from_meal_plan_request' is set
-      if @api_client.config.client_side_validation && delete_from_meal_plan_request.nil?
-        fail ArgumentError, "Missing the required parameter 'delete_from_meal_plan_request' when calling MealPlanningApi.delete_meal_plan_template"
-      end
       # resource path
       local_var_path = '/mealplanner/{username}/templates/{id}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
@@ -643,17 +593,12 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type([''])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(delete_from_meal_plan_request)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -753,11 +698,10 @@ module OpenapiClient
     # @param start_date [String] The start date in the format yyyy-mm-dd.
     # @param end_date [String] The end date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
-    # @param generate_shopping_list_request [GenerateShoppingListRequest] 
     # @param [Hash] opts the optional parameters
     # @return [GenerateShoppingList200Response]
-    def generate_shopping_list(username, start_date, end_date, hash, generate_shopping_list_request, opts = {})
-      data, _status_code, _headers = generate_shopping_list_with_http_info(username, start_date, end_date, hash, generate_shopping_list_request, opts)
+    def generate_shopping_list(username, start_date, end_date, hash, opts = {})
+      data, _status_code, _headers = generate_shopping_list_with_http_info(username, start_date, end_date, hash, opts)
       data
     end
 
@@ -767,10 +711,9 @@ module OpenapiClient
     # @param start_date [String] The start date in the format yyyy-mm-dd.
     # @param end_date [String] The end date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
-    # @param generate_shopping_list_request [GenerateShoppingListRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GenerateShoppingList200Response, Integer, Hash)>] GenerateShoppingList200Response data, response status code and response headers
-    def generate_shopping_list_with_http_info(username, start_date, end_date, hash, generate_shopping_list_request, opts = {})
+    def generate_shopping_list_with_http_info(username, start_date, end_date, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.generate_shopping_list ...'
       end
@@ -790,10 +733,6 @@ module OpenapiClient
       if @api_client.config.client_side_validation && hash.nil?
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.generate_shopping_list"
       end
-      # verify the required parameter 'generate_shopping_list_request' is set
-      if @api_client.config.client_side_validation && generate_shopping_list_request.nil?
-        fail ArgumentError, "Missing the required parameter 'generate_shopping_list_request' when calling MealPlanningApi.generate_shopping_list"
-      end
       # resource path
       local_var_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'start-date' + '}', CGI.escape(start_date.to_s)).sub('{' + 'end-date' + '}', CGI.escape(end_date.to_s))
 
@@ -805,17 +744,12 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type([''])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(generate_shopping_list_request)
+      post_body = opts[:debug_body]
 
       # return_type
       return_type = opts[:debug_return_type] || 'GenerateShoppingList200Response'
