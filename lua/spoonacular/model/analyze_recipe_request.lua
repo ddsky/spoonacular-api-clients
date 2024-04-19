@@ -19,11 +19,12 @@ local function cast_analyze_recipe_request(t)
 	return setmetatable(t, analyze_recipe_request_mt)
 end
 
-local function new_analyze_recipe_request(language, include_nutrition, include_taste)
+local function new_analyze_recipe_request(title, servings, ingredients, instructions)
 	return cast_analyze_recipe_request({
-		["language"] = language;
-		["includeNutrition"] = include_nutrition;
-		["includeTaste"] = include_taste;
+		["title"] = title;
+		["servings"] = servings;
+		["ingredients"] = ingredients;
+		["instructions"] = instructions;
 	})
 end
 

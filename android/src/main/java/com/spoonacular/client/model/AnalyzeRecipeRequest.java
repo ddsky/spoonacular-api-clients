@@ -12,50 +12,60 @@
 
 package com.spoonacular.client.model;
 
+import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 @ApiModel(description = "")
 public class AnalyzeRecipeRequest {
   
-  @SerializedName("language")
-  private String language = null;
-  @SerializedName("includeNutrition")
-  private Boolean includeNutrition = null;
-  @SerializedName("includeTaste")
-  private Boolean includeTaste = null;
+  @SerializedName("title")
+  private String title = null;
+  @SerializedName("servings")
+  private Integer servings = null;
+  @SerializedName("ingredients")
+  private List<String> ingredients = null;
+  @SerializedName("instructions")
+  private String instructions = null;
 
   /**
-   * The input language, either \"en\" or \"de\".
    **/
-  @ApiModelProperty(value = "The input language, either \"en\" or \"de\".")
-  public String getLanguage() {
-    return language;
+  @ApiModelProperty(value = "")
+  public String getTitle() {
+    return title;
   }
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-  /**
-   * Whether nutrition data should be added to correctly parsed ingredients.
-   **/
-  @ApiModelProperty(value = "Whether nutrition data should be added to correctly parsed ingredients.")
-  public Boolean getIncludeNutrition() {
-    return includeNutrition;
-  }
-  public void setIncludeNutrition(Boolean includeNutrition) {
-    this.includeNutrition = includeNutrition;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   /**
-   * Whether taste data should be added to correctly parsed ingredients.
    **/
-  @ApiModelProperty(value = "Whether taste data should be added to correctly parsed ingredients.")
-  public Boolean getIncludeTaste() {
-    return includeTaste;
+  @ApiModelProperty(value = "")
+  public Integer getServings() {
+    return servings;
   }
-  public void setIncludeTaste(Boolean includeTaste) {
-    this.includeTaste = includeTaste;
+  public void setServings(Integer servings) {
+    this.servings = servings;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public List<String> getIngredients() {
+    return ingredients;
+  }
+  public void setIngredients(List<String> ingredients) {
+    this.ingredients = ingredients;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getInstructions() {
+    return instructions;
+  }
+  public void setInstructions(String instructions) {
+    this.instructions = instructions;
   }
 
 
@@ -68,17 +78,19 @@ public class AnalyzeRecipeRequest {
       return false;
     }
     AnalyzeRecipeRequest analyzeRecipeRequest = (AnalyzeRecipeRequest) o;
-    return (this.language == null ? analyzeRecipeRequest.language == null : this.language.equals(analyzeRecipeRequest.language)) &&
-        (this.includeNutrition == null ? analyzeRecipeRequest.includeNutrition == null : this.includeNutrition.equals(analyzeRecipeRequest.includeNutrition)) &&
-        (this.includeTaste == null ? analyzeRecipeRequest.includeTaste == null : this.includeTaste.equals(analyzeRecipeRequest.includeTaste));
+    return (this.title == null ? analyzeRecipeRequest.title == null : this.title.equals(analyzeRecipeRequest.title)) &&
+        (this.servings == null ? analyzeRecipeRequest.servings == null : this.servings.equals(analyzeRecipeRequest.servings)) &&
+        (this.ingredients == null ? analyzeRecipeRequest.ingredients == null : this.ingredients.equals(analyzeRecipeRequest.ingredients)) &&
+        (this.instructions == null ? analyzeRecipeRequest.instructions == null : this.instructions.equals(analyzeRecipeRequest.instructions));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.language == null ? 0: this.language.hashCode());
-    result = 31 * result + (this.includeNutrition == null ? 0: this.includeNutrition.hashCode());
-    result = 31 * result + (this.includeTaste == null ? 0: this.includeTaste.hashCode());
+    result = 31 * result + (this.title == null ? 0: this.title.hashCode());
+    result = 31 * result + (this.servings == null ? 0: this.servings.hashCode());
+    result = 31 * result + (this.ingredients == null ? 0: this.ingredients.hashCode());
+    result = 31 * result + (this.instructions == null ? 0: this.instructions.hashCode());
     return result;
   }
 
@@ -87,9 +99,10 @@ public class AnalyzeRecipeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalyzeRecipeRequest {\n");
     
-    sb.append("  language: ").append(language).append("\n");
-    sb.append("  includeNutrition: ").append(includeNutrition).append("\n");
-    sb.append("  includeTaste: ").append(includeTaste).append("\n");
+    sb.append("  title: ").append(title).append("\n");
+    sb.append("  servings: ").append(servings).append("\n");
+    sb.append("  ingredients: ").append(ingredients).append("\n");
+    sb.append("  instructions: ").append(instructions).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

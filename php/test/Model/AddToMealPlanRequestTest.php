@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AddToMealPlanRequestTest Class Doc Comment
  *
  * @category    Class
- * @description AddToMealPlanRequest
+ * @description 
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -81,18 +81,45 @@ class AddToMealPlanRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "username"
+     * Test attribute "date"
      */
-    public function testPropertyUsername()
+    public function testPropertyDate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "hash"
+     * Test attribute "slot"
      */
-    public function testPropertyHash()
+    public function testPropertySlot()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "position"
+     */
+    public function testPropertyPosition()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "value"
+     */
+    public function testPropertyValue()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

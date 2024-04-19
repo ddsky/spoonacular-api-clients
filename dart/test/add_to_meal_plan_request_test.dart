@@ -16,15 +16,28 @@ void main() {
   // final instance = AddToMealPlanRequest();
 
   group('test AddToMealPlanRequest', () {
-    // The username.
-    // String username
-    test('to test the property `username`', () async {
+    // num date
+    test('to test the property `date`', () async {
       // TODO
     });
 
-    // The private hash for the username.
-    // String hash
-    test('to test the property `hash`', () async {
+    // int slot
+    test('to test the property `slot`', () async {
+      // TODO
+    });
+
+    // int position
+    test('to test the property `position`', () async {
+      // TODO
+    });
+
+    // String type
+    test('to test the property `type`', () async {
+      // TODO
+    });
+
+    // AddToMealPlanRequestValue value
+    test('to test the property `value`', () async {
       // TODO
     });
 

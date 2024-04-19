@@ -25,7 +25,7 @@ This endpoint allows you to send raw recipe information, such as title, servings
 //import com.spoonacular.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-AnalyzeRecipeRequest analyzeRecipeRequest = new AnalyzeRecipeRequest(); // AnalyzeRecipeRequest | Example request body.
+AnalyzeRecipeRequest analyzeRecipeRequest = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "}; // AnalyzeRecipeRequest | Example request body.
 String language = en; // String | The input language, either \"en\" or \"de\".
 Boolean includeNutrition = false; // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
 Boolean includeTaste = false; // Boolean | Whether taste data should be added to correctly parsed ingredients.
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

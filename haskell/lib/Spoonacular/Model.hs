@@ -97,9 +97,6 @@ newtype BackgroundColor = BackgroundColor { unBackgroundColor :: Text } deriving
 -- ** BackgroundImage
 newtype BackgroundImage = BackgroundImage { unBackgroundImage :: Text } deriving (P.Eq, P.Show)
 
--- ** Body
-newtype Body = Body { unBody :: A.Value } deriving (P.Eq, P.Show, A.ToJSON)
-
 -- ** Budget
 newtype Budget = Budget { unBudget :: Double } deriving (P.Eq, P.Show)
 
@@ -716,144 +713,110 @@ mkAddMealPlanTemplate200ResponseItemsInnerValue =
 
 -- ** AddToMealPlanRequest
 -- | AddToMealPlanRequest
+-- 
 data AddToMealPlanRequest = AddToMealPlanRequest
-  { addToMealPlanRequestUsername :: !(Text) -- ^ /Required/ "username" - The username.
-  , addToMealPlanRequestHash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
+  { addToMealPlanRequestDate :: !(Double) -- ^ /Required/ "date"
+  , addToMealPlanRequestSlot :: !(Int) -- ^ /Required/ "slot"
+  , addToMealPlanRequestPosition :: !(Int) -- ^ /Required/ "position"
+  , addToMealPlanRequestType :: !(Text) -- ^ /Required/ "type"
+  , addToMealPlanRequestValue :: !(AddToMealPlanRequestValue) -- ^ /Required/ "value"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON AddToMealPlanRequest
 instance A.FromJSON AddToMealPlanRequest where
   parseJSON = A.withObject "AddToMealPlanRequest" $ \o ->
     AddToMealPlanRequest
-      <$> (o .:  "username")
-      <*> (o .:  "hash")
-
--- | ToJSON AddToMealPlanRequest
-instance A.ToJSON AddToMealPlanRequest where
-  toJSON AddToMealPlanRequest {..} =
-   _omitNulls
-      [ "username" .= addToMealPlanRequestUsername
-      , "hash" .= addToMealPlanRequestHash
-      ]
-
-
--- | Construct a value of type 'AddToMealPlanRequest' (by applying it's required fields, if any)
-mkAddToMealPlanRequest
-  :: Text -- ^ 'addToMealPlanRequestUsername': The username.
-  -> Text -- ^ 'addToMealPlanRequestHash': The private hash for the username.
-  -> AddToMealPlanRequest
-mkAddToMealPlanRequest addToMealPlanRequestUsername addToMealPlanRequestHash =
-  AddToMealPlanRequest
-  { addToMealPlanRequestUsername
-  , addToMealPlanRequestHash
-  }
-
--- ** AddToMealPlanRequest1
--- | AddToMealPlanRequest1
--- 
-data AddToMealPlanRequest1 = AddToMealPlanRequest1
-  { addToMealPlanRequest1Date :: !(Double) -- ^ /Required/ "date"
-  , addToMealPlanRequest1Slot :: !(Int) -- ^ /Required/ "slot"
-  , addToMealPlanRequest1Position :: !(Int) -- ^ /Required/ "position"
-  , addToMealPlanRequest1Type :: !(Text) -- ^ /Required/ "type"
-  , addToMealPlanRequest1Value :: !(AddToMealPlanRequest1Value) -- ^ /Required/ "value"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON AddToMealPlanRequest1
-instance A.FromJSON AddToMealPlanRequest1 where
-  parseJSON = A.withObject "AddToMealPlanRequest1" $ \o ->
-    AddToMealPlanRequest1
       <$> (o .:  "date")
       <*> (o .:  "slot")
       <*> (o .:  "position")
       <*> (o .:  "type")
       <*> (o .:  "value")
 
--- | ToJSON AddToMealPlanRequest1
-instance A.ToJSON AddToMealPlanRequest1 where
-  toJSON AddToMealPlanRequest1 {..} =
+-- | ToJSON AddToMealPlanRequest
+instance A.ToJSON AddToMealPlanRequest where
+  toJSON AddToMealPlanRequest {..} =
    _omitNulls
-      [ "date" .= addToMealPlanRequest1Date
-      , "slot" .= addToMealPlanRequest1Slot
-      , "position" .= addToMealPlanRequest1Position
-      , "type" .= addToMealPlanRequest1Type
-      , "value" .= addToMealPlanRequest1Value
+      [ "date" .= addToMealPlanRequestDate
+      , "slot" .= addToMealPlanRequestSlot
+      , "position" .= addToMealPlanRequestPosition
+      , "type" .= addToMealPlanRequestType
+      , "value" .= addToMealPlanRequestValue
       ]
 
 
--- | Construct a value of type 'AddToMealPlanRequest1' (by applying it's required fields, if any)
-mkAddToMealPlanRequest1
-  :: Double -- ^ 'addToMealPlanRequest1Date' 
-  -> Int -- ^ 'addToMealPlanRequest1Slot' 
-  -> Int -- ^ 'addToMealPlanRequest1Position' 
-  -> Text -- ^ 'addToMealPlanRequest1Type' 
-  -> AddToMealPlanRequest1Value -- ^ 'addToMealPlanRequest1Value' 
-  -> AddToMealPlanRequest1
-mkAddToMealPlanRequest1 addToMealPlanRequest1Date addToMealPlanRequest1Slot addToMealPlanRequest1Position addToMealPlanRequest1Type addToMealPlanRequest1Value =
-  AddToMealPlanRequest1
-  { addToMealPlanRequest1Date
-  , addToMealPlanRequest1Slot
-  , addToMealPlanRequest1Position
-  , addToMealPlanRequest1Type
-  , addToMealPlanRequest1Value
+-- | Construct a value of type 'AddToMealPlanRequest' (by applying it's required fields, if any)
+mkAddToMealPlanRequest
+  :: Double -- ^ 'addToMealPlanRequestDate' 
+  -> Int -- ^ 'addToMealPlanRequestSlot' 
+  -> Int -- ^ 'addToMealPlanRequestPosition' 
+  -> Text -- ^ 'addToMealPlanRequestType' 
+  -> AddToMealPlanRequestValue -- ^ 'addToMealPlanRequestValue' 
+  -> AddToMealPlanRequest
+mkAddToMealPlanRequest addToMealPlanRequestDate addToMealPlanRequestSlot addToMealPlanRequestPosition addToMealPlanRequestType addToMealPlanRequestValue =
+  AddToMealPlanRequest
+  { addToMealPlanRequestDate
+  , addToMealPlanRequestSlot
+  , addToMealPlanRequestPosition
+  , addToMealPlanRequestType
+  , addToMealPlanRequestValue
   }
 
--- ** AddToMealPlanRequest1Value
--- | AddToMealPlanRequest1Value
-data AddToMealPlanRequest1Value = AddToMealPlanRequest1Value
-  { addToMealPlanRequest1ValueIngredients :: !([AddToMealPlanRequest1ValueIngredientsInner]) -- ^ /Required/ "ingredients"
+-- ** AddToMealPlanRequestValue
+-- | AddToMealPlanRequestValue
+data AddToMealPlanRequestValue = AddToMealPlanRequestValue
+  { addToMealPlanRequestValueIngredients :: !([AddToMealPlanRequestValueIngredientsInner]) -- ^ /Required/ "ingredients"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON AddToMealPlanRequest1Value
-instance A.FromJSON AddToMealPlanRequest1Value where
-  parseJSON = A.withObject "AddToMealPlanRequest1Value" $ \o ->
-    AddToMealPlanRequest1Value
+-- | FromJSON AddToMealPlanRequestValue
+instance A.FromJSON AddToMealPlanRequestValue where
+  parseJSON = A.withObject "AddToMealPlanRequestValue" $ \o ->
+    AddToMealPlanRequestValue
       <$> (o .:  "ingredients")
 
--- | ToJSON AddToMealPlanRequest1Value
-instance A.ToJSON AddToMealPlanRequest1Value where
-  toJSON AddToMealPlanRequest1Value {..} =
+-- | ToJSON AddToMealPlanRequestValue
+instance A.ToJSON AddToMealPlanRequestValue where
+  toJSON AddToMealPlanRequestValue {..} =
    _omitNulls
-      [ "ingredients" .= addToMealPlanRequest1ValueIngredients
+      [ "ingredients" .= addToMealPlanRequestValueIngredients
       ]
 
 
--- | Construct a value of type 'AddToMealPlanRequest1Value' (by applying it's required fields, if any)
-mkAddToMealPlanRequest1Value
-  :: [AddToMealPlanRequest1ValueIngredientsInner] -- ^ 'addToMealPlanRequest1ValueIngredients' 
-  -> AddToMealPlanRequest1Value
-mkAddToMealPlanRequest1Value addToMealPlanRequest1ValueIngredients =
-  AddToMealPlanRequest1Value
-  { addToMealPlanRequest1ValueIngredients
+-- | Construct a value of type 'AddToMealPlanRequestValue' (by applying it's required fields, if any)
+mkAddToMealPlanRequestValue
+  :: [AddToMealPlanRequestValueIngredientsInner] -- ^ 'addToMealPlanRequestValueIngredients' 
+  -> AddToMealPlanRequestValue
+mkAddToMealPlanRequestValue addToMealPlanRequestValueIngredients =
+  AddToMealPlanRequestValue
+  { addToMealPlanRequestValueIngredients
   }
 
--- ** AddToMealPlanRequest1ValueIngredientsInner
--- | AddToMealPlanRequest1ValueIngredientsInner
-data AddToMealPlanRequest1ValueIngredientsInner = AddToMealPlanRequest1ValueIngredientsInner
-  { addToMealPlanRequest1ValueIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
+-- ** AddToMealPlanRequestValueIngredientsInner
+-- | AddToMealPlanRequestValueIngredientsInner
+data AddToMealPlanRequestValueIngredientsInner = AddToMealPlanRequestValueIngredientsInner
+  { addToMealPlanRequestValueIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON AddToMealPlanRequest1ValueIngredientsInner
-instance A.FromJSON AddToMealPlanRequest1ValueIngredientsInner where
-  parseJSON = A.withObject "AddToMealPlanRequest1ValueIngredientsInner" $ \o ->
-    AddToMealPlanRequest1ValueIngredientsInner
+-- | FromJSON AddToMealPlanRequestValueIngredientsInner
+instance A.FromJSON AddToMealPlanRequestValueIngredientsInner where
+  parseJSON = A.withObject "AddToMealPlanRequestValueIngredientsInner" $ \o ->
+    AddToMealPlanRequestValueIngredientsInner
       <$> (o .:  "name")
 
--- | ToJSON AddToMealPlanRequest1ValueIngredientsInner
-instance A.ToJSON AddToMealPlanRequest1ValueIngredientsInner where
-  toJSON AddToMealPlanRequest1ValueIngredientsInner {..} =
+-- | ToJSON AddToMealPlanRequestValueIngredientsInner
+instance A.ToJSON AddToMealPlanRequestValueIngredientsInner where
+  toJSON AddToMealPlanRequestValueIngredientsInner {..} =
    _omitNulls
-      [ "name" .= addToMealPlanRequest1ValueIngredientsInnerName
+      [ "name" .= addToMealPlanRequestValueIngredientsInnerName
       ]
 
 
--- | Construct a value of type 'AddToMealPlanRequest1ValueIngredientsInner' (by applying it's required fields, if any)
-mkAddToMealPlanRequest1ValueIngredientsInner
-  :: Text -- ^ 'addToMealPlanRequest1ValueIngredientsInnerName' 
-  -> AddToMealPlanRequest1ValueIngredientsInner
-mkAddToMealPlanRequest1ValueIngredientsInner addToMealPlanRequest1ValueIngredientsInnerName =
-  AddToMealPlanRequest1ValueIngredientsInner
-  { addToMealPlanRequest1ValueIngredientsInnerName
+-- | Construct a value of type 'AddToMealPlanRequestValueIngredientsInner' (by applying it's required fields, if any)
+mkAddToMealPlanRequestValueIngredientsInner
+  :: Text -- ^ 'addToMealPlanRequestValueIngredientsInnerName' 
+  -> AddToMealPlanRequestValueIngredientsInner
+mkAddToMealPlanRequestValueIngredientsInner addToMealPlanRequestValueIngredientsInnerName =
+  AddToMealPlanRequestValueIngredientsInner
+  { addToMealPlanRequestValueIngredientsInnerName
   }
 
 -- ** AddToShoppingListRequest
@@ -1210,26 +1173,29 @@ mkAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredien
 -- ** AnalyzeRecipeRequest
 -- | AnalyzeRecipeRequest
 data AnalyzeRecipeRequest = AnalyzeRecipeRequest
-  { analyzeRecipeRequestLanguage :: !(Maybe Text) -- ^ "language" - The input language, either \&quot;en\&quot; or \&quot;de\&quot;.
-  , analyzeRecipeRequestIncludeNutrition :: !(Maybe Bool) -- ^ "includeNutrition" - Whether nutrition data should be added to correctly parsed ingredients.
-  , analyzeRecipeRequestIncludeTaste :: !(Maybe Bool) -- ^ "includeTaste" - Whether taste data should be added to correctly parsed ingredients.
+  { analyzeRecipeRequestTitle :: !(Maybe Text) -- ^ "title"
+  , analyzeRecipeRequestServings :: !(Maybe Int) -- ^ "servings"
+  , analyzeRecipeRequestIngredients :: !(Maybe [Text]) -- ^ "ingredients"
+  , analyzeRecipeRequestInstructions :: !(Maybe Text) -- ^ "instructions"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON AnalyzeRecipeRequest
 instance A.FromJSON AnalyzeRecipeRequest where
   parseJSON = A.withObject "AnalyzeRecipeRequest" $ \o ->
     AnalyzeRecipeRequest
-      <$> (o .:? "language")
-      <*> (o .:? "includeNutrition")
-      <*> (o .:? "includeTaste")
+      <$> (o .:? "title")
+      <*> (o .:? "servings")
+      <*> (o .:? "ingredients")
+      <*> (o .:? "instructions")
 
 -- | ToJSON AnalyzeRecipeRequest
 instance A.ToJSON AnalyzeRecipeRequest where
   toJSON AnalyzeRecipeRequest {..} =
    _omitNulls
-      [ "language" .= analyzeRecipeRequestLanguage
-      , "includeNutrition" .= analyzeRecipeRequestIncludeNutrition
-      , "includeTaste" .= analyzeRecipeRequestIncludeTaste
+      [ "title" .= analyzeRecipeRequestTitle
+      , "servings" .= analyzeRecipeRequestServings
+      , "ingredients" .= analyzeRecipeRequestIngredients
+      , "instructions" .= analyzeRecipeRequestInstructions
       ]
 
 
@@ -1238,49 +1204,10 @@ mkAnalyzeRecipeRequest
   :: AnalyzeRecipeRequest
 mkAnalyzeRecipeRequest =
   AnalyzeRecipeRequest
-  { analyzeRecipeRequestLanguage = Nothing
-  , analyzeRecipeRequestIncludeNutrition = Nothing
-  , analyzeRecipeRequestIncludeTaste = Nothing
-  }
-
--- ** AnalyzeRecipeRequest1
--- | AnalyzeRecipeRequest1
-data AnalyzeRecipeRequest1 = AnalyzeRecipeRequest1
-  { analyzeRecipeRequest1Title :: !(Maybe Text) -- ^ "title"
-  , analyzeRecipeRequest1Servings :: !(Maybe Int) -- ^ "servings"
-  , analyzeRecipeRequest1Ingredients :: !(Maybe [Text]) -- ^ "ingredients"
-  , analyzeRecipeRequest1Instructions :: !(Maybe Text) -- ^ "instructions"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON AnalyzeRecipeRequest1
-instance A.FromJSON AnalyzeRecipeRequest1 where
-  parseJSON = A.withObject "AnalyzeRecipeRequest1" $ \o ->
-    AnalyzeRecipeRequest1
-      <$> (o .:? "title")
-      <*> (o .:? "servings")
-      <*> (o .:? "ingredients")
-      <*> (o .:? "instructions")
-
--- | ToJSON AnalyzeRecipeRequest1
-instance A.ToJSON AnalyzeRecipeRequest1 where
-  toJSON AnalyzeRecipeRequest1 {..} =
-   _omitNulls
-      [ "title" .= analyzeRecipeRequest1Title
-      , "servings" .= analyzeRecipeRequest1Servings
-      , "ingredients" .= analyzeRecipeRequest1Ingredients
-      , "instructions" .= analyzeRecipeRequest1Instructions
-      ]
-
-
--- | Construct a value of type 'AnalyzeRecipeRequest1' (by applying it's required fields, if any)
-mkAnalyzeRecipeRequest1
-  :: AnalyzeRecipeRequest1
-mkAnalyzeRecipeRequest1 =
-  AnalyzeRecipeRequest1
-  { analyzeRecipeRequest1Title = Nothing
-  , analyzeRecipeRequest1Servings = Nothing
-  , analyzeRecipeRequest1Ingredients = Nothing
-  , analyzeRecipeRequest1Instructions = Nothing
+  { analyzeRecipeRequestTitle = Nothing
+  , analyzeRecipeRequestServings = Nothing
+  , analyzeRecipeRequestIngredients = Nothing
+  , analyzeRecipeRequestInstructions = Nothing
   }
 
 -- ** AutocompleteIngredientSearch200ResponseInner
@@ -1680,45 +1607,6 @@ mkClassifyGroceryProductRequest classifyGroceryProductRequestTitle classifyGroce
   , classifyGroceryProductRequestPluCode
   }
 
--- ** ClearMealPlanDayRequest
--- | ClearMealPlanDayRequest
-data ClearMealPlanDayRequest = ClearMealPlanDayRequest
-  { clearMealPlanDayRequestUsername :: !(Text) -- ^ /Required/ "username" - The username.
-  , clearMealPlanDayRequestDate :: !(Text) -- ^ /Required/ "date" - The date in the format yyyy-mm-dd.
-  , clearMealPlanDayRequestHash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ClearMealPlanDayRequest
-instance A.FromJSON ClearMealPlanDayRequest where
-  parseJSON = A.withObject "ClearMealPlanDayRequest" $ \o ->
-    ClearMealPlanDayRequest
-      <$> (o .:  "username")
-      <*> (o .:  "date")
-      <*> (o .:  "hash")
-
--- | ToJSON ClearMealPlanDayRequest
-instance A.ToJSON ClearMealPlanDayRequest where
-  toJSON ClearMealPlanDayRequest {..} =
-   _omitNulls
-      [ "username" .= clearMealPlanDayRequestUsername
-      , "date" .= clearMealPlanDayRequestDate
-      , "hash" .= clearMealPlanDayRequestHash
-      ]
-
-
--- | Construct a value of type 'ClearMealPlanDayRequest' (by applying it's required fields, if any)
-mkClearMealPlanDayRequest
-  :: Text -- ^ 'clearMealPlanDayRequestUsername': The username.
-  -> Text -- ^ 'clearMealPlanDayRequestDate': The date in the format yyyy-mm-dd.
-  -> Text -- ^ 'clearMealPlanDayRequestHash': The private hash for the username.
-  -> ClearMealPlanDayRequest
-mkClearMealPlanDayRequest clearMealPlanDayRequestUsername clearMealPlanDayRequestDate clearMealPlanDayRequestHash =
-  ClearMealPlanDayRequest
-  { clearMealPlanDayRequestUsername
-  , clearMealPlanDayRequestDate
-  , clearMealPlanDayRequestHash
-  }
-
 -- ** ComputeGlycemicLoad200Response
 -- | ComputeGlycemicLoad200Response
 -- 
@@ -2023,45 +1911,6 @@ mkCreateRecipeCard200Response createRecipeCard200ResponseUrl =
   { createRecipeCard200ResponseUrl
   }
 
--- ** DeleteFromMealPlanRequest
--- | DeleteFromMealPlanRequest
-data DeleteFromMealPlanRequest = DeleteFromMealPlanRequest
-  { deleteFromMealPlanRequestUsername :: !(Text) -- ^ /Required/ "username" - The username.
-  , deleteFromMealPlanRequestId :: !(Double) -- ^ /Required/ "id" - The shopping list item id.
-  , deleteFromMealPlanRequestHash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON DeleteFromMealPlanRequest
-instance A.FromJSON DeleteFromMealPlanRequest where
-  parseJSON = A.withObject "DeleteFromMealPlanRequest" $ \o ->
-    DeleteFromMealPlanRequest
-      <$> (o .:  "username")
-      <*> (o .:  "id")
-      <*> (o .:  "hash")
-
--- | ToJSON DeleteFromMealPlanRequest
-instance A.ToJSON DeleteFromMealPlanRequest where
-  toJSON DeleteFromMealPlanRequest {..} =
-   _omitNulls
-      [ "username" .= deleteFromMealPlanRequestUsername
-      , "id" .= deleteFromMealPlanRequestId
-      , "hash" .= deleteFromMealPlanRequestHash
-      ]
-
-
--- | Construct a value of type 'DeleteFromMealPlanRequest' (by applying it's required fields, if any)
-mkDeleteFromMealPlanRequest
-  :: Text -- ^ 'deleteFromMealPlanRequestUsername': The username.
-  -> Double -- ^ 'deleteFromMealPlanRequestId': The shopping list item id.
-  -> Text -- ^ 'deleteFromMealPlanRequestHash': The private hash for the username.
-  -> DeleteFromMealPlanRequest
-mkDeleteFromMealPlanRequest deleteFromMealPlanRequestUsername deleteFromMealPlanRequestId deleteFromMealPlanRequestHash =
-  DeleteFromMealPlanRequest
-  { deleteFromMealPlanRequestUsername
-  , deleteFromMealPlanRequestId
-  , deleteFromMealPlanRequestHash
-  }
-
 -- ** DetectFoodInText200Response
 -- | DetectFoodInText200Response
 -- 
@@ -2253,50 +2102,6 @@ mkGenerateShoppingList200Response generateShoppingList200ResponseAisles generate
   , generateShoppingList200ResponseCost
   , generateShoppingList200ResponseStartDate
   , generateShoppingList200ResponseEndDate
-  }
-
--- ** GenerateShoppingListRequest
--- | GenerateShoppingListRequest
-data GenerateShoppingListRequest = GenerateShoppingListRequest
-  { generateShoppingListRequestUsername :: !(Text) -- ^ /Required/ "username" - The username.
-  , generateShoppingListRequestStartDate :: !(Text) -- ^ /Required/ "start-date" - The start date in the format yyyy-mm-dd.
-  , generateShoppingListRequestEndDate :: !(Text) -- ^ /Required/ "end-date" - The end date in the format yyyy-mm-dd.
-  , generateShoppingListRequestHash :: !(Text) -- ^ /Required/ "hash" - The private hash for the username.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GenerateShoppingListRequest
-instance A.FromJSON GenerateShoppingListRequest where
-  parseJSON = A.withObject "GenerateShoppingListRequest" $ \o ->
-    GenerateShoppingListRequest
-      <$> (o .:  "username")
-      <*> (o .:  "start-date")
-      <*> (o .:  "end-date")
-      <*> (o .:  "hash")
-
--- | ToJSON GenerateShoppingListRequest
-instance A.ToJSON GenerateShoppingListRequest where
-  toJSON GenerateShoppingListRequest {..} =
-   _omitNulls
-      [ "username" .= generateShoppingListRequestUsername
-      , "start-date" .= generateShoppingListRequestStartDate
-      , "end-date" .= generateShoppingListRequestEndDate
-      , "hash" .= generateShoppingListRequestHash
-      ]
-
-
--- | Construct a value of type 'GenerateShoppingListRequest' (by applying it's required fields, if any)
-mkGenerateShoppingListRequest
-  :: Text -- ^ 'generateShoppingListRequestUsername': The username.
-  -> Text -- ^ 'generateShoppingListRequestStartDate': The start date in the format yyyy-mm-dd.
-  -> Text -- ^ 'generateShoppingListRequestEndDate': The end date in the format yyyy-mm-dd.
-  -> Text -- ^ 'generateShoppingListRequestHash': The private hash for the username.
-  -> GenerateShoppingListRequest
-mkGenerateShoppingListRequest generateShoppingListRequestUsername generateShoppingListRequestStartDate generateShoppingListRequestEndDate generateShoppingListRequestHash =
-  GenerateShoppingListRequest
-  { generateShoppingListRequestUsername
-  , generateShoppingListRequestStartDate
-  , generateShoppingListRequestEndDate
-  , generateShoppingListRequestHash
   }
 
 -- ** GetARandomFoodJoke200Response

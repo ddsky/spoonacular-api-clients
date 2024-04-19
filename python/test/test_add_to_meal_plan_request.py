@@ -36,13 +36,27 @@ class TestAddToMealPlanRequest(unittest.TestCase):
         model = AddToMealPlanRequest()
         if include_optional:
             return AddToMealPlanRequest(
-                username = 'dsky',
-                hash = '4b5v4398573406'
+                var_date = 1.337,
+                slot = 56,
+                position = 56,
+                type = '0',
+                value = spoonacular.models.add_to_meal_plan_request_value.addToMealPlan_request_value(
+                    ingredients = [
+                        spoonacular.models.add_to_meal_plan_request_value_ingredients_inner.addToMealPlan_request_value_ingredients_inner(
+                            name = '0', )
+                        ], )
             )
         else:
             return AddToMealPlanRequest(
-                username = 'dsky',
-                hash = '4b5v4398573406',
+                var_date = 1.337,
+                slot = 56,
+                position = 56,
+                type = '0',
+                value = spoonacular.models.add_to_meal_plan_request_value.addToMealPlan_request_value(
+                    ingredients = [
+                        spoonacular.models.add_to_meal_plan_request_value_ingredients_inner.addToMealPlan_request_value_ingredients_inner(
+                            name = '0', )
+                        ], ),
         )
         """
 

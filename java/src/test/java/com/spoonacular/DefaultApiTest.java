@@ -15,7 +15,6 @@ package com.spoonacular;
 
 import com.spoonacular.client.ApiException;
 import com.spoonacular.client.model.AnalyzeRecipeRequest;
-import com.spoonacular.client.model.AnalyzeRecipeRequest1;
 import java.math.BigDecimal;
 import com.spoonacular.client.model.SearchRestaurants200Response;
 import org.junit.jupiter.api.Disabled;

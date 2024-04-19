@@ -17,9 +17,8 @@ import AddMealPlanTemplate200Response from './model/AddMealPlanTemplate200Respon
 import AddMealPlanTemplate200ResponseItemsInner from './model/AddMealPlanTemplate200ResponseItemsInner';
 import AddMealPlanTemplate200ResponseItemsInnerValue from './model/AddMealPlanTemplate200ResponseItemsInnerValue';
 import AddToMealPlanRequest from './model/AddToMealPlanRequest';
-import AddToMealPlanRequest1 from './model/AddToMealPlanRequest1';
-import AddToMealPlanRequest1Value from './model/AddToMealPlanRequest1Value';
-import AddToMealPlanRequest1ValueIngredientsInner from './model/AddToMealPlanRequest1ValueIngredientsInner';
+import AddToMealPlanRequestValue from './model/AddToMealPlanRequestValue';
+import AddToMealPlanRequestValueIngredientsInner from './model/AddToMealPlanRequestValueIngredientsInner';
 import AddToShoppingListRequest from './model/AddToShoppingListRequest';
 import AnalyzeARecipeSearchQuery200Response from './model/AnalyzeARecipeSearchQuery200Response';
 import AnalyzeARecipeSearchQuery200ResponseDishesInner from './model/AnalyzeARecipeSearchQuery200ResponseDishesInner';
@@ -30,7 +29,6 @@ import AnalyzeRecipeInstructions200ResponseParsedInstructionsInner from './model
 import AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner from './model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
 import AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner from './model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
 import AnalyzeRecipeRequest from './model/AnalyzeRecipeRequest';
-import AnalyzeRecipeRequest1 from './model/AnalyzeRecipeRequest1';
 import AutocompleteIngredientSearch200ResponseInner from './model/AutocompleteIngredientSearch200ResponseInner';
 import AutocompleteMenuItemSearch200Response from './model/AutocompleteMenuItemSearch200Response';
 import AutocompleteProductSearch200Response from './model/AutocompleteProductSearch200Response';
@@ -41,7 +39,6 @@ import ClassifyGroceryProduct200Response from './model/ClassifyGroceryProduct200
 import ClassifyGroceryProductBulk200ResponseInner from './model/ClassifyGroceryProductBulk200ResponseInner';
 import ClassifyGroceryProductBulkRequestInner from './model/ClassifyGroceryProductBulkRequestInner';
 import ClassifyGroceryProductRequest from './model/ClassifyGroceryProductRequest';
-import ClearMealPlanDayRequest from './model/ClearMealPlanDayRequest';
 import ComputeGlycemicLoad200Response from './model/ComputeGlycemicLoad200Response';
 import ComputeGlycemicLoad200ResponseIngredientsInner from './model/ComputeGlycemicLoad200ResponseIngredientsInner';
 import ComputeGlycemicLoadRequest from './model/ComputeGlycemicLoadRequest';
@@ -50,13 +47,11 @@ import ConnectUser200Response from './model/ConnectUser200Response';
 import ConnectUserRequest from './model/ConnectUserRequest';
 import ConvertAmounts200Response from './model/ConvertAmounts200Response';
 import CreateRecipeCard200Response from './model/CreateRecipeCard200Response';
-import DeleteFromMealPlanRequest from './model/DeleteFromMealPlanRequest';
 import DetectFoodInText200Response from './model/DetectFoodInText200Response';
 import DetectFoodInText200ResponseAnnotationsInner from './model/DetectFoodInText200ResponseAnnotationsInner';
 import GenerateMealPlan200Response from './model/GenerateMealPlan200Response';
 import GenerateMealPlan200ResponseNutrients from './model/GenerateMealPlan200ResponseNutrients';
 import GenerateShoppingList200Response from './model/GenerateShoppingList200Response';
-import GenerateShoppingListRequest from './model/GenerateShoppingListRequest';
 import GetARandomFoodJoke200Response from './model/GetARandomFoodJoke200Response';
 import GetAnalyzedRecipeInstructions200Response from './model/GetAnalyzedRecipeInstructions200Response';
 import GetAnalyzedRecipeInstructions200ResponseIngredientsInner from './model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
@@ -245,22 +240,16 @@ export {
     AddToMealPlanRequest,
 
     /**
-     * The AddToMealPlanRequest1 model constructor.
-     * @property {module:model/AddToMealPlanRequest1}
+     * The AddToMealPlanRequestValue model constructor.
+     * @property {module:model/AddToMealPlanRequestValue}
      */
-    AddToMealPlanRequest1,
+    AddToMealPlanRequestValue,
 
     /**
-     * The AddToMealPlanRequest1Value model constructor.
-     * @property {module:model/AddToMealPlanRequest1Value}
+     * The AddToMealPlanRequestValueIngredientsInner model constructor.
+     * @property {module:model/AddToMealPlanRequestValueIngredientsInner}
      */
-    AddToMealPlanRequest1Value,
-
-    /**
-     * The AddToMealPlanRequest1ValueIngredientsInner model constructor.
-     * @property {module:model/AddToMealPlanRequest1ValueIngredientsInner}
-     */
-    AddToMealPlanRequest1ValueIngredientsInner,
+    AddToMealPlanRequestValueIngredientsInner,
 
     /**
      * The AddToShoppingListRequest model constructor.
@@ -323,12 +312,6 @@ export {
     AnalyzeRecipeRequest,
 
     /**
-     * The AnalyzeRecipeRequest1 model constructor.
-     * @property {module:model/AnalyzeRecipeRequest1}
-     */
-    AnalyzeRecipeRequest1,
-
-    /**
      * The AutocompleteIngredientSearch200ResponseInner model constructor.
      * @property {module:model/AutocompleteIngredientSearch200ResponseInner}
      */
@@ -389,12 +372,6 @@ export {
     ClassifyGroceryProductRequest,
 
     /**
-     * The ClearMealPlanDayRequest model constructor.
-     * @property {module:model/ClearMealPlanDayRequest}
-     */
-    ClearMealPlanDayRequest,
-
-    /**
      * The ComputeGlycemicLoad200Response model constructor.
      * @property {module:model/ComputeGlycemicLoad200Response}
      */
@@ -443,12 +420,6 @@ export {
     CreateRecipeCard200Response,
 
     /**
-     * The DeleteFromMealPlanRequest model constructor.
-     * @property {module:model/DeleteFromMealPlanRequest}
-     */
-    DeleteFromMealPlanRequest,
-
-    /**
      * The DetectFoodInText200Response model constructor.
      * @property {module:model/DetectFoodInText200Response}
      */
@@ -477,12 +448,6 @@ export {
      * @property {module:model/GenerateShoppingList200Response}
      */
     GenerateShoppingList200Response,
-
-    /**
-     * The GenerateShoppingListRequest model constructor.
-     * @property {module:model/GenerateShoppingListRequest}
-     */
-    GenerateShoppingListRequest,
 
     /**
      * The GetARandomFoodJoke200Response model constructor.

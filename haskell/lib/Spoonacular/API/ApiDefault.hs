@@ -69,11 +69,10 @@ import qualified Prelude as P
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 analyzeRecipe
-  :: (Consumes AnalyzeRecipe contentType, MimeRender contentType AnalyzeRecipeRequest)
-  => ContentType contentType -- ^ request content-type ('MimeType')
-  -> AnalyzeRecipeRequest -- ^ "analyzeRecipeRequest" -  Example request body.
-  -> SpoonacularRequest AnalyzeRecipe contentType A.Value MimeJSON
-analyzeRecipe _ analyzeRecipeRequest =
+  :: (Consumes AnalyzeRecipe MimeJSON, MimeRender MimeJSON AnalyzeRecipeRequest)
+  => AnalyzeRecipeRequest -- ^ "analyzeRecipeRequest" -  Example request body.
+  -> SpoonacularRequest AnalyzeRecipe MimeJSON A.Value MimeJSON
+analyzeRecipe analyzeRecipeRequest =
   _mkRequest "POST" ["/recipes/analyze"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `setBodyParam` analyzeRecipeRequest
@@ -98,8 +97,6 @@ instance HasOptionalParam AnalyzeRecipe IncludeTaste where
   applyOptionalParam req (IncludeTaste xs) =
     req `addQuery` toQuery ("includeTaste", Just xs)
 
--- | @@
-instance Consumes AnalyzeRecipe 
 -- | @application/json@
 instance Consumes AnalyzeRecipe MimeJSON
 

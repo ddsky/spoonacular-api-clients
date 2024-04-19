@@ -23,7 +23,7 @@ All URIs are relative to https://api.spoonacular.com, except if the operation de
 ## `addMealPlanTemplate()`
 
 ```php
-addMealPlanTemplate($username, $hash, $add_to_meal_plan_request): \OpenAPI\Client\Model\AddMealPlanTemplate200Response
+addMealPlanTemplate($username, $hash): \OpenAPI\Client\Model\AddMealPlanTemplate200Response
 ```
 
 Add Meal Plan Template
@@ -51,10 +51,9 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 4b5v4398573406; // string | The private hash for the username.
-$add_to_meal_plan_request = new \OpenAPI\Client\Model\AddToMealPlanRequest(); // \OpenAPI\Client\Model\AddToMealPlanRequest
 
 try {
-    $result = $apiInstance->addMealPlanTemplate($username, $hash, $add_to_meal_plan_request);
+    $result = $apiInstance->addMealPlanTemplate($username, $hash);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->addMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
@@ -67,7 +66,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **username** | **string**| The username. | |
 | **hash** | **string**| The private hash for the username. | |
-| **add_to_meal_plan_request** | [**\OpenAPI\Client\Model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -79,7 +77,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -117,7 +115,7 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$add_to_meal_plan_request = new \OpenAPI\Client\Model\AddToMealPlanRequest(); // \OpenAPI\Client\Model\AddToMealPlanRequest
+$add_to_meal_plan_request = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}}; // \OpenAPI\Client\Model\AddToMealPlanRequest
 
 try {
     $result = $apiInstance->addToMealPlan($username, $hash, $add_to_meal_plan_request);
@@ -145,7 +143,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``, `application/json`
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -155,7 +153,7 @@ try {
 ## `addToShoppingList()`
 
 ```php
-addToShoppingList($username, $hash, $add_to_meal_plan_request): \OpenAPI\Client\Model\GenerateShoppingList200Response
+addToShoppingList($username, $hash, $add_to_shopping_list_request): \OpenAPI\Client\Model\GenerateShoppingList200Response
 ```
 
 Add to Shopping List
@@ -183,10 +181,10 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 );
 $username = dsky; // string | The username.
 $hash = 'hash_example'; // string | The private hash for the username.
-$add_to_meal_plan_request = new \OpenAPI\Client\Model\AddToMealPlanRequest(); // \OpenAPI\Client\Model\AddToMealPlanRequest
+$add_to_shopping_list_request = {"item":"1 package baking powder","aisle":"Baking","parse":true}; // \OpenAPI\Client\Model\AddToShoppingListRequest
 
 try {
-    $result = $apiInstance->addToShoppingList($username, $hash, $add_to_meal_plan_request);
+    $result = $apiInstance->addToShoppingList($username, $hash, $add_to_shopping_list_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->addToShoppingList: ', $e->getMessage(), PHP_EOL;
@@ -199,7 +197,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **username** | **string**| The username. | |
 | **hash** | **string**| The private hash for the username. | |
-| **add_to_meal_plan_request** | [**\OpenAPI\Client\Model\AddToMealPlanRequest**](../Model/AddToMealPlanRequest.md)|  | |
+| **add_to_shopping_list_request** | [**\OpenAPI\Client\Model\AddToShoppingListRequest**](../Model/AddToShoppingListRequest.md)|  | |
 
 ### Return type
 
@@ -211,7 +209,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``, `application/json`
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -221,7 +219,7 @@ try {
 ## `clearMealPlanDay()`
 
 ```php
-clearMealPlanDay($username, $date, $hash, $clear_meal_plan_day_request): object
+clearMealPlanDay($username, $date, $hash): object
 ```
 
 Clear Meal Plan Day
@@ -250,10 +248,9 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $date = 2020-06-01; // string | The date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$clear_meal_plan_day_request = new \OpenAPI\Client\Model\ClearMealPlanDayRequest(); // \OpenAPI\Client\Model\ClearMealPlanDayRequest
 
 try {
-    $result = $apiInstance->clearMealPlanDay($username, $date, $hash, $clear_meal_plan_day_request);
+    $result = $apiInstance->clearMealPlanDay($username, $date, $hash);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->clearMealPlanDay: ', $e->getMessage(), PHP_EOL;
@@ -267,7 +264,6 @@ try {
 | **username** | **string**| The username. | |
 | **date** | **string**| The date in the format yyyy-mm-dd. | |
 | **hash** | **string**| The private hash for the username. | |
-| **clear_meal_plan_day_request** | [**\OpenAPI\Client\Model\ClearMealPlanDayRequest**](../Model/ClearMealPlanDayRequest.md)|  | |
 
 ### Return type
 
@@ -279,7 +275,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -289,7 +285,7 @@ try {
 ## `connectUser()`
 
 ```php
-connectUser($body): \OpenAPI\Client\Model\ConnectUser200Response
+connectUser($connect_user_request): \OpenAPI\Client\Model\ConnectUser200Response
 ```
 
 Connect User
@@ -315,10 +311,10 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array('key' => new \stdClass); // object
+$connect_user_request = {"username":"your user's name","firstName":"your user's first name","lastName":"your user's last name","email":"your user's email"}; // \OpenAPI\Client\Model\ConnectUserRequest
 
 try {
-    $result = $apiInstance->connectUser($body);
+    $result = $apiInstance->connectUser($connect_user_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->connectUser: ', $e->getMessage(), PHP_EOL;
@@ -329,7 +325,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **body** | **object**|  | |
+| **connect_user_request** | [**\OpenAPI\Client\Model\ConnectUserRequest**](../Model/ConnectUserRequest.md)|  | |
 
 ### Return type
 
@@ -341,7 +337,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``, `application/json`
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -351,7 +347,7 @@ try {
 ## `deleteFromMealPlan()`
 
 ```php
-deleteFromMealPlan($username, $id, $hash, $delete_from_meal_plan_request): object
+deleteFromMealPlan($username, $id, $hash): object
 ```
 
 Delete from Meal Plan
@@ -380,10 +376,9 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 15678; // float | The shopping list item id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$delete_from_meal_plan_request = new \OpenAPI\Client\Model\DeleteFromMealPlanRequest(); // \OpenAPI\Client\Model\DeleteFromMealPlanRequest
 
 try {
-    $result = $apiInstance->deleteFromMealPlan($username, $id, $hash, $delete_from_meal_plan_request);
+    $result = $apiInstance->deleteFromMealPlan($username, $id, $hash);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteFromMealPlan: ', $e->getMessage(), PHP_EOL;
@@ -397,7 +392,6 @@ try {
 | **username** | **string**| The username. | |
 | **id** | **float**| The shopping list item id. | |
 | **hash** | **string**| The private hash for the username. | |
-| **delete_from_meal_plan_request** | [**\OpenAPI\Client\Model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -409,7 +403,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -419,7 +413,7 @@ try {
 ## `deleteFromShoppingList()`
 
 ```php
-deleteFromShoppingList($username, $id, $hash, $delete_from_meal_plan_request): object
+deleteFromShoppingList($username, $id, $hash): object
 ```
 
 Delete from Shopping List
@@ -448,10 +442,9 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 'hash_example'; // string | The private hash for the username.
-$delete_from_meal_plan_request = new \OpenAPI\Client\Model\DeleteFromMealPlanRequest(); // \OpenAPI\Client\Model\DeleteFromMealPlanRequest
 
 try {
-    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash, $delete_from_meal_plan_request);
+    $result = $apiInstance->deleteFromShoppingList($username, $id, $hash);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteFromShoppingList: ', $e->getMessage(), PHP_EOL;
@@ -465,7 +458,6 @@ try {
 | **username** | **string**| The username. | |
 | **id** | **int**| The item&#39;s id. | |
 | **hash** | **string**| The private hash for the username. | |
-| **delete_from_meal_plan_request** | [**\OpenAPI\Client\Model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -477,7 +469,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -487,7 +479,7 @@ try {
 ## `deleteMealPlanTemplate()`
 
 ```php
-deleteMealPlanTemplate($username, $id, $hash, $delete_from_meal_plan_request): object
+deleteMealPlanTemplate($username, $id, $hash): object
 ```
 
 Delete Meal Plan Template
@@ -516,10 +508,9 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
 $username = dsky; // string | The username.
 $id = 1; // int | The item's id.
 $hash = 4b5v4398573406; // string | The private hash for the username.
-$delete_from_meal_plan_request = new \OpenAPI\Client\Model\DeleteFromMealPlanRequest(); // \OpenAPI\Client\Model\DeleteFromMealPlanRequest
 
 try {
-    $result = $apiInstance->deleteMealPlanTemplate($username, $id, $hash, $delete_from_meal_plan_request);
+    $result = $apiInstance->deleteMealPlanTemplate($username, $id, $hash);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->deleteMealPlanTemplate: ', $e->getMessage(), PHP_EOL;
@@ -533,7 +524,6 @@ try {
 | **username** | **string**| The username. | |
 | **id** | **int**| The item&#39;s id. | |
 | **hash** | **string**| The private hash for the username. | |
-| **delete_from_meal_plan_request** | [**\OpenAPI\Client\Model\DeleteFromMealPlanRequest**](../Model/DeleteFromMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -545,7 +535,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -623,7 +613,7 @@ try {
 ## `generateShoppingList()`
 
 ```php
-generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request): \OpenAPI\Client\Model\GenerateShoppingList200Response
+generateShoppingList($username, $start_date, $end_date, $hash): \OpenAPI\Client\Model\GenerateShoppingList200Response
 ```
 
 Generate Shopping List
@@ -653,10 +643,9 @@ $username = dsky; // string | The username.
 $start_date = 2020-06-01; // string | The start date in the format yyyy-mm-dd.
 $end_date = 2020-06-07; // string | The end date in the format yyyy-mm-dd.
 $hash = 'hash_example'; // string | The private hash for the username.
-$generate_shopping_list_request = new \OpenAPI\Client\Model\GenerateShoppingListRequest(); // \OpenAPI\Client\Model\GenerateShoppingListRequest
 
 try {
-    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash, $generate_shopping_list_request);
+    $result = $apiInstance->generateShoppingList($username, $start_date, $end_date, $hash);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MealPlanningApi->generateShoppingList: ', $e->getMessage(), PHP_EOL;
@@ -671,7 +660,6 @@ try {
 | **start_date** | **string**| The start date in the format yyyy-mm-dd. | |
 | **end_date** | **string**| The end date in the format yyyy-mm-dd. | |
 | **hash** | **string**| The private hash for the username. | |
-| **generate_shopping_list_request** | [**\OpenAPI\Client\Model\GenerateShoppingListRequest**](../Model/GenerateShoppingListRequest.md)|  | |
 
 ### Return type
 
@@ -683,7 +671,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: ``
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

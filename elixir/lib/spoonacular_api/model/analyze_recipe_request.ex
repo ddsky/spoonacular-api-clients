@@ -8,15 +8,17 @@ defmodule SpoonacularAPI.Model.AnalyzeRecipeRequest do
 
   @derive Jason.Encoder
   defstruct [
-    :language,
-    :includeNutrition,
-    :includeTaste
+    :title,
+    :servings,
+    :ingredients,
+    :instructions
   ]
 
   @type t :: %__MODULE__{
-    :language => String.t | nil,
-    :includeNutrition => boolean() | nil,
-    :includeTaste => boolean() | nil
+    :title => String.t | nil,
+    :servings => integer() | nil,
+    :ingredients => [String.t] | nil,
+    :instructions => String.t | nil
   }
 
   def decode(value) do

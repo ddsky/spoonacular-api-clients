@@ -9,16 +9,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { AddToMealPlanRequestValue } from './addToMealPlanRequestValue';
 
 
+/**
+ * 
+ */
 export interface AddToMealPlanRequest { 
-    /**
-     * The username.
-     */
-    username: string;
-    /**
-     * The private hash for the username.
-     */
-    hash: string;
+    date: number;
+    slot: number;
+    position: number;
+    type: string;
+    value: AddToMealPlanRequestValue;
 }
 

@@ -22,25 +22,26 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param language The input language, either \"en\" or \"de\".
- * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
- * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
+ * @param title 
+ * @param servings 
+ * @param ingredients 
+ * @param instructions 
  */
 
 
 data class AnalyzeRecipeRequest (
 
-    /* The input language, either \"en\" or \"de\". */
-    @Json(name = "language")
-    val language: kotlin.String? = null,
+    @Json(name = "title")
+    val title: kotlin.String? = null,
 
-    /* Whether nutrition data should be added to correctly parsed ingredients. */
-    @Json(name = "includeNutrition")
-    val includeNutrition: kotlin.Boolean? = null,
+    @Json(name = "servings")
+    val servings: kotlin.Int? = null,
 
-    /* Whether taste data should be added to correctly parsed ingredients. */
-    @Json(name = "includeTaste")
-    val includeTaste: kotlin.Boolean? = null
+    @Json(name = "ingredients")
+    val ingredients: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "instructions")
+    val instructions: kotlin.String? = null
 
 )
 

@@ -3,11 +3,19 @@ package org.openapitools.model;
 import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
+import org.openapitools.model.AddToMealPlanRequestValue;
 
 @Canonical
 class AddToMealPlanRequest {
-    /* The username. */
-    String username
-    /* The private hash for the username. */
-    String hash
+    
+    BigDecimal date
+    
+    Integer slot
+    
+    Integer position
+    
+    String type
+    
+    AddToMealPlanRequestValue value
 }

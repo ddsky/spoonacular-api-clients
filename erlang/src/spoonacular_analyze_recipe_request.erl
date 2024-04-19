@@ -5,16 +5,19 @@
 -export_type([spoonacular_analyze_recipe_request/0]).
 
 -type spoonacular_analyze_recipe_request() ::
-    #{ 'language' => binary(),
-       'includeNutrition' => boolean(),
-       'includeTaste' => boolean()
+    #{ 'title' => binary(),
+       'servings' => integer(),
+       'ingredients' => list(),
+       'instructions' => binary()
      }.
 
-encode(#{ 'language' := Language,
-          'includeNutrition' := IncludeNutrition,
-          'includeTaste' := IncludeTaste
+encode(#{ 'title' := Title,
+          'servings' := Servings,
+          'ingredients' := Ingredients,
+          'instructions' := Instructions
         }) ->
-    #{ 'language' => Language,
-       'includeNutrition' => IncludeNutrition,
-       'includeTaste' => IncludeTaste
+    #{ 'title' => Title,
+       'servings' => Servings,
+       'ingredients' => Ingredients,
+       'instructions' => Instructions
      }.

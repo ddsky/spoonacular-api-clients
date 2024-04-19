@@ -6,9 +6,8 @@ docs/AddMealPlanTemplate200Response.md
 docs/AddMealPlanTemplate200ResponseItemsInner.md
 docs/AddMealPlanTemplate200ResponseItemsInnerValue.md
 docs/AddToMealPlanRequest.md
-docs/AddToMealPlanRequest1.md
-docs/AddToMealPlanRequest1Value.md
-docs/AddToMealPlanRequest1ValueIngredientsInner.md
+docs/AddToMealPlanRequestValue.md
+docs/AddToMealPlanRequestValueIngredientsInner.md
 docs/AddToShoppingListRequest.md
 docs/AnalyzeARecipeSearchQuery200Response.md
 docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md
@@ -19,7 +18,6 @@ docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
 docs/AnalyzeRecipeRequest.md
-docs/AnalyzeRecipeRequest1.md
 docs/AutocompleteIngredientSearch200ResponseInner.md
 docs/AutocompleteMenuItemSearch200Response.md
 docs/AutocompleteProductSearch200Response.md
@@ -30,7 +28,6 @@ docs/ClassifyGroceryProduct200Response.md
 docs/ClassifyGroceryProductBulk200ResponseInner.md
 docs/ClassifyGroceryProductBulkRequestInner.md
 docs/ClassifyGroceryProductRequest.md
-docs/ClearMealPlanDayRequest.md
 docs/ComputeGlycemicLoad200Response.md
 docs/ComputeGlycemicLoad200ResponseIngredientsInner.md
 docs/ComputeGlycemicLoadRequest.md
@@ -40,13 +37,11 @@ docs/ConnectUserRequest.md
 docs/ConvertAmounts200Response.md
 docs/CreateRecipeCard200Response.md
 docs/DefaultApi.md
-docs/DeleteFromMealPlanRequest.md
 docs/DetectFoodInText200Response.md
 docs/DetectFoodInText200ResponseAnnotationsInner.md
 docs/GenerateMealPlan200Response.md
 docs/GenerateMealPlan200ResponseNutrients.md
 docs/GenerateShoppingList200Response.md
-docs/GenerateShoppingListRequest.md
 docs/GetARandomFoodJoke200Response.md
 docs/GetAnalyzedRecipeInstructions200Response.md
 docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md
@@ -195,9 +190,8 @@ src/main/java/com/spoonacular/client/model/AddMealPlanTemplate200Response.java
 src/main/java/com/spoonacular/client/model/AddMealPlanTemplate200ResponseItemsInner.java
 src/main/java/com/spoonacular/client/model/AddMealPlanTemplate200ResponseItemsInnerValue.java
 src/main/java/com/spoonacular/client/model/AddToMealPlanRequest.java
-src/main/java/com/spoonacular/client/model/AddToMealPlanRequest1.java
-src/main/java/com/spoonacular/client/model/AddToMealPlanRequest1Value.java
-src/main/java/com/spoonacular/client/model/AddToMealPlanRequest1ValueIngredientsInner.java
+src/main/java/com/spoonacular/client/model/AddToMealPlanRequestValue.java
+src/main/java/com/spoonacular/client/model/AddToMealPlanRequestValueIngredientsInner.java
 src/main/java/com/spoonacular/client/model/AddToShoppingListRequest.java
 src/main/java/com/spoonacular/client/model/AnalyzeARecipeSearchQuery200Response.java
 src/main/java/com/spoonacular/client/model/AnalyzeARecipeSearchQuery200ResponseDishesInner.java
@@ -208,7 +202,6 @@ src/main/java/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseP
 src/main/java/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.java
 src/main/java/com/spoonacular/client/model/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.java
 src/main/java/com/spoonacular/client/model/AnalyzeRecipeRequest.java
-src/main/java/com/spoonacular/client/model/AnalyzeRecipeRequest1.java
 src/main/java/com/spoonacular/client/model/AutocompleteIngredientSearch200ResponseInner.java
 src/main/java/com/spoonacular/client/model/AutocompleteMenuItemSearch200Response.java
 src/main/java/com/spoonacular/client/model/AutocompleteProductSearch200Response.java
@@ -219,7 +212,6 @@ src/main/java/com/spoonacular/client/model/ClassifyGroceryProduct200Response.jav
 src/main/java/com/spoonacular/client/model/ClassifyGroceryProductBulk200ResponseInner.java
 src/main/java/com/spoonacular/client/model/ClassifyGroceryProductBulkRequestInner.java
 src/main/java/com/spoonacular/client/model/ClassifyGroceryProductRequest.java
-src/main/java/com/spoonacular/client/model/ClearMealPlanDayRequest.java
 src/main/java/com/spoonacular/client/model/ComputeGlycemicLoad200Response.java
 src/main/java/com/spoonacular/client/model/ComputeGlycemicLoad200ResponseIngredientsInner.java
 src/main/java/com/spoonacular/client/model/ComputeGlycemicLoadRequest.java
@@ -228,13 +220,11 @@ src/main/java/com/spoonacular/client/model/ConnectUser200Response.java
 src/main/java/com/spoonacular/client/model/ConnectUserRequest.java
 src/main/java/com/spoonacular/client/model/ConvertAmounts200Response.java
 src/main/java/com/spoonacular/client/model/CreateRecipeCard200Response.java
-src/main/java/com/spoonacular/client/model/DeleteFromMealPlanRequest.java
 src/main/java/com/spoonacular/client/model/DetectFoodInText200Response.java
 src/main/java/com/spoonacular/client/model/DetectFoodInText200ResponseAnnotationsInner.java
 src/main/java/com/spoonacular/client/model/GenerateMealPlan200Response.java
 src/main/java/com/spoonacular/client/model/GenerateMealPlan200ResponseNutrients.java
 src/main/java/com/spoonacular/client/model/GenerateShoppingList200Response.java
-src/main/java/com/spoonacular/client/model/GenerateShoppingListRequest.java
 src/main/java/com/spoonacular/client/model/GetARandomFoodJoke200Response.java
 src/main/java/com/spoonacular/client/model/GetAnalyzedRecipeInstructions200Response.java
 src/main/java/com/spoonacular/client/model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.java

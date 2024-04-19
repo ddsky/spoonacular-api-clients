@@ -401,7 +401,6 @@ namespace spoonacular.Api
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "",
                 "application/json"
             };
 
@@ -499,7 +498,6 @@ namespace spoonacular.Api
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "", 
                 "application/json"
             };
 

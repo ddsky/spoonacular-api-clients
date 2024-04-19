@@ -19,9 +19,8 @@ module Api.Data exposing
     , AddMealPlanTemplate200ResponseItemsInner
     , AddMealPlanTemplate200ResponseItemsInnerValue
     , AddToMealPlanRequest
-    , AddToMealPlanRequest1
-    , AddToMealPlanRequest1Value
-    , AddToMealPlanRequest1ValueIngredientsInner
+    , AddToMealPlanRequestValue
+    , AddToMealPlanRequestValueIngredientsInner
     , AddToShoppingListRequest
     , AnalyzeARecipeSearchQuery200Response
     , AnalyzeARecipeSearchQuery200ResponseDishesInner
@@ -32,7 +31,6 @@ module Api.Data exposing
     , AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
     , AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
     , AnalyzeRecipeRequest
-    , AnalyzeRecipeRequest1
     , AutocompleteIngredientSearch200ResponseInner
     , AutocompleteMenuItemSearch200Response
     , AutocompleteProductSearch200Response
@@ -43,7 +41,6 @@ module Api.Data exposing
     , ClassifyGroceryProductBulk200ResponseInner
     , ClassifyGroceryProductBulkRequestInner
     , ClassifyGroceryProductRequest
-    , ClearMealPlanDayRequest
     , ComputeGlycemicLoad200Response
     , ComputeGlycemicLoad200ResponseIngredientsInner
     , ComputeGlycemicLoadRequest
@@ -52,13 +49,11 @@ module Api.Data exposing
     , ConnectUserRequest
     , ConvertAmounts200Response
     , CreateRecipeCard200Response
-    , DeleteFromMealPlanRequest
     , DetectFoodInText200Response
     , DetectFoodInText200ResponseAnnotationsInner
     , GenerateMealPlan200Response
     , GenerateMealPlan200ResponseNutrients
     , GenerateShoppingList200Response
-    , GenerateShoppingListRequest
     , GetARandomFoodJoke200Response
     , GetAnalyzedRecipeInstructions200Response
     , GetAnalyzedRecipeInstructions200ResponseIngredientsInner
@@ -178,9 +173,8 @@ module Api.Data exposing
     , encodeAddMealPlanTemplate200ResponseItemsInner
     , encodeAddMealPlanTemplate200ResponseItemsInnerValue
     , encodeAddToMealPlanRequest
-    , encodeAddToMealPlanRequest1
-    , encodeAddToMealPlanRequest1Value
-    , encodeAddToMealPlanRequest1ValueIngredientsInner
+    , encodeAddToMealPlanRequestValue
+    , encodeAddToMealPlanRequestValueIngredientsInner
     , encodeAddToShoppingListRequest
     , encodeAnalyzeARecipeSearchQuery200Response
     , encodeAnalyzeARecipeSearchQuery200ResponseDishesInner
@@ -191,7 +185,6 @@ module Api.Data exposing
     , encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
     , encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
     , encodeAnalyzeRecipeRequest
-    , encodeAnalyzeRecipeRequest1
     , encodeAutocompleteIngredientSearch200ResponseInner
     , encodeAutocompleteMenuItemSearch200Response
     , encodeAutocompleteProductSearch200Response
@@ -202,7 +195,6 @@ module Api.Data exposing
     , encodeClassifyGroceryProductBulk200ResponseInner
     , encodeClassifyGroceryProductBulkRequestInner
     , encodeClassifyGroceryProductRequest
-    , encodeClearMealPlanDayRequest
     , encodeComputeGlycemicLoad200Response
     , encodeComputeGlycemicLoad200ResponseIngredientsInner
     , encodeComputeGlycemicLoadRequest
@@ -211,13 +203,11 @@ module Api.Data exposing
     , encodeConnectUserRequest
     , encodeConvertAmounts200Response
     , encodeCreateRecipeCard200Response
-    , encodeDeleteFromMealPlanRequest
     , encodeDetectFoodInText200Response
     , encodeDetectFoodInText200ResponseAnnotationsInner
     , encodeGenerateMealPlan200Response
     , encodeGenerateMealPlan200ResponseNutrients
     , encodeGenerateShoppingList200Response
-    , encodeGenerateShoppingListRequest
     , encodeGetARandomFoodJoke200Response
     , encodeGetAnalyzedRecipeInstructions200Response
     , encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner
@@ -337,9 +327,8 @@ module Api.Data exposing
     , addMealPlanTemplate200ResponseItemsInnerDecoder
     , addMealPlanTemplate200ResponseItemsInnerValueDecoder
     , addToMealPlanRequestDecoder
-    , addToMealPlanRequest1Decoder
-    , addToMealPlanRequest1ValueDecoder
-    , addToMealPlanRequest1ValueIngredientsInnerDecoder
+    , addToMealPlanRequestValueDecoder
+    , addToMealPlanRequestValueIngredientsInnerDecoder
     , addToShoppingListRequestDecoder
     , analyzeARecipeSearchQuery200ResponseDecoder
     , analyzeARecipeSearchQuery200ResponseDishesInnerDecoder
@@ -350,7 +339,6 @@ module Api.Data exposing
     , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder
     , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder
     , analyzeRecipeRequestDecoder
-    , analyzeRecipeRequest1Decoder
     , autocompleteIngredientSearch200ResponseInnerDecoder
     , autocompleteMenuItemSearch200ResponseDecoder
     , autocompleteProductSearch200ResponseDecoder
@@ -361,7 +349,6 @@ module Api.Data exposing
     , classifyGroceryProductBulk200ResponseInnerDecoder
     , classifyGroceryProductBulkRequestInnerDecoder
     , classifyGroceryProductRequestDecoder
-    , clearMealPlanDayRequestDecoder
     , computeGlycemicLoad200ResponseDecoder
     , computeGlycemicLoad200ResponseIngredientsInnerDecoder
     , computeGlycemicLoadRequestDecoder
@@ -370,13 +357,11 @@ module Api.Data exposing
     , connectUserRequestDecoder
     , convertAmounts200ResponseDecoder
     , createRecipeCard200ResponseDecoder
-    , deleteFromMealPlanRequestDecoder
     , detectFoodInText200ResponseDecoder
     , detectFoodInText200ResponseAnnotationsInnerDecoder
     , generateMealPlan200ResponseDecoder
     , generateMealPlan200ResponseNutrientsDecoder
     , generateShoppingList200ResponseDecoder
-    , generateShoppingListRequestDecoder
     , getARandomFoodJoke200ResponseDecoder
     , getAnalyzedRecipeInstructions200ResponseDecoder
     , getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder
@@ -529,29 +514,23 @@ type alias AddMealPlanTemplate200ResponseItemsInnerValue =
     }
 
 
-type alias AddToMealPlanRequest =
-    { username : String
-    , hash : String
-    }
-
-
 {-| 
 -}
-type alias AddToMealPlanRequest1 =
+type alias AddToMealPlanRequest =
     { date : Float
     , slot : Int
     , position : Int
     , type_ : String
-    , value : AddToMealPlanRequest1Value
+    , value : AddToMealPlanRequestValue
     }
 
 
-type alias AddToMealPlanRequest1Value =
-    { ingredients : List AddToMealPlanRequest1ValueIngredientsInner
+type alias AddToMealPlanRequestValue =
+    { ingredients : List AddToMealPlanRequestValueIngredientsInner
     }
 
 
-type alias AddToMealPlanRequest1ValueIngredientsInner =
+type alias AddToMealPlanRequestValueIngredientsInner =
     { name : String
     }
 
@@ -626,13 +605,6 @@ type alias AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
 
 
 type alias AnalyzeRecipeRequest =
-    { language : Maybe String
-    , includeNutrition : Maybe Bool
-    , includeTaste : Maybe Bool
-    }
-
-
-type alias AnalyzeRecipeRequest1 =
     { title : Maybe String
     , servings : Maybe Int
     , ingredients : Maybe ( List String )
@@ -721,13 +693,6 @@ type alias ClassifyGroceryProductRequest =
     }
 
 
-type alias ClearMealPlanDayRequest =
-    { username : String
-    , date : String
-    , hash : String
-    }
-
-
 {-| 
 -}
 type alias ComputeGlycemicLoad200Response =
@@ -795,13 +760,6 @@ type alias CreateRecipeCard200Response =
     }
 
 
-type alias DeleteFromMealPlanRequest =
-    { username : String
-    , id : Float
-    , hash : String
-    }
-
-
 {-| 
 -}
 type alias DetectFoodInText200Response =
@@ -839,14 +797,6 @@ type alias GenerateShoppingList200Response =
     , cost : Float
     , startDate : Float
     , endDate : Float
-    }
-
-
-type alias GenerateShoppingListRequest =
-    { username : String
-    , startdate : String
-    , enddate : String
-    , hash : String
     }
 
 
@@ -2092,69 +2042,48 @@ encodeAddToMealPlanRequestPairs : AddToMealPlanRequest -> List EncodedField
 encodeAddToMealPlanRequestPairs model =
     let
         pairs =
-            [ encode "username" Json.Encode.string model.username
-            , encode "hash" Json.Encode.string model.hash
-            ]
-    in
-    pairs
-
-
-encodeAddToMealPlanRequest1 : AddToMealPlanRequest1 -> Json.Encode.Value
-encodeAddToMealPlanRequest1 =
-    encodeObject << encodeAddToMealPlanRequest1Pairs
-
-
-encodeAddToMealPlanRequest1WithTag : ( String, String ) -> AddToMealPlanRequest1 -> Json.Encode.Value
-encodeAddToMealPlanRequest1WithTag (tagField, tag) model =
-    encodeObject (encodeAddToMealPlanRequest1Pairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeAddToMealPlanRequest1Pairs : AddToMealPlanRequest1 -> List EncodedField
-encodeAddToMealPlanRequest1Pairs model =
-    let
-        pairs =
             [ encode "date" Json.Encode.float model.date
             , encode "slot" Json.Encode.int model.slot
             , encode "position" Json.Encode.int model.position
             , encode "type" Json.Encode.string model.type_
-            , encode "value" encodeAddToMealPlanRequest1Value model.value
+            , encode "value" encodeAddToMealPlanRequestValue model.value
             ]
     in
     pairs
 
 
-encodeAddToMealPlanRequest1Value : AddToMealPlanRequest1Value -> Json.Encode.Value
-encodeAddToMealPlanRequest1Value =
-    encodeObject << encodeAddToMealPlanRequest1ValuePairs
+encodeAddToMealPlanRequestValue : AddToMealPlanRequestValue -> Json.Encode.Value
+encodeAddToMealPlanRequestValue =
+    encodeObject << encodeAddToMealPlanRequestValuePairs
 
 
-encodeAddToMealPlanRequest1ValueWithTag : ( String, String ) -> AddToMealPlanRequest1Value -> Json.Encode.Value
-encodeAddToMealPlanRequest1ValueWithTag (tagField, tag) model =
-    encodeObject (encodeAddToMealPlanRequest1ValuePairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeAddToMealPlanRequestValueWithTag : ( String, String ) -> AddToMealPlanRequestValue -> Json.Encode.Value
+encodeAddToMealPlanRequestValueWithTag (tagField, tag) model =
+    encodeObject (encodeAddToMealPlanRequestValuePairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeAddToMealPlanRequest1ValuePairs : AddToMealPlanRequest1Value -> List EncodedField
-encodeAddToMealPlanRequest1ValuePairs model =
+encodeAddToMealPlanRequestValuePairs : AddToMealPlanRequestValue -> List EncodedField
+encodeAddToMealPlanRequestValuePairs model =
     let
         pairs =
-            [ encode "ingredients" (Json.Encode.list encodeAddToMealPlanRequest1ValueIngredientsInner) model.ingredients
+            [ encode "ingredients" (Json.Encode.list encodeAddToMealPlanRequestValueIngredientsInner) model.ingredients
             ]
     in
     pairs
 
 
-encodeAddToMealPlanRequest1ValueIngredientsInner : AddToMealPlanRequest1ValueIngredientsInner -> Json.Encode.Value
-encodeAddToMealPlanRequest1ValueIngredientsInner =
-    encodeObject << encodeAddToMealPlanRequest1ValueIngredientsInnerPairs
+encodeAddToMealPlanRequestValueIngredientsInner : AddToMealPlanRequestValueIngredientsInner -> Json.Encode.Value
+encodeAddToMealPlanRequestValueIngredientsInner =
+    encodeObject << encodeAddToMealPlanRequestValueIngredientsInnerPairs
 
 
-encodeAddToMealPlanRequest1ValueIngredientsInnerWithTag : ( String, String ) -> AddToMealPlanRequest1ValueIngredientsInner -> Json.Encode.Value
-encodeAddToMealPlanRequest1ValueIngredientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeAddToMealPlanRequest1ValueIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeAddToMealPlanRequestValueIngredientsInnerWithTag : ( String, String ) -> AddToMealPlanRequestValueIngredientsInner -> Json.Encode.Value
+encodeAddToMealPlanRequestValueIngredientsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeAddToMealPlanRequestValueIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeAddToMealPlanRequest1ValueIngredientsInnerPairs : AddToMealPlanRequest1ValueIngredientsInner -> List EncodedField
-encodeAddToMealPlanRequest1ValueIngredientsInnerPairs model =
+encodeAddToMealPlanRequestValueIngredientsInnerPairs : AddToMealPlanRequestValueIngredientsInner -> List EncodedField
+encodeAddToMealPlanRequestValueIngredientsInnerPairs model =
     let
         pairs =
             [ encode "name" Json.Encode.string model.name
@@ -2373,28 +2302,6 @@ encodeAnalyzeRecipeRequestWithTag (tagField, tag) model =
 
 encodeAnalyzeRecipeRequestPairs : AnalyzeRecipeRequest -> List EncodedField
 encodeAnalyzeRecipeRequestPairs model =
-    let
-        pairs =
-            [ maybeEncode "language" Json.Encode.string model.language
-            , maybeEncode "includeNutrition" Json.Encode.bool model.includeNutrition
-            , maybeEncode "includeTaste" Json.Encode.bool model.includeTaste
-            ]
-    in
-    pairs
-
-
-encodeAnalyzeRecipeRequest1 : AnalyzeRecipeRequest1 -> Json.Encode.Value
-encodeAnalyzeRecipeRequest1 =
-    encodeObject << encodeAnalyzeRecipeRequest1Pairs
-
-
-encodeAnalyzeRecipeRequest1WithTag : ( String, String ) -> AnalyzeRecipeRequest1 -> Json.Encode.Value
-encodeAnalyzeRecipeRequest1WithTag (tagField, tag) model =
-    encodeObject (encodeAnalyzeRecipeRequest1Pairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeAnalyzeRecipeRequest1Pairs : AnalyzeRecipeRequest1 -> List EncodedField
-encodeAnalyzeRecipeRequest1Pairs model =
     let
         pairs =
             [ maybeEncode "title" Json.Encode.string model.title
@@ -2627,28 +2534,6 @@ encodeClassifyGroceryProductRequestPairs model =
     pairs
 
 
-encodeClearMealPlanDayRequest : ClearMealPlanDayRequest -> Json.Encode.Value
-encodeClearMealPlanDayRequest =
-    encodeObject << encodeClearMealPlanDayRequestPairs
-
-
-encodeClearMealPlanDayRequestWithTag : ( String, String ) -> ClearMealPlanDayRequest -> Json.Encode.Value
-encodeClearMealPlanDayRequestWithTag (tagField, tag) model =
-    encodeObject (encodeClearMealPlanDayRequestPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeClearMealPlanDayRequestPairs : ClearMealPlanDayRequest -> List EncodedField
-encodeClearMealPlanDayRequestPairs model =
-    let
-        pairs =
-            [ encode "username" Json.Encode.string model.username
-            , encode "date" Json.Encode.string model.date
-            , encode "hash" Json.Encode.string model.hash
-            ]
-    in
-    pairs
-
-
 encodeComputeGlycemicLoad200Response : ComputeGlycemicLoad200Response -> Json.Encode.Value
 encodeComputeGlycemicLoad200Response =
     encodeObject << encodeComputeGlycemicLoad200ResponsePairs
@@ -2822,28 +2707,6 @@ encodeCreateRecipeCard200ResponsePairs model =
     pairs
 
 
-encodeDeleteFromMealPlanRequest : DeleteFromMealPlanRequest -> Json.Encode.Value
-encodeDeleteFromMealPlanRequest =
-    encodeObject << encodeDeleteFromMealPlanRequestPairs
-
-
-encodeDeleteFromMealPlanRequestWithTag : ( String, String ) -> DeleteFromMealPlanRequest -> Json.Encode.Value
-encodeDeleteFromMealPlanRequestWithTag (tagField, tag) model =
-    encodeObject (encodeDeleteFromMealPlanRequestPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeDeleteFromMealPlanRequestPairs : DeleteFromMealPlanRequest -> List EncodedField
-encodeDeleteFromMealPlanRequestPairs model =
-    let
-        pairs =
-            [ encode "username" Json.Encode.string model.username
-            , encode "id" Json.Encode.float model.id
-            , encode "hash" Json.Encode.string model.hash
-            ]
-    in
-    pairs
-
-
 encodeDetectFoodInText200Response : DetectFoodInText200Response -> Json.Encode.Value
 encodeDetectFoodInText200Response =
     encodeObject << encodeDetectFoodInText200ResponsePairs
@@ -2948,29 +2811,6 @@ encodeGenerateShoppingList200ResponsePairs model =
             , encode "cost" Json.Encode.float model.cost
             , encode "startDate" Json.Encode.float model.startDate
             , encode "endDate" Json.Encode.float model.endDate
-            ]
-    in
-    pairs
-
-
-encodeGenerateShoppingListRequest : GenerateShoppingListRequest -> Json.Encode.Value
-encodeGenerateShoppingListRequest =
-    encodeObject << encodeGenerateShoppingListRequestPairs
-
-
-encodeGenerateShoppingListRequestWithTag : ( String, String ) -> GenerateShoppingListRequest -> Json.Encode.Value
-encodeGenerateShoppingListRequestWithTag (tagField, tag) model =
-    encodeObject (encodeGenerateShoppingListRequestPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGenerateShoppingListRequestPairs : GenerateShoppingListRequest -> List EncodedField
-encodeGenerateShoppingListRequestPairs model =
-    let
-        pairs =
-            [ encode "username" Json.Encode.string model.username
-            , encode "start-date" Json.Encode.string model.startdate
-            , encode "end-date" Json.Encode.string model.enddate
-            , encode "hash" Json.Encode.string model.hash
             ]
     in
     pairs
@@ -5810,29 +5650,22 @@ addMealPlanTemplate200ResponseItemsInnerValueDecoder =
 addToMealPlanRequestDecoder : Json.Decode.Decoder AddToMealPlanRequest
 addToMealPlanRequestDecoder =
     Json.Decode.succeed AddToMealPlanRequest
-        |> decode "username" Json.Decode.string 
-        |> decode "hash" Json.Decode.string 
-
-
-addToMealPlanRequest1Decoder : Json.Decode.Decoder AddToMealPlanRequest1
-addToMealPlanRequest1Decoder =
-    Json.Decode.succeed AddToMealPlanRequest1
         |> decode "date" Json.Decode.float 
         |> decode "slot" Json.Decode.int 
         |> decode "position" Json.Decode.int 
         |> decode "type" Json.Decode.string 
-        |> decode "value" addToMealPlanRequest1ValueDecoder 
+        |> decode "value" addToMealPlanRequestValueDecoder 
 
 
-addToMealPlanRequest1ValueDecoder : Json.Decode.Decoder AddToMealPlanRequest1Value
-addToMealPlanRequest1ValueDecoder =
-    Json.Decode.succeed AddToMealPlanRequest1Value
-        |> decode "ingredients" (Json.Decode.list addToMealPlanRequest1ValueIngredientsInnerDecoder) 
+addToMealPlanRequestValueDecoder : Json.Decode.Decoder AddToMealPlanRequestValue
+addToMealPlanRequestValueDecoder =
+    Json.Decode.succeed AddToMealPlanRequestValue
+        |> decode "ingredients" (Json.Decode.list addToMealPlanRequestValueIngredientsInnerDecoder) 
 
 
-addToMealPlanRequest1ValueIngredientsInnerDecoder : Json.Decode.Decoder AddToMealPlanRequest1ValueIngredientsInner
-addToMealPlanRequest1ValueIngredientsInnerDecoder =
-    Json.Decode.succeed AddToMealPlanRequest1ValueIngredientsInner
+addToMealPlanRequestValueIngredientsInnerDecoder : Json.Decode.Decoder AddToMealPlanRequestValueIngredientsInner
+addToMealPlanRequestValueIngredientsInnerDecoder =
+    Json.Decode.succeed AddToMealPlanRequestValueIngredientsInner
         |> decode "name" Json.Decode.string 
 
 
@@ -5911,14 +5744,6 @@ analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients
 analyzeRecipeRequestDecoder : Json.Decode.Decoder AnalyzeRecipeRequest
 analyzeRecipeRequestDecoder =
     Json.Decode.succeed AnalyzeRecipeRequest
-        |> maybeDecode "language" Json.Decode.string Nothing
-        |> maybeDecode "includeNutrition" Json.Decode.bool Nothing
-        |> maybeDecode "includeTaste" Json.Decode.bool Nothing
-
-
-analyzeRecipeRequest1Decoder : Json.Decode.Decoder AnalyzeRecipeRequest1
-analyzeRecipeRequest1Decoder =
-    Json.Decode.succeed AnalyzeRecipeRequest1
         |> maybeDecode "title" Json.Decode.string Nothing
         |> maybeDecode "servings" Json.Decode.int Nothing
         |> maybeDecode "ingredients" (Json.Decode.list Json.Decode.string) Nothing
@@ -6006,14 +5831,6 @@ classifyGroceryProductRequestDecoder =
         |> decode "plu_code" Json.Decode.string 
 
 
-clearMealPlanDayRequestDecoder : Json.Decode.Decoder ClearMealPlanDayRequest
-clearMealPlanDayRequestDecoder =
-    Json.Decode.succeed ClearMealPlanDayRequest
-        |> decode "username" Json.Decode.string 
-        |> decode "date" Json.Decode.string 
-        |> decode "hash" Json.Decode.string 
-
-
 computeGlycemicLoad200ResponseDecoder : Json.Decode.Decoder ComputeGlycemicLoad200Response
 computeGlycemicLoad200ResponseDecoder =
     Json.Decode.succeed ComputeGlycemicLoad200Response
@@ -6075,14 +5892,6 @@ createRecipeCard200ResponseDecoder =
         |> decode "url" Json.Decode.string 
 
 
-deleteFromMealPlanRequestDecoder : Json.Decode.Decoder DeleteFromMealPlanRequest
-deleteFromMealPlanRequestDecoder =
-    Json.Decode.succeed DeleteFromMealPlanRequest
-        |> decode "username" Json.Decode.string 
-        |> decode "id" Json.Decode.float 
-        |> decode "hash" Json.Decode.string 
-
-
 detectFoodInText200ResponseDecoder : Json.Decode.Decoder DetectFoodInText200Response
 detectFoodInText200ResponseDecoder =
     Json.Decode.succeed DetectFoodInText200Response
@@ -6120,15 +5929,6 @@ generateShoppingList200ResponseDecoder =
         |> decode "cost" Json.Decode.float 
         |> decode "startDate" Json.Decode.float 
         |> decode "endDate" Json.Decode.float 
-
-
-generateShoppingListRequestDecoder : Json.Decode.Decoder GenerateShoppingListRequest
-generateShoppingListRequestDecoder =
-    Json.Decode.succeed GenerateShoppingListRequest
-        |> decode "username" Json.Decode.string 
-        |> decode "start-date" Json.Decode.string 
-        |> decode "end-date" Json.Decode.string 
-        |> decode "hash" Json.Decode.string 
 
 
 getARandomFoodJoke200ResponseDecoder : Json.Decode.Decoder GetARandomFoodJoke200Response

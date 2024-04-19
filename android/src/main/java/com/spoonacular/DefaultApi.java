@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import com.spoonacular.client.model.AnalyzeRecipeRequest;
-import com.spoonacular.client.model.AnalyzeRecipeRequest1;
 import java.math.BigDecimal;
 import com.spoonacular.client.model.SearchRestaurants200Response;
 
@@ -88,7 +87,6 @@ public class DefaultApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "includeNutrition", includeNutrition));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "includeTaste", includeTaste));
     String[] contentTypes = {
-      "",
       "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -158,7 +156,7 @@ public class DefaultApi {
 
 
     String[] contentTypes = {
-      "","application/json"
+      "application/json"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 

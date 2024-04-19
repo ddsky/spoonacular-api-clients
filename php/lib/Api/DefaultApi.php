@@ -73,7 +73,6 @@ class DefaultApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'analyzeRecipe' => [
-            '',
             'application/json',
         ],
         'createRecipeCardGet' => [

@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::AddToMealPlanRequestValue;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -219,30 +220,57 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'username' => {
-        datatype => 'string',
-        base_name => 'username',
-        description => 'The username.',
+    'date' => {
+        datatype => 'double',
+        base_name => 'date',
+        description => '',
         format => '',
         read_only => '',
             },
-    'hash' => {
+    'slot' => {
+        datatype => 'int',
+        base_name => 'slot',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'position' => {
+        datatype => 'int',
+        base_name => 'position',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'type' => {
         datatype => 'string',
-        base_name => 'hash',
-        description => 'The private hash for the username.',
+        base_name => 'type',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'value' => {
+        datatype => 'AddToMealPlanRequestValue',
+        base_name => 'value',
+        description => '',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'username' => 'string',
-    'hash' => 'string'
+    'date' => 'double',
+    'slot' => 'int',
+    'position' => 'int',
+    'type' => 'string',
+    'value' => 'AddToMealPlanRequestValue'
 } );
 
 __PACKAGE__->attribute_map( {
-    'username' => 'username',
-    'hash' => 'hash'
+    'date' => 'date',
+    'slot' => 'slot',
+    'position' => 'position',
+    'type' => 'type',
+    'value' => 'value'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

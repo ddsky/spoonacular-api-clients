@@ -47,12 +47,10 @@ OpenAPIClient/Model/OAIAddMealPlanTemplate200ResponseItemsInnerValue.h
 OpenAPIClient/Model/OAIAddMealPlanTemplate200ResponseItemsInnerValue.m
 OpenAPIClient/Model/OAIAddToMealPlanRequest.h
 OpenAPIClient/Model/OAIAddToMealPlanRequest.m
-OpenAPIClient/Model/OAIAddToMealPlanRequest1.h
-OpenAPIClient/Model/OAIAddToMealPlanRequest1.m
-OpenAPIClient/Model/OAIAddToMealPlanRequest1Value.h
-OpenAPIClient/Model/OAIAddToMealPlanRequest1Value.m
-OpenAPIClient/Model/OAIAddToMealPlanRequest1ValueIngredientsInner.h
-OpenAPIClient/Model/OAIAddToMealPlanRequest1ValueIngredientsInner.m
+OpenAPIClient/Model/OAIAddToMealPlanRequestValue.h
+OpenAPIClient/Model/OAIAddToMealPlanRequestValue.m
+OpenAPIClient/Model/OAIAddToMealPlanRequestValueIngredientsInner.h
+OpenAPIClient/Model/OAIAddToMealPlanRequestValueIngredientsInner.m
 OpenAPIClient/Model/OAIAddToShoppingListRequest.h
 OpenAPIClient/Model/OAIAddToShoppingListRequest.m
 OpenAPIClient/Model/OAIAnalyzeARecipeSearchQuery200Response.h
@@ -73,8 +71,6 @@ OpenAPIClient/Model/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInn
 OpenAPIClient/Model/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.m
 OpenAPIClient/Model/OAIAnalyzeRecipeRequest.h
 OpenAPIClient/Model/OAIAnalyzeRecipeRequest.m
-OpenAPIClient/Model/OAIAnalyzeRecipeRequest1.h
-OpenAPIClient/Model/OAIAnalyzeRecipeRequest1.m
 OpenAPIClient/Model/OAIAutocompleteIngredientSearch200ResponseInner.h
 OpenAPIClient/Model/OAIAutocompleteIngredientSearch200ResponseInner.m
 OpenAPIClient/Model/OAIAutocompleteMenuItemSearch200Response.h
@@ -95,8 +91,6 @@ OpenAPIClient/Model/OAIClassifyGroceryProductBulkRequestInner.h
 OpenAPIClient/Model/OAIClassifyGroceryProductBulkRequestInner.m
 OpenAPIClient/Model/OAIClassifyGroceryProductRequest.h
 OpenAPIClient/Model/OAIClassifyGroceryProductRequest.m
-OpenAPIClient/Model/OAIClearMealPlanDayRequest.h
-OpenAPIClient/Model/OAIClearMealPlanDayRequest.m
 OpenAPIClient/Model/OAIComputeGlycemicLoad200Response.h
 OpenAPIClient/Model/OAIComputeGlycemicLoad200Response.m
 OpenAPIClient/Model/OAIComputeGlycemicLoad200ResponseIngredientsInner.h
@@ -113,8 +107,6 @@ OpenAPIClient/Model/OAIConvertAmounts200Response.h
 OpenAPIClient/Model/OAIConvertAmounts200Response.m
 OpenAPIClient/Model/OAICreateRecipeCard200Response.h
 OpenAPIClient/Model/OAICreateRecipeCard200Response.m
-OpenAPIClient/Model/OAIDeleteFromMealPlanRequest.h
-OpenAPIClient/Model/OAIDeleteFromMealPlanRequest.m
 OpenAPIClient/Model/OAIDetectFoodInText200Response.h
 OpenAPIClient/Model/OAIDetectFoodInText200Response.m
 OpenAPIClient/Model/OAIDetectFoodInText200ResponseAnnotationsInner.h
@@ -125,8 +117,6 @@ OpenAPIClient/Model/OAIGenerateMealPlan200ResponseNutrients.h
 OpenAPIClient/Model/OAIGenerateMealPlan200ResponseNutrients.m
 OpenAPIClient/Model/OAIGenerateShoppingList200Response.h
 OpenAPIClient/Model/OAIGenerateShoppingList200Response.m
-OpenAPIClient/Model/OAIGenerateShoppingListRequest.h
-OpenAPIClient/Model/OAIGenerateShoppingListRequest.m
 OpenAPIClient/Model/OAIGetARandomFoodJoke200Response.h
 OpenAPIClient/Model/OAIGetARandomFoodJoke200Response.m
 OpenAPIClient/Model/OAIGetAnalyzedRecipeInstructions200Response.h
@@ -362,9 +352,8 @@ docs/OAIAddMealPlanTemplate200Response.md
 docs/OAIAddMealPlanTemplate200ResponseItemsInner.md
 docs/OAIAddMealPlanTemplate200ResponseItemsInnerValue.md
 docs/OAIAddToMealPlanRequest.md
-docs/OAIAddToMealPlanRequest1.md
-docs/OAIAddToMealPlanRequest1Value.md
-docs/OAIAddToMealPlanRequest1ValueIngredientsInner.md
+docs/OAIAddToMealPlanRequestValue.md
+docs/OAIAddToMealPlanRequestValueIngredientsInner.md
 docs/OAIAddToShoppingListRequest.md
 docs/OAIAnalyzeARecipeSearchQuery200Response.md
 docs/OAIAnalyzeARecipeSearchQuery200ResponseDishesInner.md
@@ -375,7 +364,6 @@ docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInner.md
 docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md
 docs/OAIAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md
 docs/OAIAnalyzeRecipeRequest.md
-docs/OAIAnalyzeRecipeRequest1.md
 docs/OAIAutocompleteIngredientSearch200ResponseInner.md
 docs/OAIAutocompleteMenuItemSearch200Response.md
 docs/OAIAutocompleteProductSearch200Response.md
@@ -386,7 +374,6 @@ docs/OAIClassifyGroceryProduct200Response.md
 docs/OAIClassifyGroceryProductBulk200ResponseInner.md
 docs/OAIClassifyGroceryProductBulkRequestInner.md
 docs/OAIClassifyGroceryProductRequest.md
-docs/OAIClearMealPlanDayRequest.md
 docs/OAIComputeGlycemicLoad200Response.md
 docs/OAIComputeGlycemicLoad200ResponseIngredientsInner.md
 docs/OAIComputeGlycemicLoadRequest.md
@@ -396,13 +383,11 @@ docs/OAIConnectUserRequest.md
 docs/OAIConvertAmounts200Response.md
 docs/OAICreateRecipeCard200Response.md
 docs/OAIDefaultApi.md
-docs/OAIDeleteFromMealPlanRequest.md
 docs/OAIDetectFoodInText200Response.md
 docs/OAIDetectFoodInText200ResponseAnnotationsInner.md
 docs/OAIGenerateMealPlan200Response.md
 docs/OAIGenerateMealPlan200ResponseNutrients.md
 docs/OAIGenerateShoppingList200Response.md
-docs/OAIGenerateShoppingListRequest.md
 docs/OAIGetARandomFoodJoke200Response.md
 docs/OAIGetAnalyzedRecipeInstructions200Response.md
 docs/OAIGetAnalyzedRecipeInstructions200ResponseIngredientsInner.md

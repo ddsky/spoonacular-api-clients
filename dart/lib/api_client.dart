@@ -190,12 +190,10 @@ class ApiClient {
           return AddMealPlanTemplate200ResponseItemsInnerValue.fromJson(value);
         case 'AddToMealPlanRequest':
           return AddToMealPlanRequest.fromJson(value);
-        case 'AddToMealPlanRequest1':
-          return AddToMealPlanRequest1.fromJson(value);
-        case 'AddToMealPlanRequest1Value':
-          return AddToMealPlanRequest1Value.fromJson(value);
-        case 'AddToMealPlanRequest1ValueIngredientsInner':
-          return AddToMealPlanRequest1ValueIngredientsInner.fromJson(value);
+        case 'AddToMealPlanRequestValue':
+          return AddToMealPlanRequestValue.fromJson(value);
+        case 'AddToMealPlanRequestValueIngredientsInner':
+          return AddToMealPlanRequestValueIngredientsInner.fromJson(value);
         case 'AddToShoppingListRequest':
           return AddToShoppingListRequest.fromJson(value);
         case 'AnalyzeARecipeSearchQuery200Response':
@@ -216,8 +214,6 @@ class ApiClient {
           return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.fromJson(value);
         case 'AnalyzeRecipeRequest':
           return AnalyzeRecipeRequest.fromJson(value);
-        case 'AnalyzeRecipeRequest1':
-          return AnalyzeRecipeRequest1.fromJson(value);
         case 'AutocompleteIngredientSearch200ResponseInner':
           return AutocompleteIngredientSearch200ResponseInner.fromJson(value);
         case 'AutocompleteMenuItemSearch200Response':
@@ -238,8 +234,6 @@ class ApiClient {
           return ClassifyGroceryProductBulkRequestInner.fromJson(value);
         case 'ClassifyGroceryProductRequest':
           return ClassifyGroceryProductRequest.fromJson(value);
-        case 'ClearMealPlanDayRequest':
-          return ClearMealPlanDayRequest.fromJson(value);
         case 'ComputeGlycemicLoad200Response':
           return ComputeGlycemicLoad200Response.fromJson(value);
         case 'ComputeGlycemicLoad200ResponseIngredientsInner':
@@ -256,8 +250,6 @@ class ApiClient {
           return ConvertAmounts200Response.fromJson(value);
         case 'CreateRecipeCard200Response':
           return CreateRecipeCard200Response.fromJson(value);
-        case 'DeleteFromMealPlanRequest':
-          return DeleteFromMealPlanRequest.fromJson(value);
         case 'DetectFoodInText200Response':
           return DetectFoodInText200Response.fromJson(value);
         case 'DetectFoodInText200ResponseAnnotationsInner':
@@ -268,8 +260,6 @@ class ApiClient {
           return GenerateMealPlan200ResponseNutrients.fromJson(value);
         case 'GenerateShoppingList200Response':
           return GenerateShoppingList200Response.fromJson(value);
-        case 'GenerateShoppingListRequest':
-          return GenerateShoppingListRequest.fromJson(value);
         case 'GetARandomFoodJoke200Response':
           return GetARandomFoodJoke200Response.fromJson(value);
         case 'GetAnalyzedRecipeInstructions200Response':

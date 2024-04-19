@@ -29,17 +29,11 @@ type ApiAddMealPlanTemplateRequest struct {
 	ApiService *MealPlanningAPIService
 	username string
 	hash *string
-	addToMealPlanRequest *AddToMealPlanRequest
 }
 
 // The private hash for the username.
 func (r ApiAddMealPlanTemplateRequest) Hash(hash string) ApiAddMealPlanTemplateRequest {
 	r.hash = &hash
-	return r
-}
-
-func (r ApiAddMealPlanTemplateRequest) AddToMealPlanRequest(addToMealPlanRequest AddToMealPlanRequest) ApiAddMealPlanTemplateRequest {
-	r.addToMealPlanRequest = &addToMealPlanRequest
 	return r
 }
 
@@ -88,13 +82,10 @@ func (a *MealPlanningAPIService) AddMealPlanTemplateExecute(r ApiAddMealPlanTemp
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.addToMealPlanRequest == nil {
-		return localVarReturnValue, nil, reportError("addToMealPlanRequest is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{""}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -110,8 +101,6 @@ func (a *MealPlanningAPIService) AddMealPlanTemplateExecute(r ApiAddMealPlanTemp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.addToMealPlanRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -233,7 +222,7 @@ func (a *MealPlanningAPIService) AddToMealPlanExecute(r ApiAddToMealPlanRequest)
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"", "application/json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -307,7 +296,7 @@ type ApiAddToShoppingListRequest struct {
 	ApiService *MealPlanningAPIService
 	username string
 	hash *string
-	addToMealPlanRequest *AddToMealPlanRequest
+	addToShoppingListRequest *AddToShoppingListRequest
 }
 
 // The private hash for the username.
@@ -316,8 +305,8 @@ func (r ApiAddToShoppingListRequest) Hash(hash string) ApiAddToShoppingListReque
 	return r
 }
 
-func (r ApiAddToShoppingListRequest) AddToMealPlanRequest(addToMealPlanRequest AddToMealPlanRequest) ApiAddToShoppingListRequest {
-	r.addToMealPlanRequest = &addToMealPlanRequest
+func (r ApiAddToShoppingListRequest) AddToShoppingListRequest(addToShoppingListRequest AddToShoppingListRequest) ApiAddToShoppingListRequest {
+	r.addToShoppingListRequest = &addToShoppingListRequest
 	return r
 }
 
@@ -366,13 +355,13 @@ func (a *MealPlanningAPIService) AddToShoppingListExecute(r ApiAddToShoppingList
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.addToMealPlanRequest == nil {
-		return localVarReturnValue, nil, reportError("addToMealPlanRequest is required and must be specified")
+	if r.addToShoppingListRequest == nil {
+		return localVarReturnValue, nil, reportError("addToShoppingListRequest is required and must be specified")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"", "application/json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -389,7 +378,7 @@ func (a *MealPlanningAPIService) AddToShoppingListExecute(r ApiAddToShoppingList
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addToMealPlanRequest
+	localVarPostBody = r.addToShoppingListRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -447,17 +436,11 @@ type ApiClearMealPlanDayRequest struct {
 	username string
 	date string
 	hash *string
-	clearMealPlanDayRequest *ClearMealPlanDayRequest
 }
 
 // The private hash for the username.
 func (r ApiClearMealPlanDayRequest) Hash(hash string) ApiClearMealPlanDayRequest {
 	r.hash = &hash
-	return r
-}
-
-func (r ApiClearMealPlanDayRequest) ClearMealPlanDayRequest(clearMealPlanDayRequest ClearMealPlanDayRequest) ApiClearMealPlanDayRequest {
-	r.clearMealPlanDayRequest = &clearMealPlanDayRequest
 	return r
 }
 
@@ -509,13 +492,10 @@ func (a *MealPlanningAPIService) ClearMealPlanDayExecute(r ApiClearMealPlanDayRe
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.clearMealPlanDayRequest == nil {
-		return localVarReturnValue, nil, reportError("clearMealPlanDayRequest is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{""}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -531,8 +511,6 @@ func (a *MealPlanningAPIService) ClearMealPlanDayExecute(r ApiClearMealPlanDayRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.clearMealPlanDayRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -587,11 +565,11 @@ func (a *MealPlanningAPIService) ClearMealPlanDayExecute(r ApiClearMealPlanDayRe
 type ApiConnectUserRequest struct {
 	ctx context.Context
 	ApiService *MealPlanningAPIService
-	body *map[string]interface{}
+	connectUserRequest *ConnectUserRequest
 }
 
-func (r ApiConnectUserRequest) Body(body map[string]interface{}) ApiConnectUserRequest {
-	r.body = &body
+func (r ApiConnectUserRequest) ConnectUserRequest(connectUserRequest ConnectUserRequest) ApiConnectUserRequest {
+	r.connectUserRequest = &connectUserRequest
 	return r
 }
 
@@ -634,12 +612,12 @@ func (a *MealPlanningAPIService) ConnectUserExecute(r ApiConnectUserRequest) (*C
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.body == nil {
-		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	if r.connectUserRequest == nil {
+		return localVarReturnValue, nil, reportError("connectUserRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"", "application/json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -656,7 +634,7 @@ func (a *MealPlanningAPIService) ConnectUserExecute(r ApiConnectUserRequest) (*C
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.connectUserRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -714,17 +692,11 @@ type ApiDeleteFromMealPlanRequest struct {
 	username string
 	id float32
 	hash *string
-	deleteFromMealPlanRequest *DeleteFromMealPlanRequest
 }
 
 // The private hash for the username.
 func (r ApiDeleteFromMealPlanRequest) Hash(hash string) ApiDeleteFromMealPlanRequest {
 	r.hash = &hash
-	return r
-}
-
-func (r ApiDeleteFromMealPlanRequest) DeleteFromMealPlanRequest(deleteFromMealPlanRequest DeleteFromMealPlanRequest) ApiDeleteFromMealPlanRequest {
-	r.deleteFromMealPlanRequest = &deleteFromMealPlanRequest
 	return r
 }
 
@@ -776,13 +748,10 @@ func (a *MealPlanningAPIService) DeleteFromMealPlanExecute(r ApiDeleteFromMealPl
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.deleteFromMealPlanRequest == nil {
-		return localVarReturnValue, nil, reportError("deleteFromMealPlanRequest is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{""}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -798,8 +767,6 @@ func (a *MealPlanningAPIService) DeleteFromMealPlanExecute(r ApiDeleteFromMealPl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.deleteFromMealPlanRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -857,17 +824,11 @@ type ApiDeleteFromShoppingListRequest struct {
 	username string
 	id int32
 	hash *string
-	deleteFromMealPlanRequest *DeleteFromMealPlanRequest
 }
 
 // The private hash for the username.
 func (r ApiDeleteFromShoppingListRequest) Hash(hash string) ApiDeleteFromShoppingListRequest {
 	r.hash = &hash
-	return r
-}
-
-func (r ApiDeleteFromShoppingListRequest) DeleteFromMealPlanRequest(deleteFromMealPlanRequest DeleteFromMealPlanRequest) ApiDeleteFromShoppingListRequest {
-	r.deleteFromMealPlanRequest = &deleteFromMealPlanRequest
 	return r
 }
 
@@ -919,13 +880,10 @@ func (a *MealPlanningAPIService) DeleteFromShoppingListExecute(r ApiDeleteFromSh
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.deleteFromMealPlanRequest == nil {
-		return localVarReturnValue, nil, reportError("deleteFromMealPlanRequest is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{""}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -941,8 +899,6 @@ func (a *MealPlanningAPIService) DeleteFromShoppingListExecute(r ApiDeleteFromSh
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.deleteFromMealPlanRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1000,17 +956,11 @@ type ApiDeleteMealPlanTemplateRequest struct {
 	username string
 	id int32
 	hash *string
-	deleteFromMealPlanRequest *DeleteFromMealPlanRequest
 }
 
 // The private hash for the username.
 func (r ApiDeleteMealPlanTemplateRequest) Hash(hash string) ApiDeleteMealPlanTemplateRequest {
 	r.hash = &hash
-	return r
-}
-
-func (r ApiDeleteMealPlanTemplateRequest) DeleteFromMealPlanRequest(deleteFromMealPlanRequest DeleteFromMealPlanRequest) ApiDeleteMealPlanTemplateRequest {
-	r.deleteFromMealPlanRequest = &deleteFromMealPlanRequest
 	return r
 }
 
@@ -1062,13 +1012,10 @@ func (a *MealPlanningAPIService) DeleteMealPlanTemplateExecute(r ApiDeleteMealPl
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.deleteFromMealPlanRequest == nil {
-		return localVarReturnValue, nil, reportError("deleteFromMealPlanRequest is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{""}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1084,8 +1031,6 @@ func (a *MealPlanningAPIService) DeleteMealPlanTemplateExecute(r ApiDeleteMealPl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.deleteFromMealPlanRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1297,17 +1242,11 @@ type ApiGenerateShoppingListRequest struct {
 	startDate string
 	endDate string
 	hash *string
-	generateShoppingListRequest *GenerateShoppingListRequest
 }
 
 // The private hash for the username.
 func (r ApiGenerateShoppingListRequest) Hash(hash string) ApiGenerateShoppingListRequest {
 	r.hash = &hash
-	return r
-}
-
-func (r ApiGenerateShoppingListRequest) GenerateShoppingListRequest(generateShoppingListRequest GenerateShoppingListRequest) ApiGenerateShoppingListRequest {
-	r.generateShoppingListRequest = &generateShoppingListRequest
 	return r
 }
 
@@ -1362,13 +1301,10 @@ func (a *MealPlanningAPIService) GenerateShoppingListExecute(r ApiGenerateShoppi
 	if r.hash == nil {
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
-	if r.generateShoppingListRequest == nil {
-		return localVarReturnValue, nil, reportError("generateShoppingListRequest is required and must be specified")
-	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{""}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1384,8 +1320,6 @@ func (a *MealPlanningAPIService) GenerateShoppingListExecute(r ApiGenerateShoppi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.generateShoppingListRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

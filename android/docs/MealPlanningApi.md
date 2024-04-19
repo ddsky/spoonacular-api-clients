@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## addMealPlanTemplate
 
-> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash, addToMealPlanRequest)
+> AddMealPlanTemplate200Response addMealPlanTemplate(username, hash)
 
 Add Meal Plan Template
 
@@ -38,9 +38,8 @@ Add a meal plan template for a user.
 MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = 4b5v4398573406; // String | The private hash for the username.
-AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
 try {
-    AddMealPlanTemplate200Response result = apiInstance.addMealPlanTemplate(username, hash, addToMealPlanRequest);
+    AddMealPlanTemplate200Response result = apiInstance.addMealPlanTemplate(username, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#addMealPlanTemplate");
@@ -55,7 +54,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -67,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -88,7 +86,7 @@ Add an item to the user&#39;s meal plan.
 MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = null; // String | The private hash for the username.
-AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
+AddToMealPlanRequest addToMealPlanRequest = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}}; // AddToMealPlanRequest | 
 try {
     Object result = apiInstance.addToMealPlan(username, hash, addToMealPlanRequest);
     System.out.println(result);
@@ -117,13 +115,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addToShoppingList
 
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToMealPlanRequest)
+> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -138,9 +136,9 @@ Add an item to the current shopping list of a user.
 MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String hash = null; // String | The private hash for the username.
-AddToMealPlanRequest addToMealPlanRequest = new AddToMealPlanRequest(); // AddToMealPlanRequest | 
+AddToShoppingListRequest addToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true}; // AddToShoppingListRequest | 
 try {
-    GenerateShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToMealPlanRequest);
+    GenerateShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#addToShoppingList");
@@ -155,7 +153,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  |
+ **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  |
 
 ### Return type
 
@@ -167,13 +165,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## clearMealPlanDay
 
-> Object clearMealPlanDay(username, date, hash, clearMealPlanDayRequest)
+> Object clearMealPlanDay(username, date, hash)
 
 Clear Meal Plan Day
 
@@ -189,9 +187,8 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 String date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
 String hash = null; // String | The private hash for the username.
-ClearMealPlanDayRequest clearMealPlanDayRequest = new ClearMealPlanDayRequest(); // ClearMealPlanDayRequest | 
 try {
-    Object result = apiInstance.clearMealPlanDay(username, date, hash, clearMealPlanDayRequest);
+    Object result = apiInstance.clearMealPlanDay(username, date, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#clearMealPlanDay");
@@ -207,7 +204,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **date** | **String**| The date in the format yyyy-mm-dd. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **clearMealPlanDayRequest** | [**ClearMealPlanDayRequest**](ClearMealPlanDayRequest.md)|  |
 
 ### Return type
 
@@ -219,13 +215,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## connectUser
 
-> ConnectUser200Response connectUser(body)
+> ConnectUser200Response connectUser(connectUserRequest)
 
 Connect User
 
@@ -238,9 +234,9 @@ In order to call user-specific endpoints, you need to connect your app&#39;s use
 //import com.spoonacular.MealPlanningApi;
 
 MealPlanningApi apiInstance = new MealPlanningApi();
-Object body = null; // Object | 
+ConnectUserRequest connectUserRequest = {"username":"your user's name","firstName":"your user's first name","lastName":"your user's last name","email":"your user's email"}; // ConnectUserRequest | 
 try {
-    ConnectUser200Response result = apiInstance.connectUser(body);
+    ConnectUser200Response result = apiInstance.connectUser(connectUserRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#connectUser");
@@ -253,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  |
+ **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md)|  |
 
 ### Return type
 
@@ -265,13 +261,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: , application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## deleteFromMealPlan
 
-> Object deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromMealPlan(username, id, hash)
 
 Delete from Meal Plan
 
@@ -287,9 +283,8 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 BigDecimal id = 15678; // BigDecimal | The shopping list item id.
 String hash = null; // String | The private hash for the username.
-DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 try {
-    Object result = apiInstance.deleteFromMealPlan(username, id, hash, deleteFromMealPlanRequest);
+    Object result = apiInstance.deleteFromMealPlan(username, id, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#deleteFromMealPlan");
@@ -305,7 +300,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **BigDecimal**| The shopping list item id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -317,13 +311,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## deleteFromShoppingList
 
-> Object deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteFromShoppingList(username, id, hash)
 
 Delete from Shopping List
 
@@ -339,9 +333,8 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 Integer id = 1; // Integer | The item's id.
 String hash = null; // String | The private hash for the username.
-DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 try {
-    Object result = apiInstance.deleteFromShoppingList(username, id, hash, deleteFromMealPlanRequest);
+    Object result = apiInstance.deleteFromShoppingList(username, id, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#deleteFromShoppingList");
@@ -357,7 +350,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -369,13 +361,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ## deleteMealPlanTemplate
 
-> Object deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest)
+> Object deleteMealPlanTemplate(username, id, hash)
 
 Delete Meal Plan Template
 
@@ -391,9 +383,8 @@ MealPlanningApi apiInstance = new MealPlanningApi();
 String username = dsky; // String | The username.
 Integer id = 1; // Integer | The item's id.
 String hash = 4b5v4398573406; // String | The private hash for the username.
-DeleteFromMealPlanRequest deleteFromMealPlanRequest = new DeleteFromMealPlanRequest(); // DeleteFromMealPlanRequest | 
 try {
-    Object result = apiInstance.deleteMealPlanTemplate(username, id, hash, deleteFromMealPlanRequest);
+    Object result = apiInstance.deleteMealPlanTemplate(username, id, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#deleteMealPlanTemplate");
@@ -409,7 +400,6 @@ Name | Type | Description  | Notes
  **username** | **String**| The username. | [default to null]
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **deleteFromMealPlanRequest** | [**DeleteFromMealPlanRequest**](DeleteFromMealPlanRequest.md)|  |
 
 ### Return type
 
@@ -421,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -479,7 +469,7 @@ Name | Type | Description  | Notes
 
 ## generateShoppingList
 
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest)
+> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -496,9 +486,8 @@ String username = dsky; // String | The username.
 String startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
 String endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
 String hash = null; // String | The private hash for the username.
-GenerateShoppingListRequest generateShoppingListRequest = new GenerateShoppingListRequest(); // GenerateShoppingListRequest | 
 try {
-    GenerateShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash, generateShoppingListRequest);
+    GenerateShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MealPlanningApi#generateShoppingList");
@@ -515,7 +504,6 @@ Name | Type | Description  | Notes
  **startDate** | **String**| The start date in the format yyyy-mm-dd. | [default to null]
  **endDate** | **String**| The end date in the format yyyy-mm-dd. | [default to null]
  **hash** | **String**| The private hash for the username. | [default to null]
- **generateShoppingListRequest** | [**GenerateShoppingListRequest**](GenerateShoppingListRequest.md)|  |
 
 ### Return type
 
@@ -527,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: 
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

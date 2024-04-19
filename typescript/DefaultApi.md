@@ -27,9 +27,12 @@ const apiInstance = new .DefaultApi(configuration);
 let body:.DefaultApiAnalyzeRecipeRequest = {
   // AnalyzeRecipeRequest | Example request body.
   analyzeRecipeRequest: {
-    language: "en",
-    includeNutrition: false,
-    includeTaste: false,
+    title: "title_example",
+    servings: 1,
+    ingredients: [
+      "ingredients_example",
+    ],
+    instructions: "instructions_example",
   },
   // string | The input language, either \"en\" or \"de\". (optional)
   language: "en",
@@ -65,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

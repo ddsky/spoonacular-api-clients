@@ -22,14 +22,13 @@
 
 @interface OAIAnalyzeRecipeRequest : OAIObject
 
-/* The input language, either \"en\" or \"de\". [optional]
- */
-@property(nonatomic) NSString* language;
-/* Whether nutrition data should be added to correctly parsed ingredients. [optional]
- */
-@property(nonatomic) NSNumber* includeNutrition;
-/* Whether taste data should be added to correctly parsed ingredients. [optional]
- */
-@property(nonatomic) NSNumber* includeTaste;
+
+@property(nonatomic) NSString* title;
+
+@property(nonatomic) NSNumber* servings;
+
+@property(nonatomic) NSArray<NSString*>* ingredients;
+
+@property(nonatomic) NSString* instructions;
 
 @end

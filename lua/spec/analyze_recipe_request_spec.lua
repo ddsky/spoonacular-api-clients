@@ -16,22 +16,29 @@ Please update as you see appropriate
 describe("analyze_recipe_request", function()
   local spoonacular_analyze_recipe_request = require "spoonacular.model.analyze_recipe_request"
 
-  -- unit tests for the property 'language'
-  describe("property language test", function()
+  -- unit tests for the property 'title'
+  describe("property title test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
   end)
 
-  -- unit tests for the property 'include_nutrition'
-  describe("property include_nutrition test", function()
+  -- unit tests for the property 'servings'
+  describe("property servings test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
   end)
 
-  -- unit tests for the property 'include_taste'
-  describe("property include_taste test", function()
+  -- unit tests for the property 'ingredients'
+  describe("property ingredients test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'instructions'
+  describe("property instructions test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

@@ -21,8 +21,6 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { AnalyzeRecipeRequest } from '../model/analyzeRecipeRequest';
 // @ts-ignore
-import { AnalyzeRecipeRequest1 } from '../model/analyzeRecipeRequest1';
-// @ts-ignore
 import { SearchRestaurants200Response } from '../model/searchRestaurants200Response';
 
 // @ts-ignore
@@ -161,7 +159,6 @@ export class DefaultService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
-            '',
             'application/json'
         ];
         const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);

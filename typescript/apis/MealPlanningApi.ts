@@ -10,15 +10,11 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AddMealPlanTemplate200Response } from '../models/AddMealPlanTemplate200Response';
 import { AddToMealPlanRequest } from '../models/AddToMealPlanRequest';
-import { AddToMealPlanRequest1 } from '../models/AddToMealPlanRequest1';
 import { AddToShoppingListRequest } from '../models/AddToShoppingListRequest';
-import { ClearMealPlanDayRequest } from '../models/ClearMealPlanDayRequest';
 import { ConnectUser200Response } from '../models/ConnectUser200Response';
 import { ConnectUserRequest } from '../models/ConnectUserRequest';
-import { DeleteFromMealPlanRequest } from '../models/DeleteFromMealPlanRequest';
 import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
 import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
-import { GenerateShoppingListRequest } from '../models/GenerateShoppingListRequest';
 import { GetMealPlanTemplate200Response } from '../models/GetMealPlanTemplate200Response';
 import { GetMealPlanTemplates200Response } from '../models/GetMealPlanTemplates200Response';
 import { GetMealPlanWeek200Response } from '../models/GetMealPlanWeek200Response';
@@ -34,9 +30,8 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * Add Meal Plan Template
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
      */
-    public async addMealPlanTemplate(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, _options?: Configuration): Promise<RequestContext> {
+    public async addMealPlanTemplate(username: string, hash: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -48,12 +43,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         // verify required parameter 'hash' is not null or undefined
         if (hash === null || hash === undefined) {
             throw new RequiredError("MealPlanningApi", "addMealPlanTemplate", "hash");
-        }
-
-
-        // verify required parameter 'addToMealPlanRequest' is not null or undefined
-        if (addToMealPlanRequest === null || addToMealPlanRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "addMealPlanTemplate", "addToMealPlanRequest");
         }
 
 
@@ -70,17 +59,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("hash", ObjectSerializer.serialize(hash, "string", ""));
         }
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            ""
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(addToMealPlanRequest, "AddToMealPlanRequest", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -141,8 +119,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
 
         // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
-            "",
-        
             "application/json"
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
@@ -172,9 +148,9 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * Add to Shopping List
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param addToMealPlanRequest 
+     * @param addToShoppingListRequest 
      */
-    public async addToShoppingList(username: string, hash: string, addToMealPlanRequest: AddToMealPlanRequest, _options?: Configuration): Promise<RequestContext> {
+    public async addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -189,9 +165,9 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'addToMealPlanRequest' is not null or undefined
-        if (addToMealPlanRequest === null || addToMealPlanRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "addToShoppingList", "addToMealPlanRequest");
+        // verify required parameter 'addToShoppingListRequest' is not null or undefined
+        if (addToShoppingListRequest === null || addToShoppingListRequest === undefined) {
+            throw new RequiredError("MealPlanningApi", "addToShoppingList", "addToShoppingListRequest");
         }
 
 
@@ -211,13 +187,11 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
 
         // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
-            "",
-        
             "application/json"
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(addToMealPlanRequest, "AddToMealPlanRequest", ""),
+            ObjectSerializer.serialize(addToShoppingListRequest, "AddToShoppingListRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -243,9 +217,8 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * @param username The username.
      * @param date The date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param clearMealPlanDayRequest 
      */
-    public async clearMealPlanDay(username: string, date: string, hash: string, clearMealPlanDayRequest: ClearMealPlanDayRequest, _options?: Configuration): Promise<RequestContext> {
+    public async clearMealPlanDay(username: string, date: string, hash: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -266,12 +239,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'clearMealPlanDayRequest' is not null or undefined
-        if (clearMealPlanDayRequest === null || clearMealPlanDayRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "clearMealPlanDay", "clearMealPlanDayRequest");
-        }
-
-
         // Path Params
         const localVarPath = '/mealplanner/{username}/day/{date}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
@@ -286,17 +253,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("hash", ObjectSerializer.serialize(hash, "string", ""));
         }
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            ""
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(clearMealPlanDayRequest, "ClearMealPlanDayRequest", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -316,14 +272,14 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * In order to call user-specific endpoints, you need to connect your app\'s users to spoonacular users.
      * Connect User
-     * @param body 
+     * @param connectUserRequest 
      */
-    public async connectUser(body: any, _options?: Configuration): Promise<RequestContext> {
+    public async connectUser(connectUserRequest: ConnectUserRequest, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'body' is not null or undefined
-        if (body === null || body === undefined) {
-            throw new RequiredError("MealPlanningApi", "connectUser", "body");
+        // verify required parameter 'connectUserRequest' is not null or undefined
+        if (connectUserRequest === null || connectUserRequest === undefined) {
+            throw new RequiredError("MealPlanningApi", "connectUser", "connectUserRequest");
         }
 
 
@@ -337,13 +293,11 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
 
         // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
-            "",
-        
             "application/json"
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(body, "any", ""),
+            ObjectSerializer.serialize(connectUserRequest, "ConnectUserRequest", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -369,9 +323,8 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * @param username The username.
      * @param id The shopping list item id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public async deleteFromMealPlan(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<RequestContext> {
+    public async deleteFromMealPlan(username: string, id: number, hash: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -392,12 +345,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'deleteFromMealPlanRequest' is not null or undefined
-        if (deleteFromMealPlanRequest === null || deleteFromMealPlanRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "deleteFromMealPlan", "deleteFromMealPlanRequest");
-        }
-
-
         // Path Params
         const localVarPath = '/mealplanner/{username}/items/{id}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
@@ -412,17 +359,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("hash", ObjectSerializer.serialize(hash, "string", ""));
         }
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            ""
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(deleteFromMealPlanRequest, "DeleteFromMealPlanRequest", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -445,9 +381,8 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public async deleteFromShoppingList(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<RequestContext> {
+    public async deleteFromShoppingList(username: string, id: number, hash: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -468,12 +403,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'deleteFromMealPlanRequest' is not null or undefined
-        if (deleteFromMealPlanRequest === null || deleteFromMealPlanRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "deleteFromShoppingList", "deleteFromMealPlanRequest");
-        }
-
-
         // Path Params
         const localVarPath = '/mealplanner/{username}/shopping-list/items/{id}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
@@ -488,17 +417,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("hash", ObjectSerializer.serialize(hash, "string", ""));
         }
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            ""
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(deleteFromMealPlanRequest, "DeleteFromMealPlanRequest", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -521,9 +439,8 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * @param username The username.
      * @param id The item\&#39;s id.
      * @param hash The private hash for the username.
-     * @param deleteFromMealPlanRequest 
      */
-    public async deleteMealPlanTemplate(username: string, id: number, hash: string, deleteFromMealPlanRequest: DeleteFromMealPlanRequest, _options?: Configuration): Promise<RequestContext> {
+    public async deleteMealPlanTemplate(username: string, id: number, hash: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -544,12 +461,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'deleteFromMealPlanRequest' is not null or undefined
-        if (deleteFromMealPlanRequest === null || deleteFromMealPlanRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "deleteMealPlanTemplate", "deleteFromMealPlanRequest");
-        }
-
-
         // Path Params
         const localVarPath = '/mealplanner/{username}/templates/{id}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
@@ -564,17 +475,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("hash", ObjectSerializer.serialize(hash, "string", ""));
         }
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            ""
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(deleteFromMealPlanRequest, "DeleteFromMealPlanRequest", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -656,9 +556,8 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * @param startDate The start date in the format yyyy-mm-dd.
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @param generateShoppingListRequest 
      */
-    public async generateShoppingList(username: string, startDate: string, endDate: string, hash: string, generateShoppingListRequest: GenerateShoppingListRequest, _options?: Configuration): Promise<RequestContext> {
+    public async generateShoppingList(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'username' is not null or undefined
@@ -685,12 +584,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'generateShoppingListRequest' is not null or undefined
-        if (generateShoppingListRequest === null || generateShoppingListRequest === undefined) {
-            throw new RequiredError("MealPlanningApi", "generateShoppingList", "generateShoppingListRequest");
-        }
-
-
         // Path Params
         const localVarPath = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
@@ -706,17 +599,6 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("hash", ObjectSerializer.serialize(hash, "string", ""));
         }
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            ""
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(generateShoppingListRequest, "GenerateShoppingListRequest", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods

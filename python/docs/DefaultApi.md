@@ -47,7 +47,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.DefaultApi(api_client)
-    analyze_recipe_request = spoonacular.AnalyzeRecipeRequest() # AnalyzeRecipeRequest | Example request body.
+    analyze_recipe_request = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "} # AnalyzeRecipeRequest | Example request body.
     language = 'en' # str | The input language, either \"en\" or \"de\". (optional)
     include_nutrition = false # bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
     include_taste = false # bool | Whether taste data should be added to correctly parsed ingredients. (optional)
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: , application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

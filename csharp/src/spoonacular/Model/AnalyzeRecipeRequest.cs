@@ -35,39 +35,41 @@ namespace spoonacular.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyzeRecipeRequest" /> class.
         /// </summary>
-        /// <param name="language">The input language, either \&quot;en\&quot; or \&quot;de\&quot;..</param>
-        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients..</param>
-        /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients..</param>
-        public AnalyzeRecipeRequest(string language = default(string), bool includeNutrition = default(bool), bool includeTaste = default(bool))
+        /// <param name="title">title.</param>
+        /// <param name="servings">servings.</param>
+        /// <param name="ingredients">ingredients.</param>
+        /// <param name="instructions">instructions.</param>
+        public AnalyzeRecipeRequest(string title = default(string), int servings = default(int), List<string> ingredients = default(List<string>), string instructions = default(string))
         {
-            this.Language = language;
-            this.IncludeNutrition = includeNutrition;
-            this.IncludeTaste = includeTaste;
+            this.Title = title;
+            this.Servings = servings;
+            this.Ingredients = ingredients;
+            this.Instructions = instructions;
         }
 
         /// <summary>
-        /// The input language, either \&quot;en\&quot; or \&quot;de\&quot;.
+        /// Gets or Sets Title
         /// </summary>
-        /// <value>The input language, either \&quot;en\&quot; or \&quot;de\&quot;.</value>
-        /// <example>en</example>
-        [DataMember(Name = "language", EmitDefaultValue = false)]
-        public string Language { get; set; }
+        [DataMember(Name = "title", EmitDefaultValue = false)]
+        public string Title { get; set; }
 
         /// <summary>
-        /// Whether nutrition data should be added to correctly parsed ingredients.
+        /// Gets or Sets Servings
         /// </summary>
-        /// <value>Whether nutrition data should be added to correctly parsed ingredients.</value>
-        /// <example>false</example>
-        [DataMember(Name = "includeNutrition", EmitDefaultValue = true)]
-        public bool IncludeNutrition { get; set; }
+        [DataMember(Name = "servings", EmitDefaultValue = false)]
+        public int Servings { get; set; }
 
         /// <summary>
-        /// Whether taste data should be added to correctly parsed ingredients.
+        /// Gets or Sets Ingredients
         /// </summary>
-        /// <value>Whether taste data should be added to correctly parsed ingredients.</value>
-        /// <example>false</example>
-        [DataMember(Name = "includeTaste", EmitDefaultValue = true)]
-        public bool IncludeTaste { get; set; }
+        [DataMember(Name = "ingredients", EmitDefaultValue = false)]
+        public List<string> Ingredients { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Instructions
+        /// </summary>
+        [DataMember(Name = "instructions", EmitDefaultValue = false)]
+        public string Instructions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,9 +79,10 @@ namespace spoonacular.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnalyzeRecipeRequest {\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  IncludeNutrition: ").Append(IncludeNutrition).Append("\n");
-            sb.Append("  IncludeTaste: ").Append(IncludeTaste).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Servings: ").Append(Servings).Append("\n");
+            sb.Append("  Ingredients: ").Append(Ingredients).Append("\n");
+            sb.Append("  Instructions: ").Append(Instructions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

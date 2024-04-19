@@ -54,20 +54,26 @@
       //expect(instance).to.be.a(SpoonacularApi.AnalyzeRecipeRequest);
     });
 
-    it('should have the property language (base name: "language")', function() {
-      // uncomment below and update the code to test the property language
+    it('should have the property title (base name: "title")', function() {
+      // uncomment below and update the code to test the property title
       //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property includeNutrition (base name: "includeNutrition")', function() {
-      // uncomment below and update the code to test the property includeNutrition
+    it('should have the property servings (base name: "servings")', function() {
+      // uncomment below and update the code to test the property servings
       //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property includeTaste (base name: "includeTaste")', function() {
-      // uncomment below and update the code to test the property includeTaste
+    it('should have the property ingredients (base name: "ingredients")', function() {
+      // uncomment below and update the code to test the property ingredients
+      //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property instructions (base name: "instructions")', function() {
+      // uncomment below and update the code to test the property instructions
       //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });

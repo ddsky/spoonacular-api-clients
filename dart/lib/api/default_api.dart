@@ -56,7 +56,7 @@ class DefaultApi {
       queryParams.addAll(_queryParams('', 'includeTaste', includeTaste));
     }
 
-    const contentTypes = <String>['application/json', ''];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(

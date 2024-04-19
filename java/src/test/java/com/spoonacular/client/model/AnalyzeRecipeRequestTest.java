@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -38,27 +40,35 @@ public class AnalyzeRecipeRequestTest {
     }
 
     /**
-     * Test the property 'language'
+     * Test the property 'title'
      */
     @Test
-    public void languageTest() {
-        // TODO: test language
+    public void titleTest() {
+        // TODO: test title
     }
 
     /**
-     * Test the property 'includeNutrition'
+     * Test the property 'servings'
      */
     @Test
-    public void includeNutritionTest() {
-        // TODO: test includeNutrition
+    public void servingsTest() {
+        // TODO: test servings
     }
 
     /**
-     * Test the property 'includeTaste'
+     * Test the property 'ingredients'
      */
     @Test
-    public void includeTasteTest() {
-        // TODO: test includeTaste
+    public void ingredientsTest() {
+        // TODO: test ingredients
+    }
+
+    /**
+     * Test the property 'instructions'
+     */
+    @Test
+    public void instructionsTest() {
+        // TODO: test instructions
     }
 
 }

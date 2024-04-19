@@ -59,11 +59,11 @@ npm run build
 
 #### git
 
-If the library is hosted at a git repository, e.g.https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript/
+If the library is hosted at a git repository, e.g.https://github.com/GIT_USER_ID/spoonacular-api-clients/tree/master/javascript/
 then install it via:
 
 ```shell
-    npm install ddsky/spoonacular-api-clients/tree/master/javascript/ --save
+    npm install GIT_USER_ID/spoonacular-api-clients/tree/master/javascript/ --save
 ```
 
 ### For browser
@@ -111,7 +111,7 @@ apiKeyScheme.apiKey = "YOUR API KEY"
 //apiKeyScheme.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new SpoonacularApi.DefaultApi()
-var analyzeRecipeRequest = new SpoonacularApi.AnalyzeRecipeRequest(); // {AnalyzeRecipeRequest} Example request body.
+var analyzeRecipeRequest = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "}; // {AnalyzeRecipeRequest} Example request body.
 var opts = {
   'language': en, // {String} The input language, either \"en\" or \"de\".
   'includeNutrition': false, // {Boolean} Whether nutrition data should be added to correctly parsed ingredients.
@@ -242,9 +242,8 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.AddMealPlanTemplate200ResponseItemsInner](docs/AddMealPlanTemplate200ResponseItemsInner.md)
  - [SpoonacularApi.AddMealPlanTemplate200ResponseItemsInnerValue](docs/AddMealPlanTemplate200ResponseItemsInnerValue.md)
  - [SpoonacularApi.AddToMealPlanRequest](docs/AddToMealPlanRequest.md)
- - [SpoonacularApi.AddToMealPlanRequest1](docs/AddToMealPlanRequest1.md)
- - [SpoonacularApi.AddToMealPlanRequest1Value](docs/AddToMealPlanRequest1Value.md)
- - [SpoonacularApi.AddToMealPlanRequest1ValueIngredientsInner](docs/AddToMealPlanRequest1ValueIngredientsInner.md)
+ - [SpoonacularApi.AddToMealPlanRequestValue](docs/AddToMealPlanRequestValue.md)
+ - [SpoonacularApi.AddToMealPlanRequestValueIngredientsInner](docs/AddToMealPlanRequestValueIngredientsInner.md)
  - [SpoonacularApi.AddToShoppingListRequest](docs/AddToShoppingListRequest.md)
  - [SpoonacularApi.AnalyzeARecipeSearchQuery200Response](docs/AnalyzeARecipeSearchQuery200Response.md)
  - [SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseDishesInner](docs/AnalyzeARecipeSearchQuery200ResponseDishesInner.md)
@@ -255,7 +254,6 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
  - [SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
  - [SpoonacularApi.AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
- - [SpoonacularApi.AnalyzeRecipeRequest1](docs/AnalyzeRecipeRequest1.md)
  - [SpoonacularApi.AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
  - [SpoonacularApi.AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [SpoonacularApi.AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
@@ -266,7 +264,6 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.ClassifyGroceryProductBulk200ResponseInner](docs/ClassifyGroceryProductBulk200ResponseInner.md)
  - [SpoonacularApi.ClassifyGroceryProductBulkRequestInner](docs/ClassifyGroceryProductBulkRequestInner.md)
  - [SpoonacularApi.ClassifyGroceryProductRequest](docs/ClassifyGroceryProductRequest.md)
- - [SpoonacularApi.ClearMealPlanDayRequest](docs/ClearMealPlanDayRequest.md)
  - [SpoonacularApi.ComputeGlycemicLoad200Response](docs/ComputeGlycemicLoad200Response.md)
  - [SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner](docs/ComputeGlycemicLoad200ResponseIngredientsInner.md)
  - [SpoonacularApi.ComputeGlycemicLoadRequest](docs/ComputeGlycemicLoadRequest.md)
@@ -275,13 +272,11 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.ConnectUserRequest](docs/ConnectUserRequest.md)
  - [SpoonacularApi.ConvertAmounts200Response](docs/ConvertAmounts200Response.md)
  - [SpoonacularApi.CreateRecipeCard200Response](docs/CreateRecipeCard200Response.md)
- - [SpoonacularApi.DeleteFromMealPlanRequest](docs/DeleteFromMealPlanRequest.md)
  - [SpoonacularApi.DetectFoodInText200Response](docs/DetectFoodInText200Response.md)
  - [SpoonacularApi.DetectFoodInText200ResponseAnnotationsInner](docs/DetectFoodInText200ResponseAnnotationsInner.md)
  - [SpoonacularApi.GenerateMealPlan200Response](docs/GenerateMealPlan200Response.md)
  - [SpoonacularApi.GenerateMealPlan200ResponseNutrients](docs/GenerateMealPlan200ResponseNutrients.md)
  - [SpoonacularApi.GenerateShoppingList200Response](docs/GenerateShoppingList200Response.md)
- - [SpoonacularApi.GenerateShoppingListRequest](docs/GenerateShoppingListRequest.md)
  - [SpoonacularApi.GetARandomFoodJoke200Response](docs/GetARandomFoodJoke200Response.md)
  - [SpoonacularApi.GetAnalyzedRecipeInstructions200Response](docs/GetAnalyzedRecipeInstructions200Response.md)
  - [SpoonacularApi.GetAnalyzedRecipeInstructions200ResponseIngredientsInner](docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md)

@@ -13,6 +13,7 @@
             [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
             [spoonacular-api.specs.talk-to-chatbot-200-response :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-value-ingredients-inner :refer :all]
             [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-address :refer :all]
             [spoonacular-api.specs.connect-user-200-response :refer :all]
             [spoonacular-api.specs.search-recipes-200-response-results-inner :refer :all]
@@ -21,7 +22,6 @@
             [spoonacular-api.specs.parse-ingredients-200-response-inner-estimated-cost :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response :refer :all]
             [spoonacular-api.specs.get-a-random-food-joke-200-response :refer :all]
-            [spoonacular-api.specs.analyze-recipe-request-1 :refer :all]
             [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response :refer :all]
             [spoonacular-api.specs.convert-amounts-200-response :refer :all]
             [spoonacular-api.specs.generate-meal-plan-200-response :refer :all]
@@ -32,7 +32,6 @@
             [spoonacular-api.specs.get-comparable-products-200-response-comparable-products-protein-inner :refer :all]
             [spoonacular-api.specs.search-site-content-200-response :refer :all]
             [spoonacular-api.specs.search-grocery-products-by-upc-200-response-nutrition :refer :all]
-            [spoonacular-api.specs.delete-from-meal-plan-request :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner-steps-inner :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.search-recipes-200-response :refer :all]
@@ -69,7 +68,6 @@
             [spoonacular-api.specs.search-recipes-by-nutrients-200-response-inner :refer :all]
             [spoonacular-api.specs.add-to-meal-plan-request :refer :all]
             [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner :refer :all]
-            [spoonacular-api.specs.generate-shopping-list-request :refer :all]
             [spoonacular-api.specs.compute-glycemic-load-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.parse-ingredients-200-response-inner :refer :all]
             [spoonacular-api.specs.add-meal-plan-template-200-response :refer :all]
@@ -82,11 +80,11 @@
             [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
             [spoonacular-api.specs.search-recipes-by-ingredients-200-response-inner-missed-ingredients-inner :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner :refer :all]
+            [spoonacular-api.specs.add-to-meal-plan-request-value :refer :all]
             [spoonacular-api.specs.quick-answer-200-response :refer :all]
             [spoonacular-api.specs.analyze-a-recipe-search-query-200-response :refer :all]
             [spoonacular-api.specs.get-wine-pairing-200-response :refer :all]
             [spoonacular-api.specs.search-custom-foods-200-response :refer :all]
-            [spoonacular-api.specs.clear-meal-plan-day-request :refer :all]
             [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner-measures :refer :all]
             [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-nutrients-inner :refer :all]
             [spoonacular-api.specs.generate-meal-plan-200-response-nutrients :refer :all]
@@ -104,7 +102,6 @@
             [spoonacular-api.specs.get-ingredient-information-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-taste-by-id-200-response :refer :all]
             [spoonacular-api.specs.compute-glycemic-load-200-response :refer :all]
-            [spoonacular-api.specs.add-to-meal-plan-request-1-value :refer :all]
             [spoonacular-api.specs.image-classification-by-url-200-response :refer :all]
             [spoonacular-api.specs.create-recipe-card-200-response :refer :all]
             [spoonacular-api.specs.guess-nutrition-by-dish-name-200-response-calories-confidence-range95-percent :refer :all]
@@ -124,7 +121,6 @@
             [spoonacular-api.specs.get-wine-recommendation-200-response-recommended-wines-inner :refer :all]
             [spoonacular-api.specs.ingredient-search-200-response-results-inner :refer :all]
             [spoonacular-api.specs.parse-ingredients-200-response-inner-nutrition-caloric-breakdown :refer :all]
-            [spoonacular-api.specs.add-to-meal-plan-request-1-value-ingredients-inner :refer :all]
             [spoonacular-api.specs.get-recipe-price-breakdown-by-id-200-response-ingredients-inner-amount-metric :refer :all]
             [spoonacular-api.specs.connect-user-request :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
@@ -135,7 +131,6 @@
             [spoonacular-api.specs.get-random-recipes-200-response-recipes-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner :refer :all]
             [spoonacular-api.specs.autocomplete-product-search-200-response-results-inner :refer :all]
-            [spoonacular-api.specs.add-to-meal-plan-request-1 :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-items-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-by-upc-200-response-servings :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition :refer :all]
@@ -169,23 +164,22 @@
 (defn-spec add-meal-plan-template-with-http-info any?
   "Add Meal Plan Template
   Add a meal plan template for a user."
-  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
-  (check-required-params username hash add-to-meal-plan-request)
+  [username string?, hash string?]
+  (check-required-params username hash)
   (call-api "/mealplanner/{username}/templates" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    add-to-meal-plan-request
-             :content-types [""]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec add-meal-plan-template add-meal-plan-template-200-response-spec
   "Add Meal Plan Template
   Add a meal plan template for a user."
-  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
-  (let [res (:data (add-meal-plan-template-with-http-info username hash add-to-meal-plan-request))]
+  [username string?, hash string?]
+  (let [res (:data (add-meal-plan-template-with-http-info username hash))]
     (if (:decode-models *api-context*)
        (st/decode add-meal-plan-template-200-response-spec res st/string-transformer)
        res)))
@@ -202,7 +196,7 @@
              :query-params  {"hash" hash }
              :form-params   {}
              :body-param    add-to-meal-plan-request
-             :content-types ["" "application/json"]
+             :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
@@ -219,23 +213,23 @@
 (defn-spec add-to-shopping-list-with-http-info any?
   "Add to Shopping List
   Add an item to the current shopping list of a user."
-  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
-  (check-required-params username hash add-to-meal-plan-request)
+  [username string?, hash string?, add-to-shopping-list-request add-to-shopping-list-request]
+  (check-required-params username hash add-to-shopping-list-request)
   (call-api "/mealplanner/{username}/shopping-list/items" :post
             {:path-params   {"username" username }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    add-to-meal-plan-request
-             :content-types ["" "application/json"]
+             :body-param    add-to-shopping-list-request
+             :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec add-to-shopping-list generate-shopping-list-200-response-spec
   "Add to Shopping List
   Add an item to the current shopping list of a user."
-  [username string?, hash string?, add-to-meal-plan-request add-to-meal-plan-request]
-  (let [res (:data (add-to-shopping-list-with-http-info username hash add-to-meal-plan-request))]
+  [username string?, hash string?, add-to-shopping-list-request add-to-shopping-list-request]
+  (let [res (:data (add-to-shopping-list-with-http-info username hash add-to-shopping-list-request))]
     (if (:decode-models *api-context*)
        (st/decode generate-shopping-list-200-response-spec res st/string-transformer)
        res)))
@@ -244,23 +238,22 @@
 (defn-spec clear-meal-plan-day-with-http-info any?
   "Clear Meal Plan Day
   Delete all planned items from the user's meal plan for a specific day."
-  [username string?, date string?, hash string?, clear-meal-plan-day-request clear-meal-plan-day-request]
-  (check-required-params username date hash clear-meal-plan-day-request)
+  [username string?, date string?, hash string?]
+  (check-required-params username date hash)
   (call-api "/mealplanner/{username}/day/{date}" :delete
             {:path-params   {"username" username "date" date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    clear-meal-plan-day-request
-             :content-types [""]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec clear-meal-plan-day any?
   "Clear Meal Plan Day
   Delete all planned items from the user's meal plan for a specific day."
-  [username string?, date string?, hash string?, clear-meal-plan-day-request clear-meal-plan-day-request]
-  (let [res (:data (clear-meal-plan-day-with-http-info username date hash clear-meal-plan-day-request))]
+  [username string?, date string?, hash string?]
+  (let [res (:data (clear-meal-plan-day-with-http-info username date hash))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -269,23 +262,23 @@
 (defn-spec connect-user-with-http-info any?
   "Connect User
   In order to call user-specific endpoints, you need to connect your app's users to spoonacular users."
-  [body any?]
-  (check-required-params body)
+  [connect-user-request connect-user-request]
+  (check-required-params connect-user-request)
   (call-api "/users/connect" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    body
-             :content-types ["" "application/json"]
+             :body-param    connect-user-request
+             :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec connect-user connect-user-200-response-spec
   "Connect User
   In order to call user-specific endpoints, you need to connect your app's users to spoonacular users."
-  [body any?]
-  (let [res (:data (connect-user-with-http-info body))]
+  [connect-user-request connect-user-request]
+  (let [res (:data (connect-user-with-http-info connect-user-request))]
     (if (:decode-models *api-context*)
        (st/decode connect-user-200-response-spec res st/string-transformer)
        res)))
@@ -294,23 +287,22 @@
 (defn-spec delete-from-meal-plan-with-http-info any?
   "Delete from Meal Plan
   Delete an item from the user's meal plan."
-  [username string?, id float?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
-  (check-required-params username id hash delete-from-meal-plan-request)
+  [username string?, id float?, hash string?]
+  (check-required-params username id hash)
   (call-api "/mealplanner/{username}/items/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    delete-from-meal-plan-request
-             :content-types [""]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec delete-from-meal-plan any?
   "Delete from Meal Plan
   Delete an item from the user's meal plan."
-  [username string?, id float?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
-  (let [res (:data (delete-from-meal-plan-with-http-info username id hash delete-from-meal-plan-request))]
+  [username string?, id float?, hash string?]
+  (let [res (:data (delete-from-meal-plan-with-http-info username id hash))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -319,23 +311,22 @@
 (defn-spec delete-from-shopping-list-with-http-info any?
   "Delete from Shopping List
   Delete an item from the current shopping list of the user."
-  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
-  (check-required-params username id hash delete-from-meal-plan-request)
+  [username string?, id int?, hash string?]
+  (check-required-params username id hash)
   (call-api "/mealplanner/{username}/shopping-list/items/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    delete-from-meal-plan-request
-             :content-types [""]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec delete-from-shopping-list any?
   "Delete from Shopping List
   Delete an item from the current shopping list of the user."
-  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
-  (let [res (:data (delete-from-shopping-list-with-http-info username id hash delete-from-meal-plan-request))]
+  [username string?, id int?, hash string?]
+  (let [res (:data (delete-from-shopping-list-with-http-info username id hash))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -344,23 +335,22 @@
 (defn-spec delete-meal-plan-template-with-http-info any?
   "Delete Meal Plan Template
   Delete a meal plan template for a user."
-  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
-  (check-required-params username id hash delete-from-meal-plan-request)
+  [username string?, id int?, hash string?]
+  (check-required-params username id hash)
   (call-api "/mealplanner/{username}/templates/{id}" :delete
             {:path-params   {"username" username "id" id }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    delete-from-meal-plan-request
-             :content-types [""]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec delete-meal-plan-template any?
   "Delete Meal Plan Template
   Delete a meal plan template for a user."
-  [username string?, id int?, hash string?, delete-from-meal-plan-request delete-from-meal-plan-request]
-  (let [res (:data (delete-meal-plan-template-with-http-info username id hash delete-from-meal-plan-request))]
+  [username string?, id int?, hash string?]
+  (let [res (:data (delete-meal-plan-template-with-http-info username id hash))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -394,23 +384,22 @@
 (defn-spec generate-shopping-list-with-http-info any?
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?, generate-shopping-list-request generate-shopping-list-request]
-  (check-required-params username start-date end-date hash generate-shopping-list-request)
+  [username string?, start-date string?, end-date string?, hash string?]
+  (check-required-params username start-date end-date hash)
   (call-api "/mealplanner/{username}/shopping-list/{start-date}/{end-date}" :post
             {:path-params   {"username" username "start-date" start-date "end-date" end-date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
-             :body-param    generate-shopping-list-request
-             :content-types [""]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec generate-shopping-list generate-shopping-list-200-response-spec
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?, generate-shopping-list-request generate-shopping-list-request]
-  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash generate-shopping-list-request))]
+  [username string?, start-date string?, end-date string?, hash string?]
+  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash))]
     (if (:decode-models *api-context*)
        (st/decode generate-shopping-list-200-response-spec res st/string-transformer)
        res)))
