@@ -454,6 +454,30 @@
             "in": "query"
           },
           {
+            "name": "minServings",
+            "description": "The minimum amount of servings the recipe is for.",
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "maxServings",
+            "description": "The maximum amount of servings the recipe is for.",
+            "schema": {
+              "type": "number",
+              "example": 8
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
             "$ref": "#/components/parameters/ignorePantry"
           },
           {
