@@ -6836,7 +6836,31 @@
             "$ref": "#/components/parameters/limitLicense"
           },
           {
-            "$ref": "#/components/parameters/tags"
+            "$ref": "#/components/parameters/includeNutrition"
+          },
+          {
+            "name": "include-tags",
+            "description": "A comma-separated list of tags that the random recipe(s) must adhere to.",
+            "schema": {
+              "type": "string",
+              "example": "vegetarian,gluten"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "exclude-tags",
+            "description": "A comma-separated list of tags that the random recipe(s) must not adhere to.",
+            "schema": {
+              "type": "string",
+              "example": "meat,dairy"
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
           },
           {
             "$ref": "#/components/parameters/number"
