@@ -407,7 +407,9 @@ defmodule SpoonacularAPI.Api.Recipes do
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `opts` (keyword): Optional parameters
     - `:limitLicense` (boolean()): Whether the recipes should have an open license that allows display with proper attribution.
-    - `:tags` (String.t): The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+    - `:includeNutrition` (boolean()): Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+    - `:"include-tags"` (String.t): A comma-separated list of tags that the random recipe(s) must adhere to.
+    - `:"exclude-tags"` (String.t): A comma-separated list of tags that the random recipe(s) must not adhere to.
     - `:number` (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
 
   ### Returns
@@ -419,7 +421,9 @@ defmodule SpoonacularAPI.Api.Recipes do
   def get_random_recipes(connection, opts \\ []) do
     optional_params = %{
       :limitLicense => :query,
-      :tags => :query,
+      :includeNutrition => :query,
+      :"include-tags" => :query,
+      :"exclude-tags" => :query,
       :number => :query
     }
 
@@ -1100,6 +1104,8 @@ defmodule SpoonacularAPI.Api.Recipes do
     - `:recipeBoxId` (float()): The id of the recipe box to which the search should be limited to.
     - `:titleMatch` (String.t): Enter text that must be found in the title of the recipes.
     - `:maxReadyTime` (float()): The maximum time in minutes it should take to prepare and cook the recipe.
+    - `:minServings` (float()): The minimum amount of servings the recipe is for.
+    - `:maxServings` (float()): The maximum amount of servings the recipe is for.
     - `:ignorePantry` (boolean()): Whether to ignore typical pantry items, such as water, salt, flour, etc.
     - `:sort` (String.t): The strategy to sort recipes by. See a full list of supported sorting options.
     - `:sortDirection` (String.t): The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
@@ -1205,6 +1211,8 @@ defmodule SpoonacularAPI.Api.Recipes do
       :recipeBoxId => :query,
       :titleMatch => :query,
       :maxReadyTime => :query,
+      :minServings => :query,
+      :maxServings => :query,
       :ignorePantry => :query,
       :sort => :query,
       :sortDirection => :query,

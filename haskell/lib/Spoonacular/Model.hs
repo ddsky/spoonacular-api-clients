@@ -133,6 +133,9 @@ newtype ExcludeCuisine = ExcludeCuisine { unExcludeCuisine :: Text } deriving (P
 -- ** ExcludeIngredients
 newtype ExcludeIngredients = ExcludeIngredients { unExcludeIngredients :: Text } deriving (P.Eq, P.Show)
 
+-- ** ExcludeTags
+newtype ExcludeTags = ExcludeTags { unExcludeTags :: Text } deriving (P.Eq, P.Show)
+
 -- ** FillIngredients
 newtype FillIngredients = FillIngredients { unFillIngredients :: Bool } deriving (P.Eq, P.Show)
 
@@ -168,6 +171,9 @@ newtype IncludeIngredients = IncludeIngredients { unIncludeIngredients :: Text }
 
 -- ** IncludeNutrition
 newtype IncludeNutrition = IncludeNutrition { unIncludeNutrition :: Bool } deriving (P.Eq, P.Show)
+
+-- ** IncludeTags
+newtype IncludeTags = IncludeTags { unIncludeTags :: Text } deriving (P.Eq, P.Show)
 
 -- ** IncludeTaste
 newtype IncludeTaste = IncludeTaste { unIncludeTaste :: Bool } deriving (P.Eq, P.Show)
@@ -294,6 +300,9 @@ newtype MaxSaturatedFat = MaxSaturatedFat { unMaxSaturatedFat :: Double } derivi
 
 -- ** MaxSelenium
 newtype MaxSelenium = MaxSelenium { unMaxSelenium :: Double } deriving (P.Eq, P.Show)
+
+-- ** MaxServings
+newtype MaxServings = MaxServings { unMaxServings :: Double } deriving (P.Eq, P.Show)
 
 -- ** MaxSodium
 newtype MaxSodium = MaxSodium { unMaxSodium :: Double } deriving (P.Eq, P.Show)
@@ -423,6 +432,9 @@ newtype MinSaturatedFat = MinSaturatedFat { unMinSaturatedFat :: Double } derivi
 
 -- ** MinSelenium
 newtype MinSelenium = MinSelenium { unMinSelenium :: Double } deriving (P.Eq, P.Show)
+
+-- ** MinServings
+newtype MinServings = MinServings { unMinServings :: Double } deriving (P.Eq, P.Show)
 
 -- ** MinSodium
 newtype MinSodium = MinSodium { unMinSodium :: Double } deriving (P.Eq, P.Show)

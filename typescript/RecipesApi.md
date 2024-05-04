@@ -669,8 +669,12 @@ const apiInstance = new .RecipesApi(configuration);
 let body:.RecipesApiGetRandomRecipesRequest = {
   // boolean | Whether the recipes should have an open license that allows display with proper attribution. (optional)
   limitLicense: true,
-  // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-  tags: "tags_example",
+  // boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
+  includeNutrition: false,
+  // string | A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+  includeTags: "vegetarian,gluten",
+  // string | A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
+  excludeTags: "meat,dairy",
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
 };
@@ -686,7 +690,9 @@ apiInstance.getRandomRecipes(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limitLicense** | [**boolean**] | Whether the recipes should have an open license that allows display with proper attribution. | (optional) defaults to true
- **tags** | [**string**] | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | (optional) defaults to undefined
+ **includeNutrition** | [**boolean**] | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | (optional) defaults to false
+ **includeTags** | [**string**] | A comma-separated list of tags that the random recipe(s) must adhere to. | (optional) defaults to undefined
+ **excludeTags** | [**string**] | A comma-separated list of tags that the random recipe(s) must not adhere to. | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
 
 
@@ -1783,6 +1789,10 @@ let body:.RecipesApiSearchRecipesRequest = {
   titleMatch: "Crock Pot",
   // number | The maximum time in minutes it should take to prepare and cook the recipe. (optional)
   maxReadyTime: 20,
+  // number | The minimum amount of servings the recipe is for. (optional)
+  minServings: 1,
+  // number | The maximum amount of servings the recipe is for. (optional)
+  maxServings: 8,
   // boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
   ignorePantry: false,
   // string | The strategy to sort recipes by. See a full list of supported sorting options. (optional)
@@ -1969,6 +1979,8 @@ Name | Type | Description  | Notes
  **recipeBoxId** | [**number**] | The id of the recipe box to which the search should be limited to. | (optional) defaults to undefined
  **titleMatch** | [**string**] | Enter text that must be found in the title of the recipes. | (optional) defaults to undefined
  **maxReadyTime** | [**number**] | The maximum time in minutes it should take to prepare and cook the recipe. | (optional) defaults to undefined
+ **minServings** | [**number**] | The minimum amount of servings the recipe is for. | (optional) defaults to undefined
+ **maxServings** | [**number**] | The maximum amount of servings the recipe is for. | (optional) defaults to undefined
  **ignorePantry** | [**boolean**] | Whether to ignore typical pantry items, such as water, salt, flour, etc. | (optional) defaults to false
  **sort** | [**string**] | The strategy to sort recipes by. See a full list of supported sorting options. | (optional) defaults to undefined
  **sortDirection** | [**string**] | The direction in which to sort. Must be either \&#39;asc\&#39; (ascending) or \&#39;desc\&#39; (descending). | (optional) defaults to undefined

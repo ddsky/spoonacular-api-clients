@@ -380,10 +380,20 @@ instance HasOptionalParam GetRandomRecipes LimitLicense where
   applyOptionalParam req (LimitLicense xs) =
     req `addQuery` toQuery ("limitLicense", Just xs)
 
--- | /Optional Param/ "tags" - The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-instance HasOptionalParam GetRandomRecipes Tags where
-  applyOptionalParam req (Tags xs) =
-    req `addQuery` toQuery ("tags", Just xs)
+-- | /Optional Param/ "includeNutrition" - Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+instance HasOptionalParam GetRandomRecipes IncludeNutrition where
+  applyOptionalParam req (IncludeNutrition xs) =
+    req `addQuery` toQuery ("includeNutrition", Just xs)
+
+-- | /Optional Param/ "include-tags" - A comma-separated list of tags that the random recipe(s) must adhere to.
+instance HasOptionalParam GetRandomRecipes IncludeTags where
+  applyOptionalParam req (IncludeTags xs) =
+    req `addQuery` toQuery ("include-tags", Just xs)
+
+-- | /Optional Param/ "exclude-tags" - A comma-separated list of tags that the random recipe(s) must not adhere to.
+instance HasOptionalParam GetRandomRecipes ExcludeTags where
+  applyOptionalParam req (ExcludeTags xs) =
+    req `addQuery` toQuery ("exclude-tags", Just xs)
 
 -- | /Optional Param/ "number" - The maximum number of items to return (between 1 and 100). Defaults to 10.
 instance HasOptionalParam GetRandomRecipes Number where
@@ -965,6 +975,16 @@ instance HasOptionalParam SearchRecipes TitleMatch where
 instance HasOptionalParam SearchRecipes MaxReadyTime where
   applyOptionalParam req (MaxReadyTime xs) =
     req `addQuery` toQuery ("maxReadyTime", Just xs)
+
+-- | /Optional Param/ "minServings" - The minimum amount of servings the recipe is for.
+instance HasOptionalParam SearchRecipes MinServings where
+  applyOptionalParam req (MinServings xs) =
+    req `addQuery` toQuery ("minServings", Just xs)
+
+-- | /Optional Param/ "maxServings" - The maximum amount of servings the recipe is for.
+instance HasOptionalParam SearchRecipes MaxServings where
+  applyOptionalParam req (MaxServings xs) =
+    req `addQuery` toQuery ("maxServings", Just xs)
 
 -- | /Optional Param/ "ignorePantry" - Whether to ignore typical pantry items, such as water, salt, flour, etc.
 instance HasOptionalParam SearchRecipes IgnorePantry where

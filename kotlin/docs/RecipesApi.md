@@ -569,7 +569,7 @@ Configure apiKeyScheme:
 
 <a id="getRandomRecipes"></a>
 # **getRandomRecipes**
-> GetRandomRecipes200Response getRandomRecipes(limitLicense, tags, number)
+> GetRandomRecipes200Response getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number)
 
 Get Random Recipes
 
@@ -583,10 +583,12 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 
 val apiInstance = RecipesApi()
 val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
-val tags : kotlin.String = tags_example // kotlin.String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+val includeTags : kotlin.String = vegetarian,gluten // kotlin.String | A comma-separated list of tags that the random recipe(s) must adhere to.
+val excludeTags : kotlin.String = meat,dairy // kotlin.String | A comma-separated list of tags that the random recipe(s) must not adhere to.
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : GetRandomRecipes200Response = apiInstance.getRandomRecipes(limitLicense, tags, number)
+    val result : GetRandomRecipes200Response = apiInstance.getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getRandomRecipes")
@@ -602,7 +604,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
- **tags** | **kotlin.String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional]
+ **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+ **includeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional]
+ **excludeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional]
  **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1505,7 +1509,7 @@ Configure apiKeyScheme:
 
 <a id="searchRecipes"></a>
 # **searchRecipes**
-> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
 
 Search Recipes
 
@@ -1536,6 +1540,8 @@ val tags : kotlin.String = tags_example // kotlin.String | The tags (can be diet
 val recipeBoxId : java.math.BigDecimal = 2468 // java.math.BigDecimal | The id of the recipe box to which the search should be limited to.
 val titleMatch : kotlin.String = Crock Pot // kotlin.String | Enter text that must be found in the title of the recipes.
 val maxReadyTime : java.math.BigDecimal = 20 // java.math.BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
+val minServings : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of servings the recipe is for.
+val maxServings : java.math.BigDecimal = 8 // java.math.BigDecimal | The maximum amount of servings the recipe is for.
 val ignorePantry : kotlin.Boolean = false // kotlin.Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 val sort : kotlin.String = calories // kotlin.String | The strategy to sort recipes by. See a full list of supported sorting options.
 val sortDirection : kotlin.String = asc // kotlin.String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
@@ -1615,7 +1621,7 @@ val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (betw
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    val result : SearchRecipes200Response = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+    val result : SearchRecipes200Response = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#searchRecipes")
@@ -1648,6 +1654,8 @@ Name | Type | Description  | Notes
  **recipeBoxId** | **java.math.BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional]
  **titleMatch** | **kotlin.String**| Enter text that must be found in the title of the recipes. | [optional]
  **maxReadyTime** | **java.math.BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
+ **minServings** | **java.math.BigDecimal**| The minimum amount of servings the recipe is for. | [optional]
+ **maxServings** | **java.math.BigDecimal**| The maximum amount of servings the recipe is for. | [optional]
  **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
  **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
  **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
