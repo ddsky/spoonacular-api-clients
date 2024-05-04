@@ -222,7 +222,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 ///
 /// @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to @(YES))
-/// @param tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+/// @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) (default to @(NO))
+/// @param includeTags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+/// @param excludeTags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
 /// @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
 /// 
 ///  code:200 message:"Success",
@@ -232,7 +234,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///
 /// @return OAIGetRandomRecipes200Response*
 -(NSURLSessionTask*) getRandomRecipesWithLimitLicense: (NSNumber*) limitLicense
-    tags: (NSString*) tags
+    includeNutrition: (NSNumber*) includeNutrition
+    includeTags: (NSString*) includeTags
+    excludeTags: (NSString*) excludeTags
     number: (NSNumber*) number
     completionHandler: (void (^)(OAIGetRandomRecipes200Response* output, NSError* error)) handler;
 
@@ -545,6 +549,8 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// @param recipeBoxId The id of the recipe box to which the search should be limited to. (optional)
 /// @param titleMatch Enter text that must be found in the title of the recipes. (optional)
 /// @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+/// @param minServings The minimum amount of servings the recipe is for. (optional)
+/// @param maxServings The maximum amount of servings the recipe is for. (optional)
 /// @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional) (default to @(NO))
 /// @param sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
 /// @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -648,6 +654,8 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
     recipeBoxId: (NSNumber*) recipeBoxId
     titleMatch: (NSString*) titleMatch
     maxReadyTime: (NSNumber*) maxReadyTime
+    minServings: (NSNumber*) minServings
+    maxServings: (NSNumber*) maxServings
     ignorePantry: (NSNumber*) ignorePantry
     sort: (NSString*) sort
     sortDirection: (NSString*) sortDirection

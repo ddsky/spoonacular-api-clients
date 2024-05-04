@@ -690,7 +690,7 @@ try {
 ## `getRandomRecipes()`
 
 ```php
-getRandomRecipes($limit_license, $tags, $number): \OpenAPI\Client\Model\GetRandomRecipes200Response
+getRandomRecipes($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number): \OpenAPI\Client\Model\GetRandomRecipes200Response
 ```
 
 Get Random Recipes
@@ -717,11 +717,13 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     $config
 );
 $limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
-$tags = 'tags_example'; // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+$include_nutrition = false; // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+$include_tags = vegetarian,gluten; // string | A comma-separated list of tags that the random recipe(s) must adhere to.
+$exclude_tags = meat,dairy; // string | A comma-separated list of tags that the random recipe(s) must not adhere to.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
-    $result = $apiInstance->getRandomRecipes($limit_license, $tags, $number);
+    $result = $apiInstance->getRandomRecipes($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->getRandomRecipes: ', $e->getMessage(), PHP_EOL;
@@ -733,7 +735,9 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
-| **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
+| **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **include_tags** | **string**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] |
+| **exclude_tags** | **string**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
@@ -1842,7 +1846,7 @@ try {
 ## `searchRecipes()`
 
 ```php
-searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license): \OpenAPI\Client\Model\SearchRecipes200Response
+searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license): \OpenAPI\Client\Model\SearchRecipes200Response
 ```
 
 Search Recipes
@@ -1886,6 +1890,8 @@ $tags = 'tags_example'; // string | The tags (can be diets, meal types, cuisines
 $recipe_box_id = 2468; // float | The id of the recipe box to which the search should be limited to.
 $title_match = Crock Pot; // string | Enter text that must be found in the title of the recipes.
 $max_ready_time = 20; // float | The maximum time in minutes it should take to prepare and cook the recipe.
+$min_servings = 1; // float | The minimum amount of servings the recipe is for.
+$max_servings = 8; // float | The maximum amount of servings the recipe is for.
 $ignore_pantry = false; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 $sort = calories; // string | The strategy to sort recipes by. See a full list of supported sorting options.
 $sort_direction = asc; // string | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
@@ -1966,7 +1972,7 @@ $number = 10; // int | The maximum number of items to return (between 1 and 100)
 $limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    $result = $apiInstance->searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
+    $result = $apiInstance->searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->searchRecipes: ', $e->getMessage(), PHP_EOL;
@@ -1995,6 +2001,8 @@ try {
 | **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional] |
 | **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional] |
 | **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
+| **min_servings** | **float**| The minimum amount of servings the recipe is for. | [optional] |
+| **max_servings** | **float**| The maximum amount of servings the recipe is for. | [optional] |
 | **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 | **sort** | **string**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] |
 | **sort_direction** | **string**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |

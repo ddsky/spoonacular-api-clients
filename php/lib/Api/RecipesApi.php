@@ -3510,7 +3510,9 @@ class RecipesApi
      * Get Random Recipes
      *
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
-     * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+     * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+     * @param  string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRandomRecipes'] to see the possible values for this operation
      *
@@ -3518,9 +3520,9 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GetRandomRecipes200Response
      */
-    public function getRandomRecipes($limit_license = true, $tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
+    public function getRandomRecipes($limit_license = true, $include_nutrition = false, $include_tags = null, $exclude_tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
     {
-        list($response) = $this->getRandomRecipesWithHttpInfo($limit_license, $tags, $number, $contentType);
+        list($response) = $this->getRandomRecipesWithHttpInfo($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number, $contentType);
         return $response;
     }
 
@@ -3530,7 +3532,9 @@ class RecipesApi
      * Get Random Recipes
      *
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
-     * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+     * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+     * @param  string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRandomRecipes'] to see the possible values for this operation
      *
@@ -3538,9 +3542,9 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GetRandomRecipes200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRandomRecipesWithHttpInfo($limit_license = true, $tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
+    public function getRandomRecipesWithHttpInfo($limit_license = true, $include_nutrition = false, $include_tags = null, $exclude_tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
     {
-        $request = $this->getRandomRecipesRequest($limit_license, $tags, $number, $contentType);
+        $request = $this->getRandomRecipesRequest($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3656,16 +3660,18 @@ class RecipesApi
      * Get Random Recipes
      *
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
-     * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+     * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+     * @param  string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRandomRecipes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRandomRecipesAsync($limit_license = true, $tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
+    public function getRandomRecipesAsync($limit_license = true, $include_nutrition = false, $include_tags = null, $exclude_tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
     {
-        return $this->getRandomRecipesAsyncWithHttpInfo($limit_license, $tags, $number, $contentType)
+        return $this->getRandomRecipesAsyncWithHttpInfo($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3679,17 +3685,19 @@ class RecipesApi
      * Get Random Recipes
      *
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
-     * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+     * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+     * @param  string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRandomRecipes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRandomRecipesAsyncWithHttpInfo($limit_license = true, $tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
+    public function getRandomRecipesAsyncWithHttpInfo($limit_license = true, $include_nutrition = false, $include_tags = null, $exclude_tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GetRandomRecipes200Response';
-        $request = $this->getRandomRecipesRequest($limit_license, $tags, $number, $contentType);
+        $request = $this->getRandomRecipesRequest($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3731,15 +3739,19 @@ class RecipesApi
      * Create request for operation 'getRandomRecipes'
      *
      * @param  bool $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
-     * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+     * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+     * @param  string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRandomRecipes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRandomRecipesRequest($limit_license = true, $tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
+    public function getRandomRecipesRequest($limit_license = true, $include_nutrition = false, $include_tags = null, $exclude_tags = null, $number = 10, string $contentType = self::contentTypes['getRandomRecipes'][0])
     {
+
+
 
 
 
@@ -3769,11 +3781,29 @@ class RecipesApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $tags,
-            'tags', // param base name
-            'string', // openApiType
+            $include_nutrition,
+            'includeNutrition', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_tags,
+            'include-tags', // param base name
+            'string', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $exclude_tags,
+            'exclude-tags', // param base name
+            'string', // openApiType
+            'form', // style
+            false, // explode
             false // required
         ) ?? []);
         // query params
@@ -9413,6 +9443,8 @@ class RecipesApi
      * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
+     * @param  float $max_servings The maximum amount of servings the recipe is for. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -9497,9 +9529,9 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchRecipes200Response
      */
-    public function searchRecipes($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipes($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
     {
-        list($response) = $this->searchRecipesWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType);
+        list($response) = $this->searchRecipesWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType);
         return $response;
     }
 
@@ -9526,6 +9558,8 @@ class RecipesApi
      * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
+     * @param  float $max_servings The maximum amount of servings the recipe is for. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -9610,9 +9644,9 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchRecipes200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipesWithHttpInfo($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesWithHttpInfo($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
     {
-        $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType);
+        $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9745,6 +9779,8 @@ class RecipesApi
      * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
+     * @param  float $max_servings The maximum amount of servings the recipe is for. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -9828,9 +9864,9 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesAsync($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesAsync($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
     {
-        return $this->searchRecipesAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType)
+        return $this->searchRecipesAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9861,6 +9897,8 @@ class RecipesApi
      * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
+     * @param  float $max_servings The maximum amount of servings the recipe is for. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -9944,10 +9982,10 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesAsyncWithHttpInfo($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesAsyncWithHttpInfo($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchRecipes200Response';
-        $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType);
+        $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10006,6 +10044,8 @@ class RecipesApi
      * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+     * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
+     * @param  float $max_servings The maximum amount of servings the recipe is for. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
      * @param  string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -10089,8 +10129,10 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRecipesRequest($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesRequest($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, $limit_license = true, string $contentType = self::contentTypes['searchRecipes'][0])
     {
+
+
 
 
 
@@ -10365,6 +10407,24 @@ class RecipesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $max_ready_time,
             'maxReadyTime', // param base name
+            'number', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_servings,
+            'minServings', // param base name
+            'number', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_servings,
+            'maxServings', // param base name
             'number', // openApiType
             'form', // style
             false, // explode
