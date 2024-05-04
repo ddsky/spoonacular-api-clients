@@ -41,7 +41,7 @@ defmodule SpoonacularAPI.Model.SearchRestaurants200ResponseRestaurantsInner do
     :cuisines => [String.t] | nil,
     :food_photos => [String.t] | nil,
     :logo_photos => [String.t] | nil,
-    :store_photos => [map()] | nil,
+    :store_photos => [String.t] | nil,
     :dollar_signs => integer() | nil,
     :pickup_enabled => boolean() | nil,
     :delivery_enabled => boolean() | nil,

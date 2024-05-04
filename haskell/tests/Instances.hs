@@ -1809,7 +1809,7 @@ genSearchRestaurants200ResponseRestaurantsInner n =
     <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerCuisines :: Maybe [Text]
     <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerFoodPhotos :: Maybe [Text]
     <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerLogoPhotos :: Maybe [Text]
-    <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerStorePhotos :: Maybe [A.Value]
+    <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerStorePhotos :: Maybe [Text]
     <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerDollarSigns :: Maybe Int
     <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerPickupEnabled :: Maybe Bool
     <*> arbitraryReducedMaybe n -- searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled :: Maybe Bool

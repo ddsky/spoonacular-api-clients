@@ -80,7 +80,7 @@ data class SearchRestaurants200ResponseRestaurantsInner (
     val logoPhotos: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "store_photos")
-    val storePhotos: kotlin.collections.List<kotlin.Any>? = null,
+    val storePhotos: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "dollar_signs")
     val dollarSigns: kotlin.Int? = null,

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **cuisines** | **List<String>** |  | [optional] [default to const []]
 **foodPhotos** | **List<String>** |  | [optional] [default to const []]
 **logoPhotos** | **List<String>** |  | [optional] [default to const []]
-**storePhotos** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**storePhotos** | **List<String>** |  | [optional] [default to const []]
 **dollarSigns** | **int** |  | [optional] 
 **pickupEnabled** | **bool** |  | [optional] 
 **deliveryEnabled** | **bool** |  | [optional] 

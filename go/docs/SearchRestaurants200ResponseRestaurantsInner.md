@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Cuisines** | Pointer to **[]string** |  | [optional] 
 **FoodPhotos** | Pointer to **[]string** |  | [optional] 
 **LogoPhotos** | Pointer to **[]string** |  | [optional] 
-**StorePhotos** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**StorePhotos** | Pointer to **[]string** |  | [optional] 
 **DollarSigns** | Pointer to **int32** |  | [optional] 
 **PickupEnabled** | Pointer to **bool** |  | [optional] 
 **DeliveryEnabled** | Pointer to **bool** |  | [optional] 
@@ -296,20 +296,20 @@ HasLogoPhotos returns a boolean if a field has been set.
 
 ### GetStorePhotos
 
-`func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotos() []map[string]interface{}`
+`func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotos() []string`
 
 GetStorePhotos returns the StorePhotos field if non-nil, zero value otherwise.
 
 ### GetStorePhotosOk
 
-`func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotosOk() (*[]map[string]interface{}, bool)`
+`func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotosOk() (*[]string, bool)`
 
 GetStorePhotosOk returns a tuple with the StorePhotos field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStorePhotos
 
-`func (o *SearchRestaurants200ResponseRestaurantsInner) SetStorePhotos(v []map[string]interface{})`
+`func (o *SearchRestaurants200ResponseRestaurantsInner) SetStorePhotos(v []string)`
 
 SetStorePhotos sets StorePhotos field to given value.
 

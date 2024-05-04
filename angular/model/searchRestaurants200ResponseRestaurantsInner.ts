@@ -24,7 +24,7 @@ export interface SearchRestaurants200ResponseRestaurantsInner {
     cuisines?: Array<string>;
     food_photos?: Array<string>;
     logo_photos?: Array<string>;
-    store_photos?: Array<object>;
+    store_photos?: Array<string>;
     dollar_signs?: number;
     pickup_enabled?: boolean;
     delivery_enabled?: boolean;

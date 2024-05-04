@@ -22001,8 +22001,8 @@ components:
         offers_first_party_delivery: true
         aggregated_rating_count: 3
         store_photos:
-        - "{}"
-        - "{}"
+        - store_photos
+        - store_photos
         logo_photos:
         - logo_photos
         - logo_photos
@@ -22081,8 +22081,7 @@ components:
           type: array
         store_photos:
           items:
-            properties: {}
-            type: object
+            type: string
           type: array
         dollar_signs:
           type: integer
@@ -22125,8 +22124,8 @@ components:
           offers_first_party_delivery: true
           aggregated_rating_count: 3
           store_photos:
-          - "{}"
-          - "{}"
+          - store_photos
+          - store_photos
           logo_photos:
           - logo_photos
           - logo_photos
@@ -22195,8 +22194,8 @@ components:
           offers_first_party_delivery: true
           aggregated_rating_count: 3
           store_photos:
-          - "{}"
-          - "{}"
+          - store_photos
+          - store_photos
           logo_photos:
           - logo_photos
           - logo_photos

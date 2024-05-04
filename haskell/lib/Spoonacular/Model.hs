@@ -7424,7 +7424,7 @@ data SearchRestaurants200ResponseRestaurantsInner = SearchRestaurants200Response
   , searchRestaurants200ResponseRestaurantsInnerCuisines :: !(Maybe [Text]) -- ^ "cuisines"
   , searchRestaurants200ResponseRestaurantsInnerFoodPhotos :: !(Maybe [Text]) -- ^ "food_photos"
   , searchRestaurants200ResponseRestaurantsInnerLogoPhotos :: !(Maybe [Text]) -- ^ "logo_photos"
-  , searchRestaurants200ResponseRestaurantsInnerStorePhotos :: !(Maybe [A.Value]) -- ^ "store_photos"
+  , searchRestaurants200ResponseRestaurantsInnerStorePhotos :: !(Maybe [Text]) -- ^ "store_photos"
   , searchRestaurants200ResponseRestaurantsInnerDollarSigns :: !(Maybe Int) -- ^ "dollar_signs"
   , searchRestaurants200ResponseRestaurantsInnerPickupEnabled :: !(Maybe Bool) -- ^ "pickup_enabled"
   , searchRestaurants200ResponseRestaurantsInnerDeliveryEnabled :: !(Maybe Bool) -- ^ "delivery_enabled"
