@@ -68,7 +68,7 @@ class SearchRestaurants200ResponseRestaurantsInner implements ModelInterface, Ar
         'cuisines' => 'string[]',
         'food_photos' => 'string[]',
         'logo_photos' => 'string[]',
-        'store_photos' => 'object[]',
+        'store_photos' => 'string[]',
         'dollar_signs' => 'int',
         'pickup_enabled' => 'bool',
         'delivery_enabled' => 'bool',
@@ -696,7 +696,7 @@ class SearchRestaurants200ResponseRestaurantsInner implements ModelInterface, Ar
     /**
      * Gets store_photos
      *
-     * @return object[]|null
+     * @return string[]|null
      */
     public function getStorePhotos()
     {
@@ -706,7 +706,7 @@ class SearchRestaurants200ResponseRestaurantsInner implements ModelInterface, Ar
     /**
      * Sets store_photos
      *
-     * @param object[]|null $store_photos store_photos
+     * @param string[]|null $store_photos store_photos
      *
      * @return self
      */

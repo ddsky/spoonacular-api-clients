@@ -292,7 +292,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'store_photos' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[string]',
         base_name => 'store_photos',
         description => '',
         format => '',
@@ -374,7 +374,7 @@ __PACKAGE__->openapi_types( {
     'cuisines' => 'ARRAY[string]',
     'food_photos' => 'ARRAY[string]',
     'logo_photos' => 'ARRAY[string]',
-    'store_photos' => 'ARRAY[object]',
+    'store_photos' => 'ARRAY[string]',
     'dollar_signs' => 'int',
     'pickup_enabled' => 'boolean',
     'delivery_enabled' => 'boolean',

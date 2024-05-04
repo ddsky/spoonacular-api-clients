@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "OAIObject.h"
 #include "OAISearchRestaurants_200_response_restaurants_inner_address.h"
 #include "OAISearchRestaurants_200_response_restaurants_inner_local_hours.h"
 #include <QList>
@@ -95,8 +94,8 @@ public:
     bool is_logo_photos_Set() const;
     bool is_logo_photos_Valid() const;
 
-    QList<OAIObject> getStorePhotos() const;
-    void setStorePhotos(const QList<OAIObject> &store_photos);
+    QList<QString> getStorePhotos() const;
+    void setStorePhotos(const QList<QString> &store_photos);
     bool is_store_photos_Set() const;
     bool is_store_photos_Valid() const;
 
@@ -191,7 +190,7 @@ private:
     bool m_logo_photos_isSet;
     bool m_logo_photos_isValid;
 
-    QList<OAIObject> m_store_photos;
+    QList<QString> m_store_photos;
     bool m_store_photos_isSet;
     bool m_store_photos_isValid;
 

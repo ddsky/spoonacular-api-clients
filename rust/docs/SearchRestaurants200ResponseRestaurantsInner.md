@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **cuisines** | Option<**Vec<String>**> |  | [optional]
 **food_photos** | Option<**Vec<String>**> |  | [optional]
 **logo_photos** | Option<**Vec<String>**> |  | [optional]
-**store_photos** | Option<[**Vec<serde_json::Value>**](serde_json::Value.md)> |  | [optional]
+**store_photos** | Option<**Vec<String>**> |  | [optional]
 **dollar_signs** | Option<**i32**> |  | [optional]
 **pickup_enabled** | Option<**bool**> |  | [optional]
 **delivery_enabled** | Option<**bool**> |  | [optional]

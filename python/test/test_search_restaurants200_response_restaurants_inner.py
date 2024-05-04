@@ -81,7 +81,7 @@ class TestSearchRestaurants200ResponseRestaurantsInner(unittest.TestCase):
                     ''
                     ],
                 store_photos = [
-                    None
+                    ''
                     ],
                 dollar_signs = 56,
                 pickup_enabled = True,

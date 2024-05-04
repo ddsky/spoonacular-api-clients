@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **cuisines** | **List[str]** |  | [optional] 
 **food_photos** | **List[str]** |  | [optional] 
 **logo_photos** | **List[str]** |  | [optional] 
-**store_photos** | **List[object]** |  | [optional] 
+**store_photos** | **List[str]** |  | [optional] 
 **dollar_signs** | **int** |  | [optional] 
 **pickup_enabled** | **bool** |  | [optional] 
 **delivery_enabled** | **bool** |  | [optional] 

@@ -97,7 +97,7 @@ class SearchRestaurants200ResponseRestaurantsInner {
 
   List<String> logoPhotos;
 
-  List<Object> storePhotos;
+  List<String> storePhotos;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -345,7 +345,9 @@ class SearchRestaurants200ResponseRestaurantsInner {
         logoPhotos: json[r'logo_photos'] is Iterable
             ? (json[r'logo_photos'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        storePhotos: Object.listFromJson(json[r'store_photos']),
+        storePhotos: json[r'store_photos'] is Iterable
+            ? (json[r'store_photos'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         dollarSigns: mapValueOfType<int>(json, r'dollar_signs'),
         pickupEnabled: mapValueOfType<bool>(json, r'pickup_enabled'),
         deliveryEnabled: mapValueOfType<bool>(json, r'delivery_enabled'),

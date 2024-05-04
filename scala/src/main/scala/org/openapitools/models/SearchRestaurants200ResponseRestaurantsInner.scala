@@ -43,7 +43,7 @@ case class SearchRestaurants200ResponseRestaurantsInner(Underscoreid: Option[Str
                 cuisines: Option[Seq[String]],
                 foodUnderscorephotos: Option[Seq[String]],
                 logoUnderscorephotos: Option[Seq[String]],
-                storeUnderscorephotos: Option[Seq[Object]],
+                storeUnderscorephotos: Option[Seq[String]],
                 dollarUnderscoresigns: Option[Int],
                 pickupUnderscoreenabled: Option[Boolean],
                 deliveryUnderscoreenabled: Option[Boolean],

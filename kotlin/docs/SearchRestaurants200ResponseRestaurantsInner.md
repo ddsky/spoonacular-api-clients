@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **cuisines** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional]
 **foodPhotos** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional]
 **logoPhotos** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional]
-**storePhotos** | [**kotlin.collections.List&lt;kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**storePhotos** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional]
 **dollarSigns** | **kotlin.Int** |  |  [optional]
 **pickupEnabled** | **kotlin.Boolean** |  |  [optional]
 **deliveryEnabled** | **kotlin.Boolean** |  |  [optional]
