@@ -34,7 +34,7 @@ pub struct SearchRestaurants200ResponseRestaurantsInner {
     #[serde(rename = "logo_photos", skip_serializing_if = "Option::is_none")]
     pub logo_photos: Option<Vec<String>>,
     #[serde(rename = "store_photos", skip_serializing_if = "Option::is_none")]
-    pub store_photos: Option<Vec<serde_json::Value>>,
+    pub store_photos: Option<Vec<String>>,
     #[serde(rename = "dollar_signs", skip_serializing_if = "Option::is_none")]
     pub dollar_signs: Option<i32>,
     #[serde(rename = "pickup_enabled", skip_serializing_if = "Option::is_none")]

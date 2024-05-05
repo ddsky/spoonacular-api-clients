@@ -30,7 +30,7 @@ type SearchRestaurants200ResponseRestaurantsInner struct {
 	Cuisines []string `json:"cuisines,omitempty"`
 	FoodPhotos []string `json:"food_photos,omitempty"`
 	LogoPhotos []string `json:"logo_photos,omitempty"`
-	StorePhotos []map[string]interface{} `json:"store_photos,omitempty"`
+	StorePhotos []string `json:"store_photos,omitempty"`
 	DollarSigns *int32 `json:"dollar_signs,omitempty"`
 	PickupEnabled *bool `json:"pickup_enabled,omitempty"`
 	DeliveryEnabled *bool `json:"delivery_enabled,omitempty"`
@@ -380,9 +380,9 @@ func (o *SearchRestaurants200ResponseRestaurantsInner) SetLogoPhotos(v []string)
 }
 
 // GetStorePhotos returns the StorePhotos field value if set, zero value otherwise.
-func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotos() []map[string]interface{} {
+func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotos() []string {
 	if o == nil || IsNil(o.StorePhotos) {
-		var ret []map[string]interface{}
+		var ret []string
 		return ret
 	}
 	return o.StorePhotos
@@ -390,7 +390,7 @@ func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotos() []map[st
 
 // GetStorePhotosOk returns a tuple with the StorePhotos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotosOk() ([]map[string]interface{}, bool) {
+func (o *SearchRestaurants200ResponseRestaurantsInner) GetStorePhotosOk() ([]string, bool) {
 	if o == nil || IsNil(o.StorePhotos) {
 		return nil, false
 	}
@@ -406,8 +406,8 @@ func (o *SearchRestaurants200ResponseRestaurantsInner) HasStorePhotos() bool {
 	return false
 }
 
-// SetStorePhotos gets a reference to the given []map[string]interface{} and assigns it to the StorePhotos field.
-func (o *SearchRestaurants200ResponseRestaurantsInner) SetStorePhotos(v []map[string]interface{}) {
+// SetStorePhotos gets a reference to the given []string and assigns it to the StorePhotos field.
+func (o *SearchRestaurants200ResponseRestaurantsInner) SetStorePhotos(v []string) {
 	o.StorePhotos = v
 }
 

@@ -99,7 +99,7 @@ module OpenapiClient
         :'cuisines' => :'Array<String>',
         :'food_photos' => :'Array<String>',
         :'logo_photos' => :'Array<String>',
-        :'store_photos' => :'Array<Object>',
+        :'store_photos' => :'Array<String>',
         :'dollar_signs' => :'Integer',
         :'pickup_enabled' => :'Boolean',
         :'delivery_enabled' => :'Boolean',

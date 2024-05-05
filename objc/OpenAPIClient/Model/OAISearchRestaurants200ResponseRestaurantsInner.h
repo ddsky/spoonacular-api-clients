@@ -49,7 +49,7 @@
 
 @property(nonatomic) NSArray<NSString*>* logoPhotos;
 
-@property(nonatomic) NSArray<NSObject*>* storePhotos;
+@property(nonatomic) NSArray<NSString*>* storePhotos;
 
 @property(nonatomic) NSNumber* dollarSigns;
 

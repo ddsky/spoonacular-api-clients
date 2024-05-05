@@ -80,7 +80,7 @@ class SearchRestaurants200ResponseRestaurantsInner {
                 obj['logo_photos'] = ApiClient.convertToType(data['logo_photos'], ['String']);
             }
             if (data.hasOwnProperty('store_photos')) {
-                obj['store_photos'] = ApiClient.convertToType(data['store_photos'], [Object]);
+                obj['store_photos'] = ApiClient.convertToType(data['store_photos'], ['String']);
             }
             if (data.hasOwnProperty('dollar_signs')) {
                 obj['dollar_signs'] = ApiClient.convertToType(data['dollar_signs'], 'Number');
@@ -219,7 +219,7 @@ SearchRestaurants200ResponseRestaurantsInner.prototype['food_photos'] = undefine
 SearchRestaurants200ResponseRestaurantsInner.prototype['logo_photos'] = undefined;
 
 /**
- * @member {Array.<Object>} store_photos
+ * @member {Array.<String>} store_photos
  */
 SearchRestaurants200ResponseRestaurantsInner.prototype['store_photos'] = undefined;
 

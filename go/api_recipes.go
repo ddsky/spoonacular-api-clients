@@ -1362,7 +1362,9 @@ type ApiGetRandomRecipesRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
 	limitLicense *bool
-	tags *string
+	includeNutrition *bool
+	includeTags *string
+	excludeTags *string
 	number *int32
 }
 
@@ -1372,9 +1374,21 @@ func (r ApiGetRandomRecipesRequest) LimitLicense(limitLicense bool) ApiGetRandom
 	return r
 }
 
-// The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-func (r ApiGetRandomRecipesRequest) Tags(tags string) ApiGetRandomRecipesRequest {
-	r.tags = &tags
+// Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+func (r ApiGetRandomRecipesRequest) IncludeNutrition(includeNutrition bool) ApiGetRandomRecipesRequest {
+	r.includeNutrition = &includeNutrition
+	return r
+}
+
+// A comma-separated list of tags that the random recipe(s) must adhere to.
+func (r ApiGetRandomRecipesRequest) IncludeTags(includeTags string) ApiGetRandomRecipesRequest {
+	r.includeTags = &includeTags
+	return r
+}
+
+// A comma-separated list of tags that the random recipe(s) must not adhere to.
+func (r ApiGetRandomRecipesRequest) ExcludeTags(excludeTags string) ApiGetRandomRecipesRequest {
+	r.excludeTags = &excludeTags
 	return r
 }
 
@@ -1430,8 +1444,17 @@ func (a *RecipesAPIService) GetRandomRecipesExecute(r ApiGetRandomRecipesRequest
 		var defaultValue bool = true
 		r.limitLicense = &defaultValue
 	}
-	if r.tags != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tags", r.tags, "")
+	if r.includeNutrition != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeNutrition", r.includeNutrition, "")
+	} else {
+		var defaultValue bool = false
+		r.includeNutrition = &defaultValue
+	}
+	if r.includeTags != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include-tags", r.includeTags, "")
+	}
+	if r.excludeTags != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "exclude-tags", r.excludeTags, "")
 	}
 	if r.number != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "number", r.number, "")
@@ -3722,6 +3745,8 @@ type ApiSearchRecipesRequest struct {
 	recipeBoxId *float32
 	titleMatch *string
 	maxReadyTime *float32
+	minServings *float32
+	maxServings *float32
 	ignorePantry *bool
 	sort *string
 	sortDirection *string
@@ -3907,6 +3932,18 @@ func (r ApiSearchRecipesRequest) TitleMatch(titleMatch string) ApiSearchRecipesR
 // The maximum time in minutes it should take to prepare and cook the recipe.
 func (r ApiSearchRecipesRequest) MaxReadyTime(maxReadyTime float32) ApiSearchRecipesRequest {
 	r.maxReadyTime = &maxReadyTime
+	return r
+}
+
+// The minimum amount of servings the recipe is for.
+func (r ApiSearchRecipesRequest) MinServings(minServings float32) ApiSearchRecipesRequest {
+	r.minServings = &minServings
+	return r
+}
+
+// The maximum amount of servings the recipe is for.
+func (r ApiSearchRecipesRequest) MaxServings(maxServings float32) ApiSearchRecipesRequest {
+	r.maxServings = &maxServings
 	return r
 }
 
@@ -4471,6 +4508,12 @@ func (a *RecipesAPIService) SearchRecipesExecute(r ApiSearchRecipesRequest) (*Se
 	}
 	if r.maxReadyTime != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "maxReadyTime", r.maxReadyTime, "")
+	}
+	if r.minServings != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "minServings", r.minServings, "")
+	}
+	if r.maxServings != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "maxServings", r.maxServings, "")
 	}
 	if r.ignorePantry != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ignorePantry", r.ignorePantry, "")

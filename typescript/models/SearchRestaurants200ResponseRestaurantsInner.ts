@@ -25,7 +25,7 @@ export class SearchRestaurants200ResponseRestaurantsInner {
     'cuisines'?: Array<string>;
     'foodPhotos'?: Array<string>;
     'logoPhotos'?: Array<string>;
-    'storePhotos'?: Array<any>;
+    'storePhotos'?: Array<string>;
     'dollarSigns'?: number;
     'pickupEnabled'?: boolean;
     'deliveryEnabled'?: boolean;
@@ -102,7 +102,7 @@ export class SearchRestaurants200ResponseRestaurantsInner {
         {
             "name": "storePhotos",
             "baseName": "store_photos",
-            "type": "Array<any>",
+            "type": "Array<string>",
             "format": ""
         },
         {

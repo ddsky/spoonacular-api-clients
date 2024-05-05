@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **cuisines** | **ARRAY[string]** |  | [optional] 
 **food_photos** | **ARRAY[string]** |  | [optional] 
 **logo_photos** | **ARRAY[string]** |  | [optional] 
-**store_photos** | **ARRAY[object]** |  | [optional] 
+**store_photos** | **ARRAY[string]** |  | [optional] 
 **dollar_signs** | **int** |  | [optional] 
 **pickup_enabled** | **boolean** |  | [optional] 
 **delivery_enabled** | **boolean** |  | [optional] 

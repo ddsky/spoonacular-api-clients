@@ -32,7 +32,7 @@ class SearchRestaurants200ResponseRestaurantsInner {
     
     List<String> logoPhotos
     
-    List<Object> storePhotos
+    List<String> storePhotos
     
     Integer dollarSigns
     

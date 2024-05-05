@@ -1359,7 +1359,7 @@ void OAIRecipesApi::getAnalyzedRecipeInstructionsCallback(OAIHttpRequestWorker *
     }
 }
 
-void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit_license, const ::OpenAPI::OptionalParam<QString> &tags, const ::OpenAPI::OptionalParam<qint32> &number) {
+void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit_license, const ::OpenAPI::OptionalParam<bool> &include_nutrition, const ::OpenAPI::OptionalParam<QString> &include_tags, const ::OpenAPI::OptionalParam<QString> &exclude_tags, const ::OpenAPI::OptionalParam<qint32> &number) {
     QString fullPath = QString(_serverConfigs["getRandomRecipes"][_serverIndices.value("getRandomRecipes")].URL()+"/recipes/random");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1382,20 +1382,50 @@ void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit
 
         fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license.value())));
     }
-    if (tags.hasValue())
+    if (include_nutrition.hasValue())
     {
         queryStyle = "form";
         if (queryStyle == "")
             queryStyle = "form";
         queryPrefix = getParamStylePrefix(queryStyle);
         querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "tags", true);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "includeNutrition", true);
         if (fullPath.indexOf("?") > 0)
             fullPath.append(queryPrefix);
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("tags")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(tags.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_nutrition.value())));
+    }
+    if (include_tags.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "include-tags", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("include-tags")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_tags.value())));
+    }
+    if (exclude_tags.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "exclude-tags", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("exclude-tags")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude_tags.value())));
     }
     if (number.hasValue())
     {
@@ -3339,7 +3369,7 @@ void OAIRecipesApi::recipeTasteByIDImageCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<QString> &cuisine, const ::OpenAPI::OptionalParam<QString> &exclude_cuisine, const ::OpenAPI::OptionalParam<QString> &diet, const ::OpenAPI::OptionalParam<QString> &intolerances, const ::OpenAPI::OptionalParam<QString> &equipment, const ::OpenAPI::OptionalParam<QString> &include_ingredients, const ::OpenAPI::OptionalParam<QString> &exclude_ingredients, const ::OpenAPI::OptionalParam<QString> &type, const ::OpenAPI::OptionalParam<bool> &instructions_required, const ::OpenAPI::OptionalParam<bool> &fill_ingredients, const ::OpenAPI::OptionalParam<bool> &add_recipe_information, const ::OpenAPI::OptionalParam<bool> &add_recipe_nutrition, const ::OpenAPI::OptionalParam<QString> &author, const ::OpenAPI::OptionalParam<QString> &tags, const ::OpenAPI::OptionalParam<double> &recipe_box_id, const ::OpenAPI::OptionalParam<QString> &title_match, const ::OpenAPI::OptionalParam<double> &max_ready_time, const ::OpenAPI::OptionalParam<bool> &ignore_pantry, const ::OpenAPI::OptionalParam<QString> &sort, const ::OpenAPI::OptionalParam<QString> &sort_direction, const ::OpenAPI::OptionalParam<double> &min_carbs, const ::OpenAPI::OptionalParam<double> &max_carbs, const ::OpenAPI::OptionalParam<double> &min_protein, const ::OpenAPI::OptionalParam<double> &max_protein, const ::OpenAPI::OptionalParam<double> &min_calories, const ::OpenAPI::OptionalParam<double> &max_calories, const ::OpenAPI::OptionalParam<double> &min_fat, const ::OpenAPI::OptionalParam<double> &max_fat, const ::OpenAPI::OptionalParam<double> &min_alcohol, const ::OpenAPI::OptionalParam<double> &max_alcohol, const ::OpenAPI::OptionalParam<double> &min_caffeine, const ::OpenAPI::OptionalParam<double> &max_caffeine, const ::OpenAPI::OptionalParam<double> &min_copper, const ::OpenAPI::OptionalParam<double> &max_copper, const ::OpenAPI::OptionalParam<double> &min_calcium, const ::OpenAPI::OptionalParam<double> &max_calcium, const ::OpenAPI::OptionalParam<double> &min_choline, const ::OpenAPI::OptionalParam<double> &max_choline, const ::OpenAPI::OptionalParam<double> &min_cholesterol, const ::OpenAPI::OptionalParam<double> &max_cholesterol, const ::OpenAPI::OptionalParam<double> &min_fluoride, const ::OpenAPI::OptionalParam<double> &max_fluoride, const ::OpenAPI::OptionalParam<double> &min_saturated_fat, const ::OpenAPI::OptionalParam<double> &max_saturated_fat, const ::OpenAPI::OptionalParam<double> &min_vitamin_a, const ::OpenAPI::OptionalParam<double> &max_vitamin_a, const ::OpenAPI::OptionalParam<double> &min_vitamin_c, const ::OpenAPI::OptionalParam<double> &max_vitamin_c, const ::OpenAPI::OptionalParam<double> &min_vitamin_d, const ::OpenAPI::OptionalParam<double> &max_vitamin_d, const ::OpenAPI::OptionalParam<double> &min_vitamin_e, const ::OpenAPI::OptionalParam<double> &max_vitamin_e, const ::OpenAPI::OptionalParam<double> &min_vitamin_k, const ::OpenAPI::OptionalParam<double> &max_vitamin_k, const ::OpenAPI::OptionalParam<double> &min_vitamin_b1, const ::OpenAPI::OptionalParam<double> &max_vitamin_b1, const ::OpenAPI::OptionalParam<double> &min_vitamin_b2, const ::OpenAPI::OptionalParam<double> &max_vitamin_b2, const ::OpenAPI::OptionalParam<double> &min_vitamin_b5, const ::OpenAPI::OptionalParam<double> &max_vitamin_b5, const ::OpenAPI::OptionalParam<double> &min_vitamin_b3, const ::OpenAPI::OptionalParam<double> &max_vitamin_b3, const ::OpenAPI::OptionalParam<double> &min_vitamin_b6, const ::OpenAPI::OptionalParam<double> &max_vitamin_b6, const ::OpenAPI::OptionalParam<double> &min_vitamin_b12, const ::OpenAPI::OptionalParam<double> &max_vitamin_b12, const ::OpenAPI::OptionalParam<double> &min_fiber, const ::OpenAPI::OptionalParam<double> &max_fiber, const ::OpenAPI::OptionalParam<double> &min_folate, const ::OpenAPI::OptionalParam<double> &max_folate, const ::OpenAPI::OptionalParam<double> &min_folic_acid, const ::OpenAPI::OptionalParam<double> &max_folic_acid, const ::OpenAPI::OptionalParam<double> &min_iodine, const ::OpenAPI::OptionalParam<double> &max_iodine, const ::OpenAPI::OptionalParam<double> &min_iron, const ::OpenAPI::OptionalParam<double> &max_iron, const ::OpenAPI::OptionalParam<double> &min_magnesium, const ::OpenAPI::OptionalParam<double> &max_magnesium, const ::OpenAPI::OptionalParam<double> &min_manganese, const ::OpenAPI::OptionalParam<double> &max_manganese, const ::OpenAPI::OptionalParam<double> &min_phosphorus, const ::OpenAPI::OptionalParam<double> &max_phosphorus, const ::OpenAPI::OptionalParam<double> &min_potassium, const ::OpenAPI::OptionalParam<double> &max_potassium, const ::OpenAPI::OptionalParam<double> &min_selenium, const ::OpenAPI::OptionalParam<double> &max_selenium, const ::OpenAPI::OptionalParam<double> &min_sodium, const ::OpenAPI::OptionalParam<double> &max_sodium, const ::OpenAPI::OptionalParam<double> &min_sugar, const ::OpenAPI::OptionalParam<double> &max_sugar, const ::OpenAPI::OptionalParam<double> &min_zinc, const ::OpenAPI::OptionalParam<double> &max_zinc, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number, const ::OpenAPI::OptionalParam<bool> &limit_license) {
+void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<QString> &cuisine, const ::OpenAPI::OptionalParam<QString> &exclude_cuisine, const ::OpenAPI::OptionalParam<QString> &diet, const ::OpenAPI::OptionalParam<QString> &intolerances, const ::OpenAPI::OptionalParam<QString> &equipment, const ::OpenAPI::OptionalParam<QString> &include_ingredients, const ::OpenAPI::OptionalParam<QString> &exclude_ingredients, const ::OpenAPI::OptionalParam<QString> &type, const ::OpenAPI::OptionalParam<bool> &instructions_required, const ::OpenAPI::OptionalParam<bool> &fill_ingredients, const ::OpenAPI::OptionalParam<bool> &add_recipe_information, const ::OpenAPI::OptionalParam<bool> &add_recipe_nutrition, const ::OpenAPI::OptionalParam<QString> &author, const ::OpenAPI::OptionalParam<QString> &tags, const ::OpenAPI::OptionalParam<double> &recipe_box_id, const ::OpenAPI::OptionalParam<QString> &title_match, const ::OpenAPI::OptionalParam<double> &max_ready_time, const ::OpenAPI::OptionalParam<double> &min_servings, const ::OpenAPI::OptionalParam<double> &max_servings, const ::OpenAPI::OptionalParam<bool> &ignore_pantry, const ::OpenAPI::OptionalParam<QString> &sort, const ::OpenAPI::OptionalParam<QString> &sort_direction, const ::OpenAPI::OptionalParam<double> &min_carbs, const ::OpenAPI::OptionalParam<double> &max_carbs, const ::OpenAPI::OptionalParam<double> &min_protein, const ::OpenAPI::OptionalParam<double> &max_protein, const ::OpenAPI::OptionalParam<double> &min_calories, const ::OpenAPI::OptionalParam<double> &max_calories, const ::OpenAPI::OptionalParam<double> &min_fat, const ::OpenAPI::OptionalParam<double> &max_fat, const ::OpenAPI::OptionalParam<double> &min_alcohol, const ::OpenAPI::OptionalParam<double> &max_alcohol, const ::OpenAPI::OptionalParam<double> &min_caffeine, const ::OpenAPI::OptionalParam<double> &max_caffeine, const ::OpenAPI::OptionalParam<double> &min_copper, const ::OpenAPI::OptionalParam<double> &max_copper, const ::OpenAPI::OptionalParam<double> &min_calcium, const ::OpenAPI::OptionalParam<double> &max_calcium, const ::OpenAPI::OptionalParam<double> &min_choline, const ::OpenAPI::OptionalParam<double> &max_choline, const ::OpenAPI::OptionalParam<double> &min_cholesterol, const ::OpenAPI::OptionalParam<double> &max_cholesterol, const ::OpenAPI::OptionalParam<double> &min_fluoride, const ::OpenAPI::OptionalParam<double> &max_fluoride, const ::OpenAPI::OptionalParam<double> &min_saturated_fat, const ::OpenAPI::OptionalParam<double> &max_saturated_fat, const ::OpenAPI::OptionalParam<double> &min_vitamin_a, const ::OpenAPI::OptionalParam<double> &max_vitamin_a, const ::OpenAPI::OptionalParam<double> &min_vitamin_c, const ::OpenAPI::OptionalParam<double> &max_vitamin_c, const ::OpenAPI::OptionalParam<double> &min_vitamin_d, const ::OpenAPI::OptionalParam<double> &max_vitamin_d, const ::OpenAPI::OptionalParam<double> &min_vitamin_e, const ::OpenAPI::OptionalParam<double> &max_vitamin_e, const ::OpenAPI::OptionalParam<double> &min_vitamin_k, const ::OpenAPI::OptionalParam<double> &max_vitamin_k, const ::OpenAPI::OptionalParam<double> &min_vitamin_b1, const ::OpenAPI::OptionalParam<double> &max_vitamin_b1, const ::OpenAPI::OptionalParam<double> &min_vitamin_b2, const ::OpenAPI::OptionalParam<double> &max_vitamin_b2, const ::OpenAPI::OptionalParam<double> &min_vitamin_b5, const ::OpenAPI::OptionalParam<double> &max_vitamin_b5, const ::OpenAPI::OptionalParam<double> &min_vitamin_b3, const ::OpenAPI::OptionalParam<double> &max_vitamin_b3, const ::OpenAPI::OptionalParam<double> &min_vitamin_b6, const ::OpenAPI::OptionalParam<double> &max_vitamin_b6, const ::OpenAPI::OptionalParam<double> &min_vitamin_b12, const ::OpenAPI::OptionalParam<double> &max_vitamin_b12, const ::OpenAPI::OptionalParam<double> &min_fiber, const ::OpenAPI::OptionalParam<double> &max_fiber, const ::OpenAPI::OptionalParam<double> &min_folate, const ::OpenAPI::OptionalParam<double> &max_folate, const ::OpenAPI::OptionalParam<double> &min_folic_acid, const ::OpenAPI::OptionalParam<double> &max_folic_acid, const ::OpenAPI::OptionalParam<double> &min_iodine, const ::OpenAPI::OptionalParam<double> &max_iodine, const ::OpenAPI::OptionalParam<double> &min_iron, const ::OpenAPI::OptionalParam<double> &max_iron, const ::OpenAPI::OptionalParam<double> &min_magnesium, const ::OpenAPI::OptionalParam<double> &max_magnesium, const ::OpenAPI::OptionalParam<double> &min_manganese, const ::OpenAPI::OptionalParam<double> &max_manganese, const ::OpenAPI::OptionalParam<double> &min_phosphorus, const ::OpenAPI::OptionalParam<double> &max_phosphorus, const ::OpenAPI::OptionalParam<double> &min_potassium, const ::OpenAPI::OptionalParam<double> &max_potassium, const ::OpenAPI::OptionalParam<double> &min_selenium, const ::OpenAPI::OptionalParam<double> &max_selenium, const ::OpenAPI::OptionalParam<double> &min_sodium, const ::OpenAPI::OptionalParam<double> &max_sodium, const ::OpenAPI::OptionalParam<double> &min_sugar, const ::OpenAPI::OptionalParam<double> &max_sugar, const ::OpenAPI::OptionalParam<double> &min_zinc, const ::OpenAPI::OptionalParam<double> &max_zinc, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number, const ::OpenAPI::OptionalParam<bool> &limit_license) {
     QString fullPath = QString(_serverConfigs["searchRecipes"][_serverIndices.value("searchRecipes")].URL()+"/recipes/complexSearch");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -3616,6 +3646,36 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
             fullPath.append("?");
 
         fullPath.append(QUrl::toPercentEncoding("maxReadyTime")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_ready_time.value())));
+    }
+    if (min_servings.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "minServings", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("minServings")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_servings.value())));
+    }
+    if (max_servings.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "maxServings", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("maxServings")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_servings.value())));
     }
     if (ignore_pantry.hasValue())
     {

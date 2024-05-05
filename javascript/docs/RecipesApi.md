@@ -614,7 +614,9 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
   'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
-  'tags': "tags_example", // String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+  'includeNutrition': false, // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  'includeTags': vegetarian,gluten, // String | A comma-separated list of tags that the random recipe(s) must adhere to.
+  'excludeTags': meat,dairy, // String | A comma-separated list of tags that the random recipe(s) must not adhere to.
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.getRandomRecipes(opts, (error, data, response) => {
@@ -632,7 +634,9 @@ apiInstance.getRandomRecipes(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
- **tags** | **String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
+ **includeNutrition** | **Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+ **includeTags** | **String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] 
+ **excludeTags** | **String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1605,6 +1609,8 @@ let opts = {
   'recipeBoxId': 2468, // Number | The id of the recipe box to which the search should be limited to.
   'titleMatch': Crock Pot, // String | Enter text that must be found in the title of the recipes.
   'maxReadyTime': 20, // Number | The maximum time in minutes it should take to prepare and cook the recipe.
+  'minServings': 1, // Number | The minimum amount of servings the recipe is for.
+  'maxServings': 8, // Number | The maximum amount of servings the recipe is for.
   'ignorePantry': false, // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
   'sort': calories, // String | The strategy to sort recipes by. See a full list of supported sorting options.
   'sortDirection': asc, // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
@@ -1716,6 +1722,8 @@ Name | Type | Description  | Notes
  **recipeBoxId** | **Number**| The id of the recipe box to which the search should be limited to. | [optional] 
  **titleMatch** | **String**| Enter text that must be found in the title of the recipes. | [optional] 
  **maxReadyTime** | **Number**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
+ **minServings** | **Number**| The minimum amount of servings the recipe is for. | [optional] 
+ **maxServings** | **Number**| The maximum amount of servings the recipe is for. | [optional] 
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
  **sort** | **String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
  **sortDirection** | **String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 

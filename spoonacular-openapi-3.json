@@ -26204,8 +26204,7 @@
                           "store_photos": {
                             "type": "array",
                             "items": {
-                              "type": "object",
-                              "properties": {}
+                              "type": "string"
                             }
                           },
                           "dollar_signs": {

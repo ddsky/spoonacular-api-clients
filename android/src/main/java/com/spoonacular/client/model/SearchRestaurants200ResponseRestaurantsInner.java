@@ -43,7 +43,7 @@ public class SearchRestaurants200ResponseRestaurantsInner {
   @SerializedName("logo_photos")
   private List<String> logoPhotos = null;
   @SerializedName("store_photos")
-  private List<Object> storePhotos = null;
+  private List<String> storePhotos = null;
   @SerializedName("dollar_signs")
   private Integer dollarSigns = null;
   @SerializedName("pickup_enabled")
@@ -166,10 +166,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<Object> getStorePhotos() {
+  public List<String> getStorePhotos() {
     return storePhotos;
   }
-  public void setStorePhotos(List<Object> storePhotos) {
+  public void setStorePhotos(List<String> storePhotos) {
     this.storePhotos = storePhotos;
   }
 

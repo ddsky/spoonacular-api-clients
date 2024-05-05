@@ -815,7 +815,9 @@ end
 api_instance = OpenapiClient::RecipesApi.new
 opts = {
   limit_license: true, # Boolean | Whether the recipes should have an open license that allows display with proper attribution.
-  tags: 'tags_example', # String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+  include_nutrition: true, # Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  include_tags: 'vegetarian,gluten', # String | A comma-separated list of tags that the random recipe(s) must adhere to.
+  exclude_tags: 'meat,dairy', # String | A comma-separated list of tags that the random recipe(s) must not adhere to.
   number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }
 
@@ -851,7 +853,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **limit_license** | **Boolean** | Whether the recipes should have an open license that allows display with proper attribution. | [optional][default to true] |
-| **tags** | **String** | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
+| **include_nutrition** | **Boolean** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional][default to false] |
+| **include_tags** | **String** | A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] |
+| **exclude_tags** | **String** | A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 
 ### Return type
@@ -2166,6 +2170,8 @@ opts = {
   recipe_box_id: 2468, # Float | The id of the recipe box to which the search should be limited to.
   title_match: 'Crock Pot', # String | Enter text that must be found in the title of the recipes.
   max_ready_time: 20, # Float | The maximum time in minutes it should take to prepare and cook the recipe.
+  min_servings: 1, # Float | The minimum amount of servings the recipe is for.
+  max_servings: 8, # Float | The maximum amount of servings the recipe is for.
   ignore_pantry: false, # Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
   sort: 'calories', # String | The strategy to sort recipes by. See a full list of supported sorting options.
   sort_direction: 'asc', # String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
@@ -2295,6 +2301,8 @@ end
 | **recipe_box_id** | **Float** | The id of the recipe box to which the search should be limited to. | [optional] |
 | **title_match** | **String** | Enter text that must be found in the title of the recipes. | [optional] |
 | **max_ready_time** | **Float** | The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
+| **min_servings** | **Float** | The minimum amount of servings the recipe is for. | [optional] |
+| **max_servings** | **Float** | The maximum amount of servings the recipe is for. | [optional] |
 | **ignore_pantry** | **Boolean** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional][default to false] |
 | **sort** | **String** | The strategy to sort recipes by. See a full list of supported sorting options. | [optional] |
 | **sort_direction** | **String** | The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |

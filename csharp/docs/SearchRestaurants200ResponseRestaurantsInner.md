@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Cuisines** | **List&lt;string&gt;** |  | [optional] 
 **FoodPhotos** | **List&lt;string&gt;** |  | [optional] 
 **LogoPhotos** | **List&lt;string&gt;** |  | [optional] 
-**StorePhotos** | **List&lt;Object&gt;** |  | [optional] 
+**StorePhotos** | **List&lt;string&gt;** |  | [optional] 
 **DollarSigns** | **int** |  | [optional] 
 **PickupEnabled** | **bool** |  | [optional] 
 **DeliveryEnabled** | **bool** |  | [optional] 

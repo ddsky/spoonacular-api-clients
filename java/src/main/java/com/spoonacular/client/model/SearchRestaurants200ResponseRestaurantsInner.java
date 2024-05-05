@@ -98,7 +98,7 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
   public static final String SERIALIZED_NAME_STORE_PHOTOS = "store_photos";
   @SerializedName(SERIALIZED_NAME_STORE_PHOTOS)
-  private List<Object> storePhotos;
+  private List<String> storePhotos;
 
   public static final String SERIALIZED_NAME_DOLLAR_SIGNS = "dollar_signs";
   @SerializedName(SERIALIZED_NAME_DOLLAR_SIGNS)
@@ -353,12 +353,12 @@ public class SearchRestaurants200ResponseRestaurantsInner {
   }
 
 
-  public SearchRestaurants200ResponseRestaurantsInner storePhotos(List<Object> storePhotos) {
+  public SearchRestaurants200ResponseRestaurantsInner storePhotos(List<String> storePhotos) {
     this.storePhotos = storePhotos;
     return this;
   }
 
-  public SearchRestaurants200ResponseRestaurantsInner addStorePhotosItem(Object storePhotosItem) {
+  public SearchRestaurants200ResponseRestaurantsInner addStorePhotosItem(String storePhotosItem) {
     if (this.storePhotos == null) {
       this.storePhotos = new ArrayList<>();
     }
@@ -371,11 +371,11 @@ public class SearchRestaurants200ResponseRestaurantsInner {
    * @return storePhotos
   **/
   @javax.annotation.Nullable
-  public List<Object> getStorePhotos() {
+  public List<String> getStorePhotos() {
     return storePhotos;
   }
 
-  public void setStorePhotos(List<Object> storePhotos) {
+  public void setStorePhotos(List<String> storePhotos) {
     this.storePhotos = storePhotos;
   }
 

@@ -530,7 +530,9 @@ export default class RecipesApi {
      * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [limitLicense = true)] Whether the recipes should have an open license that allows display with proper attribution.
-     * @param {String} [tags] The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+     * @param {Boolean} [includeNutrition = false)] Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+     * @param {String} [includeTags] A comma-separated list of tags that the random recipe(s) must adhere to.
+     * @param {String} [excludeTags] A comma-separated list of tags that the random recipe(s) must not adhere to.
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {module:api/RecipesApi~getRandomRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetRandomRecipes200Response}
@@ -543,7 +545,9 @@ export default class RecipesApi {
       };
       let queryParams = {
         'limitLicense': opts['limitLicense'],
-        'tags': opts['tags'],
+        'includeNutrition': opts['includeNutrition'],
+        'include-tags': opts['includeTags'],
+        'exclude-tags': opts['excludeTags'],
         'number': opts['number']
       };
       let headerParams = {
@@ -1369,6 +1373,8 @@ export default class RecipesApi {
      * @param {Number} [recipeBoxId] The id of the recipe box to which the search should be limited to.
      * @param {String} [titleMatch] Enter text that must be found in the title of the recipes.
      * @param {Number} [maxReadyTime] The maximum time in minutes it should take to prepare and cook the recipe.
+     * @param {Number} [minServings] The minimum amount of servings the recipe is for.
+     * @param {Number} [maxServings] The maximum amount of servings the recipe is for.
      * @param {Boolean} [ignorePantry = false)] Whether to ignore typical pantry items, such as water, salt, flour, etc.
      * @param {String} [sort] The strategy to sort recipes by. See a full list of supported sorting options.
      * @param {String} [sortDirection] The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
@@ -1475,6 +1481,8 @@ export default class RecipesApi {
         'recipeBoxId': opts['recipeBoxId'],
         'titleMatch': opts['titleMatch'],
         'maxReadyTime': opts['maxReadyTime'],
+        'minServings': opts['minServings'],
+        'maxServings': opts['maxServings'],
         'ignorePantry': opts['ignorePantry'],
         'sort': opts['sort'],
         'sortDirection': opts['sortDirection'],
