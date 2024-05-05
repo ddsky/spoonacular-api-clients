@@ -14,7 +14,7 @@
 | **cuisines** | **Array&lt;String&gt;** |  | [optional] |
 | **food_photos** | **Array&lt;String&gt;** |  | [optional] |
 | **logo_photos** | **Array&lt;String&gt;** |  | [optional] |
-| **store_photos** | **Array&lt;Object&gt;** |  | [optional] |
+| **store_photos** | **Array&lt;String&gt;** |  | [optional] |
 | **dollar_signs** | **Integer** |  | [optional] |
 | **pickup_enabled** | **Boolean** |  | [optional] |
 | **delivery_enabled** | **Boolean** |  | [optional] |

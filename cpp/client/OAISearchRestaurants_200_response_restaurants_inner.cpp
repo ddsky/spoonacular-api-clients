@@ -397,10 +397,10 @@ bool OAISearchRestaurants_200_response_restaurants_inner::is_logo_photos_Valid()
     return m_logo_photos_isValid;
 }
 
-QList<OAIObject> OAISearchRestaurants_200_response_restaurants_inner::getStorePhotos() const {
+QList<QString> OAISearchRestaurants_200_response_restaurants_inner::getStorePhotos() const {
     return m_store_photos;
 }
-void OAISearchRestaurants_200_response_restaurants_inner::setStorePhotos(const QList<OAIObject> &store_photos) {
+void OAISearchRestaurants_200_response_restaurants_inner::setStorePhotos(const QList<QString> &store_photos) {
     m_store_photos = store_photos;
     m_store_photos_isSet = true;
 }

@@ -167,7 +167,9 @@ describe 'RecipesApi' do
   # Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :limit_license Whether the recipes should have an open license that allows display with proper attribution.
-  # @option opts [String] :tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
+  # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  # @option opts [String] :include_tags A comma-separated list of tags that the random recipe(s) must adhere to.
+  # @option opts [String] :exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to.
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
   # @return [GetRandomRecipes200Response]
   describe 'get_random_recipes test' do
@@ -418,6 +420,8 @@ describe 'RecipesApi' do
   # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
   # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
   # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
+  # @option opts [Float] :min_servings The minimum amount of servings the recipe is for.
+  # @option opts [Float] :max_servings The maximum amount of servings the recipe is for.
   # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
   # @option opts [String] :sort The strategy to sort recipes by. See a full list of supported sorting options.
   # @option opts [String] :sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).

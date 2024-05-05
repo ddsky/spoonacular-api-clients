@@ -19,7 +19,7 @@
    (ds/opt :cuisines) (s/coll-of string?)
    (ds/opt :food_photos) (s/coll-of string?)
    (ds/opt :logo_photos) (s/coll-of string?)
-   (ds/opt :store_photos) (s/coll-of any?)
+   (ds/opt :store_photos) (s/coll-of string?)
    (ds/opt :dollar_signs) int?
    (ds/opt :pickup_enabled) boolean?
    (ds/opt :delivery_enabled) boolean?

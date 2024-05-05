@@ -4026,7 +4026,7 @@ searchRestaurants200ResponseRestaurantsInnerLogoPhotosL f SearchRestaurants200Re
 {-# INLINE searchRestaurants200ResponseRestaurantsInnerLogoPhotosL #-}
 
 -- | 'searchRestaurants200ResponseRestaurantsInnerStorePhotos' Lens
-searchRestaurants200ResponseRestaurantsInnerStorePhotosL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe [A.Value])
+searchRestaurants200ResponseRestaurantsInnerStorePhotosL :: Lens_' SearchRestaurants200ResponseRestaurantsInner (Maybe [Text])
 searchRestaurants200ResponseRestaurantsInnerStorePhotosL f SearchRestaurants200ResponseRestaurantsInner{..} = (\searchRestaurants200ResponseRestaurantsInnerStorePhotos -> SearchRestaurants200ResponseRestaurantsInner { searchRestaurants200ResponseRestaurantsInnerStorePhotos, ..} ) <$> f searchRestaurants200ResponseRestaurantsInnerStorePhotos
 {-# INLINE searchRestaurants200ResponseRestaurantsInnerStorePhotosL #-}
 

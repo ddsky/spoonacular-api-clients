@@ -2968,7 +2968,9 @@ class RecipesApi:
     def get_random_recipes(
         self,
         limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
-        tags: Annotated[Optional[StrictStr], Field(description="The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.")] = None,
+        include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
+        include_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must adhere to.")] = None,
+        exclude_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must not adhere to.")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -2989,8 +2991,12 @@ class RecipesApi:
 
         :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
         :type limit_license: bool
-        :param tags: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-        :type tags: str
+        :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+        :type include_nutrition: bool
+        :param include_tags: A comma-separated list of tags that the random recipe(s) must adhere to.
+        :type include_tags: str
+        :param exclude_tags: A comma-separated list of tags that the random recipe(s) must not adhere to.
+        :type exclude_tags: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3017,7 +3023,9 @@ class RecipesApi:
 
         _param = self._get_random_recipes_serialize(
             limit_license=limit_license,
-            tags=tags,
+            include_nutrition=include_nutrition,
+            include_tags=include_tags,
+            exclude_tags=exclude_tags,
             number=number,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3046,7 +3054,9 @@ class RecipesApi:
     def get_random_recipes_with_http_info(
         self,
         limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
-        tags: Annotated[Optional[StrictStr], Field(description="The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.")] = None,
+        include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
+        include_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must adhere to.")] = None,
+        exclude_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must not adhere to.")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -3067,8 +3077,12 @@ class RecipesApi:
 
         :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
         :type limit_license: bool
-        :param tags: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-        :type tags: str
+        :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+        :type include_nutrition: bool
+        :param include_tags: A comma-separated list of tags that the random recipe(s) must adhere to.
+        :type include_tags: str
+        :param exclude_tags: A comma-separated list of tags that the random recipe(s) must not adhere to.
+        :type exclude_tags: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3095,7 +3109,9 @@ class RecipesApi:
 
         _param = self._get_random_recipes_serialize(
             limit_license=limit_license,
-            tags=tags,
+            include_nutrition=include_nutrition,
+            include_tags=include_tags,
+            exclude_tags=exclude_tags,
             number=number,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3124,7 +3140,9 @@ class RecipesApi:
     def get_random_recipes_without_preload_content(
         self,
         limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
-        tags: Annotated[Optional[StrictStr], Field(description="The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.")] = None,
+        include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
+        include_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must adhere to.")] = None,
+        exclude_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must not adhere to.")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -3145,8 +3163,12 @@ class RecipesApi:
 
         :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
         :type limit_license: bool
-        :param tags: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-        :type tags: str
+        :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+        :type include_nutrition: bool
+        :param include_tags: A comma-separated list of tags that the random recipe(s) must adhere to.
+        :type include_tags: str
+        :param exclude_tags: A comma-separated list of tags that the random recipe(s) must not adhere to.
+        :type exclude_tags: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3173,7 +3195,9 @@ class RecipesApi:
 
         _param = self._get_random_recipes_serialize(
             limit_license=limit_license,
-            tags=tags,
+            include_nutrition=include_nutrition,
+            include_tags=include_tags,
+            exclude_tags=exclude_tags,
             number=number,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3197,7 +3221,9 @@ class RecipesApi:
     def _get_random_recipes_serialize(
         self,
         limit_license,
-        tags,
+        include_nutrition,
+        include_tags,
+        exclude_tags,
         number,
         _request_auth,
         _content_type,
@@ -3223,9 +3249,17 @@ class RecipesApi:
             
             _query_params.append(('limitLicense', limit_license))
             
-        if tags is not None:
+        if include_nutrition is not None:
             
-            _query_params.append(('tags', tags))
+            _query_params.append(('includeNutrition', include_nutrition))
+            
+        if include_tags is not None:
+            
+            _query_params.append(('include-tags', include_tags))
+            
+        if exclude_tags is not None:
+            
+            _query_params.append(('exclude-tags', exclude_tags))
             
         if number is not None:
             
@@ -8118,6 +8152,8 @@ class RecipesApi:
         recipe_box_id: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
         title_match: Annotated[Optional[StrictStr], Field(description="Enter text that must be found in the title of the recipes.")] = None,
         max_ready_time: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum time in minutes it should take to prepare and cook the recipe.")] = None,
+        min_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of servings the recipe is for.")] = None,
+        max_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of servings the recipe is for.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="The strategy to sort recipes by. See a full list of supported sorting options.")] = None,
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).")] = None,
@@ -8249,6 +8285,10 @@ class RecipesApi:
         :type title_match: str
         :param max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
         :type max_ready_time: float
+        :param min_servings: The minimum amount of servings the recipe is for.
+        :type min_servings: float
+        :param max_servings: The maximum amount of servings the recipe is for.
+        :type max_servings: float
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
         :type ignore_pantry: bool
         :param sort: The strategy to sort recipes by. See a full list of supported sorting options.
@@ -8446,6 +8486,8 @@ class RecipesApi:
             recipe_box_id=recipe_box_id,
             title_match=title_match,
             max_ready_time=max_ready_time,
+            min_servings=min_servings,
+            max_servings=max_servings,
             ignore_pantry=ignore_pantry,
             sort=sort,
             sort_direction=sort_direction,
@@ -8568,6 +8610,8 @@ class RecipesApi:
         recipe_box_id: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
         title_match: Annotated[Optional[StrictStr], Field(description="Enter text that must be found in the title of the recipes.")] = None,
         max_ready_time: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum time in minutes it should take to prepare and cook the recipe.")] = None,
+        min_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of servings the recipe is for.")] = None,
+        max_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of servings the recipe is for.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="The strategy to sort recipes by. See a full list of supported sorting options.")] = None,
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).")] = None,
@@ -8699,6 +8743,10 @@ class RecipesApi:
         :type title_match: str
         :param max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
         :type max_ready_time: float
+        :param min_servings: The minimum amount of servings the recipe is for.
+        :type min_servings: float
+        :param max_servings: The maximum amount of servings the recipe is for.
+        :type max_servings: float
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
         :type ignore_pantry: bool
         :param sort: The strategy to sort recipes by. See a full list of supported sorting options.
@@ -8896,6 +8944,8 @@ class RecipesApi:
             recipe_box_id=recipe_box_id,
             title_match=title_match,
             max_ready_time=max_ready_time,
+            min_servings=min_servings,
+            max_servings=max_servings,
             ignore_pantry=ignore_pantry,
             sort=sort,
             sort_direction=sort_direction,
@@ -9018,6 +9068,8 @@ class RecipesApi:
         recipe_box_id: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
         title_match: Annotated[Optional[StrictStr], Field(description="Enter text that must be found in the title of the recipes.")] = None,
         max_ready_time: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum time in minutes it should take to prepare and cook the recipe.")] = None,
+        min_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of servings the recipe is for.")] = None,
+        max_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of servings the recipe is for.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="The strategy to sort recipes by. See a full list of supported sorting options.")] = None,
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).")] = None,
@@ -9149,6 +9201,10 @@ class RecipesApi:
         :type title_match: str
         :param max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
         :type max_ready_time: float
+        :param min_servings: The minimum amount of servings the recipe is for.
+        :type min_servings: float
+        :param max_servings: The maximum amount of servings the recipe is for.
+        :type max_servings: float
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
         :type ignore_pantry: bool
         :param sort: The strategy to sort recipes by. See a full list of supported sorting options.
@@ -9346,6 +9402,8 @@ class RecipesApi:
             recipe_box_id=recipe_box_id,
             title_match=title_match,
             max_ready_time=max_ready_time,
+            min_servings=min_servings,
+            max_servings=max_servings,
             ignore_pantry=ignore_pantry,
             sort=sort,
             sort_direction=sort_direction,
@@ -9463,6 +9521,8 @@ class RecipesApi:
         recipe_box_id,
         title_match,
         max_ready_time,
+        min_servings,
+        max_servings,
         ignore_pantry,
         sort,
         sort_direction,
@@ -9632,6 +9692,14 @@ class RecipesApi:
         if max_ready_time is not None:
             
             _query_params.append(('maxReadyTime', max_ready_time))
+            
+        if min_servings is not None:
+            
+            _query_params.append(('minServings', min_servings))
+            
+        if max_servings is not None:
+            
+            _query_params.append(('maxServings', max_servings))
             
         if ignore_pantry is not None:
             

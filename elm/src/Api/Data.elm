@@ -1861,7 +1861,7 @@ type alias SearchRestaurants200ResponseRestaurantsInner =
     , cuisines : Maybe ( List String )
     , foodPhotos : Maybe ( List String )
     , logoPhotos : Maybe ( List String )
-    , storePhotos : Maybe ( List Object )
+    , storePhotos : Maybe ( List String )
     , dollarSigns : Maybe Int
     , pickupEnabled : Maybe Bool
     , deliveryEnabled : Maybe Bool
@@ -5391,7 +5391,7 @@ encodeSearchRestaurants200ResponseRestaurantsInnerPairs model =
             , maybeEncode "cuisines" (Json.Encode.list Json.Encode.string) model.cuisines
             , maybeEncode "food_photos" (Json.Encode.list Json.Encode.string) model.foodPhotos
             , maybeEncode "logo_photos" (Json.Encode.list Json.Encode.string) model.logoPhotos
-            , maybeEncode "store_photos" (Json.Encode.list encodeObject) model.storePhotos
+            , maybeEncode "store_photos" (Json.Encode.list Json.Encode.string) model.storePhotos
             , maybeEncode "dollar_signs" Json.Encode.int model.dollarSigns
             , maybeEncode "pickup_enabled" Json.Encode.bool model.pickupEnabled
             , maybeEncode "delivery_enabled" Json.Encode.bool model.deliveryEnabled
@@ -7025,7 +7025,7 @@ searchRestaurants200ResponseRestaurantsInnerDecoder =
         |> maybeDecode "cuisines" (Json.Decode.list Json.Decode.string) Nothing
         |> maybeDecode "food_photos" (Json.Decode.list Json.Decode.string) Nothing
         |> maybeDecode "logo_photos" (Json.Decode.list Json.Decode.string) Nothing
-        |> maybeDecode "store_photos" (Json.Decode.list objectDecoder) Nothing
+        |> maybeDecode "store_photos" (Json.Decode.list Json.Decode.string) Nothing
         |> maybeDecode "dollar_signs" Json.Decode.int Nothing
         |> maybeDecode "pickup_enabled" Json.Decode.bool Nothing
         |> maybeDecode "delivery_enabled" Json.Decode.bool Nothing

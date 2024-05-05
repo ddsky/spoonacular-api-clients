@@ -660,7 +660,9 @@ Name | Type | Description  | Notes
 # **getRandomRecipes**
 ```objc
 -(NSURLSessionTask*) getRandomRecipesWithLimitLicense: (NSNumber*) limitLicense
-    tags: (NSString*) tags
+    includeNutrition: (NSNumber*) includeNutrition
+    includeTags: (NSString*) includeTags
+    excludeTags: (NSString*) excludeTags
     number: (NSNumber*) number
         completionHandler: (void (^)(OAIGetRandomRecipes200Response* output, NSError* error)) handler;
 ```
@@ -680,14 +682,18 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 
 NSNumber* limitLicense = true; // Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to @(YES))
-NSString* tags = @"tags_example"; // The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+NSNumber* includeNutrition = @(NO); // Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) (default to @(NO))
+NSString* includeTags = vegetarian,gluten; // A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+NSString* excludeTags = meat,dairy; // A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
 NSNumber* number = 10; // The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to @10)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Get Random Recipes
 [apiInstance getRandomRecipesWithLimitLicense:limitLicense
-              tags:tags
+              includeNutrition:includeNutrition
+              includeTags:includeTags
+              excludeTags:excludeTags
               number:number
           completionHandler: ^(OAIGetRandomRecipes200Response* output, NSError* error) {
                         if (output) {
@@ -704,7 +710,9 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limitLicense** | **NSNumber***| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to @(YES)]
- **tags** | **NSString***| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
+ **includeNutrition** | **NSNumber***| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to @(NO)]
+ **includeTags** | **NSString***| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] 
+ **excludeTags** | **NSString***| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] 
  **number** | **NSNumber***| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to @10]
 
 ### Return type
@@ -1775,6 +1783,8 @@ Name | Type | Description  | Notes
     recipeBoxId: (NSNumber*) recipeBoxId
     titleMatch: (NSString*) titleMatch
     maxReadyTime: (NSNumber*) maxReadyTime
+    minServings: (NSNumber*) minServings
+    maxServings: (NSNumber*) maxServings
     ignorePantry: (NSNumber*) ignorePantry
     sort: (NSString*) sort
     sortDirection: (NSString*) sortDirection
@@ -1888,6 +1898,8 @@ NSString* tags = @"tags_example"; // The tags (can be diets, meal types, cuisine
 NSNumber* recipeBoxId = 2468; // The id of the recipe box to which the search should be limited to. (optional)
 NSString* titleMatch = Crock Pot; // Enter text that must be found in the title of the recipes. (optional)
 NSNumber* maxReadyTime = 20; // The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+NSNumber* minServings = 1; // The minimum amount of servings the recipe is for. (optional)
+NSNumber* maxServings = 8; // The maximum amount of servings the recipe is for. (optional)
 NSNumber* ignorePantry = false; // Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional) (default to @(NO))
 NSString* sort = calories; // The strategy to sort recipes by. See a full list of supported sorting options. (optional)
 NSString* sortDirection = asc; // The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). (optional)
@@ -1988,6 +2000,8 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
               recipeBoxId:recipeBoxId
               titleMatch:titleMatch
               maxReadyTime:maxReadyTime
+              minServings:minServings
+              maxServings:maxServings
               ignorePantry:ignorePantry
               sort:sort
               sortDirection:sortDirection
@@ -2098,6 +2112,8 @@ Name | Type | Description  | Notes
  **recipeBoxId** | **NSNumber***| The id of the recipe box to which the search should be limited to. | [optional] 
  **titleMatch** | **NSString***| Enter text that must be found in the title of the recipes. | [optional] 
  **maxReadyTime** | **NSNumber***| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
+ **minServings** | **NSNumber***| The minimum amount of servings the recipe is for. | [optional] 
+ **maxServings** | **NSNumber***| The maximum amount of servings the recipe is for. | [optional] 
  **ignorePantry** | **NSNumber***| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to @(NO)]
  **sort** | **NSString***| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] 
  **sortDirection** | **NSString***| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] 

@@ -813,7 +813,9 @@ sub get_analyzed_recipe_instructions {
 # Get Random Recipes
 #
 # @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
-# @param string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
+# @param boolean $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+# @param string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
+# @param string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 {
     my $params = {
@@ -822,9 +824,19 @@ sub get_analyzed_recipe_instructions {
         description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
-    'tags' => {
+    'include_nutrition' => {
+        data_type => 'boolean',
+        description => 'Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.',
+        required => '0',
+    },
+    'include_tags' => {
         data_type => 'string',
-        description => 'The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.',
+        description => 'A comma-separated list of tags that the random recipe(s) must adhere to.',
+        required => '0',
+    },
+    'exclude_tags' => {
+        data_type => 'string',
+        description => 'A comma-separated list of tags that the random recipe(s) must not adhere to.',
         required => '0',
     },
     'number' => {
@@ -865,8 +877,18 @@ sub get_random_recipes {
     }
 
     # query params
-    if ( exists $args{'tags'}) {
-        $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
+    if ( exists $args{'include_nutrition'}) {
+        $query_params->{'includeNutrition'} = $self->{api_client}->to_query_value($args{'include_nutrition'});
+    }
+
+    # query params
+    if ( exists $args{'include_tags'}) {
+        $query_params->{'include-tags'} = $self->{api_client}->to_query_value($args{'include_tags'});
+    }
+
+    # query params
+    if ( exists $args{'exclude_tags'}) {
+        $query_params->{'exclude-tags'} = $self->{api_client}->to_query_value($args{'exclude_tags'});
     }
 
     # query params
@@ -2214,6 +2236,8 @@ sub recipe_taste_by_id_image {
 # @param double $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
 # @param string $title_match Enter text that must be found in the title of the recipes. (optional)
 # @param double $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
+# @param double $min_servings The minimum amount of servings the recipe is for. (optional)
+# @param double $max_servings The maximum amount of servings the recipe is for. (optional)
 # @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
 # @param string $sort The strategy to sort recipes by. See a full list of supported sorting options. (optional)
 # @param string $sort_direction The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). (optional)
@@ -2382,6 +2406,16 @@ sub recipe_taste_by_id_image {
     'max_ready_time' => {
         data_type => 'double',
         description => 'The maximum time in minutes it should take to prepare and cook the recipe.',
+        required => '0',
+    },
+    'min_servings' => {
+        data_type => 'double',
+        description => 'The minimum amount of servings the recipe is for.',
+        required => '0',
+    },
+    'max_servings' => {
+        data_type => 'double',
+        description => 'The maximum amount of servings the recipe is for.',
         required => '0',
     },
     'ignore_pantry' => {
@@ -2889,6 +2923,16 @@ sub search_recipes {
     # query params
     if ( exists $args{'max_ready_time'}) {
         $query_params->{'maxReadyTime'} = $self->{api_client}->to_query_value($args{'max_ready_time'});
+    }
+
+    # query params
+    if ( exists $args{'min_servings'}) {
+        $query_params->{'minServings'} = $self->{api_client}->to_query_value($args{'min_servings'});
+    }
+
+    # query params
+    if ( exists $args{'max_servings'}) {
+        $query_params->{'maxServings'} = $self->{api_client}->to_query_value($args{'max_servings'});
     }
 
     # query params

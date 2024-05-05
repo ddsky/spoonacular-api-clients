@@ -66,7 +66,7 @@ void main() {
       // TODO
     });
 
-    // List<Object> storePhotos (default value: const [])
+    // List<String> storePhotos (default value: const [])
     test('to test the property `storePhotos`', () async {
       // TODO
     });

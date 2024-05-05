@@ -39,7 +39,7 @@ class SearchRestaurants200ResponseRestaurantsInner(BaseModel):
     cuisines: Optional[List[StrictStr]] = None
     food_photos: Optional[List[StrictStr]] = None
     logo_photos: Optional[List[StrictStr]] = None
-    store_photos: Optional[List[Dict[str, Any]]] = None
+    store_photos: Optional[List[StrictStr]] = None
     dollar_signs: Optional[StrictInt] = None
     pickup_enabled: Optional[StrictBool] = None
     delivery_enabled: Optional[StrictBool] = None

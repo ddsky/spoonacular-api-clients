@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **cuisines** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
 **foodPhotos** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
 **logoPhotos** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
-**storePhotos** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
+**storePhotos** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
 **dollarSigns** | **NSNumber*** |  | [optional] 
 **pickupEnabled** | **NSNumber*** |  | [optional] 
 **deliveryEnabled** | **NSNumber*** |  | [optional] 

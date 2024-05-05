@@ -286,6 +286,24 @@ paths:
           example: 20
           type: number
         style: form
+      - description: The minimum amount of servings the recipe is for.
+        explode: false
+        in: query
+        name: minServings
+        required: false
+        schema:
+          example: 1
+          type: number
+        style: form
+      - description: The maximum amount of servings the recipe is for.
+        explode: false
+        in: query
+        name: maxServings
+        required: false
+        schema:
+          example: 8
+          type: number
+        style: form
       - description: "Whether to ignore typical pantry items, such as water, salt,\
           \ flour, etc."
         explode: true
@@ -3690,13 +3708,35 @@ paths:
           example: true
           type: boolean
         style: form
-      - description: "The tags (can be diets, meal types, cuisines, or intolerances)\
-          \ that the recipe must have."
+      - description: "Include nutrition data in the recipe information. Nutrition\
+          \ data is per serving. If you want the nutrition data for the entire recipe,\
+          \ just multiply by the number of servings."
         explode: true
         in: query
-        name: tags
+        name: includeNutrition
         required: false
         schema:
+          default: false
+          type: boolean
+        style: form
+      - description: A comma-separated list of tags that the random recipe(s) must
+          adhere to.
+        explode: false
+        in: query
+        name: include-tags
+        required: false
+        schema:
+          example: "vegetarian,gluten"
+          type: string
+        style: form
+      - description: A comma-separated list of tags that the random recipe(s) must
+          not adhere to.
+        explode: false
+        in: query
+        name: exclude-tags
+        required: false
+        schema:
+          example: "meat,dairy"
           type: string
         style: form
       - description: The maximum number of items to return (between 1 and 100). Defaults
@@ -21844,8 +21884,8 @@ components:
         offers_first_party_delivery: true
         aggregated_rating_count: 3
         store_photos:
-        - "{}"
-        - "{}"
+        - store_photos
+        - store_photos
         logo_photos:
         - logo_photos
         - logo_photos
@@ -21924,8 +21964,7 @@ components:
           type: array
         store_photos:
           items:
-            properties: {}
-            type: object
+            type: string
           type: array
         dollar_signs:
           type: integer
@@ -21968,8 +22007,8 @@ components:
           offers_first_party_delivery: true
           aggregated_rating_count: 3
           store_photos:
-          - "{}"
-          - "{}"
+          - store_photos
+          - store_photos
           logo_photos:
           - logo_photos
           - logo_photos
@@ -22038,8 +22077,8 @@ components:
           offers_first_party_delivery: true
           aggregated_rating_count: 3
           store_photos:
-          - "{}"
-          - "{}"
+          - store_photos
+          - store_photos
           logo_photos:
           - logo_photos
           - logo_photos

@@ -55,7 +55,7 @@ namespace spoonacular.Model
         /// <param name="miles">miles.</param>
         /// <param name="weightedRatingValue">weightedRatingValue.</param>
         /// <param name="aggregatedRatingCount">aggregatedRatingCount.</param>
-        public SearchRestaurants200ResponseRestaurantsInner(string id = default(string), string name = default(string), int phoneNumber = default(int), SearchRestaurants200ResponseRestaurantsInnerAddress address = default(SearchRestaurants200ResponseRestaurantsInnerAddress), string type = default(string), string description = default(string), SearchRestaurants200ResponseRestaurantsInnerLocalHours localHours = default(SearchRestaurants200ResponseRestaurantsInnerLocalHours), List<string> cuisines = default(List<string>), List<string> foodPhotos = default(List<string>), List<string> logoPhotos = default(List<string>), List<Object> storePhotos = default(List<Object>), int dollarSigns = default(int), bool pickupEnabled = default(bool), bool deliveryEnabled = default(bool), bool isOpen = default(bool), bool offersFirstPartyDelivery = default(bool), bool offersThirdPartyDelivery = default(bool), decimal miles = default(decimal), decimal weightedRatingValue = default(decimal), int aggregatedRatingCount = default(int))
+        public SearchRestaurants200ResponseRestaurantsInner(string id = default(string), string name = default(string), int phoneNumber = default(int), SearchRestaurants200ResponseRestaurantsInnerAddress address = default(SearchRestaurants200ResponseRestaurantsInnerAddress), string type = default(string), string description = default(string), SearchRestaurants200ResponseRestaurantsInnerLocalHours localHours = default(SearchRestaurants200ResponseRestaurantsInnerLocalHours), List<string> cuisines = default(List<string>), List<string> foodPhotos = default(List<string>), List<string> logoPhotos = default(List<string>), List<string> storePhotos = default(List<string>), int dollarSigns = default(int), bool pickupEnabled = default(bool), bool deliveryEnabled = default(bool), bool isOpen = default(bool), bool offersFirstPartyDelivery = default(bool), bool offersThirdPartyDelivery = default(bool), decimal miles = default(decimal), decimal weightedRatingValue = default(decimal), int aggregatedRatingCount = default(int))
         {
             this.Id = id;
             this.Name = name;
@@ -143,7 +143,7 @@ namespace spoonacular.Model
         /// Gets or Sets StorePhotos
         /// </summary>
         [DataMember(Name = "store_photos", EmitDefaultValue = false)]
-        public List<Object> StorePhotos { get; set; }
+        public List<string> StorePhotos { get; set; }
 
         /// <summary>
         /// Gets or Sets DollarSigns
