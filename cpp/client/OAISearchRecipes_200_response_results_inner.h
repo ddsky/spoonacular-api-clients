@@ -49,21 +49,6 @@ public:
     bool is_title_Set() const;
     bool is_title_Valid() const;
 
-    double getCalories() const;
-    void setCalories(const double &calories);
-    bool is_calories_Set() const;
-    bool is_calories_Valid() const;
-
-    QString getCarbs() const;
-    void setCarbs(const QString &carbs);
-    bool is_carbs_Set() const;
-    bool is_carbs_Valid() const;
-
-    QString getFat() const;
-    void setFat(const QString &fat);
-    bool is_fat_Set() const;
-    bool is_fat_Valid() const;
-
     QString getImage() const;
     void setImage(const QString &image);
     bool is_image_Set() const;
@@ -73,11 +58,6 @@ public:
     void setImageType(const QString &image_type);
     bool is_image_type_Set() const;
     bool is_image_type_Valid() const;
-
-    QString getProtein() const;
-    void setProtein(const QString &protein);
-    bool is_protein_Set() const;
-    bool is_protein_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -93,18 +73,6 @@ private:
     bool m_title_isSet;
     bool m_title_isValid;
 
-    double m_calories;
-    bool m_calories_isSet;
-    bool m_calories_isValid;
-
-    QString m_carbs;
-    bool m_carbs_isSet;
-    bool m_carbs_isValid;
-
-    QString m_fat;
-    bool m_fat_isSet;
-    bool m_fat_isValid;
-
     QString m_image;
     bool m_image_isSet;
     bool m_image_isValid;
@@ -112,10 +80,6 @@ private:
     QString m_image_type;
     bool m_image_type_isSet;
     bool m_image_type_isValid;
-
-    QString m_protein;
-    bool m_protein_isSet;
-    bool m_protein_isValid;
 };
 
 } // namespace OpenAPI

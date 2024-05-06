@@ -1728,12 +1728,8 @@ genSearchRecipes200ResponseResultsInner n =
   SearchRecipes200ResponseResultsInner
     <$> arbitrary -- searchRecipes200ResponseResultsInnerId :: Int
     <*> arbitrary -- searchRecipes200ResponseResultsInnerTitle :: Text
-    <*> arbitrary -- searchRecipes200ResponseResultsInnerCalories :: Double
-    <*> arbitrary -- searchRecipes200ResponseResultsInnerCarbs :: Text
-    <*> arbitrary -- searchRecipes200ResponseResultsInnerFat :: Text
     <*> arbitrary -- searchRecipes200ResponseResultsInnerImage :: Text
     <*> arbitrary -- searchRecipes200ResponseResultsInnerImageType :: Text
-    <*> arbitrary -- searchRecipes200ResponseResultsInnerProtein :: Text
   
 instance Arbitrary SearchRecipesByIngredients200ResponseInner where
   arbitrary = sized genSearchRecipesByIngredients200ResponseInner

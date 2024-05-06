@@ -17,31 +17,19 @@ pub struct SearchRecipes200ResponseResultsInner {
     pub id: i32,
     #[serde(rename = "title")]
     pub title: String,
-    #[serde(rename = "calories")]
-    pub calories: f32,
-    #[serde(rename = "carbs")]
-    pub carbs: String,
-    #[serde(rename = "fat")]
-    pub fat: String,
     #[serde(rename = "image")]
     pub image: String,
     #[serde(rename = "imageType")]
     pub image_type: String,
-    #[serde(rename = "protein")]
-    pub protein: String,
 }
 
 impl SearchRecipes200ResponseResultsInner {
-    pub fn new(id: i32, title: String, calories: f32, carbs: String, fat: String, image: String, image_type: String, protein: String) -> SearchRecipes200ResponseResultsInner {
+    pub fn new(id: i32, title: String, image: String, image_type: String) -> SearchRecipes200ResponseResultsInner {
         SearchRecipes200ResponseResultsInner {
             id,
             title,
-            calories,
-            carbs,
-            fat,
             image,
             image_type,
-            protein,
         }
     }
 }

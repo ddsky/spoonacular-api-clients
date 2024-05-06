@@ -19,7 +19,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -55,30 +54,6 @@ public class SearchRecipes200ResponseResultsInnerTest {
     }
 
     /**
-     * Test the property 'calories'
-     */
-    @Test
-    public void caloriesTest() {
-        // TODO: test calories
-    }
-
-    /**
-     * Test the property 'carbs'
-     */
-    @Test
-    public void carbsTest() {
-        // TODO: test carbs
-    }
-
-    /**
-     * Test the property 'fat'
-     */
-    @Test
-    public void fatTest() {
-        // TODO: test fat
-    }
-
-    /**
      * Test the property 'image'
      */
     @Test
@@ -92,14 +67,6 @@ public class SearchRecipes200ResponseResultsInnerTest {
     @Test
     public void imageTypeTest() {
         // TODO: test imageType
-    }
-
-    /**
-     * Test the property 'protein'
-     */
-    @Test
-    public void proteinTest() {
-        // TODO: test protein
     }
 
 }

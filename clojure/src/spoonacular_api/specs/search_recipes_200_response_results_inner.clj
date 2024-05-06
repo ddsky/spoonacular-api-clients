@@ -9,12 +9,8 @@
   {
    (ds/req :id) int?
    (ds/req :title) string?
-   (ds/req :calories) float?
-   (ds/req :carbs) string?
-   (ds/req :fat) string?
    (ds/req :image) string?
    (ds/req :imageType) string?
-   (ds/req :protein) string?
    })
 
 (def search-recipes-200-response-results-inner-spec
