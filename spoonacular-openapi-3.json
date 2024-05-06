@@ -163,17 +163,6 @@
                             "type": "string",
                             "minLength": 1
                           },
-                          "calories": {
-                            "type": "number"
-                          },
-                          "carbs": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "fat": {
-                            "type": "string",
-                            "minLength": 1
-                          },
                           "image": {
                             "type": "string",
                             "minLength": 1
@@ -181,21 +170,13 @@
                           "imageType": {
                             "type": "string",
                             "minLength": 1
-                          },
-                          "protein": {
-                            "type": "string",
-                            "minLength": 1
                           }
                         },
                         "required": [
                           "id",
                           "title",
-                          "calories",
-                          "carbs",
-                          "fat",
                           "image",
-                          "imageType",
-                          "protein"
+                          "imageType"
                         ]
                       }
                     },
