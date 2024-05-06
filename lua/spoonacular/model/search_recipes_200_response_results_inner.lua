@@ -19,16 +19,12 @@ local function cast_search_recipes_200_response_results_inner(t)
 	return setmetatable(t, search_recipes_200_response_results_inner_mt)
 end
 
-local function new_search_recipes_200_response_results_inner(id, title, calories, carbs, fat, image, image_type, protein)
+local function new_search_recipes_200_response_results_inner(id, title, image, image_type)
 	return cast_search_recipes_200_response_results_inner({
 		["id"] = id;
 		["title"] = title;
-		["calories"] = calories;
-		["carbs"] = carbs;
-		["fat"] = fat;
 		["image"] = image;
 		["imageType"] = image_type;
-		["protein"] = protein;
 	})
 end
 

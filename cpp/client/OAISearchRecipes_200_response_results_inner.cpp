@@ -40,23 +40,11 @@ void OAISearchRecipes_200_response_results_inner::initializeModel() {
     m_title_isSet = false;
     m_title_isValid = false;
 
-    m_calories_isSet = false;
-    m_calories_isValid = false;
-
-    m_carbs_isSet = false;
-    m_carbs_isValid = false;
-
-    m_fat_isSet = false;
-    m_fat_isValid = false;
-
     m_image_isSet = false;
     m_image_isValid = false;
 
     m_image_type_isSet = false;
     m_image_type_isValid = false;
-
-    m_protein_isSet = false;
-    m_protein_isValid = false;
 }
 
 void OAISearchRecipes_200_response_results_inner::fromJson(QString jsonString) {
@@ -74,23 +62,11 @@ void OAISearchRecipes_200_response_results_inner::fromJsonObject(QJsonObject jso
     m_title_isValid = ::OpenAPI::fromJsonValue(m_title, json[QString("title")]);
     m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 
-    m_calories_isValid = ::OpenAPI::fromJsonValue(m_calories, json[QString("calories")]);
-    m_calories_isSet = !json[QString("calories")].isNull() && m_calories_isValid;
-
-    m_carbs_isValid = ::OpenAPI::fromJsonValue(m_carbs, json[QString("carbs")]);
-    m_carbs_isSet = !json[QString("carbs")].isNull() && m_carbs_isValid;
-
-    m_fat_isValid = ::OpenAPI::fromJsonValue(m_fat, json[QString("fat")]);
-    m_fat_isSet = !json[QString("fat")].isNull() && m_fat_isValid;
-
     m_image_isValid = ::OpenAPI::fromJsonValue(m_image, json[QString("image")]);
     m_image_isSet = !json[QString("image")].isNull() && m_image_isValid;
 
     m_image_type_isValid = ::OpenAPI::fromJsonValue(m_image_type, json[QString("imageType")]);
     m_image_type_isSet = !json[QString("imageType")].isNull() && m_image_type_isValid;
-
-    m_protein_isValid = ::OpenAPI::fromJsonValue(m_protein, json[QString("protein")]);
-    m_protein_isSet = !json[QString("protein")].isNull() && m_protein_isValid;
 }
 
 QString OAISearchRecipes_200_response_results_inner::asJson() const {
@@ -108,23 +84,11 @@ QJsonObject OAISearchRecipes_200_response_results_inner::asJsonObject() const {
     if (m_title_isSet) {
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(m_title));
     }
-    if (m_calories_isSet) {
-        obj.insert(QString("calories"), ::OpenAPI::toJsonValue(m_calories));
-    }
-    if (m_carbs_isSet) {
-        obj.insert(QString("carbs"), ::OpenAPI::toJsonValue(m_carbs));
-    }
-    if (m_fat_isSet) {
-        obj.insert(QString("fat"), ::OpenAPI::toJsonValue(m_fat));
-    }
     if (m_image_isSet) {
         obj.insert(QString("image"), ::OpenAPI::toJsonValue(m_image));
     }
     if (m_image_type_isSet) {
         obj.insert(QString("imageType"), ::OpenAPI::toJsonValue(m_image_type));
-    }
-    if (m_protein_isSet) {
-        obj.insert(QString("protein"), ::OpenAPI::toJsonValue(m_protein));
     }
     return obj;
 }
@@ -161,54 +125,6 @@ bool OAISearchRecipes_200_response_results_inner::is_title_Valid() const{
     return m_title_isValid;
 }
 
-double OAISearchRecipes_200_response_results_inner::getCalories() const {
-    return m_calories;
-}
-void OAISearchRecipes_200_response_results_inner::setCalories(const double &calories) {
-    m_calories = calories;
-    m_calories_isSet = true;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_calories_Set() const{
-    return m_calories_isSet;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_calories_Valid() const{
-    return m_calories_isValid;
-}
-
-QString OAISearchRecipes_200_response_results_inner::getCarbs() const {
-    return m_carbs;
-}
-void OAISearchRecipes_200_response_results_inner::setCarbs(const QString &carbs) {
-    m_carbs = carbs;
-    m_carbs_isSet = true;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_carbs_Set() const{
-    return m_carbs_isSet;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_carbs_Valid() const{
-    return m_carbs_isValid;
-}
-
-QString OAISearchRecipes_200_response_results_inner::getFat() const {
-    return m_fat;
-}
-void OAISearchRecipes_200_response_results_inner::setFat(const QString &fat) {
-    m_fat = fat;
-    m_fat_isSet = true;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_fat_Set() const{
-    return m_fat_isSet;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_fat_Valid() const{
-    return m_fat_isValid;
-}
-
 QString OAISearchRecipes_200_response_results_inner::getImage() const {
     return m_image;
 }
@@ -241,22 +157,6 @@ bool OAISearchRecipes_200_response_results_inner::is_image_type_Valid() const{
     return m_image_type_isValid;
 }
 
-QString OAISearchRecipes_200_response_results_inner::getProtein() const {
-    return m_protein;
-}
-void OAISearchRecipes_200_response_results_inner::setProtein(const QString &protein) {
-    m_protein = protein;
-    m_protein_isSet = true;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_protein_Set() const{
-    return m_protein_isSet;
-}
-
-bool OAISearchRecipes_200_response_results_inner::is_protein_Valid() const{
-    return m_protein_isValid;
-}
-
 bool OAISearchRecipes_200_response_results_inner::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -270,21 +170,6 @@ bool OAISearchRecipes_200_response_results_inner::isSet() const {
             break;
         }
 
-        if (m_calories_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_carbs_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_fat_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_image_isSet) {
             isObjectUpdated = true;
             break;
@@ -294,18 +179,13 @@ bool OAISearchRecipes_200_response_results_inner::isSet() const {
             isObjectUpdated = true;
             break;
         }
-
-        if (m_protein_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAISearchRecipes_200_response_results_inner::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_title_isValid && m_calories_isValid && m_carbs_isValid && m_fat_isValid && m_image_isValid && m_image_type_isValid && m_protein_isValid && true;
+    return m_id_isValid && m_title_isValid && m_image_isValid && m_image_type_isValid && true;
 }
 
 } // namespace OpenAPI

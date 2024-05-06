@@ -12,7 +12,6 @@
 
 package com.spoonacular.client.model;
 
-import java.math.BigDecimal;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,18 +22,10 @@ public class SearchRecipes200ResponseResultsInner {
   private Integer id = null;
   @SerializedName("title")
   private String title = null;
-  @SerializedName("calories")
-  private BigDecimal calories = null;
-  @SerializedName("carbs")
-  private String carbs = null;
-  @SerializedName("fat")
-  private String fat = null;
   @SerializedName("image")
   private String image = null;
   @SerializedName("imageType")
   private String imageType = null;
-  @SerializedName("protein")
-  private String protein = null;
 
   /**
    **/
@@ -59,36 +50,6 @@ public class SearchRecipes200ResponseResultsInner {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getCalories() {
-    return calories;
-  }
-  public void setCalories(BigDecimal calories) {
-    this.calories = calories;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getCarbs() {
-    return carbs;
-  }
-  public void setCarbs(String carbs) {
-    this.carbs = carbs;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getFat() {
-    return fat;
-  }
-  public void setFat(String fat) {
-    this.fat = fat;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
   public String getImage() {
     return image;
   }
@@ -106,16 +67,6 @@ public class SearchRecipes200ResponseResultsInner {
     this.imageType = imageType;
   }
 
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getProtein() {
-    return protein;
-  }
-  public void setProtein(String protein) {
-    this.protein = protein;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -128,12 +79,8 @@ public class SearchRecipes200ResponseResultsInner {
     SearchRecipes200ResponseResultsInner searchRecipes200ResponseResultsInner = (SearchRecipes200ResponseResultsInner) o;
     return (this.id == null ? searchRecipes200ResponseResultsInner.id == null : this.id.equals(searchRecipes200ResponseResultsInner.id)) &&
         (this.title == null ? searchRecipes200ResponseResultsInner.title == null : this.title.equals(searchRecipes200ResponseResultsInner.title)) &&
-        (this.calories == null ? searchRecipes200ResponseResultsInner.calories == null : this.calories.equals(searchRecipes200ResponseResultsInner.calories)) &&
-        (this.carbs == null ? searchRecipes200ResponseResultsInner.carbs == null : this.carbs.equals(searchRecipes200ResponseResultsInner.carbs)) &&
-        (this.fat == null ? searchRecipes200ResponseResultsInner.fat == null : this.fat.equals(searchRecipes200ResponseResultsInner.fat)) &&
         (this.image == null ? searchRecipes200ResponseResultsInner.image == null : this.image.equals(searchRecipes200ResponseResultsInner.image)) &&
-        (this.imageType == null ? searchRecipes200ResponseResultsInner.imageType == null : this.imageType.equals(searchRecipes200ResponseResultsInner.imageType)) &&
-        (this.protein == null ? searchRecipes200ResponseResultsInner.protein == null : this.protein.equals(searchRecipes200ResponseResultsInner.protein));
+        (this.imageType == null ? searchRecipes200ResponseResultsInner.imageType == null : this.imageType.equals(searchRecipes200ResponseResultsInner.imageType));
   }
 
   @Override
@@ -141,12 +88,8 @@ public class SearchRecipes200ResponseResultsInner {
     int result = 17;
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.title == null ? 0: this.title.hashCode());
-    result = 31 * result + (this.calories == null ? 0: this.calories.hashCode());
-    result = 31 * result + (this.carbs == null ? 0: this.carbs.hashCode());
-    result = 31 * result + (this.fat == null ? 0: this.fat.hashCode());
     result = 31 * result + (this.image == null ? 0: this.image.hashCode());
     result = 31 * result + (this.imageType == null ? 0: this.imageType.hashCode());
-    result = 31 * result + (this.protein == null ? 0: this.protein.hashCode());
     return result;
   }
 
@@ -157,12 +100,8 @@ public class SearchRecipes200ResponseResultsInner {
     
     sb.append("  id: ").append(id).append("\n");
     sb.append("  title: ").append(title).append("\n");
-    sb.append("  calories: ").append(calories).append("\n");
-    sb.append("  carbs: ").append(carbs).append("\n");
-    sb.append("  fat: ").append(fat).append("\n");
     sb.append("  image: ").append(image).append("\n");
     sb.append("  imageType: ").append(imageType).append("\n");
-    sb.append("  protein: ").append(protein).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -27,16 +27,8 @@
 
 @property(nonatomic) NSString* title;
 
-@property(nonatomic) NSNumber* calories;
-
-@property(nonatomic) NSString* carbs;
-
-@property(nonatomic) NSString* fat;
-
 @property(nonatomic) NSString* image;
 
 @property(nonatomic) NSString* imageType;
-
-@property(nonatomic) NSString* protein;
 
 @end

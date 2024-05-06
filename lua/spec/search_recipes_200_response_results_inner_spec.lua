@@ -30,27 +30,6 @@ describe("search_recipes_200_response_results_inner", function()
     end)
   end)
 
-  -- unit tests for the property 'calories'
-  describe("property calories test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'carbs'
-  describe("property carbs test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'fat'
-  describe("property fat test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
   -- unit tests for the property 'image'
   describe("property image test", function()
     it("should work", function()
@@ -60,13 +39,6 @@ describe("search_recipes_200_response_results_inner", function()
 
   -- unit tests for the property 'image_type'
   describe("property image_type test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
-  -- unit tests for the property 'protein'
-  describe("property protein test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

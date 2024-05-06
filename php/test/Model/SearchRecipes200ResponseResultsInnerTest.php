@@ -99,33 +99,6 @@ class SearchRecipes200ResponseResultsInnerTest extends TestCase
     }
 
     /**
-     * Test attribute "calories"
-     */
-    public function testPropertyCalories()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "carbs"
-     */
-    public function testPropertyCarbs()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "fat"
-     */
-    public function testPropertyFat()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "image"
      */
     public function testPropertyImage()
@@ -138,15 +111,6 @@ class SearchRecipes200ResponseResultsInnerTest extends TestCase
      * Test attribute "image_type"
      */
     public function testPropertyImageType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "protein"
-     */
-    public function testPropertyProtein()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

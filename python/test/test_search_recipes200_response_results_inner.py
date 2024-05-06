@@ -38,23 +38,15 @@ class TestSearchRecipes200ResponseResultsInner(unittest.TestCase):
             return SearchRecipes200ResponseResultsInner(
                 id = 56,
                 title = '0',
-                calories = 1.337,
-                carbs = '0',
-                fat = '0',
                 image = '0',
-                image_type = '0',
-                protein = '0'
+                image_type = '0'
             )
         else:
             return SearchRecipes200ResponseResultsInner(
                 id = 56,
                 title = '0',
-                calories = 1.337,
-                carbs = '0',
-                fat = '0',
                 image = '0',
                 image_type = '0',
-                protein = '0',
         )
         """
 

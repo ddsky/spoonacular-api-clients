@@ -1795,12 +1795,8 @@ type alias SearchRecipes200Response =
 type alias SearchRecipes200ResponseResultsInner =
     { id : Int
     , title : String
-    , calories : Float
-    , carbs : String
-    , fat : String
     , image : String
     , imageType : String
-    , protein : String
     }
 
 
@@ -5250,12 +5246,8 @@ encodeSearchRecipes200ResponseResultsInnerPairs model =
         pairs =
             [ encode "id" Json.Encode.int model.id
             , encode "title" Json.Encode.string model.title
-            , encode "calories" Json.Encode.float model.calories
-            , encode "carbs" Json.Encode.string model.carbs
-            , encode "fat" Json.Encode.string model.fat
             , encode "image" Json.Encode.string model.image
             , encode "imageType" Json.Encode.string model.imageType
-            , encode "protein" Json.Encode.string model.protein
             ]
     in
     pairs
@@ -6954,12 +6946,8 @@ searchRecipes200ResponseResultsInnerDecoder =
     Json.Decode.succeed SearchRecipes200ResponseResultsInner
         |> decode "id" Json.Decode.int 
         |> decode "title" Json.Decode.string 
-        |> decode "calories" Json.Decode.float 
-        |> decode "carbs" Json.Decode.string 
-        |> decode "fat" Json.Decode.string 
         |> decode "image" Json.Decode.string 
         |> decode "imageType" Json.Decode.string 
-        |> decode "protein" Json.Decode.string 
 
 
 searchRecipesByIngredients200ResponseInnerDecoder : Json.Decode.Decoder SearchRecipesByIngredients200ResponseInner
