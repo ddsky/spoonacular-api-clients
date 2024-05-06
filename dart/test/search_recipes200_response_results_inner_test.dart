@@ -26,21 +26,6 @@ void main() {
       // TODO
     });
 
-    // num calories
-    test('to test the property `calories`', () async {
-      // TODO
-    });
-
-    // String carbs
-    test('to test the property `carbs`', () async {
-      // TODO
-    });
-
-    // String fat
-    test('to test the property `fat`', () async {
-      // TODO
-    });
-
     // String image
     test('to test the property `image`', () async {
       // TODO
@@ -48,11 +33,6 @@ void main() {
 
     // String imageType
     test('to test the property `imageType`', () async {
-      // TODO
-    });
-
-    // String protein
-    test('to test the property `protein`', () async {
       // TODO
     });
 

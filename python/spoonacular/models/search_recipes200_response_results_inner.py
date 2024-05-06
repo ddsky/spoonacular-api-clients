@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +30,9 @@ class SearchRecipes200ResponseResultsInner(BaseModel):
     """ # noqa: E501
     id: StrictInt
     title: Annotated[str, Field(min_length=1, strict=True)]
-    calories: Union[StrictFloat, StrictInt]
-    carbs: Annotated[str, Field(min_length=1, strict=True)]
-    fat: Annotated[str, Field(min_length=1, strict=True)]
     image: Annotated[str, Field(min_length=1, strict=True)]
     image_type: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="imageType")
-    protein: Annotated[str, Field(min_length=1, strict=True)]
-    __properties: ClassVar[List[str]] = ["id", "title", "calories", "carbs", "fat", "image", "imageType", "protein"]
+    __properties: ClassVar[List[str]] = ["id", "title", "image", "imageType"]
 
     model_config = {
         "populate_by_name": True,
@@ -91,12 +87,8 @@ class SearchRecipes200ResponseResultsInner(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "title": obj.get("title"),
-            "calories": obj.get("calories"),
-            "carbs": obj.get("carbs"),
-            "fat": obj.get("fat"),
             "image": obj.get("image"),
-            "imageType": obj.get("imageType"),
-            "protein": obj.get("protein")
+            "imageType": obj.get("imageType")
         })
         return _obj
 

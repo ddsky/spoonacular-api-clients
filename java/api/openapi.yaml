@@ -13500,11 +13500,7 @@ components:
     searchRecipes_200_response_results_inner:
       example:
         image: image
-        carbs: carbs
-        protein: protein
-        fat: fat
         id: 1
-        calories: 5.962133916683182
         title: title
         imageType: imageType
       properties:
@@ -13513,31 +13509,16 @@ components:
         title:
           minLength: 1
           type: string
-        calories:
-          type: number
-        carbs:
-          minLength: 1
-          type: string
-        fat:
-          minLength: 1
-          type: string
         image:
           minLength: 1
           type: string
         imageType:
           minLength: 1
           type: string
-        protein:
-          minLength: 1
-          type: string
       required:
-      - calories
-      - carbs
-      - fat
       - id
       - image
       - imageType
-      - protein
       - title
       type: object
     searchRecipes_200_response:
@@ -13548,19 +13529,11 @@ components:
         offset: 0
         results:
         - image: image
-          carbs: carbs
-          protein: protein
-          fat: fat
           id: 1
-          calories: 5.962133916683182
           title: title
           imageType: imageType
         - image: image
-          carbs: carbs
-          protein: protein
-          fat: fat
           id: 1
-          calories: 5.962133916683182
           title: title
           imageType: imageType
       properties:

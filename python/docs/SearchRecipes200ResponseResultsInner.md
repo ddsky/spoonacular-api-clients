@@ -7,12 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **title** | **str** |  | 
-**calories** | **float** |  | 
-**carbs** | **str** |  | 
-**fat** | **str** |  | 
 **image** | **str** |  | 
 **image_type** | **str** |  | 
-**protein** | **str** |  | 
 
 ## Example
 

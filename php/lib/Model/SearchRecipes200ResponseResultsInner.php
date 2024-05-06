@@ -60,12 +60,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'id' => 'int',
         'title' => 'string',
-        'calories' => 'float',
-        'carbs' => 'string',
-        'fat' => 'string',
         'image' => 'string',
-        'image_type' => 'string',
-        'protein' => 'string'
+        'image_type' => 'string'
     ];
 
     /**
@@ -78,12 +74,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'id' => null,
         'title' => null,
-        'calories' => null,
-        'carbs' => null,
-        'fat' => null,
         'image' => null,
-        'image_type' => null,
-        'protein' => null
+        'image_type' => null
     ];
 
     /**
@@ -94,12 +86,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     protected static array $openAPINullables = [
         'id' => false,
         'title' => false,
-        'calories' => false,
-        'carbs' => false,
-        'fat' => false,
         'image' => false,
-        'image_type' => false,
-        'protein' => false
+        'image_type' => false
     ];
 
     /**
@@ -190,12 +178,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'id' => 'id',
         'title' => 'title',
-        'calories' => 'calories',
-        'carbs' => 'carbs',
-        'fat' => 'fat',
         'image' => 'image',
-        'image_type' => 'imageType',
-        'protein' => 'protein'
+        'image_type' => 'imageType'
     ];
 
     /**
@@ -206,12 +190,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     protected static $setters = [
         'id' => 'setId',
         'title' => 'setTitle',
-        'calories' => 'setCalories',
-        'carbs' => 'setCarbs',
-        'fat' => 'setFat',
         'image' => 'setImage',
-        'image_type' => 'setImageType',
-        'protein' => 'setProtein'
+        'image_type' => 'setImageType'
     ];
 
     /**
@@ -222,12 +202,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     protected static $getters = [
         'id' => 'getId',
         'title' => 'getTitle',
-        'calories' => 'getCalories',
-        'carbs' => 'getCarbs',
-        'fat' => 'getFat',
         'image' => 'getImage',
-        'image_type' => 'getImageType',
-        'protein' => 'getProtein'
+        'image_type' => 'getImageType'
     ];
 
     /**
@@ -289,12 +265,8 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('calories', $data ?? [], null);
-        $this->setIfExists('carbs', $data ?? [], null);
-        $this->setIfExists('fat', $data ?? [], null);
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('image_type', $data ?? [], null);
-        $this->setIfExists('protein', $data ?? [], null);
     }
 
     /**
@@ -334,23 +306,6 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
             $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['calories'] === null) {
-            $invalidProperties[] = "'calories' can't be null";
-        }
-        if ($this->container['carbs'] === null) {
-            $invalidProperties[] = "'carbs' can't be null";
-        }
-        if ((mb_strlen($this->container['carbs']) < 1)) {
-            $invalidProperties[] = "invalid value for 'carbs', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['fat'] === null) {
-            $invalidProperties[] = "'fat' can't be null";
-        }
-        if ((mb_strlen($this->container['fat']) < 1)) {
-            $invalidProperties[] = "invalid value for 'fat', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['image'] === null) {
             $invalidProperties[] = "'image' can't be null";
         }
@@ -363,13 +318,6 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
         }
         if ((mb_strlen($this->container['image_type']) < 1)) {
             $invalidProperties[] = "invalid value for 'image_type', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['protein'] === null) {
-            $invalidProperties[] = "'protein' can't be null";
-        }
-        if ((mb_strlen($this->container['protein']) < 1)) {
-            $invalidProperties[] = "invalid value for 'protein', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -447,97 +395,6 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets calories
-     *
-     * @return float
-     */
-    public function getCalories()
-    {
-        return $this->container['calories'];
-    }
-
-    /**
-     * Sets calories
-     *
-     * @param float $calories calories
-     *
-     * @return self
-     */
-    public function setCalories($calories)
-    {
-        if (is_null($calories)) {
-            throw new \InvalidArgumentException('non-nullable calories cannot be null');
-        }
-        $this->container['calories'] = $calories;
-
-        return $this;
-    }
-
-    /**
-     * Gets carbs
-     *
-     * @return string
-     */
-    public function getCarbs()
-    {
-        return $this->container['carbs'];
-    }
-
-    /**
-     * Sets carbs
-     *
-     * @param string $carbs carbs
-     *
-     * @return self
-     */
-    public function setCarbs($carbs)
-    {
-        if (is_null($carbs)) {
-            throw new \InvalidArgumentException('non-nullable carbs cannot be null');
-        }
-
-        if ((mb_strlen($carbs) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $carbs when calling SearchRecipes200ResponseResultsInner., must be bigger than or equal to 1.');
-        }
-
-        $this->container['carbs'] = $carbs;
-
-        return $this;
-    }
-
-    /**
-     * Gets fat
-     *
-     * @return string
-     */
-    public function getFat()
-    {
-        return $this->container['fat'];
-    }
-
-    /**
-     * Sets fat
-     *
-     * @param string $fat fat
-     *
-     * @return self
-     */
-    public function setFat($fat)
-    {
-        if (is_null($fat)) {
-            throw new \InvalidArgumentException('non-nullable fat cannot be null');
-        }
-
-        if ((mb_strlen($fat) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $fat when calling SearchRecipes200ResponseResultsInner., must be bigger than or equal to 1.');
-        }
-
-        $this->container['fat'] = $fat;
-
-        return $this;
-    }
-
-    /**
      * Gets image
      *
      * @return string
@@ -597,38 +454,6 @@ class SearchRecipes200ResponseResultsInner implements ModelInterface, ArrayAcces
         }
 
         $this->container['image_type'] = $image_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets protein
-     *
-     * @return string
-     */
-    public function getProtein()
-    {
-        return $this->container['protein'];
-    }
-
-    /**
-     * Sets protein
-     *
-     * @param string $protein protein
-     *
-     * @return self
-     */
-    public function setProtein($protein)
-    {
-        if (is_null($protein)) {
-            throw new \InvalidArgumentException('non-nullable protein cannot be null');
-        }
-
-        if ((mb_strlen($protein) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $protein when calling SearchRecipes200ResponseResultsInner., must be bigger than or equal to 1.');
-        }
-
-        $this->container['protein'] = $protein;
 
         return $this;
     }

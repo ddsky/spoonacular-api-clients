@@ -19,29 +19,17 @@ module OpenapiClient
 
     attr_accessor :title
 
-    attr_accessor :calories
-
-    attr_accessor :carbs
-
-    attr_accessor :fat
-
     attr_accessor :image
 
     attr_accessor :image_type
-
-    attr_accessor :protein
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'title' => :'title',
-        :'calories' => :'calories',
-        :'carbs' => :'carbs',
-        :'fat' => :'fat',
         :'image' => :'image',
-        :'image_type' => :'imageType',
-        :'protein' => :'protein'
+        :'image_type' => :'imageType'
       }
     end
 
@@ -55,12 +43,8 @@ module OpenapiClient
       {
         :'id' => :'Integer',
         :'title' => :'String',
-        :'calories' => :'Float',
-        :'carbs' => :'String',
-        :'fat' => :'String',
         :'image' => :'String',
-        :'image_type' => :'String',
-        :'protein' => :'String'
+        :'image_type' => :'String'
       }
     end
 
@@ -97,24 +81,6 @@ module OpenapiClient
         self.title = nil
       end
 
-      if attributes.key?(:'calories')
-        self.calories = attributes[:'calories']
-      else
-        self.calories = nil
-      end
-
-      if attributes.key?(:'carbs')
-        self.carbs = attributes[:'carbs']
-      else
-        self.carbs = nil
-      end
-
-      if attributes.key?(:'fat')
-        self.fat = attributes[:'fat']
-      else
-        self.fat = nil
-      end
-
       if attributes.key?(:'image')
         self.image = attributes[:'image']
       else
@@ -125,12 +91,6 @@ module OpenapiClient
         self.image_type = attributes[:'image_type']
       else
         self.image_type = nil
-      end
-
-      if attributes.key?(:'protein')
-        self.protein = attributes[:'protein']
-      else
-        self.protein = nil
       end
     end
 
@@ -151,26 +111,6 @@ module OpenapiClient
         invalid_properties.push('invalid value for "title", the character length must be great than or equal to 1.')
       end
 
-      if @calories.nil?
-        invalid_properties.push('invalid value for "calories", calories cannot be nil.')
-      end
-
-      if @carbs.nil?
-        invalid_properties.push('invalid value for "carbs", carbs cannot be nil.')
-      end
-
-      if @carbs.to_s.length < 1
-        invalid_properties.push('invalid value for "carbs", the character length must be great than or equal to 1.')
-      end
-
-      if @fat.nil?
-        invalid_properties.push('invalid value for "fat", fat cannot be nil.')
-      end
-
-      if @fat.to_s.length < 1
-        invalid_properties.push('invalid value for "fat", the character length must be great than or equal to 1.')
-      end
-
       if @image.nil?
         invalid_properties.push('invalid value for "image", image cannot be nil.')
       end
@@ -187,14 +127,6 @@ module OpenapiClient
         invalid_properties.push('invalid value for "image_type", the character length must be great than or equal to 1.')
       end
 
-      if @protein.nil?
-        invalid_properties.push('invalid value for "protein", protein cannot be nil.')
-      end
-
-      if @protein.to_s.length < 1
-        invalid_properties.push('invalid value for "protein", the character length must be great than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -205,17 +137,10 @@ module OpenapiClient
       return false if @id.nil?
       return false if @title.nil?
       return false if @title.to_s.length < 1
-      return false if @calories.nil?
-      return false if @carbs.nil?
-      return false if @carbs.to_s.length < 1
-      return false if @fat.nil?
-      return false if @fat.to_s.length < 1
       return false if @image.nil?
       return false if @image.to_s.length < 1
       return false if @image_type.nil?
       return false if @image_type.to_s.length < 1
-      return false if @protein.nil?
-      return false if @protein.to_s.length < 1
       true
     end
 
@@ -231,34 +156,6 @@ module OpenapiClient
       end
 
       @title = title
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] carbs Value to be assigned
-    def carbs=(carbs)
-      if carbs.nil?
-        fail ArgumentError, 'carbs cannot be nil'
-      end
-
-      if carbs.to_s.length < 1
-        fail ArgumentError, 'invalid value for "carbs", the character length must be great than or equal to 1.'
-      end
-
-      @carbs = carbs
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] fat Value to be assigned
-    def fat=(fat)
-      if fat.nil?
-        fail ArgumentError, 'fat cannot be nil'
-      end
-
-      if fat.to_s.length < 1
-        fail ArgumentError, 'invalid value for "fat", the character length must be great than or equal to 1.'
-      end
-
-      @fat = fat
     end
 
     # Custom attribute writer method with validation
@@ -289,20 +186,6 @@ module OpenapiClient
       @image_type = image_type
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] protein Value to be assigned
-    def protein=(protein)
-      if protein.nil?
-        fail ArgumentError, 'protein cannot be nil'
-      end
-
-      if protein.to_s.length < 1
-        fail ArgumentError, 'invalid value for "protein", the character length must be great than or equal to 1.'
-      end
-
-      @protein = protein
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -310,12 +193,8 @@ module OpenapiClient
       self.class == o.class &&
           id == o.id &&
           title == o.title &&
-          calories == o.calories &&
-          carbs == o.carbs &&
-          fat == o.fat &&
           image == o.image &&
-          image_type == o.image_type &&
-          protein == o.protein
+          image_type == o.image_type
     end
 
     # @see the `==` method
@@ -327,7 +206,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, title, calories, carbs, fat, image, image_type, protein].hash
+      [id, title, image, image_type].hash
     end
 
     # Builds the object from hash

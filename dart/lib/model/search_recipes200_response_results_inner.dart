@@ -15,66 +15,42 @@ class SearchRecipes200ResponseResultsInner {
   SearchRecipes200ResponseResultsInner({
     required this.id,
     required this.title,
-    required this.calories,
-    required this.carbs,
-    required this.fat,
     required this.image,
     required this.imageType,
-    required this.protein,
   });
 
   int id;
 
   String title;
 
-  num calories;
-
-  String carbs;
-
-  String fat;
-
   String image;
 
   String imageType;
-
-  String protein;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchRecipes200ResponseResultsInner &&
     other.id == id &&
     other.title == title &&
-    other.calories == calories &&
-    other.carbs == carbs &&
-    other.fat == fat &&
     other.image == image &&
-    other.imageType == imageType &&
-    other.protein == protein;
+    other.imageType == imageType;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (id.hashCode) +
     (title.hashCode) +
-    (calories.hashCode) +
-    (carbs.hashCode) +
-    (fat.hashCode) +
     (image.hashCode) +
-    (imageType.hashCode) +
-    (protein.hashCode);
+    (imageType.hashCode);
 
   @override
-  String toString() => 'SearchRecipes200ResponseResultsInner[id=$id, title=$title, calories=$calories, carbs=$carbs, fat=$fat, image=$image, imageType=$imageType, protein=$protein]';
+  String toString() => 'SearchRecipes200ResponseResultsInner[id=$id, title=$title, image=$image, imageType=$imageType]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
       json[r'title'] = this.title;
-      json[r'calories'] = this.calories;
-      json[r'carbs'] = this.carbs;
-      json[r'fat'] = this.fat;
       json[r'image'] = this.image;
       json[r'imageType'] = this.imageType;
-      json[r'protein'] = this.protein;
     return json;
   }
 
@@ -99,12 +75,8 @@ class SearchRecipes200ResponseResultsInner {
       return SearchRecipes200ResponseResultsInner(
         id: mapValueOfType<int>(json, r'id')!,
         title: mapValueOfType<String>(json, r'title')!,
-        calories: num.parse('${json[r'calories']}'),
-        carbs: mapValueOfType<String>(json, r'carbs')!,
-        fat: mapValueOfType<String>(json, r'fat')!,
         image: mapValueOfType<String>(json, r'image')!,
         imageType: mapValueOfType<String>(json, r'imageType')!,
-        protein: mapValueOfType<String>(json, r'protein')!,
       );
     }
     return null;
@@ -154,12 +126,8 @@ class SearchRecipes200ResponseResultsInner {
   static const requiredKeys = <String>{
     'id',
     'title',
-    'calories',
-    'carbs',
-    'fat',
     'image',
     'imageType',
-    'protein',
   };
 }
 

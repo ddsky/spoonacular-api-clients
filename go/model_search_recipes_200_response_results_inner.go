@@ -24,12 +24,8 @@ var _ MappedNullable = &SearchRecipes200ResponseResultsInner{}
 type SearchRecipes200ResponseResultsInner struct {
 	Id int32 `json:"id"`
 	Title string `json:"title"`
-	Calories float32 `json:"calories"`
-	Carbs string `json:"carbs"`
-	Fat string `json:"fat"`
 	Image string `json:"image"`
 	ImageType string `json:"imageType"`
-	Protein string `json:"protein"`
 }
 
 type _SearchRecipes200ResponseResultsInner SearchRecipes200ResponseResultsInner
@@ -38,16 +34,12 @@ type _SearchRecipes200ResponseResultsInner SearchRecipes200ResponseResultsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchRecipes200ResponseResultsInner(id int32, title string, calories float32, carbs string, fat string, image string, imageType string, protein string) *SearchRecipes200ResponseResultsInner {
+func NewSearchRecipes200ResponseResultsInner(id int32, title string, image string, imageType string) *SearchRecipes200ResponseResultsInner {
 	this := SearchRecipes200ResponseResultsInner{}
 	this.Id = id
 	this.Title = title
-	this.Calories = calories
-	this.Carbs = carbs
-	this.Fat = fat
 	this.Image = image
 	this.ImageType = imageType
-	this.Protein = protein
 	return &this
 }
 
@@ -107,78 +99,6 @@ func (o *SearchRecipes200ResponseResultsInner) SetTitle(v string) {
 	o.Title = v
 }
 
-// GetCalories returns the Calories field value
-func (o *SearchRecipes200ResponseResultsInner) GetCalories() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.Calories
-}
-
-// GetCaloriesOk returns a tuple with the Calories field value
-// and a boolean to check if the value has been set.
-func (o *SearchRecipes200ResponseResultsInner) GetCaloriesOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Calories, true
-}
-
-// SetCalories sets field value
-func (o *SearchRecipes200ResponseResultsInner) SetCalories(v float32) {
-	o.Calories = v
-}
-
-// GetCarbs returns the Carbs field value
-func (o *SearchRecipes200ResponseResultsInner) GetCarbs() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Carbs
-}
-
-// GetCarbsOk returns a tuple with the Carbs field value
-// and a boolean to check if the value has been set.
-func (o *SearchRecipes200ResponseResultsInner) GetCarbsOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Carbs, true
-}
-
-// SetCarbs sets field value
-func (o *SearchRecipes200ResponseResultsInner) SetCarbs(v string) {
-	o.Carbs = v
-}
-
-// GetFat returns the Fat field value
-func (o *SearchRecipes200ResponseResultsInner) GetFat() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Fat
-}
-
-// GetFatOk returns a tuple with the Fat field value
-// and a boolean to check if the value has been set.
-func (o *SearchRecipes200ResponseResultsInner) GetFatOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Fat, true
-}
-
-// SetFat sets field value
-func (o *SearchRecipes200ResponseResultsInner) SetFat(v string) {
-	o.Fat = v
-}
-
 // GetImage returns the Image field value
 func (o *SearchRecipes200ResponseResultsInner) GetImage() string {
 	if o == nil {
@@ -227,30 +147,6 @@ func (o *SearchRecipes200ResponseResultsInner) SetImageType(v string) {
 	o.ImageType = v
 }
 
-// GetProtein returns the Protein field value
-func (o *SearchRecipes200ResponseResultsInner) GetProtein() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Protein
-}
-
-// GetProteinOk returns a tuple with the Protein field value
-// and a boolean to check if the value has been set.
-func (o *SearchRecipes200ResponseResultsInner) GetProteinOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Protein, true
-}
-
-// SetProtein sets field value
-func (o *SearchRecipes200ResponseResultsInner) SetProtein(v string) {
-	o.Protein = v
-}
-
 func (o SearchRecipes200ResponseResultsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -263,12 +159,8 @@ func (o SearchRecipes200ResponseResultsInner) ToMap() (map[string]interface{}, e
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["title"] = o.Title
-	toSerialize["calories"] = o.Calories
-	toSerialize["carbs"] = o.Carbs
-	toSerialize["fat"] = o.Fat
 	toSerialize["image"] = o.Image
 	toSerialize["imageType"] = o.ImageType
-	toSerialize["protein"] = o.Protein
 	return toSerialize, nil
 }
 
@@ -279,12 +171,8 @@ func (o *SearchRecipes200ResponseResultsInner) UnmarshalJSON(data []byte) (err e
 	requiredProperties := []string{
 		"id",
 		"title",
-		"calories",
-		"carbs",
-		"fat",
 		"image",
 		"imageType",
-		"protein",
 	}
 
 	allProperties := make(map[string]interface{})

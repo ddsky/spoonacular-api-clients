@@ -10,23 +10,15 @@ defmodule SpoonacularAPI.Model.SearchRecipes200ResponseResultsInner do
   defstruct [
     :id,
     :title,
-    :calories,
-    :carbs,
-    :fat,
     :image,
-    :imageType,
-    :protein
+    :imageType
   ]
 
   @type t :: %__MODULE__{
     :id => integer(),
     :title => String.t,
-    :calories => float(),
-    :carbs => String.t,
-    :fat => String.t,
     :image => String.t,
-    :imageType => String.t,
-    :protein => String.t
+    :imageType => String.t
   }
 
   def decode(value) do
