@@ -15,12 +15,8 @@ import { HttpFile } from '../http/http';
 export class SearchRecipes200ResponseResultsInner {
     'id': number;
     'title': string;
-    'calories': number;
-    'carbs': string;
-    'fat': string;
     'image': string;
     'imageType': string;
-    'protein': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -38,24 +34,6 @@ export class SearchRecipes200ResponseResultsInner {
             "format": ""
         },
         {
-            "name": "calories",
-            "baseName": "calories",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "carbs",
-            "baseName": "carbs",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "fat",
-            "baseName": "fat",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "image",
             "baseName": "image",
             "type": "string",
@@ -64,12 +42,6 @@ export class SearchRecipes200ResponseResultsInner {
         {
             "name": "imageType",
             "baseName": "imageType",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "protein",
-            "baseName": "protein",
             "type": "string",
             "format": ""
         }    ];

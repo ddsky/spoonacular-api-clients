@@ -66,24 +66,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property calories (base name: "calories")', function() {
-      // uncomment below and update the code to test the property calories
-      //var instance = new SpoonacularApi.SearchRecipes200ResponseResultsInner();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property carbs (base name: "carbs")', function() {
-      // uncomment below and update the code to test the property carbs
-      //var instance = new SpoonacularApi.SearchRecipes200ResponseResultsInner();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fat (base name: "fat")', function() {
-      // uncomment below and update the code to test the property fat
-      //var instance = new SpoonacularApi.SearchRecipes200ResponseResultsInner();
-      //expect(instance).to.be();
-    });
-
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
       //var instance = new SpoonacularApi.SearchRecipes200ResponseResultsInner();
@@ -92,12 +74,6 @@
 
     it('should have the property imageType (base name: "imageType")', function() {
       // uncomment below and update the code to test the property imageType
-      //var instance = new SpoonacularApi.SearchRecipes200ResponseResultsInner();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property protein (base name: "protein")', function() {
-      // uncomment below and update the code to test the property protein
       //var instance = new SpoonacularApi.SearchRecipes200ResponseResultsInner();
       //expect(instance).to.be();
     });

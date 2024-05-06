@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -60,18 +59,6 @@ public class SearchRecipes200ResponseResultsInner {
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
-  public static final String SERIALIZED_NAME_CALORIES = "calories";
-  @SerializedName(SERIALIZED_NAME_CALORIES)
-  private BigDecimal calories;
-
-  public static final String SERIALIZED_NAME_CARBS = "carbs";
-  @SerializedName(SERIALIZED_NAME_CARBS)
-  private String carbs;
-
-  public static final String SERIALIZED_NAME_FAT = "fat";
-  @SerializedName(SERIALIZED_NAME_FAT)
-  private String fat;
-
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private String image;
@@ -79,10 +66,6 @@ public class SearchRecipes200ResponseResultsInner {
   public static final String SERIALIZED_NAME_IMAGE_TYPE = "imageType";
   @SerializedName(SERIALIZED_NAME_IMAGE_TYPE)
   private String imageType;
-
-  public static final String SERIALIZED_NAME_PROTEIN = "protein";
-  @SerializedName(SERIALIZED_NAME_PROTEIN)
-  private String protein;
 
   public SearchRecipes200ResponseResultsInner() {
   }
@@ -125,63 +108,6 @@ public class SearchRecipes200ResponseResultsInner {
   }
 
 
-  public SearchRecipes200ResponseResultsInner calories(BigDecimal calories) {
-    this.calories = calories;
-    return this;
-  }
-
-   /**
-   * Get calories
-   * @return calories
-  **/
-  @javax.annotation.Nonnull
-  public BigDecimal getCalories() {
-    return calories;
-  }
-
-  public void setCalories(BigDecimal calories) {
-    this.calories = calories;
-  }
-
-
-  public SearchRecipes200ResponseResultsInner carbs(String carbs) {
-    this.carbs = carbs;
-    return this;
-  }
-
-   /**
-   * Get carbs
-   * @return carbs
-  **/
-  @javax.annotation.Nonnull
-  public String getCarbs() {
-    return carbs;
-  }
-
-  public void setCarbs(String carbs) {
-    this.carbs = carbs;
-  }
-
-
-  public SearchRecipes200ResponseResultsInner fat(String fat) {
-    this.fat = fat;
-    return this;
-  }
-
-   /**
-   * Get fat
-   * @return fat
-  **/
-  @javax.annotation.Nonnull
-  public String getFat() {
-    return fat;
-  }
-
-  public void setFat(String fat) {
-    this.fat = fat;
-  }
-
-
   public SearchRecipes200ResponseResultsInner image(String image) {
     this.image = image;
     return this;
@@ -220,25 +146,6 @@ public class SearchRecipes200ResponseResultsInner {
   }
 
 
-  public SearchRecipes200ResponseResultsInner protein(String protein) {
-    this.protein = protein;
-    return this;
-  }
-
-   /**
-   * Get protein
-   * @return protein
-  **/
-  @javax.annotation.Nonnull
-  public String getProtein() {
-    return protein;
-  }
-
-  public void setProtein(String protein) {
-    this.protein = protein;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -251,17 +158,13 @@ public class SearchRecipes200ResponseResultsInner {
     SearchRecipes200ResponseResultsInner searchRecipes200ResponseResultsInner = (SearchRecipes200ResponseResultsInner) o;
     return Objects.equals(this.id, searchRecipes200ResponseResultsInner.id) &&
         Objects.equals(this.title, searchRecipes200ResponseResultsInner.title) &&
-        Objects.equals(this.calories, searchRecipes200ResponseResultsInner.calories) &&
-        Objects.equals(this.carbs, searchRecipes200ResponseResultsInner.carbs) &&
-        Objects.equals(this.fat, searchRecipes200ResponseResultsInner.fat) &&
         Objects.equals(this.image, searchRecipes200ResponseResultsInner.image) &&
-        Objects.equals(this.imageType, searchRecipes200ResponseResultsInner.imageType) &&
-        Objects.equals(this.protein, searchRecipes200ResponseResultsInner.protein);
+        Objects.equals(this.imageType, searchRecipes200ResponseResultsInner.imageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, calories, carbs, fat, image, imageType, protein);
+    return Objects.hash(id, title, image, imageType);
   }
 
   @Override
@@ -270,12 +173,8 @@ public class SearchRecipes200ResponseResultsInner {
     sb.append("class SearchRecipes200ResponseResultsInner {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    calories: ").append(toIndentedString(calories)).append("\n");
-    sb.append("    carbs: ").append(toIndentedString(carbs)).append("\n");
-    sb.append("    fat: ").append(toIndentedString(fat)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageType: ").append(toIndentedString(imageType)).append("\n");
-    sb.append("    protein: ").append(toIndentedString(protein)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -300,23 +199,15 @@ public class SearchRecipes200ResponseResultsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("title");
-    openapiFields.add("calories");
-    openapiFields.add("carbs");
-    openapiFields.add("fat");
     openapiFields.add("image");
     openapiFields.add("imageType");
-    openapiFields.add("protein");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("title");
-    openapiRequiredFields.add("calories");
-    openapiRequiredFields.add("carbs");
-    openapiRequiredFields.add("fat");
     openapiRequiredFields.add("image");
     openapiRequiredFields.add("imageType");
-    openapiRequiredFields.add("protein");
   }
 
  /**
@@ -350,20 +241,11 @@ public class SearchRecipes200ResponseResultsInner {
       if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (!jsonObj.get("carbs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `carbs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carbs").toString()));
-      }
-      if (!jsonObj.get("fat").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fat").toString()));
-      }
       if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
       if (!jsonObj.get("imageType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageType").toString()));
-      }
-      if (!jsonObj.get("protein").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protein` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protein").toString()));
       }
   }
 

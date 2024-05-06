@@ -42,12 +42,8 @@ class TestSearchRecipes200Response(unittest.TestCase):
                     spoonacular.models.search_recipes_200_response_results_inner.searchRecipes_200_response_results_inner(
                         id = 56, 
                         title = '0', 
-                        calories = 1.337, 
-                        carbs = '0', 
-                        fat = '0', 
                         image = '0', 
-                        image_type = '0', 
-                        protein = '0', )
+                        image_type = '0', )
                     ],
                 total_results = 56
             )
@@ -59,12 +55,8 @@ class TestSearchRecipes200Response(unittest.TestCase):
                     spoonacular.models.search_recipes_200_response_results_inner.searchRecipes_200_response_results_inner(
                         id = 56, 
                         title = '0', 
-                        calories = 1.337, 
-                        carbs = '0', 
-                        fat = '0', 
                         image = '0', 
-                        image_type = '0', 
-                        protein = '0', )
+                        image_type = '0', )
                     ],
                 total_results = 56,
         )

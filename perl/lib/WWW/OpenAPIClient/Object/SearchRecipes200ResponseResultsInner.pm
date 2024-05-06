@@ -233,27 +233,6 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'calories' => {
-        datatype => 'double',
-        base_name => 'calories',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'carbs' => {
-        datatype => 'string',
-        base_name => 'carbs',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'fat' => {
-        datatype => 'string',
-        base_name => 'fat',
-        description => '',
-        format => '',
-        read_only => '',
-            },
     'image' => {
         datatype => 'string',
         base_name => 'image',
@@ -268,35 +247,20 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'protein' => {
-        datatype => 'string',
-        base_name => 'protein',
-        description => '',
-        format => '',
-        read_only => '',
-            },
 });
 
 __PACKAGE__->openapi_types( {
     'id' => 'int',
     'title' => 'string',
-    'calories' => 'double',
-    'carbs' => 'string',
-    'fat' => 'string',
     'image' => 'string',
-    'image_type' => 'string',
-    'protein' => 'string'
+    'image_type' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'id' => 'id',
     'title' => 'title',
-    'calories' => 'calories',
-    'carbs' => 'carbs',
-    'fat' => 'fat',
     'image' => 'image',
-    'image_type' => 'imageType',
-    'protein' => 'protein'
+    'image_type' => 'imageType'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

@@ -5,27 +5,18 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.BigDecimal
 
 /**
  * 
  * @param id 
  * @param title 
- * @param calories 
- * @param carbs 
- * @param fat 
  * @param image 
  * @param imageType 
- * @param protein 
  */
 case class SearchRecipes200ResponseResultsInner(id: Int,
                 title: String,
-                calories: BigDecimal,
-                carbs: String,
-                fat: String,
                 image: String,
-                imageType: String,
-                protein: String
+                imageType: String
                 )
 
 object SearchRecipes200ResponseResultsInner {

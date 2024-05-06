@@ -7,29 +7,17 @@
 -type spoonacular_search_recipes_200_response_results_inner() ::
     #{ 'id' := integer(),
        'title' := binary(),
-       'calories' := integer(),
-       'carbs' := binary(),
-       'fat' := binary(),
        'image' := binary(),
-       'imageType' := binary(),
-       'protein' := binary()
+       'imageType' := binary()
      }.
 
 encode(#{ 'id' := Id,
           'title' := Title,
-          'calories' := Calories,
-          'carbs' := Carbs,
-          'fat' := Fat,
           'image' := Image,
-          'imageType' := ImageType,
-          'protein' := Protein
+          'imageType' := ImageType
         }) ->
     #{ 'id' => Id,
        'title' => Title,
-       'calories' => Calories,
-       'carbs' => Carbs,
-       'fat' => Fat,
        'image' => Image,
-       'imageType' => ImageType,
-       'protein' => Protein
+       'imageType' => ImageType
      }.

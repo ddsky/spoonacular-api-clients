@@ -7108,12 +7108,8 @@ mkSearchRecipes200Response searchRecipes200ResponseOffset searchRecipes200Respon
 data SearchRecipes200ResponseResultsInner = SearchRecipes200ResponseResultsInner
   { searchRecipes200ResponseResultsInnerId :: !(Int) -- ^ /Required/ "id"
   , searchRecipes200ResponseResultsInnerTitle :: !(Text) -- ^ /Required/ "title"
-  , searchRecipes200ResponseResultsInnerCalories :: !(Double) -- ^ /Required/ "calories"
-  , searchRecipes200ResponseResultsInnerCarbs :: !(Text) -- ^ /Required/ "carbs"
-  , searchRecipes200ResponseResultsInnerFat :: !(Text) -- ^ /Required/ "fat"
   , searchRecipes200ResponseResultsInnerImage :: !(Text) -- ^ /Required/ "image"
   , searchRecipes200ResponseResultsInnerImageType :: !(Text) -- ^ /Required/ "imageType"
-  , searchRecipes200ResponseResultsInnerProtein :: !(Text) -- ^ /Required/ "protein"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SearchRecipes200ResponseResultsInner
@@ -7122,12 +7118,8 @@ instance A.FromJSON SearchRecipes200ResponseResultsInner where
     SearchRecipes200ResponseResultsInner
       <$> (o .:  "id")
       <*> (o .:  "title")
-      <*> (o .:  "calories")
-      <*> (o .:  "carbs")
-      <*> (o .:  "fat")
       <*> (o .:  "image")
       <*> (o .:  "imageType")
-      <*> (o .:  "protein")
 
 -- | ToJSON SearchRecipes200ResponseResultsInner
 instance A.ToJSON SearchRecipes200ResponseResultsInner where
@@ -7135,12 +7127,8 @@ instance A.ToJSON SearchRecipes200ResponseResultsInner where
    _omitNulls
       [ "id" .= searchRecipes200ResponseResultsInnerId
       , "title" .= searchRecipes200ResponseResultsInnerTitle
-      , "calories" .= searchRecipes200ResponseResultsInnerCalories
-      , "carbs" .= searchRecipes200ResponseResultsInnerCarbs
-      , "fat" .= searchRecipes200ResponseResultsInnerFat
       , "image" .= searchRecipes200ResponseResultsInnerImage
       , "imageType" .= searchRecipes200ResponseResultsInnerImageType
-      , "protein" .= searchRecipes200ResponseResultsInnerProtein
       ]
 
 
@@ -7148,23 +7136,15 @@ instance A.ToJSON SearchRecipes200ResponseResultsInner where
 mkSearchRecipes200ResponseResultsInner
   :: Int -- ^ 'searchRecipes200ResponseResultsInnerId' 
   -> Text -- ^ 'searchRecipes200ResponseResultsInnerTitle' 
-  -> Double -- ^ 'searchRecipes200ResponseResultsInnerCalories' 
-  -> Text -- ^ 'searchRecipes200ResponseResultsInnerCarbs' 
-  -> Text -- ^ 'searchRecipes200ResponseResultsInnerFat' 
   -> Text -- ^ 'searchRecipes200ResponseResultsInnerImage' 
   -> Text -- ^ 'searchRecipes200ResponseResultsInnerImageType' 
-  -> Text -- ^ 'searchRecipes200ResponseResultsInnerProtein' 
   -> SearchRecipes200ResponseResultsInner
-mkSearchRecipes200ResponseResultsInner searchRecipes200ResponseResultsInnerId searchRecipes200ResponseResultsInnerTitle searchRecipes200ResponseResultsInnerCalories searchRecipes200ResponseResultsInnerCarbs searchRecipes200ResponseResultsInnerFat searchRecipes200ResponseResultsInnerImage searchRecipes200ResponseResultsInnerImageType searchRecipes200ResponseResultsInnerProtein =
+mkSearchRecipes200ResponseResultsInner searchRecipes200ResponseResultsInnerId searchRecipes200ResponseResultsInnerTitle searchRecipes200ResponseResultsInnerImage searchRecipes200ResponseResultsInnerImageType =
   SearchRecipes200ResponseResultsInner
   { searchRecipes200ResponseResultsInnerId
   , searchRecipes200ResponseResultsInnerTitle
-  , searchRecipes200ResponseResultsInnerCalories
-  , searchRecipes200ResponseResultsInnerCarbs
-  , searchRecipes200ResponseResultsInnerFat
   , searchRecipes200ResponseResultsInnerImage
   , searchRecipes200ResponseResultsInnerImageType
-  , searchRecipes200ResponseResultsInnerProtein
   }
 
 -- ** SearchRecipesByIngredients200ResponseInner

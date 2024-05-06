@@ -24,16 +24,12 @@ class SearchRecipes200ResponseResultsInner {
      * @alias module:model/SearchRecipes200ResponseResultsInner
      * @param id {Number} 
      * @param title {String} 
-     * @param calories {Number} 
-     * @param carbs {String} 
-     * @param fat {String} 
      * @param image {String} 
      * @param imageType {String} 
-     * @param protein {String} 
      */
-    constructor(id, title, calories, carbs, fat, image, imageType, protein) { 
+    constructor(id, title, image, imageType) { 
         
-        SearchRecipes200ResponseResultsInner.initialize(this, id, title, calories, carbs, fat, image, imageType, protein);
+        SearchRecipes200ResponseResultsInner.initialize(this, id, title, image, imageType);
     }
 
     /**
@@ -41,15 +37,11 @@ class SearchRecipes200ResponseResultsInner {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, title, calories, carbs, fat, image, imageType, protein) { 
+    static initialize(obj, id, title, image, imageType) { 
         obj['id'] = id;
         obj['title'] = title;
-        obj['calories'] = calories;
-        obj['carbs'] = carbs;
-        obj['fat'] = fat;
         obj['image'] = image;
         obj['imageType'] = imageType;
-        obj['protein'] = protein;
     }
 
     /**
@@ -69,23 +61,11 @@ class SearchRecipes200ResponseResultsInner {
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('calories')) {
-                obj['calories'] = ApiClient.convertToType(data['calories'], 'Number');
-            }
-            if (data.hasOwnProperty('carbs')) {
-                obj['carbs'] = ApiClient.convertToType(data['carbs'], 'String');
-            }
-            if (data.hasOwnProperty('fat')) {
-                obj['fat'] = ApiClient.convertToType(data['fat'], 'String');
-            }
             if (data.hasOwnProperty('image')) {
                 obj['image'] = ApiClient.convertToType(data['image'], 'String');
             }
             if (data.hasOwnProperty('imageType')) {
                 obj['imageType'] = ApiClient.convertToType(data['imageType'], 'String');
-            }
-            if (data.hasOwnProperty('protein')) {
-                obj['protein'] = ApiClient.convertToType(data['protein'], 'String');
             }
         }
         return obj;
@@ -108,24 +88,12 @@ class SearchRecipes200ResponseResultsInner {
             throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
         }
         // ensure the json data is a string
-        if (data['carbs'] && !(typeof data['carbs'] === 'string' || data['carbs'] instanceof String)) {
-            throw new Error("Expected the field `carbs` to be a primitive type in the JSON string but got " + data['carbs']);
-        }
-        // ensure the json data is a string
-        if (data['fat'] && !(typeof data['fat'] === 'string' || data['fat'] instanceof String)) {
-            throw new Error("Expected the field `fat` to be a primitive type in the JSON string but got " + data['fat']);
-        }
-        // ensure the json data is a string
         if (data['image'] && !(typeof data['image'] === 'string' || data['image'] instanceof String)) {
             throw new Error("Expected the field `image` to be a primitive type in the JSON string but got " + data['image']);
         }
         // ensure the json data is a string
         if (data['imageType'] && !(typeof data['imageType'] === 'string' || data['imageType'] instanceof String)) {
             throw new Error("Expected the field `imageType` to be a primitive type in the JSON string but got " + data['imageType']);
-        }
-        // ensure the json data is a string
-        if (data['protein'] && !(typeof data['protein'] === 'string' || data['protein'] instanceof String)) {
-            throw new Error("Expected the field `protein` to be a primitive type in the JSON string but got " + data['protein']);
         }
 
         return true;
@@ -134,7 +102,7 @@ class SearchRecipes200ResponseResultsInner {
 
 }
 
-SearchRecipes200ResponseResultsInner.RequiredProperties = ["id", "title", "calories", "carbs", "fat", "image", "imageType", "protein"];
+SearchRecipes200ResponseResultsInner.RequiredProperties = ["id", "title", "image", "imageType"];
 
 /**
  * @member {Number} id
@@ -147,21 +115,6 @@ SearchRecipes200ResponseResultsInner.prototype['id'] = undefined;
 SearchRecipes200ResponseResultsInner.prototype['title'] = undefined;
 
 /**
- * @member {Number} calories
- */
-SearchRecipes200ResponseResultsInner.prototype['calories'] = undefined;
-
-/**
- * @member {String} carbs
- */
-SearchRecipes200ResponseResultsInner.prototype['carbs'] = undefined;
-
-/**
- * @member {String} fat
- */
-SearchRecipes200ResponseResultsInner.prototype['fat'] = undefined;
-
-/**
  * @member {String} image
  */
 SearchRecipes200ResponseResultsInner.prototype['image'] = undefined;
@@ -170,11 +123,6 @@ SearchRecipes200ResponseResultsInner.prototype['image'] = undefined;
  * @member {String} imageType
  */
 SearchRecipes200ResponseResultsInner.prototype['imageType'] = undefined;
-
-/**
- * @member {String} protein
- */
-SearchRecipes200ResponseResultsInner.prototype['protein'] = undefined;
 
 
 

@@ -3775,21 +3775,6 @@ searchRecipes200ResponseResultsInnerTitleL :: Lens_' SearchRecipes200ResponseRes
 searchRecipes200ResponseResultsInnerTitleL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerTitle -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerTitle, ..} ) <$> f searchRecipes200ResponseResultsInnerTitle
 {-# INLINE searchRecipes200ResponseResultsInnerTitleL #-}
 
--- | 'searchRecipes200ResponseResultsInnerCalories' Lens
-searchRecipes200ResponseResultsInnerCaloriesL :: Lens_' SearchRecipes200ResponseResultsInner (Double)
-searchRecipes200ResponseResultsInnerCaloriesL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerCalories -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerCalories, ..} ) <$> f searchRecipes200ResponseResultsInnerCalories
-{-# INLINE searchRecipes200ResponseResultsInnerCaloriesL #-}
-
--- | 'searchRecipes200ResponseResultsInnerCarbs' Lens
-searchRecipes200ResponseResultsInnerCarbsL :: Lens_' SearchRecipes200ResponseResultsInner (Text)
-searchRecipes200ResponseResultsInnerCarbsL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerCarbs -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerCarbs, ..} ) <$> f searchRecipes200ResponseResultsInnerCarbs
-{-# INLINE searchRecipes200ResponseResultsInnerCarbsL #-}
-
--- | 'searchRecipes200ResponseResultsInnerFat' Lens
-searchRecipes200ResponseResultsInnerFatL :: Lens_' SearchRecipes200ResponseResultsInner (Text)
-searchRecipes200ResponseResultsInnerFatL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerFat -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerFat, ..} ) <$> f searchRecipes200ResponseResultsInnerFat
-{-# INLINE searchRecipes200ResponseResultsInnerFatL #-}
-
 -- | 'searchRecipes200ResponseResultsInnerImage' Lens
 searchRecipes200ResponseResultsInnerImageL :: Lens_' SearchRecipes200ResponseResultsInner (Text)
 searchRecipes200ResponseResultsInnerImageL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerImage -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerImage, ..} ) <$> f searchRecipes200ResponseResultsInnerImage
@@ -3799,11 +3784,6 @@ searchRecipes200ResponseResultsInnerImageL f SearchRecipes200ResponseResultsInne
 searchRecipes200ResponseResultsInnerImageTypeL :: Lens_' SearchRecipes200ResponseResultsInner (Text)
 searchRecipes200ResponseResultsInnerImageTypeL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerImageType -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerImageType, ..} ) <$> f searchRecipes200ResponseResultsInnerImageType
 {-# INLINE searchRecipes200ResponseResultsInnerImageTypeL #-}
-
--- | 'searchRecipes200ResponseResultsInnerProtein' Lens
-searchRecipes200ResponseResultsInnerProteinL :: Lens_' SearchRecipes200ResponseResultsInner (Text)
-searchRecipes200ResponseResultsInnerProteinL f SearchRecipes200ResponseResultsInner{..} = (\searchRecipes200ResponseResultsInnerProtein -> SearchRecipes200ResponseResultsInner { searchRecipes200ResponseResultsInnerProtein, ..} ) <$> f searchRecipes200ResponseResultsInnerProtein
-{-# INLINE searchRecipes200ResponseResultsInnerProteinL #-}
 
 
 

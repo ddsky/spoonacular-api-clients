@@ -74,33 +74,6 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Calories'
-        /// </summary>
-        [Fact]
-        public void CaloriesTest()
-        {
-            // TODO unit test for the property 'Calories'
-        }
-
-        /// <summary>
-        /// Test the property 'Carbs'
-        /// </summary>
-        [Fact]
-        public void CarbsTest()
-        {
-            // TODO unit test for the property 'Carbs'
-        }
-
-        /// <summary>
-        /// Test the property 'Fat'
-        /// </summary>
-        [Fact]
-        public void FatTest()
-        {
-            // TODO unit test for the property 'Fat'
-        }
-
-        /// <summary>
         /// Test the property 'Image'
         /// </summary>
         [Fact]
@@ -116,15 +89,6 @@ namespace spoonacular.Test.Model
         public void ImageTypeTest()
         {
             // TODO unit test for the property 'ImageType'
-        }
-
-        /// <summary>
-        /// Test the property 'Protein'
-        /// </summary>
-        [Fact]
-        public void ProteinTest()
-        {
-            // TODO unit test for the property 'Protein'
         }
     }
 }

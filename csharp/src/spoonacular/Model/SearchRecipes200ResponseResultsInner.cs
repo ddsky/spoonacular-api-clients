@@ -42,13 +42,9 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="title">title (required).</param>
-        /// <param name="calories">calories (required).</param>
-        /// <param name="carbs">carbs (required).</param>
-        /// <param name="fat">fat (required).</param>
         /// <param name="image">image (required).</param>
         /// <param name="imageType">imageType (required).</param>
-        /// <param name="protein">protein (required).</param>
-        public SearchRecipes200ResponseResultsInner(int id = default(int), string title = default(string), decimal calories = default(decimal), string carbs = default(string), string fat = default(string), string image = default(string), string imageType = default(string), string protein = default(string))
+        public SearchRecipes200ResponseResultsInner(int id = default(int), string title = default(string), string image = default(string), string imageType = default(string))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -57,19 +53,6 @@ namespace spoonacular.Model
                 throw new ArgumentNullException("title is a required property for SearchRecipes200ResponseResultsInner and cannot be null");
             }
             this.Title = title;
-            this.Calories = calories;
-            // to ensure "carbs" is required (not null)
-            if (carbs == null)
-            {
-                throw new ArgumentNullException("carbs is a required property for SearchRecipes200ResponseResultsInner and cannot be null");
-            }
-            this.Carbs = carbs;
-            // to ensure "fat" is required (not null)
-            if (fat == null)
-            {
-                throw new ArgumentNullException("fat is a required property for SearchRecipes200ResponseResultsInner and cannot be null");
-            }
-            this.Fat = fat;
             // to ensure "image" is required (not null)
             if (image == null)
             {
@@ -82,12 +65,6 @@ namespace spoonacular.Model
                 throw new ArgumentNullException("imageType is a required property for SearchRecipes200ResponseResultsInner and cannot be null");
             }
             this.ImageType = imageType;
-            // to ensure "protein" is required (not null)
-            if (protein == null)
-            {
-                throw new ArgumentNullException("protein is a required property for SearchRecipes200ResponseResultsInner and cannot be null");
-            }
-            this.Protein = protein;
         }
 
         /// <summary>
@@ -103,24 +80,6 @@ namespace spoonacular.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Calories
-        /// </summary>
-        [DataMember(Name = "calories", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Calories { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Carbs
-        /// </summary>
-        [DataMember(Name = "carbs", IsRequired = true, EmitDefaultValue = true)]
-        public string Carbs { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Fat
-        /// </summary>
-        [DataMember(Name = "fat", IsRequired = true, EmitDefaultValue = true)]
-        public string Fat { get; set; }
-
-        /// <summary>
         /// Gets or Sets Image
         /// </summary>
         [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
@@ -133,12 +92,6 @@ namespace spoonacular.Model
         public string ImageType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Protein
-        /// </summary>
-        [DataMember(Name = "protein", IsRequired = true, EmitDefaultValue = true)]
-        public string Protein { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,12 +101,8 @@ namespace spoonacular.Model
             sb.Append("class SearchRecipes200ResponseResultsInner {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Calories: ").Append(Calories).Append("\n");
-            sb.Append("  Carbs: ").Append(Carbs).Append("\n");
-            sb.Append("  Fat: ").Append(Fat).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  ImageType: ").Append(ImageType).Append("\n");
-            sb.Append("  Protein: ").Append(Protein).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,18 +129,6 @@ namespace spoonacular.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
-            // Carbs (string) minLength
-            if (this.Carbs != null && this.Carbs.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Carbs, length must be greater than 1.", new [] { "Carbs" });
-            }
-
-            // Fat (string) minLength
-            if (this.Fat != null && this.Fat.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Fat, length must be greater than 1.", new [] { "Fat" });
-            }
-
             // Image (string) minLength
             if (this.Image != null && this.Image.Length < 1)
             {
@@ -202,12 +139,6 @@ namespace spoonacular.Model
             if (this.ImageType != null && this.ImageType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
-            }
-
-            // Protein (string) minLength
-            if (this.Protein != null && this.Protein.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Protein, length must be greater than 1.", new [] { "Protein" });
             }
 
             yield break;
