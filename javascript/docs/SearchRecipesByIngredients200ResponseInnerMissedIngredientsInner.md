@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **image** | **String** |  | 
 **meta** | **[String]** |  | [optional] 
 **name** | **String** |  | 
+**extendedName** | **String** |  | [optional] 
 **original** | **String** |  | 
 **originalName** | **String** |  | 
 **unit** | **String** |  | 

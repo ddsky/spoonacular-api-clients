@@ -13,6 +13,7 @@
    (ds/req :image) string?
    (ds/opt :meta) (s/coll-of string?)
    (ds/req :name) string?
+   (ds/opt :extendedName) string?
    (ds/req :original) string?
    (ds/req :originalName) string?
    (ds/req :unit) string?

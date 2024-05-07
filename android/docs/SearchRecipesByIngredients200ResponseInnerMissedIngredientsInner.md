@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **image** | **String** |  | 
 **meta** | **List&lt;String&gt;** |  |  [optional]
 **name** | **String** |  | 
+**extendedName** | **String** |  |  [optional]
 **original** | **String** |  | 
 **originalName** | **String** |  | 
 **unit** | **String** |  | 

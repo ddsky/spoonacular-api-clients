@@ -58,6 +58,13 @@ describe("search_recipes_by_ingredients_200_response_inner_missed_ingredients_in
     end)
   end)
 
+  -- unit tests for the property 'extended_name'
+  describe("property extended_name test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
   -- unit tests for the property 'original'
   describe("property original test", function()
     it("should work", function()

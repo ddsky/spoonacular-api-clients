@@ -22,6 +22,8 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     
     String name
     
+    String extendedName
+    
     String original
     
     String originalName

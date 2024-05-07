@@ -46,12 +46,13 @@ namespace spoonacular.Model
         /// <param name="image">image (required).</param>
         /// <param name="meta">meta.</param>
         /// <param name="name">name (required).</param>
+        /// <param name="extendedName">extendedName.</param>
         /// <param name="original">original (required).</param>
         /// <param name="originalName">originalName (required).</param>
         /// <param name="unit">unit (required).</param>
         /// <param name="unitLong">unitLong (required).</param>
         /// <param name="unitShort">unitShort (required).</param>
-        public SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner(string aisle = default(string), decimal amount = default(decimal), int id = default(int), string image = default(string), List<string> meta = default(List<string>), string name = default(string), string original = default(string), string originalName = default(string), string unit = default(string), string unitLong = default(string), string unitShort = default(string))
+        public SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner(string aisle = default(string), decimal amount = default(decimal), int id = default(int), string image = default(string), List<string> meta = default(List<string>), string name = default(string), string extendedName = default(string), string original = default(string), string originalName = default(string), string unit = default(string), string unitLong = default(string), string unitShort = default(string))
         {
             // to ensure "aisle" is required (not null)
             if (aisle == null)
@@ -104,6 +105,7 @@ namespace spoonacular.Model
             }
             this.UnitShort = unitShort;
             this.Meta = meta;
+            this.ExtendedName = extendedName;
         }
 
         /// <summary>
@@ -141,6 +143,12 @@ namespace spoonacular.Model
         /// </summary>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExtendedName
+        /// </summary>
+        [DataMember(Name = "extendedName", EmitDefaultValue = false)]
+        public string ExtendedName { get; set; }
 
         /// <summary>
         /// Gets or Sets Original
@@ -186,6 +194,7 @@ namespace spoonacular.Model
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ExtendedName: ").Append(ExtendedName).Append("\n");
             sb.Append("  Original: ").Append(Original).Append("\n");
             sb.Append("  OriginalName: ").Append(OriginalName).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
@@ -227,6 +236,12 @@ namespace spoonacular.Model
             if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
+            // ExtendedName (string) minLength
+            if (this.ExtendedName != null && this.ExtendedName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExtendedName, length must be greater than 1.", new [] { "ExtendedName" });
             }
 
             // Original (string) minLength

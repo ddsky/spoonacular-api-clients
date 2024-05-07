@@ -16,6 +16,7 @@ import scala.collection.immutable.Seq
  * @param image 
  * @param meta 
  * @param name 
+ * @param extendedName 
  * @param original 
  * @param originalName 
  * @param unit 
@@ -28,6 +29,7 @@ case class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner(aisl
                 image: String,
                 meta: Option[Seq[String]],
                 name: String,
+                extendedName: Option[String],
                 original: String,
                 originalName: String,
                 unit: String,

@@ -46,6 +46,11 @@ void main() {
       // TODO
     });
 
+    // String extendedName
+    test('to test the property `extendedName`', () async {
+      // TODO
+    });
+
     // String original
     test('to test the property `original`', () async {
       // TODO

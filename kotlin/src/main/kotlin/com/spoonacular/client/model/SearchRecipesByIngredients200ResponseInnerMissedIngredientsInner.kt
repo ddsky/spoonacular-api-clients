@@ -33,6 +33,7 @@ import com.squareup.moshi.JsonClass
  * @param unitLong 
  * @param unitShort 
  * @param meta 
+ * @param extendedName 
  */
 
 
@@ -69,7 +70,10 @@ data class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner (
     val unitShort: kotlin.String,
 
     @Json(name = "meta")
-    val meta: kotlin.collections.List<kotlin.String>? = null
+    val meta: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "extendedName")
+    val extendedName: kotlin.String? = null
 
 )
 
