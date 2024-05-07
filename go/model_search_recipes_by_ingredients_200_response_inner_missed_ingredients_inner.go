@@ -28,6 +28,7 @@ type SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner struct {
 	Image string `json:"image"`
 	Meta []string `json:"meta,omitempty"`
 	Name string `json:"name"`
+	ExtendedName *string `json:"extendedName,omitempty"`
 	Original string `json:"original"`
 	OriginalName string `json:"originalName"`
 	Unit string `json:"unit"`
@@ -216,6 +217,38 @@ func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) SetNa
 	o.Name = v
 }
 
+// GetExtendedName returns the ExtendedName field value if set, zero value otherwise.
+func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) GetExtendedName() string {
+	if o == nil || IsNil(o.ExtendedName) {
+		var ret string
+		return ret
+	}
+	return *o.ExtendedName
+}
+
+// GetExtendedNameOk returns a tuple with the ExtendedName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) GetExtendedNameOk() (*string, bool) {
+	if o == nil || IsNil(o.ExtendedName) {
+		return nil, false
+	}
+	return o.ExtendedName, true
+}
+
+// HasExtendedName returns a boolean if a field has been set.
+func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) HasExtendedName() bool {
+	if o != nil && !IsNil(o.ExtendedName) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtendedName gets a reference to the given string and assigns it to the ExtendedName field.
+func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) SetExtendedName(v string) {
+	o.ExtendedName = &v
+}
+
 // GetOriginal returns the Original field value
 func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) GetOriginal() string {
 	if o == nil {
@@ -354,6 +387,9 @@ func (o SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) ToMap(
 		toSerialize["meta"] = o.Meta
 	}
 	toSerialize["name"] = o.Name
+	if !IsNil(o.ExtendedName) {
+		toSerialize["extendedName"] = o.ExtendedName
+	}
 	toSerialize["original"] = o.Original
 	toSerialize["originalName"] = o.OriginalName
 	toSerialize["unit"] = o.Unit

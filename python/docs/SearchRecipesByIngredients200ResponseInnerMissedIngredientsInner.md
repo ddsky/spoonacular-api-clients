@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **image** | **str** |  | 
 **meta** | **List[str]** |  | [optional] 
 **name** | **str** |  | 
+**extended_name** | **str** |  | [optional] 
 **original** | **str** |  | 
 **original_name** | **str** |  | 
 **unit** | **str** |  | 

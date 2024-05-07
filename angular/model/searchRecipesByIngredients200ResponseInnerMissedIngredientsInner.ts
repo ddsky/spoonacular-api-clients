@@ -18,6 +18,7 @@ export interface SearchRecipesByIngredients200ResponseInnerMissedIngredientsInne
     image: string;
     meta?: Array<string>;
     name: string;
+    extendedName?: string;
     original: string;
     originalName: string;
     unit: string;

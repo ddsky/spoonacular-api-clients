@@ -19,6 +19,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     required this.image,
     this.meta = const [],
     required this.name,
+    this.extendedName,
     required this.original,
     required this.originalName,
     required this.unit,
@@ -38,6 +39,14 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
 
   String name;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? extendedName;
+
   String original;
 
   String originalName;
@@ -56,6 +65,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     other.image == image &&
     _deepEquality.equals(other.meta, meta) &&
     other.name == name &&
+    other.extendedName == extendedName &&
     other.original == original &&
     other.originalName == originalName &&
     other.unit == unit &&
@@ -71,6 +81,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     (image.hashCode) +
     (meta.hashCode) +
     (name.hashCode) +
+    (extendedName == null ? 0 : extendedName!.hashCode) +
     (original.hashCode) +
     (originalName.hashCode) +
     (unit.hashCode) +
@@ -78,7 +89,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     (unitShort.hashCode);
 
   @override
-  String toString() => 'SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner[aisle=$aisle, amount=$amount, id=$id, image=$image, meta=$meta, name=$name, original=$original, originalName=$originalName, unit=$unit, unitLong=$unitLong, unitShort=$unitShort]';
+  String toString() => 'SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner[aisle=$aisle, amount=$amount, id=$id, image=$image, meta=$meta, name=$name, extendedName=$extendedName, original=$original, originalName=$originalName, unit=$unit, unitLong=$unitLong, unitShort=$unitShort]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -88,6 +99,11 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
       json[r'image'] = this.image;
       json[r'meta'] = this.meta;
       json[r'name'] = this.name;
+    if (this.extendedName != null) {
+      json[r'extendedName'] = this.extendedName;
+    } else {
+      json[r'extendedName'] = null;
+    }
       json[r'original'] = this.original;
       json[r'originalName'] = this.originalName;
       json[r'unit'] = this.unit;
@@ -123,6 +139,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
             ? (json[r'meta'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         name: mapValueOfType<String>(json, r'name')!,
+        extendedName: mapValueOfType<String>(json, r'extendedName'),
         original: mapValueOfType<String>(json, r'original')!,
         originalName: mapValueOfType<String>(json, r'originalName')!,
         unit: mapValueOfType<String>(json, r'unit')!,

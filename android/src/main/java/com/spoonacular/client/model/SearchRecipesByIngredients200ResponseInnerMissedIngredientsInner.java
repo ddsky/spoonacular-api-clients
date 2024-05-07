@@ -32,6 +32,8 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
   private List<String> meta = null;
   @SerializedName("name")
   private String name = null;
+  @SerializedName("extendedName")
+  private String extendedName = null;
   @SerializedName("original")
   private String original = null;
   @SerializedName("originalName")
@@ -105,6 +107,16 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
 
   /**
    **/
+  @ApiModelProperty(value = "")
+  public String getExtendedName() {
+    return extendedName;
+  }
+  public void setExtendedName(String extendedName) {
+    this.extendedName = extendedName;
+  }
+
+  /**
+   **/
   @ApiModelProperty(required = true, value = "")
   public String getOriginal() {
     return original;
@@ -169,6 +181,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
         (this.image == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.image == null : this.image.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.image)) &&
         (this.meta == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.meta == null : this.meta.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.meta)) &&
         (this.name == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.name == null : this.name.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.name)) &&
+        (this.extendedName == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.extendedName == null : this.extendedName.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.extendedName)) &&
         (this.original == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.original == null : this.original.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.original)) &&
         (this.originalName == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.originalName == null : this.originalName.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.originalName)) &&
         (this.unit == null ? searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.unit == null : this.unit.equals(searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.unit)) &&
@@ -185,6 +198,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     result = 31 * result + (this.image == null ? 0: this.image.hashCode());
     result = 31 * result + (this.meta == null ? 0: this.meta.hashCode());
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
+    result = 31 * result + (this.extendedName == null ? 0: this.extendedName.hashCode());
     result = 31 * result + (this.original == null ? 0: this.original.hashCode());
     result = 31 * result + (this.originalName == null ? 0: this.originalName.hashCode());
     result = 31 * result + (this.unit == null ? 0: this.unit.hashCode());
@@ -204,6 +218,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     sb.append("  image: ").append(image).append("\n");
     sb.append("  meta: ").append(meta).append("\n");
     sb.append("  name: ").append(name).append("\n");
+    sb.append("  extendedName: ").append(extendedName).append("\n");
     sb.append("  original: ").append(original).append("\n");
     sb.append("  originalName: ").append(originalName).append("\n");
     sb.append("  unit: ").append(unit).append("\n");

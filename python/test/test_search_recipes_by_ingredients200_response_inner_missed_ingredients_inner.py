@@ -44,6 +44,7 @@ class TestSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner(unitt
                     ''
                     ],
                 name = '0',
+                extended_name = '0',
                 original = '0',
                 original_name = '0',
                 unit = '',

@@ -10,6 +10,7 @@
 | **image** | **String** |  |  |
 | **meta** | **Array&lt;String&gt;** |  | [optional] |
 | **name** | **String** |  |  |
+| **extended_name** | **String** |  | [optional] |
 | **original** | **String** |  |  |
 | **original_name** | **String** |  |  |
 | **unit** | **String** |  |  |
@@ -28,6 +29,7 @@ instance = OpenapiClient::SearchRecipesByIngredients200ResponseInnerMissedIngred
   image: null,
   meta: null,
   name: null,
+  extended_name: null,
   original: null,
   original_name: null,
   unit: null,

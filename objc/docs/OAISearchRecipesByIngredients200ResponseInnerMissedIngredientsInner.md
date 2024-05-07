@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **image** | **NSString*** |  | 
 **meta** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
 **name** | **NSString*** |  | 
+**extendedName** | **NSString*** |  | [optional] 
 **original** | **NSString*** |  | 
 **originalName** | **NSString*** |  | 
 **unit** | **NSString*** |  | 

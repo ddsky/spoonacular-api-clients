@@ -34,12 +34,13 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner(BaseModel
     image: Annotated[str, Field(min_length=1, strict=True)]
     meta: Optional[List[StrictStr]] = None
     name: Annotated[str, Field(min_length=1, strict=True)]
+    extended_name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, alias="extendedName")
     original: Annotated[str, Field(min_length=1, strict=True)]
     original_name: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="originalName")
     unit: Annotated[str, Field(min_length=0, strict=True)]
     unit_long: Annotated[str, Field(min_length=0, strict=True)] = Field(alias="unitLong")
     unit_short: Annotated[str, Field(min_length=0, strict=True)] = Field(alias="unitShort")
-    __properties: ClassVar[List[str]] = ["aisle", "amount", "id", "image", "meta", "name", "original", "originalName", "unit", "unitLong", "unitShort"]
+    __properties: ClassVar[List[str]] = ["aisle", "amount", "id", "image", "meta", "name", "extendedName", "original", "originalName", "unit", "unitLong", "unitShort"]
 
     model_config = {
         "populate_by_name": True,
@@ -98,6 +99,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner(BaseModel
             "image": obj.get("image"),
             "meta": obj.get("meta"),
             "name": obj.get("name"),
+            "extendedName": obj.get("extendedName"),
             "original": obj.get("original"),
             "originalName": obj.get("originalName"),
             "unit": obj.get("unit"),

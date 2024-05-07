@@ -27,6 +27,8 @@ module OpenapiClient
 
     attr_accessor :name
 
+    attr_accessor :extended_name
+
     attr_accessor :original
 
     attr_accessor :original_name
@@ -46,6 +48,7 @@ module OpenapiClient
         :'image' => :'image',
         :'meta' => :'meta',
         :'name' => :'name',
+        :'extended_name' => :'extendedName',
         :'original' => :'original',
         :'original_name' => :'originalName',
         :'unit' => :'unit',
@@ -68,6 +71,7 @@ module OpenapiClient
         :'image' => :'String',
         :'meta' => :'Array<String>',
         :'name' => :'String',
+        :'extended_name' => :'String',
         :'original' => :'String',
         :'original_name' => :'String',
         :'unit' => :'String',
@@ -131,6 +135,10 @@ module OpenapiClient
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'extended_name')
+        self.extended_name = attributes[:'extended_name']
       end
 
       if attributes.key?(:'original')
@@ -201,6 +209,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
+      if !@extended_name.nil? && @extended_name.to_s.length < 1
+        invalid_properties.push('invalid value for "extended_name", the character length must be great than or equal to 1.')
+      end
+
       if @original.nil?
         invalid_properties.push('invalid value for "original", original cannot be nil.')
       end
@@ -256,6 +268,7 @@ module OpenapiClient
       return false if @image.to_s.length < 1
       return false if @name.nil?
       return false if @name.to_s.length < 1
+      return false if !@extended_name.nil? && @extended_name.to_s.length < 1
       return false if @original.nil?
       return false if @original.to_s.length < 1
       return false if @original_name.nil?
@@ -309,6 +322,20 @@ module OpenapiClient
       end
 
       @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] extended_name Value to be assigned
+    def extended_name=(extended_name)
+      if extended_name.nil?
+        fail ArgumentError, 'extended_name cannot be nil'
+      end
+
+      if extended_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "extended_name", the character length must be great than or equal to 1.'
+      end
+
+      @extended_name = extended_name
     end
 
     # Custom attribute writer method with validation
@@ -392,6 +419,7 @@ module OpenapiClient
           image == o.image &&
           meta == o.meta &&
           name == o.name &&
+          extended_name == o.extended_name &&
           original == o.original &&
           original_name == o.original_name &&
           unit == o.unit &&
@@ -408,7 +436,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aisle, amount, id, image, meta, name, original, original_name, unit, unit_long, unit_short].hash
+      [aisle, amount, id, image, meta, name, extended_name, original, original_name, unit, unit_long, unit_short].hash
     end
 
     # Builds the object from hash

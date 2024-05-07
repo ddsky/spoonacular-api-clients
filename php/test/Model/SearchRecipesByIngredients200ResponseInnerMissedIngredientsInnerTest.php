@@ -135,6 +135,15 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInnerTest exten
     }
 
     /**
+     * Test attribute "extended_name"
+     */
+    public function testPropertyExtendedName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "original"
      */
     public function testPropertyOriginal()
