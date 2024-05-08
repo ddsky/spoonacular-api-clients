@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **unitLong** | **kotlin.String** |  | 
 **unitShort** | **kotlin.String** |  | 
 **meta** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional]
+**extendedName** | **kotlin.String** |  |  [optional]
 
 
 

@@ -1760,6 +1760,7 @@ genSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner n =
     <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerImage :: Text
     <*> arbitraryReducedMaybe n -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerMeta :: Maybe [Text]
     <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerName :: Text
+    <*> arbitraryReducedMaybe n -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerExtendedName :: Maybe Text
     <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginal :: Text
     <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginalName :: Text
     <*> arbitrary -- searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnit :: Text

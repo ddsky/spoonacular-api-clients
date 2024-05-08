@@ -1594,6 +1594,10 @@
                               "type": "string",
                               "minLength": 1
                             },
+                            "extendedName": {
+                              "type": "string",
+                              "minLength": 1
+                            },
                             "original": {
                               "type": "string",
                               "minLength": 1
@@ -1671,6 +1675,10 @@
                               }
                             },
                             "name": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "extendedName": {
                               "type": "string",
                               "minLength": 1
                             },

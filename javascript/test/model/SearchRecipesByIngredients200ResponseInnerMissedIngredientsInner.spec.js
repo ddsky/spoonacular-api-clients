@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property extendedName (base name: "extendedName")', function() {
+      // uncomment below and update the code to test the property extendedName
+      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner();
+      //expect(instance).to.be();
+    });
+
     it('should have the property original (base name: "original")', function() {
       // uncomment below and update the code to test the property original
       //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner();

@@ -35,6 +35,8 @@
 
 @property(nonatomic) NSString* name;
 
+@property(nonatomic) NSString* extendedName;
+
 @property(nonatomic) NSString* original;
 
 @property(nonatomic) NSString* originalName;

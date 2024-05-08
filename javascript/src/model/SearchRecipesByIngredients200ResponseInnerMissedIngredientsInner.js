@@ -85,6 +85,9 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('extendedName')) {
+                obj['extendedName'] = ApiClient.convertToType(data['extendedName'], 'String');
+            }
             if (data.hasOwnProperty('original')) {
                 obj['original'] = ApiClient.convertToType(data['original'], 'String');
             }
@@ -131,6 +134,10 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['extendedName'] && !(typeof data['extendedName'] === 'string' || data['extendedName'] instanceof String)) {
+            throw new Error("Expected the field `extendedName` to be a primitive type in the JSON string but got " + data['extendedName']);
         }
         // ensure the json data is a string
         if (data['original'] && !(typeof data['original'] === 'string' || data['original'] instanceof String)) {
@@ -190,6 +197,11 @@ SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.prototype['meta
  * @member {String} name
  */
 SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.prototype['name'] = undefined;
+
+/**
+ * @member {String} extendedName
+ */
+SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.prototype['extendedName'] = undefined;
 
 /**
  * @member {String} original

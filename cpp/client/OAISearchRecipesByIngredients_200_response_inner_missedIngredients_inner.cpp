@@ -52,6 +52,9 @@ void OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::i
     m_name_isSet = false;
     m_name_isValid = false;
 
+    m_extended_name_isSet = false;
+    m_extended_name_isValid = false;
+
     m_original_isSet = false;
     m_original_isValid = false;
 
@@ -95,6 +98,9 @@ void OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::f
     m_name_isValid = ::OpenAPI::fromJsonValue(m_name, json[QString("name")]);
     m_name_isSet = !json[QString("name")].isNull() && m_name_isValid;
 
+    m_extended_name_isValid = ::OpenAPI::fromJsonValue(m_extended_name, json[QString("extendedName")]);
+    m_extended_name_isSet = !json[QString("extendedName")].isNull() && m_extended_name_isValid;
+
     m_original_isValid = ::OpenAPI::fromJsonValue(m_original, json[QString("original")]);
     m_original_isSet = !json[QString("original")].isNull() && m_original_isValid;
 
@@ -137,6 +143,9 @@ QJsonObject OAISearchRecipesByIngredients_200_response_inner_missedIngredients_i
     }
     if (m_name_isSet) {
         obj.insert(QString("name"), ::OpenAPI::toJsonValue(m_name));
+    }
+    if (m_extended_name_isSet) {
+        obj.insert(QString("extendedName"), ::OpenAPI::toJsonValue(m_extended_name));
     }
     if (m_original_isSet) {
         obj.insert(QString("original"), ::OpenAPI::toJsonValue(m_original));
@@ -252,6 +261,22 @@ bool OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::i
     return m_name_isValid;
 }
 
+QString OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::getExtendedName() const {
+    return m_extended_name;
+}
+void OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::setExtendedName(const QString &extended_name) {
+    m_extended_name = extended_name;
+    m_extended_name_isSet = true;
+}
+
+bool OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::is_extended_name_Set() const{
+    return m_extended_name_isSet;
+}
+
+bool OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::is_extended_name_Valid() const{
+    return m_extended_name_isValid;
+}
+
 QString OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::getOriginal() const {
     return m_original;
 }
@@ -361,6 +386,11 @@ bool OAISearchRecipesByIngredients_200_response_inner_missedIngredients_inner::i
         }
 
         if (m_name_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_extended_name_isSet) {
             isObjectUpdated = true;
             break;
         }

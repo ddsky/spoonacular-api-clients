@@ -19,6 +19,7 @@ export class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     'image': string;
     'meta'?: Array<string>;
     'name': string;
+    'extendedName'?: string;
     'original': string;
     'originalName': string;
     'unit': string;
@@ -61,6 +62,12 @@ export class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
         {
             "name": "name",
             "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "extendedName",
+            "baseName": "extendedName",
             "type": "string",
             "format": ""
         },

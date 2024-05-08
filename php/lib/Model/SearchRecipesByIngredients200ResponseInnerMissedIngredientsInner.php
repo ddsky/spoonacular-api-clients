@@ -64,6 +64,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         'image' => 'string',
         'meta' => 'string[]',
         'name' => 'string',
+        'extended_name' => 'string',
         'original' => 'string',
         'original_name' => 'string',
         'unit' => 'string',
@@ -85,6 +86,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         'image' => null,
         'meta' => null,
         'name' => null,
+        'extended_name' => null,
         'original' => null,
         'original_name' => null,
         'unit' => null,
@@ -104,6 +106,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         'image' => false,
         'meta' => false,
         'name' => false,
+        'extended_name' => false,
         'original' => false,
         'original_name' => false,
         'unit' => false,
@@ -203,6 +206,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         'image' => 'image',
         'meta' => 'meta',
         'name' => 'name',
+        'extended_name' => 'extendedName',
         'original' => 'original',
         'original_name' => 'originalName',
         'unit' => 'unit',
@@ -222,6 +226,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         'image' => 'setImage',
         'meta' => 'setMeta',
         'name' => 'setName',
+        'extended_name' => 'setExtendedName',
         'original' => 'setOriginal',
         'original_name' => 'setOriginalName',
         'unit' => 'setUnit',
@@ -241,6 +246,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         'image' => 'getImage',
         'meta' => 'getMeta',
         'name' => 'getName',
+        'extended_name' => 'getExtendedName',
         'original' => 'getOriginal',
         'original_name' => 'getOriginalName',
         'unit' => 'getUnit',
@@ -311,6 +317,7 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('extended_name', $data ?? [], null);
         $this->setIfExists('original', $data ?? [], null);
         $this->setIfExists('original_name', $data ?? [], null);
         $this->setIfExists('unit', $data ?? [], null);
@@ -370,6 +377,10 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         }
         if ((mb_strlen($this->container['name']) < 1)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['extended_name']) && (mb_strlen($this->container['extended_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'extended_name', the character length must be bigger than or equal to 1.";
         }
 
         if ($this->container['original'] === null) {
@@ -595,6 +606,38 @@ class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner implement
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets extended_name
+     *
+     * @return string|null
+     */
+    public function getExtendedName()
+    {
+        return $this->container['extended_name'];
+    }
+
+    /**
+     * Sets extended_name
+     *
+     * @param string|null $extended_name extended_name
+     *
+     * @return self
+     */
+    public function setExtendedName($extended_name)
+    {
+        if (is_null($extended_name)) {
+            throw new \InvalidArgumentException('non-nullable extended_name cannot be null');
+        }
+
+        if ((mb_strlen($extended_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $extended_name when calling SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner., must be bigger than or equal to 1.');
+        }
+
+        $this->container['extended_name'] = $extended_name;
 
         return $this;
     }

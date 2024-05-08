@@ -19,7 +19,7 @@ local function cast_search_recipes_by_ingredients_200_response_inner_missed_ingr
 	return setmetatable(t, search_recipes_by_ingredients_200_response_inner_missed_ingredients_inner_mt)
 end
 
-local function new_search_recipes_by_ingredients_200_response_inner_missed_ingredients_inner(aisle, amount, id, image, meta, name, original, original_name, unit, unit_long, unit_short)
+local function new_search_recipes_by_ingredients_200_response_inner_missed_ingredients_inner(aisle, amount, id, image, meta, name, extended_name, original, original_name, unit, unit_long, unit_short)
 	return cast_search_recipes_by_ingredients_200_response_inner_missed_ingredients_inner({
 		["aisle"] = aisle;
 		["amount"] = amount;
@@ -27,6 +27,7 @@ local function new_search_recipes_by_ingredients_200_response_inner_missed_ingre
 		["image"] = image;
 		["meta"] = meta;
 		["name"] = name;
+		["extendedName"] = extended_name;
 		["original"] = original;
 		["originalName"] = original_name;
 		["unit"] = unit;

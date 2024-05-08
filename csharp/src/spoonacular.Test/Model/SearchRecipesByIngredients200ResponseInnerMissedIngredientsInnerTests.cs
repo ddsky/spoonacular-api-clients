@@ -110,6 +110,15 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ExtendedName'
+        /// </summary>
+        [Fact]
+        public void ExtendedNameTest()
+        {
+            // TODO unit test for the property 'ExtendedName'
+        }
+
+        /// <summary>
         /// Test the property 'Original'
         /// </summary>
         [Fact]

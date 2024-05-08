@@ -7230,6 +7230,7 @@ data SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner = SearchRe
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerMeta :: !(Maybe [Text]) -- ^ "meta"
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
+  , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerExtendedName :: !(Maybe Text) -- ^ "extendedName"
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginal :: !(Text) -- ^ /Required/ "original"
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginalName :: !(Text) -- ^ /Required/ "originalName"
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnit :: !(Text) -- ^ /Required/ "unit"
@@ -7247,6 +7248,7 @@ instance A.FromJSON SearchRecipesByIngredients200ResponseInnerMissedIngredientsI
       <*> (o .:  "image")
       <*> (o .:? "meta")
       <*> (o .:  "name")
+      <*> (o .:? "extendedName")
       <*> (o .:  "original")
       <*> (o .:  "originalName")
       <*> (o .:  "unit")
@@ -7263,6 +7265,7 @@ instance A.ToJSON SearchRecipesByIngredients200ResponseInnerMissedIngredientsInn
       , "image" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerImage
       , "meta" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerMeta
       , "name" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerName
+      , "extendedName" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerExtendedName
       , "original" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginal
       , "originalName" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginalName
       , "unit" .= searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnit
@@ -7292,6 +7295,7 @@ mkSearchRecipesByIngredients200ResponseInnerMissedIngredientsInner searchRecipes
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerImage
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerMeta = Nothing
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerName
+  , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerExtendedName = Nothing
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginal
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerOriginalName
   , searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerUnit
