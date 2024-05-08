@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Image** | **string** |  | 
 **Meta** | Pointer to **[]string** |  | [optional] 
 **Name** | **string** |  | 
+**ExtendedName** | Pointer to **string** |  | [optional] 
 **Original** | **string** |  | 
 **OriginalName** | **string** |  | 
 **Unit** | **string** |  | 
@@ -159,6 +160,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetExtendedName
+
+`func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) GetExtendedName() string`
+
+GetExtendedName returns the ExtendedName field if non-nil, zero value otherwise.
+
+### GetExtendedNameOk
+
+`func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) GetExtendedNameOk() (*string, bool)`
+
+GetExtendedNameOk returns a tuple with the ExtendedName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtendedName
+
+`func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) SetExtendedName(v string)`
+
+SetExtendedName sets ExtendedName field to given value.
+
+### HasExtendedName
+
+`func (o *SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner) HasExtendedName() bool`
+
+HasExtendedName returns a boolean if a field has been set.
 
 ### GetOriginal
 

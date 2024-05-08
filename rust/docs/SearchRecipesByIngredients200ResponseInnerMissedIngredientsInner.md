@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **image** | **String** |  | 
 **meta** | Option<**Vec<String>**> |  | [optional]
 **name** | **String** |  | 
+**extended_name** | Option<**String**> |  | [optional]
 **original** | **String** |  | 
 **original_name** | **String** |  | 
 **unit** | **String** |  | 

@@ -1821,6 +1821,7 @@ type alias SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner =
     , image : String
     , meta : Maybe ( List String )
     , name : String
+    , extendedName : Maybe String
     , original : String
     , originalName : String
     , unit : String
@@ -5302,6 +5303,7 @@ encodeSearchRecipesByIngredients200ResponseInnerMissedIngredientsInnerPairs mode
             , encode "image" Json.Encode.string model.image
             , maybeEncode "meta" (Json.Encode.list Json.Encode.string) model.meta
             , encode "name" Json.Encode.string model.name
+            , maybeEncode "extendedName" Json.Encode.string model.extendedName
             , encode "original" Json.Encode.string model.original
             , encode "originalName" Json.Encode.string model.originalName
             , encode "unit" Json.Encode.string model.unit
@@ -6974,6 +6976,7 @@ searchRecipesByIngredients200ResponseInnerMissedIngredientsInnerDecoder =
         |> decode "image" Json.Decode.string 
         |> maybeDecode "meta" (Json.Decode.list Json.Decode.string) Nothing
         |> decode "name" Json.Decode.string 
+        |> maybeDecode "extendedName" Json.Decode.string Nothing
         |> decode "original" Json.Decode.string 
         |> decode "originalName" Json.Decode.string 
         |> decode "unit" Json.Decode.string 

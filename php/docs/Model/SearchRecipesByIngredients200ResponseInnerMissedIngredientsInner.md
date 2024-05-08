@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **image** | **string** |  |
 **meta** | **string[]** |  | [optional]
 **name** | **string** |  |
+**extended_name** | **string** |  | [optional]
 **original** | **string** |  |
 **original_name** | **string** |  |
 **unit** | **string** |  |

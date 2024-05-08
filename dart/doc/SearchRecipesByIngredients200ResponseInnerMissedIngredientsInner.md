@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **image** | **String** |  | 
 **meta** | **List<String>** |  | [optional] [default to const []]
 **name** | **String** |  | 
+**extendedName** | **String** |  | [optional] 
 **original** | **String** |  | 
 **originalName** | **String** |  | 
 **unit** | **String** |  | 

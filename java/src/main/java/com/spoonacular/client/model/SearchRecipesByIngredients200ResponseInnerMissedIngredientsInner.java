@@ -78,6 +78,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_EXTENDED_NAME = "extendedName";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_NAME)
+  private String extendedName;
+
   public static final String SERIALIZED_NAME_ORIGINAL = "original";
   @SerializedName(SERIALIZED_NAME_ORIGINAL)
   private String original;
@@ -223,6 +227,25 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
   }
 
 
+  public SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner extendedName(String extendedName) {
+    this.extendedName = extendedName;
+    return this;
+  }
+
+   /**
+   * Get extendedName
+   * @return extendedName
+  **/
+  @javax.annotation.Nullable
+  public String getExtendedName() {
+    return extendedName;
+  }
+
+  public void setExtendedName(String extendedName) {
+    this.extendedName = extendedName;
+  }
+
+
   public SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner original(String original) {
     this.original = original;
     return this;
@@ -334,6 +357,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
         Objects.equals(this.image, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.image) &&
         Objects.equals(this.meta, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.meta) &&
         Objects.equals(this.name, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.name) &&
+        Objects.equals(this.extendedName, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.extendedName) &&
         Objects.equals(this.original, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.original) &&
         Objects.equals(this.originalName, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.originalName) &&
         Objects.equals(this.unit, searchRecipesByIngredients200ResponseInnerMissedIngredientsInner.unit) &&
@@ -343,7 +367,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aisle, amount, id, image, meta, name, original, originalName, unit, unitLong, unitShort);
+    return Objects.hash(aisle, amount, id, image, meta, name, extendedName, original, originalName, unit, unitLong, unitShort);
   }
 
   @Override
@@ -356,6 +380,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    extendedName: ").append(toIndentedString(extendedName)).append("\n");
     sb.append("    original: ").append(toIndentedString(original)).append("\n");
     sb.append("    originalName: ").append(toIndentedString(originalName)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
@@ -389,6 +414,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     openapiFields.add("image");
     openapiFields.add("meta");
     openapiFields.add("name");
+    openapiFields.add("extendedName");
     openapiFields.add("original");
     openapiFields.add("originalName");
     openapiFields.add("unit");
@@ -449,6 +475,9 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("extendedName") != null && !jsonObj.get("extendedName").isJsonNull()) && !jsonObj.get("extendedName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extendedName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extendedName").toString()));
       }
       if (!jsonObj.get("original").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `original` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original").toString()));

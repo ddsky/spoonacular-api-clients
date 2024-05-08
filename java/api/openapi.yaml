@@ -13585,6 +13585,7 @@ components:
         unit: unit
         original: original
         unitShort: unitShort
+        extendedName: extendedName
         meta:
         - meta
         - meta
@@ -13608,6 +13609,9 @@ components:
             type: string
           type: array
         name:
+          minLength: 1
+          type: string
+        extendedName:
           minLength: 1
           type: string
         original:
@@ -13647,6 +13651,7 @@ components:
           unit: unit
           original: original
           unitShort: unitShort
+          extendedName: extendedName
           meta:
           - meta
           - meta
@@ -13660,6 +13665,7 @@ components:
           unit: unit
           original: original
           unitShort: unitShort
+          extendedName: extendedName
           meta:
           - meta
           - meta
@@ -13674,6 +13680,7 @@ components:
           unit: unit
           original: original
           unitShort: unitShort
+          extendedName: extendedName
           meta:
           - meta
           - meta
@@ -13687,6 +13694,7 @@ components:
           unit: unit
           original: original
           unitShort: unitShort
+          extendedName: extendedName
           meta:
           - meta
           - meta

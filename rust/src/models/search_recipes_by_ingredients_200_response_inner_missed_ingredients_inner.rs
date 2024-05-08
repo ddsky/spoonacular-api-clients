@@ -25,6 +25,8 @@ pub struct SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     pub meta: Option<Vec<String>>,
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "extendedName", skip_serializing_if = "Option::is_none")]
+    pub extended_name: Option<String>,
     #[serde(rename = "original")]
     pub original: String,
     #[serde(rename = "originalName")]
@@ -46,6 +48,7 @@ impl SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
             image,
             meta: None,
             name,
+            extended_name: None,
             original,
             original_name,
             unit,

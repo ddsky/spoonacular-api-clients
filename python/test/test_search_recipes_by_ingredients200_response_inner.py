@@ -51,6 +51,7 @@ class TestSearchRecipesByIngredients200ResponseInner(unittest.TestCase):
                             ''
                             ], 
                         name = '0', 
+                        extended_name = '0', 
                         original = '0', 
                         original_name = '0', 
                         unit = '', 
@@ -72,6 +73,7 @@ class TestSearchRecipesByIngredients200ResponseInner(unittest.TestCase):
                             ''
                             ], 
                         name = '0', 
+                        extended_name = '0', 
                         original = '0', 
                         original_name = '0', 
                         unit = '', 
@@ -96,6 +98,7 @@ class TestSearchRecipesByIngredients200ResponseInner(unittest.TestCase):
                             ''
                             ], 
                         name = '0', 
+                        extended_name = '0', 
                         original = '0', 
                         original_name = '0', 
                         unit = '', 
@@ -117,6 +120,7 @@ class TestSearchRecipesByIngredients200ResponseInner(unittest.TestCase):
                             ''
                             ], 
                         name = '0', 
+                        extended_name = '0', 
                         original = '0', 
                         original_name = '0', 
                         unit = '', 

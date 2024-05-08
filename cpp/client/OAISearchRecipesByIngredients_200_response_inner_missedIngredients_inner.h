@@ -70,6 +70,11 @@ public:
     bool is_name_Set() const;
     bool is_name_Valid() const;
 
+    QString getExtendedName() const;
+    void setExtendedName(const QString &extended_name);
+    bool is_extended_name_Set() const;
+    bool is_extended_name_Valid() const;
+
     QString getOriginal() const;
     void setOriginal(const QString &original);
     bool is_original_Set() const;
@@ -124,6 +129,10 @@ private:
     QString m_name;
     bool m_name_isSet;
     bool m_name_isValid;
+
+    QString m_extended_name;
+    bool m_extended_name_isSet;
+    bool m_extended_name_isValid;
 
     QString m_original;
     bool m_original_isSet;

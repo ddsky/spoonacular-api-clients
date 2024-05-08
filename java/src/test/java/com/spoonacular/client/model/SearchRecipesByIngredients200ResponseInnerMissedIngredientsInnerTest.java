@@ -89,6 +89,14 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInnerTes
     }
 
     /**
+     * Test the property 'extendedName'
+     */
+    @Test
+    public void extendedNameTest() {
+        // TODO: test extendedName
+    }
+
+    /**
      * Test the property 'original'
      */
     @Test
