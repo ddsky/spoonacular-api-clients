@@ -19,7 +19,7 @@ if [ "$git_user_id" = "" ]; then
 fi
 
 if [ "$git_repo_id" = "" ]; then
-    git_repo_id="spoonacular-api-clients/tree/master/go/"
+    git_repo_id="spoonacular-api-clients/go"
     echo "[INFO] No command line input provided. Set \$git_repo_id to $git_repo_id"
 fi
 
