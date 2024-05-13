@@ -28,7 +28,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -94,7 +94,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -160,7 +160,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -228,7 +228,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {

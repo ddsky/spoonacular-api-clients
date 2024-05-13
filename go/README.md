@@ -24,7 +24,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import spoonacular "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+import spoonacular "github.com/ddsky/spoonacular-api-clients/go"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
