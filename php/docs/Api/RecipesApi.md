@@ -24,7 +24,6 @@ All URIs are relative to https://api.spoonacular.com, except if the operation de
 | [**getRecipeTasteByID()**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID |
 | [**getSimilarRecipes()**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes |
 | [**guessNutritionByDishName()**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name |
-| [**ingredientsByIDImage()**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
 | [**parseIngredients()**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients |
 | [**priceBreakdownByIDImage()**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image |
 | [**quickAnswer()**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer |
@@ -1320,70 +1319,6 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ingredientsByIDImage()`
-
-```php
-ingredientsByIDImage($id, $measure): object
-```
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: apiKeyScheme
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\RecipesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 1082038; // float | The recipe id.
-$measure = metric; // string | Whether the the measures should be 'us' or 'metric'.
-
-try {
-    $result = $apiInstance->ingredientsByIDImage($id, $measure);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling RecipesApi->ingredientsByIDImage: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
-| **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
-
-### Return type
-
-**object**
-
-### Authorization
-
-[apiKeyScheme](../../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `image/png`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

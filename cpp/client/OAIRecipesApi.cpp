@@ -76,8 +76,6 @@ void OAIRecipesApi::initializeServerConfigs() {
     _serverIndices.insert("getSimilarRecipes", 0);
     _serverConfigs.insert("guessNutritionByDishName", defaultConf);
     _serverIndices.insert("guessNutritionByDishName", 0);
-    _serverConfigs.insert("ingredientsByIDImage", defaultConf);
-    _serverIndices.insert("ingredientsByIDImage", 0);
     _serverConfigs.insert("parseIngredients", defaultConf);
     _serverIndices.insert("parseIngredients", 0);
     _serverConfigs.insert("priceBreakdownByIDImage", defaultConf);
@@ -2448,115 +2446,6 @@ void OAIRecipesApi::guessNutritionByDishNameCallback(OAIHttpRequestWorker *worke
 
         Q_EMIT guessNutritionByDishNameSignalError(output, error_type, error_str);
         Q_EMIT guessNutritionByDishNameSignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void OAIRecipesApi::ingredientsByIDImage(const double &id, const ::OpenAPI::OptionalParam<QString> &measure) {
-    QString fullPath = QString(_serverConfigs["ingredientsByIDImage"][_serverIndices.value("ingredientsByIDImage")].URL()+"/recipes/{id}/ingredientWidget.png");
-    
-    if (_apiKeys.contains("apiKeyScheme")) {
-        addHeaders("apiKeyScheme",_apiKeys.find("apiKeyScheme").value());
-    }
-    
-    
-    {
-        QString idPathParam("{");
-        idPathParam.append("id").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "id", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"id"+pathSuffix : pathPrefix;
-        fullPath.replace(idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
-    }
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (measure.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "measure", false);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("measure")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(measure.value())));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIRecipesApi::ingredientsByIDImageCallback);
-    connect(this, &OAIRecipesApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIRecipesApi::ingredientsByIDImageCallback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIObject output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ingredientsByIDImageSignal(output);
-        Q_EMIT ingredientsByIDImageSignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ingredientsByIDImageSignalE(output, error_type, error_str);
-        Q_EMIT ingredientsByIDImageSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ingredientsByIDImageSignalError(output, error_type, error_str);
-        Q_EMIT ingredientsByIDImageSignalErrorFull(worker, error_type, error_str);
     }
 }
 

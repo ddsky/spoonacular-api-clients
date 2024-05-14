@@ -155,13 +155,6 @@ describe("recipes_api", function()
     end)
   end)
 
-  -- unit tests for ingredients_by_id_image
-  describe("ingredients_by_id_image test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
   -- unit tests for parse_ingredients
   describe("parse_ingredients test", function()
     it("should work", function()

@@ -661,32 +661,6 @@
        res)))
 
 
-(defn-spec ingredients-by-id-image-with-http-info any?
-  "Ingredients by ID Image
-  Visualize a recipe's ingredient list."
-  ([id float?, ] (ingredients-by-id-image-with-http-info id nil))
-  ([id float?, {:keys [measure]} (s/map-of keyword? any?)]
-   (check-required-params id)
-   (call-api "/recipes/{id}/ingredientWidget.png" :get
-             {:path-params   {"id" id }
-              :header-params {}
-              :query-params  {"measure" measure }
-              :form-params   {}
-              :content-types []
-              :accepts       ["image/png"]
-              :auth-names    ["apiKeyScheme"]})))
-
-(defn-spec ingredients-by-id-image any?
-  "Ingredients by ID Image
-  Visualize a recipe's ingredient list."
-  ([id float?, ] (ingredients-by-id-image id nil))
-  ([id float?, optional-params any?]
-   (let [res (:data (ingredients-by-id-image-with-http-info id optional-params))]
-     (if (:decode-models *api-context*)
-        (st/decode any? res st/string-transformer)
-        res))))
-
-
 (defn-spec parse-ingredients-with-http-info any?
   "Parse Ingredients
   Extract an ingredient from plain text."

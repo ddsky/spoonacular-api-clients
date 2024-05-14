@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1004,54 +1003,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-
-## ingredientsByIDImage
-
-> Object ingredientsByIDImage(id, measure)
-
-Ingredients by ID Image
-
-Visualize a recipe&#39;s ingredient list.
-
-### Example
-
-```java
-// Import classes:
-//import com.spoonacular.RecipesApi;
-
-RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 1082038; // BigDecimal | The recipe id.
-String measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
-try {
-    Object result = apiInstance.ingredientsByIDImage(id, measure);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling RecipesApi#ingredientsByIDImage");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
- **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [default to null] [enum: us, metric]
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/png
 
 
 ## parseIngredients

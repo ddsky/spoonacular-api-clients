@@ -770,45 +770,6 @@ defmodule SpoonacularAPI.Api.Recipes do
   end
 
   @doc """
-  Ingredients by ID Image
-  Visualize a recipe's ingredient list.
-
-  ### Parameters
-
-  - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The recipe id.
-  - `opts` (keyword): Optional parameters
-    - `:measure` (String.t): Whether the the measures should be 'us' or 'metric'.
-
-  ### Returns
-
-  - `{:ok, map()}` on success
-  - `{:error, Tesla.Env.t}` on failure
-  """
-  @spec ingredients_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
-  def ingredients_by_id_image(connection, id, opts \\ []) do
-    optional_params = %{
-      :measure => :query
-    }
-
-    request =
-      %{}
-      |> method(:get)
-      |> url("/recipes/#{id}/ingredientWidget.png")
-      |> add_optional_params(optional_params, opts)
-      |> Enum.into([])
-
-    connection
-    |> Connection.request(request)
-    |> evaluate_response([
-      {200, %{}},
-      {401, false},
-      {403, false},
-      {404, false}
-    ])
-  end
-
-  @doc """
   Parse Ingredients
   Extract an ingredient from plain text.
 

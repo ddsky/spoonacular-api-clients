@@ -628,33 +628,6 @@ data GuessNutritionByDishName
 instance Produces GuessNutritionByDishName MimeJSON
 
 
--- *** ingredientsByIDImage0
-
--- | @GET \/recipes\/{id}\/ingredientWidget.png@
--- 
--- Ingredients by ID Image
--- 
--- Visualize a recipe's ingredient list.
--- 
--- AuthMethod: 'AuthApiKeyApiKeyScheme'
--- 
-ingredientsByIDImage0
-  :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest IngredientsByIDImage0 MimeNoContent A.Value MimeImagePng
-ingredientsByIDImage0 (IdDouble id) =
-  _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget.png"]
-    `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
-
-data IngredientsByIDImage0  
-
--- | /Optional Param/ "measure" - Whether the the measures should be 'us' or 'metric'.
-instance HasOptionalParam IngredientsByIDImage0 Measure where
-  applyOptionalParam req (Measure xs) =
-    req `addQuery` toQuery ("measure", Just xs)
--- | @image/png@
-instance Produces IngredientsByIDImage0 MimeImagePng
-
-
 -- *** parseIngredients
 
 -- | @POST \/recipes\/parseIngredients@

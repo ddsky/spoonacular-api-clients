@@ -313,18 +313,6 @@ class RecipesApiTest extends TestCase
     }
 
     /**
-     * Test case for ingredientsByIDImage
-     *
-     * Ingredients by ID Image.
-     *
-     */
-    public function testIngredientsByIDImage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for parseIngredients
      *
      * Parse Ingredients.

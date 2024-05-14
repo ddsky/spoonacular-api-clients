@@ -357,21 +357,6 @@ public class RecipesApiTest {
     }
 
     /**
-     * Ingredients by ID Image
-     *
-     * Visualize a recipe&#39;s ingredient list.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void ingredientsByIDImageTest() throws ApiException {
-        BigDecimal id = null;
-        String measure = null;
-        Object response = api.ingredientsByIDImage(id, measure);
-        // TODO: test validations
-    }
-
-    /**
      * Parse Ingredients
      *
      * Extract an ingredient from plain text.

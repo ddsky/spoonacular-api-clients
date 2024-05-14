@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**getRecipeTasteByID**](OAIRecipesApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**getSimilarRecipes**](OAIRecipesApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guessNutritionByDishName**](OAIRecipesApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage**](OAIRecipesApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parseIngredients**](OAIRecipesApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**priceBreakdownByIDImage**](OAIRecipesApi.md#pricebreakdownbyidimage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quickAnswer**](OAIRecipesApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1260,67 +1259,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ingredientsByIDImage**
-```objc
--(NSURLSessionTask*) ingredientsByIDImageWithId: (NSNumber*) _id
-    measure: (NSString*) measure
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
-```
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Example
-```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: apiKeyScheme)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-
-NSNumber* _id = 1082038; // The recipe id.
-NSString* measure = metric; // Whether the the measures should be 'us' or 'metric'. (optional)
-
-OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
-
-// Ingredients by ID Image
-[apiInstance ingredientsByIDImageWithId:_id
-              measure:measure
-          completionHandler: ^(NSObject* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling OAIRecipesApi->ingredientsByIDImage: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_id** | **NSNumber***| The recipe id. | 
- **measure** | **NSString***| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
-
-### Return type
-
-**NSObject***
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

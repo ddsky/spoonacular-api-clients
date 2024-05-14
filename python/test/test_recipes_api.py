@@ -167,13 +167,6 @@ class TestRecipesApi(unittest.TestCase):
         """
         pass
 
-    def test_ingredients_by_id_image(self) -> None:
-        """Test case for ingredients_by_id_image
-
-        Ingredients by ID Image
-        """
-        pass
-
     def test_parse_ingredients(self) -> None:
         """Test case for parse_ingredients
 

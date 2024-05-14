@@ -3047,41 +3047,6 @@ export class ObservableRecipesApi {
     }
 
     /**
-     * Visualize a recipe\'s ingredient list.
-     * Ingredients by ID Image
-     * @param id The recipe id.
-     * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
-     */
-    public ingredientsByIDImageWithHttpInfo(id: number, measure?: 'us' | 'metric', _options?: Configuration): Observable<HttpInfo<any>> {
-        const requestContextPromise = this.requestFactory.ingredientsByIDImage(id, measure, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.ingredientsByIDImageWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Visualize a recipe\'s ingredient list.
-     * Ingredients by ID Image
-     * @param id The recipe id.
-     * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
-     */
-    public ingredientsByIDImage(id: number, measure?: 'us' | 'metric', _options?: Configuration): Observable<any> {
-        return this.ingredientsByIDImageWithHttpInfo(id, measure, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
-    }
-
-    /**
      * Extract an ingredient from plain text.
      * Parse Ingredients
      * @param contentType The content type.
