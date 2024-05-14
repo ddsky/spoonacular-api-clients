@@ -189,14 +189,6 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 #my $guess_nutrition_by_dish_name_result = $api->guess_nutrition_by_dish_name(title => $guess_nutrition_by_dish_name_title);
 
 #
-# ingredients_by_id_image test
-#
-# uncomment below and update the test
-#my $ingredients_by_id_image_id = undef; # replace NULL with a proper value
-#my $ingredients_by_id_image_measure = undef; # replace NULL with a proper value
-#my $ingredients_by_id_image_result = $api->ingredients_by_id_image(id => $ingredients_by_id_image_id, measure => $ingredients_by_id_image_measure);
-
-#
 # parse_ingredients test
 #
 # uncomment below and update the test

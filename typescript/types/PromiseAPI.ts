@@ -2074,28 +2074,6 @@ export class PromiseRecipesApi {
     }
 
     /**
-     * Visualize a recipe\'s ingredient list.
-     * Ingredients by ID Image
-     * @param id The recipe id.
-     * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
-     */
-    public ingredientsByIDImageWithHttpInfo(id: number, measure?: 'us' | 'metric', _options?: Configuration): Promise<HttpInfo<any>> {
-        const result = this.api.ingredientsByIDImageWithHttpInfo(id, measure, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * Visualize a recipe\'s ingredient list.
-     * Ingredients by ID Image
-     * @param id The recipe id.
-     * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
-     */
-    public ingredientsByIDImage(id: number, measure?: 'us' | 'metric', _options?: Configuration): Promise<any> {
-        const result = this.api.ingredientsByIDImage(id, measure, _options);
-        return result.toPromise();
-    }
-
-    /**
      * Extract an ingredient from plain text.
      * Parse Ingredients
      * @param contentType The content type.

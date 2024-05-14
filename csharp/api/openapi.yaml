@@ -4711,7 +4711,6 @@ paths:
       summary: Ingredients by ID Image
       tags:
       - ingredients
-      - recipes
   /recipes/{id}/nutritionWidget.json:
     get:
       deprecated: false

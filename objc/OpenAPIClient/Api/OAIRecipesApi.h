@@ -386,23 +386,6 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
     completionHandler: (void (^)(OAIGuessNutritionByDishName200Response* output, NSError* error)) handler;
 
 
-/// Ingredients by ID Image
-/// Visualize a recipe's ingredient list.
-///
-/// @param _id The recipe id.
-/// @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
-/// 
-///  code:200 message:"Success",
-///  code:401 message:"Unauthorized",
-///  code:403 message:"Forbidden",
-///  code:404 message:"Not Found"
-///
-/// @return NSObject*
--(NSURLSessionTask*) ingredientsByIDImageWithId: (NSNumber*) _id
-    measure: (NSString*) measure
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
-
-
 /// Parse Ingredients
 /// Extract an ingredient from plain text.
 ///

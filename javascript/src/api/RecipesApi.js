@@ -972,53 +972,6 @@ export default class RecipesApi {
     }
 
     /**
-     * Callback function to receive the result of the ingredientsByIDImage operation.
-     * @callback module:api/RecipesApi~ingredientsByIDImageCallback
-     * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Ingredients by ID Image
-     * Visualize a recipe's ingredient list.
-     * @param {Number} id The recipe id.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} [measure] Whether the the measures should be 'us' or 'metric'.
-     * @param {module:api/RecipesApi~ingredientsByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
-     */
-    ingredientsByIDImage(id, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling ingredientsByIDImage");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-        'measure': opts['measure']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['apiKeyScheme'];
-      let contentTypes = [];
-      let accepts = ['image/png'];
-      let returnType = Object;
-      return this.apiClient.callApi(
-        '/recipes/{id}/ingredientWidget.png', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the parseIngredients operation.
      * @callback module:api/RecipesApi~parseIngredientsCallback
      * @param {String} error Error message, if any.

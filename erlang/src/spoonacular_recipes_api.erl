@@ -20,7 +20,6 @@
          get_recipe_taste_by_id/2, get_recipe_taste_by_id/3,
          get_similar_recipes/2, get_similar_recipes/3,
          guess_nutrition_by_dish_name/2, guess_nutrition_by_dish_name/3,
-         ingredients_by_id_image/2, ingredients_by_id_image/3,
          parse_ingredients/1, parse_ingredients/2,
          price_breakdown_by_id_image/2, price_breakdown_by_id_image/3,
          quick_answer/2, quick_answer/3,
@@ -457,27 +456,6 @@ guess_nutrition_by_dish_name(Ctx, Title, Optional) ->
     Method = get,
     Path = [?BASE_URL, "/recipes/guessNutrition"],
     QS = lists:flatten([{<<"title">>, Title}])++spoonacular_utils:optional_params([], _OptionalParams),
-    Headers = [],
-    Body1 = [],
-    ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
-    Opts = maps:get(hackney_opts, Optional, []),
-
-    spoonacular_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
-
-%% @doc Ingredients by ID Image
-%% Visualize a recipe's ingredient list.
--spec ingredients_by_id_image(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-ingredients_by_id_image(Ctx, Id) ->
-    ingredients_by_id_image(Ctx, Id, #{}).
-
--spec ingredients_by_id_image(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-ingredients_by_id_image(Ctx, Id, Optional) ->
-    _OptionalParams = maps:get(params, Optional, #{}),
-    Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
-
-    Method = get,
-    Path = [?BASE_URL, "/recipes/", Id, "/ingredientWidget.png"],
-    QS = lists:flatten([])++spoonacular_utils:optional_params(['measure'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),

@@ -199,7 +199,6 @@ Class | Method | HTTP request | Description
 *RecipesApi* | [**GetRecipeTasteByID**](docs/RecipesApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 *RecipesApi* | [**GetSimilarRecipes**](docs/RecipesApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *RecipesApi* | [**GuessNutritionByDishName**](docs/RecipesApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*RecipesApi* | [**IngredientsByIDImage**](docs/RecipesApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *RecipesApi* | [**ParseIngredients**](docs/RecipesApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *RecipesApi* | [**PriceBreakdownByIDImage**](docs/RecipesApi.md#pricebreakdownbyidimage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 *RecipesApi* | [**QuickAnswer**](docs/RecipesApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer

@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1084,58 +1083,6 @@ Configure apiKeyScheme:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-<a id="ingredientsByIDImage"></a>
-# **ingredientsByIDImage**
-> kotlin.Any ingredientsByIDImage(id, measure)
-
-Ingredients by ID Image
-
-Visualize a recipe&#39;s ingredient list.
-
-### Example
-```kotlin
-// Import classes:
-//import spoonacular.infrastructure.*
-//import com.spoonacular.client.model.*
-
-val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
-val measure : kotlin.String = metric // kotlin.String | Whether the the measures should be 'us' or 'metric'.
-try {
-    val result : kotlin.Any = apiInstance.ingredientsByIDImage(id, measure)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RecipesApi#ingredientsByIDImage")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RecipesApi#ingredientsByIDImage")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
- **measure** | **kotlin.String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric]
-
-### Return type
-
-[**kotlin.Any**](kotlin.Any.md)
-
-### Authorization
-
-
-Configure apiKeyScheme:
-    ApiClient.apiKey["x-api-key"] = ""
-    ApiClient.apiKeyPrefix["x-api-key"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 
 <a id="parseIngredients"></a>
 # **parseIngredients**

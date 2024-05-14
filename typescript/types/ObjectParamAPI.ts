@@ -2766,21 +2766,6 @@ export interface RecipesApiGuessNutritionByDishNameRequest {
     title: string
 }
 
-export interface RecipesApiIngredientsByIDImageRequest {
-    /**
-     * The recipe id.
-     * @type number
-     * @memberof RecipesApiingredientsByIDImage
-     */
-    id: number
-    /**
-     * Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
-     * @type &#39;us&#39; | &#39;metric&#39;
-     * @memberof RecipesApiingredientsByIDImage
-     */
-    measure?: 'us' | 'metric'
-}
-
 export interface RecipesApiParseIngredientsRequest {
     /**
      * The content type.
@@ -4544,24 +4529,6 @@ export class ObjectRecipesApi {
      */
     public guessNutritionByDishName(param: RecipesApiGuessNutritionByDishNameRequest, options?: Configuration): Promise<GuessNutritionByDishName200Response> {
         return this.api.guessNutritionByDishName(param.title,  options).toPromise();
-    }
-
-    /**
-     * Visualize a recipe\'s ingredient list.
-     * Ingredients by ID Image
-     * @param param the request object
-     */
-    public ingredientsByIDImageWithHttpInfo(param: RecipesApiIngredientsByIDImageRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.ingredientsByIDImageWithHttpInfo(param.id, param.measure,  options).toPromise();
-    }
-
-    /**
-     * Visualize a recipe\'s ingredient list.
-     * Ingredients by ID Image
-     * @param param the request object
-     */
-    public ingredientsByIDImage(param: RecipesApiIngredientsByIDImageRequest, options?: Configuration): Promise<any> {
-        return this.api.ingredientsByIDImage(param.id, param.measure,  options).toPromise();
     }
 
     /**

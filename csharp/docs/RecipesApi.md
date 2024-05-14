@@ -24,7 +24,6 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**GetRecipeTasteByID**](RecipesApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID |
 | [**GetSimilarRecipes**](RecipesApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes |
 | [**GuessNutritionByDishName**](RecipesApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name |
-| [**IngredientsByIDImage**](RecipesApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
 | [**ParseIngredients**](RecipesApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients |
 | [**PriceBreakdownByIDImage**](RecipesApi.md#pricebreakdownbyidimage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image |
 | [**QuickAnswer**](RecipesApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer |
@@ -2052,107 +2051,6 @@ catch (ApiException e)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="ingredientsbyidimage"></a>
-# **IngredientsByIDImage**
-> Object IngredientsByIDImage (decimal id, string? measure = null)
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using spoonacular.Api;
-using spoonacular.Client;
-using spoonacular.Model;
-
-namespace Example
-{
-    public class IngredientsByIDImageExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.spoonacular.com";
-            // Configure API key authorization: apiKeyScheme
-            config.AddApiKey("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("x-api-key", "Bearer");
-
-            var apiInstance = new RecipesApi(config);
-            var id = 1082038;  // decimal | The recipe id.
-            var measure = metric;  // string? | Whether the the measures should be 'us' or 'metric'. (optional) 
-
-            try
-            {
-                // Ingredients by ID Image
-                Object result = apiInstance.IngredientsByIDImage(id, measure);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling RecipesApi.IngredientsByIDImage: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the IngredientsByIDImageWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Ingredients by ID Image
-    ApiResponse<Object> response = apiInstance.IngredientsByIDImageWithHttpInfo(id, measure);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling RecipesApi.IngredientsByIDImageWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
-| **measure** | **string?** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional]  |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 
 ### HTTP response details

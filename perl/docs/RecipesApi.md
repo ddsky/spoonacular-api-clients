@@ -29,7 +29,6 @@ Method | HTTP request | Description
 [**get_recipe_taste_by_id**](RecipesApi.md#get_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**get_similar_recipes**](RecipesApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guess_nutrition_by_dish_name**](RecipesApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredients_by_id_image**](RecipesApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parse_ingredients**](RecipesApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**price_breakdown_by_id_image**](RecipesApi.md#price_breakdown_by_id_image) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quick_answer**](RecipesApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1107,59 +1106,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ingredients_by_id_image**
-> object ingredients_by_id_image(id => $id, measure => $measure)
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::RecipesApi;
-my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
-
-    # Configure API key authorization: apiKeyScheme
-    api_key => {'x-api-key' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'x-api-key' => 'Bearer'},
-);
-
-my $id = 1082038; # double | The recipe id.
-my $measure = metric; # string | Whether the the measures should be 'us' or 'metric'.
-
-eval {
-    my $result = $api_instance->ingredients_by_id_image(id => $id, measure => $measure);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling RecipesApi->ingredients_by_id_image: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
- **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
-
-### Return type
-
-**object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

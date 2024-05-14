@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1128,61 +1127,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-
-## ingredientsByIDImage
-
-> Object ingredientsByIDImage(id, opts)
-
-Ingredients by ID Image
-
-Visualize a recipe&#39;s ingredient list.
-
-### Example
-
-```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
-// Configure API key authorization: apiKeyScheme
-let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
-apiKeyScheme.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKeyScheme.apiKeyPrefix = 'Token';
-
-let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1082038; // Number | The recipe id.
-let opts = {
-  'measure': metric // String | Whether the the measures should be 'us' or 'metric'.
-};
-apiInstance.ingredientsByIDImage(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| The recipe id. | 
- **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/png
 
 
 ## parseIngredients

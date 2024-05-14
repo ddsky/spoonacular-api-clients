@@ -209,7 +209,6 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.RecipesApi* | [**getRecipeTasteByID**](docs/RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 *SpoonacularApi.RecipesApi* | [**getSimilarRecipes**](docs/RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *SpoonacularApi.RecipesApi* | [**guessNutritionByDishName**](docs/RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*SpoonacularApi.RecipesApi* | [**ingredientsByIDImage**](docs/RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *SpoonacularApi.RecipesApi* | [**parseIngredients**](docs/RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *SpoonacularApi.RecipesApi* | [**priceBreakdownByIDImage**](docs/RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 *SpoonacularApi.RecipesApi* | [**quickAnswer**](docs/RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer

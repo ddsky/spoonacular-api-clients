@@ -291,19 +291,6 @@ describe 'RecipesApi' do
     end
   end
 
-  # unit tests for ingredients_by_id_image
-  # Ingredients by ID Image
-  # Visualize a recipe&#39;s ingredient list.
-  # @param id The recipe id.
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
-  # @return [Object]
-  describe 'ingredients_by_id_image test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for parse_ingredients
   # Parse Ingredients
   # Extract an ingredient from plain text.

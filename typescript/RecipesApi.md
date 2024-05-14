@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1236,66 +1235,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **ingredientsByIDImage**
-> any ingredientsByIDImage()
-
-Visualize a recipe\'s ingredient list.
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .RecipesApi(configuration);
-
-let body:.RecipesApiIngredientsByIDImageRequest = {
-  // number | The recipe id.
-  id: 1082038,
-  // 'us' | 'metric' | Whether the the measures should be \'us\' or \'metric\'. (optional)
-  measure: "metric",
-};
-
-apiInstance.ingredientsByIDImage(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The recipe id. | defaults to undefined
- **measure** | [**&#39;us&#39; | &#39;metric&#39;**]**Array<&#39;us&#39; &#124; &#39;metric&#39;>** | Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;. | (optional) defaults to undefined
-
-
-### Return type
-
-**any**
-
-### Authorization
-
-[apiKeyScheme](README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 
 ### HTTP response details
