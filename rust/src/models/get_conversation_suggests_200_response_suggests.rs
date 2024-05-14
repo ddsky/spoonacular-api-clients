@@ -14,13 +14,13 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetConversationSuggests200ResponseSuggests {
     #[serde(rename = "_")]
-    pub _: Vec<crate::models::GetConversationSuggests200ResponseSuggestsInner>,
+    pub underscore: Vec<crate::models::GetConversationSuggests200ResponseSuggestsInner>,
 }
 
 impl GetConversationSuggests200ResponseSuggests {
-    pub fn new(_: Vec<crate::models::GetConversationSuggests200ResponseSuggestsInner>) -> GetConversationSuggests200ResponseSuggests {
+    pub fn new(underscore: Vec<crate::models::GetConversationSuggests200ResponseSuggestsInner>) -> GetConversationSuggests200ResponseSuggests {
         GetConversationSuggests200ResponseSuggests {
-            _,
+            underscore,
         }
     }
 }
