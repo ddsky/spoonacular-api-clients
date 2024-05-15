@@ -332,7 +332,6 @@ Class | Method | HTTP request | Description
 *OAIRecipesApi* | [**getRecipeTasteByID**](docs/OAIRecipesApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 *OAIRecipesApi* | [**getSimilarRecipes**](docs/OAIRecipesApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *OAIRecipesApi* | [**guessNutritionByDishName**](docs/OAIRecipesApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*OAIRecipesApi* | [**ingredientsByIDImage**](docs/OAIRecipesApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *OAIRecipesApi* | [**parseIngredients**](docs/OAIRecipesApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *OAIRecipesApi* | [**priceBreakdownByIDImage**](docs/OAIRecipesApi.md#pricebreakdownbyidimage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 *OAIRecipesApi* | [**quickAnswer**](docs/OAIRecipesApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer

@@ -24,7 +24,6 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID |
 | [**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes |
 | [**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name |
-| [**ingredientsByIDImage**](RecipesApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
 | [**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients |
 | [**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image |
 | [**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer |
@@ -1516,80 +1515,6 @@ public class Example {
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-
-<a id="ingredientsByIDImage"></a>
-# **ingredientsByIDImage**
-> Object ingredientsByIDImage(id, measure)
-
-Ingredients by ID Image
-
-Visualize a recipe&#39;s ingredient list.
-
-### Example
-```java
-// Import classes:
-import com.spoonacular.client.ApiClient;
-import com.spoonacular.client.ApiException;
-import com.spoonacular.client.Configuration;
-import com.spoonacular.client.auth.*;
-import com.spoonacular.client.models.*;
-import com.spoonacular.RecipesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.spoonacular.com");
-    
-    // Configure API key authorization: apiKeyScheme
-    ApiKeyAuth apiKeyScheme = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyScheme");
-    apiKeyScheme.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiKeyScheme.setApiKeyPrefix("Token");
-
-    RecipesApi apiInstance = new RecipesApi(defaultClient);
-    BigDecimal id = new BigDecimal("1082038"); // BigDecimal | The recipe id.
-    String measure = "us"; // String | Whether the the measures should be 'us' or 'metric'.
-    try {
-      Object result = apiInstance.ingredientsByIDImage(id, measure);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RecipesApi#ingredientsByIDImage");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The recipe id. | |
-| **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 ### HTTP response details
 | Status code | Description | Response headers |

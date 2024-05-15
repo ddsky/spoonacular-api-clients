@@ -595,33 +595,6 @@ class RecipesApi {
 
     }
 
-    def ingredientsByIDImage ( BigDecimal id, String measure, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/recipes/${id}/ingredientWidget.png"
-
-        // params
-        def queryParams = [:]
-        def headerParams = [:]
-        def bodyParams
-        def contentType
-
-        // verify required params are set
-        if (id == null) {
-            throw new RuntimeException("missing required params id")
-        }
-
-        if (measure != null) {
-            queryParams.put("measure", measure)
-        }
-
-
-
-
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Object.class )
-
-    }
-
     def parseIngredients ( String contentType, String language, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/parseIngredients"
 

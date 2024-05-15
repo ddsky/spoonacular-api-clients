@@ -197,15 +197,6 @@ void main() {
       // TODO
     });
 
-    // Ingredients by ID Image
-    //
-    // Visualize a recipe's ingredient list.
-    //
-    //Future<Object> ingredientsByIDImage(num id, { String measure }) async
-    test('test ingredientsByIDImage', () async {
-      // TODO
-    });
-
     // Parse Ingredients
     //
     // Extract an ingredient from plain text.

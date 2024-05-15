@@ -4726,7 +4726,6 @@ paths:
       summary: Ingredients by ID Image
       tags:
       - ingredients
-      - recipes
       x-accepts: image/png
   /recipes/{id}/nutritionWidget.json:
     get:

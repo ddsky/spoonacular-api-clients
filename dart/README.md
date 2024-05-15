@@ -144,7 +144,6 @@ Class | Method | HTTP request | Description
 *RecipesApi* | [**getRecipeTasteByID**](doc//RecipesApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 *RecipesApi* | [**getSimilarRecipes**](doc//RecipesApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 *RecipesApi* | [**guessNutritionByDishName**](doc//RecipesApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*RecipesApi* | [**ingredientsByIDImage**](doc//RecipesApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *RecipesApi* | [**parseIngredients**](doc//RecipesApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 *RecipesApi* | [**priceBreakdownByIDImage**](doc//RecipesApi.md#pricebreakdownbyidimage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 *RecipesApi* | [**quickAnswer**](doc//RecipesApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer

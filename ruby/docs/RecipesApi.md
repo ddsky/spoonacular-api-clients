@@ -24,7 +24,6 @@ All URIs are relative to *https://api.spoonacular.com*
 | [**get_recipe_taste_by_id**](RecipesApi.md#get_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID |
 | [**get_similar_recipes**](RecipesApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes |
 | [**guess_nutrition_by_dish_name**](RecipesApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name |
-| [**ingredients_by_id_image**](RecipesApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
 | [**parse_ingredients**](RecipesApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients |
 | [**price_breakdown_by_id_image**](RecipesApi.md#price_breakdown_by_id_image) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image |
 | [**quick_answer**](RecipesApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer |
@@ -1527,81 +1526,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-
-## ingredients_by_id_image
-
-> Object ingredients_by_id_image(id, opts)
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Examples
-
-```ruby
-require 'time'
-require 'openapi_client'
-# setup authorization
-OpenapiClient.configure do |config|
-  # Configure API key authorization: apiKeyScheme
-  config.api_key['apiKeyScheme'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKeyScheme'] = 'Bearer'
-end
-
-api_instance = OpenapiClient::RecipesApi.new
-id = 1082038 # Float | The recipe id.
-opts = {
-  measure: 'us' # String | Whether the the measures should be 'us' or 'metric'.
-}
-
-begin
-  # Ingredients by ID Image
-  result = api_instance.ingredients_by_id_image(id, opts)
-  p result
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling RecipesApi->ingredients_by_id_image: #{e}"
-end
-```
-
-#### Using the ingredients_by_id_image_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(Object, Integer, Hash)> ingredients_by_id_image_with_http_info(id, opts)
-
-```ruby
-begin
-  # Ingredients by ID Image
-  data, status_code, headers = api_instance.ingredients_by_id_image_with_http_info(id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => Object
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling RecipesApi->ingredients_by_id_image_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
-| **measure** | **String** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/png
 
 
 ## parse_ingredients

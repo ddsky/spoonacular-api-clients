@@ -69,7 +69,6 @@ object RecipesApi {
         getRecipeTasteByID(da) :+:
         getSimilarRecipes(da) :+:
         guessNutritionByDishName(da) :+:
-        ingredientsByIDImage(da) :+:
         parseIngredients(da) :+:
         priceBreakdownByIDImage(da) :+:
         quickAnswer(da) :+:
@@ -385,20 +384,6 @@ object RecipesApi {
         private def guessNutritionByDishName(da: DataAccessor): Endpoint[GuessNutritionByDishName200Response] =
         get("recipes" :: "guessNutrition" :: param("title") :: header("x-api-key")) { (title: String, authParamapiKeyScheme: String) =>
           da.Recipes_guessNutritionByDishName(title, authParamapiKeyScheme) match {
-            case Left(error) => checkError(error)
-            case Right(data) => Ok(data)
-          }
-        } handle {
-          case e: Exception => BadRequest(e)
-        }
-
-        /**
-        * 
-        * @return An endpoint representing a Object
-        */
-        private def ingredientsByIDImage(da: DataAccessor): Endpoint[Object] =
-        get("recipes" :: bigdecimal :: "ingredientWidget.png" :: paramOption("measure") :: header("x-api-key")) { (id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_ingredientsByIDImage(id, measure, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

@@ -8409,8 +8409,7 @@
         "operationId": "ingredientsByIDImage",
         "deprecated": false,
         "tags": [
-          "ingredients",
-          "recipes"
+          "ingredients"
         ]
       },
       "parameters": [
