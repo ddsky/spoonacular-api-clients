@@ -466,12 +466,6 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Object
-        */
-        def Recipes_ingredientsByIDImage(id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
-
-        /**
-        * 
         * @return A Set[ParseIngredients200ResponseInner]
         */
         def Recipes_parseIngredients(contentType: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[ParseIngredients200ResponseInner]] = Left(TODO)

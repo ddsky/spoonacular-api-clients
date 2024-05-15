@@ -203,12 +203,6 @@ public:
     void guessNutritionByDishName(const QString &title);
 
     /**
-    * @param[in]  id double [required]
-    * @param[in]  measure QString [optional]
-    */
-    void ingredientsByIDImage(const double &id, const ::OpenAPI::OptionalParam<QString> &measure = ::OpenAPI::OptionalParam<QString>());
-
-    /**
     * @param[in]  content_type QString [optional]
     * @param[in]  language QString [optional]
     */
@@ -554,7 +548,6 @@ private:
     void getRecipeTasteByIDCallback(OAIHttpRequestWorker *worker);
     void getSimilarRecipesCallback(OAIHttpRequestWorker *worker);
     void guessNutritionByDishNameCallback(OAIHttpRequestWorker *worker);
-    void ingredientsByIDImageCallback(OAIHttpRequestWorker *worker);
     void parseIngredientsCallback(OAIHttpRequestWorker *worker);
     void priceBreakdownByIDImageCallback(OAIHttpRequestWorker *worker);
     void quickAnswerCallback(OAIHttpRequestWorker *worker);
@@ -598,7 +591,6 @@ Q_SIGNALS:
     void getRecipeTasteByIDSignal(OAIGetRecipeTasteByID_200_response summary);
     void getSimilarRecipesSignal(QSet<OAIGetSimilarRecipes_200_response_inner> summary);
     void guessNutritionByDishNameSignal(OAIGuessNutritionByDishName_200_response summary);
-    void ingredientsByIDImageSignal(OAIObject summary);
     void parseIngredientsSignal(QSet<OAIParseIngredients_200_response_inner> summary);
     void priceBreakdownByIDImageSignal(OAIObject summary);
     void quickAnswerSignal(OAIQuickAnswer_200_response summary);
@@ -640,7 +632,6 @@ Q_SIGNALS:
     void getRecipeTasteByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeTasteByID_200_response summary);
     void getSimilarRecipesSignalFull(OAIHttpRequestWorker *worker, QSet<OAIGetSimilarRecipes_200_response_inner> summary);
     void guessNutritionByDishNameSignalFull(OAIHttpRequestWorker *worker, OAIGuessNutritionByDishName_200_response summary);
-    void ingredientsByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
     void parseIngredientsSignalFull(OAIHttpRequestWorker *worker, QSet<OAIParseIngredients_200_response_inner> summary);
     void priceBreakdownByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
     void quickAnswerSignalFull(OAIHttpRequestWorker *worker, OAIQuickAnswer_200_response summary);
@@ -722,9 +713,6 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use guessNutritionByDishNameSignalError() instead")
     void guessNutritionByDishNameSignalE(OAIGuessNutritionByDishName_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void guessNutritionByDishNameSignalError(OAIGuessNutritionByDishName_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ingredientsByIDImageSignalError() instead")
-    void ingredientsByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ingredientsByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use parseIngredientsSignalError() instead")
     void parseIngredientsSignalE(QSet<OAIParseIngredients_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void parseIngredientsSignalError(QSet<OAIParseIngredients_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -846,9 +834,6 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use guessNutritionByDishNameSignalErrorFull() instead")
     void guessNutritionByDishNameSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void guessNutritionByDishNameSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ingredientsByIDImageSignalErrorFull() instead")
-    void ingredientsByIDImageSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ingredientsByIDImageSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use parseIngredientsSignalErrorFull() instead")
     void parseIngredientsSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void parseIngredientsSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

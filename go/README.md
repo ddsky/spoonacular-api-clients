@@ -24,7 +24,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import spoonacular "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+import spoonacular "github.com/ddsky/spoonacular-api-clients/go"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -155,7 +155,6 @@ Class | Method | HTTP request | Description
 *RecipesAPI* | [**GetRecipeTasteByID**](docs/RecipesAPI.md#getrecipetastebyid) | **Get** /recipes/{id}/tasteWidget.json | Taste by ID
 *RecipesAPI* | [**GetSimilarRecipes**](docs/RecipesAPI.md#getsimilarrecipes) | **Get** /recipes/{id}/similar | Get Similar Recipes
 *RecipesAPI* | [**GuessNutritionByDishName**](docs/RecipesAPI.md#guessnutritionbydishname) | **Get** /recipes/guessNutrition | Guess Nutrition by Dish Name
-*RecipesAPI* | [**IngredientsByIDImage**](docs/RecipesAPI.md#ingredientsbyidimage) | **Get** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 *RecipesAPI* | [**ParseIngredients**](docs/RecipesAPI.md#parseingredients) | **Post** /recipes/parseIngredients | Parse Ingredients
 *RecipesAPI* | [**PriceBreakdownByIDImage**](docs/RecipesAPI.md#pricebreakdownbyidimage) | **Get** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 *RecipesAPI* | [**QuickAnswer**](docs/RecipesAPI.md#quickanswer) | **Get** /recipes/quickAnswer | Quick Answer

@@ -315,19 +315,6 @@ namespace spoonacular.Test.Api
         }
 
         /// <summary>
-        /// Test IngredientsByIDImage
-        /// </summary>
-        [Fact]
-        public void IngredientsByIDImageTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
-            //string? measure = null;
-            //var response = instance.IngredientsByIDImage(id, measure);
-            //Assert.IsType<Object>(response);
-        }
-
-        /// <summary>
         /// Test ParseIngredients
         /// </summary>
         [Fact]

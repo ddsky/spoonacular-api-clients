@@ -35,7 +35,6 @@ module Api.Request.Recipes exposing
     , getRecipeTasteByID
     , getSimilarRecipes
     , guessNutritionByDishName
-    , ingredientsByIDImage, Measure(..), measureVariants
     , parseIngredients, Language(..), languageVariants, ContentType(..), contentTypeVariants
     , priceBreakdownByIDImage
     , quickAnswer
@@ -173,30 +172,6 @@ stringFromContentType model =
 
         ContentTypeMultipartFormData ->
             "multipart/form-data"
-
-
-
-
-type Measure
-    = MeasureUs
-    | MeasureMetric
-
-
-measureVariants : List Measure
-measureVariants =
-    [ MeasureUs
-    , MeasureMetric
-    ]
-
-
-stringFromMeasure : Measure -> String
-stringFromMeasure model =
-    case model of
-        MeasureUs ->
-            "us"
-
-        MeasureMetric ->
-            "metric"
 
 
 
@@ -888,20 +863,6 @@ guessNutritionByDishName title_query =
         []
         Nothing
         Api.Data.guessNutritionByDishName200ResponseDecoder
-
-
-{-| Visualize a recipe's ingredient list.
--}
-ingredientsByIDImage : Float -> Maybe Measure -> Api.Request (Dict.Dict String Api.Data.Object)
-ingredientsByIDImage id_path measure_query =
-    Api.request
-        "GET"
-        "/recipes/{id}/ingredientWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
-        [ ( "measure", Maybe.map stringFromMeasure measure_query ) ]
-        []
-        Nothing
-        (Json.Decode.dict )
 
 
 {-| Extract an ingredient from plain text.

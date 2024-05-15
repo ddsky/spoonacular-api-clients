@@ -29,7 +29,6 @@ Method | HTTP request | Description
 [**getRecipeTasteByID**](RecipesApi.md#getrecipetastebyid) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**getSimilarRecipes**](RecipesApi.md#getsimilarrecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guessNutritionByDishName**](RecipesApi.md#guessnutritionbydishname) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredientsByIDImage**](RecipesApi.md#ingredientsbyidimage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parseIngredients**](RecipesApi.md#parseingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**priceBreakdownByIDImage**](RecipesApi.md#pricebreakdownbyidimage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quickAnswer**](RecipesApi.md#quickanswer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1027,55 +1026,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ingredientsByIDImage**
-> Object ingredientsByIDImage(id, measure)
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: apiKeyScheme
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
-
-final api_instance = RecipesApi();
-final id = 1082038; // num | The recipe id.
-final measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
-
-try {
-    final result = api_instance.ingredientsByIDImage(id, measure);
-    print(result);
-} catch (e) {
-    print('Exception when calling RecipesApi->ingredientsByIDImage: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
- **measure** | **String**| Whether the the measures should be 'us' or 'metric'. | [optional] 
-
-### Return type
-
-[**Object**](Object.md)
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

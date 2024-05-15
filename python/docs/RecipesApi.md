@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**get_recipe_taste_by_id**](RecipesApi.md#get_recipe_taste_by_id) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
 [**get_similar_recipes**](RecipesApi.md#get_similar_recipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
 [**guess_nutrition_by_dish_name**](RecipesApi.md#guess_nutrition_by_dish_name) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**ingredients_by_id_image**](RecipesApi.md#ingredients_by_id_image) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**parse_ingredients**](RecipesApi.md#parse_ingredients) | **POST** /recipes/parseIngredients | Parse Ingredients
 [**price_breakdown_by_id_image**](RecipesApi.md#price_breakdown_by_id_image) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**quick_answer**](RecipesApi.md#quick_answer) | **GET** /recipes/quickAnswer | Quick Answer
@@ -1713,89 +1712,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ingredients_by_id_image**
-> object ingredients_by_id_image(id, measure=measure)
-
-Ingredients by ID Image
-
-Visualize a recipe's ingredient list.
-
-### Example
-
-* Api Key Authentication (apiKeyScheme):
-
-```python
-import spoonacular
-from spoonacular.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.spoonacular.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = spoonacular.Configuration(
-    host = "https://api.spoonacular.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: apiKeyScheme
-configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKeyScheme'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with spoonacular.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = spoonacular.RecipesApi(api_client)
-    id = 1082038 # float | The recipe id.
-    measure = 'metric' # str | Whether the the measures should be 'us' or 'metric'. (optional)
-
-    try:
-        # Ingredients by ID Image
-        api_response = api_instance.ingredients_by_id_image(id, measure=measure)
-        print("The response of RecipesApi->ingredients_by_id_image:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling RecipesApi->ingredients_by_id_image: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
- **measure** | **str**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
-
-### Return type
-
-**object**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png
 
 ### HTTP response details
 

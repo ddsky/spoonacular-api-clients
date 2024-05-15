@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**GetRecipeTasteByID**](RecipesAPI.md#GetRecipeTasteByID) | **Get** /recipes/{id}/tasteWidget.json | Taste by ID
 [**GetSimilarRecipes**](RecipesAPI.md#GetSimilarRecipes) | **Get** /recipes/{id}/similar | Get Similar Recipes
 [**GuessNutritionByDishName**](RecipesAPI.md#GuessNutritionByDishName) | **Get** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**IngredientsByIDImage**](RecipesAPI.md#IngredientsByIDImage) | **Get** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
 [**ParseIngredients**](RecipesAPI.md#ParseIngredients) | **Post** /recipes/parseIngredients | Parse Ingredients
 [**PriceBreakdownByIDImage**](RecipesAPI.md#PriceBreakdownByIDImage) | **Get** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
 [**QuickAnswer**](RecipesAPI.md#QuickAnswer) | **Get** /recipes/quickAnswer | Quick Answer
@@ -65,7 +64,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -131,7 +130,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -197,7 +196,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -265,7 +264,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -331,7 +330,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -399,7 +398,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -471,7 +470,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -537,7 +536,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -607,7 +606,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -681,7 +680,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -753,7 +752,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -827,7 +826,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -897,7 +896,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -969,7 +968,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1037,7 +1036,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1107,7 +1106,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1177,7 +1176,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1247,7 +1246,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1319,7 +1318,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1393,7 +1392,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1442,78 +1441,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## IngredientsByIDImage
-
-> map[string]interface{} IngredientsByIDImage(ctx, id).Measure(measure).Execute()
-
-Ingredients by ID Image
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
-)
-
-func main() {
-	id := float32(1082038) // float32 | The recipe id.
-	measure := "metric" // string | Whether the the measures should be 'us' or 'metric'. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.IngredientsByIDImage(context.Background(), id).Measure(measure).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.IngredientsByIDImage``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `IngredientsByIDImage`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.IngredientsByIDImage`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiIngredientsByIDImageRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **measure** | **string** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | 
-
-### Return type
-
-**map[string]interface{}**
-
-### Authorization
-
-[apiKeyScheme](../README.md#apiKeyScheme)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/png
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ParseIngredients
 
 > []ParseIngredients200ResponseInner ParseIngredients(ctx).ContentType(contentType).Language(language).Execute()
@@ -1531,7 +1458,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1599,7 +1526,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1669,7 +1596,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1735,7 +1662,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1805,7 +1732,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1881,7 +1808,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -1959,7 +1886,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2033,7 +1960,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2293,7 +2220,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2367,7 +2294,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2583,7 +2510,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2653,7 +2580,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2721,7 +2648,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2791,7 +2718,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2863,7 +2790,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -2937,7 +2864,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -3007,7 +2934,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -3081,7 +3008,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -3153,7 +3080,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
@@ -3227,7 +3154,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/ddsky/spoonacular-api-clients/tree/master/go/"
+	openapiclient "github.com/ddsky/spoonacular-api-clients/go"
 )
 
 func main() {
