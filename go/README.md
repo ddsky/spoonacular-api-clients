@@ -101,10 +101,10 @@ Class | Method | HTTP request | Description
 *MealPlanningAPI* | [**DeleteFromShoppingList**](docs/MealPlanningAPI.md#deletefromshoppinglist) | **Delete** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *MealPlanningAPI* | [**DeleteMealPlanTemplate**](docs/MealPlanningAPI.md#deletemealplantemplate) | **Delete** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *MealPlanningAPI* | [**GenerateMealPlan**](docs/MealPlanningAPI.md#generatemealplan) | **Get** /mealplanner/generate | Generate Meal Plan
-*MealPlanningAPI* | [**GenerateShoppingList**](docs/MealPlanningAPI.md#generateshoppinglist) | **Post** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*MealPlanningAPI* | [**GenerateShoppingList**](docs/MealPlanningAPI.md#generateshoppinglist) | **Post** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *MealPlanningAPI* | [**GetMealPlanTemplate**](docs/MealPlanningAPI.md#getmealplantemplate) | **Get** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *MealPlanningAPI* | [**GetMealPlanTemplates**](docs/MealPlanningAPI.md#getmealplantemplates) | **Get** /mealplanner/{username}/templates | Get Meal Plan Templates
-*MealPlanningAPI* | [**GetMealPlanWeek**](docs/MealPlanningAPI.md#getmealplanweek) | **Get** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*MealPlanningAPI* | [**GetMealPlanWeek**](docs/MealPlanningAPI.md#getmealplanweek) | **Get** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *MealPlanningAPI* | [**GetShoppingList**](docs/MealPlanningAPI.md#getshoppinglist) | **Get** /mealplanner/{username}/shopping-list | Get Shopping List
 *MenuItemsAPI* | [**AutocompleteMenuItemSearch**](docs/MenuItemsAPI.md#autocompletemenuitemsearch) | **Get** /food/menuItems/suggest | Autocomplete Menu Item Search
 *MenuItemsAPI* | [**GetMenuItemInformation**](docs/MenuItemsAPI.md#getmenuiteminformation) | **Get** /food/menuItems/{id} | Get Menu Item Information

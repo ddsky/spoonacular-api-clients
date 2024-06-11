@@ -155,10 +155,10 @@ Class | Method | HTTP request | Description
 *SpoonacularApi.MealPlanningApi* | [**deleteFromShoppingList**](docs/MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *SpoonacularApi.MealPlanningApi* | [**deleteMealPlanTemplate**](docs/MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *SpoonacularApi.MealPlanningApi* | [**generateMealPlan**](docs/MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
-*SpoonacularApi.MealPlanningApi* | [**generateShoppingList**](docs/MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*SpoonacularApi.MealPlanningApi* | [**generateShoppingList**](docs/MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *SpoonacularApi.MealPlanningApi* | [**getMealPlanTemplate**](docs/MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *SpoonacularApi.MealPlanningApi* | [**getMealPlanTemplates**](docs/MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*SpoonacularApi.MealPlanningApi* | [**getMealPlanWeek**](docs/MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*SpoonacularApi.MealPlanningApi* | [**getMealPlanWeek**](docs/MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *SpoonacularApi.MealPlanningApi* | [**getShoppingList**](docs/MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *SpoonacularApi.MenuItemsApi* | [**autocompleteMenuItemSearch**](docs/MenuItemsApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *SpoonacularApi.MenuItemsApi* | [**getMenuItemInformation**](docs/MenuItemsApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information

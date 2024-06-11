@@ -734,7 +734,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.generate_shopping_list"
       end
       # resource path
-      local_var_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'start-date' + '}', CGI.escape(start_date.to_s)).sub('{' + 'end-date' + '}', CGI.escape(end_date.to_s))
+      local_var_path = '/mealplanner/{username}/shopping-list/{start_date}/{end_date}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'start_date' + '}', CGI.escape(start_date.to_s)).sub('{' + 'end_date' + '}', CGI.escape(end_date.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -956,7 +956,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'hash' when calling MealPlanningApi.get_meal_plan_week"
       end
       # resource path
-      local_var_path = '/mealplanner/{username}/week/{start-date}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'start-date' + '}', CGI.escape(start_date.to_s))
+      local_var_path = '/mealplanner/{username}/week/{start_date}'.sub('{' + 'username' + '}', CGI.escape(username.to_s)).sub('{' + 'start_date' + '}', CGI.escape(start_date.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

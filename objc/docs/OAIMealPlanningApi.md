@@ -13,10 +13,10 @@ Method | HTTP request | Description
 [**deleteFromShoppingList**](OAIMealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**deleteMealPlanTemplate**](OAIMealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**generateMealPlan**](OAIMealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
-[**generateShoppingList**](OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+[**generateShoppingList**](OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 [**getMealPlanTemplate**](OAIMealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 [**getMealPlanTemplates**](OAIMealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-[**getMealPlanWeek**](OAIMealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+[**getMealPlanWeek**](OAIMealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 [**getShoppingList**](OAIMealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 
 
