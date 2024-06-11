@@ -19944,7 +19944,7 @@
         ]
       }
     },
-    "/mealplanner/{username}/week/{start-date}": {
+    "/mealplanner/{username}/week/{start_date}": {
       "get": {
         "responses": {
           "200": {
@@ -21062,7 +21062,7 @@
             "in": "path"
           },
           {
-            "name": "start-date",
+            "name": "start_date",
             "description": "The start date of the meal planned week in the format yyyy-mm-dd.",
             "schema": {
               "type": "string",
@@ -21098,7 +21098,7 @@
             "type": "string",
             "example": "2020-06-01"
           },
-          "name": "start-date",
+          "name": "start_date",
           "in": "path",
           "description": "The start date.",
           "required": true
@@ -25185,7 +25185,7 @@
         }
       ]
     },
-    "/mealplanner/{username}/shopping-list/{start-date}/{end-date}": {
+    "/mealplanner/{username}/shopping-list/{start_date}/{end_date}": {
       "post": {
         "responses": {
           "200": {
@@ -25428,7 +25428,7 @@
             "in": "path"
           },
           {
-            "name": "start-date",
+            "name": "start_date",
             "description": "The start date in the format yyyy-mm-dd.",
             "schema": {
               "type": "string",
@@ -25440,7 +25440,7 @@
             "in": "path"
           },
           {
-            "name": "end-date",
+            "name": "end_date",
             "description": "The end date in the format yyyy-mm-dd.",
             "schema": {
               "type": "string",
@@ -25476,7 +25476,7 @@
             "type": "string",
             "example": "2021-10-01"
           },
-          "name": "start-date",
+          "name": "start_date",
           "in": "path",
           "required": true,
           "description": "The start date."
@@ -25486,7 +25486,7 @@
             "type": "string",
             "example": "2021-10-07"
           },
-          "name": "end-date",
+          "name": "end_date",
           "in": "path",
           "required": true,
           "description": "The end date."
