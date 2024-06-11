@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ## IngredientsByIDImage
 
-> map[string]interface{} IngredientsByIDImage(ctx, id).Measure(measure).Execute()
+> *os.File IngredientsByIDImage(ctx, id).Measure(measure).Execute()
 
 Ingredients by ID Image
 
@@ -501,7 +501,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.IngredientsByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `IngredientsByIDImage`: map[string]interface{}
+	// response from `IngredientsByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.IngredientsByIDImage`: %v\n", resp)
 }
 ```
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeIngredients
 
-> string VisualizeIngredients(ctx).ContentType(contentType).Language(language).Accept(accept).Execute()
+> string VisualizeIngredients(ctx).IngredientList(ingredientList).Servings(servings).Language(language).Measure(measure).View(view).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 
 Ingredients Widget
 
@@ -629,13 +629,17 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
+	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+	servings := float32(8.14) // float32 | The number of servings.
 	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
-	accept := "application/json" // string | Accept header. (optional)
+	measure := "measure_example" // string | The original system of measurement, either 'metric' or 'us'. (optional)
+	view := "view_example" // string | How to visualize the ingredients, either 'grid' or 'list'. (optional)
+	defaultCss := true // bool | Whether the default CSS should be added to the response. (optional)
+	showBacklink := true // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IngredientsAPI.VisualizeIngredients(context.Background()).ContentType(contentType).Language(language).Accept(accept).Execute()
+	resp, r, err := apiClient.IngredientsAPI.VisualizeIngredients(context.Background()).IngredientList(ingredientList).Servings(servings).Language(language).Measure(measure).View(view).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.VisualizeIngredients``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -656,9 +660,13 @@ Other parameters are passed through a pointer to a apiVisualizeIngredientsReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
+ **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **servings** | **float32** | The number of servings. | 
  **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
- **accept** | **string** | Accept header. | 
+ **measure** | **string** | The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | 
+ **view** | **string** | How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | 
+ **defaultCss** | **bool** | Whether the default CSS should be added to the response. | 
+ **showBacklink** | **bool** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | 
 
 ### Return type
 

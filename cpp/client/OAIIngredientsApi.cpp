@@ -1220,7 +1220,7 @@ void OAIIngredientsApi::ingredientsByIDImageCallback(OAIHttpRequestWorker *worke
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1351,7 +1351,7 @@ void OAIIngredientsApi::mapIngredientsToGroceryProductsCallback(OAIHttpRequestWo
     }
 }
 
-void OAIIngredientsApi::visualizeIngredients(const ::OpenAPI::OptionalParam<QString> &content_type, const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<QString> &accept) {
+void OAIIngredientsApi::visualizeIngredients(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<QString> &measure, const ::OpenAPI::OptionalParam<QString> &view, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_backlink) {
     QString fullPath = QString(_serverConfigs["visualizeIngredients"][_serverIndices.value("visualizeIngredients")].URL()+"/recipes/visualizeIngredients");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1379,19 +1379,31 @@ void OAIIngredientsApi::visualizeIngredients(const ::OpenAPI::OptionalParam<QStr
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
+    
+    {
+        input.add_var("ingredientList", ::OpenAPI::toStringValue(ingredient_list));
+    }
+    
+    {
+        input.add_var("servings", ::OpenAPI::toStringValue(servings));
+    }
+    if (measure.hasValue())
+    {
+        input.add_var("measure", ::OpenAPI::toStringValue(measure.value()));
+    }
+    if (view.hasValue())
+    {
+        input.add_var("view", ::OpenAPI::toStringValue(view.value()));
+    }
+    if (default_css.hasValue())
+    {
+        input.add_var("defaultCss", ::OpenAPI::toStringValue(default_css.value()));
+    }
+    if (show_backlink.hasValue())
+    {
+        input.add_var("showBacklink", ::OpenAPI::toStringValue(show_backlink.value()));
+    }
 
-    if (content_type.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);

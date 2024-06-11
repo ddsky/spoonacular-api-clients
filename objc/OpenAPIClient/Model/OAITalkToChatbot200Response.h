@@ -14,9 +14,9 @@
 */
 
 
-#import "OAIAnyType.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
+#import "OAITalkToChatbot200ResponseMediaInner.h"
+@protocol OAITalkToChatbot200ResponseMediaInner;
+@class OAITalkToChatbot200ResponseMediaInner;
 
 
 
@@ -28,6 +28,6 @@
 
 @property(nonatomic) NSString* answerText;
 
-@property(nonatomic) NSArray<OAIAnyType>* media;
+@property(nonatomic) NSArray<OAITalkToChatbot200ResponseMediaInner>* media;
 
 @end

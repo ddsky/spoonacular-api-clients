@@ -25,7 +25,7 @@ class GetConversationSuggests200Response {
      * 
      * @alias module:model/GetConversationSuggests200Response
      * @param suggests {module:model/GetConversationSuggests200ResponseSuggests} 
-     * @param words {Array.<Object>} 
+     * @param words {Array.<String>} 
      */
     constructor(suggests, words) { 
         
@@ -57,7 +57,7 @@ class GetConversationSuggests200Response {
                 obj['suggests'] = GetConversationSuggests200ResponseSuggests.constructFromObject(data['suggests']);
             }
             if (data.hasOwnProperty('words')) {
-                obj['words'] = ApiClient.convertToType(data['words'], [Object]);
+                obj['words'] = ApiClient.convertToType(data['words'], ['String']);
             }
         }
         return obj;
@@ -98,7 +98,7 @@ GetConversationSuggests200Response.RequiredProperties = ["suggests", "words"];
 GetConversationSuggests200Response.prototype['suggests'] = undefined;
 
 /**
- * @member {Array.<Object>} words
+ * @member {Array.<String>} words
  */
 GetConversationSuggests200Response.prototype['words'] = undefined;
 

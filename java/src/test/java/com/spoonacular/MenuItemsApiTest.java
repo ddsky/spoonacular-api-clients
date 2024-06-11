@@ -16,6 +16,7 @@ package com.spoonacular;
 import com.spoonacular.client.ApiException;
 import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response;
 import java.math.BigDecimal;
+import java.io.File;
 import com.spoonacular.client.model.GetMenuItemInformation200Response;
 import com.spoonacular.client.model.SearchMenuItems200Response;
 import org.junit.jupiter.api.Disabled;
@@ -73,7 +74,7 @@ public class MenuItemsApiTest {
     @Test
     public void menuItemNutritionByIDImageTest() throws ApiException {
         BigDecimal id = null;
-        Object response = api.menuItemNutritionByIDImage(id);
+        File response = api.menuItemNutritionByIDImage(id);
         // TODO: test validations
     }
 
@@ -90,7 +91,7 @@ public class MenuItemsApiTest {
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;
         Boolean showIngredients = null;
-        Object response = api.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+        File response = api.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
         // TODO: test validations
     }
 
@@ -148,8 +149,7 @@ public class MenuItemsApiTest {
     public void visualizeMenuItemNutritionByIDTest() throws ApiException {
         Integer id = null;
         Boolean defaultCss = null;
-        String accept = null;
-        String response = api.visualizeMenuItemNutritionByID(id, defaultCss, accept);
+        String response = api.visualizeMenuItemNutritionByID(id, defaultCss);
         // TODO: test validations
     }
 

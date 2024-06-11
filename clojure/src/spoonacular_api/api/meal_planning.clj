@@ -57,7 +57,6 @@
             [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
             [spoonacular-api.specs.analyze-recipe-request :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner :refer :all]
@@ -75,6 +74,7 @@
             [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
             [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-local-hours-operational :refer :all]
             [spoonacular-api.specs.get-product-information-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-articles-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
             [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
@@ -125,6 +125,7 @@
             [spoonacular-api.specs.connect-user-request :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
             [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner :refer :all]
+            [spoonacular-api.specs.talk-to-chatbot-200-response-media-inner :refer :all]
             [spoonacular-api.specs.get-comparable-products-200-response-comparable-products :refer :all]
             [spoonacular-api.specs.autocomplete-product-search-200-response :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary-nutrients-inner :refer :all]
@@ -139,7 +140,6 @@
             [spoonacular-api.specs.compute-glycemic-load-request :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories :refer :all]
             [spoonacular-api.specs.ingredient-search-200-response :refer :all]
             [spoonacular-api.specs.search-all-food-200-response :refer :all]
@@ -384,10 +384,10 @@
 (defn-spec generate-shopping-list-with-http-info any?
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?]
-  (check-required-params username start-date end-date hash)
-  (call-api "/mealplanner/{username}/shopping-list/{start-date}/{end-date}" :post
-            {:path-params   {"username" username "start-date" start-date "end-date" end-date }
+  [username string?, start_date string?, end_date string?, hash string?]
+  (check-required-params username start_date end_date hash)
+  (call-api "/mealplanner/{username}/shopping-list/{start_date}/{end_date}" :post
+            {:path-params   {"username" username "start_date" start_date "end_date" end_date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
@@ -398,8 +398,8 @@
 (defn-spec generate-shopping-list generate-shopping-list-200-response-spec
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?]
-  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash))]
+  [username string?, start_date string?, end_date string?, hash string?]
+  (let [res (:data (generate-shopping-list-with-http-info username start_date end_date hash))]
     (if (:decode-models *api-context*)
        (st/decode generate-shopping-list-200-response-spec res st/string-transformer)
        res)))
@@ -456,10 +456,10 @@
 (defn-spec get-meal-plan-week-with-http-info any?
   "Get Meal Plan Week
   Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
-  [username string?, start-date string?, hash string?]
-  (check-required-params username start-date hash)
-  (call-api "/mealplanner/{username}/week/{start-date}" :get
-            {:path-params   {"username" username "start-date" start-date }
+  [username string?, start_date string?, hash string?]
+  (check-required-params username start_date hash)
+  (call-api "/mealplanner/{username}/week/{start_date}" :get
+            {:path-params   {"username" username "start_date" start_date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
@@ -470,8 +470,8 @@
 (defn-spec get-meal-plan-week get-meal-plan-week-200-response-spec
   "Get Meal Plan Week
   Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
-  [username string?, start-date string?, hash string?]
-  (let [res (:data (get-meal-plan-week-with-http-info username start-date hash))]
+  [username string?, start_date string?, hash string?]
+  (let [res (:data (get-meal-plan-week-with-http-info username start_date hash))]
     (if (:decode-models *api-context*)
        (st/decode get-meal-plan-week-200-response-spec res st/string-transformer)
        res)))

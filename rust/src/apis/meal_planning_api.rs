@@ -508,7 +508,7 @@ pub async fn generate_shopping_list(configuration: &configuration::Configuration
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mealplanner/{username}/shopping-list/{start-date}/{end-date}", local_var_configuration.base_path, username=crate::apis::urlencode(username), start-date=crate::apis::urlencode(start_date), end-date=crate::apis::urlencode(end_date));
+    let local_var_uri_str = format!("{}/mealplanner/{username}/shopping-list/{start_date}/{end_date}", local_var_configuration.base_path, username=crate::apis::urlencode(username), start_date=crate::apis::urlencode(start_date), end_date=crate::apis::urlencode(end_date));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("hash", &hash.to_string())]);
@@ -619,7 +619,7 @@ pub async fn get_meal_plan_week(configuration: &configuration::Configuration, us
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mealplanner/{username}/week/{start-date}", local_var_configuration.base_path, username=crate::apis::urlencode(username), start-date=crate::apis::urlencode(start_date));
+    let local_var_uri_str = format!("{}/mealplanner/{username}/week/{start_date}", local_var_configuration.base_path, username=crate::apis::urlencode(username), start_date=crate::apis::urlencode(start_date));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("hash", &hash.to_string())]);

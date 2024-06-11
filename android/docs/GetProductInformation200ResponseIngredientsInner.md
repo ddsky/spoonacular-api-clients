@@ -6,9 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | [**OasAnyTypeNotMapped**](.md) |  |  [optional]
+**description** | **String** |  |  [optional]
 **name** | **String** |  | 
-**safetyLevel** | [**OasAnyTypeNotMapped**](.md) |  |  [optional]
+**safetyLevel** | **String** |  |  [optional]
 
 
 

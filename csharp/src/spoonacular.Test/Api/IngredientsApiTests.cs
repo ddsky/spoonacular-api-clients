@@ -160,7 +160,7 @@ namespace spoonacular.Test.Api
             //decimal id = null;
             //string? measure = null;
             //var response = instance.IngredientsByIDImage(id, measure);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -182,10 +182,14 @@ namespace spoonacular.Test.Api
         public void VisualizeIngredientsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
+            //string ingredientList = null;
+            //decimal servings = null;
             //string? language = null;
-            //string? accept = null;
-            //var response = instance.VisualizeIngredients(contentType, language, accept);
+            //string? measure = null;
+            //string? view = null;
+            //bool? defaultCss = null;
+            //bool? showBacklink = null;
+            //var response = instance.VisualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
             //Assert.IsType<string>(response);
         }
     }

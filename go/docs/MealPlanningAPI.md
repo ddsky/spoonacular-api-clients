@@ -13,10 +13,10 @@ Method | HTTP request | Description
 [**DeleteFromShoppingList**](MealPlanningAPI.md#DeleteFromShoppingList) | **Delete** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 [**DeleteMealPlanTemplate**](MealPlanningAPI.md#DeleteMealPlanTemplate) | **Delete** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 [**GenerateMealPlan**](MealPlanningAPI.md#GenerateMealPlan) | **Get** /mealplanner/generate | Generate Meal Plan
-[**GenerateShoppingList**](MealPlanningAPI.md#GenerateShoppingList) | **Post** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+[**GenerateShoppingList**](MealPlanningAPI.md#GenerateShoppingList) | **Post** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 [**GetMealPlanTemplate**](MealPlanningAPI.md#GetMealPlanTemplate) | **Get** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 [**GetMealPlanTemplates**](MealPlanningAPI.md#GetMealPlanTemplates) | **Get** /mealplanner/{username}/templates | Get Meal Plan Templates
-[**GetMealPlanWeek**](MealPlanningAPI.md#GetMealPlanWeek) | **Get** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+[**GetMealPlanWeek**](MealPlanningAPI.md#GetMealPlanWeek) | **Get** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 [**GetShoppingList**](MealPlanningAPI.md#GetShoppingList) | **Get** /mealplanner/{username}/shopping-list | Get Shopping List
 
 

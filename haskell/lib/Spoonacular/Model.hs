@@ -97,6 +97,9 @@ newtype BackgroundColor = BackgroundColor { unBackgroundColor :: Text } deriving
 -- ** BackgroundImage
 newtype BackgroundImage = BackgroundImage { unBackgroundImage :: Text } deriving (P.Eq, P.Show)
 
+-- ** BackgroundImage2
+newtype BackgroundImage2 = BackgroundImage2 { unBackgroundImage2 :: E'BackgroundImage } deriving (P.Eq, P.Show)
+
 -- ** Budget
 newtype Budget = Budget { unBudget :: Double } deriving (P.Eq, P.Show)
 
@@ -163,6 +166,9 @@ newtype Ids = Ids { unIds :: Text } deriving (P.Eq, P.Show)
 -- ** IgnorePantry
 newtype IgnorePantry = IgnorePantry { unIgnorePantry :: Bool } deriving (P.Eq, P.Show)
 
+-- ** Image
+newtype Image = Image { unImage :: FilePath } deriving (P.Eq, P.Show)
+
 -- ** ImageUrl
 newtype ImageUrl = ImageUrl { unImageUrl :: Text } deriving (P.Eq, P.Show)
 
@@ -178,11 +184,17 @@ newtype IncludeTags = IncludeTags { unIncludeTags :: Text } deriving (P.Eq, P.Sh
 -- ** IncludeTaste
 newtype IncludeTaste = IncludeTaste { unIncludeTaste :: Bool } deriving (P.Eq, P.Show)
 
+-- ** IngredientList
+newtype IngredientList = IngredientList { unIngredientList :: Text } deriving (P.Eq, P.Show)
+
 -- ** IngredientName
 newtype IngredientName = IngredientName { unIngredientName :: Text } deriving (P.Eq, P.Show)
 
 -- ** Ingredients
 newtype Ingredients = Ingredients { unIngredients :: Text } deriving (P.Eq, P.Show)
+
+-- ** Instructions
+newtype Instructions = Instructions { unInstructions :: Text } deriving (P.Eq, P.Show)
 
 -- ** InstructionsRequired
 newtype InstructionsRequired = InstructionsRequired { unInstructionsRequired :: Bool } deriving (P.Eq, P.Show)
@@ -216,6 +228,9 @@ newtype LocaleText = LocaleText { unLocaleText :: Text } deriving (P.Eq, P.Show)
 
 -- ** Mask
 newtype Mask = Mask { unMask :: Text } deriving (P.Eq, P.Show)
+
+-- ** Mask2
+newtype Mask2 = Mask2 { unMask2 :: E'Mask } deriving (P.Eq, P.Show)
 
 -- ** MaxAlcohol
 newtype MaxAlcohol = MaxAlcohol { unMaxAlcohol :: Double } deriving (P.Eq, P.Show)
@@ -478,6 +493,9 @@ newtype MinVitaminK = MinVitaminK { unMinVitaminK :: Double } deriving (P.Eq, P.
 -- ** MinZinc
 newtype MinZinc = MinZinc { unMinZinc :: Double } deriving (P.Eq, P.Show)
 
+-- ** Mode
+newtype Mode = Mode { unMode :: Double } deriving (P.Eq, P.Show)
+
 -- ** Normalize
 newtype Normalize = Normalize { unNormalize :: Bool } deriving (P.Eq, P.Show)
 
@@ -495,12 +513,6 @@ newtype Offset = Offset { unOffset :: Int } deriving (P.Eq, P.Show)
 
 -- ** Page
 newtype Page = Page { unPage :: Double } deriving (P.Eq, P.Show)
-
--- ** ParamAccept
-newtype ParamAccept = ParamAccept { unParamAccept :: E'Accept } deriving (P.Eq, P.Show)
-
--- ** ParamContentType
-newtype ParamContentType = ParamContentType { unParamContentType :: E'ContentType } deriving (P.Eq, P.Show)
 
 -- ** ParamDate
 newtype ParamDate = ParamDate { unParamDate :: Text } deriving (P.Eq, P.Show)
@@ -523,11 +535,20 @@ newtype Random = Random { unRandom :: Bool } deriving (P.Eq, P.Show)
 -- ** Ranking
 newtype Ranking = Ranking { unRanking :: Double } deriving (P.Eq, P.Show)
 
+-- ** ReadyInMinutes
+newtype ReadyInMinutes = ReadyInMinutes { unReadyInMinutes :: Double } deriving (P.Eq, P.Show)
+
 -- ** RecipeBoxId
 newtype RecipeBoxId = RecipeBoxId { unRecipeBoxId :: Double } deriving (P.Eq, P.Show)
 
 -- ** Rgb
 newtype Rgb = Rgb { unRgb :: Text } deriving (P.Eq, P.Show)
+
+-- ** Servings
+newtype Servings = Servings { unServings :: Double } deriving (P.Eq, P.Show)
+
+-- ** ShowBacklink
+newtype ShowBacklink = ShowBacklink { unShowBacklink :: Bool } deriving (P.Eq, P.Show)
 
 -- ** ShowIngredients
 newtype ShowIngredients = ShowIngredients { unShowIngredients :: Bool } deriving (P.Eq, P.Show)
@@ -543,6 +564,9 @@ newtype Sort = Sort { unSort :: Text } deriving (P.Eq, P.Show)
 
 -- ** SortDirection
 newtype SortDirection = SortDirection { unSortDirection :: Text } deriving (P.Eq, P.Show)
+
+-- ** Source
+newtype Source = Source { unSource :: Text } deriving (P.Eq, P.Show)
 
 -- ** SourceAmount
 newtype SourceAmount = SourceAmount { unSourceAmount :: Double } deriving (P.Eq, P.Show)
@@ -588,6 +612,9 @@ newtype Url = Url { unUrl :: Text } deriving (P.Eq, P.Show)
 
 -- ** Username
 newtype Username = Username { unUsername :: Text } deriving (P.Eq, P.Show)
+
+-- ** View
+newtype View = View { unView :: E'View } deriving (P.Eq, P.Show)
 
 -- ** Wine
 newtype Wine = Wine { unWine :: Text } deriving (P.Eq, P.Show)
@@ -2472,7 +2499,7 @@ mkGetComparableProducts200ResponseComparableProductsProteinInner getComparablePr
 -- 
 data GetConversationSuggests200Response = GetConversationSuggests200Response
   { getConversationSuggests200ResponseSuggests :: !(GetConversationSuggests200ResponseSuggests) -- ^ /Required/ "suggests"
-  , getConversationSuggests200ResponseWords :: !([AnyType]) -- ^ /Required/ "words"
+  , getConversationSuggests200ResponseWords :: !([Text]) -- ^ /Required/ "words"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetConversationSuggests200Response
@@ -2494,7 +2521,7 @@ instance A.ToJSON GetConversationSuggests200Response where
 -- | Construct a value of type 'GetConversationSuggests200Response' (by applying it's required fields, if any)
 mkGetConversationSuggests200Response
   :: GetConversationSuggests200ResponseSuggests -- ^ 'getConversationSuggests200ResponseSuggests' 
-  -> [AnyType] -- ^ 'getConversationSuggests200ResponseWords' 
+  -> [Text] -- ^ 'getConversationSuggests200ResponseWords' 
   -> GetConversationSuggests200Response
 mkGetConversationSuggests200Response getConversationSuggests200ResponseSuggests getConversationSuggests200ResponseWords =
   GetConversationSuggests200Response
@@ -3342,7 +3369,7 @@ data GetProductInformation200Response = GetProductInformation200Response
   , getProductInformation200ResponseBadges :: !([Text]) -- ^ /Required/ "badges"
   , getProductInformation200ResponseImportantBadges :: !([Text]) -- ^ /Required/ "importantBadges"
   , getProductInformation200ResponseIngredientCount :: !(Int) -- ^ /Required/ "ingredientCount"
-  , getProductInformation200ResponseGeneratedText :: !(Maybe AnyType) -- ^ "generatedText"
+  , getProductInformation200ResponseGeneratedText :: !(Maybe Text) -- ^ "generatedText"
   , getProductInformation200ResponseIngredientList :: !(Text) -- ^ /Required/ "ingredientList"
   , getProductInformation200ResponseIngredients :: !([GetProductInformation200ResponseIngredientsInner]) -- ^ /Required/ "ingredients"
   , getProductInformation200ResponseLikes :: !(Double) -- ^ /Required/ "likes"
@@ -3438,9 +3465,9 @@ mkGetProductInformation200Response getProductInformation200ResponseId getProduct
 -- ** GetProductInformation200ResponseIngredientsInner
 -- | GetProductInformation200ResponseIngredientsInner
 data GetProductInformation200ResponseIngredientsInner = GetProductInformation200ResponseIngredientsInner
-  { getProductInformation200ResponseIngredientsInnerDescription :: !(Maybe AnyType) -- ^ "description"
+  { getProductInformation200ResponseIngredientsInnerDescription :: !(Maybe Text) -- ^ "description"
   , getProductInformation200ResponseIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , getProductInformation200ResponseIngredientsInnerSafetyLevel :: !(Maybe AnyType) -- ^ "safety_level"
+  , getProductInformation200ResponseIngredientsInnerSafetyLevel :: !(Maybe Text) -- ^ "safety_level"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetProductInformation200ResponseIngredientsInner
@@ -5202,7 +5229,7 @@ data GetWinePairing200ResponseProductMatchesInner = GetWinePairing200ResponsePro
   { getWinePairing200ResponseProductMatchesInnerId :: !(Int) -- ^ /Required/ "id"
   , getWinePairing200ResponseProductMatchesInnerTitle :: !(Text) -- ^ /Required/ "title"
   , getWinePairing200ResponseProductMatchesInnerAverageRating :: !(Double) -- ^ /Required/ "averageRating"
-  , getWinePairing200ResponseProductMatchesInnerDescription :: !(Maybe AnyType) -- ^ "description"
+  , getWinePairing200ResponseProductMatchesInnerDescription :: !(Maybe Text) -- ^ "description"
   , getWinePairing200ResponseProductMatchesInnerImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
   , getWinePairing200ResponseProductMatchesInnerLink :: !(Text) -- ^ /Required/ "link"
   , getWinePairing200ResponseProductMatchesInnerPrice :: !(Text) -- ^ /Required/ "price"
@@ -6848,9 +6875,9 @@ mkSearchGroceryProductsByUPC200Response searchGroceryProductsByUPC200ResponseId 
 -- ** SearchGroceryProductsByUPC200ResponseIngredientsInner
 -- | SearchGroceryProductsByUPC200ResponseIngredientsInner
 data SearchGroceryProductsByUPC200ResponseIngredientsInner = SearchGroceryProductsByUPC200ResponseIngredientsInner
-  { searchGroceryProductsByUPC200ResponseIngredientsInnerDescription :: !(Maybe AnyType) -- ^ "description"
+  { searchGroceryProductsByUPC200ResponseIngredientsInnerDescription :: !(Maybe Text) -- ^ "description"
   , searchGroceryProductsByUPC200ResponseIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel :: !(Maybe AnyType) -- ^ "safety_level"
+  , searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel :: !(Maybe Text) -- ^ "safety_level"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SearchGroceryProductsByUPC200ResponseIngredientsInner
@@ -7660,9 +7687,9 @@ mkSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
 -- 
 data SearchSiteContent200Response = SearchSiteContent200Response
   { searchSiteContent200ResponseArticles :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Articles"
-  , searchSiteContent200ResponseGroceryProducts :: !([SearchSiteContent200ResponseGroceryProductsInner]) -- ^ /Required/ "Grocery Products"
-  , searchSiteContent200ResponseMenuItems :: !([SearchSiteContent200ResponseGroceryProductsInner]) -- ^ /Required/ "Menu Items"
-  , searchSiteContent200ResponseRecipes :: !([SearchSiteContent200ResponseGroceryProductsInner]) -- ^ /Required/ "Recipes"
+  , searchSiteContent200ResponseGroceryProducts :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Grocery Products"
+  , searchSiteContent200ResponseMenuItems :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Menu Items"
+  , searchSiteContent200ResponseRecipes :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Recipes"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SearchSiteContent200Response
@@ -7688,9 +7715,9 @@ instance A.ToJSON SearchSiteContent200Response where
 -- | Construct a value of type 'SearchSiteContent200Response' (by applying it's required fields, if any)
 mkSearchSiteContent200Response
   :: [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseArticles' 
-  -> [SearchSiteContent200ResponseGroceryProductsInner] -- ^ 'searchSiteContent200ResponseGroceryProducts' 
-  -> [SearchSiteContent200ResponseGroceryProductsInner] -- ^ 'searchSiteContent200ResponseMenuItems' 
-  -> [SearchSiteContent200ResponseGroceryProductsInner] -- ^ 'searchSiteContent200ResponseRecipes' 
+  -> [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseGroceryProducts' 
+  -> [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseMenuItems' 
+  -> [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseRecipes' 
   -> SearchSiteContent200Response
 mkSearchSiteContent200Response searchSiteContent200ResponseArticles searchSiteContent200ResponseGroceryProducts searchSiteContent200ResponseMenuItems searchSiteContent200ResponseRecipes =
   SearchSiteContent200Response
@@ -7703,7 +7730,7 @@ mkSearchSiteContent200Response searchSiteContent200ResponseArticles searchSiteCo
 -- ** SearchSiteContent200ResponseArticlesInner
 -- | SearchSiteContent200ResponseArticlesInner
 data SearchSiteContent200ResponseArticlesInner = SearchSiteContent200ResponseArticlesInner
-  { searchSiteContent200ResponseArticlesInnerDataPoints :: !(Maybe [AnyType]) -- ^ "dataPoints"
+  { searchSiteContent200ResponseArticlesInnerDataPoints :: !(Maybe [SearchSiteContent200ResponseArticlesInnerDataPointsInner]) -- ^ "dataPoints"
   , searchSiteContent200ResponseArticlesInnerImage :: !(Text) -- ^ /Required/ "image"
   , searchSiteContent200ResponseArticlesInnerLink :: !(Text) -- ^ /Required/ "link"
   , searchSiteContent200ResponseArticlesInnerName :: !(Text) -- ^ /Required/ "name"
@@ -7743,81 +7770,38 @@ mkSearchSiteContent200ResponseArticlesInner searchSiteContent200ResponseArticles
   , searchSiteContent200ResponseArticlesInnerName
   }
 
--- ** SearchSiteContent200ResponseGroceryProductsInner
--- | SearchSiteContent200ResponseGroceryProductsInner
-data SearchSiteContent200ResponseGroceryProductsInner = SearchSiteContent200ResponseGroceryProductsInner
-  { searchSiteContent200ResponseGroceryProductsInnerDataPoints :: !(Maybe [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner]) -- ^ "dataPoints"
-  , searchSiteContent200ResponseGroceryProductsInnerImage :: !(Text) -- ^ /Required/ "image"
-  , searchSiteContent200ResponseGroceryProductsInnerLink :: !(Text) -- ^ /Required/ "link"
-  , searchSiteContent200ResponseGroceryProductsInnerName :: !(Text) -- ^ /Required/ "name"
+-- ** SearchSiteContent200ResponseArticlesInnerDataPointsInner
+-- | SearchSiteContent200ResponseArticlesInnerDataPointsInner
+data SearchSiteContent200ResponseArticlesInnerDataPointsInner = SearchSiteContent200ResponseArticlesInnerDataPointsInner
+  { searchSiteContent200ResponseArticlesInnerDataPointsInnerKey :: !(Text) -- ^ /Required/ "key"
+  , searchSiteContent200ResponseArticlesInnerDataPointsInnerValue :: !(Text) -- ^ /Required/ "value"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON SearchSiteContent200ResponseGroceryProductsInner
-instance A.FromJSON SearchSiteContent200ResponseGroceryProductsInner where
-  parseJSON = A.withObject "SearchSiteContent200ResponseGroceryProductsInner" $ \o ->
-    SearchSiteContent200ResponseGroceryProductsInner
-      <$> (o .:? "dataPoints")
-      <*> (o .:  "image")
-      <*> (o .:  "link")
-      <*> (o .:  "name")
-
--- | ToJSON SearchSiteContent200ResponseGroceryProductsInner
-instance A.ToJSON SearchSiteContent200ResponseGroceryProductsInner where
-  toJSON SearchSiteContent200ResponseGroceryProductsInner {..} =
-   _omitNulls
-      [ "dataPoints" .= searchSiteContent200ResponseGroceryProductsInnerDataPoints
-      , "image" .= searchSiteContent200ResponseGroceryProductsInnerImage
-      , "link" .= searchSiteContent200ResponseGroceryProductsInnerLink
-      , "name" .= searchSiteContent200ResponseGroceryProductsInnerName
-      ]
-
-
--- | Construct a value of type 'SearchSiteContent200ResponseGroceryProductsInner' (by applying it's required fields, if any)
-mkSearchSiteContent200ResponseGroceryProductsInner
-  :: Text -- ^ 'searchSiteContent200ResponseGroceryProductsInnerImage' 
-  -> Text -- ^ 'searchSiteContent200ResponseGroceryProductsInnerLink' 
-  -> Text -- ^ 'searchSiteContent200ResponseGroceryProductsInnerName' 
-  -> SearchSiteContent200ResponseGroceryProductsInner
-mkSearchSiteContent200ResponseGroceryProductsInner searchSiteContent200ResponseGroceryProductsInnerImage searchSiteContent200ResponseGroceryProductsInnerLink searchSiteContent200ResponseGroceryProductsInnerName =
-  SearchSiteContent200ResponseGroceryProductsInner
-  { searchSiteContent200ResponseGroceryProductsInnerDataPoints = Nothing
-  , searchSiteContent200ResponseGroceryProductsInnerImage
-  , searchSiteContent200ResponseGroceryProductsInnerLink
-  , searchSiteContent200ResponseGroceryProductsInnerName
-  }
-
--- ** SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
--- | SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-data SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner = SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-  { searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey :: !(Text) -- ^ /Required/ "key"
-  , searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue :: !(Text) -- ^ /Required/ "value"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-instance A.FromJSON SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner where
-  parseJSON = A.withObject "SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner" $ \o ->
-    SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+-- | FromJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner
+instance A.FromJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner where
+  parseJSON = A.withObject "SearchSiteContent200ResponseArticlesInnerDataPointsInner" $ \o ->
+    SearchSiteContent200ResponseArticlesInnerDataPointsInner
       <$> (o .:  "key")
       <*> (o .:  "value")
 
--- | ToJSON SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-instance A.ToJSON SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner where
-  toJSON SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner {..} =
+-- | ToJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner
+instance A.ToJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner where
+  toJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner {..} =
    _omitNulls
-      [ "key" .= searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey
-      , "value" .= searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue
+      [ "key" .= searchSiteContent200ResponseArticlesInnerDataPointsInnerKey
+      , "value" .= searchSiteContent200ResponseArticlesInnerDataPointsInnerValue
       ]
 
 
--- | Construct a value of type 'SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner' (by applying it's required fields, if any)
-mkSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-  :: Text -- ^ 'searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey' 
-  -> Text -- ^ 'searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue' 
-  -> SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-mkSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue =
-  SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-  { searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey
-  , searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue
+-- | Construct a value of type 'SearchSiteContent200ResponseArticlesInnerDataPointsInner' (by applying it's required fields, if any)
+mkSearchSiteContent200ResponseArticlesInnerDataPointsInner
+  :: Text -- ^ 'searchSiteContent200ResponseArticlesInnerDataPointsInnerKey' 
+  -> Text -- ^ 'searchSiteContent200ResponseArticlesInnerDataPointsInnerValue' 
+  -> SearchSiteContent200ResponseArticlesInnerDataPointsInner
+mkSearchSiteContent200ResponseArticlesInnerDataPointsInner searchSiteContent200ResponseArticlesInnerDataPointsInnerKey searchSiteContent200ResponseArticlesInnerDataPointsInnerValue =
+  SearchSiteContent200ResponseArticlesInnerDataPointsInner
+  { searchSiteContent200ResponseArticlesInnerDataPointsInnerKey
+  , searchSiteContent200ResponseArticlesInnerDataPointsInnerValue
   }
 
 -- ** SummarizeRecipe200Response
@@ -7865,7 +7849,7 @@ mkSummarizeRecipe200Response summarizeRecipe200ResponseId summarizeRecipe200Resp
 -- 
 data TalkToChatbot200Response = TalkToChatbot200Response
   { talkToChatbot200ResponseAnswerText :: !(Text) -- ^ /Required/ "answerText"
-  , talkToChatbot200ResponseMedia :: !([AnyType]) -- ^ /Required/ "media"
+  , talkToChatbot200ResponseMedia :: !([TalkToChatbot200ResponseMediaInner]) -- ^ /Required/ "media"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON TalkToChatbot200Response
@@ -7887,7 +7871,7 @@ instance A.ToJSON TalkToChatbot200Response where
 -- | Construct a value of type 'TalkToChatbot200Response' (by applying it's required fields, if any)
 mkTalkToChatbot200Response
   :: Text -- ^ 'talkToChatbot200ResponseAnswerText' 
-  -> [AnyType] -- ^ 'talkToChatbot200ResponseMedia' 
+  -> [TalkToChatbot200ResponseMediaInner] -- ^ 'talkToChatbot200ResponseMedia' 
   -> TalkToChatbot200Response
 mkTalkToChatbot200Response talkToChatbot200ResponseAnswerText talkToChatbot200ResponseMedia =
   TalkToChatbot200Response
@@ -7895,70 +7879,76 @@ mkTalkToChatbot200Response talkToChatbot200ResponseAnswerText talkToChatbot200Re
   , talkToChatbot200ResponseMedia
   }
 
+-- ** TalkToChatbot200ResponseMediaInner
+-- | TalkToChatbot200ResponseMediaInner
+data TalkToChatbot200ResponseMediaInner = TalkToChatbot200ResponseMediaInner
+  { talkToChatbot200ResponseMediaInnerTitle :: !(Maybe Text) -- ^ "title"
+  , talkToChatbot200ResponseMediaInnerImage :: !(Maybe Text) -- ^ "image"
+  , talkToChatbot200ResponseMediaInnerLink :: !(Maybe Text) -- ^ "link"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON TalkToChatbot200ResponseMediaInner
+instance A.FromJSON TalkToChatbot200ResponseMediaInner where
+  parseJSON = A.withObject "TalkToChatbot200ResponseMediaInner" $ \o ->
+    TalkToChatbot200ResponseMediaInner
+      <$> (o .:? "title")
+      <*> (o .:? "image")
+      <*> (o .:? "link")
+
+-- | ToJSON TalkToChatbot200ResponseMediaInner
+instance A.ToJSON TalkToChatbot200ResponseMediaInner where
+  toJSON TalkToChatbot200ResponseMediaInner {..} =
+   _omitNulls
+      [ "title" .= talkToChatbot200ResponseMediaInnerTitle
+      , "image" .= talkToChatbot200ResponseMediaInnerImage
+      , "link" .= talkToChatbot200ResponseMediaInnerLink
+      ]
+
+
+-- | Construct a value of type 'TalkToChatbot200ResponseMediaInner' (by applying it's required fields, if any)
+mkTalkToChatbot200ResponseMediaInner
+  :: TalkToChatbot200ResponseMediaInner
+mkTalkToChatbot200ResponseMediaInner =
+  TalkToChatbot200ResponseMediaInner
+  { talkToChatbot200ResponseMediaInnerTitle = Nothing
+  , talkToChatbot200ResponseMediaInnerImage = Nothing
+  , talkToChatbot200ResponseMediaInnerLink = Nothing
+  }
+
 
 -- * Enums
 
 
--- ** E'Accept
+-- ** E'BackgroundImage
 
--- | Enum of 'Text'
-data E'Accept
-  = E'Accept'Application_json -- ^ @"application/json"@
-  | E'Accept'Text_html -- ^ @"text/html"@
-  | E'Accept'Media_ -- ^ @"media/*"@
+-- | Enum of 'Text' .
+-- The background image ('none', 'background1', or 'background2').
+data E'BackgroundImage
+  = E'BackgroundImage'None -- ^ @"none"@
+  | E'BackgroundImage'Background1 -- ^ @"background1"@
+  | E'BackgroundImage'Background2 -- ^ @"background2"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
-instance A.ToJSON E'Accept where toJSON = A.toJSON . fromE'Accept
-instance A.FromJSON E'Accept where parseJSON o = P.either P.fail (pure . P.id) . toE'Accept =<< A.parseJSON o
-instance WH.ToHttpApiData E'Accept where toQueryParam = WH.toQueryParam . fromE'Accept
-instance WH.FromHttpApiData E'Accept where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Accept
-instance MimeRender MimeMultipartFormData E'Accept where mimeRender _ = mimeRenderDefaultMultipartFormData
+instance A.ToJSON E'BackgroundImage where toJSON = A.toJSON . fromE'BackgroundImage
+instance A.FromJSON E'BackgroundImage where parseJSON o = P.either P.fail (pure . P.id) . toE'BackgroundImage =<< A.parseJSON o
+instance WH.ToHttpApiData E'BackgroundImage where toQueryParam = WH.toQueryParam . fromE'BackgroundImage
+instance WH.FromHttpApiData E'BackgroundImage where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'BackgroundImage
+instance MimeRender MimeMultipartFormData E'BackgroundImage where mimeRender _ = mimeRenderDefaultMultipartFormData
 
--- | unwrap 'E'Accept' enum
-fromE'Accept :: E'Accept -> Text
-fromE'Accept = \case
-  E'Accept'Application_json -> "application/json"
-  E'Accept'Text_html -> "text/html"
-  E'Accept'Media_ -> "media/*"
+-- | unwrap 'E'BackgroundImage' enum
+fromE'BackgroundImage :: E'BackgroundImage -> Text
+fromE'BackgroundImage = \case
+  E'BackgroundImage'None -> "none"
+  E'BackgroundImage'Background1 -> "background1"
+  E'BackgroundImage'Background2 -> "background2"
 
--- | parse 'E'Accept' enum
-toE'Accept :: Text -> P.Either String E'Accept
-toE'Accept = \case
-  "application/json" -> P.Right E'Accept'Application_json
-  "text/html" -> P.Right E'Accept'Text_html
-  "media/*" -> P.Right E'Accept'Media_
-  s -> P.Left $ "toE'Accept: enum parse failure: " P.++ P.show s
-
-
--- ** E'ContentType
-
--- | Enum of 'Text'
-data E'ContentType
-  = E'ContentType'Application_x_www_form_urlencoded -- ^ @"application/x-www-form-urlencoded"@
-  | E'ContentType'Application_json -- ^ @"application/json"@
-  | E'ContentType'Multipart_form_data -- ^ @"multipart/form-data"@
-  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
-
-instance A.ToJSON E'ContentType where toJSON = A.toJSON . fromE'ContentType
-instance A.FromJSON E'ContentType where parseJSON o = P.either P.fail (pure . P.id) . toE'ContentType =<< A.parseJSON o
-instance WH.ToHttpApiData E'ContentType where toQueryParam = WH.toQueryParam . fromE'ContentType
-instance WH.FromHttpApiData E'ContentType where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'ContentType
-instance MimeRender MimeMultipartFormData E'ContentType where mimeRender _ = mimeRenderDefaultMultipartFormData
-
--- | unwrap 'E'ContentType' enum
-fromE'ContentType :: E'ContentType -> Text
-fromE'ContentType = \case
-  E'ContentType'Application_x_www_form_urlencoded -> "application/x-www-form-urlencoded"
-  E'ContentType'Application_json -> "application/json"
-  E'ContentType'Multipart_form_data -> "multipart/form-data"
-
--- | parse 'E'ContentType' enum
-toE'ContentType :: Text -> P.Either String E'ContentType
-toE'ContentType = \case
-  "application/x-www-form-urlencoded" -> P.Right E'ContentType'Application_x_www_form_urlencoded
-  "application/json" -> P.Right E'ContentType'Application_json
-  "multipart/form-data" -> P.Right E'ContentType'Multipart_form_data
-  s -> P.Left $ "toE'ContentType: enum parse failure: " P.++ P.show s
+-- | parse 'E'BackgroundImage' enum
+toE'BackgroundImage :: Text -> P.Either String E'BackgroundImage
+toE'BackgroundImage = \case
+  "none" -> P.Right E'BackgroundImage'None
+  "background1" -> P.Right E'BackgroundImage'Background1
+  "background2" -> P.Right E'BackgroundImage'Background2
+  s -> P.Left $ "toE'BackgroundImage: enum parse failure: " P.++ P.show s
 
 
 -- ** E'Language
@@ -8017,6 +8007,47 @@ toE'Locale = \case
   s -> P.Left $ "toE'Locale: enum parse failure: " P.++ P.show s
 
 
+-- ** E'Mask
+
+-- | Enum of 'Text' .
+-- The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+data E'Mask
+  = E'Mask'EllipseMask -- ^ @"ellipseMask"@
+  | E'Mask'DiamondMask -- ^ @"diamondMask"@
+  | E'Mask'StarMask -- ^ @"starMask"@
+  | E'Mask'HeartMask -- ^ @"heartMask"@
+  | E'Mask'PotMask -- ^ @"potMask"@
+  | E'Mask'FishMask -- ^ @"fishMask"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON E'Mask where toJSON = A.toJSON . fromE'Mask
+instance A.FromJSON E'Mask where parseJSON o = P.either P.fail (pure . P.id) . toE'Mask =<< A.parseJSON o
+instance WH.ToHttpApiData E'Mask where toQueryParam = WH.toQueryParam . fromE'Mask
+instance WH.FromHttpApiData E'Mask where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Mask
+instance MimeRender MimeMultipartFormData E'Mask where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'E'Mask' enum
+fromE'Mask :: E'Mask -> Text
+fromE'Mask = \case
+  E'Mask'EllipseMask -> "ellipseMask"
+  E'Mask'DiamondMask -> "diamondMask"
+  E'Mask'StarMask -> "starMask"
+  E'Mask'HeartMask -> "heartMask"
+  E'Mask'PotMask -> "potMask"
+  E'Mask'FishMask -> "fishMask"
+
+-- | parse 'E'Mask' enum
+toE'Mask :: Text -> P.Either String E'Mask
+toE'Mask = \case
+  "ellipseMask" -> P.Right E'Mask'EllipseMask
+  "diamondMask" -> P.Right E'Mask'DiamondMask
+  "starMask" -> P.Right E'Mask'StarMask
+  "heartMask" -> P.Right E'Mask'HeartMask
+  "potMask" -> P.Right E'Mask'PotMask
+  "fishMask" -> P.Right E'Mask'FishMask
+  s -> P.Left $ "toE'Mask: enum parse failure: " P.++ P.show s
+
+
 -- ** E'Measure
 
 -- | Enum of 'Text'
@@ -8043,6 +8074,35 @@ toE'Measure = \case
   "us" -> P.Right E'Measure'Us
   "metric" -> P.Right E'Measure'Metric
   s -> P.Left $ "toE'Measure: enum parse failure: " P.++ P.show s
+
+
+-- ** E'View
+
+-- | Enum of 'Text' .
+-- How to visualize the ingredients, either 'grid' or 'list'.
+data E'View
+  = E'View'Grid -- ^ @"grid"@
+  | E'View'List -- ^ @"list"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON E'View where toJSON = A.toJSON . fromE'View
+instance A.FromJSON E'View where parseJSON o = P.either P.fail (pure . P.id) . toE'View =<< A.parseJSON o
+instance WH.ToHttpApiData E'View where toQueryParam = WH.toQueryParam . fromE'View
+instance WH.FromHttpApiData E'View where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'View
+instance MimeRender MimeMultipartFormData E'View where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'E'View' enum
+fromE'View :: E'View -> Text
+fromE'View = \case
+  E'View'Grid -> "grid"
+  E'View'List -> "list"
+
+-- | parse 'E'View' enum
+toE'View :: Text -> P.Either String E'View
+toE'View = \case
+  "grid" -> P.Right E'View'Grid
+  "list" -> P.Right E'View'List
+  s -> P.Left $ "toE'View: enum parse failure: " P.++ P.show s
 
 
 -- * Auth Methods

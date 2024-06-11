@@ -60,7 +60,7 @@ public class GetConversationSuggests200Response {
 
   public static final String SERIALIZED_NAME_WORDS = "words";
   @SerializedName(SERIALIZED_NAME_WORDS)
-  private List<Object> words = new ArrayList<>();
+  private List<String> words = new ArrayList<>();
 
   public GetConversationSuggests200Response() {
   }
@@ -84,12 +84,12 @@ public class GetConversationSuggests200Response {
   }
 
 
-  public GetConversationSuggests200Response words(List<Object> words) {
+  public GetConversationSuggests200Response words(List<String> words) {
     this.words = words;
     return this;
   }
 
-  public GetConversationSuggests200Response addWordsItem(Object wordsItem) {
+  public GetConversationSuggests200Response addWordsItem(String wordsItem) {
     if (this.words == null) {
       this.words = new ArrayList<>();
     }
@@ -102,11 +102,11 @@ public class GetConversationSuggests200Response {
    * @return words
   **/
   @javax.annotation.Nonnull
-  public List<Object> getWords() {
+  public List<String> getWords() {
     return words;
   }
 
-  public void setWords(List<Object> words) {
+  public void setWords(List<String> words) {
     this.words = words;
   }
 

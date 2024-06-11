@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 # **analyzeRecipeInstructions**
 ```objc
--(NSURLSessionTask*) analyzeRecipeInstructionsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) analyzeRecipeInstructionsWithInstructions: (NSString*) instructions
         completionHandler: (void (^)(OAIAnalyzeRecipeInstructions200Response* output, NSError* error)) handler;
 ```
 
@@ -123,12 +123,12 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
+NSString* instructions = @"instructions_example"; // The recipe's instructions.
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Analyze Recipe Instructions
-[apiInstance analyzeRecipeInstructionsWithContentType:contentType
+[apiInstance analyzeRecipeInstructionsWithInstructions:instructions
           completionHandler: ^(OAIAnalyzeRecipeInstructions200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -143,7 +143,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
+ **instructions** | **NSString***| The recipe&#39;s instructions. | 
 
 ### Return type
 
@@ -223,7 +223,9 @@ Name | Type | Description  | Notes
 
 # **classifyCuisine**
 ```objc
--(NSURLSessionTask*) classifyCuisineWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) classifyCuisineWithTitle: (NSString*) title
+    ingredientList: (NSString*) ingredientList
+    language: (NSString*) language
         completionHandler: (void (^)(OAIClassifyCuisine200Response* output, NSError* error)) handler;
 ```
 
@@ -241,12 +243,16 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
+NSString* title = @"title_example"; // The title of the recipe.
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Classify Cuisine
-[apiInstance classifyCuisineWithContentType:contentType
+[apiInstance classifyCuisineWithTitle:title
+              ingredientList:ingredientList
+              language:language
           completionHandler: ^(OAIClassifyCuisine200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -261,7 +267,9 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
+ **title** | **NSString***| The title of the recipe. | 
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -410,7 +418,19 @@ Name | Type | Description  | Notes
 
 # **createRecipeCard**
 ```objc
--(NSURLSessionTask*) createRecipeCardWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) createRecipeCardWithTitle: (NSString*) title
+    ingredients: (NSString*) ingredients
+    instructions: (NSString*) instructions
+    readyInMinutes: (NSNumber*) readyInMinutes
+    servings: (NSNumber*) servings
+    mask: (NSString*) mask
+    backgroundImage: (NSString*) backgroundImage
+    image: (NSURL*) image
+    imageUrl: (NSString*) imageUrl
+    author: (NSString*) author
+    backgroundColor: (NSString*) backgroundColor
+    fontColor: (NSString*) fontColor
+    source: (NSString*) source
         completionHandler: (void (^)(OAICreateRecipeCard200Response* output, NSError* error)) handler;
 ```
 
@@ -428,12 +448,36 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
+NSString* title = @"title_example"; // The title of the recipe.
+NSString* ingredients = @"ingredients_example"; // The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+NSString* instructions = @"instructions_example"; // The instructions to make the recipe. One step per line (separate lines with \\\\n).
+NSNumber* readyInMinutes = @56; // The number of minutes it takes to get the recipe on the table.
+NSNumber* servings = @56; // The number of servings the recipe makes.
+NSString* mask = @"mask_example"; // The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+NSString* backgroundImage = @"backgroundImage_example"; // The background image ('none', 'background1', or 'background2').
+NSURL* image = [NSURL fileURLWithPath:@"/path/to/file"]; // The binary image of the recipe as jpg. (optional)
+NSString* imageUrl = @"imageUrl_example"; // If you do not sent a binary image you can also pass the image URL. (optional)
+NSString* author = @"author_example"; // The author of the recipe. (optional)
+NSString* backgroundColor = @"backgroundColor_example"; // The background color for the recipe card as a hex-string. (optional)
+NSString* fontColor = @"fontColor_example"; // The font color for the recipe card as a hex-string. (optional)
+NSString* source = @"source_example"; // The source of the recipe. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Create Recipe Card
-[apiInstance createRecipeCardWithContentType:contentType
+[apiInstance createRecipeCardWithTitle:title
+              ingredients:ingredients
+              instructions:instructions
+              readyInMinutes:readyInMinutes
+              servings:servings
+              mask:mask
+              backgroundImage:backgroundImage
+              image:image
+              imageUrl:imageUrl
+              author:author
+              backgroundColor:backgroundColor
+              fontColor:fontColor
+              source:source
           completionHandler: ^(OAICreateRecipeCard200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -448,7 +492,19 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
+ **title** | **NSString***| The title of the recipe. | 
+ **ingredients** | **NSString***| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **instructions** | **NSString***| The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
+ **readyInMinutes** | **NSNumber***| The number of minutes it takes to get the recipe on the table. | 
+ **servings** | **NSNumber***| The number of servings the recipe makes. | 
+ **mask** | **NSString***| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | 
+ **backgroundImage** | **NSString***| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | 
+ **image** | **NSURL*****NSURL***| The binary image of the recipe as jpg. | [optional] 
+ **imageUrl** | **NSString***| If you do not sent a binary image you can also pass the image URL. | [optional] 
+ **author** | **NSString***| The author of the recipe. | [optional] 
+ **backgroundColor** | **NSString***| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **NSString***| The font color for the recipe card as a hex-string. | [optional] 
+ **source** | **NSString***| The source of the recipe. | [optional] 
 
 ### Return type
 
@@ -468,7 +524,7 @@ Name | Type | Description  | Notes
 # **equipmentByIDImage**
 ```objc
 -(NSURLSessionTask*) equipmentByIDImageWithId: (NSNumber*) _id
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Equipment by ID Image
@@ -491,7 +547,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Equipment by ID Image
 [apiInstance equipmentByIDImageWithId:_id
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -509,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -1264,8 +1320,10 @@ Name | Type | Description  | Notes
 
 # **parseIngredients**
 ```objc
--(NSURLSessionTask*) parseIngredientsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) parseIngredientsWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
+    includeNutrition: (NSNumber*) includeNutrition
         completionHandler: (void (^)(OAISet<OAIParseIngredients200ResponseInner>* output, NSError* error)) handler;
 ```
 
@@ -1283,14 +1341,18 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line.
+NSNumber* servings = @56; // The number of servings that you can make from the ingredients.
 NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
+NSNumber* includeNutrition = @56; //  (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Parse Ingredients
-[apiInstance parseIngredientsWithContentType:contentType
+[apiInstance parseIngredientsWithIngredientList:ingredientList
+              servings:servings
               language:language
+              includeNutrition:includeNutrition
           completionHandler: ^(OAISet<OAIParseIngredients200ResponseInner>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -1305,8 +1367,10 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **NSNumber***| The number of servings that you can make from the ingredients. | 
  **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **includeNutrition** | **NSNumber***|  | [optional] 
 
 ### Return type
 
@@ -1326,7 +1390,7 @@ Name | Type | Description  | Notes
 # **priceBreakdownByIDImage**
 ```objc
 -(NSURLSessionTask*) priceBreakdownByIDImageWithId: (NSNumber*) _id
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Price Breakdown by ID Image
@@ -1349,7 +1413,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Price Breakdown by ID Image
 [apiInstance priceBreakdownByIDImageWithId:_id
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -1367,7 +1431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -1440,7 +1504,7 @@ Name | Type | Description  | Notes
 # **recipeNutritionByIDImage**
 ```objc
 -(NSURLSessionTask*) recipeNutritionByIDImageWithId: (NSNumber*) _id
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Recipe Nutrition by ID Image
@@ -1463,7 +1527,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Recipe Nutrition by ID Image
 [apiInstance recipeNutritionByIDImageWithId:_id
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -1481,7 +1545,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -1500,7 +1564,7 @@ Name | Type | Description  | Notes
     showOptionalNutrients: (NSNumber*) showOptionalNutrients
     showZeroValues: (NSNumber*) showZeroValues
     showIngredients: (NSNumber*) showIngredients
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Recipe Nutrition Label Image
@@ -1529,7 +1593,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
               showOptionalNutrients:showOptionalNutrients
               showZeroValues:showZeroValues
               showIngredients:showIngredients
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -1550,7 +1614,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -1641,7 +1705,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) recipeTasteByIDImageWithId: (NSNumber*) _id
     normalize: (NSNumber*) normalize
     rgb: (NSString*) rgb
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Recipe Taste by ID Image
@@ -1668,7 +1732,7 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 [apiInstance recipeTasteByIDImageWithId:_id
               normalize:normalize
               rgb:rgb
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -1688,7 +1752,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -2635,8 +2699,10 @@ Name | Type | Description  | Notes
 
 # **visualizeEquipment**
 ```objc
--(NSURLSessionTask*) visualizeEquipmentWithContentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizeEquipmentWithInstructions: (NSString*) instructions
+    view: (NSString*) view
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -2654,14 +2720,18 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
-NSString* accept = application/json; // Accept header. (optional)
+NSString* instructions = @"instructions_example"; // The recipe's instructions.
+NSString* view = @"view_example"; // How to visualize the ingredients, either 'grid' or 'list'. (optional)
+NSNumber* defaultCss = @56; // Whether the default CSS should be added to the response. (optional)
+NSNumber* showBacklink = @56; // Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Equipment Widget
-[apiInstance visualizeEquipmentWithContentType:contentType
-              accept:accept
+[apiInstance visualizeEquipmentWithInstructions:instructions
+              view:view
+              defaultCss:defaultCss
+              showBacklink:showBacklink
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -2676,8 +2746,10 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
- **accept** | **NSString***| Accept header. | [optional] 
+ **instructions** | **NSString***| The recipe&#39;s instructions. | 
+ **view** | **NSString***| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **NSNumber***| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2696,9 +2768,12 @@ Name | Type | Description  | Notes
 
 # **visualizePriceBreakdown**
 ```objc
--(NSURLSessionTask*) visualizePriceBreakdownWithContentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizePriceBreakdownWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
+    mode: (NSNumber*) mode
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -2716,16 +2791,22 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
-NSString* accept = application/json; // Accept header. (optional)
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line.
+NSNumber* servings = @56; // The number of servings.
 NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
+NSNumber* mode = @56; // The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). (optional)
+NSNumber* defaultCss = @56; // Whether the default CSS should be added to the response. (optional)
+NSNumber* showBacklink = @56; // Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Price Breakdown Widget
-[apiInstance visualizePriceBreakdownWithContentType:contentType
-              accept:accept
+[apiInstance visualizePriceBreakdownWithIngredientList:ingredientList
+              servings:servings
               language:language
+              mode:mode
+              defaultCss:defaultCss
+              showBacklink:showBacklink
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -2740,9 +2821,12 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
- **accept** | **NSString***| Accept header. | [optional] 
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **NSNumber***| The number of servings. | 
  **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **mode** | **NSNumber***| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] 
+ **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **NSNumber***| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2887,9 +2971,11 @@ Name | Type | Description  | Notes
 
 # **visualizeRecipeNutrition**
 ```objc
--(NSURLSessionTask*) visualizeRecipeNutritionWithContentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizeRecipeNutritionWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -2907,16 +2993,20 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
-NSString* accept = application/json; // Accept header. (optional)
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line.
+NSNumber* servings = @56; // The number of servings.
 NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
+NSNumber* defaultCss = @56; // Whether the default CSS should be added to the response. (optional)
+NSNumber* showBacklink = @56; // Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Recipe Nutrition Widget
-[apiInstance visualizeRecipeNutritionWithContentType:contentType
-              accept:accept
+[apiInstance visualizeRecipeNutritionWithIngredientList:ingredientList
+              servings:servings
               language:language
+              defaultCss:defaultCss
+              showBacklink:showBacklink
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -2931,9 +3021,11 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
- **accept** | **NSString***| Accept header. | [optional] 
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **NSNumber***| The number of servings. | 
  **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **NSNumber***| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2954,7 +3046,6 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) visualizeRecipeNutritionByIDWithId: (NSNumber*) _id
     defaultCss: (NSNumber*) defaultCss
-    accept: (NSString*) accept
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -2974,14 +3065,12 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 NSNumber* _id = 1; // The item's id.
 NSNumber* defaultCss = false; // Whether the default CSS should be added to the response. (optional) (default to @(YES))
-NSString* accept = application/json; // Accept header. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Recipe Nutrition by ID Widget
 [apiInstance visualizeRecipeNutritionByIDWithId:_id
               defaultCss:defaultCss
-              accept:accept
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -2998,7 +3087,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The item&#39;s id. | 
  **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] [default to @(YES)]
- **accept** | **NSString***| Accept header. | [optional] 
 
 ### Return type
 
@@ -3078,9 +3166,8 @@ Name | Type | Description  | Notes
 
 # **visualizeRecipeTaste**
 ```objc
--(NSURLSessionTask*) visualizeRecipeTasteWithLanguage: (NSString*) language
-    contentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizeRecipeTasteWithIngredientList: (NSString*) ingredientList
+    language: (NSString*) language
     normalize: (NSNumber*) normalize
     rgb: (NSString*) rgb
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
@@ -3100,18 +3187,16 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line.
 NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
-NSString* contentType = application/json; // The content type. (optional)
-NSString* accept = application/json; // Accept header. (optional)
-NSNumber* normalize = @56; // Whether to normalize to the strongest taste. (optional)
-NSString* rgb = 75,192,192; // Red, green, blue values for the chart color. (optional)
+NSNumber* normalize = @56; // Normalize to the strongest taste. (optional)
+NSString* rgb = @"rgb_example"; // Red, green, blue values for the chart color. (optional)
 
 OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 // Recipe Taste Widget
-[apiInstance visualizeRecipeTasteWithLanguage:language
-              contentType:contentType
-              accept:accept
+[apiInstance visualizeRecipeTasteWithIngredientList:ingredientList
+              language:language
               normalize:normalize
               rgb:rgb
           completionHandler: ^(NSString* output, NSError* error) {
@@ -3128,10 +3213,9 @@ OAIRecipesApi*apiInstance = [[OAIRecipesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line. | 
  **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **contentType** | **NSString***| The content type. | [optional] 
- **accept** | **NSString***| Accept header. | [optional] 
- **normalize** | **NSNumber***| Whether to normalize to the strongest taste. | [optional] 
+ **normalize** | **NSNumber***| Normalize to the strongest taste. | [optional] 
  **rgb** | **NSString***| Red, green, blue values for the chart color. | [optional] 
 
 ### Return type

@@ -57,7 +57,6 @@
             [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
             [spoonacular-api.specs.analyze-recipe-request :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner :refer :all]
@@ -75,6 +74,7 @@
             [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
             [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-local-hours-operational :refer :all]
             [spoonacular-api.specs.get-product-information-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-articles-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
             [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
@@ -125,6 +125,7 @@
             [spoonacular-api.specs.connect-user-request :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
             [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner :refer :all]
+            [spoonacular-api.specs.talk-to-chatbot-200-response-media-inner :refer :all]
             [spoonacular-api.specs.get-comparable-products-200-response-comparable-products :refer :all]
             [spoonacular-api.specs.autocomplete-product-search-200-response :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary-nutrients-inner :refer :all]
@@ -139,7 +140,6 @@
             [spoonacular-api.specs.compute-glycemic-load-request :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories :refer :all]
             [spoonacular-api.specs.ingredient-search-200-response :refer :all]
             [spoonacular-api.specs.search-all-food-200-response :refer :all]
@@ -188,26 +188,25 @@
 (defn-spec analyze-recipe-instructions-with-http-info any?
   "Analyze Recipe Instructions
   This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in."
-  ([] (analyze-recipe-instructions-with-http-info nil))
-  ([{:keys [Content-Type]} (s/map-of keyword? any?)]
-   (call-api "/recipes/analyzeInstructions" :post
-             {:path-params   {}
-              :header-params {"Content-Type" Content-Type }
-              :query-params  {}
-              :form-params   {}
-              :content-types ["application/x-www-form-urlencoded"]
-              :accepts       ["application/json"]
-              :auth-names    ["apiKeyScheme"]})))
+  [instructions string?]
+  (check-required-params instructions)
+  (call-api "/recipes/analyzeInstructions" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {"instructions" instructions }
+             :content-types ["application/x-www-form-urlencoded"]
+             :accepts       ["application/json"]
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec analyze-recipe-instructions analyze-recipe-instructions-200-response-spec
   "Analyze Recipe Instructions
   This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in."
-  ([] (analyze-recipe-instructions nil))
-  ([optional-params any?]
-   (let [res (:data (analyze-recipe-instructions-with-http-info optional-params))]
-     (if (:decode-models *api-context*)
-        (st/decode analyze-recipe-instructions-200-response-spec res st/string-transformer)
-        res))))
+  [instructions string?]
+  (let [res (:data (analyze-recipe-instructions-with-http-info instructions))]
+    (if (:decode-models *api-context*)
+       (st/decode analyze-recipe-instructions-200-response-spec res st/string-transformer)
+       res)))
 
 
 (defn-spec autocomplete-recipe-search-with-http-info any?
@@ -238,13 +237,14 @@
 (defn-spec classify-cuisine-with-http-info any?
   "Classify Cuisine
   Classify the recipe's cuisine."
-  ([] (classify-cuisine-with-http-info nil))
-  ([{:keys [Content-Type]} (s/map-of keyword? any?)]
+  ([title string?, ingredientList string?, ] (classify-cuisine-with-http-info title ingredientList nil))
+  ([title string?, ingredientList string?, {:keys [language]} (s/map-of keyword? any?)]
+   (check-required-params title ingredientList)
    (call-api "/recipes/cuisine" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type }
-              :query-params  {}
-              :form-params   {}
+              :header-params {}
+              :query-params  {"language" language }
+              :form-params   {"title" title "ingredientList" ingredientList }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
@@ -252,9 +252,9 @@
 (defn-spec classify-cuisine classify-cuisine-200-response-spec
   "Classify Cuisine
   Classify the recipe's cuisine."
-  ([] (classify-cuisine nil))
-  ([optional-params any?]
-   (let [res (:data (classify-cuisine-with-http-info optional-params))]
+  ([title string?, ingredientList string?, ] (classify-cuisine title ingredientList nil))
+  ([title string?, ingredientList string?, optional-params any?]
+   (let [res (:data (classify-cuisine-with-http-info title ingredientList optional-params))]
      (if (:decode-models *api-context*)
         (st/decode classify-cuisine-200-response-spec res st/string-transformer)
         res))))
@@ -314,13 +314,14 @@
 (defn-spec create-recipe-card-with-http-info any?
   "Create Recipe Card
   Generate a recipe card for a recipe."
-  ([] (create-recipe-card-with-http-info nil))
-  ([{:keys [Content-Type]} (s/map-of keyword? any?)]
+  ([title string?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, ] (create-recipe-card-with-http-info title ingredients instructions readyInMinutes servings mask backgroundImage nil))
+  ([title string?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, {:keys [^File image imageUrl author backgroundColor fontColor source]} (s/map-of keyword? any?)]
+   (check-required-params title ingredients instructions readyInMinutes servings mask backgroundImage)
    (call-api "/recipes/visualizeRecipe" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type }
+              :header-params {}
               :query-params  {}
-              :form-params   {}
+              :form-params   {"title" title "ingredients" ingredients "instructions" instructions "readyInMinutes" readyInMinutes "servings" servings "mask" mask "backgroundImage" backgroundImage "image" image "imageUrl" imageUrl "author" author "backgroundColor" backgroundColor "fontColor" fontColor "source" source }
               :content-types ["multipart/form-data"]
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
@@ -328,9 +329,9 @@
 (defn-spec create-recipe-card create-recipe-card-200-response-spec
   "Create Recipe Card
   Generate a recipe card for a recipe."
-  ([] (create-recipe-card nil))
-  ([optional-params any?]
-   (let [res (:data (create-recipe-card-with-http-info optional-params))]
+  ([title string?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, ] (create-recipe-card title ingredients instructions readyInMinutes servings mask backgroundImage nil))
+  ([title string?, ingredients string?, instructions string?, readyInMinutes float?, servings float?, mask string?, backgroundImage string?, optional-params any?]
+   (let [res (:data (create-recipe-card-with-http-info title ingredients instructions readyInMinutes servings mask backgroundImage optional-params))]
      (if (:decode-models *api-context*)
         (st/decode create-recipe-card-200-response-spec res st/string-transformer)
         res))))
@@ -664,13 +665,14 @@
 (defn-spec parse-ingredients-with-http-info any?
   "Parse Ingredients
   Extract an ingredient from plain text."
-  ([] (parse-ingredients-with-http-info nil))
-  ([{:keys [Content-Type language]} (s/map-of keyword? any?)]
+  ([ingredientList string?, servings float?, ] (parse-ingredients-with-http-info ingredientList servings nil))
+  ([ingredientList string?, servings float?, {:keys [language includeNutrition]} (s/map-of keyword? any?)]
+   (check-required-params ingredientList servings)
    (call-api "/recipes/parseIngredients" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type }
+              :header-params {}
               :query-params  {"language" language }
-              :form-params   {}
+              :form-params   {"ingredientList" ingredientList "servings" servings "includeNutrition" includeNutrition }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["application/json"]
               :auth-names    ["apiKeyScheme"]})))
@@ -678,9 +680,9 @@
 (defn-spec parse-ingredients (s/coll-of parse-ingredients-200-response-inner-spec)
   "Parse Ingredients
   Extract an ingredient from plain text."
-  ([] (parse-ingredients nil))
-  ([optional-params any?]
-   (let [res (:data (parse-ingredients-with-http-info optional-params))]
+  ([ingredientList string?, servings float?, ] (parse-ingredients ingredientList servings nil))
+  ([ingredientList string?, servings float?, optional-params any?]
+   (let [res (:data (parse-ingredients-with-http-info ingredientList servings optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of parse-ingredients-200-response-inner-spec) res st/string-transformer)
         res))))
@@ -938,13 +940,14 @@
 (defn-spec visualize-equipment-with-http-info any?
   "Equipment Widget
   Visualize the equipment used to make a recipe."
-  ([] (visualize-equipment-with-http-info nil))
-  ([{:keys [Content-Type Accept]} (s/map-of keyword? any?)]
+  ([instructions string?, ] (visualize-equipment-with-http-info instructions nil))
+  ([instructions string?, {:keys [view defaultCss showBacklink]} (s/map-of keyword? any?)]
+   (check-required-params instructions)
    (call-api "/recipes/visualizeEquipment" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type "Accept" Accept }
+              :header-params {}
               :query-params  {}
-              :form-params   {}
+              :form-params   {"instructions" instructions "view" view "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
               :auth-names    ["apiKeyScheme"]})))
@@ -952,9 +955,9 @@
 (defn-spec visualize-equipment string?
   "Equipment Widget
   Visualize the equipment used to make a recipe."
-  ([] (visualize-equipment nil))
-  ([optional-params any?]
-   (let [res (:data (visualize-equipment-with-http-info optional-params))]
+  ([instructions string?, ] (visualize-equipment instructions nil))
+  ([instructions string?, optional-params any?]
+   (let [res (:data (visualize-equipment-with-http-info instructions optional-params))]
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))
@@ -963,13 +966,14 @@
 (defn-spec visualize-price-breakdown-with-http-info any?
   "Price Breakdown Widget
   Visualize the price breakdown of a recipe."
-  ([] (visualize-price-breakdown-with-http-info nil))
-  ([{:keys [Content-Type Accept language]} (s/map-of keyword? any?)]
+  ([ingredientList string?, servings float?, ] (visualize-price-breakdown-with-http-info ingredientList servings nil))
+  ([ingredientList string?, servings float?, {:keys [language mode defaultCss showBacklink]} (s/map-of keyword? any?)]
+   (check-required-params ingredientList servings)
    (call-api "/recipes/visualizePriceEstimator" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type "Accept" Accept }
+              :header-params {}
               :query-params  {"language" language }
-              :form-params   {}
+              :form-params   {"ingredientList" ingredientList "servings" servings "mode" mode "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
               :auth-names    ["apiKeyScheme"]})))
@@ -977,9 +981,9 @@
 (defn-spec visualize-price-breakdown string?
   "Price Breakdown Widget
   Visualize the price breakdown of a recipe."
-  ([] (visualize-price-breakdown nil))
-  ([optional-params any?]
-   (let [res (:data (visualize-price-breakdown-with-http-info optional-params))]
+  ([ingredientList string?, servings float?, ] (visualize-price-breakdown ingredientList servings nil))
+  ([ingredientList string?, servings float?, optional-params any?]
+   (let [res (:data (visualize-price-breakdown-with-http-info ingredientList servings optional-params))]
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))
@@ -1040,13 +1044,14 @@
 (defn-spec visualize-recipe-nutrition-with-http-info any?
   "Recipe Nutrition Widget
   Visualize a recipe's nutritional information as HTML including CSS."
-  ([] (visualize-recipe-nutrition-with-http-info nil))
-  ([{:keys [Content-Type Accept language]} (s/map-of keyword? any?)]
+  ([ingredientList string?, servings float?, ] (visualize-recipe-nutrition-with-http-info ingredientList servings nil))
+  ([ingredientList string?, servings float?, {:keys [language defaultCss showBacklink]} (s/map-of keyword? any?)]
+   (check-required-params ingredientList servings)
    (call-api "/recipes/visualizeNutrition" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type "Accept" Accept }
+              :header-params {}
               :query-params  {"language" language }
-              :form-params   {}
+              :form-params   {"ingredientList" ingredientList "servings" servings "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
               :auth-names    ["apiKeyScheme"]})))
@@ -1054,9 +1059,9 @@
 (defn-spec visualize-recipe-nutrition string?
   "Recipe Nutrition Widget
   Visualize a recipe's nutritional information as HTML including CSS."
-  ([] (visualize-recipe-nutrition nil))
-  ([optional-params any?]
-   (let [res (:data (visualize-recipe-nutrition-with-http-info optional-params))]
+  ([ingredientList string?, servings float?, ] (visualize-recipe-nutrition ingredientList servings nil))
+  ([ingredientList string?, servings float?, optional-params any?]
+   (let [res (:data (visualize-recipe-nutrition-with-http-info ingredientList servings optional-params))]
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))
@@ -1066,11 +1071,11 @@
   "Recipe Nutrition by ID Widget
   Visualize a recipe's nutritional information as HTML including CSS."
   ([id int?, ] (visualize-recipe-nutrition-by-id-with-http-info id nil))
-  ([id int?, {:keys [defaultCss Accept]} (s/map-of keyword? any?)]
+  ([id int?, {:keys [defaultCss]} (s/map-of keyword? any?)]
    (check-required-params id)
    (call-api "/recipes/{id}/nutritionWidget" :get
              {:path-params   {"id" id }
-              :header-params {"Accept" Accept }
+              :header-params {}
               :query-params  {"defaultCss" defaultCss }
               :form-params   {}
               :content-types []
@@ -1117,13 +1122,14 @@
 (defn-spec visualize-recipe-taste-with-http-info any?
   "Recipe Taste Widget
   Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!"
-  ([] (visualize-recipe-taste-with-http-info nil))
-  ([{:keys [language Content-Type Accept normalize rgb]} (s/map-of keyword? any?)]
+  ([ingredientList string?, ] (visualize-recipe-taste-with-http-info ingredientList nil))
+  ([ingredientList string?, {:keys [language normalize rgb]} (s/map-of keyword? any?)]
+   (check-required-params ingredientList)
    (call-api "/recipes/visualizeTaste" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type "Accept" Accept }
-              :query-params  {"language" language "normalize" normalize "rgb" rgb }
-              :form-params   {}
+              :header-params {}
+              :query-params  {"language" language }
+              :form-params   {"ingredientList" ingredientList "normalize" normalize "rgb" rgb }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
               :auth-names    ["apiKeyScheme"]})))
@@ -1131,9 +1137,9 @@
 (defn-spec visualize-recipe-taste string?
   "Recipe Taste Widget
   Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!"
-  ([] (visualize-recipe-taste nil))
-  ([optional-params any?]
-   (let [res (:data (visualize-recipe-taste-with-http-info optional-params))]
+  ([ingredientList string?, ] (visualize-recipe-taste ingredientList nil))
+  ([ingredientList string?, optional-params any?]
+   (let [res (:data (visualize-recipe-taste-with-http-info ingredientList optional-params))]
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))

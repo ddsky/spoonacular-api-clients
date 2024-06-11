@@ -23,9 +23,9 @@ var _ MappedNullable = &SearchSiteContent200Response{}
 // SearchSiteContent200Response 
 type SearchSiteContent200Response struct {
 	Articles []SearchSiteContent200ResponseArticlesInner `json:"Articles"`
-	GroceryProducts []SearchSiteContent200ResponseGroceryProductsInner `json:"Grocery Products"`
-	MenuItems []SearchSiteContent200ResponseGroceryProductsInner `json:"Menu Items"`
-	Recipes []SearchSiteContent200ResponseGroceryProductsInner `json:"Recipes"`
+	GroceryProducts []SearchSiteContent200ResponseArticlesInner `json:"Grocery Products"`
+	MenuItems []SearchSiteContent200ResponseArticlesInner `json:"Menu Items"`
+	Recipes []SearchSiteContent200ResponseArticlesInner `json:"Recipes"`
 }
 
 type _SearchSiteContent200Response SearchSiteContent200Response
@@ -34,7 +34,7 @@ type _SearchSiteContent200Response SearchSiteContent200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchSiteContent200Response(articles []SearchSiteContent200ResponseArticlesInner, groceryProducts []SearchSiteContent200ResponseGroceryProductsInner, menuItems []SearchSiteContent200ResponseGroceryProductsInner, recipes []SearchSiteContent200ResponseGroceryProductsInner) *SearchSiteContent200Response {
+func NewSearchSiteContent200Response(articles []SearchSiteContent200ResponseArticlesInner, groceryProducts []SearchSiteContent200ResponseArticlesInner, menuItems []SearchSiteContent200ResponseArticlesInner, recipes []SearchSiteContent200ResponseArticlesInner) *SearchSiteContent200Response {
 	this := SearchSiteContent200Response{}
 	this.Articles = articles
 	this.GroceryProducts = groceryProducts
@@ -76,9 +76,9 @@ func (o *SearchSiteContent200Response) SetArticles(v []SearchSiteContent200Respo
 }
 
 // GetGroceryProducts returns the GroceryProducts field value
-func (o *SearchSiteContent200Response) GetGroceryProducts() []SearchSiteContent200ResponseGroceryProductsInner {
+func (o *SearchSiteContent200Response) GetGroceryProducts() []SearchSiteContent200ResponseArticlesInner {
 	if o == nil {
-		var ret []SearchSiteContent200ResponseGroceryProductsInner
+		var ret []SearchSiteContent200ResponseArticlesInner
 		return ret
 	}
 
@@ -87,7 +87,7 @@ func (o *SearchSiteContent200Response) GetGroceryProducts() []SearchSiteContent2
 
 // GetGroceryProductsOk returns a tuple with the GroceryProducts field value
 // and a boolean to check if the value has been set.
-func (o *SearchSiteContent200Response) GetGroceryProductsOk() ([]SearchSiteContent200ResponseGroceryProductsInner, bool) {
+func (o *SearchSiteContent200Response) GetGroceryProductsOk() ([]SearchSiteContent200ResponseArticlesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -95,14 +95,14 @@ func (o *SearchSiteContent200Response) GetGroceryProductsOk() ([]SearchSiteConte
 }
 
 // SetGroceryProducts sets field value
-func (o *SearchSiteContent200Response) SetGroceryProducts(v []SearchSiteContent200ResponseGroceryProductsInner) {
+func (o *SearchSiteContent200Response) SetGroceryProducts(v []SearchSiteContent200ResponseArticlesInner) {
 	o.GroceryProducts = v
 }
 
 // GetMenuItems returns the MenuItems field value
-func (o *SearchSiteContent200Response) GetMenuItems() []SearchSiteContent200ResponseGroceryProductsInner {
+func (o *SearchSiteContent200Response) GetMenuItems() []SearchSiteContent200ResponseArticlesInner {
 	if o == nil {
-		var ret []SearchSiteContent200ResponseGroceryProductsInner
+		var ret []SearchSiteContent200ResponseArticlesInner
 		return ret
 	}
 
@@ -111,7 +111,7 @@ func (o *SearchSiteContent200Response) GetMenuItems() []SearchSiteContent200Resp
 
 // GetMenuItemsOk returns a tuple with the MenuItems field value
 // and a boolean to check if the value has been set.
-func (o *SearchSiteContent200Response) GetMenuItemsOk() ([]SearchSiteContent200ResponseGroceryProductsInner, bool) {
+func (o *SearchSiteContent200Response) GetMenuItemsOk() ([]SearchSiteContent200ResponseArticlesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,14 +119,14 @@ func (o *SearchSiteContent200Response) GetMenuItemsOk() ([]SearchSiteContent200R
 }
 
 // SetMenuItems sets field value
-func (o *SearchSiteContent200Response) SetMenuItems(v []SearchSiteContent200ResponseGroceryProductsInner) {
+func (o *SearchSiteContent200Response) SetMenuItems(v []SearchSiteContent200ResponseArticlesInner) {
 	o.MenuItems = v
 }
 
 // GetRecipes returns the Recipes field value
-func (o *SearchSiteContent200Response) GetRecipes() []SearchSiteContent200ResponseGroceryProductsInner {
+func (o *SearchSiteContent200Response) GetRecipes() []SearchSiteContent200ResponseArticlesInner {
 	if o == nil {
-		var ret []SearchSiteContent200ResponseGroceryProductsInner
+		var ret []SearchSiteContent200ResponseArticlesInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *SearchSiteContent200Response) GetRecipes() []SearchSiteContent200Respon
 
 // GetRecipesOk returns a tuple with the Recipes field value
 // and a boolean to check if the value has been set.
-func (o *SearchSiteContent200Response) GetRecipesOk() ([]SearchSiteContent200ResponseGroceryProductsInner, bool) {
+func (o *SearchSiteContent200Response) GetRecipesOk() ([]SearchSiteContent200ResponseArticlesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,7 +143,7 @@ func (o *SearchSiteContent200Response) GetRecipesOk() ([]SearchSiteContent200Res
 }
 
 // SetRecipes sets field value
-func (o *SearchSiteContent200Response) SetRecipes(v []SearchSiteContent200ResponseGroceryProductsInner) {
+func (o *SearchSiteContent200Response) SetRecipes(v []SearchSiteContent200ResponseArticlesInner) {
 	o.Recipes = v
 }
 

@@ -34,7 +34,7 @@ defmodule SpoonacularAPI.Model.GetProductInformation200Response do
     :badges => [String.t],
     :importantBadges => [String.t],
     :ingredientCount => integer(),
-    :generatedText => any() | nil,
+    :generatedText => String.t | nil,
     :ingredientList => String.t,
     :ingredients => [SpoonacularAPI.Model.GetProductInformation200ResponseIngredientsInner.t],
     :likes => float(),

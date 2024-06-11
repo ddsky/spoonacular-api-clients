@@ -599,7 +599,7 @@ genGetConversationSuggests200Response :: Int -> Gen GetConversationSuggests200Re
 genGetConversationSuggests200Response n =
   GetConversationSuggests200Response
     <$> arbitraryReduced n -- getConversationSuggests200ResponseSuggests :: GetConversationSuggests200ResponseSuggests
-    <*> arbitraryReduced n -- getConversationSuggests200ResponseWords :: [AnyType]
+    <*> arbitrary -- getConversationSuggests200ResponseWords :: [Text]
   
 instance Arbitrary GetConversationSuggests200ResponseSuggests where
   arbitrary = sized genGetConversationSuggests200ResponseSuggests
@@ -821,7 +821,7 @@ genGetProductInformation200Response n =
     <*> arbitrary -- getProductInformation200ResponseBadges :: [Text]
     <*> arbitrary -- getProductInformation200ResponseImportantBadges :: [Text]
     <*> arbitrary -- getProductInformation200ResponseIngredientCount :: Int
-    <*> arbitraryReducedMaybe n -- getProductInformation200ResponseGeneratedText :: Maybe AnyType
+    <*> arbitraryReducedMaybe n -- getProductInformation200ResponseGeneratedText :: Maybe Text
     <*> arbitrary -- getProductInformation200ResponseIngredientList :: Text
     <*> arbitraryReduced n -- getProductInformation200ResponseIngredients :: [GetProductInformation200ResponseIngredientsInner]
     <*> arbitrary -- getProductInformation200ResponseLikes :: Double
@@ -837,9 +837,9 @@ instance Arbitrary GetProductInformation200ResponseIngredientsInner where
 genGetProductInformation200ResponseIngredientsInner :: Int -> Gen GetProductInformation200ResponseIngredientsInner
 genGetProductInformation200ResponseIngredientsInner n =
   GetProductInformation200ResponseIngredientsInner
-    <$> arbitraryReducedMaybe n -- getProductInformation200ResponseIngredientsInnerDescription :: Maybe AnyType
+    <$> arbitraryReducedMaybe n -- getProductInformation200ResponseIngredientsInnerDescription :: Maybe Text
     <*> arbitrary -- getProductInformation200ResponseIngredientsInnerName :: Text
-    <*> arbitraryReducedMaybe n -- getProductInformation200ResponseIngredientsInnerSafetyLevel :: Maybe AnyType
+    <*> arbitraryReducedMaybe n -- getProductInformation200ResponseIngredientsInnerSafetyLevel :: Maybe Text
   
 instance Arbitrary GetRandomFoodTrivia200Response where
   arbitrary = sized genGetRandomFoodTrivia200Response
@@ -1259,7 +1259,7 @@ genGetWinePairing200ResponseProductMatchesInner n =
     <$> arbitrary -- getWinePairing200ResponseProductMatchesInnerId :: Int
     <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerTitle :: Text
     <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerAverageRating :: Double
-    <*> arbitraryReducedMaybe n -- getWinePairing200ResponseProductMatchesInnerDescription :: Maybe AnyType
+    <*> arbitraryReducedMaybe n -- getWinePairing200ResponseProductMatchesInnerDescription :: Maybe Text
     <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerImageUrl :: Text
     <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerLink :: Text
     <*> arbitrary -- getWinePairing200ResponseProductMatchesInnerPrice :: Text
@@ -1661,9 +1661,9 @@ instance Arbitrary SearchGroceryProductsByUPC200ResponseIngredientsInner where
 genSearchGroceryProductsByUPC200ResponseIngredientsInner :: Int -> Gen SearchGroceryProductsByUPC200ResponseIngredientsInner
 genSearchGroceryProductsByUPC200ResponseIngredientsInner n =
   SearchGroceryProductsByUPC200ResponseIngredientsInner
-    <$> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientsInnerDescription :: Maybe AnyType
+    <$> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientsInnerDescription :: Maybe Text
     <*> arbitrary -- searchGroceryProductsByUPC200ResponseIngredientsInnerName :: Text
-    <*> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel :: Maybe AnyType
+    <*> arbitraryReducedMaybe n -- searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel :: Maybe Text
   
 instance Arbitrary SearchGroceryProductsByUPC200ResponseNutrition where
   arbitrary = sized genSearchGroceryProductsByUPC200ResponseNutrition
@@ -1866,9 +1866,9 @@ genSearchSiteContent200Response :: Int -> Gen SearchSiteContent200Response
 genSearchSiteContent200Response n =
   SearchSiteContent200Response
     <$> arbitraryReduced n -- searchSiteContent200ResponseArticles :: [SearchSiteContent200ResponseArticlesInner]
-    <*> arbitraryReduced n -- searchSiteContent200ResponseGroceryProducts :: [SearchSiteContent200ResponseGroceryProductsInner]
-    <*> arbitraryReduced n -- searchSiteContent200ResponseMenuItems :: [SearchSiteContent200ResponseGroceryProductsInner]
-    <*> arbitraryReduced n -- searchSiteContent200ResponseRecipes :: [SearchSiteContent200ResponseGroceryProductsInner]
+    <*> arbitraryReduced n -- searchSiteContent200ResponseGroceryProducts :: [SearchSiteContent200ResponseArticlesInner]
+    <*> arbitraryReduced n -- searchSiteContent200ResponseMenuItems :: [SearchSiteContent200ResponseArticlesInner]
+    <*> arbitraryReduced n -- searchSiteContent200ResponseRecipes :: [SearchSiteContent200ResponseArticlesInner]
   
 instance Arbitrary SearchSiteContent200ResponseArticlesInner where
   arbitrary = sized genSearchSiteContent200ResponseArticlesInner
@@ -1876,30 +1876,19 @@ instance Arbitrary SearchSiteContent200ResponseArticlesInner where
 genSearchSiteContent200ResponseArticlesInner :: Int -> Gen SearchSiteContent200ResponseArticlesInner
 genSearchSiteContent200ResponseArticlesInner n =
   SearchSiteContent200ResponseArticlesInner
-    <$> arbitraryReducedMaybe n -- searchSiteContent200ResponseArticlesInnerDataPoints :: Maybe [AnyType]
+    <$> arbitraryReducedMaybe n -- searchSiteContent200ResponseArticlesInnerDataPoints :: Maybe [SearchSiteContent200ResponseArticlesInnerDataPointsInner]
     <*> arbitrary -- searchSiteContent200ResponseArticlesInnerImage :: Text
     <*> arbitrary -- searchSiteContent200ResponseArticlesInnerLink :: Text
     <*> arbitrary -- searchSiteContent200ResponseArticlesInnerName :: Text
   
-instance Arbitrary SearchSiteContent200ResponseGroceryProductsInner where
-  arbitrary = sized genSearchSiteContent200ResponseGroceryProductsInner
+instance Arbitrary SearchSiteContent200ResponseArticlesInnerDataPointsInner where
+  arbitrary = sized genSearchSiteContent200ResponseArticlesInnerDataPointsInner
 
-genSearchSiteContent200ResponseGroceryProductsInner :: Int -> Gen SearchSiteContent200ResponseGroceryProductsInner
-genSearchSiteContent200ResponseGroceryProductsInner n =
-  SearchSiteContent200ResponseGroceryProductsInner
-    <$> arbitraryReducedMaybe n -- searchSiteContent200ResponseGroceryProductsInnerDataPoints :: Maybe [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner]
-    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerImage :: Text
-    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerLink :: Text
-    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerName :: Text
-  
-instance Arbitrary SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner where
-  arbitrary = sized genSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-
-genSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner :: Int -> Gen SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-genSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner n =
-  SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-    <$> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey :: Text
-    <*> arbitrary -- searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue :: Text
+genSearchSiteContent200ResponseArticlesInnerDataPointsInner :: Int -> Gen SearchSiteContent200ResponseArticlesInnerDataPointsInner
+genSearchSiteContent200ResponseArticlesInnerDataPointsInner n =
+  SearchSiteContent200ResponseArticlesInnerDataPointsInner
+    <$> arbitrary -- searchSiteContent200ResponseArticlesInnerDataPointsInnerKey :: Text
+    <*> arbitrary -- searchSiteContent200ResponseArticlesInnerDataPointsInnerValue :: Text
   
 instance Arbitrary SummarizeRecipe200Response where
   arbitrary = sized genSummarizeRecipe200Response
@@ -1918,15 +1907,22 @@ genTalkToChatbot200Response :: Int -> Gen TalkToChatbot200Response
 genTalkToChatbot200Response n =
   TalkToChatbot200Response
     <$> arbitrary -- talkToChatbot200ResponseAnswerText :: Text
-    <*> arbitraryReduced n -- talkToChatbot200ResponseMedia :: [AnyType]
+    <*> arbitraryReduced n -- talkToChatbot200ResponseMedia :: [TalkToChatbot200ResponseMediaInner]
+  
+instance Arbitrary TalkToChatbot200ResponseMediaInner where
+  arbitrary = sized genTalkToChatbot200ResponseMediaInner
+
+genTalkToChatbot200ResponseMediaInner :: Int -> Gen TalkToChatbot200ResponseMediaInner
+genTalkToChatbot200ResponseMediaInner n =
+  TalkToChatbot200ResponseMediaInner
+    <$> arbitraryReducedMaybe n -- talkToChatbot200ResponseMediaInnerTitle :: Maybe Text
+    <*> arbitraryReducedMaybe n -- talkToChatbot200ResponseMediaInnerImage :: Maybe Text
+    <*> arbitraryReducedMaybe n -- talkToChatbot200ResponseMediaInnerLink :: Maybe Text
   
 
 
 
-instance Arbitrary E'Accept where
-  arbitrary = arbitraryBoundedEnum
-
-instance Arbitrary E'ContentType where
+instance Arbitrary E'BackgroundImage where
   arbitrary = arbitraryBoundedEnum
 
 instance Arbitrary E'Language where
@@ -1935,6 +1931,12 @@ instance Arbitrary E'Language where
 instance Arbitrary E'Locale where
   arbitrary = arbitraryBoundedEnum
 
+instance Arbitrary E'Mask where
+  arbitrary = arbitraryBoundedEnum
+
 instance Arbitrary E'Measure where
+  arbitrary = arbitraryBoundedEnum
+
+instance Arbitrary E'View where
   arbitrary = arbitraryBoundedEnum
 

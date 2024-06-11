@@ -62,8 +62,8 @@ namespace spoonacular.Test.Api
         public void DetectFoodInTextTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //var response = instance.DetectFoodInText(contentType);
+            //string text = null;
+            //var response = instance.DetectFoodInText(text);
             //Assert.IsType<DetectFoodInText200Response>(response);
         }
 

@@ -53,9 +53,9 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
                 ingredient_list = '0',
                 ingredients = [
                     spoonacular.models.search_grocery_products_by_upc_200_response_ingredients_inner.searchGroceryProductsByUPC_200_response_ingredients_inner(
-                        description = null, 
+                        description = '', 
                         name = '', 
-                        safety_level = null, )
+                        safety_level = '', )
                     ],
                 likes = 1.337,
                 nutrition = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition.searchGroceryProductsByUPC_200_response_nutrition(
@@ -95,9 +95,9 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
                 ingredient_list = '0',
                 ingredients = [
                     spoonacular.models.search_grocery_products_by_upc_200_response_ingredients_inner.searchGroceryProductsByUPC_200_response_ingredients_inner(
-                        description = null, 
+                        description = '', 
                         name = '', 
-                        safety_level = null, )
+                        safety_level = '', )
                     ],
                 likes = 1.337,
                 nutrition = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition.searchGroceryProductsByUPC_200_response_nutrition(

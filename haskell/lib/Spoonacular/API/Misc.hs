@@ -69,17 +69,15 @@ import qualified Prelude as P
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 detectFoodInText
-  :: SpoonacularRequest DetectFoodInText MimeNoContent DetectFoodInText200Response MimeJSON
-detectFoodInText =
+  :: (Consumes DetectFoodInText MimeFormUrlEncoded)
+  => ParamText -- ^ "text"
+  -> SpoonacularRequest DetectFoodInText MimeFormUrlEncoded DetectFoodInText200Response MimeJSON
+detectFoodInText (ParamText text) =
   _mkRequest "POST" ["/food/detect"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("text", text)
 
 data DetectFoodInText  
-
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam DetectFoodInText ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
 
 -- | @application/x-www-form-urlencoded@
 instance Consumes DetectFoodInText MimeFormUrlEncoded

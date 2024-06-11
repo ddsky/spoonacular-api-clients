@@ -103,7 +103,7 @@ class GetProductInformation200Response {
                 obj['ingredientCount'] = ApiClient.convertToType(data['ingredientCount'], 'Number');
             }
             if (data.hasOwnProperty('generatedText')) {
-                obj['generatedText'] = ApiClient.convertToType(data['generatedText'], Object);
+                obj['generatedText'] = ApiClient.convertToType(data['generatedText'], 'String');
             }
             if (data.hasOwnProperty('ingredientList')) {
                 obj['ingredientList'] = ApiClient.convertToType(data['ingredientList'], 'String');
@@ -164,6 +164,10 @@ class GetProductInformation200Response {
         // ensure the json data is an array
         if (!Array.isArray(data['importantBadges'])) {
             throw new Error("Expected the field `importantBadges` to be an array in the JSON data but got " + data['importantBadges']);
+        }
+        // ensure the json data is a string
+        if (data['generatedText'] && !(typeof data['generatedText'] === 'string' || data['generatedText'] instanceof String)) {
+            throw new Error("Expected the field `generatedText` to be a primitive type in the JSON string but got " + data['generatedText']);
         }
         // ensure the json data is a string
         if (data['ingredientList'] && !(typeof data['ingredientList'] === 'string' || data['ingredientList'] instanceof String)) {
@@ -236,7 +240,7 @@ GetProductInformation200Response.prototype['importantBadges'] = undefined;
 GetProductInformation200Response.prototype['ingredientCount'] = undefined;
 
 /**
- * @member {Object} generatedText
+ * @member {String} generatedText
  */
 GetProductInformation200Response.prototype['generatedText'] = undefined;
 

@@ -21,17 +21,17 @@ void main() {
       // TODO
     });
 
-    // Set<SearchSiteContent200ResponseGroceryProductsInner> groceryProducts (default value: const {})
+    // Set<SearchSiteContent200ResponseArticlesInner> groceryProducts (default value: const {})
     test('to test the property `groceryProducts`', () async {
       // TODO
     });
 
-    // Set<SearchSiteContent200ResponseGroceryProductsInner> menuItems (default value: const {})
+    // Set<SearchSiteContent200ResponseArticlesInner> menuItems (default value: const {})
     test('to test the property `menuItems`', () async {
       // TODO
     });
 
-    // Set<SearchSiteContent200ResponseGroceryProductsInner> recipes (default value: const {})
+    // Set<SearchSiteContent200ResponseArticlesInner> recipes (default value: const {})
     test('to test the property `recipes`', () async {
       // TODO
     });

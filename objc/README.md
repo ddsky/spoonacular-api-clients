@@ -194,10 +194,10 @@ Import the following:
 #import <OpenAPIClient/OAISearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.h>
 #import <OpenAPIClient/OAISearchSiteContent200Response.h>
 #import <OpenAPIClient/OAISearchSiteContent200ResponseArticlesInner.h>
-#import <OpenAPIClient/OAISearchSiteContent200ResponseGroceryProductsInner.h>
-#import <OpenAPIClient/OAISearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.h>
+#import <OpenAPIClient/OAISearchSiteContent200ResponseArticlesInnerDataPointsInner.h>
 #import <OpenAPIClient/OAISummarizeRecipe200Response.h>
 #import <OpenAPIClient/OAITalkToChatbot200Response.h>
+#import <OpenAPIClient/OAITalkToChatbot200ResponseMediaInner.h>
 // load API classes for accessing endpoints
 #import <OpenAPIClient/OAIDefaultApi.h>
 #import <OpenAPIClient/OAIIngredientsApi.h>
@@ -278,10 +278,10 @@ Class | Method | HTTP request | Description
 *OAIMealPlanningApi* | [**deleteFromShoppingList**](docs/OAIMealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *OAIMealPlanningApi* | [**deleteMealPlanTemplate**](docs/OAIMealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *OAIMealPlanningApi* | [**generateMealPlan**](docs/OAIMealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
-*OAIMealPlanningApi* | [**generateShoppingList**](docs/OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*OAIMealPlanningApi* | [**generateShoppingList**](docs/OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *OAIMealPlanningApi* | [**getMealPlanTemplate**](docs/OAIMealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *OAIMealPlanningApi* | [**getMealPlanTemplates**](docs/OAIMealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*OAIMealPlanningApi* | [**getMealPlanWeek**](docs/OAIMealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*OAIMealPlanningApi* | [**getMealPlanWeek**](docs/OAIMealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *OAIMealPlanningApi* | [**getShoppingList**](docs/OAIMealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *OAIMenuItemsApi* | [**autocompleteMenuItemSearch**](docs/OAIMenuItemsApi.md#autocompletemenuitemsearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *OAIMenuItemsApi* | [**getMenuItemInformation**](docs/OAIMenuItemsApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -510,10 +510,10 @@ Class | Method | HTTP request | Description
  - [OAISearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/OAISearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [OAISearchSiteContent200Response](docs/OAISearchSiteContent200Response.md)
  - [OAISearchSiteContent200ResponseArticlesInner](docs/OAISearchSiteContent200ResponseArticlesInner.md)
- - [OAISearchSiteContent200ResponseGroceryProductsInner](docs/OAISearchSiteContent200ResponseGroceryProductsInner.md)
- - [OAISearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/OAISearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [OAISearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/OAISearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [OAISummarizeRecipe200Response](docs/OAISummarizeRecipe200Response.md)
  - [OAITalkToChatbot200Response](docs/OAITalkToChatbot200Response.md)
+ - [OAITalkToChatbot200ResponseMediaInner](docs/OAITalkToChatbot200ResponseMediaInner.md)
 
 
 ## Documentation For Authorization

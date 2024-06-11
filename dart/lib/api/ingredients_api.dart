@@ -639,7 +639,7 @@ class IngredientsApi {
   ///
   /// * [String] measure:
   ///   Whether the the measures should be 'us' or 'metric'.
-  Future<Object?> ingredientsByIDImage(num id, { String? measure, }) async {
+  Future<MultipartFile?> ingredientsByIDImage(num id, { String? measure, }) async {
     final response = await ingredientsByIDImageWithHttpInfo(id,  measure: measure, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -648,7 +648,7 @@ class IngredientsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -721,15 +721,27 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ///
+  /// * [num] servings (required):
+  ///   The number of servings.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
   ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<Response> visualizeIngredientsWithHttpInfo({ String? contentType, String? language, String? accept, }) async {
+  /// * [String] measure:
+  ///   The original system of measurement, either 'metric' or 'us'.
+  ///
+  /// * [String] view:
+  ///   How to visualize the ingredients, either 'grid' or 'list'.
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<Response> visualizeIngredientsWithHttpInfo(String ingredientList, num servings, { String? language, String? measure, String? view, bool? defaultCss, bool? showBacklink, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/visualizeIngredients';
 
@@ -744,15 +756,26 @@ class IngredientsApi {
       queryParams.addAll(_queryParams('', 'language', language));
     }
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (ingredientList != null) {
+      formParams[r'ingredientList'] = parameterToString(ingredientList);
+    }
+    if (servings != null) {
+      formParams[r'servings'] = parameterToString(servings);
+    }
+    if (measure != null) {
+      formParams[r'measure'] = parameterToString(measure);
+    }
+    if (view != null) {
+      formParams[r'view'] = parameterToString(view);
+    }
+    if (defaultCss != null) {
+      formParams[r'defaultCss'] = parameterToString(defaultCss);
+    }
+    if (showBacklink != null) {
+      formParams[r'showBacklink'] = parameterToString(showBacklink);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -771,16 +794,28 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ///
+  /// * [num] servings (required):
+  ///   The number of servings.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
   ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<String?> visualizeIngredients({ String? contentType, String? language, String? accept, }) async {
-    final response = await visualizeIngredientsWithHttpInfo( contentType: contentType, language: language, accept: accept, );
+  /// * [String] measure:
+  ///   The original system of measurement, either 'metric' or 'us'.
+  ///
+  /// * [String] view:
+  ///   How to visualize the ingredients, either 'grid' or 'list'.
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<String?> visualizeIngredients(String ingredientList, num servings, { String? language, String? measure, String? view, bool? defaultCss, bool? showBacklink, }) async {
+    final response = await visualizeIngredientsWithHttpInfo(ingredientList, servings,  language: language, measure: measure, view: view, defaultCss: defaultCss, showBacklink: showBacklink, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

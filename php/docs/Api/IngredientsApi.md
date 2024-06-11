@@ -436,7 +436,7 @@ try {
 ## `ingredientsByIDImage()`
 
 ```php
-ingredientsByIDImage($id, $measure): object
+ingredientsByIDImage($id, $measure): \SplFileObject
 ```
 
 Ingredients by ID Image
@@ -482,7 +482,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -562,7 +562,7 @@ try {
 ## `visualizeIngredients()`
 
 ```php
-visualizeIngredients($content_type, $language, $accept): string
+visualizeIngredients($ingredient_list, $servings, $language, $measure, $view, $default_css, $show_backlink): string
 ```
 
 Ingredients Widget
@@ -588,12 +588,16 @@ $apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
+$ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+$servings = 3.4; // float | The number of servings.
 $language = en; // string | The language of the input. Either 'en' or 'de'.
-$accept = application/json; // string | Accept header.
+$measure = 'measure_example'; // string | The original system of measurement, either 'metric' or 'us'.
+$view = 'view_example'; // string | How to visualize the ingredients, either 'grid' or 'list'.
+$default_css = True; // bool | Whether the default CSS should be added to the response.
+$show_backlink = True; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    $result = $apiInstance->visualizeIngredients($content_type, $language, $accept);
+    $result = $apiInstance->visualizeIngredients($ingredient_list, $servings, $language, $measure, $view, $default_css, $show_backlink);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IngredientsApi->visualizeIngredients: ', $e->getMessage(), PHP_EOL;
@@ -604,9 +608,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
+| **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **servings** | **float**| The number of servings. | |
 | **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
-| **accept** | **string**| Accept header. | [optional] |
+| **measure** | **string**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] |
+| **view** | **string**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 

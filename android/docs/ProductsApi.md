@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ## productNutritionByIDImage
 
-> Object productNutritionByIDImage(id)
+> File productNutritionByIDImage(id)
 
 Product Nutrition by ID Image
 
@@ -271,7 +271,7 @@ Visualize a product&#39;s nutritional information as an image.
 ProductsApi apiInstance = new ProductsApi();
 BigDecimal id = 7657; // BigDecimal | The id of the product.
 try {
-    Object result = apiInstance.productNutritionByIDImage(id);
+    File result = apiInstance.productNutritionByIDImage(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#productNutritionByIDImage");
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ## productNutritionLabelImage
 
-> Object productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> File productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Product Nutrition Label Image
 
@@ -320,7 +320,7 @@ Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nut
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
 Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
 try {
-    Object result = apiInstance.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+    File result = apiInstance.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#productNutritionLabelImage");
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 
 ## visualizeProductNutritionByID
 
-> String visualizeProductNutritionByID(id, defaultCss, accept)
+> String visualizeProductNutritionByID(id, defaultCss)
 
 Product Nutrition by ID Widget
 
@@ -537,9 +537,8 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 ProductsApi apiInstance = new ProductsApi();
 Integer id = 1; // Integer | The item's id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
-String accept = application/json; // String | Accept header.
 try {
-    String result = apiInstance.visualizeProductNutritionByID(id, defaultCss, accept);
+    String result = apiInstance.visualizeProductNutritionByID(id, defaultCss);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#visualizeProductNutritionByID");
@@ -554,7 +553,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
 
 ### Return type
 

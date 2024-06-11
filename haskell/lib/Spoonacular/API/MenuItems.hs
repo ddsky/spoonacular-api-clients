@@ -120,7 +120,7 @@ instance Produces GetMenuItemInformation MimeJSON
 -- 
 menuItemNutritionByIDImage
   :: IdDouble -- ^ "id" -  The menu item id.
-  -> SpoonacularRequest MenuItemNutritionByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest MenuItemNutritionByIDImage MimeNoContent FilePath MimeImagePng
 menuItemNutritionByIDImage (IdDouble id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -142,7 +142,7 @@ instance Produces MenuItemNutritionByIDImage MimeImagePng
 -- 
 menuItemNutritionLabelImage
   :: IdDouble -- ^ "id" -  The menu item id.
-  -> SpoonacularRequest MenuItemNutritionLabelImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest MenuItemNutritionLabelImage MimeNoContent FilePath MimeImagePng
 menuItemNutritionLabelImage (IdDouble id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionLabel.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -313,11 +313,6 @@ data VisualizeMenuItemNutritionByID
 instance HasOptionalParam VisualizeMenuItemNutritionByID DefaultCss where
   applyOptionalParam req (DefaultCss xs) =
     req `addQuery` toQuery ("defaultCss", Just xs)
-
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeMenuItemNutritionByID ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
 -- | @text/html@
 instance Produces VisualizeMenuItemNutritionByID MimeTextHtml
 

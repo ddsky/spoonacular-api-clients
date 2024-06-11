@@ -119,8 +119,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiAnalyzeRecipeInstructionsRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
+  // string | The recipe\\\'s instructions.
+  instructions: "instructions_example",
 };
 
 apiInstance.analyzeRecipeInstructions(body).then((data:any) => {
@@ -133,7 +133,7 @@ apiInstance.analyzeRecipeInstructions(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
+ **instructions** | [**string**] | The recipe\\\&#39;s instructions. | defaults to undefined
 
 
 ### Return type
@@ -236,8 +236,12 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiClassifyCuisineRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
+  // string | The title of the recipe.
+  title: "title_example",
+  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ingredientList: "ingredientList_example",
+  // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
+  language: "en",
 };
 
 apiInstance.classifyCuisine(body).then((data:any) => {
@@ -250,7 +254,9 @@ apiInstance.classifyCuisine(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
+ **title** | [**string**] | The title of the recipe. | defaults to undefined
+ **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | defaults to undefined
+ **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
 
 
 ### Return type
@@ -423,8 +429,32 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiCreateRecipeCardRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
+  // string | The title of the recipe.
+  title: "title_example",
+  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ingredients: "ingredients_example",
+  // string | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+  instructions: "instructions_example",
+  // number | The number of minutes it takes to get the recipe on the table.
+  readyInMinutes: 3.14,
+  // number | The number of servings the recipe makes.
+  servings: 3.14,
+  // string | The mask to put over the recipe image (\\\'ellipseMask\\\', \\\'diamondMask\\\', \\\'starMask\\\', \\\'heartMask\\\', \\\'potMask\\\', \\\'fishMask\\\').
+  mask: "ellipseMask",
+  // string | The background image (\\\'none\\\', \\\'background1\\\', or \\\'background2\\\').
+  backgroundImage: "none",
+  // HttpFile | The binary image of the recipe as jpg. (optional)
+  image: { data: Buffer.from(fs.readFileSync('/path/to/file', 'utf-8')), name: '/path/to/file' },
+  // string | If you do not sent a binary image you can also pass the image URL. (optional)
+  imageUrl: "imageUrl_example",
+  // string | The author of the recipe. (optional)
+  author: "author_example",
+  // string | The background color for the recipe card as a hex-string. (optional)
+  backgroundColor: "backgroundColor_example",
+  // string | The font color for the recipe card as a hex-string. (optional)
+  fontColor: "fontColor_example",
+  // string | The source of the recipe. (optional)
+  source: "source_example",
 };
 
 apiInstance.createRecipeCard(body).then((data:any) => {
@@ -437,7 +467,19 @@ apiInstance.createRecipeCard(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
+ **title** | [**string**] | The title of the recipe. | defaults to undefined
+ **ingredients** | [**string**] | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | defaults to undefined
+ **instructions** | [**string**] | The instructions to make the recipe. One step per line (separate lines with \\\\n). | defaults to undefined
+ **readyInMinutes** | [**number**] | The number of minutes it takes to get the recipe on the table. | defaults to undefined
+ **servings** | [**number**] | The number of servings the recipe makes. | defaults to undefined
+ **mask** | [**string**]**Array<&#39;ellipseMask&#39; &#124; &#39;diamondMask&#39; &#124; &#39;starMask&#39; &#124; &#39;heartMask&#39; &#124; &#39;potMask&#39; &#124; &#39;fishMask&#39;>** | The mask to put over the recipe image (\\\&#39;ellipseMask\\\&#39;, \\\&#39;diamondMask\\\&#39;, \\\&#39;starMask\\\&#39;, \\\&#39;heartMask\\\&#39;, \\\&#39;potMask\\\&#39;, \\\&#39;fishMask\\\&#39;). | defaults to undefined
+ **backgroundImage** | [**string**]**Array<&#39;none&#39; &#124; &#39;background1&#39; &#124; &#39;background2&#39;>** | The background image (\\\&#39;none\\\&#39;, \\\&#39;background1\\\&#39;, or \\\&#39;background2\\\&#39;). | defaults to undefined
+ **image** | [**HttpFile**] | The binary image of the recipe as jpg. | (optional) defaults to undefined
+ **imageUrl** | [**string**] | If you do not sent a binary image you can also pass the image URL. | (optional) defaults to undefined
+ **author** | [**string**] | The author of the recipe. | (optional) defaults to undefined
+ **backgroundColor** | [**string**] | The background color for the recipe card as a hex-string. | (optional) defaults to undefined
+ **fontColor** | [**string**] | The font color for the recipe card as a hex-string. | (optional) defaults to undefined
+ **source** | [**string**] | The source of the recipe. | (optional) defaults to undefined
 
 
 ### Return type
@@ -465,7 +507,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **equipmentByIDImage**
-> any equipmentByIDImage()
+> HttpFile equipmentByIDImage()
 
 Visualize a recipe\'s equipment list as an image.
 
@@ -499,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -1263,10 +1305,14 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiParseIngredientsRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
+  // string | The ingredient list of the recipe, one ingredient per line.
+  ingredientList: "ingredientList_example",
+  // number | The number of servings that you can make from the ingredients.
+  servings: 3.14,
   // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
+  // boolean (optional)
+  includeNutrition: true,
 };
 
 apiInstance.parseIngredients(body).then((data:any) => {
@@ -1279,8 +1325,10 @@ apiInstance.parseIngredients(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
+ **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line. | defaults to undefined
+ **servings** | [**number**] | The number of servings that you can make from the ingredients. | defaults to undefined
  **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
+ **includeNutrition** | [**boolean**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -1308,7 +1356,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **priceBreakdownByIDImage**
-> any priceBreakdownByIDImage()
+> HttpFile priceBreakdownByIDImage()
 
 Visualize a recipe\'s price breakdown.
 
@@ -1342,7 +1390,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -1422,7 +1470,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **recipeNutritionByIDImage**
-> any recipeNutritionByIDImage()
+> HttpFile recipeNutritionByIDImage()
 
 Visualize a recipe\'s nutritional information as an image.
 
@@ -1456,7 +1504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -1479,7 +1527,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **recipeNutritionLabelImage**
-> any recipeNutritionLabelImage()
+> HttpFile recipeNutritionLabelImage()
 
 Get a recipe\'s nutrition label as an image.
 
@@ -1522,7 +1570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -1614,7 +1662,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **recipeTasteByIDImage**
-> any recipeTasteByIDImage()
+> HttpFile recipeTasteByIDImage()
 
 Get a recipe\'s taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
@@ -1654,7 +1702,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -2448,10 +2496,14 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeEquipmentRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
+  // string | The recipe\\\'s instructions.
+  instructions: "instructions_example",
+  // string | How to visualize the ingredients, either \\\'grid\\\' or \\\'list\\\'. (optional)
+  view: "grid",
+  // boolean | Whether the default CSS should be added to the response. (optional)
+  defaultCss: true,
+  // boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
+  showBacklink: true,
 };
 
 apiInstance.visualizeEquipment(body).then((data:any) => {
@@ -2464,8 +2516,10 @@ apiInstance.visualizeEquipment(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
+ **instructions** | [**string**] | The recipe\\\&#39;s instructions. | defaults to undefined
+ **view** | [**string**]**Array<&#39;grid&#39; &#124; &#39;list&#39;>** | How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;. | (optional) defaults to undefined
+ **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to undefined
+ **showBacklink** | [**boolean**] | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | (optional) defaults to undefined
 
 
 ### Return type
@@ -2508,12 +2562,18 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizePriceBreakdownRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
+  // string | The ingredient list of the recipe, one ingredient per line.
+  ingredientList: "ingredientList_example",
+  // number | The number of servings.
+  servings: 3.14,
   // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
+  // number | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). (optional)
+  mode: 3.14,
+  // boolean | Whether the default CSS should be added to the response. (optional)
+  defaultCss: true,
+  // boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
+  showBacklink: true,
 };
 
 apiInstance.visualizePriceBreakdown(body).then((data:any) => {
@@ -2526,9 +2586,12 @@ apiInstance.visualizePriceBreakdown(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
+ **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line. | defaults to undefined
+ **servings** | [**number**] | The number of servings. | defaults to undefined
  **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
+ **mode** | [**number**] | The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | (optional) defaults to undefined
+ **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to undefined
+ **showBacklink** | [**boolean**] | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | (optional) defaults to undefined
 
 
 ### Return type
@@ -2694,12 +2757,16 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipeNutritionRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
+  // string | The ingredient list of the recipe, one ingredient per line.
+  ingredientList: "ingredientList_example",
+  // number | The number of servings.
+  servings: 3.14,
   // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
+  // boolean | Whether the default CSS should be added to the response. (optional)
+  defaultCss: true,
+  // boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
+  showBacklink: true,
 };
 
 apiInstance.visualizeRecipeNutrition(body).then((data:any) => {
@@ -2712,9 +2779,11 @@ apiInstance.visualizeRecipeNutrition(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
+ **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line. | defaults to undefined
+ **servings** | [**number**] | The number of servings. | defaults to undefined
  **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
+ **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to undefined
+ **showBacklink** | [**boolean**] | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | (optional) defaults to undefined
 
 
 ### Return type
@@ -2761,8 +2830,6 @@ let body:.RecipesApiVisualizeRecipeNutritionByIDRequest = {
   id: 1,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
 };
 
 apiInstance.visualizeRecipeNutritionByID(body).then((data:any) => {
@@ -2777,7 +2844,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
 
 
 ### Return type
@@ -2880,16 +2946,14 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipeTasteRequest = {
+  // string | The ingredient list of the recipe, one ingredient per line.
+  ingredientList: "ingredientList_example",
   // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
-  // boolean | Whether to normalize to the strongest taste. (optional)
+  // boolean | Normalize to the strongest taste. (optional)
   normalize: true,
   // string | Red, green, blue values for the chart color. (optional)
-  rgb: "75,192,192",
+  rgb: "rgb_example",
 };
 
 apiInstance.visualizeRecipeTaste(body).then((data:any) => {
@@ -2902,10 +2966,9 @@ apiInstance.visualizeRecipeTaste(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line. | defaults to undefined
  **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
- **normalize** | [**boolean**] | Whether to normalize to the strongest taste. | (optional) defaults to undefined
+ **normalize** | [**boolean**] | Normalize to the strongest taste. | (optional) defaults to undefined
  **rgb** | [**string**] | Red, green, blue values for the chart color. | (optional) defaults to undefined
 
 

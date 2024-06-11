@@ -85,7 +85,7 @@ class MenuItemsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -118,7 +118,7 @@ class MenuItemsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -214,7 +214,7 @@ class MenuItemsApi {
 
     }
 
-    def visualizeMenuItemNutritionByID ( Integer id, Boolean defaultCss, String accept, Closure onSuccess, Closure onFailure)  {
+    def visualizeMenuItemNutritionByID ( Integer id, Boolean defaultCss, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/menuItems/${id}/nutritionWidget"
 
         // params
@@ -232,9 +232,6 @@ class MenuItemsApi {
             queryParams.put("defaultCss", defaultCss)
         }
 
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
 

@@ -15,12 +15,9 @@
 
 
 #import "OAISearchSiteContent200ResponseArticlesInner.h"
-#import "OAISearchSiteContent200ResponseGroceryProductsInner.h"
 #import "OAISet.h"
 @protocol OAISearchSiteContent200ResponseArticlesInner;
 @class OAISearchSiteContent200ResponseArticlesInner;
-@protocol OAISearchSiteContent200ResponseGroceryProductsInner;
-@class OAISearchSiteContent200ResponseGroceryProductsInner;
 @protocol OAISet;
 @class OAISet;
 
@@ -34,10 +31,10 @@
 
 @property(nonatomic) OAISet<OAISearchSiteContent200ResponseArticlesInner>* articles;
 
-@property(nonatomic) OAISet<OAISearchSiteContent200ResponseGroceryProductsInner>* groceryProducts;
+@property(nonatomic) OAISet<OAISearchSiteContent200ResponseArticlesInner>* groceryProducts;
 
-@property(nonatomic) OAISet<OAISearchSiteContent200ResponseGroceryProductsInner>* menuItems;
+@property(nonatomic) OAISet<OAISearchSiteContent200ResponseArticlesInner>* menuItems;
 
-@property(nonatomic) OAISet<OAISearchSiteContent200ResponseGroceryProductsInner>* recipes;
+@property(nonatomic) OAISet<OAISearchSiteContent200ResponseArticlesInner>* recipes;
 
 @end

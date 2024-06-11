@@ -159,10 +159,10 @@ docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md
+docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
+docs/TalkToChatbot200ResponseMediaInner.md
 docs/WineApi.md
 git_push.sh
 gradle/wrapper/gradle-wrapper.jar
@@ -336,10 +336,10 @@ src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestauran
 src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.java
 src/main/java/com/spoonacular/client/model/SearchSiteContent200Response.java
 src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInner.java
-src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInner.java
-src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.java
+src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.java
 src/main/java/com/spoonacular/client/model/SummarizeRecipe200Response.java
 src/main/java/com/spoonacular/client/model/TalkToChatbot200Response.java
+src/main/java/com/spoonacular/client/model/TalkToChatbot200ResponseMediaInner.java
 src/main/java/com/spoonacular/client/request/DeleteRequest.java
 src/main/java/com/spoonacular/client/request/GetRequest.java
 src/main/java/com/spoonacular/client/request/PatchRequest.java

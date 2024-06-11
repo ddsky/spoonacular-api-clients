@@ -585,10 +585,10 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
 
 
         // Path Params
-        const localVarPath = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}'
+        const localVarPath = '/mealplanner/{username}/shopping-list/{start_date}/{end_date}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
-            .replace('{' + 'start-date' + '}', encodeURIComponent(String(startDate)))
-            .replace('{' + 'end-date' + '}', encodeURIComponent(String(endDate)));
+            .replace('{' + 'start_date' + '}', encodeURIComponent(String(startDate)))
+            .replace('{' + 'end_date' + '}', encodeURIComponent(String(endDate)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
@@ -752,9 +752,9 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
 
 
         // Path Params
-        const localVarPath = '/mealplanner/{username}/week/{start-date}'
+        const localVarPath = '/mealplanner/{username}/week/{start_date}'
             .replace('{' + 'username' + '}', encodeURIComponent(String(username)))
-            .replace('{' + 'start-date' + '}', encodeURIComponent(String(startDate)));
+            .replace('{' + 'start_date' + '}', encodeURIComponent(String(startDate)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

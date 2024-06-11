@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SearchSiteContent200ResponseArticlesInnerDataPointsInner from './SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 
 /**
  * The SearchSiteContent200ResponseArticlesInner model module.
@@ -54,7 +55,7 @@ class SearchSiteContent200ResponseArticlesInner {
             obj = obj || new SearchSiteContent200ResponseArticlesInner();
 
             if (data.hasOwnProperty('dataPoints')) {
-                obj['dataPoints'] = ApiClient.convertToType(data['dataPoints'], [Object]);
+                obj['dataPoints'] = ApiClient.convertToType(data['dataPoints'], [SearchSiteContent200ResponseArticlesInnerDataPointsInner]);
             }
             if (data.hasOwnProperty('image')) {
                 obj['image'] = ApiClient.convertToType(data['image'], 'String');
@@ -81,9 +82,15 @@ class SearchSiteContent200ResponseArticlesInner {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['dataPoints'])) {
-            throw new Error("Expected the field `dataPoints` to be an array in the JSON data but got " + data['dataPoints']);
+        if (data['dataPoints']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['dataPoints'])) {
+                throw new Error("Expected the field `dataPoints` to be an array in the JSON data but got " + data['dataPoints']);
+            }
+            // validate the optional field `dataPoints` (array)
+            for (const item of data['dataPoints']) {
+                SearchSiteContent200ResponseArticlesInnerDataPointsInner.validateJSON(item);
+            };
         }
         // ensure the json data is a string
         if (data['image'] && !(typeof data['image'] === 'string' || data['image'] instanceof String)) {
@@ -107,7 +114,7 @@ class SearchSiteContent200ResponseArticlesInner {
 SearchSiteContent200ResponseArticlesInner.RequiredProperties = ["image", "link", "name"];
 
 /**
- * @member {Array.<Object>} dataPoints
+ * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInnerDataPointsInner>} dataPoints
  */
 SearchSiteContent200ResponseArticlesInner.prototype['dataPoints'] = undefined;
 

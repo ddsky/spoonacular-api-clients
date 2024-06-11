@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **detect_food_in_text**
-> DetectFoodInText200Response detect_food_in_text(content_type => $content_type)
+> DetectFoodInText200Response detect_food_in_text(text => $text)
 
 Detect Food in Text
 
@@ -41,10 +41,10 @@ my $api_instance = WWW::OpenAPIClient::MiscApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
+my $text = "text_example"; # string | 
 
 eval {
-    my $result = $api_instance->detect_food_in_text(content_type => $content_type);
+    my $result = $api_instance->detect_food_in_text(text => $text);
     print Dumper($result);
 };
 if ($@) {
@@ -56,7 +56,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
+ **text** | **string**|  | 
 
 ### Return type
 

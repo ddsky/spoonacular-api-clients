@@ -1290,10 +1290,10 @@ func (a *MealPlanningAPIService) GenerateShoppingListExecute(r ApiGenerateShoppi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
+	localVarPath := localBasePath + "/mealplanner/{username}/shopping-list/{start_date}/{end_date}"
 	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", url.PathEscape(parameterValueToString(r.username, "username")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"start-date"+"}", url.PathEscape(parameterValueToString(r.startDate, "startDate")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"end-date"+"}", url.PathEscape(parameterValueToString(r.endDate, "endDate")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"start_date"+"}", url.PathEscape(parameterValueToString(r.startDate, "startDate")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"end_date"+"}", url.PathEscape(parameterValueToString(r.endDate, "endDate")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1683,9 +1683,9 @@ func (a *MealPlanningAPIService) GetMealPlanWeekExecute(r ApiGetMealPlanWeekRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/mealplanner/{username}/week/{start-date}"
+	localVarPath := localBasePath + "/mealplanner/{username}/week/{start_date}"
 	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", url.PathEscape(parameterValueToString(r.username, "username")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"start-date"+"}", url.PathEscape(parameterValueToString(r.startDate, "startDate")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"start_date"+"}", url.PathEscape(parameterValueToString(r.startDate, "startDate")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

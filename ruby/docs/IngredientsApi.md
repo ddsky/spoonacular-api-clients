@@ -497,7 +497,7 @@ end
 
 ## ingredients_by_id_image
 
-> Object ingredients_by_id_image(id, opts)
+> File ingredients_by_id_image(id, opts)
 
 Ingredients by ID Image
 
@@ -535,7 +535,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> ingredients_by_id_image_with_http_info(id, opts)
+> <Array(File, Integer, Hash)> ingredients_by_id_image_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -543,7 +543,7 @@ begin
   data, status_code, headers = api_instance.ingredients_by_id_image_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling IngredientsApi->ingredients_by_id_image_with_http_info: #{e}"
 end
@@ -558,7 +558,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -643,7 +643,7 @@ end
 
 ## visualize_ingredients
 
-> String visualize_ingredients(opts)
+> String visualize_ingredients(ingredient_list, servings, opts)
 
 Ingredients Widget
 
@@ -663,15 +663,19 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
+ingredient_list = 'ingredient_list_example' # String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+servings = 8.14 # Float | The number of servings.
 opts = {
-  content_type: 'application/x-www-form-urlencoded', # String | The content type.
   language: 'en', # String | The language of the input. Either 'en' or 'de'.
-  accept: 'application/json' # String | Accept header.
+  measure: 'us', # String | The original system of measurement, either 'metric' or 'us'.
+  view: 'grid', # String | How to visualize the ingredients, either 'grid' or 'list'.
+  default_css: true, # Boolean | Whether the default CSS should be added to the response.
+  show_backlink: true # Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 }
 
 begin
   # Ingredients Widget
-  result = api_instance.visualize_ingredients(opts)
+  result = api_instance.visualize_ingredients(ingredient_list, servings, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling IngredientsApi->visualize_ingredients: #{e}"
@@ -682,12 +686,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(String, Integer, Hash)> visualize_ingredients_with_http_info(opts)
+> <Array(String, Integer, Hash)> visualize_ingredients_with_http_info(ingredient_list, servings, opts)
 
 ```ruby
 begin
   # Ingredients Widget
-  data, status_code, headers = api_instance.visualize_ingredients_with_http_info(opts)
+  data, status_code, headers = api_instance.visualize_ingredients_with_http_info(ingredient_list, servings, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
@@ -700,9 +704,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
+| **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |  |
+| **servings** | **Float** | The number of servings. |  |
 | **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
-| **accept** | **String** | Accept header. | [optional] |
+| **measure** | **String** | The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] |
+| **view** | **String** | How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] |
+| **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **Boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 

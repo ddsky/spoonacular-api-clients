@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { TalkToChatbot200ResponseMediaInner } from '../models/TalkToChatbot200ResponseMediaInner';
 import { HttpFile } from '../http/http';
 
 /**
@@ -17,7 +18,7 @@ import { HttpFile } from '../http/http';
 */
 export class TalkToChatbot200Response {
     'answerText': string;
-    'media': Array<any>;
+    'media': Array<TalkToChatbot200ResponseMediaInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -31,7 +32,7 @@ export class TalkToChatbot200Response {
         {
             "name": "media",
             "baseName": "media",
-            "type": "Array<any>",
+            "type": "Array<TalkToChatbot200ResponseMediaInner>",
             "format": ""
         }    ];
 

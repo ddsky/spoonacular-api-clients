@@ -152,10 +152,10 @@ HEADERS += \
     $${PWD}/OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.h \
     $${PWD}/OAISearchSiteContent_200_response.h \
     $${PWD}/OAISearchSiteContent_200_response_Articles_inner.h \
-    $${PWD}/OAISearchSiteContent_200_response_Grocery_Products_inner.h \
-    $${PWD}/OAISearchSiteContent_200_response_Grocery_Products_inner_dataPoints_inner.h \
+    $${PWD}/OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner.h \
     $${PWD}/OAISummarizeRecipe_200_response.h \
     $${PWD}/OAITalkToChatbot_200_response.h \
+    $${PWD}/OAITalkToChatbot_200_response_media_inner.h \
 # APIs
     $${PWD}/OAIDefaultApi.h \
     $${PWD}/OAIIngredientsApi.h \
@@ -327,10 +327,10 @@ SOURCES += \
     $${PWD}/OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.cpp \
     $${PWD}/OAISearchSiteContent_200_response.cpp \
     $${PWD}/OAISearchSiteContent_200_response_Articles_inner.cpp \
-    $${PWD}/OAISearchSiteContent_200_response_Grocery_Products_inner.cpp \
-    $${PWD}/OAISearchSiteContent_200_response_Grocery_Products_inner_dataPoints_inner.cpp \
+    $${PWD}/OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner.cpp \
     $${PWD}/OAISummarizeRecipe_200_response.cpp \
     $${PWD}/OAITalkToChatbot_200_response.cpp \
+    $${PWD}/OAITalkToChatbot_200_response_media_inner.cpp \
 # APIs
     $${PWD}/OAIDefaultApi.cpp \
     $${PWD}/OAIIngredientsApi.cpp \

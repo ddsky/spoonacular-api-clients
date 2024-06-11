@@ -395,7 +395,7 @@ pub async fn ingredient_search(configuration: &configuration::Configuration, que
 }
 
 /// Visualize a recipe's ingredient list.
-pub async fn ingredients_by_id_image(configuration: &configuration::Configuration, id: f32, measure: Option<&str>) -> Result<serde_json::Value, Error<IngredientsByIdImageError>> {
+pub async fn ingredients_by_id_image(configuration: &configuration::Configuration, id: f32, measure: Option<&str>) -> Result<std::path::PathBuf, Error<IngredientsByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -471,7 +471,7 @@ pub async fn map_ingredients_to_grocery_products(configuration: &configuration::
 }
 
 /// Visualize ingredients of a recipe. You can play around with that endpoint!
-pub async fn visualize_ingredients(configuration: &configuration::Configuration, content_type: Option<&str>, language: Option<&str>, accept: Option<&str>) -> Result<String, Error<VisualizeIngredientsError>> {
+pub async fn visualize_ingredients(configuration: &configuration::Configuration, ingredient_list: &str, servings: f32, language: Option<&str>, measure: Option<&str>, view: Option<&str>, default_css: Option<bool>, show_backlink: Option<bool>) -> Result<String, Error<VisualizeIngredientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -485,12 +485,6 @@ pub async fn visualize_ingredients(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(local_var_param_value) = content_type {
-        local_var_req_builder = local_var_req_builder.header("Content-Type", local_var_param_value.to_string());
-    }
-    if let Some(local_var_param_value) = accept {
-        local_var_req_builder = local_var_req_builder.header("Accept", local_var_param_value.to_string());
-    }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
@@ -499,6 +493,22 @@ pub async fn visualize_ingredients(configuration: &configuration::Configuration,
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
+    let mut local_var_form_params = std::collections::HashMap::new();
+    local_var_form_params.insert("ingredientList", ingredient_list.to_string());
+    local_var_form_params.insert("servings", servings.to_string());
+    if let Some(local_var_param_value) = measure {
+        local_var_form_params.insert("measure", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = view {
+        local_var_form_params.insert("view", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = default_css {
+        local_var_form_params.insert("defaultCss", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = show_backlink {
+        local_var_form_params.insert("showBacklink", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.form(&local_var_form_params);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

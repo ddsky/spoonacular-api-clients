@@ -170,7 +170,7 @@ generateShoppingList : String -> String -> String -> String -> Api.Request Api.D
 generateShoppingList username_path startDate_path endDate_path hash_query =
     Api.request
         "POST"
-        "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
+        "/mealplanner/{username}/shopping-list/{start_date}/{end_date}"
         [ ( "username", identity username_path ), ( "startDate", identity startDate_path ), ( "endDate", identity endDate_path ) ]
         [ ( "hash", Just <| identity hash_query ) ]
         []
@@ -212,7 +212,7 @@ getMealPlanWeek : String -> String -> String -> Api.Request Api.Data.GetMealPlan
 getMealPlanWeek username_path startDate_path hash_query =
     Api.request
         "GET"
-        "/mealplanner/{username}/week/{start-date}"
+        "/mealplanner/{username}/week/{start_date}"
         [ ( "username", identity username_path ), ( "startDate", identity startDate_path ) ]
         [ ( "hash", Just <| identity hash_query ) ]
         []

@@ -49,13 +49,13 @@ class TestGetProductInformation200Response(unittest.TestCase):
                     ''
                     ],
                 ingredient_count = 56,
-                generated_text = None,
+                generated_text = '',
                 ingredient_list = '0',
                 ingredients = [
                     spoonacular.models.get_product_information_200_response_ingredients_inner.getProductInformation_200_response_ingredients_inner(
-                        description = null, 
+                        description = '', 
                         name = '0', 
-                        safety_level = null, )
+                        safety_level = '', )
                     ],
                 likes = 1.337,
                 aisle = '0',
@@ -96,9 +96,9 @@ class TestGetProductInformation200Response(unittest.TestCase):
                 ingredient_list = '0',
                 ingredients = [
                     spoonacular.models.get_product_information_200_response_ingredients_inner.getProductInformation_200_response_ingredients_inner(
-                        description = null, 
+                        description = '', 
                         name = '0', 
-                        safety_level = null, )
+                        safety_level = '', )
                     ],
                 likes = 1.337,
                 aisle = '0',

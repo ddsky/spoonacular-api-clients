@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 # **detectFoodInText**
 ```objc
--(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) detectFoodInTextWithText: (NSString*) text
         completionHandler: (void (^)(OAIDetectFoodInText200Response* output, NSError* error)) handler;
 ```
 
@@ -37,12 +37,12 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
+NSString* text = @"text_example"; // 
 
 OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 // Detect Food in Text
-[apiInstance detectFoodInTextWithContentType:contentType
+[apiInstance detectFoodInTextWithText:text
           completionHandler: ^(OAIDetectFoodInText200Response* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -57,7 +57,7 @@ OAIMiscApi*apiInstance = [[OAIMiscApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
+ **text** | **NSString***|  | 
 
 ### Return type
 

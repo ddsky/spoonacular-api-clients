@@ -7,7 +7,7 @@
 | **id** | **Integer** |  |  |
 | **title** | **String** |  |  |
 | **average_rating** | **Float** |  |  |
-| **description** | **Object** |  | [optional] |
+| **description** | **String** |  | [optional] |
 | **image_url** | **String** |  |  |
 | **link** | **String** |  |  |
 | **price** | **String** |  |  |

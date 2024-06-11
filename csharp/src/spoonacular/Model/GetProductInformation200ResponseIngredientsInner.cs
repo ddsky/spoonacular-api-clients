@@ -43,7 +43,7 @@ namespace spoonacular.Model
         /// <param name="description">description.</param>
         /// <param name="name">name (required).</param>
         /// <param name="safetyLevel">safetyLevel.</param>
-        public GetProductInformation200ResponseIngredientsInner(Object description = default(Object), string name = default(string), Object safetyLevel = default(Object))
+        public GetProductInformation200ResponseIngredientsInner(string description = default(string), string name = default(string), string safetyLevel = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -58,8 +58,8 @@ namespace spoonacular.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public Object Description { get; set; }
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -70,8 +70,8 @@ namespace spoonacular.Model
         /// <summary>
         /// Gets or Sets SafetyLevel
         /// </summary>
-        [DataMember(Name = "safety_level", EmitDefaultValue = true)]
-        public Object SafetyLevel { get; set; }
+        [DataMember(Name = "safety_level", EmitDefaultValue = false)]
+        public string SafetyLevel { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

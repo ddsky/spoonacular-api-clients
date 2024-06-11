@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include <QJsonValue>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -55,8 +54,8 @@ public:
     bool is_average_rating_Set() const;
     bool is_average_rating_Valid() const;
 
-    QJsonValue getDescription() const;
-    void setDescription(const QJsonValue &description);
+    QString getDescription() const;
+    void setDescription(const QString &description);
     bool is_description_Set() const;
     bool is_description_Valid() const;
 
@@ -103,7 +102,7 @@ private:
     bool m_average_rating_isSet;
     bool m_average_rating_isValid;
 
-    QJsonValue m_description;
+    QString m_description;
     bool m_description_isSet;
     bool m_description_isValid;
 

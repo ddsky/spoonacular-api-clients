@@ -39,7 +39,7 @@ class TestGetWinePairing200ResponseProductMatchesInner(unittest.TestCase):
                 id = 56,
                 title = '0',
                 average_rating = 1.337,
-                description = None,
+                description = '',
                 image_url = '0',
                 link = '0',
                 price = '0',

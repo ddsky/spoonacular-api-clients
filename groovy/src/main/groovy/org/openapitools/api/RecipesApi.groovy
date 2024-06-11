@@ -61,7 +61,7 @@ class RecipesApi {
 
     }
 
-    def analyzeRecipeInstructions ( String contentType, Closure onSuccess, Closure onFailure)  {
+    def analyzeRecipeInstructions ( String instructions, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/analyzeInstructions"
 
         // params
@@ -70,13 +70,16 @@ class RecipesApi {
         def bodyParams
         def contentType
 
-
-
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
+        // verify required params are set
+        if (instructions == null) {
+            throw new RuntimeException("missing required params instructions")
         }
 
 
+
+
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = instructions
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
@@ -110,7 +113,7 @@ class RecipesApi {
 
     }
 
-    def classifyCuisine ( String contentType, Closure onSuccess, Closure onFailure)  {
+    def classifyCuisine ( String title, String ingredientList, String language, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/cuisine"
 
         // params
@@ -119,13 +122,25 @@ class RecipesApi {
         def bodyParams
         def contentType
 
+        // verify required params are set
+        if (title == null) {
+            throw new RuntimeException("missing required params title")
+        }
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
 
-
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
+        if (language != null) {
+            queryParams.put("language", language)
         }
 
 
+
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("title", title)
+        bodyParams.put("ingredientList", ingredientList)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
@@ -210,7 +225,7 @@ class RecipesApi {
 
     }
 
-    def createRecipeCard ( String contentType, Closure onSuccess, Closure onFailure)  {
+    def createRecipeCard ( String title, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, File image, String imageUrl, String author, String backgroundColor, String fontColor, String source, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizeRecipe"
 
         // params
@@ -219,13 +234,53 @@ class RecipesApi {
         def bodyParams
         def contentType
 
-
-
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
+        // verify required params are set
+        if (title == null) {
+            throw new RuntimeException("missing required params title")
+        }
+        // verify required params are set
+        if (ingredients == null) {
+            throw new RuntimeException("missing required params ingredients")
+        }
+        // verify required params are set
+        if (instructions == null) {
+            throw new RuntimeException("missing required params instructions")
+        }
+        // verify required params are set
+        if (readyInMinutes == null) {
+            throw new RuntimeException("missing required params readyInMinutes")
+        }
+        // verify required params are set
+        if (servings == null) {
+            throw new RuntimeException("missing required params servings")
+        }
+        // verify required params are set
+        if (mask == null) {
+            throw new RuntimeException("missing required params mask")
+        }
+        // verify required params are set
+        if (backgroundImage == null) {
+            throw new RuntimeException("missing required params backgroundImage")
         }
 
 
+
+
+        contentType = 'multipart/form-data';
+        bodyParams = [:]
+        bodyParams.put("title", title)
+        bodyParams.put("ingredients", ingredients)
+        bodyParams.put("instructions", instructions)
+        bodyParams.put("readyInMinutes", readyInMinutes)
+        bodyParams.put("servings", servings)
+        bodyParams.put("mask", mask)
+        bodyParams.put("backgroundImage", backgroundImage)
+        bodyParams.put("image", image)
+        bodyParams.put("imageUrl", imageUrl)
+        bodyParams.put("author", author)
+        bodyParams.put("backgroundColor", backgroundColor)
+        bodyParams.put("fontColor", fontColor)
+        bodyParams.put("source", source)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
@@ -253,7 +308,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -595,7 +650,7 @@ class RecipesApi {
 
     }
 
-    def parseIngredients ( String contentType, String language, Closure onSuccess, Closure onFailure)  {
+    def parseIngredients ( String ingredientList, BigDecimal servings, String language, Boolean includeNutrition, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/parseIngredients"
 
         // params
@@ -604,16 +659,26 @@ class RecipesApi {
         def bodyParams
         def contentType
 
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
+        // verify required params are set
+        if (servings == null) {
+            throw new RuntimeException("missing required params servings")
+        }
 
         if (language != null) {
             queryParams.put("language", language)
         }
 
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
-        }
 
 
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("ingredientList", ingredientList)
+        bodyParams.put("servings", servings)
+        bodyParams.put("includeNutrition", includeNutrition)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "set",
@@ -641,7 +706,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -692,7 +757,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -725,7 +790,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -791,7 +856,7 @@ class RecipesApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -1416,7 +1481,7 @@ class RecipesApi {
 
     }
 
-    def visualizeEquipment ( String contentType, String accept, Closure onSuccess, Closure onFailure)  {
+    def visualizeEquipment ( String instructions, String view, Boolean defaultCss, Boolean showBacklink, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizeEquipment"
 
         // params
@@ -1425,16 +1490,20 @@ class RecipesApi {
         def bodyParams
         def contentType
 
-
-
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
-        }
-        if (accept != null) {
-            headerParams.put("Accept", accept)
+        // verify required params are set
+        if (instructions == null) {
+            throw new RuntimeException("missing required params instructions")
         }
 
 
+
+
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("instructions", instructions)
+        bodyParams.put("view", view)
+        bodyParams.put("defaultCss", defaultCss)
+        bodyParams.put("showBacklink", showBacklink)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
@@ -1442,7 +1511,7 @@ class RecipesApi {
 
     }
 
-    def visualizePriceBreakdown ( String contentType, String accept, String language, Closure onSuccess, Closure onFailure)  {
+    def visualizePriceBreakdown ( String ingredientList, BigDecimal servings, String language, BigDecimal mode, Boolean defaultCss, Boolean showBacklink, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizePriceEstimator"
 
         // params
@@ -1451,19 +1520,28 @@ class RecipesApi {
         def bodyParams
         def contentType
 
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
+        // verify required params are set
+        if (servings == null) {
+            throw new RuntimeException("missing required params servings")
+        }
 
         if (language != null) {
             queryParams.put("language", language)
         }
 
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
-        }
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("ingredientList", ingredientList)
+        bodyParams.put("servings", servings)
+        bodyParams.put("mode", mode)
+        bodyParams.put("defaultCss", defaultCss)
+        bodyParams.put("showBacklink", showBacklink)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
@@ -1528,7 +1606,7 @@ class RecipesApi {
 
     }
 
-    def visualizeRecipeNutrition ( String contentType, String accept, String language, Closure onSuccess, Closure onFailure)  {
+    def visualizeRecipeNutrition ( String ingredientList, BigDecimal servings, String language, Boolean defaultCss, Boolean showBacklink, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizeNutrition"
 
         // params
@@ -1537,19 +1615,27 @@ class RecipesApi {
         def bodyParams
         def contentType
 
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
+        // verify required params are set
+        if (servings == null) {
+            throw new RuntimeException("missing required params servings")
+        }
 
         if (language != null) {
             queryParams.put("language", language)
         }
 
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
-        }
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("ingredientList", ingredientList)
+        bodyParams.put("servings", servings)
+        bodyParams.put("defaultCss", defaultCss)
+        bodyParams.put("showBacklink", showBacklink)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
@@ -1557,7 +1643,7 @@ class RecipesApi {
 
     }
 
-    def visualizeRecipeNutritionByID ( Integer id, Boolean defaultCss, String accept, Closure onSuccess, Closure onFailure)  {
+    def visualizeRecipeNutritionByID ( Integer id, Boolean defaultCss, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/${id}/nutritionWidget"
 
         // params
@@ -1575,9 +1661,6 @@ class RecipesApi {
             queryParams.put("defaultCss", defaultCss)
         }
 
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
 
@@ -1614,7 +1697,7 @@ class RecipesApi {
 
     }
 
-    def visualizeRecipeTaste ( String language, String contentType, String accept, Boolean normalize, String rgb, Closure onSuccess, Closure onFailure)  {
+    def visualizeRecipeTaste ( String ingredientList, String language, Boolean normalize, String rgb, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizeTaste"
 
         // params
@@ -1623,25 +1706,22 @@ class RecipesApi {
         def bodyParams
         def contentType
 
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
 
         if (language != null) {
             queryParams.put("language", language)
         }
-        if (normalize != null) {
-            queryParams.put("normalize", normalize)
-        }
-        if (rgb != null) {
-            queryParams.put("rgb", rgb)
-        }
-
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
-        }
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
+
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("ingredientList", ingredientList)
+        bodyParams.put("normalize", normalize)
+        bodyParams.put("rgb", rgb)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",

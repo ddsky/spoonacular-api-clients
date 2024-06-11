@@ -250,10 +250,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SearchSiteContent200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.SummarizeRecipe200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.TalkToChatbot200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.spoonacular.client.model.TalkToChatbot200ResponseMediaInner.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

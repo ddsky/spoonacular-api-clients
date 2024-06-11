@@ -70,9 +70,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Ingredients_ingredientsByIDImage(id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Ingredients_ingredientsByIDImage(id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -84,7 +84,7 @@ trait DataAccessor {
         * 
         * @return A String
         */
-        def Ingredients_visualizeIngredients(contentType: Option[String], language: Option[String], accept: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Ingredients_visualizeIngredients(ingredientList: String, servings: BigDecimal, language: Option[String], measure: Option[String], view: Option[String], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
@@ -184,15 +184,15 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def MenuItems_menuItemNutritionByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MenuItems_menuItemNutritionByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def MenuItems_menuItemNutritionLabelImage(id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def MenuItems_menuItemNutritionLabelImage(id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -210,13 +210,13 @@ trait DataAccessor {
         * 
         * @return A String
         */
-        def MenuItems_visualizeMenuItemNutritionByID(id: Int, defaultCss: Option[Boolean], accept: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def MenuItems_visualizeMenuItemNutritionByID(id: Int, defaultCss: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
         * @return A DetectFoodInText200Response
         */
-        def Misc_detectFoodInText(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,DetectFoodInText200Response] = Left(TODO)
+        def Misc_detectFoodInText(text: String, authParamapiKeyScheme: String): Either[CommonError,DetectFoodInText200Response] = Left(TODO)
 
         /**
         * 
@@ -310,15 +310,15 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Products_productNutritionByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Products_productNutritionByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Products_productNutritionLabelImage(id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Products_productNutritionLabelImage(id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -342,7 +342,7 @@ trait DataAccessor {
         * 
         * @return A String
         */
-        def Products_visualizeProductNutritionByID(id: Int, defaultCss: Option[Boolean], accept: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Products_visualizeProductNutritionByID(id: Int, defaultCss: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
@@ -354,7 +354,7 @@ trait DataAccessor {
         * 
         * @return A AnalyzeRecipeInstructions200Response
         */
-        def Recipes_analyzeRecipeInstructions(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,AnalyzeRecipeInstructions200Response] = Left(TODO)
+        def Recipes_analyzeRecipeInstructions(instructions: String, authParamapiKeyScheme: String): Either[CommonError,AnalyzeRecipeInstructions200Response] = Left(TODO)
 
         /**
         * 
@@ -366,7 +366,7 @@ trait DataAccessor {
         * 
         * @return A ClassifyCuisine200Response
         */
-        def Recipes_classifyCuisine(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,ClassifyCuisine200Response] = Left(TODO)
+        def Recipes_classifyCuisine(title: String, ingredientList: String, language: Option[String], authParamapiKeyScheme: String): Either[CommonError,ClassifyCuisine200Response] = Left(TODO)
 
         /**
         * 
@@ -384,13 +384,13 @@ trait DataAccessor {
         * 
         * @return A CreateRecipeCard200Response
         */
-        def Recipes_createRecipeCard(contentType: Option[String], authParamapiKeyScheme: String): Either[CommonError,CreateRecipeCard200Response] = Left(TODO)
+        def Recipes_createRecipeCard(title: String, ingredients: String, instructions: String, readyInMinutes: BigDecimal, servings: BigDecimal, mask: String, backgroundImage: String, image: FileUpload, imageUrl: Option[String], author: Option[String], backgroundColor: Option[String], fontColor: Option[String], source: Option[String], authParamapiKeyScheme: String): Either[CommonError,CreateRecipeCard200Response] = Left(TODO)
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Recipes_equipmentByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Recipes_equipmentByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -468,13 +468,13 @@ trait DataAccessor {
         * 
         * @return A Set[ParseIngredients200ResponseInner]
         */
-        def Recipes_parseIngredients(contentType: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,Set[ParseIngredients200ResponseInner]] = Left(TODO)
+        def Recipes_parseIngredients(ingredientList: String, servings: BigDecimal, language: Option[String], includeNutrition: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Set[ParseIngredients200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Recipes_priceBreakdownByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Recipes_priceBreakdownByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -484,15 +484,15 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Recipes_recipeNutritionByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Recipes_recipeNutritionByIDImage(id: BigDecimal, authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Recipes_recipeNutritionLabelImage(id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Recipes_recipeNutritionLabelImage(id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -502,9 +502,9 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Object
+        * @return A File
         */
-        def Recipes_recipeTasteByIDImage(id: BigDecimal, normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String): Either[CommonError,Object] = Left(TODO)
+        def Recipes_recipeTasteByIDImage(id: BigDecimal, normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String): Either[CommonError,File] = Left(TODO)
 
         /**
         * 
@@ -534,13 +534,13 @@ trait DataAccessor {
         * 
         * @return A String
         */
-        def Recipes_visualizeEquipment(contentType: Option[String], accept: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Recipes_visualizeEquipment(instructions: String, view: Option[String], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
         * @return A String
         */
-        def Recipes_visualizePriceBreakdown(contentType: Option[String], accept: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Recipes_visualizePriceBreakdown(ingredientList: String, servings: BigDecimal, language: Option[String], mode: Option[BigDecimal], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
@@ -558,13 +558,13 @@ trait DataAccessor {
         * 
         * @return A String
         */
-        def Recipes_visualizeRecipeNutrition(contentType: Option[String], accept: Option[String], language: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Recipes_visualizeRecipeNutrition(ingredientList: String, servings: BigDecimal, language: Option[String], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
         * @return A String
         */
-        def Recipes_visualizeRecipeNutritionByID(id: Int, defaultCss: Option[Boolean], accept: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Recipes_visualizeRecipeNutritionByID(id: Int, defaultCss: Option[Boolean], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 
@@ -576,7 +576,7 @@ trait DataAccessor {
         * 
         * @return A String
         */
-        def Recipes_visualizeRecipeTaste(language: Option[String], contentType: Option[String], accept: Option[String], normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
+        def Recipes_visualizeRecipeTaste(ingredientList: String, language: Option[String], normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String): Either[CommonError,String] = Left(TODO)
 
         /**
         * 

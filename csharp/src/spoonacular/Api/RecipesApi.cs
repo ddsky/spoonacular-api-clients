@@ -57,10 +57,10 @@ namespace spoonacular.Api
         /// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AnalyzeRecipeInstructions200Response</returns>
-        AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions(string? contentType = default(string?), int operationIndex = 0);
+        AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions(string instructions, int operationIndex = 0);
 
         /// <summary>
         /// Analyze Recipe Instructions
@@ -69,10 +69,10 @@ namespace spoonacular.Api
         /// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AnalyzeRecipeInstructions200Response</returns>
-        ApiResponse<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsWithHttpInfo(string? contentType = default(string?), int operationIndex = 0);
+        ApiResponse<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsWithHttpInfo(string instructions, int operationIndex = 0);
         /// <summary>
         /// Autocomplete Recipe Search
         /// </summary>
@@ -105,10 +105,12 @@ namespace spoonacular.Api
         /// Classify the recipe&#39;s cuisine.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClassifyCuisine200Response</returns>
-        ClassifyCuisine200Response ClassifyCuisine(string? contentType = default(string?), int operationIndex = 0);
+        ClassifyCuisine200Response ClassifyCuisine(string title, string ingredientList, string? language = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Classify Cuisine
@@ -117,10 +119,12 @@ namespace spoonacular.Api
         /// Classify the recipe&#39;s cuisine.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClassifyCuisine200Response</returns>
-        ApiResponse<ClassifyCuisine200Response> ClassifyCuisineWithHttpInfo(string? contentType = default(string?), int operationIndex = 0);
+        ApiResponse<ClassifyCuisine200Response> ClassifyCuisineWithHttpInfo(string title, string ingredientList, string? language = default(string?), int operationIndex = 0);
         /// <summary>
         /// Compute Glycemic Load
         /// </summary>
@@ -182,10 +186,22 @@ namespace spoonacular.Api
         /// Generate a recipe card for a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateRecipeCard200Response</returns>
-        CreateRecipeCard200Response CreateRecipeCard(string? contentType = default(string?), int operationIndex = 0);
+        CreateRecipeCard200Response CreateRecipeCard(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Recipe Card
@@ -194,10 +210,22 @@ namespace spoonacular.Api
         /// Generate a recipe card for a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateRecipeCard200Response</returns>
-        ApiResponse<CreateRecipeCard200Response> CreateRecipeCardWithHttpInfo(string? contentType = default(string?), int operationIndex = 0);
+        ApiResponse<CreateRecipeCard200Response> CreateRecipeCardWithHttpInfo(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0);
         /// <summary>
         /// Equipment by ID Image
         /// </summary>
@@ -207,8 +235,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object EquipmentByIDImage(decimal id, int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream EquipmentByIDImage(decimal id, int operationIndex = 0);
 
         /// <summary>
         /// Equipment by ID Image
@@ -219,8 +247,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> EquipmentByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> EquipmentByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
         /// <summary>
         /// Extract Recipe from Website
         /// </summary>
@@ -532,11 +560,13 @@ namespace spoonacular.Api
         /// Extract an ingredient from plain text.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        List<ParseIngredients200ResponseInner> ParseIngredients(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0);
+        List<ParseIngredients200ResponseInner> ParseIngredients(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Parse Ingredients
@@ -545,11 +575,13 @@ namespace spoonacular.Api
         /// Extract an ingredient from plain text.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        ApiResponse<List<ParseIngredients200ResponseInner>> ParseIngredientsWithHttpInfo(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0);
+        ApiResponse<List<ParseIngredients200ResponseInner>> ParseIngredientsWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Price Breakdown by ID Image
         /// </summary>
@@ -559,8 +591,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object PriceBreakdownByIDImage(decimal id, int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream PriceBreakdownByIDImage(decimal id, int operationIndex = 0);
 
         /// <summary>
         /// Price Breakdown by ID Image
@@ -571,8 +603,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> PriceBreakdownByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> PriceBreakdownByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
         /// <summary>
         /// Quick Answer
         /// </summary>
@@ -605,8 +637,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object RecipeNutritionByIDImage(decimal id, int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream RecipeNutritionByIDImage(decimal id, int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition by ID Image
@@ -617,8 +649,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> RecipeNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> RecipeNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
         /// <summary>
         /// Recipe Nutrition Label Image
         /// </summary>
@@ -631,8 +663,8 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object RecipeNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream RecipeNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition Label Image
@@ -646,8 +678,8 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> RecipeNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> RecipeNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Recipe Nutrition Label Widget
         /// </summary>
@@ -690,8 +722,8 @@ namespace spoonacular.Api
         /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object RecipeTasteByIDImage(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream RecipeTasteByIDImage(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Taste by ID Image
@@ -704,8 +736,8 @@ namespace spoonacular.Api
         /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> RecipeTasteByIDImageWithHttpInfo(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> RecipeTasteByIDImageWithHttpInfo(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
         /// <summary>
         /// Search Recipes
         /// </summary>
@@ -1157,11 +1189,13 @@ namespace spoonacular.Api
         /// Visualize the equipment used to make a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string VisualizeEquipment(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0);
+        string VisualizeEquipment(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Equipment Widget
@@ -1170,11 +1204,13 @@ namespace spoonacular.Api
         /// Visualize the equipment used to make a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> VisualizeEquipmentWithHttpInfo(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0);
+        ApiResponse<string> VisualizeEquipmentWithHttpInfo(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Price Breakdown Widget
         /// </summary>
@@ -1182,12 +1218,15 @@ namespace spoonacular.Api
         /// Visualize the price breakdown of a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string VisualizePriceBreakdown(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0);
+        string VisualizePriceBreakdown(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Price Breakdown Widget
@@ -1196,12 +1235,15 @@ namespace spoonacular.Api
         /// Visualize the price breakdown of a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> VisualizePriceBreakdownWithHttpInfo(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0);
+        ApiResponse<string> VisualizePriceBreakdownWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Equipment by ID Widget
         /// </summary>
@@ -1261,12 +1303,14 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string VisualizeRecipeNutrition(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0);
+        string VisualizeRecipeNutrition(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition Widget
@@ -1275,12 +1319,14 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> VisualizeRecipeNutritionWithHttpInfo(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0);
+        ApiResponse<string> VisualizeRecipeNutritionWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Recipe Nutrition by ID Widget
         /// </summary>
@@ -1290,10 +1336,9 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string VisualizeRecipeNutritionByID(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0);
+        string VisualizeRecipeNutritionByID(int id, bool? defaultCss = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition by ID Widget
@@ -1304,10 +1349,9 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> VisualizeRecipeNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0);
+        ApiResponse<string> VisualizeRecipeNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Price Breakdown by ID Widget
         /// </summary>
@@ -1340,14 +1384,13 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string VisualizeRecipeTaste(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
+        string VisualizeRecipeTaste(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Taste Widget
@@ -1356,14 +1399,13 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> VisualizeRecipeTasteWithHttpInfo(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
+        ApiResponse<string> VisualizeRecipeTasteWithHttpInfo(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
         /// <summary>
         /// Recipe Taste by ID Widget
         /// </summary>
@@ -1432,11 +1474,11 @@ namespace spoonacular.Api
         /// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AnalyzeRecipeInstructions200Response</returns>
-        System.Threading.Tasks.Task<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsAsync(string instructions, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Analyze Recipe Instructions
@@ -1445,11 +1487,11 @@ namespace spoonacular.Api
         /// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AnalyzeRecipeInstructions200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnalyzeRecipeInstructions200Response>> AnalyzeRecipeInstructionsWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnalyzeRecipeInstructions200Response>> AnalyzeRecipeInstructionsWithHttpInfoAsync(string instructions, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Autocomplete Recipe Search
         /// </summary>
@@ -1484,11 +1526,13 @@ namespace spoonacular.Api
         /// Classify the recipe&#39;s cuisine.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClassifyCuisine200Response</returns>
-        System.Threading.Tasks.Task<ClassifyCuisine200Response> ClassifyCuisineAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ClassifyCuisine200Response> ClassifyCuisineAsync(string title, string ingredientList, string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Classify Cuisine
@@ -1497,11 +1541,13 @@ namespace spoonacular.Api
         /// Classify the recipe&#39;s cuisine.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClassifyCuisine200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ClassifyCuisine200Response>> ClassifyCuisineWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ClassifyCuisine200Response>> ClassifyCuisineWithHttpInfoAsync(string title, string ingredientList, string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Compute Glycemic Load
         /// </summary>
@@ -1567,11 +1613,23 @@ namespace spoonacular.Api
         /// Generate a recipe card for a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateRecipeCard200Response</returns>
-        System.Threading.Tasks.Task<CreateRecipeCard200Response> CreateRecipeCardAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CreateRecipeCard200Response> CreateRecipeCardAsync(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Recipe Card
@@ -1580,11 +1638,23 @@ namespace spoonacular.Api
         /// Generate a recipe card for a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateRecipeCard200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateRecipeCard200Response>> CreateRecipeCardWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CreateRecipeCard200Response>> CreateRecipeCardWithHttpInfoAsync(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Equipment by ID Image
         /// </summary>
@@ -1595,8 +1665,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> EquipmentByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> EquipmentByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Equipment by ID Image
@@ -1608,8 +1678,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> EquipmentByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> EquipmentByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Extract Recipe from Website
         /// </summary>
@@ -1945,12 +2015,14 @@ namespace spoonacular.Api
         /// Extract an ingredient from plain text.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        System.Threading.Tasks.Task<List<ParseIngredients200ResponseInner>> ParseIngredientsAsync(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ParseIngredients200ResponseInner>> ParseIngredientsAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Parse Ingredients
@@ -1959,12 +2031,14 @@ namespace spoonacular.Api
         /// Extract an ingredient from plain text.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ParseIngredients200ResponseInner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ParseIngredients200ResponseInner>>> ParseIngredientsWithHttpInfoAsync(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ParseIngredients200ResponseInner>>> ParseIngredientsWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Price Breakdown by ID Image
         /// </summary>
@@ -1975,8 +2049,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> PriceBreakdownByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> PriceBreakdownByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Price Breakdown by ID Image
@@ -1988,8 +2062,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PriceBreakdownByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PriceBreakdownByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Quick Answer
         /// </summary>
@@ -2025,8 +2099,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> RecipeNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition by ID Image
@@ -2038,8 +2112,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RecipeNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Nutrition Label Image
         /// </summary>
@@ -2053,8 +2127,8 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> RecipeNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition Label Image
@@ -2069,8 +2143,8 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RecipeNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Nutrition Label Widget
         /// </summary>
@@ -2116,8 +2190,8 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> RecipeTasteByIDImageAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> RecipeTasteByIDImageAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Taste by ID Image
@@ -2131,8 +2205,8 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RecipeTasteByIDImageWithHttpInfoAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeTasteByIDImageWithHttpInfoAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Recipes
         /// </summary>
@@ -2592,12 +2666,14 @@ namespace spoonacular.Api
         /// Visualize the equipment used to make a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> VisualizeEquipmentAsync(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> VisualizeEquipmentAsync(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Equipment Widget
@@ -2606,12 +2682,14 @@ namespace spoonacular.Api
         /// Visualize the equipment used to make a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeEquipmentWithHttpInfoAsync(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeEquipmentWithHttpInfoAsync(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Price Breakdown Widget
         /// </summary>
@@ -2619,13 +2697,16 @@ namespace spoonacular.Api
         /// Visualize the price breakdown of a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> VisualizePriceBreakdownAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> VisualizePriceBreakdownAsync(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Price Breakdown Widget
@@ -2634,13 +2715,16 @@ namespace spoonacular.Api
         /// Visualize the price breakdown of a recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> VisualizePriceBreakdownWithHttpInfoAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> VisualizePriceBreakdownWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Equipment by ID Widget
         /// </summary>
@@ -2704,13 +2788,15 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> VisualizeRecipeNutritionAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> VisualizeRecipeNutritionAsync(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition Widget
@@ -2719,13 +2805,15 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeRecipeNutritionWithHttpInfoAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeRecipeNutritionWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Nutrition by ID Widget
         /// </summary>
@@ -2735,11 +2823,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> VisualizeRecipeNutritionByIDAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> VisualizeRecipeNutritionByIDAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition by ID Widget
@@ -2750,11 +2837,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeRecipeNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeRecipeNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Price Breakdown by ID Widget
         /// </summary>
@@ -2789,15 +2875,14 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> VisualizeRecipeTasteAsync(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> VisualizeRecipeTasteAsync(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Taste Widget
@@ -2806,15 +2891,14 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeRecipeTasteWithHttpInfoAsync(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeRecipeTasteWithHttpInfoAsync(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Taste by ID Widget
         /// </summary>
@@ -3122,12 +3206,12 @@ namespace spoonacular.Api
         /// Analyze Recipe Instructions This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AnalyzeRecipeInstructions200Response</returns>
-        public AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions(string? contentType = default(string?), int operationIndex = 0)
+        public AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions(string instructions, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response> localVarResponse = AnalyzeRecipeInstructionsWithHttpInfo(contentType);
+            spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response> localVarResponse = AnalyzeRecipeInstructionsWithHttpInfo(instructions);
             return localVarResponse.Data;
         }
 
@@ -3135,11 +3219,17 @@ namespace spoonacular.Api
         /// Analyze Recipe Instructions This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AnalyzeRecipeInstructions200Response</returns>
-        public spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsWithHttpInfo(string? contentType = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsWithHttpInfo(string instructions, int operationIndex = 0)
         {
+            // verify the required parameter 'instructions' is set
+            if (instructions == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'instructions' when calling RecipesApi->AnalyzeRecipeInstructions");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3163,10 +3253,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
-            }
+            localVarRequestOptions.FormParameters.Add("instructions", spoonacular.Client.ClientUtils.ParameterToString(instructions)); // form parameter
 
             localVarRequestOptions.Operation = "RecipesApi.AnalyzeRecipeInstructions";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3195,13 +3282,13 @@ namespace spoonacular.Api
         /// Analyze Recipe Instructions This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AnalyzeRecipeInstructions200Response</returns>
-        public async System.Threading.Tasks.Task<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnalyzeRecipeInstructions200Response> AnalyzeRecipeInstructionsAsync(string instructions, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response> localVarResponse = await AnalyzeRecipeInstructionsWithHttpInfoAsync(contentType, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response> localVarResponse = await AnalyzeRecipeInstructionsWithHttpInfoAsync(instructions, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3209,12 +3296,18 @@ namespace spoonacular.Api
         /// Analyze Recipe Instructions This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AnalyzeRecipeInstructions200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response>> AnalyzeRecipeInstructionsWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<AnalyzeRecipeInstructions200Response>> AnalyzeRecipeInstructionsWithHttpInfoAsync(string instructions, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'instructions' is set
+            if (instructions == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'instructions' when calling RecipesApi->AnalyzeRecipeInstructions");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -3239,10 +3332,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
-            }
+            localVarRequestOptions.FormParameters.Add("instructions", spoonacular.Client.ClientUtils.ParameterToString(instructions)); // form parameter
 
             localVarRequestOptions.Operation = "RecipesApi.AnalyzeRecipeInstructions";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3432,12 +3522,14 @@ namespace spoonacular.Api
         /// Classify Cuisine Classify the recipe&#39;s cuisine.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClassifyCuisine200Response</returns>
-        public ClassifyCuisine200Response ClassifyCuisine(string? contentType = default(string?), int operationIndex = 0)
+        public ClassifyCuisine200Response ClassifyCuisine(string title, string ingredientList, string? language = default(string?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<ClassifyCuisine200Response> localVarResponse = ClassifyCuisineWithHttpInfo(contentType);
+            spoonacular.Client.ApiResponse<ClassifyCuisine200Response> localVarResponse = ClassifyCuisineWithHttpInfo(title, ingredientList, language);
             return localVarResponse.Data;
         }
 
@@ -3445,11 +3537,25 @@ namespace spoonacular.Api
         /// Classify Cuisine Classify the recipe&#39;s cuisine.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClassifyCuisine200Response</returns>
-        public spoonacular.Client.ApiResponse<ClassifyCuisine200Response> ClassifyCuisineWithHttpInfo(string? contentType = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<ClassifyCuisine200Response> ClassifyCuisineWithHttpInfo(string title, string ingredientList, string? language = default(string?), int operationIndex = 0)
         {
+            // verify the required parameter 'title' is set
+            if (title == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'title' when calling RecipesApi->ClassifyCuisine");
+            }
+
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->ClassifyCuisine");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3473,10 +3579,12 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
+            if (language != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
+            localVarRequestOptions.FormParameters.Add("title", spoonacular.Client.ClientUtils.ParameterToString(title)); // form parameter
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
 
             localVarRequestOptions.Operation = "RecipesApi.ClassifyCuisine";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3505,13 +3613,15 @@ namespace spoonacular.Api
         /// Classify Cuisine Classify the recipe&#39;s cuisine.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClassifyCuisine200Response</returns>
-        public async System.Threading.Tasks.Task<ClassifyCuisine200Response> ClassifyCuisineAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClassifyCuisine200Response> ClassifyCuisineAsync(string title, string ingredientList, string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<ClassifyCuisine200Response> localVarResponse = await ClassifyCuisineWithHttpInfoAsync(contentType, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<ClassifyCuisine200Response> localVarResponse = await ClassifyCuisineWithHttpInfoAsync(title, ingredientList, language, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3519,12 +3629,26 @@ namespace spoonacular.Api
         /// Classify Cuisine Classify the recipe&#39;s cuisine.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClassifyCuisine200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<ClassifyCuisine200Response>> ClassifyCuisineWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<ClassifyCuisine200Response>> ClassifyCuisineWithHttpInfoAsync(string title, string ingredientList, string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'title' is set
+            if (title == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'title' when calling RecipesApi->ClassifyCuisine");
+            }
+
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->ClassifyCuisine");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -3549,10 +3673,12 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
+            if (language != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
+            localVarRequestOptions.FormParameters.Add("title", spoonacular.Client.ClientUtils.ParameterToString(title)); // form parameter
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
 
             localVarRequestOptions.Operation = "RecipesApi.ClassifyCuisine";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3946,12 +4072,24 @@ namespace spoonacular.Api
         /// Create Recipe Card Generate a recipe card for a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateRecipeCard200Response</returns>
-        public CreateRecipeCard200Response CreateRecipeCard(string? contentType = default(string?), int operationIndex = 0)
+        public CreateRecipeCard200Response CreateRecipeCard(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<CreateRecipeCard200Response> localVarResponse = CreateRecipeCardWithHttpInfo(contentType);
+            spoonacular.Client.ApiResponse<CreateRecipeCard200Response> localVarResponse = CreateRecipeCardWithHttpInfo(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
             return localVarResponse.Data;
         }
 
@@ -3959,11 +4097,53 @@ namespace spoonacular.Api
         /// Create Recipe Card Generate a recipe card for a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateRecipeCard200Response</returns>
-        public spoonacular.Client.ApiResponse<CreateRecipeCard200Response> CreateRecipeCardWithHttpInfo(string? contentType = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<CreateRecipeCard200Response> CreateRecipeCardWithHttpInfo(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0)
         {
+            // verify the required parameter 'title' is set
+            if (title == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'title' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'ingredients' is set
+            if (ingredients == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredients' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'instructions' is set
+            if (instructions == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'instructions' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'mask' is set
+            if (mask == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'mask' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'backgroundImage' is set
+            if (backgroundImage == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'backgroundImage' when calling RecipesApi->CreateRecipeCard");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3987,9 +4167,36 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("title", spoonacular.Client.ClientUtils.ParameterToString(title)); // form parameter
+            localVarRequestOptions.FormParameters.Add("ingredients", spoonacular.Client.ClientUtils.ParameterToString(ingredients)); // form parameter
+            localVarRequestOptions.FormParameters.Add("instructions", spoonacular.Client.ClientUtils.ParameterToString(instructions)); // form parameter
+            localVarRequestOptions.FormParameters.Add("readyInMinutes", spoonacular.Client.ClientUtils.ParameterToString(readyInMinutes)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            localVarRequestOptions.FormParameters.Add("mask", spoonacular.Client.ClientUtils.ParameterToString(mask)); // form parameter
+            localVarRequestOptions.FormParameters.Add("backgroundImage", spoonacular.Client.ClientUtils.ParameterToString(backgroundImage)); // form parameter
+            if (image != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FileParameters.Add("image", image);
+            }
+            if (imageUrl != null)
+            {
+                localVarRequestOptions.FormParameters.Add("imageUrl", spoonacular.Client.ClientUtils.ParameterToString(imageUrl)); // form parameter
+            }
+            if (author != null)
+            {
+                localVarRequestOptions.FormParameters.Add("author", spoonacular.Client.ClientUtils.ParameterToString(author)); // form parameter
+            }
+            if (backgroundColor != null)
+            {
+                localVarRequestOptions.FormParameters.Add("backgroundColor", spoonacular.Client.ClientUtils.ParameterToString(backgroundColor)); // form parameter
+            }
+            if (fontColor != null)
+            {
+                localVarRequestOptions.FormParameters.Add("fontColor", spoonacular.Client.ClientUtils.ParameterToString(fontColor)); // form parameter
+            }
+            if (source != null)
+            {
+                localVarRequestOptions.FormParameters.Add("source", spoonacular.Client.ClientUtils.ParameterToString(source)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.CreateRecipeCard";
@@ -4019,13 +4226,25 @@ namespace spoonacular.Api
         /// Create Recipe Card Generate a recipe card for a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateRecipeCard200Response</returns>
-        public async System.Threading.Tasks.Task<CreateRecipeCard200Response> CreateRecipeCardAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CreateRecipeCard200Response> CreateRecipeCardAsync(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<CreateRecipeCard200Response> localVarResponse = await CreateRecipeCardWithHttpInfoAsync(contentType, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<CreateRecipeCard200Response> localVarResponse = await CreateRecipeCardWithHttpInfoAsync(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4033,12 +4252,54 @@ namespace spoonacular.Api
         /// Create Recipe Card Generate a recipe card for a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="title">The title of the recipe.</param>
+        /// <param name="ingredients">The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).</param>
+        /// <param name="instructions">The instructions to make the recipe. One step per line (separate lines with \\\\n).</param>
+        /// <param name="readyInMinutes">The number of minutes it takes to get the recipe on the table.</param>
+        /// <param name="servings">The number of servings the recipe makes.</param>
+        /// <param name="mask">The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).</param>
+        /// <param name="backgroundImage">The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).</param>
+        /// <param name="image">The binary image of the recipe as jpg. (optional)</param>
+        /// <param name="imageUrl">If you do not sent a binary image you can also pass the image URL. (optional)</param>
+        /// <param name="author">The author of the recipe. (optional)</param>
+        /// <param name="backgroundColor">The background color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
+        /// <param name="source">The source of the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateRecipeCard200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<CreateRecipeCard200Response>> CreateRecipeCardWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<CreateRecipeCard200Response>> CreateRecipeCardWithHttpInfoAsync(string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = default(System.IO.Stream?), string? imageUrl = default(string?), string? author = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), string? source = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'title' is set
+            if (title == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'title' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'ingredients' is set
+            if (ingredients == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredients' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'instructions' is set
+            if (instructions == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'instructions' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'mask' is set
+            if (mask == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'mask' when calling RecipesApi->CreateRecipeCard");
+            }
+
+            // verify the required parameter 'backgroundImage' is set
+            if (backgroundImage == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'backgroundImage' when calling RecipesApi->CreateRecipeCard");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -4063,9 +4324,36 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("title", spoonacular.Client.ClientUtils.ParameterToString(title)); // form parameter
+            localVarRequestOptions.FormParameters.Add("ingredients", spoonacular.Client.ClientUtils.ParameterToString(ingredients)); // form parameter
+            localVarRequestOptions.FormParameters.Add("instructions", spoonacular.Client.ClientUtils.ParameterToString(instructions)); // form parameter
+            localVarRequestOptions.FormParameters.Add("readyInMinutes", spoonacular.Client.ClientUtils.ParameterToString(readyInMinutes)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            localVarRequestOptions.FormParameters.Add("mask", spoonacular.Client.ClientUtils.ParameterToString(mask)); // form parameter
+            localVarRequestOptions.FormParameters.Add("backgroundImage", spoonacular.Client.ClientUtils.ParameterToString(backgroundImage)); // form parameter
+            if (image != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FileParameters.Add("image", image);
+            }
+            if (imageUrl != null)
+            {
+                localVarRequestOptions.FormParameters.Add("imageUrl", spoonacular.Client.ClientUtils.ParameterToString(imageUrl)); // form parameter
+            }
+            if (author != null)
+            {
+                localVarRequestOptions.FormParameters.Add("author", spoonacular.Client.ClientUtils.ParameterToString(author)); // form parameter
+            }
+            if (backgroundColor != null)
+            {
+                localVarRequestOptions.FormParameters.Add("backgroundColor", spoonacular.Client.ClientUtils.ParameterToString(backgroundColor)); // form parameter
+            }
+            if (fontColor != null)
+            {
+                localVarRequestOptions.FormParameters.Add("fontColor", spoonacular.Client.ClientUtils.ParameterToString(fontColor)); // form parameter
+            }
+            if (source != null)
+            {
+                localVarRequestOptions.FormParameters.Add("source", spoonacular.Client.ClientUtils.ParameterToString(source)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.CreateRecipeCard";
@@ -4098,10 +4386,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object EquipmentByIDImage(decimal id, int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream EquipmentByIDImage(decimal id, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = EquipmentByIDImageWithHttpInfo(id);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = EquipmentByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -4111,8 +4399,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> EquipmentByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> EquipmentByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -4148,7 +4436,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/recipes/{id}/equipmentWidget.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/recipes/{id}/equipmentWidget.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EquipmentByIDImage", localVarResponse);
@@ -4168,10 +4456,10 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> EquipmentByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> EquipmentByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await EquipmentByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await EquipmentByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4182,8 +4470,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> EquipmentByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> EquipmentByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -4220,7 +4508,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/recipes/{id}/equipmentWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/recipes/{id}/equipmentWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6152,13 +6440,15 @@ namespace spoonacular.Api
         /// Parse Ingredients Extract an ingredient from plain text.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        public List<ParseIngredients200ResponseInner> ParseIngredients(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0)
+        public List<ParseIngredients200ResponseInner> ParseIngredients(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> localVarResponse = ParseIngredientsWithHttpInfo(contentType, language);
+            spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> localVarResponse = ParseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
             return localVarResponse.Data;
         }
 
@@ -6166,12 +6456,20 @@ namespace spoonacular.Api
         /// Parse Ingredients Extract an ingredient from plain text.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        public spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> ParseIngredientsWithHttpInfo(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> ParseIngredientsWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0)
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->ParseIngredients");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -6199,9 +6497,11 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            if (includeNutrition != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("includeNutrition", spoonacular.Client.ClientUtils.ParameterToString(includeNutrition)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.ParseIngredients";
@@ -6231,14 +6531,16 @@ namespace spoonacular.Api
         /// Parse Ingredients Extract an ingredient from plain text.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ParseIngredients200ResponseInner>> ParseIngredientsAsync(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ParseIngredients200ResponseInner>> ParseIngredientsAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> localVarResponse = await ParseIngredientsWithHttpInfoAsync(contentType, language, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> localVarResponse = await ParseIngredientsWithHttpInfoAsync(ingredientList, servings, language, includeNutrition, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6246,13 +6548,21 @@ namespace spoonacular.Api
         /// Parse Ingredients Extract an ingredient from plain text.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="includeNutrition"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ParseIngredients200ResponseInner&gt;)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>>> ParseIngredientsWithHttpInfoAsync(string? contentType = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>>> ParseIngredientsWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->ParseIngredients");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -6281,9 +6591,11 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            if (includeNutrition != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("includeNutrition", spoonacular.Client.ClientUtils.ParameterToString(includeNutrition)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.ParseIngredients";
@@ -6316,10 +6628,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object PriceBreakdownByIDImage(decimal id, int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream PriceBreakdownByIDImage(decimal id, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = PriceBreakdownByIDImageWithHttpInfo(id);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = PriceBreakdownByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -6329,8 +6641,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> PriceBreakdownByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> PriceBreakdownByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -6366,7 +6678,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/recipes/{id}/priceBreakdownWidget.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/recipes/{id}/priceBreakdownWidget.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PriceBreakdownByIDImage", localVarResponse);
@@ -6386,10 +6698,10 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> PriceBreakdownByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> PriceBreakdownByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await PriceBreakdownByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await PriceBreakdownByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6400,8 +6712,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> PriceBreakdownByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> PriceBreakdownByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -6438,7 +6750,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/recipes/{id}/priceBreakdownWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/recipes/{id}/priceBreakdownWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6612,10 +6924,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object RecipeNutritionByIDImage(decimal id, int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream RecipeNutritionByIDImage(decimal id, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = RecipeNutritionByIDImageWithHttpInfo(id);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = RecipeNutritionByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -6625,8 +6937,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> RecipeNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -6662,7 +6974,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/recipes/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/recipes/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RecipeNutritionByIDImage", localVarResponse);
@@ -6682,10 +6994,10 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> RecipeNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await RecipeNutritionByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await RecipeNutritionByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6696,8 +7008,8 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> RecipeNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -6734,7 +7046,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/recipes/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/recipes/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6757,10 +7069,10 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object RecipeNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream RecipeNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = RecipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = RecipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
             return localVarResponse.Data;
         }
 
@@ -6773,8 +7085,8 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> RecipeNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -6822,7 +7134,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/recipes/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/recipes/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RecipeNutritionLabelImage", localVarResponse);
@@ -6845,10 +7157,10 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> RecipeNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await RecipeNutritionLabelImageWithHttpInfoAsync(id, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await RecipeNutritionLabelImageWithHttpInfoAsync(id, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6862,8 +7174,8 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> RecipeNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -6912,7 +7224,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/recipes/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/recipes/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7124,10 +7436,10 @@ namespace spoonacular.Api
         /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object RecipeTasteByIDImage(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream RecipeTasteByIDImage(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = RecipeTasteByIDImageWithHttpInfo(id, normalize, rgb);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = RecipeTasteByIDImageWithHttpInfo(id, normalize, rgb);
             return localVarResponse.Data;
         }
 
@@ -7139,8 +7451,8 @@ namespace spoonacular.Api
         /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> RecipeTasteByIDImageWithHttpInfo(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeTasteByIDImageWithHttpInfo(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -7184,7 +7496,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/recipes/{id}/tasteWidget.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/recipes/{id}/tasteWidget.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RecipeTasteByIDImage", localVarResponse);
@@ -7206,10 +7518,10 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> RecipeTasteByIDImageAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeTasteByIDImageAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await RecipeTasteByIDImageWithHttpInfoAsync(id, normalize, rgb, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await RecipeTasteByIDImageWithHttpInfoAsync(id, normalize, rgb, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7222,8 +7534,8 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> RecipeTasteByIDImageWithHttpInfoAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeTasteByIDImageWithHttpInfoAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -7268,7 +7580,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/recipes/{id}/tasteWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/recipes/{id}/tasteWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -9984,13 +10296,15 @@ namespace spoonacular.Api
         /// Equipment Widget Visualize the equipment used to make a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string VisualizeEquipment(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0)
+        public string VisualizeEquipment(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeEquipmentWithHttpInfo(contentType, accept);
+            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeEquipmentWithHttpInfo(instructions, view, defaultCss, showBacklink);
             return localVarResponse.Data;
         }
 
@@ -9998,12 +10312,20 @@ namespace spoonacular.Api
         /// Equipment Widget Visualize the equipment used to make a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> VisualizeEquipmentWithHttpInfo(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> VisualizeEquipmentWithHttpInfo(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0)
         {
+            // verify the required parameter 'instructions' is set
+            if (instructions == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'instructions' when calling RecipesApi->VisualizeEquipment");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -10027,13 +10349,18 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("instructions", spoonacular.Client.ClientUtils.ParameterToString(instructions)); // form parameter
+            if (view != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("view", spoonacular.Client.ClientUtils.ParameterToString(view)); // form parameter
             }
-            if (accept != null)
+            if (defaultCss != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("defaultCss", spoonacular.Client.ClientUtils.ParameterToString(defaultCss)); // form parameter
+            }
+            if (showBacklink != null)
+            {
+                localVarRequestOptions.FormParameters.Add("showBacklink", spoonacular.Client.ClientUtils.ParameterToString(showBacklink)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeEquipment";
@@ -10063,14 +10390,16 @@ namespace spoonacular.Api
         /// Equipment Widget Visualize the equipment used to make a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> VisualizeEquipmentAsync(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> VisualizeEquipmentAsync(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeEquipmentWithHttpInfoAsync(contentType, accept, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeEquipmentWithHttpInfoAsync(instructions, view, defaultCss, showBacklink, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10078,13 +10407,21 @@ namespace spoonacular.Api
         /// Equipment Widget Visualize the equipment used to make a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="instructions">The recipe&#39;s instructions.</param>
+        /// <param name="view">How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeEquipmentWithHttpInfoAsync(string? contentType = default(string?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeEquipmentWithHttpInfoAsync(string instructions, string? view = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'instructions' is set
+            if (instructions == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'instructions' when calling RecipesApi->VisualizeEquipment");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -10109,13 +10446,18 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("instructions", spoonacular.Client.ClientUtils.ParameterToString(instructions)); // form parameter
+            if (view != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("view", spoonacular.Client.ClientUtils.ParameterToString(view)); // form parameter
             }
-            if (accept != null)
+            if (defaultCss != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("defaultCss", spoonacular.Client.ClientUtils.ParameterToString(defaultCss)); // form parameter
+            }
+            if (showBacklink != null)
+            {
+                localVarRequestOptions.FormParameters.Add("showBacklink", spoonacular.Client.ClientUtils.ParameterToString(showBacklink)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeEquipment";
@@ -10146,14 +10488,17 @@ namespace spoonacular.Api
         /// Price Breakdown Widget Visualize the price breakdown of a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string VisualizePriceBreakdown(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0)
+        public string VisualizePriceBreakdown(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizePriceBreakdownWithHttpInfo(contentType, accept, language);
+            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizePriceBreakdownWithHttpInfo(ingredientList, servings, language, mode, defaultCss, showBacklink);
             return localVarResponse.Data;
         }
 
@@ -10161,13 +10506,22 @@ namespace spoonacular.Api
         /// Price Breakdown Widget Visualize the price breakdown of a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> VisualizePriceBreakdownWithHttpInfo(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> VisualizePriceBreakdownWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0)
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->VisualizePriceBreakdown");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -10195,13 +10549,19 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            if (mode != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("mode", spoonacular.Client.ClientUtils.ParameterToString(mode)); // form parameter
             }
-            if (accept != null)
+            if (defaultCss != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("defaultCss", spoonacular.Client.ClientUtils.ParameterToString(defaultCss)); // form parameter
+            }
+            if (showBacklink != null)
+            {
+                localVarRequestOptions.FormParameters.Add("showBacklink", spoonacular.Client.ClientUtils.ParameterToString(showBacklink)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizePriceBreakdown";
@@ -10231,15 +10591,18 @@ namespace spoonacular.Api
         /// Price Breakdown Widget Visualize the price breakdown of a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> VisualizePriceBreakdownAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> VisualizePriceBreakdownAsync(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizePriceBreakdownWithHttpInfoAsync(contentType, accept, language, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizePriceBreakdownWithHttpInfoAsync(ingredientList, servings, language, mode, defaultCss, showBacklink, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10247,14 +10610,23 @@ namespace spoonacular.Api
         /// Price Breakdown Widget Visualize the price breakdown of a recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="mode">The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizePriceBreakdownWithHttpInfoAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizePriceBreakdownWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), decimal? mode = default(decimal?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->VisualizePriceBreakdown");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -10283,13 +10655,19 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            if (mode != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("mode", spoonacular.Client.ClientUtils.ParameterToString(mode)); // form parameter
             }
-            if (accept != null)
+            if (defaultCss != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("defaultCss", spoonacular.Client.ClientUtils.ParameterToString(defaultCss)); // form parameter
+            }
+            if (showBacklink != null)
+            {
+                localVarRequestOptions.FormParameters.Add("showBacklink", spoonacular.Client.ClientUtils.ParameterToString(showBacklink)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizePriceBreakdown";
@@ -10640,14 +11018,16 @@ namespace spoonacular.Api
         /// Recipe Nutrition Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string VisualizeRecipeNutrition(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0)
+        public string VisualizeRecipeNutrition(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeRecipeNutritionWithHttpInfo(contentType, accept, language);
+            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeRecipeNutritionWithHttpInfo(ingredientList, servings, language, defaultCss, showBacklink);
             return localVarResponse.Data;
         }
 
@@ -10655,13 +11035,21 @@ namespace spoonacular.Api
         /// Recipe Nutrition Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> VisualizeRecipeNutritionWithHttpInfo(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> VisualizeRecipeNutritionWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0)
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->VisualizeRecipeNutrition");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -10689,13 +11077,15 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            if (defaultCss != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("defaultCss", spoonacular.Client.ClientUtils.ParameterToString(defaultCss)); // form parameter
             }
-            if (accept != null)
+            if (showBacklink != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("showBacklink", spoonacular.Client.ClientUtils.ParameterToString(showBacklink)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeRecipeNutrition";
@@ -10725,15 +11115,17 @@ namespace spoonacular.Api
         /// Recipe Nutrition Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> VisualizeRecipeNutritionAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> VisualizeRecipeNutritionAsync(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeRecipeNutritionWithHttpInfoAsync(contentType, accept, language, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeRecipeNutritionWithHttpInfoAsync(ingredientList, servings, language, defaultCss, showBacklink, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10741,14 +11133,22 @@ namespace spoonacular.Api
         /// Recipe Nutrition Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
+        /// <param name="servings">The number of servings.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
+        /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional)</param>
+        /// <param name="showBacklink">Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeRecipeNutritionWithHttpInfoAsync(string? contentType = default(string?), string? accept = default(string?), string? language = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeRecipeNutritionWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? defaultCss = default(bool?), bool? showBacklink = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->VisualizeRecipeNutrition");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -10777,13 +11177,15 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
-            if (contentType != null)
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
+            localVarRequestOptions.FormParameters.Add("servings", spoonacular.Client.ClientUtils.ParameterToString(servings)); // form parameter
+            if (defaultCss != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
+                localVarRequestOptions.FormParameters.Add("defaultCss", spoonacular.Client.ClientUtils.ParameterToString(defaultCss)); // form parameter
             }
-            if (accept != null)
+            if (showBacklink != null)
             {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("showBacklink", spoonacular.Client.ClientUtils.ParameterToString(showBacklink)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeRecipeNutrition";
@@ -10816,12 +11218,11 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string VisualizeRecipeNutritionByID(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0)
+        public string VisualizeRecipeNutritionByID(int id, bool? defaultCss = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss, accept);
+            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss);
             return localVarResponse.Data;
         }
 
@@ -10831,10 +11232,9 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> VisualizeRecipeNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> VisualizeRecipeNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -10862,10 +11262,6 @@ namespace spoonacular.Api
             if (defaultCss != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "defaultCss", defaultCss));
-            }
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeRecipeNutritionByID";
@@ -10897,13 +11293,12 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> VisualizeRecipeNutritionByIDAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> VisualizeRecipeNutritionByIDAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeRecipeNutritionByIDWithHttpInfoAsync(id, defaultCss, accept, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeRecipeNutritionByIDWithHttpInfoAsync(id, defaultCss, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10913,11 +11308,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeRecipeNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeRecipeNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -10946,10 +11340,6 @@ namespace spoonacular.Api
             if (defaultCss != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "defaultCss", defaultCss));
-            }
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeRecipeNutritionByID";
@@ -11134,16 +11524,15 @@ namespace spoonacular.Api
         /// Recipe Taste Widget Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string VisualizeRecipeTaste(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
+        public string VisualizeRecipeTaste(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeRecipeTasteWithHttpInfo(language, contentType, accept, normalize, rgb);
+            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeRecipeTasteWithHttpInfo(ingredientList, language, normalize, rgb);
             return localVarResponse.Data;
         }
 
@@ -11151,15 +11540,20 @@ namespace spoonacular.Api
         /// Recipe Taste Widget Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> VisualizeRecipeTasteWithHttpInfo(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> VisualizeRecipeTasteWithHttpInfo(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->VisualizeRecipeTaste");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -11187,21 +11581,14 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
             if (normalize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "normalize", normalize));
+                localVarRequestOptions.FormParameters.Add("normalize", spoonacular.Client.ClientUtils.ParameterToString(normalize)); // form parameter
             }
             if (rgb != null)
             {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "rgb", rgb));
-            }
-            if (contentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
-            }
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("rgb", spoonacular.Client.ClientUtils.ParameterToString(rgb)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeRecipeTaste";
@@ -11231,17 +11618,16 @@ namespace spoonacular.Api
         /// Recipe Taste Widget Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> VisualizeRecipeTasteAsync(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> VisualizeRecipeTasteAsync(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeRecipeTasteWithHttpInfoAsync(language, contentType, accept, normalize, rgb, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeRecipeTasteWithHttpInfoAsync(ingredientList, language, normalize, rgb, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -11249,16 +11635,21 @@ namespace spoonacular.Api
         /// Recipe Taste Widget Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="contentType">The content type. (optional)</param>
-        /// <param name="accept">Accept header. (optional)</param>
-        /// <param name="normalize">Whether to normalize to the strongest taste. (optional)</param>
+        /// <param name="normalize">Normalize to the strongest taste. (optional)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeRecipeTasteWithHttpInfoAsync(string? language = default(string?), string? contentType = default(string?), string? accept = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeRecipeTasteWithHttpInfoAsync(string ingredientList, string? language = default(string?), bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ingredientList' is set
+            if (ingredientList == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredientList' when calling RecipesApi->VisualizeRecipeTaste");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -11287,21 +11678,14 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
+            localVarRequestOptions.FormParameters.Add("ingredientList", spoonacular.Client.ClientUtils.ParameterToString(ingredientList)); // form parameter
             if (normalize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "normalize", normalize));
+                localVarRequestOptions.FormParameters.Add("normalize", spoonacular.Client.ClientUtils.ParameterToString(normalize)); // form parameter
             }
             if (rgb != null)
             {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "rgb", rgb));
-            }
-            if (contentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
-            }
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
+                localVarRequestOptions.FormParameters.Add("rgb", spoonacular.Client.ClientUtils.ParameterToString(rgb)); // form parameter
             }
 
             localVarRequestOptions.Operation = "RecipesApi.VisualizeRecipeTaste";

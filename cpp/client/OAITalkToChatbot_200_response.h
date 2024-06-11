@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include <QJsonValue>
+#include "OAITalkToChatbot_200_response_media_inner.h"
 #include <QList>
 #include <QString>
 
@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAITalkToChatbot_200_response_media_inner;
 
 class OAITalkToChatbot_200_response : public OAIObject {
 public:
@@ -46,8 +47,8 @@ public:
     bool is_answer_text_Set() const;
     bool is_answer_text_Valid() const;
 
-    QList<QJsonValue> getMedia() const;
-    void setMedia(const QList<QJsonValue> &media);
+    QList<OAITalkToChatbot_200_response_media_inner> getMedia() const;
+    void setMedia(const QList<OAITalkToChatbot_200_response_media_inner> &media);
     bool is_media_Set() const;
     bool is_media_Valid() const;
 
@@ -61,7 +62,7 @@ private:
     bool m_answer_text_isSet;
     bool m_answer_text_isValid;
 
-    QList<QJsonValue> m_media;
+    QList<OAITalkToChatbot_200_response_media_inner> m_media;
     bool m_media_isSet;
     bool m_media_isValid;
 };

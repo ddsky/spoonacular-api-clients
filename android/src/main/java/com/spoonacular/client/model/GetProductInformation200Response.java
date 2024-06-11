@@ -13,7 +13,6 @@
 package com.spoonacular.client.model;
 
 import com.spoonacular.client.model.GetProductInformation200ResponseIngredientsInner;
-import com.spoonacular.client.model.OasAnyTypeNotMapped;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings;
 import java.math.BigDecimal;
@@ -42,7 +41,7 @@ public class GetProductInformation200Response {
   @SerializedName("ingredientCount")
   private Integer ingredientCount = null;
   @SerializedName("generatedText")
-  private OasAnyTypeNotMapped generatedText = null;
+  private String generatedText = null;
   @SerializedName("ingredientList")
   private String ingredientList = null;
   @SerializedName("ingredients")
@@ -133,10 +132,10 @@ public class GetProductInformation200Response {
   /**
    **/
   @ApiModelProperty(value = "")
-  public OasAnyTypeNotMapped getGeneratedText() {
+  public String getGeneratedText() {
     return generatedText;
   }
-  public void setGeneratedText(OasAnyTypeNotMapped generatedText) {
+  public void setGeneratedText(String generatedText) {
     this.generatedText = generatedText;
   }
 

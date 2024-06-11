@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **Object** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 |**name** | **String** |  |  |
-|**safetyLevel** | **Object** |  |  [optional] |
+|**safetyLevel** | **String** |  |  [optional] |
 
 
 

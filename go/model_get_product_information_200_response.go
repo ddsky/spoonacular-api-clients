@@ -29,7 +29,7 @@ type GetProductInformation200Response struct {
 	Badges []string `json:"badges"`
 	ImportantBadges []string `json:"importantBadges"`
 	IngredientCount int32 `json:"ingredientCount"`
-	GeneratedText interface{} `json:"generatedText,omitempty"`
+	GeneratedText *string `json:"generatedText,omitempty"`
 	IngredientList string `json:"ingredientList"`
 	Ingredients []GetProductInformation200ResponseIngredientsInner `json:"ingredients"`
 	Likes float32 `json:"likes"`
@@ -242,37 +242,36 @@ func (o *GetProductInformation200Response) SetIngredientCount(v int32) {
 	o.IngredientCount = v
 }
 
-// GetGeneratedText returns the GeneratedText field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetProductInformation200Response) GetGeneratedText() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetGeneratedText returns the GeneratedText field value if set, zero value otherwise.
+func (o *GetProductInformation200Response) GetGeneratedText() string {
+	if o == nil || IsNil(o.GeneratedText) {
+		var ret string
 		return ret
 	}
-	return o.GeneratedText
+	return *o.GeneratedText
 }
 
 // GetGeneratedTextOk returns a tuple with the GeneratedText field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetProductInformation200Response) GetGeneratedTextOk() (*interface{}, bool) {
+func (o *GetProductInformation200Response) GetGeneratedTextOk() (*string, bool) {
 	if o == nil || IsNil(o.GeneratedText) {
 		return nil, false
 	}
-	return &o.GeneratedText, true
+	return o.GeneratedText, true
 }
 
 // HasGeneratedText returns a boolean if a field has been set.
 func (o *GetProductInformation200Response) HasGeneratedText() bool {
-	if o != nil && IsNil(o.GeneratedText) {
+	if o != nil && !IsNil(o.GeneratedText) {
 		return true
 	}
 
 	return false
 }
 
-// SetGeneratedText gets a reference to the given interface{} and assigns it to the GeneratedText field.
-func (o *GetProductInformation200Response) SetGeneratedText(v interface{}) {
-	o.GeneratedText = v
+// SetGeneratedText gets a reference to the given string and assigns it to the GeneratedText field.
+func (o *GetProductInformation200Response) SetGeneratedText(v string) {
+	o.GeneratedText = &v
 }
 
 // GetIngredientList returns the IngredientList field value
@@ -484,7 +483,7 @@ func (o GetProductInformation200Response) ToMap() (map[string]interface{}, error
 	toSerialize["badges"] = o.Badges
 	toSerialize["importantBadges"] = o.ImportantBadges
 	toSerialize["ingredientCount"] = o.IngredientCount
-	if o.GeneratedText != nil {
+	if !IsNil(o.GeneratedText) {
 		toSerialize["generatedText"] = o.GeneratedText
 	}
 	toSerialize["ingredientList"] = o.IngredientList

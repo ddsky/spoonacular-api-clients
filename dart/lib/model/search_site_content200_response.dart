@@ -21,11 +21,11 @@ class SearchSiteContent200Response {
 
   Set<SearchSiteContent200ResponseArticlesInner> articles;
 
-  Set<SearchSiteContent200ResponseGroceryProductsInner> groceryProducts;
+  Set<SearchSiteContent200ResponseArticlesInner> groceryProducts;
 
-  Set<SearchSiteContent200ResponseGroceryProductsInner> menuItems;
+  Set<SearchSiteContent200ResponseArticlesInner> menuItems;
 
-  Set<SearchSiteContent200ResponseGroceryProductsInner> recipes;
+  Set<SearchSiteContent200ResponseArticlesInner> recipes;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchSiteContent200Response &&
@@ -74,9 +74,9 @@ class SearchSiteContent200Response {
 
       return SearchSiteContent200Response(
         articles: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Articles']).toSet(),
-        groceryProducts: SearchSiteContent200ResponseGroceryProductsInner.listFromJson(json[r'Grocery Products']).toSet(),
-        menuItems: SearchSiteContent200ResponseGroceryProductsInner.listFromJson(json[r'Menu Items']).toSet(),
-        recipes: SearchSiteContent200ResponseGroceryProductsInner.listFromJson(json[r'Recipes']).toSet(),
+        groceryProducts: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Grocery Products']).toSet(),
+        menuItems: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Menu Items']).toSet(),
+        recipes: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Recipes']).toSet(),
       );
     }
     return null;

@@ -396,10 +396,10 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLoca
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner;
+use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
+use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
 
 ````
 
@@ -571,10 +571,10 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLoca
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner;
+use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
+use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -629,10 +629,10 @@ Class | Method | HTTP request | Description
 *MealPlanningApi* | [**delete_from_shopping_list**](docs/MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *MealPlanningApi* | [**delete_meal_plan_template**](docs/MealPlanningApi.md#delete_meal_plan_template) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *MealPlanningApi* | [**generate_meal_plan**](docs/MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
-*MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *MealPlanningApi* | [**get_meal_plan_template**](docs/MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *MealPlanningApi* | [**get_meal_plan_templates**](docs/MealPlanningApi.md#get_meal_plan_templates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*MealPlanningApi* | [**get_meal_plan_week**](docs/MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*MealPlanningApi* | [**get_meal_plan_week**](docs/MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *MealPlanningApi* | [**get_shopping_list**](docs/MealPlanningApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *MenuItemsApi* | [**autocomplete_menu_item_search**](docs/MenuItemsApi.md#autocomplete_menu_item_search) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *MenuItemsApi* | [**get_menu_item_information**](docs/MenuItemsApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -860,10 +860,10 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [WWW::OpenAPIClient::Object::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [WWW::OpenAPIClient::Object::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

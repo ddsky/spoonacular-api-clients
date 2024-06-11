@@ -657,12 +657,8 @@ public class JsonUtil {
       return new TypeToken<List<SearchSiteContent200ResponseArticlesInner>>(){}.getType();
     }
     
-    if ("SearchSiteContent200ResponseGroceryProductsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<SearchSiteContent200ResponseGroceryProductsInner>>(){}.getType();
-    }
-    
-    if ("SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner>>(){}.getType();
+    if ("SearchSiteContent200ResponseArticlesInnerDataPointsInner".equalsIgnoreCase(className)) {
+      return new TypeToken<List<SearchSiteContent200ResponseArticlesInnerDataPointsInner>>(){}.getType();
     }
     
     if ("SummarizeRecipe200Response".equalsIgnoreCase(className)) {
@@ -671,6 +667,10 @@ public class JsonUtil {
     
     if ("TalkToChatbot200Response".equalsIgnoreCase(className)) {
       return new TypeToken<List<TalkToChatbot200Response>>(){}.getType();
+    }
+    
+    if ("TalkToChatbot200ResponseMediaInner".equalsIgnoreCase(className)) {
+      return new TypeToken<List<TalkToChatbot200ResponseMediaInner>>(){}.getType();
     }
     
     return new TypeToken<List<Object>>(){}.getType();
@@ -1279,12 +1279,8 @@ public class JsonUtil {
       return new TypeToken<SearchSiteContent200ResponseArticlesInner>(){}.getType();
     }
     
-    if ("SearchSiteContent200ResponseGroceryProductsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<SearchSiteContent200ResponseGroceryProductsInner>(){}.getType();
-    }
-    
-    if ("SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner>(){}.getType();
+    if ("SearchSiteContent200ResponseArticlesInnerDataPointsInner".equalsIgnoreCase(className)) {
+      return new TypeToken<SearchSiteContent200ResponseArticlesInnerDataPointsInner>(){}.getType();
     }
     
     if ("SummarizeRecipe200Response".equalsIgnoreCase(className)) {
@@ -1293,6 +1289,10 @@ public class JsonUtil {
     
     if ("TalkToChatbot200Response".equalsIgnoreCase(className)) {
       return new TypeToken<TalkToChatbot200Response>(){}.getType();
+    }
+    
+    if ("TalkToChatbot200ResponseMediaInner".equalsIgnoreCase(className)) {
+      return new TypeToken<TalkToChatbot200ResponseMediaInner>(){}.getType();
     }
     
     return new TypeToken<Object>(){}.getType();

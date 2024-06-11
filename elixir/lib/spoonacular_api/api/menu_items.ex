@@ -94,10 +94,10 @@ defmodule SpoonacularAPI.Api.MenuItems do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec menu_item_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec menu_item_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def menu_item_nutrition_by_id_image(connection, id, _opts \\ []) do
     request =
       %{}
@@ -108,7 +108,7 @@ defmodule SpoonacularAPI.Api.MenuItems do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -130,10 +130,10 @@ defmodule SpoonacularAPI.Api.MenuItems do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec menu_item_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec menu_item_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def menu_item_nutrition_label_image(connection, id, opts \\ []) do
     optional_params = %{
       :showOptionalNutrients => :query,
@@ -151,7 +151,7 @@ defmodule SpoonacularAPI.Api.MenuItems do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -273,7 +273,6 @@ defmodule SpoonacularAPI.Api.MenuItems do
   - `id` (integer()): The item's id.
   - `opts` (keyword): Optional parameters
     - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
-    - `:Accept` (String.t): Accept header.
 
   ### Returns
 
@@ -283,8 +282,7 @@ defmodule SpoonacularAPI.Api.MenuItems do
   @spec visualize_menu_item_nutrition_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def visualize_menu_item_nutrition_by_id(connection, id, opts \\ []) do
     optional_params = %{
-      :defaultCss => :query,
-      :Accept => :headers
+      :defaultCss => :query
     }
 
     request =

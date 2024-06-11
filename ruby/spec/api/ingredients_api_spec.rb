@@ -133,7 +133,7 @@ describe 'IngredientsApi' do
   # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
-  # @return [Object]
+  # @return [File]
   describe 'ingredients_by_id_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -155,10 +155,14 @@ describe 'IngredientsApi' do
   # unit tests for visualize_ingredients
   # Ingredients Widget
   # Visualize ingredients of a recipe. You can play around with that endpoint!
+  # @param ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  # @param servings The number of servings.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
   # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-  # @option opts [String] :accept Accept header.
+  # @option opts [String] :measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;.
+  # @option opts [String] :view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+  # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+  # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   # @return [String]
   describe 'visualize_ingredients test' do
     it 'should work' do

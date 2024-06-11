@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dataPoints** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**dataPoints** | [**Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner>**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  | [optional] [default to const {}]
 **image** | **String** |  | 
 **link** | **String** |  | 
 **name** | **String** |  | 

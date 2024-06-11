@@ -495,7 +495,7 @@ public class Example {
 
 <a id="ingredientsByIDImage"></a>
 # **ingredientsByIDImage**
-> Object ingredientsByIDImage(id, measure)
+> File ingredientsByIDImage(id, measure)
 
 Ingredients by ID Image
 
@@ -526,7 +526,7 @@ public class Example {
     BigDecimal id = new BigDecimal("1082038"); // BigDecimal | The recipe id.
     String measure = "us"; // String | Whether the the measures should be 'us' or 'metric'.
     try {
-      Object result = apiInstance.ingredientsByIDImage(id, measure);
+      File result = apiInstance.ingredientsByIDImage(id, measure);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IngredientsApi#ingredientsByIDImage");
@@ -548,7 +548,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -641,7 +641,7 @@ public class Example {
 
 <a id="visualizeIngredients"></a>
 # **visualizeIngredients**
-> String visualizeIngredients(contentType, language, accept)
+> String visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink)
 
 Ingredients Widget
 
@@ -669,11 +669,15 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     IngredientsApi apiInstance = new IngredientsApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
+    String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    BigDecimal servings = new BigDecimal(78); // BigDecimal | The number of servings.
     String language = "en"; // String | The language of the input. Either 'en' or 'de'.
-    String accept = "application/json"; // String | Accept header.
+    String measure = "us"; // String | The original system of measurement, either 'metric' or 'us'.
+    String view = "grid"; // String | How to visualize the ingredients, either 'grid' or 'list'.
+    Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
+    Boolean showBacklink = true; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     try {
-      String result = apiInstance.visualizeIngredients(contentType, language, accept);
+      String result = apiInstance.visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IngredientsApi#visualizeIngredients");
@@ -690,9 +694,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
+| **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **servings** | **BigDecimal**| The number of servings. | |
 | **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
+| **measure** | **String**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] [enum: us, metric] |
+| **view** | **String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list] |
+| **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 

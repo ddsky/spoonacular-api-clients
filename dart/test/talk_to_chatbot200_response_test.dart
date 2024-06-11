@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // List<Object> media (default value: const [])
+    // List<TalkToChatbot200ResponseMediaInner> media (default value: const [])
     test('to test the property `media`', () async {
       // TODO
     });

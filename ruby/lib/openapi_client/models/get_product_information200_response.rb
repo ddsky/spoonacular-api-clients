@@ -85,7 +85,7 @@ module OpenapiClient
         :'badges' => :'Array<String>',
         :'important_badges' => :'Array<String>',
         :'ingredient_count' => :'Integer',
-        :'generated_text' => :'Object',
+        :'generated_text' => :'String',
         :'ingredient_list' => :'String',
         :'ingredients' => :'Array<GetProductInformation200ResponseIngredientsInner>',
         :'likes' => :'Float',
@@ -100,7 +100,6 @@ module OpenapiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'generated_text',
       ])
     end
 

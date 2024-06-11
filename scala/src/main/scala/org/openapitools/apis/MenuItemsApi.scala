@@ -5,6 +5,7 @@ import spoonacular._
 import org.openapitools.models._
 import org.openapitools.models.AutocompleteMenuItemSearch200Response
 import org.openapitools.models.BigDecimal
+import java.io.File
 import org.openapitools.models.GetMenuItemInformation200Response
 import org.openapitools.models.SearchMenuItems200Response
 import io.finch.circe._
@@ -86,9 +87,9 @@ object MenuItemsApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def menuItemNutritionByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def menuItemNutritionByIDImage(da: DataAccessor): Endpoint[File] =
         get("food" :: "menuItems" :: bigdecimal :: "nutritionWidget.png" :: header("x-api-key")) { (id: BigDecimal, authParamapiKeyScheme: String) =>
           da.MenuItems_menuItemNutritionByIDImage(id, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -100,9 +101,9 @@ object MenuItemsApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def menuItemNutritionLabelImage(da: DataAccessor): Endpoint[Object] =
+        private def menuItemNutritionLabelImage(da: DataAccessor): Endpoint[File] =
         get("food" :: "menuItems" :: bigdecimal :: "nutritionLabel.png" :: paramOption("showOptionalNutrients").map(_.map(_.toBoolean)) :: paramOption("showZeroValues").map(_.map(_.toBoolean)) :: paramOption("showIngredients").map(_.map(_.toBoolean)) :: header("x-api-key")) { (id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String) =>
           da.MenuItems_menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -145,8 +146,8 @@ object MenuItemsApi {
         * @return An endpoint representing a String
         */
         private def visualizeMenuItemNutritionByID(da: DataAccessor): Endpoint[String] =
-        get("food" :: "menuItems" :: int :: "nutritionWidget" :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: headerOption("Accept") :: header("x-api-key")) { (id: Int, defaultCss: Option[Boolean], accept: Option[String], authParamapiKeyScheme: String) =>
-          da.MenuItems_visualizeMenuItemNutritionByID(id, defaultCss, accept, authParamapiKeyScheme) match {
+        get("food" :: "menuItems" :: int :: "nutritionWidget" :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: header("x-api-key")) { (id: Int, defaultCss: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.MenuItems_visualizeMenuItemNutritionByID(id, defaultCss, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

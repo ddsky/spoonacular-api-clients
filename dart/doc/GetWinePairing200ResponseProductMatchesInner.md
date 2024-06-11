@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **title** | **String** |  | 
 **averageRating** | **num** |  | 
-**description** | [**Object**](.md) |  | [optional] 
+**description** | **String** |  | [optional] 
 **imageUrl** | **String** |  | 
 **link** | **String** |  | 
 **price** | **String** |  | 

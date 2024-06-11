@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -281,7 +282,7 @@ type ApiMenuItemNutritionByIDImageRequest struct {
 	id float32
 }
 
-func (r ApiMenuItemNutritionByIDImageRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMenuItemNutritionByIDImageRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.MenuItemNutritionByIDImageExecute(r)
 }
 
@@ -303,13 +304,13 @@ func (a *MenuItemsAPIService) MenuItemNutritionByIDImage(ctx context.Context, id
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *MenuItemsAPIService) MenuItemNutritionByIDImageExecute(r ApiMenuItemNutritionByIDImageRequest) (map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *MenuItemsAPIService) MenuItemNutritionByIDImageExecute(r ApiMenuItemNutritionByIDImageRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MenuItemsAPIService.MenuItemNutritionByIDImage")
@@ -419,7 +420,7 @@ func (r ApiMenuItemNutritionLabelImageRequest) ShowIngredients(showIngredients b
 	return r
 }
 
-func (r ApiMenuItemNutritionLabelImageRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMenuItemNutritionLabelImageRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.MenuItemNutritionLabelImageExecute(r)
 }
 
@@ -441,13 +442,13 @@ func (a *MenuItemsAPIService) MenuItemNutritionLabelImage(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *MenuItemsAPIService) MenuItemNutritionLabelImageExecute(r ApiMenuItemNutritionLabelImageRequest) (map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *MenuItemsAPIService) MenuItemNutritionLabelImageExecute(r ApiMenuItemNutritionLabelImageRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MenuItemsAPIService.MenuItemNutritionLabelImage")
@@ -940,18 +941,11 @@ type ApiVisualizeMenuItemNutritionByIDRequest struct {
 	ApiService *MenuItemsAPIService
 	id int32
 	defaultCss *bool
-	accept *string
 }
 
 // Whether the default CSS should be added to the response.
 func (r ApiVisualizeMenuItemNutritionByIDRequest) DefaultCss(defaultCss bool) ApiVisualizeMenuItemNutritionByIDRequest {
 	r.defaultCss = &defaultCss
-	return r
-}
-
-// Accept header.
-func (r ApiVisualizeMenuItemNutritionByIDRequest) Accept(accept string) ApiVisualizeMenuItemNutritionByIDRequest {
-	r.accept = &accept
 	return r
 }
 
@@ -1020,9 +1014,6 @@ func (a *MenuItemsAPIService) VisualizeMenuItemNutritionByIDExecute(r ApiVisuali
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

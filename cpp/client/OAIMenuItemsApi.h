@@ -20,7 +20,7 @@
 
 #include "OAIAutocompleteMenuItemSearch_200_response.h"
 #include "OAIGetMenuItemInformation_200_response.h"
-#include "OAIObject.h"
+#include "OAIHttpFileElement.h"
 #include "OAISearchMenuItems_200_response.h"
 #include <QString>
 
@@ -112,9 +112,8 @@ public:
     /**
     * @param[in]  id qint32 [required]
     * @param[in]  default_css bool [optional]
-    * @param[in]  accept QString [optional]
     */
-    void visualizeMenuItemNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>());
+    void visualizeMenuItemNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>());
 
 
 private:
@@ -151,16 +150,16 @@ Q_SIGNALS:
 
     void autocompleteMenuItemSearchSignal(OAIAutocompleteMenuItemSearch_200_response summary);
     void getMenuItemInformationSignal(OAIGetMenuItemInformation_200_response summary);
-    void menuItemNutritionByIDImageSignal(OAIObject summary);
-    void menuItemNutritionLabelImageSignal(OAIObject summary);
+    void menuItemNutritionByIDImageSignal(OAIHttpFileElement summary);
+    void menuItemNutritionLabelImageSignal(OAIHttpFileElement summary);
     void menuItemNutritionLabelWidgetSignal(QString summary);
     void searchMenuItemsSignal(OAISearchMenuItems_200_response summary);
     void visualizeMenuItemNutritionByIDSignal(QString summary);
 
     void autocompleteMenuItemSearchSignalFull(OAIHttpRequestWorker *worker, OAIAutocompleteMenuItemSearch_200_response summary);
     void getMenuItemInformationSignalFull(OAIHttpRequestWorker *worker, OAIGetMenuItemInformation_200_response summary);
-    void menuItemNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
-    void menuItemNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void menuItemNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
+    void menuItemNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void menuItemNutritionLabelWidgetSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void searchMenuItemsSignalFull(OAIHttpRequestWorker *worker, OAISearchMenuItems_200_response summary);
     void visualizeMenuItemNutritionByIDSignalFull(OAIHttpRequestWorker *worker, QString summary);
@@ -172,11 +171,11 @@ Q_SIGNALS:
     void getMenuItemInformationSignalE(OAIGetMenuItemInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getMenuItemInformationSignalError(OAIGetMenuItemInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use menuItemNutritionByIDImageSignalError() instead")
-    void menuItemNutritionByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void menuItemNutritionByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void menuItemNutritionByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void menuItemNutritionByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use menuItemNutritionLabelImageSignalError() instead")
-    void menuItemNutritionLabelImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void menuItemNutritionLabelImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void menuItemNutritionLabelImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void menuItemNutritionLabelImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use menuItemNutritionLabelWidgetSignalError() instead")
     void menuItemNutritionLabelWidgetSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
     void menuItemNutritionLabelWidgetSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);

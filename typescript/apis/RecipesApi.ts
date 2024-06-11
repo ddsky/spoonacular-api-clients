@@ -84,10 +84,15 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe\'s instructions will be extracted independently of the step they\'re used in.
      * Analyze Recipe Instructions
-     * @param contentType The content type.
+     * @param instructions The recipe\\\&#39;s instructions.
      */
-    public async analyzeRecipeInstructions(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<RequestContext> {
+    public async analyzeRecipeInstructions(instructions: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'instructions' is not null or undefined
+        if (instructions === null || instructions === undefined) {
+            throw new RequiredError("RecipesApi", "analyzeRecipeInstructions", "instructions");
+        }
 
 
         // Path Params
@@ -97,9 +102,31 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
+
+        if (instructions !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('instructions', instructions as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -163,10 +190,24 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Classify the recipe\'s cuisine.
      * Classify Cuisine
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public async classifyCuisine(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<RequestContext> {
+    public async classifyCuisine(title: string, ingredientList: string, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'title' is not null or undefined
+        if (title === null || title === undefined) {
+            throw new RequiredError("RecipesApi", "classifyCuisine", "title");
+        }
+
+
+        // verify required parameter 'ingredientList' is not null or undefined
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new RequiredError("RecipesApi", "classifyCuisine", "ingredientList");
+        }
+
 
 
         // Path Params
@@ -176,9 +217,40 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Query Params
+        if (language !== undefined) {
+            requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
+        }
 
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
+
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
+
+        if (title !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('title', title as any);
+        }
+        if (ingredientList !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredientList', ingredientList as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -331,10 +403,69 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Generate a recipe card for a recipe.
      * Create Recipe Card
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (\\\&#39;ellipseMask\\\&#39;, \\\&#39;diamondMask\\\&#39;, \\\&#39;starMask\\\&#39;, \\\&#39;heartMask\\\&#39;, \\\&#39;potMask\\\&#39;, \\\&#39;fishMask\\\&#39;).
+     * @param backgroundImage The background image (\\\&#39;none\\\&#39;, \\\&#39;background1\\\&#39;, or \\\&#39;background2\\\&#39;).
+     * @param image The binary image of the recipe as jpg.
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL.
+     * @param author The author of the recipe.
+     * @param backgroundColor The background color for the recipe card as a hex-string.
+     * @param fontColor The font color for the recipe card as a hex-string.
+     * @param source The source of the recipe.
      */
-    public async createRecipeCard(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<RequestContext> {
+    public async createRecipeCard(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: HttpFile, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'title' is not null or undefined
+        if (title === null || title === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "title");
+        }
+
+
+        // verify required parameter 'ingredients' is not null or undefined
+        if (ingredients === null || ingredients === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "ingredients");
+        }
+
+
+        // verify required parameter 'instructions' is not null or undefined
+        if (instructions === null || instructions === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "instructions");
+        }
+
+
+        // verify required parameter 'readyInMinutes' is not null or undefined
+        if (readyInMinutes === null || readyInMinutes === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "readyInMinutes");
+        }
+
+
+        // verify required parameter 'servings' is not null or undefined
+        if (servings === null || servings === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "servings");
+        }
+
+
+        // verify required parameter 'mask' is not null or undefined
+        if (mask === null || mask === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "mask");
+        }
+
+
+        // verify required parameter 'backgroundImage' is not null or undefined
+        if (backgroundImage === null || backgroundImage === undefined) {
+            throw new RequiredError("RecipesApi", "createRecipeCard", "backgroundImage");
+        }
+
+
+
+
+
+
 
 
         // Path Params
@@ -344,9 +475,81 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'multipart/form-data',
+        ]);
 
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
+
+        if (title !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('title', title as any);
+        }
+        if (ingredients !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredients', ingredients as any);
+        }
+        if (instructions !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('instructions', instructions as any);
+        }
+        if (readyInMinutes !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('readyInMinutes', readyInMinutes as any);
+        }
+        if (servings !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('servings', servings as any);
+        }
+        if (mask !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('mask', mask as any);
+        }
+        if (backgroundImage !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('backgroundImage', backgroundImage as any);
+        }
+        if (image !== undefined) {
+             // TODO: replace .append with .set
+             if (localVarFormParams instanceof FormData) {
+                 localVarFormParams.append('image', image, image.name);
+             }
+        }
+        if (imageUrl !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('imageUrl', imageUrl as any);
+        }
+        if (author !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('author', author as any);
+        }
+        if (backgroundColor !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('backgroundColor', backgroundColor as any);
+        }
+        if (fontColor !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('fontColor', fontColor as any);
+        }
+        if (source !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('source', source as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "multipart/form-data"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -969,11 +1172,25 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Extract an ingredient from plain text.
      * Parse Ingredients
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param includeNutrition 
      */
-    public async parseIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
+    public async parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'ingredientList' is not null or undefined
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new RequiredError("RecipesApi", "parseIngredients", "ingredientList");
+        }
+
+
+        // verify required parameter 'servings' is not null or undefined
+        if (servings === null || servings === undefined) {
+            throw new RequiredError("RecipesApi", "parseIngredients", "servings");
+        }
+
 
 
 
@@ -989,9 +1206,39 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
+
+        if (ingredientList !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredientList', ingredientList as any);
+        }
+        if (servings !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('servings', servings as any);
+        }
+        if (includeNutrition !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('includeNutrition', includeNutrition as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -2687,11 +2934,20 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize the equipment used to make a recipe.
      * Equipment Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param instructions The recipe\\\&#39;s instructions.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public async visualizeEquipment(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<RequestContext> {
+    public async visualizeEquipment(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'instructions' is not null or undefined
+        if (instructions === null || instructions === undefined) {
+            throw new RequiredError("RecipesApi", "visualizeEquipment", "instructions");
+        }
+
+
 
 
 
@@ -2702,12 +2958,43 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
 
+        if (instructions !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('instructions', instructions as any);
+        }
+        if (view !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('view', view as any);
+        }
+        if (defaultCss !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('defaultCss', defaultCss as any);
+        }
+        if (showBacklink !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('showBacklink', showBacklink as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -2727,12 +3014,28 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize the price breakdown of a recipe.
      * Price Breakdown Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public async visualizePriceBreakdown(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
+    public async visualizePriceBreakdown(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'ingredientList' is not null or undefined
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new RequiredError("RecipesApi", "visualizePriceBreakdown", "ingredientList");
+        }
+
+
+        // verify required parameter 'servings' is not null or undefined
+        if (servings === null || servings === undefined) {
+            throw new RequiredError("RecipesApi", "visualizePriceBreakdown", "servings");
+        }
+
+
 
 
 
@@ -2749,12 +3052,47 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
 
+        if (ingredientList !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredientList', ingredientList as any);
+        }
+        if (servings !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('servings', servings as any);
+        }
+        if (mode !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('mode', mode as any);
+        }
+        if (defaultCss !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('defaultCss', defaultCss as any);
+        }
+        if (showBacklink !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('showBacklink', showBacklink as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -2871,12 +3209,26 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public async visualizeRecipeNutrition(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
+    public async visualizeRecipeNutrition(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'ingredientList' is not null or undefined
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new RequiredError("RecipesApi", "visualizeRecipeNutrition", "ingredientList");
+        }
+
+
+        // verify required parameter 'servings' is not null or undefined
+        if (servings === null || servings === undefined) {
+            throw new RequiredError("RecipesApi", "visualizeRecipeNutrition", "servings");
+        }
+
 
 
 
@@ -2893,12 +3245,43 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
 
+        if (ingredientList !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredientList', ingredientList as any);
+        }
+        if (servings !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('servings', servings as any);
+        }
+        if (defaultCss !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('defaultCss', defaultCss as any);
+        }
+        if (showBacklink !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('showBacklink', showBacklink as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -2920,16 +3303,14 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * Recipe Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public async visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<RequestContext> {
+    public async visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("RecipesApi", "visualizeRecipeNutritionByID", "id");
         }
-
 
 
 
@@ -2945,9 +3326,6 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         if (defaultCss !== undefined) {
             requestContext.setQueryParam("defaultCss", ObjectSerializer.serialize(defaultCss, "boolean", ""));
         }
-
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
 
 
         let authMethod: SecurityAuthentication | undefined;
@@ -3013,15 +3391,18 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a recipe\'s taste information as HTML including CSS. You can play around with that endpoint!
      * Recipe Taste Widget
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param contentType The content type.
-     * @param accept Accept header.
-     * @param normalize Whether to normalize to the strongest taste.
+     * @param normalize Normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
-    public async visualizeRecipeTaste(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, _options?: Configuration): Promise<RequestContext> {
+    public async visualizeRecipeTaste(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
+        // verify required parameter 'ingredientList' is not null or undefined
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new RequiredError("RecipesApi", "visualizeRecipeTaste", "ingredientList");
+        }
 
 
 
@@ -3039,22 +3420,39 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
-        // Query Params
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
+
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
+
+        if (ingredientList !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredientList', ingredientList as any);
+        }
         if (normalize !== undefined) {
-            requestContext.setQueryParam("normalize", ObjectSerializer.serialize(normalize, "boolean", ""));
+             // TODO: replace .append with .set
+             localVarFormParams.append('normalize', normalize as any);
         }
-
-        // Query Params
         if (rgb !== undefined) {
-            requestContext.setQueryParam("rgb", ObjectSerializer.serialize(rgb, "string", ""));
+             // TODO: replace .append with .set
+             localVarFormParams.append('rgb', rgb as any);
         }
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        requestContext.setBody(localVarFormParams);
 
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
-
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -3400,13 +3798,10 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to equipmentByIDImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async equipmentByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async equipmentByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -3421,10 +3816,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -3932,13 +4327,10 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to priceBreakdownByIDImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async priceBreakdownByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async priceBreakdownByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -3953,10 +4345,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -4008,13 +4400,10 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to recipeNutritionByIDImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async recipeNutritionByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async recipeNutritionByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -4029,10 +4418,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -4046,13 +4435,10 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to recipeNutritionLabelImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async recipeNutritionLabelImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async recipeNutritionLabelImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -4067,10 +4453,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -4122,13 +4508,10 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to recipeTasteByIDImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async recipeTasteByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async recipeTasteByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -4143,10 +4526,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

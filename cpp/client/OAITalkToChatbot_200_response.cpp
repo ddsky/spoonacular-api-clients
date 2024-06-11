@@ -91,10 +91,10 @@ bool OAITalkToChatbot_200_response::is_answer_text_Valid() const{
     return m_answer_text_isValid;
 }
 
-QList<QJsonValue> OAITalkToChatbot_200_response::getMedia() const {
+QList<OAITalkToChatbot_200_response_media_inner> OAITalkToChatbot_200_response::getMedia() const {
     return m_media;
 }
-void OAITalkToChatbot_200_response::setMedia(const QList<QJsonValue> &media) {
+void OAITalkToChatbot_200_response::setMedia(const QList<OAITalkToChatbot_200_response_media_inner> &media) {
     m_media = media;
     m_media_isSet = true;
 }

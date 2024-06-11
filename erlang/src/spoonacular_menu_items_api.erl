@@ -54,11 +54,11 @@ get_menu_item_information(Ctx, Id, Optional) ->
 
 %% @doc Menu Item Nutrition by ID Image
 %% Visualize a menu item's nutritional information as HTML including CSS.
--spec menu_item_nutrition_by_id_image(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec menu_item_nutrition_by_id_image(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 menu_item_nutrition_by_id_image(Ctx, Id) ->
     menu_item_nutrition_by_id_image(Ctx, Id, #{}).
 
--spec menu_item_nutrition_by_id_image(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec menu_item_nutrition_by_id_image(ctx:ctx(), integer(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 menu_item_nutrition_by_id_image(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -75,11 +75,11 @@ menu_item_nutrition_by_id_image(Ctx, Id, Optional) ->
 
 %% @doc Menu Item Nutrition Label Image
 %% Visualize a menu item's nutritional label information as an image.
--spec menu_item_nutrition_label_image(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec menu_item_nutrition_label_image(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 menu_item_nutrition_label_image(Ctx, Id) ->
     menu_item_nutrition_label_image(Ctx, Id, #{}).
 
--spec menu_item_nutrition_label_image(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec menu_item_nutrition_label_image(ctx:ctx(), integer(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 menu_item_nutrition_label_image(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -150,7 +150,7 @@ visualize_menu_item_nutrition_by_id(Ctx, Id, Optional) ->
     Method = get,
     Path = [?BASE_URL, "/food/menuItems/", Id, "/nutritionWidget"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['defaultCss'], _OptionalParams),
-    Headers = []++spoonacular_utils:optional_params(['Accept'], _OptionalParams),
+    Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),

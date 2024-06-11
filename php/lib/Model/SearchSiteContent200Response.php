@@ -60,9 +60,9 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'articles' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]',
-        'grocery_products' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[]',
-        'menu_items' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[]',
-        'recipes' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[]'
+        'grocery_products' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]',
+        'menu_items' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]',
+        'recipes' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]'
     ];
 
     /**
@@ -375,7 +375,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets grocery_products
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[]
+     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
      */
     public function getGroceryProducts()
     {
@@ -385,7 +385,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets grocery_products
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[] $grocery_products grocery_products
+     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $grocery_products grocery_products
      *
      * @return self
      */
@@ -407,7 +407,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets menu_items
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[]
+     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
      */
     public function getMenuItems()
     {
@@ -417,7 +417,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets menu_items
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[] $menu_items menu_items
+     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $menu_items menu_items
      *
      * @return self
      */
@@ -439,7 +439,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets recipes
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[]
+     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
      */
     public function getRecipes()
     {
@@ -449,7 +449,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets recipes
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseGroceryProductsInner[] $recipes recipes
+     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $recipes recipes
      *
      * @return self
      */

@@ -8,9 +8,9 @@ use WWW::OpenAPIClient::Object::GetProductInformation200ResponseIngredientsInner
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **object** |  | [optional] 
+**description** | **string** |  | [optional] 
 **name** | **string** |  | 
-**safety_level** | **object** |  | [optional] 
+**safety_level** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

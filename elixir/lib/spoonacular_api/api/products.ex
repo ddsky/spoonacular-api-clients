@@ -207,10 +207,10 @@ defmodule SpoonacularAPI.Api.Products do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec product_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec product_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def product_nutrition_by_id_image(connection, id, _opts \\ []) do
     request =
       %{}
@@ -221,7 +221,7 @@ defmodule SpoonacularAPI.Api.Products do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -243,10 +243,10 @@ defmodule SpoonacularAPI.Api.Products do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec product_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec product_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def product_nutrition_label_image(connection, id, opts \\ []) do
     optional_params = %{
       :showOptionalNutrients => :query,
@@ -264,7 +264,7 @@ defmodule SpoonacularAPI.Api.Products do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -419,7 +419,6 @@ defmodule SpoonacularAPI.Api.Products do
   - `id` (integer()): The item's id.
   - `opts` (keyword): Optional parameters
     - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
-    - `:Accept` (String.t): Accept header.
 
   ### Returns
 
@@ -429,8 +428,7 @@ defmodule SpoonacularAPI.Api.Products do
   @spec visualize_product_nutrition_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def visualize_product_nutrition_by_id(connection, id, opts \\ []) do
     optional_params = %{
-      :defaultCss => :query,
-      :Accept => :headers
+      :defaultCss => :query
     }
 
     request =

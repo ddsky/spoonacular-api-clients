@@ -385,7 +385,7 @@ public class Example {
 
 <a id="productNutritionByIDImage"></a>
 # **productNutritionByIDImage**
-> Object productNutritionByIDImage(id)
+> File productNutritionByIDImage(id)
 
 Product Nutrition by ID Image
 
@@ -415,7 +415,7 @@ public class Example {
     ProductsApi apiInstance = new ProductsApi(defaultClient);
     BigDecimal id = new BigDecimal("7657"); // BigDecimal | The id of the product.
     try {
-      Object result = apiInstance.productNutritionByIDImage(id);
+      File result = apiInstance.productNutritionByIDImage(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductsApi#productNutritionByIDImage");
@@ -436,7 +436,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -457,7 +457,7 @@ public class Example {
 
 <a id="productNutritionLabelImage"></a>
 # **productNutritionLabelImage**
-> Object productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> File productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Product Nutrition Label Image
 
@@ -490,7 +490,7 @@ public class Example {
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
     Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
     try {
-      Object result = apiInstance.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+      File result = apiInstance.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductsApi#productNutritionLabelImage");
@@ -514,7 +514,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -781,7 +781,7 @@ public class Example {
 
 <a id="visualizeProductNutritionByID"></a>
 # **visualizeProductNutritionByID**
-> String visualizeProductNutritionByID(id, defaultCss, accept)
+> String visualizeProductNutritionByID(id, defaultCss)
 
 Product Nutrition by ID Widget
 
@@ -811,9 +811,8 @@ public class Example {
     ProductsApi apiInstance = new ProductsApi(defaultClient);
     Integer id = 1; // Integer | The item's id.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
-    String accept = "application/json"; // String | Accept header.
     try {
-      String result = apiInstance.visualizeProductNutritionByID(id, defaultCss, accept);
+      String result = apiInstance.visualizeProductNutritionByID(id, defaultCss);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductsApi#visualizeProductNutritionByID");
@@ -832,7 +831,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| The item&#39;s id. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
 
 ### Return type
 

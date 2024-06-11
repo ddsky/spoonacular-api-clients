@@ -15,6 +15,7 @@
 
 package com.spoonacular.client.model
 
+import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -41,7 +42,7 @@ data class SearchSiteContent200ResponseArticlesInner (
     val name: kotlin.String,
 
     @Json(name = "dataPoints")
-    val dataPoints: kotlin.collections.List<kotlin.Any>? = null
+    val dataPoints: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner>? = null
 
 )
 

@@ -210,7 +210,7 @@ instance Produces GetProductInformation MimeJSON
 -- 
 productNutritionByIDImage
   :: IdDouble -- ^ "id" -  The id of the product.
-  -> SpoonacularRequest ProductNutritionByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest ProductNutritionByIDImage MimeNoContent FilePath MimeImagePng
 productNutritionByIDImage (IdDouble id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -232,7 +232,7 @@ instance Produces ProductNutritionByIDImage MimeImagePng
 -- 
 productNutritionLabelImage
   :: IdDouble -- ^ "id" -  The product id.
-  -> SpoonacularRequest ProductNutritionLabelImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest ProductNutritionLabelImage MimeNoContent FilePath MimeImagePng
 productNutritionLabelImage (IdDouble id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionLabel.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -425,11 +425,6 @@ data VisualizeProductNutritionByID
 instance HasOptionalParam VisualizeProductNutritionByID DefaultCss where
   applyOptionalParam req (DefaultCss xs) =
     req `addQuery` toQuery ("defaultCss", Just xs)
-
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeProductNutritionByID ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
 -- | @text/html@
 instance Produces VisualizeProductNutritionByID MimeTextHtml
 

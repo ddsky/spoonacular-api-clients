@@ -127,7 +127,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //decimal id = null;
             //var response = instance.ProductNutritionByIDImage(id);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace spoonacular.Test.Api
             //bool? showZeroValues = null;
             //bool? showIngredients = null;
             //var response = instance.ProductNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -205,8 +205,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //bool? defaultCss = null;
-            //string? accept = null;
-            //var response = instance.VisualizeProductNutritionByID(id, defaultCss, accept);
+            //var response = instance.VisualizeProductNutritionByID(id, defaultCss);
             //Assert.IsType<string>(response);
         }
     }

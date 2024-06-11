@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from spoonacular.models.search_site_content200_response_articles_inner_data_points_inner import SearchSiteContent200ResponseArticlesInnerDataPointsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class SearchSiteContent200ResponseArticlesInner(BaseModel):
     """
     SearchSiteContent200ResponseArticlesInner
     """ # noqa: E501
-    data_points: Optional[List[Any]] = Field(default=None, alias="dataPoints")
+    data_points: Optional[Annotated[List[SearchSiteContent200ResponseArticlesInnerDataPointsInner], Field(min_length=0)]] = Field(default=None, alias="dataPoints")
     image: Annotated[str, Field(min_length=1, strict=True)]
     link: Annotated[str, Field(min_length=1, strict=True)]
     name: Annotated[str, Field(min_length=1, strict=True)]
@@ -73,6 +74,13 @@ class SearchSiteContent200ResponseArticlesInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in data_points (list)
+        _items = []
+        if self.data_points:
+            for _item in self.data_points:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['dataPoints'] = _items
         return _dict
 
     @classmethod
@@ -85,7 +93,7 @@ class SearchSiteContent200ResponseArticlesInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "dataPoints": obj.get("dataPoints"),
+            "dataPoints": [SearchSiteContent200ResponseArticlesInnerDataPointsInner.from_dict(_item) for _item in obj["dataPoints"]] if obj.get("dataPoints") is not None else None,
             "image": obj.get("image"),
             "link": obj.get("link"),
             "name": obj.get("name")

@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ## analyze_recipe_instructions
 
-> crate::models::AnalyzeRecipeInstructions200Response analyze_recipe_instructions(content_type)
+> crate::models::AnalyzeRecipeInstructions200Response analyze_recipe_instructions(instructions)
 Analyze Recipe Instructions
 
 This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
@@ -89,7 +89,7 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
+**instructions** | **String** | The recipe's instructions. | [required] |
 
 ### Return type
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ## classify_cuisine
 
-> crate::models::ClassifyCuisine200Response classify_cuisine(content_type)
+> crate::models::ClassifyCuisine200Response classify_cuisine(title, ingredient_list, language)
 Classify Cuisine
 
 Classify the recipe's cuisine.
@@ -150,7 +150,9 @@ Classify the recipe's cuisine.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
+**title** | **String** | The title of the recipe. | [required] |
+**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [required] |
+**language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
 
 ### Return type
 
@@ -234,7 +236,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_recipe_card
 
-> crate::models::CreateRecipeCard200Response create_recipe_card(content_type)
+> crate::models::CreateRecipeCard200Response create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, image, image_url, author, background_color, font_color, source)
 Create Recipe Card
 
 Generate a recipe card for a recipe.
@@ -244,7 +246,19 @@ Generate a recipe card for a recipe.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
+**title** | **String** | The title of the recipe. | [required] |
+**ingredients** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [required] |
+**instructions** | **String** | The instructions to make the recipe. One step per line (separate lines with \\\\n). | [required] |
+**ready_in_minutes** | **f32** | The number of minutes it takes to get the recipe on the table. | [required] |
+**servings** | **f32** | The number of servings the recipe makes. | [required] |
+**mask** | **String** | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask'). | [required] |
+**background_image** | **String** | The background image ('none', 'background1', or 'background2'). | [required] |
+**image** | Option<**std::path::PathBuf**> | The binary image of the recipe as jpg. |  |
+**image_url** | Option<**String**> | If you do not sent a binary image you can also pass the image URL. |  |
+**author** | Option<**String**> | The author of the recipe. |  |
+**background_color** | Option<**String**> | The background color for the recipe card as a hex-string. |  |
+**font_color** | Option<**String**> | The font color for the recipe card as a hex-string. |  |
+**source** | Option<**String**> | The source of the recipe. |  |
 
 ### Return type
 
@@ -264,7 +278,7 @@ Name | Type | Description  | Required | Notes
 
 ## equipment_by_id_image
 
-> serde_json::Value equipment_by_id_image(id)
+> std::path::PathBuf equipment_by_id_image(id)
 Equipment by ID Image
 
 Visualize a recipe's equipment list as an image.
@@ -278,7 +292,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -668,7 +682,7 @@ Name | Type | Description  | Required | Notes
 
 ## parse_ingredients
 
-> Vec<crate::models::ParseIngredients200ResponseInner> parse_ingredients(content_type, language)
+> Vec<crate::models::ParseIngredients200ResponseInner> parse_ingredients(ingredient_list, servings, language, include_nutrition)
 Parse Ingredients
 
 Extract an ingredient from plain text.
@@ -678,8 +692,10 @@ Extract an ingredient from plain text.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
+**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
+**servings** | **f32** | The number of servings that you can make from the ingredients. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
+**include_nutrition** | Option<**bool**> |  |  |
 
 ### Return type
 
@@ -699,7 +715,7 @@ Name | Type | Description  | Required | Notes
 
 ## price_breakdown_by_id_image
 
-> serde_json::Value price_breakdown_by_id_image(id)
+> std::path::PathBuf price_breakdown_by_id_image(id)
 Price Breakdown by ID Image
 
 Visualize a recipe's price breakdown.
@@ -713,7 +729,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -759,7 +775,7 @@ Name | Type | Description  | Required | Notes
 
 ## recipe_nutrition_by_id_image
 
-> serde_json::Value recipe_nutrition_by_id_image(id)
+> std::path::PathBuf recipe_nutrition_by_id_image(id)
 Recipe Nutrition by ID Image
 
 Visualize a recipe's nutritional information as an image.
@@ -773,7 +789,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -789,7 +805,7 @@ Name | Type | Description  | Required | Notes
 
 ## recipe_nutrition_label_image
 
-> serde_json::Value recipe_nutrition_label_image(id, show_optional_nutrients, show_zero_values, show_ingredients)
+> std::path::PathBuf recipe_nutrition_label_image(id, show_optional_nutrients, show_zero_values, show_ingredients)
 Recipe Nutrition Label Image
 
 Get a recipe's nutrition label as an image.
@@ -806,7 +822,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -856,7 +872,7 @@ Name | Type | Description  | Required | Notes
 
 ## recipe_taste_by_id_image
 
-> serde_json::Value recipe_taste_by_id_image(id, normalize, rgb)
+> std::path::PathBuf recipe_taste_by_id_image(id, normalize, rgb)
 Recipe Taste by ID Image
 
 Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -872,7 +888,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -1184,7 +1200,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_equipment
 
-> String visualize_equipment(content_type, accept)
+> String visualize_equipment(instructions, view, default_css, show_backlink)
 Equipment Widget
 
 Visualize the equipment used to make a recipe.
@@ -1194,8 +1210,10 @@ Visualize the equipment used to make a recipe.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
-**accept** | Option<**String**> | Accept header. |  |
+**instructions** | **String** | The recipe's instructions. | [required] |
+**view** | Option<**String**> | How to visualize the ingredients, either 'grid' or 'list'. |  |
+**default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |
+**show_backlink** | Option<**bool**> | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  |
 
 ### Return type
 
@@ -1215,7 +1233,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_price_breakdown
 
-> String visualize_price_breakdown(content_type, accept, language)
+> String visualize_price_breakdown(ingredient_list, servings, language, mode, default_css, show_backlink)
 Price Breakdown Widget
 
 Visualize the price breakdown of a recipe.
@@ -1225,9 +1243,12 @@ Visualize the price breakdown of a recipe.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
-**accept** | Option<**String**> | Accept header. |  |
+**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
+**servings** | **f32** | The number of servings. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
+**mode** | Option<**f32**> | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). |  |
+**default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |
+**show_backlink** | Option<**bool**> | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  |
 
 ### Return type
 
@@ -1310,7 +1331,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_recipe_nutrition
 
-> String visualize_recipe_nutrition(content_type, accept, language)
+> String visualize_recipe_nutrition(ingredient_list, servings, language, default_css, show_backlink)
 Recipe Nutrition Widget
 
 Visualize a recipe's nutritional information as HTML including CSS.
@@ -1320,9 +1341,11 @@ Visualize a recipe's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
-**accept** | Option<**String**> | Accept header. |  |
+**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
+**servings** | **f32** | The number of servings. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
+**default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |
+**show_backlink** | Option<**bool**> | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  |
 
 ### Return type
 
@@ -1342,7 +1365,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_recipe_nutrition_by_id
 
-> String visualize_recipe_nutrition_by_id(id, default_css, accept)
+> String visualize_recipe_nutrition_by_id(id, default_css)
 Recipe Nutrition by ID Widget
 
 Visualize a recipe's nutritional information as HTML including CSS.
@@ -1354,7 +1377,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **i32** | The item's id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
-**accept** | Option<**String**> | Accept header. |  |
 
 ### Return type
 
@@ -1405,7 +1427,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_recipe_taste
 
-> String visualize_recipe_taste(language, content_type, accept, normalize, rgb)
+> String visualize_recipe_taste(ingredient_list, language, normalize, rgb)
 Recipe Taste Widget
 
 Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
@@ -1415,10 +1437,9 @@ Visualize a recipe's taste information as HTML including CSS. You can play aroun
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
-**content_type** | Option<**String**> | The content type. |  |
-**accept** | Option<**String**> | Accept header. |  |
-**normalize** | Option<**bool**> | Whether to normalize to the strongest taste. |  |
+**normalize** | Option<**bool**> | Normalize to the strongest taste. |  |
 **rgb** | Option<**String**> | Red, green, blue values for the chart color. |  |
 
 ### Return type

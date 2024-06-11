@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.autocomplete_menu_item_search200_response import AutocompleteMenuItemSearch200Response
@@ -611,7 +611,7 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Menu Item Nutrition by ID Image
 
         Visualize a menu item's nutritional information as HTML including CSS.
@@ -649,7 +649,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -681,7 +681,7 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Menu Item Nutrition by ID Image
 
         Visualize a menu item's nutritional information as HTML including CSS.
@@ -719,7 +719,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -789,7 +789,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -881,7 +881,7 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Menu Item Nutrition Label Image
 
         Visualize a menu item's nutritional label information as an image.
@@ -928,7 +928,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -963,7 +963,7 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Menu Item Nutrition Label Image
 
         Visualize a menu item's nutritional label information as an image.
@@ -1010,7 +1010,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -1092,7 +1092,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -1976,7 +1976,6 @@ class MenuItemsApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1998,8 +1997,6 @@ class MenuItemsApi:
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
-        :param accept: Accept header.
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2025,7 +2022,6 @@ class MenuItemsApi:
         _param = self._visualize_menu_item_nutrition_by_id_serialize(
             id=id,
             default_css=default_css,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2054,7 +2050,6 @@ class MenuItemsApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2076,8 +2071,6 @@ class MenuItemsApi:
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
-        :param accept: Accept header.
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2103,7 +2096,6 @@ class MenuItemsApi:
         _param = self._visualize_menu_item_nutrition_by_id_serialize(
             id=id,
             default_css=default_css,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2132,7 +2124,6 @@ class MenuItemsApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2154,8 +2145,6 @@ class MenuItemsApi:
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
-        :param accept: Accept header.
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2181,7 +2170,6 @@ class MenuItemsApi:
         _param = self._visualize_menu_item_nutrition_by_id_serialize(
             id=id,
             default_css=default_css,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2205,7 +2193,6 @@ class MenuItemsApi:
         self,
         id,
         default_css,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -2233,8 +2220,6 @@ class MenuItemsApi:
             _query_params.append(('defaultCss', default_css))
             
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 

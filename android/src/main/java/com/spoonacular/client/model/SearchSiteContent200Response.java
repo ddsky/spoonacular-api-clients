@@ -13,7 +13,6 @@
 package com.spoonacular.client.model;
 
 import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner;
-import com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInner;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -27,11 +26,11 @@ public class SearchSiteContent200Response {
   @SerializedName("Articles")
   private Set<SearchSiteContent200ResponseArticlesInner> articles = null;
   @SerializedName("Grocery Products")
-  private Set<SearchSiteContent200ResponseGroceryProductsInner> groceryProducts = null;
+  private Set<SearchSiteContent200ResponseArticlesInner> groceryProducts = null;
   @SerializedName("Menu Items")
-  private Set<SearchSiteContent200ResponseGroceryProductsInner> menuItems = null;
+  private Set<SearchSiteContent200ResponseArticlesInner> menuItems = null;
   @SerializedName("Recipes")
-  private Set<SearchSiteContent200ResponseGroceryProductsInner> recipes = null;
+  private Set<SearchSiteContent200ResponseArticlesInner> recipes = null;
 
   /**
    **/
@@ -46,30 +45,30 @@ public class SearchSiteContent200Response {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<SearchSiteContent200ResponseGroceryProductsInner> getGroceryProducts() {
+  public Set<SearchSiteContent200ResponseArticlesInner> getGroceryProducts() {
     return groceryProducts;
   }
-  public void setGroceryProducts(Set<SearchSiteContent200ResponseGroceryProductsInner> groceryProducts) {
+  public void setGroceryProducts(Set<SearchSiteContent200ResponseArticlesInner> groceryProducts) {
     this.groceryProducts = groceryProducts;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<SearchSiteContent200ResponseGroceryProductsInner> getMenuItems() {
+  public Set<SearchSiteContent200ResponseArticlesInner> getMenuItems() {
     return menuItems;
   }
-  public void setMenuItems(Set<SearchSiteContent200ResponseGroceryProductsInner> menuItems) {
+  public void setMenuItems(Set<SearchSiteContent200ResponseArticlesInner> menuItems) {
     this.menuItems = menuItems;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<SearchSiteContent200ResponseGroceryProductsInner> getRecipes() {
+  public Set<SearchSiteContent200ResponseArticlesInner> getRecipes() {
     return recipes;
   }
-  public void setRecipes(Set<SearchSiteContent200ResponseGroceryProductsInner> recipes) {
+  public void setRecipes(Set<SearchSiteContent200ResponseArticlesInner> recipes) {
     this.recipes = recipes;
   }
 

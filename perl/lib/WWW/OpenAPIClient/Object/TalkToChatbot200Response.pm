@@ -30,6 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -227,7 +228,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'media' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[TalkToChatbot200ResponseMediaInner]',
         base_name => 'media',
         description => '',
         format => '',
@@ -237,7 +238,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'answer_text' => 'string',
-    'media' => 'ARRAY[object]'
+    'media' => 'ARRAY[TalkToChatbot200ResponseMediaInner]'
 } );
 
 __PACKAGE__->attribute_map( {

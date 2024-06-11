@@ -42,7 +42,7 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="suggests">suggests (required).</param>
         /// <param name="words">words (required).</param>
-        public GetConversationSuggests200Response(GetConversationSuggests200ResponseSuggests suggests = default(GetConversationSuggests200ResponseSuggests), List<Object> words = default(List<Object>))
+        public GetConversationSuggests200Response(GetConversationSuggests200ResponseSuggests suggests = default(GetConversationSuggests200ResponseSuggests), List<string> words = default(List<string>))
         {
             // to ensure "suggests" is required (not null)
             if (suggests == null)
@@ -68,7 +68,7 @@ namespace spoonacular.Model
         /// Gets or Sets Words
         /// </summary>
         [DataMember(Name = "words", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Words { get; set; }
+        public List<string> Words { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

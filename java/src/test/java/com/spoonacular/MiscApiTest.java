@@ -51,8 +51,8 @@ public class MiscApiTest {
      */
     @Test
     public void detectFoodInTextTest() throws ApiException {
-        String contentType = null;
-        DetectFoodInText200Response response = api.detectFoodInText(contentType);
+        String text = null;
+        DetectFoodInText200Response response = api.detectFoodInText(text);
         // TODO: test validations
     }
 

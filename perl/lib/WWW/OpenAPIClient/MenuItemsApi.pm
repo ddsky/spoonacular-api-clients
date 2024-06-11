@@ -208,10 +208,10 @@ sub get_menu_item_information {
     __PACKAGE__->method_documentation->{ 'menu_item_nutrition_by_id_image' } = {
         summary => 'Menu Item Nutrition by ID Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub menu_item_nutrition_by_id_image {
     my ($self, %args) = @_;
@@ -254,7 +254,7 @@ sub menu_item_nutrition_by_id_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -293,10 +293,10 @@ sub menu_item_nutrition_by_id_image {
     __PACKAGE__->method_documentation->{ 'menu_item_nutrition_label_image' } = {
         summary => 'Menu Item Nutrition Label Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub menu_item_nutrition_label_image {
     my ($self, %args) = @_;
@@ -354,7 +354,7 @@ sub menu_item_nutrition_label_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -657,7 +657,6 @@ sub search_menu_items {
 #
 # @param int $id The item&#39;s id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
-# @param string $accept Accept header. (optional)
 {
     my $params = {
     'id' => {
@@ -668,11 +667,6 @@ sub search_menu_items {
     'default_css' => {
         data_type => 'boolean',
         description => 'Whether the default CSS should be added to the response.',
-        required => '0',
-    },
-    'accept' => {
-        data_type => 'string',
-        description => 'Accept header.',
         required => '0',
     },
     };
@@ -710,11 +704,6 @@ sub visualize_menu_item_nutrition_by_id {
     # query params
     if ( exists $args{'default_css'}) {
         $query_params->{'defaultCss'} = $self->{api_client}->to_query_value($args{'default_css'});
-    }
-
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
     }
 
     # path params

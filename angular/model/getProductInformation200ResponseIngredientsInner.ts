@@ -12,8 +12,8 @@
 
 
 export interface GetProductInformation200ResponseIngredientsInner { 
-    description?: any | null;
+    description?: string;
     name: string;
-    safety_level?: any | null;
+    safety_level?: string;
 }
 

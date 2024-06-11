@@ -21,14 +21,15 @@
 
 #include <QJsonObject>
 
-#include <QJsonValue>
-#include <QList>
+#include "OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner.h"
+#include <QSet>
 #include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner;
 
 class OAISearchSiteContent_200_response_Articles_inner : public OAIObject {
 public:
@@ -41,8 +42,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<QJsonValue> getDataPoints() const;
-    void setDataPoints(const QList<QJsonValue> &data_points);
+    QSet<OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner> getDataPoints() const;
+    void setDataPoints(const QSet<OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner> &data_points);
     bool is_data_points_Set() const;
     bool is_data_points_Valid() const;
 
@@ -67,7 +68,7 @@ public:
 private:
     void initializeModel();
 
-    QList<QJsonValue> m_data_points;
+    QSet<OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner> m_data_points;
     bool m_data_points_isSet;
     bool m_data_points_isValid;
 

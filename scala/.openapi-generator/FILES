@@ -166,7 +166,7 @@ src/main/scala/org/openapitools/models/SearchRestaurants200ResponseRestaurantsIn
 src/main/scala/org/openapitools/models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.scala
 src/main/scala/org/openapitools/models/SearchSiteContent200Response.scala
 src/main/scala/org/openapitools/models/SearchSiteContent200ResponseArticlesInner.scala
-src/main/scala/org/openapitools/models/SearchSiteContent200ResponseGroceryProductsInner.scala
-src/main/scala/org/openapitools/models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.scala
+src/main/scala/org/openapitools/models/SearchSiteContent200ResponseArticlesInnerDataPointsInner.scala
 src/main/scala/org/openapitools/models/SummarizeRecipe200Response.scala
 src/main/scala/org/openapitools/models/TalkToChatbot200Response.scala
+src/main/scala/org/openapitools/models/TalkToChatbot200ResponseMediaInner.scala

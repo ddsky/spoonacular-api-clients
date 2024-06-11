@@ -14,9 +14,12 @@
 */
 
 
-#import "OAIAnyType.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
+#import "OAISearchSiteContent200ResponseArticlesInnerDataPointsInner.h"
+#import "OAISet.h"
+@protocol OAISearchSiteContent200ResponseArticlesInnerDataPointsInner;
+@class OAISearchSiteContent200ResponseArticlesInnerDataPointsInner;
+@protocol OAISet;
+@class OAISet;
 
 
 
@@ -26,7 +29,7 @@
 @interface OAISearchSiteContent200ResponseArticlesInner : OAIObject
 
 
-@property(nonatomic) NSArray<OAIAnyType>* dataPoints;
+@property(nonatomic) OAISet<OAISearchSiteContent200ResponseArticlesInnerDataPointsInner>* dataPoints;
 
 @property(nonatomic) NSString* image;
 

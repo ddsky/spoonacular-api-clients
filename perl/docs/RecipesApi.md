@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyze_recipe_instructions**
-> AnalyzeRecipeInstructions200Response analyze_recipe_instructions(content_type => $content_type)
+> AnalyzeRecipeInstructions200Response analyze_recipe_instructions(instructions => $instructions)
 
 Analyze Recipe Instructions
 
@@ -121,10 +121,10 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
+my $instructions = "instructions_example"; # string | The recipe's instructions.
 
 eval {
-    my $result = $api_instance->analyze_recipe_instructions(content_type => $content_type);
+    my $result = $api_instance->analyze_recipe_instructions(instructions => $instructions);
     print Dumper($result);
 };
 if ($@) {
@@ -136,7 +136,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
+ **instructions** | **string**| The recipe&#39;s instructions. | 
 
 ### Return type
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_cuisine**
-> ClassifyCuisine200Response classify_cuisine(content_type => $content_type)
+> ClassifyCuisine200Response classify_cuisine(title => $title, ingredient_list => $ingredient_list, language => $language)
 
 Classify Cuisine
 
@@ -225,10 +225,12 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
+my $title = "title_example"; # string | The title of the recipe.
+my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+my $language = en; # string | The language of the input. Either 'en' or 'de'.
 
 eval {
-    my $result = $api_instance->classify_cuisine(content_type => $content_type);
+    my $result = $api_instance->classify_cuisine(title => $title, ingredient_list => $ingredient_list, language => $language);
     print Dumper($result);
 };
 if ($@) {
@@ -240,7 +242,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
+ **title** | **string**| The title of the recipe. | 
+ **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -368,7 +372,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_recipe_card**
-> CreateRecipeCard200Response create_recipe_card(content_type => $content_type)
+> CreateRecipeCard200Response create_recipe_card(title => $title, ingredients => $ingredients, instructions => $instructions, ready_in_minutes => $ready_in_minutes, servings => $servings, mask => $mask, background_image => $background_image, image => $image, image_url => $image_url, author => $author, background_color => $background_color, font_color => $font_color, source => $source)
 
 Create Recipe Card
 
@@ -386,10 +390,22 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
+my $title = "title_example"; # string | The title of the recipe.
+my $ingredients = "ingredients_example"; # string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+my $instructions = "instructions_example"; # string | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+my $ready_in_minutes = 3.4; # double | The number of minutes it takes to get the recipe on the table.
+my $servings = 3.4; # double | The number of servings the recipe makes.
+my $mask = "mask_example"; # string | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+my $background_image = "background_image_example"; # string | The background image ('none', 'background1', or 'background2').
+my $image = "/path/to/file"; # string | The binary image of the recipe as jpg.
+my $image_url = "image_url_example"; # string | If you do not sent a binary image you can also pass the image URL.
+my $author = "author_example"; # string | The author of the recipe.
+my $background_color = "background_color_example"; # string | The background color for the recipe card as a hex-string.
+my $font_color = "font_color_example"; # string | The font color for the recipe card as a hex-string.
+my $source = "source_example"; # string | The source of the recipe.
 
 eval {
-    my $result = $api_instance->create_recipe_card(content_type => $content_type);
+    my $result = $api_instance->create_recipe_card(title => $title, ingredients => $ingredients, instructions => $instructions, ready_in_minutes => $ready_in_minutes, servings => $servings, mask => $mask, background_image => $background_image, image => $image, image_url => $image_url, author => $author, background_color => $background_color, font_color => $font_color, source => $source);
     print Dumper($result);
 };
 if ($@) {
@@ -401,7 +417,19 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
+ **title** | **string**| The title of the recipe. | 
+ **ingredients** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **instructions** | **string**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
+ **ready_in_minutes** | **double**| The number of minutes it takes to get the recipe on the table. | 
+ **servings** | **double**| The number of servings the recipe makes. | 
+ **mask** | **string**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | 
+ **background_image** | **string**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | 
+ **image** | **string****string**| The binary image of the recipe as jpg. | [optional] 
+ **image_url** | **string**| If you do not sent a binary image you can also pass the image URL. | [optional] 
+ **author** | **string**| The author of the recipe. | [optional] 
+ **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] 
+ **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional] 
+ **source** | **string**| The source of the recipe. | [optional] 
 
 ### Return type
 
@@ -419,7 +447,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **equipment_by_id_image**
-> object equipment_by_id_image(id => $id)
+> string equipment_by_id_image(id => $id)
 
 Equipment by ID Image
 
@@ -456,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -1110,7 +1138,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parse_ingredients**
-> ARRAY[ParseIngredients200ResponseInner] parse_ingredients(content_type => $content_type, language => $language)
+> ARRAY[ParseIngredients200ResponseInner] parse_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, include_nutrition => $include_nutrition)
 
 Parse Ingredients
 
@@ -1128,11 +1156,13 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
+my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
+my $servings = 3.4; # double | The number of servings that you can make from the ingredients.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
+my $include_nutrition = null; # boolean | 
 
 eval {
-    my $result = $api_instance->parse_ingredients(content_type => $content_type, language => $language);
+    my $result = $api_instance->parse_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, include_nutrition => $include_nutrition);
     print Dumper($result);
 };
 if ($@) {
@@ -1144,8 +1174,10 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
+ **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **double**| The number of servings that you can make from the ingredients. | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **include_nutrition** | **boolean**|  | [optional] 
 
 ### Return type
 
@@ -1163,7 +1195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **price_breakdown_by_id_image**
-> object price_breakdown_by_id_image(id => $id)
+> string price_breakdown_by_id_image(id => $id)
 
 Price Breakdown by ID Image
 
@@ -1200,7 +1232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -1265,7 +1297,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipe_nutrition_by_id_image**
-> object recipe_nutrition_by_id_image(id => $id)
+> string recipe_nutrition_by_id_image(id => $id)
 
 Recipe Nutrition by ID Image
 
@@ -1302,7 +1334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -1316,7 +1348,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipe_nutrition_label_image**
-> object recipe_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients)
+> string recipe_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients)
 
 Recipe Nutrition Label Image
 
@@ -1359,7 +1391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -1432,7 +1464,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipe_taste_by_id_image**
-> object recipe_taste_by_id_image(id => $id, normalize => $normalize, rgb => $rgb)
+> string recipe_taste_by_id_image(id => $id, normalize => $normalize, rgb => $rgb)
 
 Recipe Taste by ID Image
 
@@ -1473,7 +1505,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -2043,7 +2075,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_equipment**
-> string visualize_equipment(content_type => $content_type, accept => $accept)
+> string visualize_equipment(instructions => $instructions, view => $view, default_css => $default_css, show_backlink => $show_backlink)
 
 Equipment Widget
 
@@ -2061,11 +2093,13 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
-my $accept = application/json; # string | Accept header.
+my $instructions = "instructions_example"; # string | The recipe's instructions.
+my $view = "view_example"; # string | How to visualize the ingredients, either 'grid' or 'list'.
+my $default_css = null; # boolean | Whether the default CSS should be added to the response.
+my $show_backlink = null; # boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 eval {
-    my $result = $api_instance->visualize_equipment(content_type => $content_type, accept => $accept);
+    my $result = $api_instance->visualize_equipment(instructions => $instructions, view => $view, default_css => $default_css, show_backlink => $show_backlink);
     print Dumper($result);
 };
 if ($@) {
@@ -2077,8 +2111,10 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
- **accept** | **string**| Accept header. | [optional] 
+ **instructions** | **string**| The recipe&#39;s instructions. | 
+ **view** | **string**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2096,7 +2132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_price_breakdown**
-> string visualize_price_breakdown(content_type => $content_type, accept => $accept, language => $language)
+> string visualize_price_breakdown(ingredient_list => $ingredient_list, servings => $servings, language => $language, mode => $mode, default_css => $default_css, show_backlink => $show_backlink)
 
 Price Breakdown Widget
 
@@ -2114,12 +2150,15 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
-my $accept = application/json; # string | Accept header.
+my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
+my $servings = 3.4; # double | The number of servings.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
+my $mode = 3.4; # double | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+my $default_css = null; # boolean | Whether the default CSS should be added to the response.
+my $show_backlink = null; # boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 eval {
-    my $result = $api_instance->visualize_price_breakdown(content_type => $content_type, accept => $accept, language => $language);
+    my $result = $api_instance->visualize_price_breakdown(ingredient_list => $ingredient_list, servings => $servings, language => $language, mode => $mode, default_css => $default_css, show_backlink => $show_backlink);
     print Dumper($result);
 };
 if ($@) {
@@ -2131,9 +2170,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
- **accept** | **string**| Accept header. | [optional] 
+ **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **double**| The number of servings. | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **mode** | **double**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] 
+ **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2259,7 +2301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_recipe_nutrition**
-> string visualize_recipe_nutrition(content_type => $content_type, accept => $accept, language => $language)
+> string visualize_recipe_nutrition(ingredient_list => $ingredient_list, servings => $servings, language => $language, default_css => $default_css, show_backlink => $show_backlink)
 
 Recipe Nutrition Widget
 
@@ -2277,12 +2319,14 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
-my $accept = application/json; # string | Accept header.
+my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
+my $servings = 3.4; # double | The number of servings.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
+my $default_css = null; # boolean | Whether the default CSS should be added to the response.
+my $show_backlink = null; # boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 eval {
-    my $result = $api_instance->visualize_recipe_nutrition(content_type => $content_type, accept => $accept, language => $language);
+    my $result = $api_instance->visualize_recipe_nutrition(ingredient_list => $ingredient_list, servings => $servings, language => $language, default_css => $default_css, show_backlink => $show_backlink);
     print Dumper($result);
 };
 if ($@) {
@@ -2294,9 +2338,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
- **accept** | **string**| Accept header. | [optional] 
+ **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **double**| The number of servings. | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2314,7 +2360,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_recipe_nutrition_by_id**
-> string visualize_recipe_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept)
+> string visualize_recipe_nutrition_by_id(id => $id, default_css => $default_css)
 
 Recipe Nutrition by ID Widget
 
@@ -2334,10 +2380,9 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
-my $accept = application/json; # string | Accept header.
 
 eval {
-    my $result = $api_instance->visualize_recipe_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept);
+    my $result = $api_instance->visualize_recipe_nutrition_by_id(id => $id, default_css => $default_css);
     print Dumper($result);
 };
 if ($@) {
@@ -2351,7 +2396,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item&#39;s id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **string**| Accept header. | [optional] 
 
 ### Return type
 
@@ -2422,7 +2466,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_recipe_taste**
-> string visualize_recipe_taste(language => $language, content_type => $content_type, accept => $accept, normalize => $normalize, rgb => $rgb)
+> string visualize_recipe_taste(ingredient_list => $ingredient_list, language => $language, normalize => $normalize, rgb => $rgb)
 
 Recipe Taste Widget
 
@@ -2440,14 +2484,13 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
+my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
-my $content_type = application/json; # string | The content type.
-my $accept = application/json; # string | Accept header.
-my $normalize = null; # boolean | Whether to normalize to the strongest taste.
-my $rgb = 75,192,192; # string | Red, green, blue values for the chart color.
+my $normalize = null; # boolean | Normalize to the strongest taste.
+my $rgb = "rgb_example"; # string | Red, green, blue values for the chart color.
 
 eval {
-    my $result = $api_instance->visualize_recipe_taste(language => $language, content_type => $content_type, accept => $accept, normalize => $normalize, rgb => $rgb);
+    my $result = $api_instance->visualize_recipe_taste(ingredient_list => $ingredient_list, language => $language, normalize => $normalize, rgb => $rgb);
     print Dumper($result);
 };
 if ($@) {
@@ -2459,10 +2502,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **content_type** | **string**| The content type. | [optional] 
- **accept** | **string**| Accept header. | [optional] 
- **normalize** | **boolean**| Whether to normalize to the strongest taste. | [optional] 
+ **normalize** | **boolean**| Normalize to the strongest taste. | [optional] 
  **rgb** | **string**| Red, green, blue values for the chart color. | [optional] 
 
 ### Return type

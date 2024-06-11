@@ -160,10 +160,10 @@ docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md
+docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
+docs/TalkToChatbot200ResponseMediaInner.md
 docs/WineApi.md
 git_push.sh
 mocha.opts
@@ -328,10 +328,10 @@ src/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.js
 src/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.js
 src/model/SearchSiteContent200Response.js
 src/model/SearchSiteContent200ResponseArticlesInner.js
-src/model/SearchSiteContent200ResponseGroceryProductsInner.js
-src/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.js
+src/model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.js
 src/model/SummarizeRecipe200Response.js
 src/model/TalkToChatbot200Response.js
+src/model/TalkToChatbot200ResponseMediaInner.js
 test/api/DefaultApi.spec.js
 test/api/IngredientsApi.spec.js
 test/api/MealPlanningApi.spec.js
@@ -490,7 +490,7 @@ test/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.spec.js
 test/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.spec.js
 test/model/SearchSiteContent200Response.spec.js
 test/model/SearchSiteContent200ResponseArticlesInner.spec.js
-test/model/SearchSiteContent200ResponseGroceryProductsInner.spec.js
-test/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.spec.js
+test/model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.spec.js
 test/model/SummarizeRecipe200Response.spec.js
 test/model/TalkToChatbot200Response.spec.js
+test/model/TalkToChatbot200ResponseMediaInner.spec.js

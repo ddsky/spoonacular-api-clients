@@ -1,0 +1,10 @@
+# SpoonacularApi.SearchSiteContent200ResponseArticlesInnerDataPointsInner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**key** | **String** |  | 
+**value** | **String** |  | 
+
+

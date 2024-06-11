@@ -21,26 +21,26 @@ module OpenapiClient
     end
     # Detect Food in Text
     # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+    # @param text [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @return [DetectFoodInText200Response]
-    def detect_food_in_text(opts = {})
-      data, _status_code, _headers = detect_food_in_text_with_http_info(opts)
+    def detect_food_in_text(text, opts = {})
+      data, _status_code, _headers = detect_food_in_text_with_http_info(text, opts)
       data
     end
 
     # Detect Food in Text
     # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+    # @param text [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @return [Array<(DetectFoodInText200Response, Integer, Hash)>] DetectFoodInText200Response data, response status code and response headers
-    def detect_food_in_text_with_http_info(opts = {})
+    def detect_food_in_text_with_http_info(text, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.detect_food_in_text ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'text' is set
+      if @api_client.config.client_side_validation && text.nil?
+        fail ArgumentError, "Missing the required parameter 'text' when calling MiscApi.detect_food_in_text"
       end
       # resource path
       local_var_path = '/food/detect'
@@ -57,10 +57,10 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['text'] = text
 
       # http body (model)
       post_body = opts[:debug_body]

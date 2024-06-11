@@ -34,10 +34,10 @@ namespace spoonacular.Api
         /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DetectFoodInText200Response</returns>
-        DetectFoodInText200Response DetectFoodInText(string? contentType = default(string?), int operationIndex = 0);
+        DetectFoodInText200Response DetectFoodInText(string text, int operationIndex = 0);
 
         /// <summary>
         /// Detect Food in Text
@@ -46,10 +46,10 @@ namespace spoonacular.Api
         /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DetectFoodInText200Response</returns>
-        ApiResponse<DetectFoodInText200Response> DetectFoodInTextWithHttpInfo(string? contentType = default(string?), int operationIndex = 0);
+        ApiResponse<DetectFoodInText200Response> DetectFoodInTextWithHttpInfo(string text, int operationIndex = 0);
         /// <summary>
         /// Random Food Joke
         /// </summary>
@@ -326,11 +326,11 @@ namespace spoonacular.Api
         /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetectFoodInText200Response</returns>
-        System.Threading.Tasks.Task<DetectFoodInText200Response> DetectFoodInTextAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DetectFoodInText200Response> DetectFoodInTextAsync(string text, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Detect Food in Text
@@ -339,11 +339,11 @@ namespace spoonacular.Api
         /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetectFoodInText200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DetectFoodInText200Response>> DetectFoodInTextWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DetectFoodInText200Response>> DetectFoodInTextWithHttpInfoAsync(string text, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Random Food Joke
         /// </summary>
@@ -748,12 +748,12 @@ namespace spoonacular.Api
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DetectFoodInText200Response</returns>
-        public DetectFoodInText200Response DetectFoodInText(string? contentType = default(string?), int operationIndex = 0)
+        public DetectFoodInText200Response DetectFoodInText(string text, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<DetectFoodInText200Response> localVarResponse = DetectFoodInTextWithHttpInfo(contentType);
+            spoonacular.Client.ApiResponse<DetectFoodInText200Response> localVarResponse = DetectFoodInTextWithHttpInfo(text);
             return localVarResponse.Data;
         }
 
@@ -761,11 +761,17 @@ namespace spoonacular.Api
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DetectFoodInText200Response</returns>
-        public spoonacular.Client.ApiResponse<DetectFoodInText200Response> DetectFoodInTextWithHttpInfo(string? contentType = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<DetectFoodInText200Response> DetectFoodInTextWithHttpInfo(string text, int operationIndex = 0)
         {
+            // verify the required parameter 'text' is set
+            if (text == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'text' when calling MiscApi->DetectFoodInText");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -789,10 +795,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
-            }
+            localVarRequestOptions.FormParameters.Add("text", spoonacular.Client.ClientUtils.ParameterToString(text)); // form parameter
 
             localVarRequestOptions.Operation = "MiscApi.DetectFoodInText";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -821,13 +824,13 @@ namespace spoonacular.Api
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetectFoodInText200Response</returns>
-        public async System.Threading.Tasks.Task<DetectFoodInText200Response> DetectFoodInTextAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetectFoodInText200Response> DetectFoodInTextAsync(string text, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<DetectFoodInText200Response> localVarResponse = await DetectFoodInTextWithHttpInfoAsync(contentType, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<DetectFoodInText200Response> localVarResponse = await DetectFoodInTextWithHttpInfoAsync(text, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -835,12 +838,18 @@ namespace spoonacular.Api
         /// Detect Food in Text Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contentType">The content type. (optional)</param>
+        /// <param name="text"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetectFoodInText200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<DetectFoodInText200Response>> DetectFoodInTextWithHttpInfoAsync(string? contentType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<DetectFoodInText200Response>> DetectFoodInTextWithHttpInfoAsync(string text, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'text' is set
+            if (text == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'text' when calling MiscApi->DetectFoodInText");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -865,10 +874,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (contentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", spoonacular.Client.ClientUtils.ParameterToString(contentType)); // header parameter
-            }
+            localVarRequestOptions.FormParameters.Add("text", spoonacular.Client.ClientUtils.ParameterToString(text)); // form parameter
 
             localVarRequestOptions.Operation = "MiscApi.DetectFoodInText";
             localVarRequestOptions.OperationIndex = operationIndex;

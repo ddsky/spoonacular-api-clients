@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **badges** | **List<String>** |  | [default to const []]
 **importantBadges** | **List<String>** |  | [default to const []]
 **ingredientCount** | **int** |  | 
-**generatedText** | [**Object**](.md) |  | [optional] 
+**generatedText** | **String** |  | [optional] 
 **ingredientList** | **String** |  | 
 **ingredients** | [**List<GetProductInformation200ResponseIngredientsInner>**](GetProductInformation200ResponseIngredientsInner.md) |  | [default to const []]
 **likes** | **num** |  | 

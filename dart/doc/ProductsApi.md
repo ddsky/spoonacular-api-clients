@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productNutritionByIDImage**
-> Object productNutritionByIDImage(id)
+> MultipartFile productNutritionByIDImage(id)
 
 Product Nutrition by ID Image
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productNutritionLabelImage**
-> Object productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> MultipartFile productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Product Nutrition Label Image
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeProductNutritionByID**
-> String visualizeProductNutritionByID(id, defaultCss, accept)
+> String visualizeProductNutritionByID(id, defaultCss)
 
 Product Nutrition by ID Widget
 
@@ -552,10 +552,9 @@ import 'package:openapi/api.dart';
 final api_instance = ProductsApi();
 final id = 1; // int | The item's id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
-final accept = application/json; // String | Accept header.
 
 try {
-    final result = api_instance.visualizeProductNutritionByID(id, defaultCss, accept);
+    final result = api_instance.visualizeProductNutritionByID(id, defaultCss);
     print(result);
 } catch (e) {
     print('Exception when calling ProductsApi->visualizeProductNutritionByID: $e\n');
@@ -568,7 +567,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item's id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] 
 
 ### Return type
 

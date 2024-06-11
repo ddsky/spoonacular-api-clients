@@ -84,10 +84,10 @@ QJsonObject OAISearchGroceryProductsByUPC_200_response_ingredients_inner::asJson
     return obj;
 }
 
-QJsonValue OAISearchGroceryProductsByUPC_200_response_ingredients_inner::getDescription() const {
+QString OAISearchGroceryProductsByUPC_200_response_ingredients_inner::getDescription() const {
     return m_description;
 }
-void OAISearchGroceryProductsByUPC_200_response_ingredients_inner::setDescription(const QJsonValue &description) {
+void OAISearchGroceryProductsByUPC_200_response_ingredients_inner::setDescription(const QString &description) {
     m_description = description;
     m_description_isSet = true;
 }
@@ -116,10 +116,10 @@ bool OAISearchGroceryProductsByUPC_200_response_ingredients_inner::is_name_Valid
     return m_name_isValid;
 }
 
-QJsonValue OAISearchGroceryProductsByUPC_200_response_ingredients_inner::getSafetyLevel() const {
+QString OAISearchGroceryProductsByUPC_200_response_ingredients_inner::getSafetyLevel() const {
     return m_safety_level;
 }
-void OAISearchGroceryProductsByUPC_200_response_ingredients_inner::setSafetyLevel(const QJsonValue &safety_level) {
+void OAISearchGroceryProductsByUPC_200_response_ingredients_inner::setSafetyLevel(const QString &safety_level) {
     m_safety_level = safety_level;
     m_safety_level_isSet = true;
 }

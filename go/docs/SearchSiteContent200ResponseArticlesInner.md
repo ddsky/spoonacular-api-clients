@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataPoints** | Pointer to **[]interface{}** |  | [optional] 
+**DataPoints** | Pointer to [**[]SearchSiteContent200ResponseArticlesInnerDataPointsInner**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  | [optional] 
 **Image** | **string** |  | 
 **Link** | **string** |  | 
 **Name** | **string** |  | 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDataPoints
 
-`func (o *SearchSiteContent200ResponseArticlesInner) GetDataPoints() []interface{}`
+`func (o *SearchSiteContent200ResponseArticlesInner) GetDataPoints() []SearchSiteContent200ResponseArticlesInnerDataPointsInner`
 
 GetDataPoints returns the DataPoints field if non-nil, zero value otherwise.
 
 ### GetDataPointsOk
 
-`func (o *SearchSiteContent200ResponseArticlesInner) GetDataPointsOk() (*[]interface{}, bool)`
+`func (o *SearchSiteContent200ResponseArticlesInner) GetDataPointsOk() (*[]SearchSiteContent200ResponseArticlesInnerDataPointsInner, bool)`
 
 GetDataPointsOk returns a tuple with the DataPoints field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataPoints
 
-`func (o *SearchSiteContent200ResponseArticlesInner) SetDataPoints(v []interface{})`
+`func (o *SearchSiteContent200ResponseArticlesInner) SetDataPoints(v []SearchSiteContent200ResponseArticlesInnerDataPointsInner)`
 
 SetDataPoints sets DataPoints field to given value.
 

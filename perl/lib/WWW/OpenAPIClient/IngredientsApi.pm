@@ -720,10 +720,10 @@ sub ingredient_search {
     __PACKAGE__->method_documentation->{ 'ingredients_by_id_image' } = {
         summary => 'Ingredients by ID Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub ingredients_by_id_image {
     my ($self, %args) = @_;
@@ -771,7 +771,7 @@ sub ingredients_by_id_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -845,24 +845,48 @@ sub map_ingredients_to_grocery_products {
 #
 # Ingredients Widget
 #
-# @param string $content_type The content type. (optional)
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+# @param double $servings The number of servings. (required)
 # @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-# @param string $accept Accept header. (optional)
+# @param string $measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+# @param string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+# @param boolean $default_css Whether the default CSS should be added to the response. (optional)
+# @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
     my $params = {
-    'content_type' => {
+    'ingredient_list' => {
         data_type => 'string',
-        description => 'The content type.',
-        required => '0',
+        description => 'The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).',
+        required => '1',
+    },
+    'servings' => {
+        data_type => 'double',
+        description => 'The number of servings.',
+        required => '1',
     },
     'language' => {
         data_type => 'string',
         description => 'The language of the input. Either &#39;en&#39; or &#39;de&#39;.',
         required => '0',
     },
-    'accept' => {
+    'measure' => {
         data_type => 'string',
-        description => 'Accept header.',
+        description => 'The original system of measurement, either &#39;metric&#39; or &#39;us&#39;.',
+        required => '0',
+    },
+    'view' => {
+        data_type => 'string',
+        description => 'How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.',
+        required => '0',
+    },
+    'default_css' => {
+        data_type => 'boolean',
+        description => 'Whether the default CSS should be added to the response.',
+        required => '0',
+    },
+    'show_backlink' => {
+        data_type => 'boolean',
+        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
         required => '0',
     },
     };
@@ -876,6 +900,16 @@ sub map_ingredients_to_grocery_products {
 #
 sub visualize_ingredients {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling visualize_ingredients");
+    }
+
+    # verify the required parameter 'servings' is set
+    unless (exists $args{'servings'}) {
+      croak("Missing the required parameter 'servings' when calling visualize_ingredients");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/visualizeIngredients';
@@ -897,14 +931,34 @@ sub visualize_ingredients {
         $query_params->{'language'} = $self->{api_client}->to_query_value($args{'language'});
     }
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
     }
 
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
+    # form params
+    if ( exists $args{'servings'} ) {
+                $form_params->{'servings'} = $self->{api_client}->to_form_value($args{'servings'});
+    }
+
+    # form params
+    if ( exists $args{'measure'} ) {
+                $form_params->{'measure'} = $self->{api_client}->to_form_value($args{'measure'});
+    }
+
+    # form params
+    if ( exists $args{'view'} ) {
+                $form_params->{'view'} = $self->{api_client}->to_form_value($args{'view'});
+    }
+
+    # form params
+    if ( exists $args{'default_css'} ) {
+                $form_params->{'defaultCss'} = $self->{api_client}->to_form_value($args{'default_css'});
+    }
+
+    # form params
+    if ( exists $args{'show_backlink'} ) {
+                $form_params->{'showBacklink'} = $self->{api_client}->to_form_value($args{'show_backlink'});
     }
 
     my $_body_data;

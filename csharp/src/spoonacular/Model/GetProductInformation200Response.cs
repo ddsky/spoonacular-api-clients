@@ -56,7 +56,7 @@ namespace spoonacular.Model
         /// <param name="price">price (required).</param>
         /// <param name="servings">servings (required).</param>
         /// <param name="spoonacularScore">spoonacularScore (required).</param>
-        public GetProductInformation200Response(int id = default(int), string title = default(string), List<string> breadcrumbs = default(List<string>), string imageType = default(string), List<string> badges = default(List<string>), List<string> importantBadges = default(List<string>), int ingredientCount = default(int), Object generatedText = default(Object), string ingredientList = default(string), List<GetProductInformation200ResponseIngredientsInner> ingredients = default(List<GetProductInformation200ResponseIngredientsInner>), decimal likes = default(decimal), string aisle = default(string), SearchGroceryProductsByUPC200ResponseNutrition nutrition = default(SearchGroceryProductsByUPC200ResponseNutrition), decimal price = default(decimal), SearchGroceryProductsByUPC200ResponseServings servings = default(SearchGroceryProductsByUPC200ResponseServings), decimal spoonacularScore = default(decimal))
+        public GetProductInformation200Response(int id = default(int), string title = default(string), List<string> breadcrumbs = default(List<string>), string imageType = default(string), List<string> badges = default(List<string>), List<string> importantBadges = default(List<string>), int ingredientCount = default(int), string generatedText = default(string), string ingredientList = default(string), List<GetProductInformation200ResponseIngredientsInner> ingredients = default(List<GetProductInformation200ResponseIngredientsInner>), decimal likes = default(decimal), string aisle = default(string), SearchGroceryProductsByUPC200ResponseNutrition nutrition = default(SearchGroceryProductsByUPC200ResponseNutrition), decimal price = default(decimal), SearchGroceryProductsByUPC200ResponseServings servings = default(SearchGroceryProductsByUPC200ResponseServings), decimal spoonacularScore = default(decimal))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -171,8 +171,8 @@ namespace spoonacular.Model
         /// <summary>
         /// Gets or Sets GeneratedText
         /// </summary>
-        [DataMember(Name = "generatedText", EmitDefaultValue = true)]
-        public Object GeneratedText { get; set; }
+        [DataMember(Name = "generatedText", EmitDefaultValue = false)]
+        public string GeneratedText { get; set; }
 
         /// <summary>
         /// Gets or Sets IngredientList

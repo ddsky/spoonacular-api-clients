@@ -8,7 +8,7 @@
     #{ 'id' := integer(),
        'title' := binary(),
        'averageRating' := integer(),
-       'description' => spoonacular_any_type:spoonacular_any_type(),
+       'description' => binary(),
        'imageUrl' := binary(),
        'link' := binary(),
        'price' := binary(),

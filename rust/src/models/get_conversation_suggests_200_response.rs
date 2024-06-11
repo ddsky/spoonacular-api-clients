@@ -17,12 +17,12 @@ pub struct GetConversationSuggests200Response {
     #[serde(rename = "suggests")]
     pub suggests: Box<crate::models::GetConversationSuggests200ResponseSuggests>,
     #[serde(rename = "words")]
-    pub words: Vec<serde_json::Value>,
+    pub words: Vec<String>,
 }
 
 impl GetConversationSuggests200Response {
     /// 
-    pub fn new(suggests: crate::models::GetConversationSuggests200ResponseSuggests, words: Vec<serde_json::Value>) -> GetConversationSuggests200Response {
+    pub fn new(suggests: crate::models::GetConversationSuggests200ResponseSuggests, words: Vec<String>) -> GetConversationSuggests200Response {
         GetConversationSuggests200Response {
             suggests: Box::new(suggests),
             words,

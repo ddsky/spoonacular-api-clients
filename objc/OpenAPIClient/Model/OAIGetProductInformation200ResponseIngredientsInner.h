@@ -14,9 +14,6 @@
 */
 
 
-#import "OAIAnyType.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
 
 
 
@@ -26,10 +23,10 @@
 @interface OAIGetProductInformation200ResponseIngredientsInner : OAIObject
 
 
-@property(nonatomic) OAIAnyType* _description;
+@property(nonatomic) NSString* _description;
 
 @property(nonatomic) NSString* name;
 
-@property(nonatomic) OAIAnyType* safetyLevel;
+@property(nonatomic) NSString* safetyLevel;
 
 @end

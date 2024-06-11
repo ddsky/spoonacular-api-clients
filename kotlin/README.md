@@ -68,10 +68,10 @@ Class | Method | HTTP request | Description
 *MealPlanningApi* | [**deleteFromShoppingList**](docs/MealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *MealPlanningApi* | [**deleteMealPlanTemplate**](docs/MealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *MealPlanningApi* | [**generateMealPlan**](docs/MealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
-*MealPlanningApi* | [**generateShoppingList**](docs/MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*MealPlanningApi* | [**generateShoppingList**](docs/MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *MealPlanningApi* | [**getMealPlanTemplate**](docs/MealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *MealPlanningApi* | [**getMealPlanTemplates**](docs/MealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*MealPlanningApi* | [**getMealPlanWeek**](docs/MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*MealPlanningApi* | [**getMealPlanWeek**](docs/MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *MealPlanningApi* | [**getShoppingList**](docs/MealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *MenuItemsApi* | [**autocompleteMenuItemSearch**](docs/MenuItemsApi.md#autocompletemenuitemsearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *MenuItemsApi* | [**getMenuItemInformation**](docs/MenuItemsApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -301,10 +301,10 @@ Class | Method | HTTP request | Description
  - [com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [com.spoonacular.client.model.SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [com.spoonacular.client.model.SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [com.spoonacular.client.model.TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [com.spoonacular.client.model.TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 <a id="documentation-for-authorization"></a>

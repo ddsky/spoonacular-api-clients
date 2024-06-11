@@ -952,7 +952,7 @@ getConversationSuggests200ResponseSuggestsL f GetConversationSuggests200Response
 {-# INLINE getConversationSuggests200ResponseSuggestsL #-}
 
 -- | 'getConversationSuggests200ResponseWords' Lens
-getConversationSuggests200ResponseWordsL :: Lens_' GetConversationSuggests200Response ([AnyType])
+getConversationSuggests200ResponseWordsL :: Lens_' GetConversationSuggests200Response ([Text])
 getConversationSuggests200ResponseWordsL f GetConversationSuggests200Response{..} = (\getConversationSuggests200ResponseWords -> GetConversationSuggests200Response { getConversationSuggests200ResponseWords, ..} ) <$> f getConversationSuggests200ResponseWords
 {-# INLINE getConversationSuggests200ResponseWordsL #-}
 
@@ -1473,7 +1473,7 @@ getProductInformation200ResponseIngredientCountL f GetProductInformation200Respo
 {-# INLINE getProductInformation200ResponseIngredientCountL #-}
 
 -- | 'getProductInformation200ResponseGeneratedText' Lens
-getProductInformation200ResponseGeneratedTextL :: Lens_' GetProductInformation200Response (Maybe AnyType)
+getProductInformation200ResponseGeneratedTextL :: Lens_' GetProductInformation200Response (Maybe Text)
 getProductInformation200ResponseGeneratedTextL f GetProductInformation200Response{..} = (\getProductInformation200ResponseGeneratedText -> GetProductInformation200Response { getProductInformation200ResponseGeneratedText, ..} ) <$> f getProductInformation200ResponseGeneratedText
 {-# INLINE getProductInformation200ResponseGeneratedTextL #-}
 
@@ -1522,7 +1522,7 @@ getProductInformation200ResponseSpoonacularScoreL f GetProductInformation200Resp
 -- * GetProductInformation200ResponseIngredientsInner
 
 -- | 'getProductInformation200ResponseIngredientsInnerDescription' Lens
-getProductInformation200ResponseIngredientsInnerDescriptionL :: Lens_' GetProductInformation200ResponseIngredientsInner (Maybe AnyType)
+getProductInformation200ResponseIngredientsInnerDescriptionL :: Lens_' GetProductInformation200ResponseIngredientsInner (Maybe Text)
 getProductInformation200ResponseIngredientsInnerDescriptionL f GetProductInformation200ResponseIngredientsInner{..} = (\getProductInformation200ResponseIngredientsInnerDescription -> GetProductInformation200ResponseIngredientsInner { getProductInformation200ResponseIngredientsInnerDescription, ..} ) <$> f getProductInformation200ResponseIngredientsInnerDescription
 {-# INLINE getProductInformation200ResponseIngredientsInnerDescriptionL #-}
 
@@ -1532,7 +1532,7 @@ getProductInformation200ResponseIngredientsInnerNameL f GetProductInformation200
 {-# INLINE getProductInformation200ResponseIngredientsInnerNameL #-}
 
 -- | 'getProductInformation200ResponseIngredientsInnerSafetyLevel' Lens
-getProductInformation200ResponseIngredientsInnerSafetyLevelL :: Lens_' GetProductInformation200ResponseIngredientsInner (Maybe AnyType)
+getProductInformation200ResponseIngredientsInnerSafetyLevelL :: Lens_' GetProductInformation200ResponseIngredientsInner (Maybe Text)
 getProductInformation200ResponseIngredientsInnerSafetyLevelL f GetProductInformation200ResponseIngredientsInner{..} = (\getProductInformation200ResponseIngredientsInnerSafetyLevel -> GetProductInformation200ResponseIngredientsInner { getProductInformation200ResponseIngredientsInnerSafetyLevel, ..} ) <$> f getProductInformation200ResponseIngredientsInnerSafetyLevel
 {-# INLINE getProductInformation200ResponseIngredientsInnerSafetyLevelL #-}
 
@@ -2702,7 +2702,7 @@ getWinePairing200ResponseProductMatchesInnerAverageRatingL f GetWinePairing200Re
 {-# INLINE getWinePairing200ResponseProductMatchesInnerAverageRatingL #-}
 
 -- | 'getWinePairing200ResponseProductMatchesInnerDescription' Lens
-getWinePairing200ResponseProductMatchesInnerDescriptionL :: Lens_' GetWinePairing200ResponseProductMatchesInner (Maybe AnyType)
+getWinePairing200ResponseProductMatchesInnerDescriptionL :: Lens_' GetWinePairing200ResponseProductMatchesInner (Maybe Text)
 getWinePairing200ResponseProductMatchesInnerDescriptionL f GetWinePairing200ResponseProductMatchesInner{..} = (\getWinePairing200ResponseProductMatchesInnerDescription -> GetWinePairing200ResponseProductMatchesInner { getWinePairing200ResponseProductMatchesInnerDescription, ..} ) <$> f getWinePairing200ResponseProductMatchesInnerDescription
 {-# INLINE getWinePairing200ResponseProductMatchesInnerDescriptionL #-}
 
@@ -3627,7 +3627,7 @@ searchGroceryProductsByUPC200ResponseSpoonacularScoreL f SearchGroceryProductsBy
 -- * SearchGroceryProductsByUPC200ResponseIngredientsInner
 
 -- | 'searchGroceryProductsByUPC200ResponseIngredientsInnerDescription' Lens
-searchGroceryProductsByUPC200ResponseIngredientsInnerDescriptionL :: Lens_' SearchGroceryProductsByUPC200ResponseIngredientsInner (Maybe AnyType)
+searchGroceryProductsByUPC200ResponseIngredientsInnerDescriptionL :: Lens_' SearchGroceryProductsByUPC200ResponseIngredientsInner (Maybe Text)
 searchGroceryProductsByUPC200ResponseIngredientsInnerDescriptionL f SearchGroceryProductsByUPC200ResponseIngredientsInner{..} = (\searchGroceryProductsByUPC200ResponseIngredientsInnerDescription -> SearchGroceryProductsByUPC200ResponseIngredientsInner { searchGroceryProductsByUPC200ResponseIngredientsInnerDescription, ..} ) <$> f searchGroceryProductsByUPC200ResponseIngredientsInnerDescription
 {-# INLINE searchGroceryProductsByUPC200ResponseIngredientsInnerDescriptionL #-}
 
@@ -3637,7 +3637,7 @@ searchGroceryProductsByUPC200ResponseIngredientsInnerNameL f SearchGroceryProduc
 {-# INLINE searchGroceryProductsByUPC200ResponseIngredientsInnerNameL #-}
 
 -- | 'searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel' Lens
-searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevelL :: Lens_' SearchGroceryProductsByUPC200ResponseIngredientsInner (Maybe AnyType)
+searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevelL :: Lens_' SearchGroceryProductsByUPC200ResponseIngredientsInner (Maybe Text)
 searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevelL f SearchGroceryProductsByUPC200ResponseIngredientsInner{..} = (\searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel -> SearchGroceryProductsByUPC200ResponseIngredientsInner { searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel, ..} ) <$> f searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel
 {-# INLINE searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevelL #-}
 
@@ -4187,17 +4187,17 @@ searchSiteContent200ResponseArticlesL f SearchSiteContent200Response{..} = (\sea
 {-# INLINE searchSiteContent200ResponseArticlesL #-}
 
 -- | 'searchSiteContent200ResponseGroceryProducts' Lens
-searchSiteContent200ResponseGroceryProductsL :: Lens_' SearchSiteContent200Response ([SearchSiteContent200ResponseGroceryProductsInner])
+searchSiteContent200ResponseGroceryProductsL :: Lens_' SearchSiteContent200Response ([SearchSiteContent200ResponseArticlesInner])
 searchSiteContent200ResponseGroceryProductsL f SearchSiteContent200Response{..} = (\searchSiteContent200ResponseGroceryProducts -> SearchSiteContent200Response { searchSiteContent200ResponseGroceryProducts, ..} ) <$> f searchSiteContent200ResponseGroceryProducts
 {-# INLINE searchSiteContent200ResponseGroceryProductsL #-}
 
 -- | 'searchSiteContent200ResponseMenuItems' Lens
-searchSiteContent200ResponseMenuItemsL :: Lens_' SearchSiteContent200Response ([SearchSiteContent200ResponseGroceryProductsInner])
+searchSiteContent200ResponseMenuItemsL :: Lens_' SearchSiteContent200Response ([SearchSiteContent200ResponseArticlesInner])
 searchSiteContent200ResponseMenuItemsL f SearchSiteContent200Response{..} = (\searchSiteContent200ResponseMenuItems -> SearchSiteContent200Response { searchSiteContent200ResponseMenuItems, ..} ) <$> f searchSiteContent200ResponseMenuItems
 {-# INLINE searchSiteContent200ResponseMenuItemsL #-}
 
 -- | 'searchSiteContent200ResponseRecipes' Lens
-searchSiteContent200ResponseRecipesL :: Lens_' SearchSiteContent200Response ([SearchSiteContent200ResponseGroceryProductsInner])
+searchSiteContent200ResponseRecipesL :: Lens_' SearchSiteContent200Response ([SearchSiteContent200ResponseArticlesInner])
 searchSiteContent200ResponseRecipesL f SearchSiteContent200Response{..} = (\searchSiteContent200ResponseRecipes -> SearchSiteContent200Response { searchSiteContent200ResponseRecipes, ..} ) <$> f searchSiteContent200ResponseRecipes
 {-# INLINE searchSiteContent200ResponseRecipesL #-}
 
@@ -4206,7 +4206,7 @@ searchSiteContent200ResponseRecipesL f SearchSiteContent200Response{..} = (\sear
 -- * SearchSiteContent200ResponseArticlesInner
 
 -- | 'searchSiteContent200ResponseArticlesInnerDataPoints' Lens
-searchSiteContent200ResponseArticlesInnerDataPointsL :: Lens_' SearchSiteContent200ResponseArticlesInner (Maybe [AnyType])
+searchSiteContent200ResponseArticlesInnerDataPointsL :: Lens_' SearchSiteContent200ResponseArticlesInner (Maybe [SearchSiteContent200ResponseArticlesInnerDataPointsInner])
 searchSiteContent200ResponseArticlesInnerDataPointsL f SearchSiteContent200ResponseArticlesInner{..} = (\searchSiteContent200ResponseArticlesInnerDataPoints -> SearchSiteContent200ResponseArticlesInner { searchSiteContent200ResponseArticlesInnerDataPoints, ..} ) <$> f searchSiteContent200ResponseArticlesInnerDataPoints
 {-# INLINE searchSiteContent200ResponseArticlesInnerDataPointsL #-}
 
@@ -4227,41 +4227,17 @@ searchSiteContent200ResponseArticlesInnerNameL f SearchSiteContent200ResponseArt
 
 
 
--- * SearchSiteContent200ResponseGroceryProductsInner
+-- * SearchSiteContent200ResponseArticlesInnerDataPointsInner
 
--- | 'searchSiteContent200ResponseGroceryProductsInnerDataPoints' Lens
-searchSiteContent200ResponseGroceryProductsInnerDataPointsL :: Lens_' SearchSiteContent200ResponseGroceryProductsInner (Maybe [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner])
-searchSiteContent200ResponseGroceryProductsInnerDataPointsL f SearchSiteContent200ResponseGroceryProductsInner{..} = (\searchSiteContent200ResponseGroceryProductsInnerDataPoints -> SearchSiteContent200ResponseGroceryProductsInner { searchSiteContent200ResponseGroceryProductsInnerDataPoints, ..} ) <$> f searchSiteContent200ResponseGroceryProductsInnerDataPoints
-{-# INLINE searchSiteContent200ResponseGroceryProductsInnerDataPointsL #-}
+-- | 'searchSiteContent200ResponseArticlesInnerDataPointsInnerKey' Lens
+searchSiteContent200ResponseArticlesInnerDataPointsInnerKeyL :: Lens_' SearchSiteContent200ResponseArticlesInnerDataPointsInner (Text)
+searchSiteContent200ResponseArticlesInnerDataPointsInnerKeyL f SearchSiteContent200ResponseArticlesInnerDataPointsInner{..} = (\searchSiteContent200ResponseArticlesInnerDataPointsInnerKey -> SearchSiteContent200ResponseArticlesInnerDataPointsInner { searchSiteContent200ResponseArticlesInnerDataPointsInnerKey, ..} ) <$> f searchSiteContent200ResponseArticlesInnerDataPointsInnerKey
+{-# INLINE searchSiteContent200ResponseArticlesInnerDataPointsInnerKeyL #-}
 
--- | 'searchSiteContent200ResponseGroceryProductsInnerImage' Lens
-searchSiteContent200ResponseGroceryProductsInnerImageL :: Lens_' SearchSiteContent200ResponseGroceryProductsInner (Text)
-searchSiteContent200ResponseGroceryProductsInnerImageL f SearchSiteContent200ResponseGroceryProductsInner{..} = (\searchSiteContent200ResponseGroceryProductsInnerImage -> SearchSiteContent200ResponseGroceryProductsInner { searchSiteContent200ResponseGroceryProductsInnerImage, ..} ) <$> f searchSiteContent200ResponseGroceryProductsInnerImage
-{-# INLINE searchSiteContent200ResponseGroceryProductsInnerImageL #-}
-
--- | 'searchSiteContent200ResponseGroceryProductsInnerLink' Lens
-searchSiteContent200ResponseGroceryProductsInnerLinkL :: Lens_' SearchSiteContent200ResponseGroceryProductsInner (Text)
-searchSiteContent200ResponseGroceryProductsInnerLinkL f SearchSiteContent200ResponseGroceryProductsInner{..} = (\searchSiteContent200ResponseGroceryProductsInnerLink -> SearchSiteContent200ResponseGroceryProductsInner { searchSiteContent200ResponseGroceryProductsInnerLink, ..} ) <$> f searchSiteContent200ResponseGroceryProductsInnerLink
-{-# INLINE searchSiteContent200ResponseGroceryProductsInnerLinkL #-}
-
--- | 'searchSiteContent200ResponseGroceryProductsInnerName' Lens
-searchSiteContent200ResponseGroceryProductsInnerNameL :: Lens_' SearchSiteContent200ResponseGroceryProductsInner (Text)
-searchSiteContent200ResponseGroceryProductsInnerNameL f SearchSiteContent200ResponseGroceryProductsInner{..} = (\searchSiteContent200ResponseGroceryProductsInnerName -> SearchSiteContent200ResponseGroceryProductsInner { searchSiteContent200ResponseGroceryProductsInnerName, ..} ) <$> f searchSiteContent200ResponseGroceryProductsInnerName
-{-# INLINE searchSiteContent200ResponseGroceryProductsInnerNameL #-}
-
-
-
--- * SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-
--- | 'searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey' Lens
-searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKeyL :: Lens_' SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner (Text)
-searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKeyL f SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner{..} = (\searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey -> SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner { searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey, ..} ) <$> f searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKey
-{-# INLINE searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerKeyL #-}
-
--- | 'searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue' Lens
-searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValueL :: Lens_' SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner (Text)
-searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValueL f SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner{..} = (\searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue -> SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner { searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue, ..} ) <$> f searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValue
-{-# INLINE searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerValueL #-}
+-- | 'searchSiteContent200ResponseArticlesInnerDataPointsInnerValue' Lens
+searchSiteContent200ResponseArticlesInnerDataPointsInnerValueL :: Lens_' SearchSiteContent200ResponseArticlesInnerDataPointsInner (Text)
+searchSiteContent200ResponseArticlesInnerDataPointsInnerValueL f SearchSiteContent200ResponseArticlesInnerDataPointsInner{..} = (\searchSiteContent200ResponseArticlesInnerDataPointsInnerValue -> SearchSiteContent200ResponseArticlesInnerDataPointsInner { searchSiteContent200ResponseArticlesInnerDataPointsInnerValue, ..} ) <$> f searchSiteContent200ResponseArticlesInnerDataPointsInnerValue
+{-# INLINE searchSiteContent200ResponseArticlesInnerDataPointsInnerValueL #-}
 
 
 
@@ -4292,8 +4268,27 @@ talkToChatbot200ResponseAnswerTextL f TalkToChatbot200Response{..} = (\talkToCha
 {-# INLINE talkToChatbot200ResponseAnswerTextL #-}
 
 -- | 'talkToChatbot200ResponseMedia' Lens
-talkToChatbot200ResponseMediaL :: Lens_' TalkToChatbot200Response ([AnyType])
+talkToChatbot200ResponseMediaL :: Lens_' TalkToChatbot200Response ([TalkToChatbot200ResponseMediaInner])
 talkToChatbot200ResponseMediaL f TalkToChatbot200Response{..} = (\talkToChatbot200ResponseMedia -> TalkToChatbot200Response { talkToChatbot200ResponseMedia, ..} ) <$> f talkToChatbot200ResponseMedia
 {-# INLINE talkToChatbot200ResponseMediaL #-}
+
+
+
+-- * TalkToChatbot200ResponseMediaInner
+
+-- | 'talkToChatbot200ResponseMediaInnerTitle' Lens
+talkToChatbot200ResponseMediaInnerTitleL :: Lens_' TalkToChatbot200ResponseMediaInner (Maybe Text)
+talkToChatbot200ResponseMediaInnerTitleL f TalkToChatbot200ResponseMediaInner{..} = (\talkToChatbot200ResponseMediaInnerTitle -> TalkToChatbot200ResponseMediaInner { talkToChatbot200ResponseMediaInnerTitle, ..} ) <$> f talkToChatbot200ResponseMediaInnerTitle
+{-# INLINE talkToChatbot200ResponseMediaInnerTitleL #-}
+
+-- | 'talkToChatbot200ResponseMediaInnerImage' Lens
+talkToChatbot200ResponseMediaInnerImageL :: Lens_' TalkToChatbot200ResponseMediaInner (Maybe Text)
+talkToChatbot200ResponseMediaInnerImageL f TalkToChatbot200ResponseMediaInner{..} = (\talkToChatbot200ResponseMediaInnerImage -> TalkToChatbot200ResponseMediaInner { talkToChatbot200ResponseMediaInnerImage, ..} ) <$> f talkToChatbot200ResponseMediaInnerImage
+{-# INLINE talkToChatbot200ResponseMediaInnerImageL #-}
+
+-- | 'talkToChatbot200ResponseMediaInnerLink' Lens
+talkToChatbot200ResponseMediaInnerLinkL :: Lens_' TalkToChatbot200ResponseMediaInner (Maybe Text)
+talkToChatbot200ResponseMediaInnerLinkL f TalkToChatbot200ResponseMediaInner{..} = (\talkToChatbot200ResponseMediaInnerLink -> TalkToChatbot200ResponseMediaInner { talkToChatbot200ResponseMediaInnerLink, ..} ) <$> f talkToChatbot200ResponseMediaInnerLink
+{-# INLINE talkToChatbot200ResponseMediaInnerLinkL #-}
 
 

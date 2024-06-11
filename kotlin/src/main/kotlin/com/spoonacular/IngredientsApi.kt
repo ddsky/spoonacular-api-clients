@@ -657,7 +657,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      * Visualize a recipe&#39;s ingredient list.
      * @param id The recipe id.
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -666,11 +666,11 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ingredientsByIDImage(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage? = null) : kotlin.Any {
+    fun ingredientsByIDImage(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage? = null) : java.io.File {
         val localVarResponse = ingredientsByIDImageWithHttpInfo(id = id, measure = measure)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -689,16 +689,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      * Visualize a recipe&#39;s ingredient list.
      * @param id The recipe id.
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun ingredientsByIDImageWithHttpInfo(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage?) : ApiResponse<kotlin.Any?> {
+    fun ingredientsByIDImageWithHttpInfo(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage?) : ApiResponse<java.io.File?> {
         val localVariableConfig = ingredientsByIDImageRequestConfig(id = id, measure = measure)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -803,15 +803,6 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeVisualizeIngredients(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
      * enum for parameter language
      */
      enum class LanguageVisualizeIngredients(val value: kotlin.String) {
@@ -820,20 +811,31 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      }
 
     /**
-     * enum for parameter accept
+     * enum for parameter measure
      */
-     enum class AcceptVisualizeIngredients(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
+     enum class MeasureVisualizeIngredients(val value: kotlin.String) {
+         @Json(name = "us") us("us"),
+         @Json(name = "metric") metric("metric")
+     }
+
+    /**
+     * enum for parameter view
+     */
+     enum class ViewVisualizeIngredients(val value: kotlin.String) {
+         @Json(name = "grid") grid("grid"),
+         @Json(name = "list") list("list")
      }
 
     /**
      * Ingredients Widget
      * Visualize ingredients of a recipe. You can play around with that endpoint!
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -843,8 +845,8 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizeIngredients(contentType: ContentTypeVisualizeIngredients? = null, language: LanguageVisualizeIngredients? = null, accept: AcceptVisualizeIngredients? = null) : kotlin.String {
-        val localVarResponse = visualizeIngredientsWithHttpInfo(contentType = contentType, language = language, accept = accept)
+    fun visualizeIngredients(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizeIngredients? = null, measure: MeasureVisualizeIngredients? = null, view: ViewVisualizeIngredients? = null, defaultCss: kotlin.Boolean? = null, showBacklink: kotlin.Boolean? = null) : kotlin.String {
+        val localVarResponse = visualizeIngredientsWithHttpInfo(ingredientList = ingredientList, servings = servings, language = language, measure = measure, view = view, defaultCss = defaultCss, showBacklink = showBacklink)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -864,19 +866,23 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Ingredients Widget
      * Visualize ingredients of a recipe. You can play around with that endpoint!
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizeIngredientsWithHttpInfo(contentType: ContentTypeVisualizeIngredients?, language: LanguageVisualizeIngredients?, accept: AcceptVisualizeIngredients?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizeIngredientsRequestConfig(contentType = contentType, language = language, accept = accept)
+    fun visualizeIngredientsWithHttpInfo(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizeIngredients?, measure: MeasureVisualizeIngredients?, view: ViewVisualizeIngredients?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizeIngredientsRequestConfig(ingredientList = ingredientList, servings = servings, language = language, measure = measure, view = view, defaultCss = defaultCss, showBacklink = showBacklink)
 
-        return request<Unit, kotlin.String>(
+        return request<Map<String, PartConfig<*>>, kotlin.String>(
             localVariableConfig
         )
     }
@@ -884,23 +890,30 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * To obtain the request config of the operation visualizeIngredients
      *
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return RequestConfig
      */
-    fun visualizeIngredientsRequestConfig(contentType: ContentTypeVisualizeIngredients?, language: LanguageVisualizeIngredients?, accept: AcceptVisualizeIngredients?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun visualizeIngredientsRequestConfig(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizeIngredients?, measure: MeasureVisualizeIngredients?, view: ViewVisualizeIngredients?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),
+            "servings" to PartConfig(body = servings, headers = mutableMapOf()),
+            "measure" to PartConfig(body = measure.value, headers = mutableMapOf()),
+            "view" to PartConfig(body = view.value, headers = mutableMapOf()),
+            "defaultCss" to PartConfig(body = defaultCss, headers = mutableMapOf()),
+            "showBacklink" to PartConfig(body = showBacklink, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (language != null) {
                     put("language", listOf(language.value))
                 }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         
         return RequestConfig(
             method = RequestMethod.POST,

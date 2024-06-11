@@ -40,8 +40,8 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # analyze_recipe_instructions test
 #
 # uncomment below and update the test
-#my $analyze_recipe_instructions_content_type = undef; # replace NULL with a proper value
-#my $analyze_recipe_instructions_result = $api->analyze_recipe_instructions(content_type => $analyze_recipe_instructions_content_type);
+#my $analyze_recipe_instructions_instructions = undef; # replace NULL with a proper value
+#my $analyze_recipe_instructions_result = $api->analyze_recipe_instructions(instructions => $analyze_recipe_instructions_instructions);
 
 #
 # autocomplete_recipe_search test
@@ -55,8 +55,10 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # classify_cuisine test
 #
 # uncomment below and update the test
-#my $classify_cuisine_content_type = undef; # replace NULL with a proper value
-#my $classify_cuisine_result = $api->classify_cuisine(content_type => $classify_cuisine_content_type);
+#my $classify_cuisine_title = undef; # replace NULL with a proper value
+#my $classify_cuisine_ingredient_list = undef; # replace NULL with a proper value
+#my $classify_cuisine_language = undef; # replace NULL with a proper value
+#my $classify_cuisine_result = $api->classify_cuisine(title => $classify_cuisine_title, ingredient_list => $classify_cuisine_ingredient_list, language => $classify_cuisine_language);
 
 #
 # compute_glycemic_load test
@@ -80,8 +82,20 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # create_recipe_card test
 #
 # uncomment below and update the test
-#my $create_recipe_card_content_type = undef; # replace NULL with a proper value
-#my $create_recipe_card_result = $api->create_recipe_card(content_type => $create_recipe_card_content_type);
+#my $create_recipe_card_title = undef; # replace NULL with a proper value
+#my $create_recipe_card_ingredients = undef; # replace NULL with a proper value
+#my $create_recipe_card_instructions = undef; # replace NULL with a proper value
+#my $create_recipe_card_ready_in_minutes = undef; # replace NULL with a proper value
+#my $create_recipe_card_servings = undef; # replace NULL with a proper value
+#my $create_recipe_card_mask = undef; # replace NULL with a proper value
+#my $create_recipe_card_background_image = undef; # replace NULL with a proper value
+#my $create_recipe_card_image = undef; # replace NULL with a proper value
+#my $create_recipe_card_image_url = undef; # replace NULL with a proper value
+#my $create_recipe_card_author = undef; # replace NULL with a proper value
+#my $create_recipe_card_background_color = undef; # replace NULL with a proper value
+#my $create_recipe_card_font_color = undef; # replace NULL with a proper value
+#my $create_recipe_card_source = undef; # replace NULL with a proper value
+#my $create_recipe_card_result = $api->create_recipe_card(title => $create_recipe_card_title, ingredients => $create_recipe_card_ingredients, instructions => $create_recipe_card_instructions, ready_in_minutes => $create_recipe_card_ready_in_minutes, servings => $create_recipe_card_servings, mask => $create_recipe_card_mask, background_image => $create_recipe_card_background_image, image => $create_recipe_card_image, image_url => $create_recipe_card_image_url, author => $create_recipe_card_author, background_color => $create_recipe_card_background_color, font_color => $create_recipe_card_font_color, source => $create_recipe_card_source);
 
 #
 # equipment_by_id_image test
@@ -192,9 +206,11 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # parse_ingredients test
 #
 # uncomment below and update the test
-#my $parse_ingredients_content_type = undef; # replace NULL with a proper value
+#my $parse_ingredients_ingredient_list = undef; # replace NULL with a proper value
+#my $parse_ingredients_servings = undef; # replace NULL with a proper value
 #my $parse_ingredients_language = undef; # replace NULL with a proper value
-#my $parse_ingredients_result = $api->parse_ingredients(content_type => $parse_ingredients_content_type, language => $parse_ingredients_language);
+#my $parse_ingredients_include_nutrition = undef; # replace NULL with a proper value
+#my $parse_ingredients_result = $api->parse_ingredients(ingredient_list => $parse_ingredients_ingredient_list, servings => $parse_ingredients_servings, language => $parse_ingredients_language, include_nutrition => $parse_ingredients_include_nutrition);
 
 #
 # price_breakdown_by_id_image test
@@ -455,18 +471,23 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # visualize_equipment test
 #
 # uncomment below and update the test
-#my $visualize_equipment_content_type = undef; # replace NULL with a proper value
-#my $visualize_equipment_accept = undef; # replace NULL with a proper value
-#my $visualize_equipment_result = $api->visualize_equipment(content_type => $visualize_equipment_content_type, accept => $visualize_equipment_accept);
+#my $visualize_equipment_instructions = undef; # replace NULL with a proper value
+#my $visualize_equipment_view = undef; # replace NULL with a proper value
+#my $visualize_equipment_default_css = undef; # replace NULL with a proper value
+#my $visualize_equipment_show_backlink = undef; # replace NULL with a proper value
+#my $visualize_equipment_result = $api->visualize_equipment(instructions => $visualize_equipment_instructions, view => $visualize_equipment_view, default_css => $visualize_equipment_default_css, show_backlink => $visualize_equipment_show_backlink);
 
 #
 # visualize_price_breakdown test
 #
 # uncomment below and update the test
-#my $visualize_price_breakdown_content_type = undef; # replace NULL with a proper value
-#my $visualize_price_breakdown_accept = undef; # replace NULL with a proper value
+#my $visualize_price_breakdown_ingredient_list = undef; # replace NULL with a proper value
+#my $visualize_price_breakdown_servings = undef; # replace NULL with a proper value
 #my $visualize_price_breakdown_language = undef; # replace NULL with a proper value
-#my $visualize_price_breakdown_result = $api->visualize_price_breakdown(content_type => $visualize_price_breakdown_content_type, accept => $visualize_price_breakdown_accept, language => $visualize_price_breakdown_language);
+#my $visualize_price_breakdown_mode = undef; # replace NULL with a proper value
+#my $visualize_price_breakdown_default_css = undef; # replace NULL with a proper value
+#my $visualize_price_breakdown_show_backlink = undef; # replace NULL with a proper value
+#my $visualize_price_breakdown_result = $api->visualize_price_breakdown(ingredient_list => $visualize_price_breakdown_ingredient_list, servings => $visualize_price_breakdown_servings, language => $visualize_price_breakdown_language, mode => $visualize_price_breakdown_mode, default_css => $visualize_price_breakdown_default_css, show_backlink => $visualize_price_breakdown_show_backlink);
 
 #
 # visualize_recipe_equipment_by_id test
@@ -489,10 +510,12 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # visualize_recipe_nutrition test
 #
 # uncomment below and update the test
-#my $visualize_recipe_nutrition_content_type = undef; # replace NULL with a proper value
-#my $visualize_recipe_nutrition_accept = undef; # replace NULL with a proper value
+#my $visualize_recipe_nutrition_ingredient_list = undef; # replace NULL with a proper value
+#my $visualize_recipe_nutrition_servings = undef; # replace NULL with a proper value
 #my $visualize_recipe_nutrition_language = undef; # replace NULL with a proper value
-#my $visualize_recipe_nutrition_result = $api->visualize_recipe_nutrition(content_type => $visualize_recipe_nutrition_content_type, accept => $visualize_recipe_nutrition_accept, language => $visualize_recipe_nutrition_language);
+#my $visualize_recipe_nutrition_default_css = undef; # replace NULL with a proper value
+#my $visualize_recipe_nutrition_show_backlink = undef; # replace NULL with a proper value
+#my $visualize_recipe_nutrition_result = $api->visualize_recipe_nutrition(ingredient_list => $visualize_recipe_nutrition_ingredient_list, servings => $visualize_recipe_nutrition_servings, language => $visualize_recipe_nutrition_language, default_css => $visualize_recipe_nutrition_default_css, show_backlink => $visualize_recipe_nutrition_show_backlink);
 
 #
 # visualize_recipe_nutrition_by_id test
@@ -500,8 +523,7 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # uncomment below and update the test
 #my $visualize_recipe_nutrition_by_id_id = undef; # replace NULL with a proper value
 #my $visualize_recipe_nutrition_by_id_default_css = undef; # replace NULL with a proper value
-#my $visualize_recipe_nutrition_by_id_accept = undef; # replace NULL with a proper value
-#my $visualize_recipe_nutrition_by_id_result = $api->visualize_recipe_nutrition_by_id(id => $visualize_recipe_nutrition_by_id_id, default_css => $visualize_recipe_nutrition_by_id_default_css, accept => $visualize_recipe_nutrition_by_id_accept);
+#my $visualize_recipe_nutrition_by_id_result = $api->visualize_recipe_nutrition_by_id(id => $visualize_recipe_nutrition_by_id_id, default_css => $visualize_recipe_nutrition_by_id_default_css);
 
 #
 # visualize_recipe_price_breakdown_by_id test
@@ -515,12 +537,11 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # visualize_recipe_taste test
 #
 # uncomment below and update the test
+#my $visualize_recipe_taste_ingredient_list = undef; # replace NULL with a proper value
 #my $visualize_recipe_taste_language = undef; # replace NULL with a proper value
-#my $visualize_recipe_taste_content_type = undef; # replace NULL with a proper value
-#my $visualize_recipe_taste_accept = undef; # replace NULL with a proper value
 #my $visualize_recipe_taste_normalize = undef; # replace NULL with a proper value
 #my $visualize_recipe_taste_rgb = undef; # replace NULL with a proper value
-#my $visualize_recipe_taste_result = $api->visualize_recipe_taste(language => $visualize_recipe_taste_language, content_type => $visualize_recipe_taste_content_type, accept => $visualize_recipe_taste_accept, normalize => $visualize_recipe_taste_normalize, rgb => $visualize_recipe_taste_rgb);
+#my $visualize_recipe_taste_result = $api->visualize_recipe_taste(ingredient_list => $visualize_recipe_taste_ingredient_list, language => $visualize_recipe_taste_language, normalize => $visualize_recipe_taste_normalize, rgb => $visualize_recipe_taste_rgb);
 
 #
 # visualize_recipe_taste_by_id test

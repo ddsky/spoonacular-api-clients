@@ -66,7 +66,7 @@ void main() {
     //
     // Visualize a product's nutritional information as an image.
     //
-    //Future<Object> productNutritionByIDImage(num id) async
+    //Future<MultipartFile> productNutritionByIDImage(num id) async
     test('test productNutritionByIDImage', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Get a product's nutrition label as an image.
     //
-    //Future<Object> productNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<MultipartFile> productNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test productNutritionLabelImage', () async {
       // TODO
     });
@@ -111,7 +111,7 @@ void main() {
     //
     // Visualize a product's nutritional information as HTML including CSS.
     //
-    //Future<String> visualizeProductNutritionByID(int id, { bool defaultCss, String accept }) async
+    //Future<String> visualizeProductNutritionByID(int id, { bool defaultCss }) async
     test('test visualizeProductNutritionByID', () async {
       // TODO
     });

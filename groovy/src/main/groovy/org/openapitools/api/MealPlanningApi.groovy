@@ -323,7 +323,7 @@ class MealPlanningApi {
     }
 
     def generateShoppingList ( String username, String startDate, String endDate, String hash, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/mealplanner/${username}/shopping-list/${start-date}/${end-date}"
+        String resourcePath = "/mealplanner/${username}/shopping-list/${start_date}/${end_date}"
 
         // params
         def queryParams = [:]
@@ -428,7 +428,7 @@ class MealPlanningApi {
     }
 
     def getMealPlanWeek ( String username, String startDate, String hash, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/mealplanner/${username}/week/${start-date}"
+        String resourcePath = "/mealplanner/${username}/week/${start_date}"
 
         // params
         def queryParams = [:]

@@ -186,10 +186,10 @@ bool OAIGetWinePairing_200_response_productMatches_inner::is_average_rating_Vali
     return m_average_rating_isValid;
 }
 
-QJsonValue OAIGetWinePairing_200_response_productMatches_inner::getDescription() const {
+QString OAIGetWinePairing_200_response_productMatches_inner::getDescription() const {
     return m_description;
 }
-void OAIGetWinePairing_200_response_productMatches_inner::setDescription(const QJsonValue &description) {
+void OAIGetWinePairing_200_response_productMatches_inner::setDescription(const QString &description) {
     m_description = description;
     m_description_isSet = true;
 }

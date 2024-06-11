@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **_id** | **NSNumber*** |  | 
 **title** | **NSString*** |  | 
 **averageRating** | **NSNumber*** |  | 
-**_description** | [**OAIAnyType***](.md) |  | [optional] 
+**_description** | **NSString*** |  | [optional] 
 **imageUrl** | **NSString*** |  | 
 **link** | **NSString*** |  | 
 **price** | **NSString*** |  | 

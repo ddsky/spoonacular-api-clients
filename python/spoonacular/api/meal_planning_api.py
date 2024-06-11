@@ -3024,9 +3024,9 @@ class MealPlanningApi:
         if username is not None:
             _path_params['username'] = username
         if start_date is not None:
-            _path_params['start-date'] = start_date
+            _path_params['start_date'] = start_date
         if end_date is not None:
-            _path_params['end-date'] = end_date
+            _path_params['end_date'] = end_date
         # process the query parameters
         if hash is not None:
             
@@ -3052,7 +3052,7 @@ class MealPlanningApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/mealplanner/{username}/shopping-list/{start-date}/{end-date}',
+            resource_path='/mealplanner/{username}/shopping-list/{start_date}/{end_date}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3908,7 +3908,7 @@ class MealPlanningApi:
         if username is not None:
             _path_params['username'] = username
         if start_date is not None:
-            _path_params['start-date'] = start_date
+            _path_params['start_date'] = start_date
         # process the query parameters
         if hash is not None:
             
@@ -3934,7 +3934,7 @@ class MealPlanningApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/mealplanner/{username}/week/{start-date}',
+            resource_path='/mealplanner/{username}/week/{start_date}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

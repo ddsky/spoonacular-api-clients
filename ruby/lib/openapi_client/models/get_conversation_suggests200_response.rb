@@ -37,7 +37,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'suggests' => :'GetConversationSuggests200ResponseSuggests',
-        :'words' => :'Array<Object>'
+        :'words' => :'Array<String>'
       }
     end
 

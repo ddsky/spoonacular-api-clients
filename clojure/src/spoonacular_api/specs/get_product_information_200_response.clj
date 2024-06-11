@@ -1,7 +1,6 @@
 (ns spoonacular-api.specs.get-product-information-200-response
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [spoonacular-api.specs. :refer :all]
             [spoonacular-api.specs.get-product-information-200-response-ingredients-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-by-upc-200-response-nutrition :refer :all]
             [spoonacular-api.specs.search-grocery-products-by-upc-200-response-servings :refer :all]
@@ -18,7 +17,7 @@
    (ds/req :badges) (s/coll-of string?)
    (ds/req :importantBadges) (s/coll-of string?)
    (ds/req :ingredientCount) int?
-   (ds/opt :generatedText) any-type-spec
+   (ds/opt :generatedText) string?
    (ds/req :ingredientList) string?
    (ds/req :ingredients) (s/coll-of get-product-information-200-response-ingredients-inner-spec)
    (ds/req :likes) float?
