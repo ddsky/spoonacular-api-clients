@@ -161,7 +161,7 @@ end
 
 ## menu_item_nutrition_by_id_image
 
-> Object menu_item_nutrition_by_id_image(id)
+> File menu_item_nutrition_by_id_image(id)
 
 Menu Item Nutrition by ID Image
 
@@ -196,7 +196,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> menu_item_nutrition_by_id_image_with_http_info(id)
+> <Array(File, Integer, Hash)> menu_item_nutrition_by_id_image_with_http_info(id)
 
 ```ruby
 begin
@@ -204,7 +204,7 @@ begin
   data, status_code, headers = api_instance.menu_item_nutrition_by_id_image_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MenuItemsApi->menu_item_nutrition_by_id_image_with_http_info: #{e}"
 end
@@ -218,7 +218,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -232,7 +232,7 @@ end
 
 ## menu_item_nutrition_label_image
 
-> Object menu_item_nutrition_label_image(id, opts)
+> File menu_item_nutrition_label_image(id, opts)
 
 Menu Item Nutrition Label Image
 
@@ -272,7 +272,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> menu_item_nutrition_label_image_with_http_info(id, opts)
+> <Array(File, Integer, Hash)> menu_item_nutrition_label_image_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -280,7 +280,7 @@ begin
   data, status_code, headers = api_instance.menu_item_nutrition_label_image_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MenuItemsApi->menu_item_nutrition_label_image_with_http_info: #{e}"
 end
@@ -297,7 +297,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -509,8 +509,7 @@ end
 api_instance = OpenapiClient::MenuItemsApi.new
 id = 1 # Integer | The item's id.
 opts = {
-  default_css: false, # Boolean | Whether the default CSS should be added to the response.
-  accept: 'application/json' # String | Accept header.
+  default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
 
 begin
@@ -546,7 +545,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The item&#39;s id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
-| **accept** | **String** | Accept header. | [optional] |
 
 ### Return type
 

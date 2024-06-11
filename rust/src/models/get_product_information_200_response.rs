@@ -28,8 +28,8 @@ pub struct GetProductInformation200Response {
     pub important_badges: Vec<String>,
     #[serde(rename = "ingredientCount")]
     pub ingredient_count: i32,
-    #[serde(rename = "generatedText", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub generated_text: Option<Option<serde_json::Value>>,
+    #[serde(rename = "generatedText", skip_serializing_if = "Option::is_none")]
+    pub generated_text: Option<String>,
     #[serde(rename = "ingredientList")]
     pub ingredient_list: String,
     #[serde(rename = "ingredients")]

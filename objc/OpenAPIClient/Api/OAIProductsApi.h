@@ -123,9 +123,9 @@ extern NSInteger kOAIProductsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) productNutritionByIDImageWithId: (NSNumber*) _id
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Product Nutrition Label Image
@@ -141,12 +141,12 @@ extern NSInteger kOAIProductsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) productNutritionLabelImageWithId: (NSNumber*) _id
     showOptionalNutrients: (NSNumber*) showOptionalNutrients
     showZeroValues: (NSNumber*) showZeroValues
     showIngredients: (NSNumber*) showIngredients
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Product Nutrition Label Widget
@@ -229,7 +229,6 @@ extern NSInteger kOAIProductsApiMissingParamErrorCode;
 ///
 /// @param _id The item&#39;s id.
 /// @param defaultCss Whether the default CSS should be added to the response. (optional) (default to @(YES))
-/// @param accept Accept header. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -239,7 +238,6 @@ extern NSInteger kOAIProductsApiMissingParamErrorCode;
 /// @return NSString*
 -(NSURLSessionTask*) visualizeProductNutritionByIDWithId: (NSNumber*) _id
     defaultCss: (NSNumber*) defaultCss
-    accept: (NSString*) accept
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

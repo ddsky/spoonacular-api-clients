@@ -5,9 +5,9 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **articles** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **grocery_products** | [**Array&lt;SearchSiteContent200ResponseGroceryProductsInner&gt;**](SearchSiteContent200ResponseGroceryProductsInner.md) |  |  |
-| **menu_items** | [**Array&lt;SearchSiteContent200ResponseGroceryProductsInner&gt;**](SearchSiteContent200ResponseGroceryProductsInner.md) |  |  |
-| **recipes** | [**Array&lt;SearchSiteContent200ResponseGroceryProductsInner&gt;**](SearchSiteContent200ResponseGroceryProductsInner.md) |  |  |
+| **grocery_products** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
+| **menu_items** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
+| **recipes** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
 
 ## Example
 

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detect_food_in_text
 
-> crate::models::DetectFoodInText200Response detect_food_in_text(content_type)
+> crate::models::DetectFoodInText200Response detect_food_in_text(text)
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
@@ -30,7 +30,7 @@ Take any text and find all mentions of food contained within it. This task is al
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
+**text** | **String** |  | [required] |
 
 ### Return type
 

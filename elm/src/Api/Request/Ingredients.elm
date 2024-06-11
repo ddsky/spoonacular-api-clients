@@ -23,7 +23,7 @@ module Api.Request.Ingredients exposing
     , ingredientSearch, Language(..), languageVariants
     , ingredientsByIDImage, Measure(..), measureVariants
     , mapIngredientsToGroceryProducts
-    , visualizeIngredients, Language(..), languageVariants, ContentType(..), contentTypeVariants, Accept(..), acceptVariants
+    , visualizeIngredients, Language(..), languageVariants, Measure(..), measureVariants, View(..), viewVariants
     )
 
 import Api
@@ -32,6 +32,7 @@ import Dict
 import Http
 import Json.Decode
 import Json.Encode
+import File exposing (File)
 
 
 type Language
@@ -130,60 +131,50 @@ stringFromLanguage model =
 
 
 
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
+type Measure
+    = MeasureUs
+    | MeasureMetric
 
 
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
+measureVariants : List Measure
+measureVariants =
+    [ MeasureUs
+    , MeasureMetric
     ]
 
 
-stringFromContentType : ContentType -> String
-stringFromContentType model =
+stringFromMeasure : Measure -> String
+stringFromMeasure model =
     case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
+        MeasureUs ->
+            "us"
 
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
+        MeasureMetric ->
+            "metric"
 
 
 
 
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
+type View
+    = ViewGrid
+    | ViewList
 
 
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
+viewVariants : List View
+viewVariants =
+    [ ViewGrid
+    , ViewList
     ]
 
 
-stringFromAccept : Accept -> String
-stringFromAccept model =
+stringFromView : View -> String
+stringFromView model =
     case model of
-        AcceptApplicationJson ->
-            "application/json"
+        ViewGrid ->
+            "grid"
 
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
+        ViewList ->
+            "list"
 
 
 
@@ -273,7 +264,7 @@ ingredientSearch query_query addChildren_query minProteinPercent_query maxProtei
 
 {-| Visualize a recipe's ingredient list.
 -}
-ingredientsByIDImage : Float -> Maybe Measure -> Api.Request (Dict.Dict String Api.Data.Object)
+ingredientsByIDImage : Float -> Maybe Measure -> Api.Request File
 ingredientsByIDImage id_path measure_query =
     Api.request
         "GET"
@@ -282,7 +273,7 @@ ingredientsByIDImage id_path measure_query =
         [ ( "measure", Maybe.map stringFromMeasure measure_query ) ]
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Map a set of ingredients to products you can buy in the grocery store.
@@ -301,14 +292,14 @@ mapIngredientsToGroceryProducts mapIngredientsToGroceryProductsRequest_body =
 
 {-| Visualize ingredients of a recipe. You can play around with that endpoint!
 -}
-visualizeIngredients : Maybe Language -> Maybe ContentType -> Maybe Accept -> Api.Request String
-visualizeIngredients language_query contentType_header accept_header =
+visualizeIngredients : Maybe Language -> String -> Float -> Maybe Measure -> Maybe View -> Maybe Bool -> Maybe Bool -> Api.Request String
+visualizeIngredients language_query ingredientList servings measure view defaultCss showBacklink =
     Api.request
         "POST"
         "/recipes/visualizeIngredients"
         []
         [ ( "language", Maybe.map stringFromLanguage language_query ) ]
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ), ( "Accept", Maybe.map stringFromAccept accept_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "ingredientList" ingredientList, Just <| Http.stringPart "servings"String.fromFloat servings, Maybe.map (Http.stringPart "measure"Api.Data.stringFromMeasure) measure, Maybe.map (Http.stringPart "view"Api.Data.stringFromView) view, Maybe.map (Http.stringPart "defaultCss"(\val -> if val then "true" else "false")) defaultCss, Maybe.map (Http.stringPart "showBacklink"(\val -> if val then "true" else "false")) showBacklink ])
         Json.Decode.string
 

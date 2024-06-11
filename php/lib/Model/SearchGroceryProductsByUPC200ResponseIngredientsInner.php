@@ -58,9 +58,9 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner implements ModelInte
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => 'mixed',
+        'description' => 'string',
         'name' => 'string',
-        'safety_level' => 'mixed'
+        'safety_level' => 'string'
     ];
 
     /**
@@ -82,9 +82,9 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner implements ModelInte
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'description' => true,
+        'description' => false,
         'name' => false,
-        'safety_level' => true
+        'safety_level' => false
     ];
 
     /**
@@ -310,7 +310,7 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner implements ModelInte
     /**
      * Gets description
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getDescription()
     {
@@ -320,21 +320,14 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner implements ModelInte
     /**
      * Sets description
      *
-     * @param mixed|null $description description
+     * @param string|null $description description
      *
      * @return self
      */
     public function setDescription($description)
     {
         if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 
@@ -371,7 +364,7 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner implements ModelInte
     /**
      * Gets safety_level
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getSafetyLevel()
     {
@@ -381,21 +374,14 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner implements ModelInte
     /**
      * Sets safety_level
      *
-     * @param mixed|null $safety_level safety_level
+     * @param string|null $safety_level safety_level
      *
      * @return self
      */
     public function setSafetyLevel($safety_level)
     {
         if (is_null($safety_level)) {
-            array_push($this->openAPINullablesSetToNull, 'safety_level');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('safety_level', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable safety_level cannot be null');
         }
         $this->container['safety_level'] = $safety_level;
 

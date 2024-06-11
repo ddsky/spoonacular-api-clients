@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,7 +31,7 @@ class GetWinePairing200ResponseProductMatchesInner(BaseModel):
     id: StrictInt
     title: Annotated[str, Field(min_length=1, strict=True)]
     average_rating: Union[StrictFloat, StrictInt] = Field(alias="averageRating")
-    description: Optional[Any] = None
+    description: Optional[StrictStr] = None
     image_url: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="imageUrl")
     link: Annotated[str, Field(min_length=1, strict=True)]
     price: Annotated[str, Field(min_length=1, strict=True)]
@@ -78,11 +78,6 @@ class GetWinePairing200ResponseProductMatchesInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
         return _dict
 
     @classmethod

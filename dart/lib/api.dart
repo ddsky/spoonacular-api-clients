@@ -187,10 +187,10 @@ part 'model/search_restaurants200_response_restaurants_inner_local_hours.dart';
 part 'model/search_restaurants200_response_restaurants_inner_local_hours_operational.dart';
 part 'model/search_site_content200_response.dart';
 part 'model/search_site_content200_response_articles_inner.dart';
-part 'model/search_site_content200_response_grocery_products_inner.dart';
-part 'model/search_site_content200_response_grocery_products_inner_data_points_inner.dart';
+part 'model/search_site_content200_response_articles_inner_data_points_inner.dart';
 part 'model/summarize_recipe200_response.dart';
 part 'model/talk_to_chatbot200_response.dart';
+part 'model/talk_to_chatbot200_response_media_inner.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from

@@ -285,10 +285,10 @@ defmodule SpoonacularAPI.Api.Ingredients do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec ingredients_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec ingredients_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def ingredients_by_id_image(connection, id, opts \\ []) do
     optional_params = %{
       :measure => :query
@@ -304,7 +304,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -352,30 +352,37 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `ingredient_list` (String.t): The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  - `servings` (float()): The number of servings.
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
     - `:language` (String.t): The language of the input. Either 'en' or 'de'.
-    - `:Accept` (String.t): Accept header.
+    - `:measure` (String.t): The original system of measurement, either 'metric' or 'us'.
+    - `:view` (String.t): How to visualize the ingredients, either 'grid' or 'list'.
+    - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
+    - `:showBacklink` (boolean()): Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
   ### Returns
 
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec visualize_ingredients(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
-  def visualize_ingredients(connection, opts \\ []) do
+  @spec visualize_ingredients(Tesla.Env.client, String.t, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_ingredients(connection, ingredient_list, servings, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers,
       :language => :query,
-      :Accept => :headers
+      :measure => :form,
+      :view => :form,
+      :defaultCss => :form,
+      :showBacklink => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/visualizeIngredients")
+      |> add_param(:form, :ingredientList, ingredient_list)
+      |> add_param(:form, :servings, servings)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection

@@ -181,9 +181,9 @@ build = {
 		["spoonacular.model.search_restaurants_200_response_restaurants_inner_local_hours_operational"] = "spoonacular/model/search_restaurants_200_response_restaurants_inner_local_hours_operational.lua";
 		["spoonacular.model.search_site_content_200_response"] = "spoonacular/model/search_site_content_200_response.lua";
 		["spoonacular.model.search_site_content_200_response_articles_inner"] = "spoonacular/model/search_site_content_200_response_articles_inner.lua";
-		["spoonacular.model.search_site_content_200_response_grocery_products_inner"] = "spoonacular/model/search_site_content_200_response_grocery_products_inner.lua";
-		["spoonacular.model.search_site_content_200_response_grocery_products_inner_data_points_inner"] = "spoonacular/model/search_site_content_200_response_grocery_products_inner_data_points_inner.lua";
+		["spoonacular.model.search_site_content_200_response_articles_inner_data_points_inner"] = "spoonacular/model/search_site_content_200_response_articles_inner_data_points_inner.lua";
 		["spoonacular.model.summarize_recipe_200_response"] = "spoonacular/model/summarize_recipe_200_response.lua";
 		["spoonacular.model.talk_to_chatbot_200_response"] = "spoonacular/model/talk_to_chatbot_200_response.lua";
+		["spoonacular.model.talk_to_chatbot_200_response_media_inner"] = "spoonacular/model/talk_to_chatbot_200_response_media_inner.lua";
 	}
 }

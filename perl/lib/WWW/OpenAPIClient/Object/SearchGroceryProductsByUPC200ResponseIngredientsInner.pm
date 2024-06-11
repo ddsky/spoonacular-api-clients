@@ -220,7 +220,7 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'description' => {
-        datatype => 'object',
+        datatype => 'string',
         base_name => 'description',
         description => '',
         format => '',
@@ -234,7 +234,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'safety_level' => {
-        datatype => 'object',
+        datatype => 'string',
         base_name => 'safety_level',
         description => '',
         format => '',
@@ -243,9 +243,9 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'description' => 'object',
+    'description' => 'string',
     'name' => 'string',
-    'safety_level' => 'object'
+    'safety_level' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {

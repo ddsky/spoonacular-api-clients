@@ -14,7 +14,7 @@ defmodule SpoonacularAPI.Model.GetConversationSuggests200Response do
 
   @type t :: %__MODULE__{
     :suggests => SpoonacularAPI.Model.GetConversationSuggests200ResponseSuggests.t,
-    :words => [any()]
+    :words => [String.t]
   }
 
   alias SpoonacularAPI.Deserializer

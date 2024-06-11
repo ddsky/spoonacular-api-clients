@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **badges** | **List[str]** |  | 
 **important_badges** | **List[str]** |  | 
 **ingredient_count** | **int** |  | 
-**generated_text** | **object** |  | [optional] 
+**generated_text** | **str** |  | [optional] 
 **ingredient_list** | **str** |  | 
 **ingredients** | [**List[GetProductInformation200ResponseIngredientsInner]**](GetProductInformation200ResponseIngredientsInner.md) |  | 
 **likes** | **float** |  | 

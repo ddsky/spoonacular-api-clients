@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredients_by_id_image**
-> object ingredients_by_id_image(id, measure=measure)
+> bytearray ingredients_by_id_image(id, measure=measure)
 
 Ingredients by ID Image
 
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -720,7 +720,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_ingredients**
-> str visualize_ingredients(content_type=content_type, language=language, accept=accept)
+> str visualize_ingredients(ingredient_list, servings, language=language, measure=measure, view=view, default_css=default_css, show_backlink=show_backlink)
 
 Ingredients Widget
 
@@ -756,13 +756,17 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
+    ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    servings = 3.4 # float | The number of servings.
     language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
-    accept = 'application/json' # str | Accept header. (optional)
+    measure = 'measure_example' # str | The original system of measurement, either 'metric' or 'us'. (optional)
+    view = 'view_example' # str | How to visualize the ingredients, either 'grid' or 'list'. (optional)
+    default_css = True # bool | Whether the default CSS should be added to the response. (optional)
+    show_backlink = True # bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
     try:
         # Ingredients Widget
-        api_response = api_instance.visualize_ingredients(content_type=content_type, language=language, accept=accept)
+        api_response = api_instance.visualize_ingredients(ingredient_list, servings, language=language, measure=measure, view=view, default_css=default_css, show_backlink=show_backlink)
         print("The response of IngredientsApi->visualize_ingredients:\n")
         pprint(api_response)
     except Exception as e:
@@ -776,9 +780,13 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
+ **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **servings** | **float**| The number of servings. | 
  **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **accept** | **str**| Accept header. | [optional] 
+ **measure** | **str**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] 
+ **view** | **str**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 

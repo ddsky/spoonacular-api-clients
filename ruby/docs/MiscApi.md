@@ -19,7 +19,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 ## detect_food_in_text
 
-> <DetectFoodInText200Response> detect_food_in_text(opts)
+> <DetectFoodInText200Response> detect_food_in_text(text)
 
 Detect Food in Text
 
@@ -39,13 +39,11 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MiscApi.new
-opts = {
-  content_type: 'application/x-www-form-urlencoded' # String | The content type.
-}
+text = 'text_example' # String | 
 
 begin
   # Detect Food in Text
-  result = api_instance.detect_food_in_text(opts)
+  result = api_instance.detect_food_in_text(text)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MiscApi->detect_food_in_text: #{e}"
@@ -56,12 +54,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DetectFoodInText200Response>, Integer, Hash)> detect_food_in_text_with_http_info(opts)
+> <Array(<DetectFoodInText200Response>, Integer, Hash)> detect_food_in_text_with_http_info(text)
 
 ```ruby
 begin
   # Detect Food in Text
-  data, status_code, headers = api_instance.detect_food_in_text_with_http_info(opts)
+  data, status_code, headers = api_instance.detect_food_in_text_with_http_info(text)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DetectFoodInText200Response>
@@ -74,7 +72,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
+| **text** | **String** |  |  |
 
 ### Return type
 

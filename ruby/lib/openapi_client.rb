@@ -167,10 +167,10 @@ require 'openapi_client/models/search_restaurants200_response_restaurants_inner_
 require 'openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours_operational'
 require 'openapi_client/models/search_site_content200_response'
 require 'openapi_client/models/search_site_content200_response_articles_inner'
-require 'openapi_client/models/search_site_content200_response_grocery_products_inner'
-require 'openapi_client/models/search_site_content200_response_grocery_products_inner_data_points_inner'
+require 'openapi_client/models/search_site_content200_response_articles_inner_data_points_inner'
 require 'openapi_client/models/summarize_recipe200_response'
 require 'openapi_client/models/talk_to_chatbot200_response'
+require 'openapi_client/models/talk_to_chatbot200_response_media_inner'
 
 # APIs
 require 'openapi_client/api/default_api'

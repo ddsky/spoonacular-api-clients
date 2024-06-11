@@ -73,8 +73,8 @@ object MiscApi {
         * @return An endpoint representing a DetectFoodInText200Response
         */
         private def detectFoodInText(da: DataAccessor): Endpoint[DetectFoodInText200Response] =
-        post("food" :: "detect" :: headerOption("Content-Type") :: header("x-api-key")) { (contentType: Option[String], authParamapiKeyScheme: String) =>
-          da.Misc_detectFoodInText(contentType, authParamapiKeyScheme) match {
+        post("food" :: "detect" :: string :: header("x-api-key")) { (text: String, authParamapiKeyScheme: String) =>
+          da.Misc_detectFoodInText(text, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

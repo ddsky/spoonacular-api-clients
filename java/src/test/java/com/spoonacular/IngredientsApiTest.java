@@ -17,6 +17,7 @@ import com.spoonacular.client.ApiException;
 import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner;
 import java.math.BigDecimal;
 import com.spoonacular.client.model.ComputeIngredientAmount200Response;
+import java.io.File;
 import com.spoonacular.client.model.GetIngredientInformation200Response;
 import com.spoonacular.client.model.GetIngredientSubstitutes200Response;
 import com.spoonacular.client.model.IngredientSearch200Response;
@@ -157,7 +158,7 @@ public class IngredientsApiTest {
     public void ingredientsByIDImageTest() throws ApiException {
         BigDecimal id = null;
         String measure = null;
-        Object response = api.ingredientsByIDImage(id, measure);
+        File response = api.ingredientsByIDImage(id, measure);
         // TODO: test validations
     }
 
@@ -184,10 +185,14 @@ public class IngredientsApiTest {
      */
     @Test
     public void visualizeIngredientsTest() throws ApiException {
-        String contentType = null;
+        String ingredientList = null;
+        BigDecimal servings = null;
         String language = null;
-        String accept = null;
-        String response = api.visualizeIngredients(contentType, language, accept);
+        String measure = null;
+        String view = null;
+        Boolean defaultCss = null;
+        Boolean showBacklink = null;
+        String response = api.visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
         // TODO: test validations
     }
 

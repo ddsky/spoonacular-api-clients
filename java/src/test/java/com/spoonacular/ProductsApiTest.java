@@ -20,6 +20,7 @@ import com.spoonacular.client.model.ClassifyGroceryProduct200Response;
 import com.spoonacular.client.model.ClassifyGroceryProductBulk200ResponseInner;
 import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner;
 import com.spoonacular.client.model.ClassifyGroceryProductRequest;
+import java.io.File;
 import com.spoonacular.client.model.GetComparableProducts200Response;
 import com.spoonacular.client.model.GetProductInformation200Response;
 import com.spoonacular.client.model.SearchGroceryProducts200Response;
@@ -124,7 +125,7 @@ public class ProductsApiTest {
     @Test
     public void productNutritionByIDImageTest() throws ApiException {
         BigDecimal id = null;
-        Object response = api.productNutritionByIDImage(id);
+        File response = api.productNutritionByIDImage(id);
         // TODO: test validations
     }
 
@@ -141,7 +142,7 @@ public class ProductsApiTest {
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;
         Boolean showIngredients = null;
-        Object response = api.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+        File response = api.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
         // TODO: test validations
     }
 
@@ -213,8 +214,7 @@ public class ProductsApiTest {
     public void visualizeProductNutritionByIDTest() throws ApiException {
         Integer id = null;
         Boolean defaultCss = null;
-        String accept = null;
-        String response = api.visualizeProductNutritionByID(id, defaultCss, accept);
+        String response = api.visualizeProductNutritionByID(id, defaultCss);
         // TODO: test validations
     }
 

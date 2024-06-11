@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **badges** | **ARRAY[string]** |  | 
 **important_badges** | **ARRAY[string]** |  | 
 **ingredient_count** | **int** |  | 
-**generated_text** | **object** |  | [optional] 
+**generated_text** | **string** |  | [optional] 
 **ingredient_list** | **string** |  | 
 **ingredients** | [**ARRAY[GetProductInformation200ResponseIngredientsInner]**](GetProductInformation200ResponseIngredientsInner.md) |  | 
 **likes** | **double** |  | 

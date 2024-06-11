@@ -148,10 +148,10 @@ export * from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours'
 export * from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 export * from '../models/SearchSiteContent200Response';
 export * from '../models/SearchSiteContent200ResponseArticlesInner';
-export * from '../models/SearchSiteContent200ResponseGroceryProductsInner';
-export * from '../models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
+export * from '../models/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 export * from '../models/SummarizeRecipe200Response';
 export * from '../models/TalkToChatbot200Response';
+export * from '../models/TalkToChatbot200ResponseMediaInner';
 
 import { AddMealPlanTemplate200Response } from '../models/AddMealPlanTemplate200Response';
 import { AddMealPlanTemplate200ResponseItemsInner } from '../models/AddMealPlanTemplate200ResponseItemsInner';
@@ -303,10 +303,10 @@ import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../model
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
 import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseGroceryProductsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInner';
-import { SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
+import { SearchSiteContent200ResponseArticlesInnerDataPointsInner } from '../models/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
 import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
+import { TalkToChatbot200ResponseMediaInner } from '../models/TalkToChatbot200ResponseMediaInner';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -474,10 +474,10 @@ let typeMap: {[index: string]: any} = {
     "SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational": SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational,
     "SearchSiteContent200Response": SearchSiteContent200Response,
     "SearchSiteContent200ResponseArticlesInner": SearchSiteContent200ResponseArticlesInner,
-    "SearchSiteContent200ResponseGroceryProductsInner": SearchSiteContent200ResponseGroceryProductsInner,
-    "SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner": SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner,
+    "SearchSiteContent200ResponseArticlesInnerDataPointsInner": SearchSiteContent200ResponseArticlesInnerDataPointsInner,
     "SummarizeRecipe200Response": SummarizeRecipe200Response,
     "TalkToChatbot200Response": TalkToChatbot200Response,
+    "TalkToChatbot200ResponseMediaInner": TalkToChatbot200ResponseMediaInner,
 }
 
 type MimeTypeDescriptor = {

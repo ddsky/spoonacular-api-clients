@@ -56,18 +56,9 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeDetectFoodInText(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-     * @param contentType The content type. (optional)
+     * @param text 
      * @return DetectFoodInText200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -77,8 +68,8 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun detectFoodInText(contentType: ContentTypeDetectFoodInText? = null) : DetectFoodInText200Response {
-        val localVarResponse = detectFoodInTextWithHttpInfo(contentType = contentType)
+    fun detectFoodInText(text: kotlin.String) : DetectFoodInText200Response {
+        val localVarResponse = detectFoodInTextWithHttpInfo(text = text)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as DetectFoodInText200Response
@@ -98,17 +89,17 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-     * @param contentType The content type. (optional)
+     * @param text 
      * @return ApiResponse<DetectFoodInText200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun detectFoodInTextWithHttpInfo(contentType: ContentTypeDetectFoodInText?) : ApiResponse<DetectFoodInText200Response?> {
-        val localVariableConfig = detectFoodInTextRequestConfig(contentType = contentType)
+    fun detectFoodInTextWithHttpInfo(text: kotlin.String) : ApiResponse<DetectFoodInText200Response?> {
+        val localVariableConfig = detectFoodInTextRequestConfig(text = text)
 
-        return request<Unit, DetectFoodInText200Response>(
+        return request<Map<String, PartConfig<*>>, DetectFoodInText200Response>(
             localVariableConfig
         )
     }
@@ -116,15 +107,14 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation detectFoodInText
      *
-     * @param contentType The content type. (optional)
+     * @param text 
      * @return RequestConfig
      */
-    fun detectFoodInTextRequestConfig(contentType: ContentTypeDetectFoodInText?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun detectFoodInTextRequestConfig(text: kotlin.String) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "text" to PartConfig(body = text, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

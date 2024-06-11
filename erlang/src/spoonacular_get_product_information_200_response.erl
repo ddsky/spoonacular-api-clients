@@ -12,7 +12,7 @@
        'badges' := list(),
        'importantBadges' := list(),
        'ingredientCount' := integer(),
-       'generatedText' => spoonacular_any_type:spoonacular_any_type(),
+       'generatedText' => binary(),
        'ingredientList' := binary(),
        'ingredients' := list(),
        'likes' := integer(),

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **Number** |  | 
 **title** | **String** |  | 
 **averageRating** | **Number** |  | 
-**description** | **Object** |  | [optional] 
+**description** | **String** |  | [optional] 
 **imageUrl** | **String** |  | 
 **link** | **String** |  | 
 **price** | **String** |  | 

@@ -656,7 +656,7 @@ catch (ApiException e)
 
 <a id="ingredientsbyidimage"></a>
 # **IngredientsByIDImage**
-> Object IngredientsByIDImage (decimal id, string? measure = null)
+> System.IO.Stream IngredientsByIDImage (decimal id, string? measure = null)
 
 Ingredients by ID Image
 
@@ -690,7 +690,7 @@ namespace Example
             try
             {
                 // Ingredients by ID Image
-                Object result = apiInstance.IngredientsByIDImage(id, measure);
+                System.IO.Stream result = apiInstance.IngredientsByIDImage(id, measure);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -711,7 +711,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Ingredients by ID Image
-    ApiResponse<Object> response = apiInstance.IngredientsByIDImageWithHttpInfo(id, measure);
+    ApiResponse<System.IO.Stream> response = apiInstance.IngredientsByIDImageWithHttpInfo(id, measure);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -733,7 +733,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -856,7 +856,7 @@ catch (ApiException e)
 
 <a id="visualizeingredients"></a>
 # **VisualizeIngredients**
-> string VisualizeIngredients (string? contentType = null, string? language = null, string? accept = null)
+> string VisualizeIngredients (string ingredientList, decimal servings, string? language = null, string? measure = null, string? view = null, bool? defaultCss = null, bool? showBacklink = null)
 
 Ingredients Widget
 
@@ -884,14 +884,18 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
+            var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+            var servings = 8.14D;  // decimal | The number of servings.
             var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
-            var accept = application/json;  // string? | Accept header. (optional) 
+            var measure = "us";  // string? | The original system of measurement, either 'metric' or 'us'. (optional) 
+            var view = "grid";  // string? | How to visualize the ingredients, either 'grid' or 'list'. (optional) 
+            var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
+            var showBacklink = true;  // bool? | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional) 
 
             try
             {
                 // Ingredients Widget
-                string result = apiInstance.VisualizeIngredients(contentType, language, accept);
+                string result = apiInstance.VisualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -912,7 +916,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Ingredients Widget
-    ApiResponse<string> response = apiInstance.VisualizeIngredientsWithHttpInfo(contentType, language, accept);
+    ApiResponse<string> response = apiInstance.VisualizeIngredientsWithHttpInfo(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -929,9 +933,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
+| **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |  |
+| **servings** | **decimal** | The number of servings. |  |
 | **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
-| **accept** | **string?** | Accept header. | [optional]  |
+| **measure** | **string?** | The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional]  |
+| **view** | **string?** | How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional]  |
+| **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional]  |
+| **showBacklink** | **bool?** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]  |
 
 ### Return type
 

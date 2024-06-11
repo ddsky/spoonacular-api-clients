@@ -158,10 +158,10 @@ docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md
+docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
+docs/TalkToChatbot200ResponseMediaInner.md
 docs/WineApi.md
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -326,10 +326,10 @@ src/main/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaur
 src/main/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.kt
 src/main/kotlin/com/spoonacular/client/model/SearchSiteContent200Response.kt
 src/main/kotlin/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInner.kt
-src/main/kotlin/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInner.kt
-src/main/kotlin/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.kt
+src/main/kotlin/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.kt
 src/main/kotlin/com/spoonacular/client/model/SummarizeRecipe200Response.kt
 src/main/kotlin/com/spoonacular/client/model/TalkToChatbot200Response.kt
+src/main/kotlin/com/spoonacular/client/model/TalkToChatbot200ResponseMediaInner.kt
 src/main/kotlin/spoonacular/infrastructure/ApiAbstractions.kt
 src/main/kotlin/spoonacular/infrastructure/ApiClient.kt
 src/main/kotlin/spoonacular/infrastructure/ApiResponse.kt

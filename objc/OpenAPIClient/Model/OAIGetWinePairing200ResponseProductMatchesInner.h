@@ -14,9 +14,6 @@
 */
 
 
-#import "OAIAnyType.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
 
 
 
@@ -32,7 +29,7 @@
 
 @property(nonatomic) NSNumber* averageRating;
 
-@property(nonatomic) OAIAnyType* _description;
+@property(nonatomic) NSString* _description;
 
 @property(nonatomic) NSString* imageUrl;
 

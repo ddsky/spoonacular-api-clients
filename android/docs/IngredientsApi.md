@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ## ingredientsByIDImage
 
-> Object ingredientsByIDImage(id, measure)
+> File ingredientsByIDImage(id, measure)
 
 Ingredients by ID Image
 
@@ -356,7 +356,7 @@ IngredientsApi apiInstance = new IngredientsApi();
 BigDecimal id = 1082038; // BigDecimal | The recipe id.
 String measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
 try {
-    Object result = apiInstance.ingredientsByIDImage(id, measure);
+    File result = apiInstance.ingredientsByIDImage(id, measure);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#ingredientsByIDImage");
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ## visualizeIngredients
 
-> String visualizeIngredients(contentType, language, accept)
+> String visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink)
 
 Ingredients Widget
 
@@ -447,11 +447,15 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 //import com.spoonacular.IngredientsApi;
 
 IngredientsApi apiInstance = new IngredientsApi();
-String contentType = application/json; // String | The content type.
+String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+BigDecimal servings = null; // BigDecimal | The number of servings.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
-String accept = application/json; // String | Accept header.
+String measure = null; // String | The original system of measurement, either 'metric' or 'us'.
+String view = null; // String | How to visualize the ingredients, either 'grid' or 'list'.
+Boolean defaultCss = null; // Boolean | Whether the default CSS should be added to the response.
+Boolean showBacklink = null; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    String result = apiInstance.visualizeIngredients(contentType, language, accept);
+    String result = apiInstance.visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#visualizeIngredients");
@@ -464,9 +468,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [default to null]
+ **servings** | **BigDecimal**| The number of servings. | [default to null]
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
+ **measure** | **String**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] [default to null] [enum: us, metric]
+ **view** | **String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [default to null] [enum: grid, list]
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to null]
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] [default to null]
 
 ### Return type
 

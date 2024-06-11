@@ -221,7 +221,7 @@ Name | Type | Description  | Required | Notes
 
 ## ingredients_by_id_image
 
-> serde_json::Value ingredients_by_id_image(id, measure)
+> std::path::PathBuf ingredients_by_id_image(id, measure)
 Ingredients by ID Image
 
 Visualize a recipe's ingredient list.
@@ -236,7 +236,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_ingredients
 
-> String visualize_ingredients(content_type, language, accept)
+> String visualize_ingredients(ingredient_list, servings, language, measure, view, default_css, show_backlink)
 Ingredients Widget
 
 Visualize ingredients of a recipe. You can play around with that endpoint!
@@ -292,9 +292,13 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**content_type** | Option<**String**> | The content type. |  |
+**ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [required] |
+**servings** | **f32** | The number of servings. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
-**accept** | Option<**String**> | Accept header. |  |
+**measure** | Option<**String**> | The original system of measurement, either 'metric' or 'us'. |  |
+**view** | Option<**String**> | How to visualize the ingredients, either 'grid' or 'list'. |  |
+**default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |
+**show_backlink** | Option<**bool**> | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  |
 
 ### Return type
 

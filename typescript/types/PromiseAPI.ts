@@ -151,10 +151,10 @@ import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../model
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
 import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseGroceryProductsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInner';
-import { SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
+import { SearchSiteContent200ResponseArticlesInnerDataPointsInner } from '../models/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
 import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
+import { TalkToChatbot200ResponseMediaInner } from '../models/TalkToChatbot200ResponseMediaInner';
 import { ObservableDefaultApi } from './ObservableAPI';
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
@@ -452,7 +452,7 @@ export class PromiseIngredientsApi {
      * @param id The recipe id.
      * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      */
-    public ingredientsByIDImageWithHttpInfo(id: number, measure?: 'us' | 'metric', _options?: Configuration): Promise<HttpInfo<any>> {
+    public ingredientsByIDImageWithHttpInfo(id: number, measure?: 'us' | 'metric', _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.ingredientsByIDImageWithHttpInfo(id, measure, _options);
         return result.toPromise();
     }
@@ -463,7 +463,7 @@ export class PromiseIngredientsApi {
      * @param id The recipe id.
      * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      */
-    public ingredientsByIDImage(id: number, measure?: 'us' | 'metric', _options?: Configuration): Promise<any> {
+    public ingredientsByIDImage(id: number, measure?: 'us' | 'metric', _options?: Configuration): Promise<HttpFile> {
         const result = this.api.ingredientsByIDImage(id, measure, _options);
         return result.toPromise();
     }
@@ -491,24 +491,32 @@ export class PromiseIngredientsApi {
     /**
      * Visualize ingredients of a recipe. You can play around with that endpoint!
      * Ingredients Widget
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param accept Accept header.
+     * @param measure The original system of measurement, either \\\&#39;metric\\\&#39; or \\\&#39;us\\\&#39;.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizeIngredientsWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeIngredientsWithHttpInfo(contentType, language, accept, _options);
+    public visualizeIngredientsWithHttpInfo(ingredientList: string, servings: number, language?: 'en' | 'de', measure?: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeIngredientsWithHttpInfo(ingredientList, servings, language, measure, view, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
     /**
      * Visualize ingredients of a recipe. You can play around with that endpoint!
      * Ingredients Widget
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param accept Accept header.
+     * @param measure The original system of measurement, either \\\&#39;metric\\\&#39; or \\\&#39;us\\\&#39;.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizeIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeIngredients(contentType, language, accept, _options);
+    public visualizeIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', measure?: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
@@ -927,7 +935,7 @@ export class PromiseMenuItemsApi {
      * Menu Item Nutrition by ID Image
      * @param id The menu item id.
      */
-    public menuItemNutritionByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<any>> {
+    public menuItemNutritionByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.menuItemNutritionByIDImageWithHttpInfo(id, _options);
         return result.toPromise();
     }
@@ -937,7 +945,7 @@ export class PromiseMenuItemsApi {
      * Menu Item Nutrition by ID Image
      * @param id The menu item id.
      */
-    public menuItemNutritionByIDImage(id: number, _options?: Configuration): Promise<any> {
+    public menuItemNutritionByIDImage(id: number, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.menuItemNutritionByIDImage(id, _options);
         return result.toPromise();
     }
@@ -950,7 +958,7 @@ export class PromiseMenuItemsApi {
      * @param showZeroValues Whether to show zero values.
      * @param showIngredients Whether to show a list of ingredients.
      */
-    public menuItemNutritionLabelImageWithHttpInfo(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpInfo<any>> {
+    public menuItemNutritionLabelImageWithHttpInfo(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.menuItemNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients, _options);
         return result.toPromise();
     }
@@ -963,7 +971,7 @@ export class PromiseMenuItemsApi {
      * @param showZeroValues Whether to show zero values.
      * @param showIngredients Whether to show a list of ingredients.
      */
-    public menuItemNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<any> {
+    public menuItemNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients, _options);
         return result.toPromise();
     }
@@ -1043,10 +1051,9 @@ export class PromiseMenuItemsApi {
      * Menu Item Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public visualizeMenuItemNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeMenuItemNutritionByIDWithHttpInfo(id, defaultCss, accept, _options);
+    public visualizeMenuItemNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeMenuItemNutritionByIDWithHttpInfo(id, defaultCss, _options);
         return result.toPromise();
     }
 
@@ -1055,10 +1062,9 @@ export class PromiseMenuItemsApi {
      * Menu Item Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public visualizeMenuItemNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeMenuItemNutritionByID(id, defaultCss, accept, _options);
+    public visualizeMenuItemNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeMenuItemNutritionByID(id, defaultCss, _options);
         return result.toPromise();
     }
 
@@ -1084,20 +1090,20 @@ export class PromiseMiscApi {
     /**
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
      * Detect Food in Text
-     * @param contentType The content type.
+     * @param text 
      */
-    public detectFoodInTextWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<HttpInfo<DetectFoodInText200Response>> {
-        const result = this.api.detectFoodInTextWithHttpInfo(contentType, _options);
+    public detectFoodInTextWithHttpInfo(text: string, _options?: Configuration): Promise<HttpInfo<DetectFoodInText200Response>> {
+        const result = this.api.detectFoodInTextWithHttpInfo(text, _options);
         return result.toPromise();
     }
 
     /**
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
      * Detect Food in Text
-     * @param contentType The content type.
+     * @param text 
      */
-    public detectFoodInText(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<DetectFoodInText200Response> {
-        const result = this.api.detectFoodInText(contentType, _options);
+    public detectFoodInText(text: string, _options?: Configuration): Promise<DetectFoodInText200Response> {
+        const result = this.api.detectFoodInText(text, _options);
         return result.toPromise();
     }
 
@@ -1461,7 +1467,7 @@ export class PromiseProductsApi {
      * Product Nutrition by ID Image
      * @param id The id of the product.
      */
-    public productNutritionByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<any>> {
+    public productNutritionByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.productNutritionByIDImageWithHttpInfo(id, _options);
         return result.toPromise();
     }
@@ -1471,7 +1477,7 @@ export class PromiseProductsApi {
      * Product Nutrition by ID Image
      * @param id The id of the product.
      */
-    public productNutritionByIDImage(id: number, _options?: Configuration): Promise<any> {
+    public productNutritionByIDImage(id: number, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.productNutritionByIDImage(id, _options);
         return result.toPromise();
     }
@@ -1484,7 +1490,7 @@ export class PromiseProductsApi {
      * @param showZeroValues Whether to show zero values.
      * @param showIngredients Whether to show a list of ingredients.
      */
-    public productNutritionLabelImageWithHttpInfo(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpInfo<any>> {
+    public productNutritionLabelImageWithHttpInfo(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.productNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients, _options);
         return result.toPromise();
     }
@@ -1497,7 +1503,7 @@ export class PromiseProductsApi {
      * @param showZeroValues Whether to show zero values.
      * @param showIngredients Whether to show a list of ingredients.
      */
-    public productNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<any> {
+    public productNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients, _options);
         return result.toPromise();
     }
@@ -1597,10 +1603,9 @@ export class PromiseProductsApi {
      * Product Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public visualizeProductNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeProductNutritionByIDWithHttpInfo(id, defaultCss, accept, _options);
+    public visualizeProductNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeProductNutritionByIDWithHttpInfo(id, defaultCss, _options);
         return result.toPromise();
     }
 
@@ -1609,10 +1614,9 @@ export class PromiseProductsApi {
      * Product Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public visualizeProductNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeProductNutritionByID(id, defaultCss, accept, _options);
+    public visualizeProductNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeProductNutritionByID(id, defaultCss, _options);
         return result.toPromise();
     }
 
@@ -1658,20 +1662,20 @@ export class PromiseRecipesApi {
     /**
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe\'s instructions will be extracted independently of the step they\'re used in.
      * Analyze Recipe Instructions
-     * @param contentType The content type.
+     * @param instructions The recipe\\\&#39;s instructions.
      */
-    public analyzeRecipeInstructionsWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<HttpInfo<AnalyzeRecipeInstructions200Response>> {
-        const result = this.api.analyzeRecipeInstructionsWithHttpInfo(contentType, _options);
+    public analyzeRecipeInstructionsWithHttpInfo(instructions: string, _options?: Configuration): Promise<HttpInfo<AnalyzeRecipeInstructions200Response>> {
+        const result = this.api.analyzeRecipeInstructionsWithHttpInfo(instructions, _options);
         return result.toPromise();
     }
 
     /**
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe\'s instructions will be extracted independently of the step they\'re used in.
      * Analyze Recipe Instructions
-     * @param contentType The content type.
+     * @param instructions The recipe\\\&#39;s instructions.
      */
-    public analyzeRecipeInstructions(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<AnalyzeRecipeInstructions200Response> {
-        const result = this.api.analyzeRecipeInstructions(contentType, _options);
+    public analyzeRecipeInstructions(instructions: string, _options?: Configuration): Promise<AnalyzeRecipeInstructions200Response> {
+        const result = this.api.analyzeRecipeInstructions(instructions, _options);
         return result.toPromise();
     }
 
@@ -1700,20 +1704,24 @@ export class PromiseRecipesApi {
     /**
      * Classify the recipe\'s cuisine.
      * Classify Cuisine
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public classifyCuisineWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<HttpInfo<ClassifyCuisine200Response>> {
-        const result = this.api.classifyCuisineWithHttpInfo(contentType, _options);
+    public classifyCuisineWithHttpInfo(title: string, ingredientList: string, language?: 'en' | 'de', _options?: Configuration): Promise<HttpInfo<ClassifyCuisine200Response>> {
+        const result = this.api.classifyCuisineWithHttpInfo(title, ingredientList, language, _options);
         return result.toPromise();
     }
 
     /**
      * Classify the recipe\'s cuisine.
      * Classify Cuisine
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public classifyCuisine(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<ClassifyCuisine200Response> {
-        const result = this.api.classifyCuisine(contentType, _options);
+    public classifyCuisine(title: string, ingredientList: string, language?: 'en' | 'de', _options?: Configuration): Promise<ClassifyCuisine200Response> {
+        const result = this.api.classifyCuisine(title, ingredientList, language, _options);
         return result.toPromise();
     }
 
@@ -1768,20 +1776,44 @@ export class PromiseRecipesApi {
     /**
      * Generate a recipe card for a recipe.
      * Create Recipe Card
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (\\\&#39;ellipseMask\\\&#39;, \\\&#39;diamondMask\\\&#39;, \\\&#39;starMask\\\&#39;, \\\&#39;heartMask\\\&#39;, \\\&#39;potMask\\\&#39;, \\\&#39;fishMask\\\&#39;).
+     * @param backgroundImage The background image (\\\&#39;none\\\&#39;, \\\&#39;background1\\\&#39;, or \\\&#39;background2\\\&#39;).
+     * @param image The binary image of the recipe as jpg.
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL.
+     * @param author The author of the recipe.
+     * @param backgroundColor The background color for the recipe card as a hex-string.
+     * @param fontColor The font color for the recipe card as a hex-string.
+     * @param source The source of the recipe.
      */
-    public createRecipeCardWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<HttpInfo<CreateRecipeCard200Response>> {
-        const result = this.api.createRecipeCardWithHttpInfo(contentType, _options);
+    public createRecipeCardWithHttpInfo(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: HttpFile, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, _options?: Configuration): Promise<HttpInfo<CreateRecipeCard200Response>> {
+        const result = this.api.createRecipeCardWithHttpInfo(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source, _options);
         return result.toPromise();
     }
 
     /**
      * Generate a recipe card for a recipe.
      * Create Recipe Card
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (\\\&#39;ellipseMask\\\&#39;, \\\&#39;diamondMask\\\&#39;, \\\&#39;starMask\\\&#39;, \\\&#39;heartMask\\\&#39;, \\\&#39;potMask\\\&#39;, \\\&#39;fishMask\\\&#39;).
+     * @param backgroundImage The background image (\\\&#39;none\\\&#39;, \\\&#39;background1\\\&#39;, or \\\&#39;background2\\\&#39;).
+     * @param image The binary image of the recipe as jpg.
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL.
+     * @param author The author of the recipe.
+     * @param backgroundColor The background color for the recipe card as a hex-string.
+     * @param fontColor The font color for the recipe card as a hex-string.
+     * @param source The source of the recipe.
      */
-    public createRecipeCard(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<CreateRecipeCard200Response> {
-        const result = this.api.createRecipeCard(contentType, _options);
+    public createRecipeCard(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: HttpFile, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, _options?: Configuration): Promise<CreateRecipeCard200Response> {
+        const result = this.api.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source, _options);
         return result.toPromise();
     }
 
@@ -1790,7 +1822,7 @@ export class PromiseRecipesApi {
      * Equipment by ID Image
      * @param id The recipe id.
      */
-    public equipmentByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<any>> {
+    public equipmentByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.equipmentByIDImageWithHttpInfo(id, _options);
         return result.toPromise();
     }
@@ -1800,7 +1832,7 @@ export class PromiseRecipesApi {
      * Equipment by ID Image
      * @param id The recipe id.
      */
-    public equipmentByIDImage(id: number, _options?: Configuration): Promise<any> {
+    public equipmentByIDImage(id: number, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.equipmentByIDImage(id, _options);
         return result.toPromise();
     }
@@ -2076,22 +2108,26 @@ export class PromiseRecipesApi {
     /**
      * Extract an ingredient from plain text.
      * Parse Ingredients
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param includeNutrition 
      */
-    public parseIngredientsWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', _options?: Configuration): Promise<HttpInfo<Set<ParseIngredients200ResponseInner>>> {
-        const result = this.api.parseIngredientsWithHttpInfo(contentType, language, _options);
+    public parseIngredientsWithHttpInfo(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Promise<HttpInfo<Set<ParseIngredients200ResponseInner>>> {
+        const result = this.api.parseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition, _options);
         return result.toPromise();
     }
 
     /**
      * Extract an ingredient from plain text.
      * Parse Ingredients
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param includeNutrition 
      */
-    public parseIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', _options?: Configuration): Promise<Set<ParseIngredients200ResponseInner>> {
-        const result = this.api.parseIngredients(contentType, language, _options);
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Promise<Set<ParseIngredients200ResponseInner>> {
+        const result = this.api.parseIngredients(ingredientList, servings, language, includeNutrition, _options);
         return result.toPromise();
     }
 
@@ -2100,7 +2136,7 @@ export class PromiseRecipesApi {
      * Price Breakdown by ID Image
      * @param id The recipe id.
      */
-    public priceBreakdownByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<any>> {
+    public priceBreakdownByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.priceBreakdownByIDImageWithHttpInfo(id, _options);
         return result.toPromise();
     }
@@ -2110,7 +2146,7 @@ export class PromiseRecipesApi {
      * Price Breakdown by ID Image
      * @param id The recipe id.
      */
-    public priceBreakdownByIDImage(id: number, _options?: Configuration): Promise<any> {
+    public priceBreakdownByIDImage(id: number, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.priceBreakdownByIDImage(id, _options);
         return result.toPromise();
     }
@@ -2140,7 +2176,7 @@ export class PromiseRecipesApi {
      * Recipe Nutrition by ID Image
      * @param id The recipe id.
      */
-    public recipeNutritionByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<any>> {
+    public recipeNutritionByIDImageWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.recipeNutritionByIDImageWithHttpInfo(id, _options);
         return result.toPromise();
     }
@@ -2150,7 +2186,7 @@ export class PromiseRecipesApi {
      * Recipe Nutrition by ID Image
      * @param id The recipe id.
      */
-    public recipeNutritionByIDImage(id: number, _options?: Configuration): Promise<any> {
+    public recipeNutritionByIDImage(id: number, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.recipeNutritionByIDImage(id, _options);
         return result.toPromise();
     }
@@ -2163,7 +2199,7 @@ export class PromiseRecipesApi {
      * @param showZeroValues Whether to show zero values.
      * @param showIngredients Whether to show a list of ingredients.
      */
-    public recipeNutritionLabelImageWithHttpInfo(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpInfo<any>> {
+    public recipeNutritionLabelImageWithHttpInfo(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.recipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients, _options);
         return result.toPromise();
     }
@@ -2176,7 +2212,7 @@ export class PromiseRecipesApi {
      * @param showZeroValues Whether to show zero values.
      * @param showIngredients Whether to show a list of ingredients.
      */
-    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<any> {
+    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients, _options);
         return result.toPromise();
     }
@@ -2216,7 +2252,7 @@ export class PromiseRecipesApi {
      * @param normalize Normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
-    public recipeTasteByIDImageWithHttpInfo(id: number, normalize?: boolean, rgb?: string, _options?: Configuration): Promise<HttpInfo<any>> {
+    public recipeTasteByIDImageWithHttpInfo(id: number, normalize?: boolean, rgb?: string, _options?: Configuration): Promise<HttpInfo<HttpFile>> {
         const result = this.api.recipeTasteByIDImageWithHttpInfo(id, normalize, rgb, _options);
         return result.toPromise();
     }
@@ -2228,7 +2264,7 @@ export class PromiseRecipesApi {
      * @param normalize Normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
-    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, _options?: Configuration): Promise<any> {
+    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, _options?: Configuration): Promise<HttpFile> {
         const result = this.api.recipeTasteByIDImage(id, normalize, rgb, _options);
         return result.toPromise();
     }
@@ -2668,46 +2704,56 @@ export class PromiseRecipesApi {
     /**
      * Visualize the equipment used to make a recipe.
      * Equipment Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param instructions The recipe\\\&#39;s instructions.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizeEquipmentWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeEquipmentWithHttpInfo(contentType, accept, _options);
+    public visualizeEquipmentWithHttpInfo(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeEquipmentWithHttpInfo(instructions, view, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
     /**
      * Visualize the equipment used to make a recipe.
      * Equipment Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param instructions The recipe\\\&#39;s instructions.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizeEquipment(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeEquipment(contentType, accept, _options);
+    public visualizeEquipment(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeEquipment(instructions, view, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
     /**
      * Visualize the price breakdown of a recipe.
      * Price Breakdown Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizePriceBreakdownWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizePriceBreakdownWithHttpInfo(contentType, accept, language, _options);
+    public visualizePriceBreakdownWithHttpInfo(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizePriceBreakdownWithHttpInfo(ingredientList, servings, language, mode, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
     /**
      * Visualize the price breakdown of a recipe.
      * Price Breakdown Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizePriceBreakdown(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizePriceBreakdown(contentType, accept, language, _options);
+    public visualizePriceBreakdown(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
@@ -2760,24 +2806,28 @@ export class PromiseRecipesApi {
     /**
      * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizeRecipeNutritionWithHttpInfo(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeRecipeNutritionWithHttpInfo(contentType, accept, language, _options);
+    public visualizeRecipeNutritionWithHttpInfo(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeRecipeNutritionWithHttpInfo(ingredientList, servings, language, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
     /**
      * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition Widget
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public visualizeRecipeNutrition(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeRecipeNutrition(contentType, accept, language, _options);
+    public visualizeRecipeNutrition(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink, _options);
         return result.toPromise();
     }
 
@@ -2786,10 +2836,9 @@ export class PromiseRecipesApi {
      * Recipe Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public visualizeRecipeNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss, accept, _options);
+    public visualizeRecipeNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss, _options);
         return result.toPromise();
     }
 
@@ -2798,10 +2847,9 @@ export class PromiseRecipesApi {
      * Recipe Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeRecipeNutritionByID(id, defaultCss, accept, _options);
+    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeRecipeNutritionByID(id, defaultCss, _options);
         return result.toPromise();
     }
 
@@ -2830,28 +2878,26 @@ export class PromiseRecipesApi {
     /**
      * Visualize a recipe\'s taste information as HTML including CSS. You can play around with that endpoint!
      * Recipe Taste Widget
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param contentType The content type.
-     * @param accept Accept header.
-     * @param normalize Whether to normalize to the strongest taste.
+     * @param normalize Normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
-    public visualizeRecipeTasteWithHttpInfo(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, _options?: Configuration): Promise<HttpInfo<string>> {
-        const result = this.api.visualizeRecipeTasteWithHttpInfo(language, contentType, accept, normalize, rgb, _options);
+    public visualizeRecipeTasteWithHttpInfo(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, _options?: Configuration): Promise<HttpInfo<string>> {
+        const result = this.api.visualizeRecipeTasteWithHttpInfo(ingredientList, language, normalize, rgb, _options);
         return result.toPromise();
     }
 
     /**
      * Visualize a recipe\'s taste information as HTML including CSS. You can play around with that endpoint!
      * Recipe Taste Widget
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param contentType The content type.
-     * @param accept Accept header.
-     * @param normalize Whether to normalize to the strongest taste.
+     * @param normalize Normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
-    public visualizeRecipeTaste(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, _options?: Configuration): Promise<string> {
-        const result = this.api.visualizeRecipeTaste(language, contentType, accept, normalize, rgb, _options);
+    public visualizeRecipeTaste(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, _options?: Configuration): Promise<string> {
+        const result = this.api.visualizeRecipeTaste(ingredientList, language, normalize, rgb, _options);
         return result.toPromise();
     }
 

@@ -98,7 +98,7 @@ Configure apiKeyScheme:
 
 <a id="analyzeRecipeInstructions"></a>
 # **analyzeRecipeInstructions**
-> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(contentType)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -111,9 +111,9 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
+val instructions : kotlin.String = instructions_example // kotlin.String | The recipe's instructions.
 try {
-    val result : AnalyzeRecipeInstructions200Response = apiInstance.analyzeRecipeInstructions(contentType)
+    val result : AnalyzeRecipeInstructions200Response = apiInstance.analyzeRecipeInstructions(instructions)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#analyzeRecipeInstructions")
@@ -128,7 +128,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **instructions** | **kotlin.String**| The recipe&#39;s instructions. |
 
 ### Return type
 
@@ -200,7 +200,7 @@ Configure apiKeyScheme:
 
 <a id="classifyCuisine"></a>
 # **classifyCuisine**
-> ClassifyCuisine200Response classifyCuisine(contentType)
+> ClassifyCuisine200Response classifyCuisine(title, ingredientList, language)
 
 Classify Cuisine
 
@@ -213,9 +213,11 @@ Classify the recipe&#39;s cuisine.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
+val title : kotlin.String = title_example // kotlin.String | The title of the recipe.
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
 try {
-    val result : ClassifyCuisine200Response = apiInstance.classifyCuisine(contentType)
+    val result : ClassifyCuisine200Response = apiInstance.classifyCuisine(title, ingredientList, language)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#classifyCuisine")
@@ -230,7 +232,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **title** | **kotlin.String**| The title of the recipe. |
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |
+ **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
 
 ### Return type
 
@@ -358,7 +362,7 @@ Configure apiKeyScheme:
 
 <a id="createRecipeCard"></a>
 # **createRecipeCard**
-> CreateRecipeCard200Response createRecipeCard(contentType)
+> CreateRecipeCard200Response createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source)
 
 Create Recipe Card
 
@@ -371,9 +375,21 @@ Generate a recipe card for a recipe.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
+val title : kotlin.String = title_example // kotlin.String | The title of the recipe.
+val ingredients : kotlin.String = ingredients_example // kotlin.String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+val instructions : kotlin.String = instructions_example // kotlin.String | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+val readyInMinutes : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of minutes it takes to get the recipe on the table.
+val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings the recipe makes.
+val mask : kotlin.String = mask_example // kotlin.String | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+val backgroundImage : kotlin.String = backgroundImage_example // kotlin.String | The background image ('none', 'background1', or 'background2').
+val image : java.io.File = BINARY_DATA_HERE // java.io.File | The binary image of the recipe as jpg.
+val imageUrl : kotlin.String = imageUrl_example // kotlin.String | If you do not sent a binary image you can also pass the image URL.
+val author : kotlin.String = author_example // kotlin.String | The author of the recipe.
+val backgroundColor : kotlin.String = backgroundColor_example // kotlin.String | The background color for the recipe card as a hex-string.
+val fontColor : kotlin.String = fontColor_example // kotlin.String | The font color for the recipe card as a hex-string.
+val source : kotlin.String = source_example // kotlin.String | The source of the recipe.
 try {
-    val result : CreateRecipeCard200Response = apiInstance.createRecipeCard(contentType)
+    val result : CreateRecipeCard200Response = apiInstance.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#createRecipeCard")
@@ -388,7 +404,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **title** | **kotlin.String**| The title of the recipe. |
+ **ingredients** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |
+ **instructions** | **kotlin.String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). |
+ **readyInMinutes** | **java.math.BigDecimal**| The number of minutes it takes to get the recipe on the table. |
+ **servings** | **java.math.BigDecimal**| The number of servings the recipe makes. |
+ **mask** | **kotlin.String**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | [enum: ellipseMask, diamondMask, starMask, heartMask, potMask, fishMask]
+ **backgroundImage** | **kotlin.String**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | [enum: none, background1, background2]
+ **image** | **java.io.File**| The binary image of the recipe as jpg. | [optional]
+ **imageUrl** | **kotlin.String**| If you do not sent a binary image you can also pass the image URL. | [optional]
+ **author** | **kotlin.String**| The author of the recipe. | [optional]
+ **backgroundColor** | **kotlin.String**| The background color for the recipe card as a hex-string. | [optional]
+ **fontColor** | **kotlin.String**| The font color for the recipe card as a hex-string. | [optional]
+ **source** | **kotlin.String**| The source of the recipe. | [optional]
 
 ### Return type
 
@@ -408,7 +436,7 @@ Configure apiKeyScheme:
 
 <a id="equipmentByIDImage"></a>
 # **equipmentByIDImage**
-> kotlin.Any equipmentByIDImage(id)
+> java.io.File equipmentByIDImage(id)
 
 Equipment by ID Image
 
@@ -423,7 +451,7 @@ Visualize a recipe&#39;s equipment list as an image.
 val apiInstance = RecipesApi()
 val id : java.math.BigDecimal = 44860 // java.math.BigDecimal | The recipe id.
 try {
-    val result : kotlin.Any = apiInstance.equipmentByIDImage(id)
+    val result : java.io.File = apiInstance.equipmentByIDImage(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#equipmentByIDImage")
@@ -442,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -1086,7 +1114,7 @@ Configure apiKeyScheme:
 
 <a id="parseIngredients"></a>
 # **parseIngredients**
-> kotlin.collections.Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(contentType, language)
+> kotlin.collections.Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1099,10 +1127,12 @@ Extract an ingredient from plain text.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
+val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings that you can make from the ingredients.
 val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
+val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | 
 try {
-    val result : kotlin.collections.Set<ParseIngredients200ResponseInner> = apiInstance.parseIngredients(contentType, language)
+    val result : kotlin.collections.Set<ParseIngredients200ResponseInner> = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#parseIngredients")
@@ -1117,8 +1147,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
+ **servings** | **java.math.BigDecimal**| The number of servings that you can make from the ingredients. |
  **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+ **includeNutrition** | **kotlin.Boolean**|  | [optional]
 
 ### Return type
 
@@ -1138,7 +1170,7 @@ Configure apiKeyScheme:
 
 <a id="priceBreakdownByIDImage"></a>
 # **priceBreakdownByIDImage**
-> kotlin.Any priceBreakdownByIDImage(id)
+> java.io.File priceBreakdownByIDImage(id)
 
 Price Breakdown by ID Image
 
@@ -1153,7 +1185,7 @@ Visualize a recipe&#39;s price breakdown.
 val apiInstance = RecipesApi()
 val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
 try {
-    val result : kotlin.Any = apiInstance.priceBreakdownByIDImage(id)
+    val result : java.io.File = apiInstance.priceBreakdownByIDImage(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#priceBreakdownByIDImage")
@@ -1172,7 +1204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -1238,7 +1270,7 @@ Configure apiKeyScheme:
 
 <a id="recipeNutritionByIDImage"></a>
 # **recipeNutritionByIDImage**
-> kotlin.Any recipeNutritionByIDImage(id)
+> java.io.File recipeNutritionByIDImage(id)
 
 Recipe Nutrition by ID Image
 
@@ -1253,7 +1285,7 @@ Visualize a recipe&#39;s nutritional information as an image.
 val apiInstance = RecipesApi()
 val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
 try {
-    val result : kotlin.Any = apiInstance.recipeNutritionByIDImage(id)
+    val result : java.io.File = apiInstance.recipeNutritionByIDImage(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#recipeNutritionByIDImage")
@@ -1272,7 +1304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -1288,7 +1320,7 @@ Configure apiKeyScheme:
 
 <a id="recipeNutritionLabelImage"></a>
 # **recipeNutritionLabelImage**
-> kotlin.Any recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> java.io.File recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Recipe Nutrition Label Image
 
@@ -1306,7 +1338,7 @@ val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether t
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
 val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
 try {
-    val result : kotlin.Any = apiInstance.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+    val result : java.io.File = apiInstance.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#recipeNutritionLabelImage")
@@ -1328,7 +1360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -1402,7 +1434,7 @@ Configure apiKeyScheme:
 
 <a id="recipeTasteByIDImage"></a>
 # **recipeTasteByIDImage**
-> kotlin.Any recipeTasteByIDImage(id, normalize, rgb)
+> java.io.File recipeTasteByIDImage(id, normalize, rgb)
 
 Recipe Taste by ID Image
 
@@ -1419,7 +1451,7 @@ val id : java.math.BigDecimal = 69095 // java.math.BigDecimal | The recipe id.
 val normalize : kotlin.Boolean = false // kotlin.Boolean | Normalize to the strongest taste.
 val rgb : kotlin.String = 75,192,192 // kotlin.String | Red, green, blue values for the chart color.
 try {
-    val result : kotlin.Any = apiInstance.recipeTasteByIDImage(id, normalize, rgb)
+    val result : java.io.File = apiInstance.recipeTasteByIDImage(id, normalize, rgb)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#recipeTasteByIDImage")
@@ -1440,7 +1472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -2008,7 +2040,7 @@ Configure apiKeyScheme:
 
 <a id="visualizeEquipment"></a>
 # **visualizeEquipment**
-> kotlin.String visualizeEquipment(contentType, accept)
+> kotlin.String visualizeEquipment(instructions, view, defaultCss, showBacklink)
 
 Equipment Widget
 
@@ -2021,10 +2053,12 @@ Visualize the equipment used to make a recipe.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
+val instructions : kotlin.String = instructions_example // kotlin.String | The recipe's instructions.
+val view : kotlin.String = view_example // kotlin.String | How to visualize the ingredients, either 'grid' or 'list'.
+val defaultCss : kotlin.Boolean = true // kotlin.Boolean | Whether the default CSS should be added to the response.
+val showBacklink : kotlin.Boolean = true // kotlin.Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    val result : kotlin.String = apiInstance.visualizeEquipment(contentType, accept)
+    val result : kotlin.String = apiInstance.visualizeEquipment(instructions, view, defaultCss, showBacklink)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#visualizeEquipment")
@@ -2039,8 +2073,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
+ **instructions** | **kotlin.String**| The recipe&#39;s instructions. |
+ **view** | **kotlin.String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list]
+ **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
+ **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
 
 ### Return type
 
@@ -2060,7 +2096,7 @@ Configure apiKeyScheme:
 
 <a id="visualizePriceBreakdown"></a>
 # **visualizePriceBreakdown**
-> kotlin.String visualizePriceBreakdown(contentType, accept, language)
+> kotlin.String visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink)
 
 Price Breakdown Widget
 
@@ -2073,11 +2109,14 @@ Visualize the price breakdown of a recipe.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
+val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings.
 val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
+val mode : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+val defaultCss : kotlin.Boolean = true // kotlin.Boolean | Whether the default CSS should be added to the response.
+val showBacklink : kotlin.Boolean = true // kotlin.Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    val result : kotlin.String = apiInstance.visualizePriceBreakdown(contentType, accept, language)
+    val result : kotlin.String = apiInstance.visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#visualizePriceBreakdown")
@@ -2092,9 +2131,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
+ **servings** | **java.math.BigDecimal**| The number of servings. |
  **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+ **mode** | **java.math.BigDecimal**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional]
+ **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
+ **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
 
 ### Return type
 
@@ -2220,7 +2262,7 @@ Configure apiKeyScheme:
 
 <a id="visualizeRecipeNutrition"></a>
 # **visualizeRecipeNutrition**
-> kotlin.String visualizeRecipeNutrition(contentType, accept, language)
+> kotlin.String visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink)
 
 Recipe Nutrition Widget
 
@@ -2233,11 +2275,13 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
+val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings.
 val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
+val defaultCss : kotlin.Boolean = true // kotlin.Boolean | Whether the default CSS should be added to the response.
+val showBacklink : kotlin.Boolean = true // kotlin.Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    val result : kotlin.String = apiInstance.visualizeRecipeNutrition(contentType, accept, language)
+    val result : kotlin.String = apiInstance.visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#visualizeRecipeNutrition")
@@ -2252,9 +2296,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
+ **servings** | **java.math.BigDecimal**| The number of servings. |
  **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+ **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
+ **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
 
 ### Return type
 
@@ -2274,7 +2320,7 @@ Configure apiKeyScheme:
 
 <a id="visualizeRecipeNutritionByID"></a>
 # **visualizeRecipeNutritionByID**
-> kotlin.String visualizeRecipeNutritionByID(id, defaultCss, accept)
+> kotlin.String visualizeRecipeNutritionByID(id, defaultCss)
 
 Recipe Nutrition by ID Widget
 
@@ -2289,9 +2335,8 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 val apiInstance = RecipesApi()
 val id : kotlin.Int = 1 // kotlin.Int | The item's id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
 try {
-    val result : kotlin.String = apiInstance.visualizeRecipeNutritionByID(id, defaultCss, accept)
+    val result : kotlin.String = apiInstance.visualizeRecipeNutritionByID(id, defaultCss)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#visualizeRecipeNutritionByID")
@@ -2308,7 +2353,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **kotlin.Int**| The item&#39;s id. |
  **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
 
 ### Return type
 
@@ -2380,7 +2424,7 @@ Configure apiKeyScheme:
 
 <a id="visualizeRecipeTaste"></a>
 # **visualizeRecipeTaste**
-> kotlin.String visualizeRecipeTaste(language, contentType, accept, normalize, rgb)
+> kotlin.String visualizeRecipeTaste(ingredientList, language, normalize, rgb)
 
 Recipe Taste Widget
 
@@ -2393,13 +2437,12 @@ Visualize a recipe&#39;s taste information as HTML including CSS. You can play a
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
 val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
-val normalize : kotlin.Boolean = true // kotlin.Boolean | Whether to normalize to the strongest taste.
-val rgb : kotlin.String = 75,192,192 // kotlin.String | Red, green, blue values for the chart color.
+val normalize : kotlin.Boolean = true // kotlin.Boolean | Normalize to the strongest taste.
+val rgb : kotlin.String = rgb_example // kotlin.String | Red, green, blue values for the chart color.
 try {
-    val result : kotlin.String = apiInstance.visualizeRecipeTaste(language, contentType, accept, normalize, rgb)
+    val result : kotlin.String = apiInstance.visualizeRecipeTaste(ingredientList, language, normalize, rgb)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#visualizeRecipeTaste")
@@ -2414,10 +2457,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
  **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
- **normalize** | **kotlin.Boolean**| Whether to normalize to the strongest taste. | [optional]
+ **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional]
  **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional]
 
 ### Return type

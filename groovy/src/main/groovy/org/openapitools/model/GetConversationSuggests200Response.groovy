@@ -12,5 +12,5 @@ class GetConversationSuggests200Response {
     
     GetConversationSuggests200ResponseSuggests suggests
     
-    List<Object> words = new ArrayList<>()
+    List<String> words = new ArrayList<>()
 }

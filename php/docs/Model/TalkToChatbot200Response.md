@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answer_text** | **string** |  |
-**media** | **mixed[]** |  |
+**media** | [**\OpenAPI\Client\Model\TalkToChatbot200ResponseMediaInner[]**](TalkToChatbot200ResponseMediaInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

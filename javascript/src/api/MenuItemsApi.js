@@ -130,7 +130,7 @@ export default class MenuItemsApi {
      * Callback function to receive the result of the menuItemNutritionByIDImage operation.
      * @callback module:api/MenuItemsApi~menuItemNutritionByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -139,7 +139,7 @@ export default class MenuItemsApi {
      * Visualize a menu item's nutritional information as HTML including CSS.
      * @param {Number} id The menu item id.
      * @param {module:api/MenuItemsApi~menuItemNutritionByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     menuItemNutritionByIDImage(id, callback) {
       let postBody = null;
@@ -161,7 +161,7 @@ export default class MenuItemsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/food/menuItems/{id}/nutritionWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -173,7 +173,7 @@ export default class MenuItemsApi {
      * Callback function to receive the result of the menuItemNutritionLabelImage operation.
      * @callback module:api/MenuItemsApi~menuItemNutritionLabelImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -186,7 +186,7 @@ export default class MenuItemsApi {
      * @param {Boolean} [showZeroValues] Whether to show zero values.
      * @param {Boolean} [showIngredients] Whether to show a list of ingredients.
      * @param {module:api/MenuItemsApi~menuItemNutritionLabelImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     menuItemNutritionLabelImage(id, opts, callback) {
       opts = opts || {};
@@ -212,7 +212,7 @@ export default class MenuItemsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/food/menuItems/{id}/nutritionLabel.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -350,7 +350,6 @@ export default class MenuItemsApi {
      * @param {Number} id The item's id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
-     * @param {module:model/String} [accept] Accept header.
      * @param {module:api/MenuItemsApi~visualizeMenuItemNutritionByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
@@ -369,7 +368,6 @@ export default class MenuItemsApi {
         'defaultCss': opts['defaultCss']
       };
       let headerParams = {
-        'Accept': opts['accept']
       };
       let formParams = {
       };

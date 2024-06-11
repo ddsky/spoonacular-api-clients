@@ -68,9 +68,9 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  content_type QString [optional]
+    * @param[in]  text QString [required]
     */
-    void detectFoodInText(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>());
+    void detectFoodInText(const QString &text);
 
 
     void getARandomFoodJoke();

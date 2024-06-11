@@ -163,10 +163,10 @@ docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md
+docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
+docs/TalkToChatbot200ResponseMediaInner.md
 docs/WineApi.md
 git_push.sh
 gradle.properties
@@ -353,10 +353,10 @@ src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestauran
 src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.java
 src/main/java/com/spoonacular/client/model/SearchSiteContent200Response.java
 src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInner.java
-src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInner.java
-src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.java
+src/main/java/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.java
 src/main/java/com/spoonacular/client/model/SummarizeRecipe200Response.java
 src/main/java/com/spoonacular/client/model/TalkToChatbot200Response.java
+src/main/java/com/spoonacular/client/model/TalkToChatbot200ResponseMediaInner.java
 src/test/java/com/spoonacular/DefaultApiTest.java
 src/test/java/com/spoonacular/IngredientsApiTest.java
 src/test/java/com/spoonacular/MealPlanningApiTest.java
@@ -513,9 +513,9 @@ src/test/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestauran
 src/test/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTest.java
 src/test/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerTest.java
 src/test/java/com/spoonacular/client/model/SearchRestaurants200ResponseTest.java
+src/test/java/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInnerDataPointsInnerTest.java
 src/test/java/com/spoonacular/client/model/SearchSiteContent200ResponseArticlesInnerTest.java
-src/test/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerTest.java
-src/test/java/com/spoonacular/client/model/SearchSiteContent200ResponseGroceryProductsInnerTest.java
 src/test/java/com/spoonacular/client/model/SearchSiteContent200ResponseTest.java
 src/test/java/com/spoonacular/client/model/SummarizeRecipe200ResponseTest.java
+src/test/java/com/spoonacular/client/model/TalkToChatbot200ResponseMediaInnerTest.java
 src/test/java/com/spoonacular/client/model/TalkToChatbot200ResponseTest.java

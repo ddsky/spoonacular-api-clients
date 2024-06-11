@@ -31,7 +31,6 @@ use Date::Parse;
 use DateTime;
 
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -229,21 +228,21 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'grocery_products' => {
-        datatype => 'ARRAY[SearchSiteContent200ResponseGroceryProductsInner]',
+        datatype => 'ARRAY[SearchSiteContent200ResponseArticlesInner]',
         base_name => 'Grocery Products',
         description => '',
         format => '',
         read_only => '',
             },
     'menu_items' => {
-        datatype => 'ARRAY[SearchSiteContent200ResponseGroceryProductsInner]',
+        datatype => 'ARRAY[SearchSiteContent200ResponseArticlesInner]',
         base_name => 'Menu Items',
         description => '',
         format => '',
         read_only => '',
             },
     'recipes' => {
-        datatype => 'ARRAY[SearchSiteContent200ResponseGroceryProductsInner]',
+        datatype => 'ARRAY[SearchSiteContent200ResponseArticlesInner]',
         base_name => 'Recipes',
         description => '',
         format => '',
@@ -253,9 +252,9 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'articles' => 'ARRAY[SearchSiteContent200ResponseArticlesInner]',
-    'grocery_products' => 'ARRAY[SearchSiteContent200ResponseGroceryProductsInner]',
-    'menu_items' => 'ARRAY[SearchSiteContent200ResponseGroceryProductsInner]',
-    'recipes' => 'ARRAY[SearchSiteContent200ResponseGroceryProductsInner]'
+    'grocery_products' => 'ARRAY[SearchSiteContent200ResponseArticlesInner]',
+    'menu_items' => 'ARRAY[SearchSiteContent200ResponseArticlesInner]',
+    'recipes' => 'ARRAY[SearchSiteContent200ResponseArticlesInner]'
 } );
 
 __PACKAGE__->attribute_map( {

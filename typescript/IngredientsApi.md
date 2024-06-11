@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **ingredientsByIDImage**
-> any ingredientsByIDImage()
+> HttpFile ingredientsByIDImage()
 
 Visualize a recipe\'s ingredient list.
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -564,12 +564,20 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiVisualizeIngredientsRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
+  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ingredientList: "ingredientList_example",
+  // number | The number of servings.
+  servings: 3.14,
   // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
+  // string | The original system of measurement, either \\\'metric\\\' or \\\'us\\\'. (optional)
+  measure: "us",
+  // string | How to visualize the ingredients, either \\\'grid\\\' or \\\'list\\\'. (optional)
+  view: "grid",
+  // boolean | Whether the default CSS should be added to the response. (optional)
+  defaultCss: true,
+  // boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
+  showBacklink: true,
 };
 
 apiInstance.visualizeIngredients(body).then((data:any) => {
@@ -582,9 +590,13 @@ apiInstance.visualizeIngredients(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
+ **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | defaults to undefined
+ **servings** | [**number**] | The number of servings. | defaults to undefined
  **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
+ **measure** | [**string**]**Array<&#39;us&#39; &#124; &#39;metric&#39;>** | The original system of measurement, either \\\&#39;metric\\\&#39; or \\\&#39;us\\\&#39;. | (optional) defaults to undefined
+ **view** | [**string**]**Array<&#39;grid&#39; &#124; &#39;list&#39;>** | How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;. | (optional) defaults to undefined
+ **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to undefined
+ **showBacklink** | [**boolean**] | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | (optional) defaults to undefined
 
 
 ### Return type

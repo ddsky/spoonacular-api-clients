@@ -320,7 +320,7 @@ instance Produces IngredientSearch MimeJSON
 -- 
 ingredientsByIDImage
   :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest IngredientsByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest IngredientsByIDImage MimeNoContent FilePath MimeImagePng
 ingredientsByIDImage (IdDouble id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -375,27 +375,42 @@ instance Produces MapIngredientsToGroceryProducts MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeIngredients
-  :: SpoonacularRequest VisualizeIngredients MimeNoContent Text MimeTextHtml
-visualizeIngredients =
+  :: (Consumes VisualizeIngredients MimeFormUrlEncoded)
+  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  -> Servings -- ^ "servings" -  The number of servings.
+  -> SpoonacularRequest VisualizeIngredients MimeFormUrlEncoded Text MimeTextHtml
+visualizeIngredients (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/visualizeIngredients"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("ingredientList", ingredientList)
+    `addForm` toForm ("servings", servings)
 
 data VisualizeIngredients  
 
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam VisualizeIngredients ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+-- | /Optional Param/ "measure" - The original system of measurement, either 'metric' or 'us'.
+instance HasOptionalParam VisualizeIngredients Measure where
+  applyOptionalParam req (Measure xs) =
+    req `addForm` toForm ("measure", xs)
+
+-- | /Optional Param/ "view" - How to visualize the ingredients, either 'grid' or 'list'.
+instance HasOptionalParam VisualizeIngredients View where
+  applyOptionalParam req (View xs) =
+    req `addForm` toForm ("view", xs)
+
+-- | /Optional Param/ "defaultCss" - Whether the default CSS should be added to the response.
+instance HasOptionalParam VisualizeIngredients DefaultCss where
+  applyOptionalParam req (DefaultCss xs) =
+    req `addForm` toForm ("defaultCss", xs)
+
+-- | /Optional Param/ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+instance HasOptionalParam VisualizeIngredients ShowBacklink where
+  applyOptionalParam req (ShowBacklink xs) =
+    req `addForm` toForm ("showBacklink", xs)
 
 -- | /Optional Param/ "language" - The language of the input. Either 'en' or 'de'.
 instance HasOptionalParam VisualizeIngredients Language where
   applyOptionalParam req (Language xs) =
     req `addQuery` toQuery ("language", Just xs)
-
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeIngredients ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
 
 -- | @application/x-www-form-urlencoded@
 instance Consumes VisualizeIngredients MimeFormUrlEncoded

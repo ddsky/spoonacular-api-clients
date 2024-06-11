@@ -47,8 +47,8 @@ describe 'RecipesApi' do
   # unit tests for analyze_recipe_instructions
   # Analyze Recipe Instructions
   # This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
+  # @param instructions The recipe&#39;s instructions.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
   # @return [AnalyzeRecipeInstructions200Response]
   describe 'analyze_recipe_instructions test' do
     it 'should work' do
@@ -72,8 +72,10 @@ describe 'RecipesApi' do
   # unit tests for classify_cuisine
   # Classify Cuisine
   # Classify the recipe&#39;s cuisine.
+  # @param title The title of the recipe.
+  # @param ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
+  # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
   # @return [ClassifyCuisine200Response]
   describe 'classify_cuisine test' do
     it 'should work' do
@@ -112,8 +114,20 @@ describe 'RecipesApi' do
   # unit tests for create_recipe_card
   # Create Recipe Card
   # Generate a recipe card for a recipe.
+  # @param title The title of the recipe.
+  # @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  # @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+  # @param ready_in_minutes The number of minutes it takes to get the recipe on the table.
+  # @param servings The number of servings the recipe makes.
+  # @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+  # @param background_image The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
+  # @option opts [File] :image The binary image of the recipe as jpg.
+  # @option opts [String] :image_url If you do not sent a binary image you can also pass the image URL.
+  # @option opts [String] :author The author of the recipe.
+  # @option opts [String] :background_color The background color for the recipe card as a hex-string.
+  # @option opts [String] :font_color The font color for the recipe card as a hex-string.
+  # @option opts [String] :source The source of the recipe.
   # @return [CreateRecipeCard200Response]
   describe 'create_recipe_card test' do
     it 'should work' do
@@ -126,7 +140,7 @@ describe 'RecipesApi' do
   # Visualize a recipe&#39;s equipment list as an image.
   # @param id The recipe id.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [File]
   describe 'equipment_by_id_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -294,9 +308,11 @@ describe 'RecipesApi' do
   # unit tests for parse_ingredients
   # Parse Ingredients
   # Extract an ingredient from plain text.
+  # @param ingredient_list The ingredient list of the recipe, one ingredient per line.
+  # @param servings The number of servings that you can make from the ingredients.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
   # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+  # @option opts [Boolean] :include_nutrition 
   # @return [Array<ParseIngredients200ResponseInner>]
   describe 'parse_ingredients test' do
     it 'should work' do
@@ -309,7 +325,7 @@ describe 'RecipesApi' do
   # Visualize a recipe&#39;s price breakdown.
   # @param id The recipe id.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [File]
   describe 'price_breakdown_by_id_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -333,7 +349,7 @@ describe 'RecipesApi' do
   # Visualize a recipe&#39;s nutritional information as an image.
   # @param id The recipe id.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [File]
   describe 'recipe_nutrition_by_id_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -348,7 +364,7 @@ describe 'RecipesApi' do
   # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
   # @option opts [Boolean] :show_zero_values Whether to show zero values.
   # @option opts [Boolean] :show_ingredients Whether to show a list of ingredients.
-  # @return [Object]
+  # @return [File]
   describe 'recipe_nutrition_label_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -378,7 +394,7 @@ describe 'RecipesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :normalize Normalize to the strongest taste.
   # @option opts [String] :rgb Red, green, blue values for the chart color.
-  # @return [Object]
+  # @return [File]
   describe 'recipe_taste_by_id_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -612,9 +628,11 @@ describe 'RecipesApi' do
   # unit tests for visualize_equipment
   # Equipment Widget
   # Visualize the equipment used to make a recipe.
+  # @param instructions The recipe&#39;s instructions.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
-  # @option opts [String] :accept Accept header.
+  # @option opts [String] :view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+  # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+  # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   # @return [String]
   describe 'visualize_equipment test' do
     it 'should work' do
@@ -625,10 +643,13 @@ describe 'RecipesApi' do
   # unit tests for visualize_price_breakdown
   # Price Breakdown Widget
   # Visualize the price breakdown of a recipe.
+  # @param ingredient_list The ingredient list of the recipe, one ingredient per line.
+  # @param servings The number of servings.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
-  # @option opts [String] :accept Accept header.
   # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+  # @option opts [Float] :mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+  # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+  # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   # @return [String]
   describe 'visualize_price_breakdown test' do
     it 'should work' do
@@ -666,10 +687,12 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_nutrition
   # Recipe Nutrition Widget
   # Visualize a recipe&#39;s nutritional information as HTML including CSS.
+  # @param ingredient_list The ingredient list of the recipe, one ingredient per line.
+  # @param servings The number of servings.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
-  # @option opts [String] :accept Accept header.
   # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+  # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+  # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   # @return [String]
   describe 'visualize_recipe_nutrition test' do
     it 'should work' do
@@ -683,7 +706,6 @@ describe 'RecipesApi' do
   # @param id The item&#39;s id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
-  # @option opts [String] :accept Accept header.
   # @return [String]
   describe 'visualize_recipe_nutrition_by_id test' do
     it 'should work' do
@@ -707,11 +729,10 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_taste
   # Recipe Taste Widget
   # Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+  # @param ingredient_list The ingredient list of the recipe, one ingredient per line.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-  # @option opts [String] :content_type The content type.
-  # @option opts [String] :accept Accept header.
-  # @option opts [Boolean] :normalize Whether to normalize to the strongest taste.
+  # @option opts [Boolean] :normalize Normalize to the strongest taste.
   # @option opts [String] :rgb Red, green, blue values for the chart color.
   # @return [String]
   describe 'visualize_recipe_taste test' do

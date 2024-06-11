@@ -2,7 +2,6 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
-            [spoonacular-api.specs.any-type :refer :all]
             )
   (:import (java.io File)))
 
@@ -10,7 +9,7 @@
 (def get-conversation-suggests-200-response-data
   {
    (ds/req :suggests) get-conversation-suggests-200-response-suggests-spec
-   (ds/req :words) (s/coll-of any-type-spec)
+   (ds/req :words) (s/coll-of string?)
    })
 
 (def get-conversation-suggests-200-response-spec

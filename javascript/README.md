@@ -387,10 +387,10 @@ Class | Method | HTTP request | Description
  - [SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [SpoonacularApi.SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [SpoonacularApi.SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [SpoonacularApi.SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [SpoonacularApi.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [SpoonacularApi.SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [SpoonacularApi.SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [SpoonacularApi.TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [SpoonacularApi.TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 ## Documentation for Authorization

@@ -1,15 +1,17 @@
 package org.openapitools.model;
 
 import groovy.transform.Canonical
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.openapitools.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 
 @Canonical
 class SearchSiteContent200ResponseArticlesInner {
     
-    List<Object> dataPoints
+    Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints
     
     String image
     

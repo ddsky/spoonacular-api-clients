@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Badges** | **List&lt;string&gt;** |  | 
 **ImportantBadges** | **List&lt;string&gt;** |  | 
 **IngredientCount** | **int** |  | 
-**GeneratedText** | **Object** |  | [optional] 
+**GeneratedText** | **string** |  | [optional] 
 **IngredientList** | **string** |  | 
 **Ingredients** | [**List&lt;GetProductInformation200ResponseIngredientsInner&gt;**](GetProductInformation200ResponseIngredientsInner.md) |  | 
 **Likes** | **decimal** |  | 

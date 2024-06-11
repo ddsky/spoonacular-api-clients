@@ -319,7 +319,7 @@ pub async fn get_product_information(configuration: &configuration::Configuratio
 }
 
 /// Visualize a product's nutritional information as an image.
-pub async fn product_nutrition_by_id_image(configuration: &configuration::Configuration, id: f32) -> Result<serde_json::Value, Error<ProductNutritionByIdImageError>> {
+pub async fn product_nutrition_by_id_image(configuration: &configuration::Configuration, id: f32) -> Result<std::path::PathBuf, Error<ProductNutritionByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -355,7 +355,7 @@ pub async fn product_nutrition_by_id_image(configuration: &configuration::Config
 }
 
 /// Get a product's nutrition label as an image.
-pub async fn product_nutrition_label_image(configuration: &configuration::Configuration, id: f32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<serde_json::Value, Error<ProductNutritionLabelImageError>> {
+pub async fn product_nutrition_label_image(configuration: &configuration::Configuration, id: f32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<ProductNutritionLabelImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -556,7 +556,7 @@ pub async fn search_grocery_products_by_upc(configuration: &configuration::Confi
 }
 
 /// Visualize a product's nutritional information as HTML including CSS.
-pub async fn visualize_product_nutrition_by_id(configuration: &configuration::Configuration, id: i32, default_css: Option<bool>, accept: Option<&str>) -> Result<String, Error<VisualizeProductNutritionByIdError>> {
+pub async fn visualize_product_nutrition_by_id(configuration: &configuration::Configuration, id: i32, default_css: Option<bool>) -> Result<String, Error<VisualizeProductNutritionByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -569,9 +569,6 @@ pub async fn visualize_product_nutrition_by_id(configuration: &configuration::Co
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = accept {
-        local_var_req_builder = local_var_req_builder.header("Accept", local_var_param_value.to_string());
     }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();

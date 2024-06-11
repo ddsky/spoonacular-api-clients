@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 #include "OAISearchSiteContent_200_response_Articles_inner.h"
-#include "OAISearchSiteContent_200_response_Grocery_Products_inner.h"
 #include <QSet>
 
 #include "OAIEnum.h"
@@ -30,7 +29,6 @@
 
 namespace OpenAPI {
 class OAISearchSiteContent_200_response_Articles_inner;
-class OAISearchSiteContent_200_response_Grocery_Products_inner;
 
 class OAISearchSiteContent_200_response : public OAIObject {
 public:
@@ -48,18 +46,18 @@ public:
     bool is_articles_Set() const;
     bool is_articles_Valid() const;
 
-    QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> getGroceryProducts() const;
-    void setGroceryProducts(const QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> &grocery_products);
+    QSet<OAISearchSiteContent_200_response_Articles_inner> getGroceryProducts() const;
+    void setGroceryProducts(const QSet<OAISearchSiteContent_200_response_Articles_inner> &grocery_products);
     bool is_grocery_products_Set() const;
     bool is_grocery_products_Valid() const;
 
-    QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> getMenuItems() const;
-    void setMenuItems(const QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> &menu_items);
+    QSet<OAISearchSiteContent_200_response_Articles_inner> getMenuItems() const;
+    void setMenuItems(const QSet<OAISearchSiteContent_200_response_Articles_inner> &menu_items);
     bool is_menu_items_Set() const;
     bool is_menu_items_Valid() const;
 
-    QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> getRecipes() const;
-    void setRecipes(const QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> &recipes);
+    QSet<OAISearchSiteContent_200_response_Articles_inner> getRecipes() const;
+    void setRecipes(const QSet<OAISearchSiteContent_200_response_Articles_inner> &recipes);
     bool is_recipes_Set() const;
     bool is_recipes_Valid() const;
 
@@ -73,15 +71,15 @@ private:
     bool m_articles_isSet;
     bool m_articles_isValid;
 
-    QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> m_grocery_products;
+    QSet<OAISearchSiteContent_200_response_Articles_inner> m_grocery_products;
     bool m_grocery_products_isSet;
     bool m_grocery_products_isValid;
 
-    QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> m_menu_items;
+    QSet<OAISearchSiteContent_200_response_Articles_inner> m_menu_items;
     bool m_menu_items_isSet;
     bool m_menu_items_isValid;
 
-    QSet<OAISearchSiteContent_200_response_Grocery_Products_inner> m_recipes;
+    QSet<OAISearchSiteContent_200_response_Articles_inner> m_recipes;
     bool m_recipes_isSet;
     bool m_recipes_isValid;
 };

@@ -23,6 +23,7 @@ import com.spoonacular.client.model.ComputeGlycemicLoad200Response;
 import com.spoonacular.client.model.ComputeGlycemicLoadRequest;
 import com.spoonacular.client.model.ConvertAmounts200Response;
 import com.spoonacular.client.model.CreateRecipeCard200Response;
+import java.io.File;
 import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response;
 import com.spoonacular.client.model.GetRandomRecipes200Response;
 import com.spoonacular.client.model.GetRecipeEquipmentByID200Response;
@@ -80,8 +81,8 @@ public class RecipesApiTest {
      */
     @Test
     public void analyzeRecipeInstructionsTest() throws ApiException {
-        String contentType = null;
-        AnalyzeRecipeInstructions200Response response = api.analyzeRecipeInstructions(contentType);
+        String instructions = null;
+        AnalyzeRecipeInstructions200Response response = api.analyzeRecipeInstructions(instructions);
         // TODO: test validations
     }
 
@@ -109,8 +110,10 @@ public class RecipesApiTest {
      */
     @Test
     public void classifyCuisineTest() throws ApiException {
-        String contentType = null;
-        ClassifyCuisine200Response response = api.classifyCuisine(contentType);
+        String title = null;
+        String ingredientList = null;
+        String language = null;
+        ClassifyCuisine200Response response = api.classifyCuisine(title, ingredientList, language);
         // TODO: test validations
     }
 
@@ -155,8 +158,20 @@ public class RecipesApiTest {
      */
     @Test
     public void createRecipeCardTest() throws ApiException {
-        String contentType = null;
-        CreateRecipeCard200Response response = api.createRecipeCard(contentType);
+        String title = null;
+        String ingredients = null;
+        String instructions = null;
+        BigDecimal readyInMinutes = null;
+        BigDecimal servings = null;
+        String mask = null;
+        String backgroundImage = null;
+        File image = null;
+        String imageUrl = null;
+        String author = null;
+        String backgroundColor = null;
+        String fontColor = null;
+        String source = null;
+        CreateRecipeCard200Response response = api.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
         // TODO: test validations
     }
 
@@ -170,7 +185,7 @@ public class RecipesApiTest {
     @Test
     public void equipmentByIDImageTest() throws ApiException {
         BigDecimal id = null;
-        Object response = api.equipmentByIDImage(id);
+        File response = api.equipmentByIDImage(id);
         // TODO: test validations
     }
 
@@ -365,9 +380,11 @@ public class RecipesApiTest {
      */
     @Test
     public void parseIngredientsTest() throws ApiException {
-        String contentType = null;
+        String ingredientList = null;
+        BigDecimal servings = null;
         String language = null;
-        Set<ParseIngredients200ResponseInner> response = api.parseIngredients(contentType, language);
+        Boolean includeNutrition = null;
+        Set<ParseIngredients200ResponseInner> response = api.parseIngredients(ingredientList, servings, language, includeNutrition);
         // TODO: test validations
     }
 
@@ -381,7 +398,7 @@ public class RecipesApiTest {
     @Test
     public void priceBreakdownByIDImageTest() throws ApiException {
         BigDecimal id = null;
-        Object response = api.priceBreakdownByIDImage(id);
+        File response = api.priceBreakdownByIDImage(id);
         // TODO: test validations
     }
 
@@ -409,7 +426,7 @@ public class RecipesApiTest {
     @Test
     public void recipeNutritionByIDImageTest() throws ApiException {
         BigDecimal id = null;
-        Object response = api.recipeNutritionByIDImage(id);
+        File response = api.recipeNutritionByIDImage(id);
         // TODO: test validations
     }
 
@@ -426,7 +443,7 @@ public class RecipesApiTest {
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;
         Boolean showIngredients = null;
-        Object response = api.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+        File response = api.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
         // TODO: test validations
     }
 
@@ -460,7 +477,7 @@ public class RecipesApiTest {
         BigDecimal id = null;
         Boolean normalize = null;
         String rgb = null;
-        Object response = api.recipeTasteByIDImage(id, normalize, rgb);
+        File response = api.recipeTasteByIDImage(id, normalize, rgb);
         // TODO: test validations
     }
 
@@ -705,9 +722,11 @@ public class RecipesApiTest {
      */
     @Test
     public void visualizeEquipmentTest() throws ApiException {
-        String contentType = null;
-        String accept = null;
-        String response = api.visualizeEquipment(contentType, accept);
+        String instructions = null;
+        String view = null;
+        Boolean defaultCss = null;
+        Boolean showBacklink = null;
+        String response = api.visualizeEquipment(instructions, view, defaultCss, showBacklink);
         // TODO: test validations
     }
 
@@ -720,10 +739,13 @@ public class RecipesApiTest {
      */
     @Test
     public void visualizePriceBreakdownTest() throws ApiException {
-        String contentType = null;
-        String accept = null;
+        String ingredientList = null;
+        BigDecimal servings = null;
         String language = null;
-        String response = api.visualizePriceBreakdown(contentType, accept, language);
+        BigDecimal mode = null;
+        Boolean defaultCss = null;
+        Boolean showBacklink = null;
+        String response = api.visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink);
         // TODO: test validations
     }
 
@@ -767,10 +789,12 @@ public class RecipesApiTest {
      */
     @Test
     public void visualizeRecipeNutritionTest() throws ApiException {
-        String contentType = null;
-        String accept = null;
+        String ingredientList = null;
+        BigDecimal servings = null;
         String language = null;
-        String response = api.visualizeRecipeNutrition(contentType, accept, language);
+        Boolean defaultCss = null;
+        Boolean showBacklink = null;
+        String response = api.visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink);
         // TODO: test validations
     }
 
@@ -785,8 +809,7 @@ public class RecipesApiTest {
     public void visualizeRecipeNutritionByIDTest() throws ApiException {
         Integer id = null;
         Boolean defaultCss = null;
-        String accept = null;
-        String response = api.visualizeRecipeNutritionByID(id, defaultCss, accept);
+        String response = api.visualizeRecipeNutritionByID(id, defaultCss);
         // TODO: test validations
     }
 
@@ -814,12 +837,11 @@ public class RecipesApiTest {
      */
     @Test
     public void visualizeRecipeTasteTest() throws ApiException {
+        String ingredientList = null;
         String language = null;
-        String contentType = null;
-        String accept = null;
         Boolean normalize = null;
         String rgb = null;
-        String response = api.visualizeRecipeTaste(language, contentType, accept, normalize, rgb);
+        String response = api.visualizeRecipeTaste(ingredientList, language, normalize, rgb);
         // TODO: test validations
     }
 

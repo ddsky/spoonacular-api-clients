@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **answer_text** | **String** |  |  |
-| **media** | **Array&lt;Object&gt;** |  |  |
+| **media** | [**Array&lt;TalkToChatbot200ResponseMediaInner&gt;**](TalkToChatbot200ResponseMediaInner.md) |  |  |
 
 ## Example
 

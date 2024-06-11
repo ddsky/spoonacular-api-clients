@@ -23,7 +23,7 @@ var _ MappedNullable = &TalkToChatbot200Response{}
 // TalkToChatbot200Response 
 type TalkToChatbot200Response struct {
 	AnswerText string `json:"answerText"`
-	Media []interface{} `json:"media"`
+	Media []TalkToChatbot200ResponseMediaInner `json:"media"`
 }
 
 type _TalkToChatbot200Response TalkToChatbot200Response
@@ -32,7 +32,7 @@ type _TalkToChatbot200Response TalkToChatbot200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTalkToChatbot200Response(answerText string, media []interface{}) *TalkToChatbot200Response {
+func NewTalkToChatbot200Response(answerText string, media []TalkToChatbot200ResponseMediaInner) *TalkToChatbot200Response {
 	this := TalkToChatbot200Response{}
 	this.AnswerText = answerText
 	this.Media = media
@@ -72,9 +72,9 @@ func (o *TalkToChatbot200Response) SetAnswerText(v string) {
 }
 
 // GetMedia returns the Media field value
-func (o *TalkToChatbot200Response) GetMedia() []interface{} {
+func (o *TalkToChatbot200Response) GetMedia() []TalkToChatbot200ResponseMediaInner {
 	if o == nil {
-		var ret []interface{}
+		var ret []TalkToChatbot200ResponseMediaInner
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *TalkToChatbot200Response) GetMedia() []interface{} {
 
 // GetMediaOk returns a tuple with the Media field value
 // and a boolean to check if the value has been set.
-func (o *TalkToChatbot200Response) GetMediaOk() ([]interface{}, bool) {
+func (o *TalkToChatbot200Response) GetMediaOk() ([]TalkToChatbot200ResponseMediaInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *TalkToChatbot200Response) GetMediaOk() ([]interface{}, bool) {
 }
 
 // SetMedia sets field value
-func (o *TalkToChatbot200Response) SetMedia(v []interface{}) {
+func (o *TalkToChatbot200Response) SetMedia(v []TalkToChatbot200ResponseMediaInner) {
 	o.Media = v
 }
 

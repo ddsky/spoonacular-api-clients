@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dataPoints** | [**NSArray&lt;OAIAnyType&gt;***](OAIAnyType.md) |  | [optional] 
+**dataPoints** | [**OAISet&lt;OAISearchSiteContent200ResponseArticlesInnerDataPointsInner&gt;***](OAISearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  | [optional] 
 **image** | **NSString*** |  | 
 **link** | **NSString*** |  | 
 **name** | **NSString*** |  | 

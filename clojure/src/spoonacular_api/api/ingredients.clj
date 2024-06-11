@@ -57,7 +57,6 @@
             [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
             [spoonacular-api.specs.analyze-recipe-request :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner :refer :all]
@@ -75,6 +74,7 @@
             [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
             [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-local-hours-operational :refer :all]
             [spoonacular-api.specs.get-product-information-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-articles-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
             [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
@@ -125,6 +125,7 @@
             [spoonacular-api.specs.connect-user-request :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
             [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner :refer :all]
+            [spoonacular-api.specs.talk-to-chatbot-200-response-media-inner :refer :all]
             [spoonacular-api.specs.get-comparable-products-200-response-comparable-products :refer :all]
             [spoonacular-api.specs.autocomplete-product-search-200-response :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary-nutrients-inner :refer :all]
@@ -139,7 +140,6 @@
             [spoonacular-api.specs.compute-glycemic-load-request :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories :refer :all]
             [spoonacular-api.specs.ingredient-search-200-response :refer :all]
             [spoonacular-api.specs.search-all-food-200-response :refer :all]
@@ -365,13 +365,14 @@
 (defn-spec visualize-ingredients-with-http-info any?
   "Ingredients Widget
   Visualize ingredients of a recipe. You can play around with that endpoint!"
-  ([] (visualize-ingredients-with-http-info nil))
-  ([{:keys [Content-Type language Accept]} (s/map-of keyword? any?)]
+  ([ingredientList string?, servings float?, ] (visualize-ingredients-with-http-info ingredientList servings nil))
+  ([ingredientList string?, servings float?, {:keys [language measure view defaultCss showBacklink]} (s/map-of keyword? any?)]
+   (check-required-params ingredientList servings)
    (call-api "/recipes/visualizeIngredients" :post
              {:path-params   {}
-              :header-params {"Content-Type" Content-Type "Accept" Accept }
+              :header-params {}
               :query-params  {"language" language }
-              :form-params   {}
+              :form-params   {"ingredientList" ingredientList "servings" servings "measure" measure "view" view "defaultCss" defaultCss "showBacklink" showBacklink }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["text/html"]
               :auth-names    ["apiKeyScheme"]})))
@@ -379,9 +380,9 @@
 (defn-spec visualize-ingredients string?
   "Ingredients Widget
   Visualize ingredients of a recipe. You can play around with that endpoint!"
-  ([] (visualize-ingredients nil))
-  ([optional-params any?]
-   (let [res (:data (visualize-ingredients-with-http-info optional-params))]
+  ([ingredientList string?, servings float?, ] (visualize-ingredients ingredientList servings nil))
+  ([ingredientList string?, servings float?, optional-params any?]
+   (let [res (:data (visualize-ingredients-with-http-info ingredientList servings optional-params))]
      (if (:decode-models *api-context*)
         (st/decode string? res st/string-transformer)
         res))))

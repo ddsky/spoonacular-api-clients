@@ -60,7 +60,7 @@ class GetConversationSuggests200Response implements ModelInterface, ArrayAccess,
       */
     protected static $openAPITypes = [
         'suggests' => '\OpenAPI\Client\Model\GetConversationSuggests200ResponseSuggests',
-        'words' => 'mixed[]'
+        'words' => 'string[]'
     ];
 
     /**
@@ -334,7 +334,7 @@ class GetConversationSuggests200Response implements ModelInterface, ArrayAccess,
     /**
      * Gets words
      *
-     * @return mixed[]
+     * @return string[]
      */
     public function getWords()
     {
@@ -344,7 +344,7 @@ class GetConversationSuggests200Response implements ModelInterface, ArrayAccess,
     /**
      * Sets words
      *
-     * @param mixed[] $words words
+     * @param string[] $words words
      *
      * @return self
      */

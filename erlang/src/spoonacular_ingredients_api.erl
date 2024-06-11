@@ -8,7 +8,7 @@
          ingredient_search/1, ingredient_search/2,
          ingredients_by_id_image/2, ingredients_by_id_image/3,
          map_ingredients_to_grocery_products/2, map_ingredients_to_grocery_products/3,
-         visualize_ingredients/1, visualize_ingredients/2]).
+         visualize_ingredients/3, visualize_ingredients/4]).
 
 -define(BASE_URL, <<"">>).
 
@@ -140,11 +140,11 @@ ingredient_search(Ctx, Optional) ->
 
 %% @doc Ingredients by ID Image
 %% Visualize a recipe's ingredient list.
--spec ingredients_by_id_image(ctx:ctx(), integer()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec ingredients_by_id_image(ctx:ctx(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 ingredients_by_id_image(Ctx, Id) ->
     ingredients_by_id_image(Ctx, Id, #{}).
 
--spec ingredients_by_id_image(ctx:ctx(), integer(), maps:map()) -> {ok, maps:map(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec ingredients_by_id_image(ctx:ctx(), integer(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 ingredients_by_id_image(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -182,20 +182,20 @@ map_ingredients_to_grocery_products(Ctx, SpoonacularMapIngredientsToGroceryProdu
 
 %% @doc Ingredients Widget
 %% Visualize ingredients of a recipe. You can play around with that endpoint!
--spec visualize_ingredients(ctx:ctx()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-visualize_ingredients(Ctx) ->
-    visualize_ingredients(Ctx, #{}).
+-spec visualize_ingredients(ctx:ctx(), binary(), integer()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_ingredients(Ctx, IngredientList, Servings) ->
+    visualize_ingredients(Ctx, IngredientList, Servings, #{}).
 
--spec visualize_ingredients(ctx:ctx(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-visualize_ingredients(Ctx, Optional) ->
+-spec visualize_ingredients(ctx:ctx(), binary(), integer(), maps:map()) -> {ok, binary(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+visualize_ingredients(Ctx, IngredientList, Servings, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
     Method = post,
     Path = [?BASE_URL, "/recipes/visualizeIngredients"],
     QS = lists:flatten([])++spoonacular_utils:optional_params(['language'], _OptionalParams),
-    Headers = []++spoonacular_utils:optional_params(['Content-Type', 'Accept'], _OptionalParams),
-    Body1 = [],
+    Headers = [],
+    Body1 = {form, [{<<"ingredientList">>, IngredientList}, {<<"servings">>, Servings}]++spoonacular_utils:optional_params(['measure', 'view', 'defaultCss', 'showBacklink'], _OptionalParams)},
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/x-www-form-urlencoded">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 

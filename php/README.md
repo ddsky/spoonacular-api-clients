@@ -336,10 +336,10 @@ Class | Method | HTTP request | Description
 - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
 - [SearchSiteContent200Response](docs/Model/SearchSiteContent200Response.md)
 - [SearchSiteContent200ResponseArticlesInner](docs/Model/SearchSiteContent200ResponseArticlesInner.md)
-- [SearchSiteContent200ResponseGroceryProductsInner](docs/Model/SearchSiteContent200ResponseGroceryProductsInner.md)
-- [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+- [SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
 - [SummarizeRecipe200Response](docs/Model/SummarizeRecipe200Response.md)
 - [TalkToChatbot200Response](docs/Model/TalkToChatbot200Response.md)
+- [TalkToChatbot200ResponseMediaInner](docs/Model/TalkToChatbot200ResponseMediaInner.md)
 
 ## Authorization
 

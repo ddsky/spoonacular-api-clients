@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner;
 import java.math.BigDecimal;
 import com.spoonacular.client.model.ComputeIngredientAmount200Response;
+import java.io.File;
 import com.spoonacular.client.model.GetIngredientInformation200Response;
 import com.spoonacular.client.model.GetIngredientSubstitutes200Response;
 import com.spoonacular.client.model.IngredientSearch200Response;
@@ -1214,7 +1215,7 @@ public class IngredientsApi {
      * Visualize a recipe&#39;s ingredient list.
      * @param id The recipe id. (required)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1227,8 +1228,8 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public Object ingredientsByIDImage(BigDecimal id, String measure) throws ApiException {
-        ApiResponse<Object> localVarResp = ingredientsByIDImageWithHttpInfo(id, measure);
+    public File ingredientsByIDImage(BigDecimal id, String measure) throws ApiException {
+        ApiResponse<File> localVarResp = ingredientsByIDImageWithHttpInfo(id, measure);
         return localVarResp.getData();
     }
 
@@ -1237,7 +1238,7 @@ public class IngredientsApi {
      * Visualize a recipe&#39;s ingredient list.
      * @param id The recipe id. (required)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1250,9 +1251,9 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public ApiResponse<Object> ingredientsByIDImageWithHttpInfo(BigDecimal id, String measure) throws ApiException {
+    public ApiResponse<File> ingredientsByIDImageWithHttpInfo(BigDecimal id, String measure) throws ApiException {
         okhttp3.Call localVarCall = ingredientsByIDImageValidateBeforeCall(id, measure, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1275,10 +1276,10 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public okhttp3.Call ingredientsByIDImageAsync(BigDecimal id, String measure, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call ingredientsByIDImageAsync(BigDecimal id, String measure, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = ingredientsByIDImageValidateBeforeCall(id, measure, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1427,9 +1428,13 @@ public class IngredientsApi {
     }
     /**
      * Build call for visualizeIngredients
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param servings The number of servings. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1444,7 +1449,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-Widget">Ingredients Widget Documentation</a>
      */
-    public okhttp3.Call visualizeIngredientsCall(String contentType, String language, String accept, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call visualizeIngredientsCall(String ingredientList, BigDecimal servings, String language, String measure, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1469,16 +1474,32 @@ public class IngredientsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (ingredientList != null) {
+            localVarFormParams.put("ingredientList", ingredientList);
+        }
+
+        if (servings != null) {
+            localVarFormParams.put("servings", servings);
+        }
+
+        if (measure != null) {
+            localVarFormParams.put("measure", measure);
+        }
+
+        if (view != null) {
+            localVarFormParams.put("view", view);
+        }
+
+        if (defaultCss != null) {
+            localVarFormParams.put("defaultCss", defaultCss);
+        }
+
+        if (showBacklink != null) {
+            localVarFormParams.put("showBacklink", showBacklink);
+        }
+
         if (language != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
-        }
-
-        if (contentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarApiClient.parameterToString(contentType));
-        }
-
-        if (accept != null) {
-            localVarHeaderParams.put("Accept", localVarApiClient.parameterToString(accept));
         }
 
         final String[] localVarAccepts = {
@@ -1502,17 +1523,31 @@ public class IngredientsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call visualizeIngredientsValidateBeforeCall(String contentType, String language, String accept, final ApiCallback _callback) throws ApiException {
-        return visualizeIngredientsCall(contentType, language, accept, _callback);
+    private okhttp3.Call visualizeIngredientsValidateBeforeCall(String ingredientList, BigDecimal servings, String language, String measure, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'ingredientList' is set
+        if (ingredientList == null) {
+            throw new ApiException("Missing the required parameter 'ingredientList' when calling visualizeIngredients(Async)");
+        }
+
+        // verify the required parameter 'servings' is set
+        if (servings == null) {
+            throw new ApiException("Missing the required parameter 'servings' when calling visualizeIngredients(Async)");
+        }
+
+        return visualizeIngredientsCall(ingredientList, servings, language, measure, view, defaultCss, showBacklink, _callback);
 
     }
 
     /**
      * Ingredients Widget
      * Visualize ingredients of a recipe. You can play around with that endpoint!
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param servings The number of servings. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1526,17 +1561,21 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-Widget">Ingredients Widget Documentation</a>
      */
-    public String visualizeIngredients(String contentType, String language, String accept) throws ApiException {
-        ApiResponse<String> localVarResp = visualizeIngredientsWithHttpInfo(contentType, language, accept);
+    public String visualizeIngredients(String ingredientList, BigDecimal servings, String language, String measure, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
+        ApiResponse<String> localVarResp = visualizeIngredientsWithHttpInfo(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
         return localVarResp.getData();
     }
 
     /**
      * Ingredients Widget
      * Visualize ingredients of a recipe. You can play around with that endpoint!
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param servings The number of servings. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1550,8 +1589,8 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-Widget">Ingredients Widget Documentation</a>
      */
-    public ApiResponse<String> visualizeIngredientsWithHttpInfo(String contentType, String language, String accept) throws ApiException {
-        okhttp3.Call localVarCall = visualizeIngredientsValidateBeforeCall(contentType, language, accept, null);
+    public ApiResponse<String> visualizeIngredientsWithHttpInfo(String ingredientList, BigDecimal servings, String language, String measure, String view, Boolean defaultCss, Boolean showBacklink) throws ApiException {
+        okhttp3.Call localVarCall = visualizeIngredientsValidateBeforeCall(ingredientList, servings, language, measure, view, defaultCss, showBacklink, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1559,9 +1598,13 @@ public class IngredientsApi {
     /**
      * Ingredients Widget (asynchronously)
      * Visualize ingredients of a recipe. You can play around with that endpoint!
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param servings The number of servings. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param accept Accept header. (optional)
+     * @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1576,9 +1619,9 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-Widget">Ingredients Widget Documentation</a>
      */
-    public okhttp3.Call visualizeIngredientsAsync(String contentType, String language, String accept, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call visualizeIngredientsAsync(String ingredientList, BigDecimal servings, String language, String measure, String view, Boolean defaultCss, Boolean showBacklink, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = visualizeIngredientsValidateBeforeCall(contentType, language, accept, _callback);
+        okhttp3.Call localVarCall = visualizeIngredientsValidateBeforeCall(ingredientList, servings, language, measure, view, defaultCss, showBacklink, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

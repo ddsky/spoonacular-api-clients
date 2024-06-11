@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchSiteContent200ResponseArticlesInner {
     #[serde(rename = "dataPoints", skip_serializing_if = "Option::is_none")]
-    pub data_points: Option<Vec<serde_json::Value>>,
+    pub data_points: Option<Vec<crate::models::SearchSiteContent200ResponseArticlesInnerDataPointsInner>>,
     #[serde(rename = "image")]
     pub image: String,
     #[serde(rename = "link")]

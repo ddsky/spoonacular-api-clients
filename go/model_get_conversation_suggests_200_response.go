@@ -23,7 +23,7 @@ var _ MappedNullable = &GetConversationSuggests200Response{}
 // GetConversationSuggests200Response 
 type GetConversationSuggests200Response struct {
 	Suggests GetConversationSuggests200ResponseSuggests `json:"suggests"`
-	Words []interface{} `json:"words"`
+	Words []string `json:"words"`
 }
 
 type _GetConversationSuggests200Response GetConversationSuggests200Response
@@ -32,7 +32,7 @@ type _GetConversationSuggests200Response GetConversationSuggests200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetConversationSuggests200Response(suggests GetConversationSuggests200ResponseSuggests, words []interface{}) *GetConversationSuggests200Response {
+func NewGetConversationSuggests200Response(suggests GetConversationSuggests200ResponseSuggests, words []string) *GetConversationSuggests200Response {
 	this := GetConversationSuggests200Response{}
 	this.Suggests = suggests
 	this.Words = words
@@ -72,9 +72,9 @@ func (o *GetConversationSuggests200Response) SetSuggests(v GetConversationSugges
 }
 
 // GetWords returns the Words field value
-func (o *GetConversationSuggests200Response) GetWords() []interface{} {
+func (o *GetConversationSuggests200Response) GetWords() []string {
 	if o == nil {
-		var ret []interface{}
+		var ret []string
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *GetConversationSuggests200Response) GetWords() []interface{} {
 
 // GetWordsOk returns a tuple with the Words field value
 // and a boolean to check if the value has been set.
-func (o *GetConversationSuggests200Response) GetWordsOk() ([]interface{}, bool) {
+func (o *GetConversationSuggests200Response) GetWordsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *GetConversationSuggests200Response) GetWordsOk() ([]interface{}, bool) 
 }
 
 // SetWords sets field value
-func (o *GetConversationSuggests200Response) SetWords(v []interface{}) {
+func (o *GetConversationSuggests200Response) SetWords(v []string) {
 	o.Words = v
 }
 

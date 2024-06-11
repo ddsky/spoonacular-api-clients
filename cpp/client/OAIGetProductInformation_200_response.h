@@ -24,7 +24,6 @@
 #include "OAIGetProductInformation_200_response_ingredients_inner.h"
 #include "OAISearchGroceryProductsByUPC_200_response_nutrition.h"
 #include "OAISearchGroceryProductsByUPC_200_response_servings.h"
-#include <QJsonValue>
 #include <QList>
 #include <QString>
 
@@ -82,8 +81,8 @@ public:
     bool is_ingredient_count_Set() const;
     bool is_ingredient_count_Valid() const;
 
-    QJsonValue getGeneratedText() const;
-    void setGeneratedText(const QJsonValue &generated_text);
+    QString getGeneratedText() const;
+    void setGeneratedText(const QString &generated_text);
     bool is_generated_text_Set() const;
     bool is_generated_text_Valid() const;
 
@@ -161,7 +160,7 @@ private:
     bool m_ingredient_count_isSet;
     bool m_ingredient_count_isValid;
 
-    QJsonValue m_generated_text;
+    QString m_generated_text;
     bool m_generated_text_isSet;
     bool m_generated_text_isValid;
 

@@ -14,11 +14,14 @@ defmodule SpoonacularAPI.Model.TalkToChatbot200Response do
 
   @type t :: %__MODULE__{
     :answerText => String.t,
-    :media => [any()]
+    :media => [SpoonacularAPI.Model.TalkToChatbot200ResponseMediaInner.t]
   }
+
+  alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
+     |> Deserializer.deserialize(:media, :list, SpoonacularAPI.Model.TalkToChatbot200ResponseMediaInner)
   end
 end
 

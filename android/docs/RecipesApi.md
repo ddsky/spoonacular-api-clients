@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## analyzeRecipeInstructions
 
-> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(contentType)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -108,9 +108,9 @@ This endpoint allows you to break down instructions into atomic steps. Furthermo
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
+String instructions = null; // String | The recipe's instructions.
 try {
-    AnalyzeRecipeInstructions200Response result = apiInstance.analyzeRecipeInstructions(contentType);
+    AnalyzeRecipeInstructions200Response result = apiInstance.analyzeRecipeInstructions(instructions);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#analyzeRecipeInstructions");
@@ -123,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **instructions** | **String**| The recipe&#39;s instructions. | [default to null]
 
 ### Return type
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ## classifyCuisine
 
-> ClassifyCuisine200Response classifyCuisine(contentType)
+> ClassifyCuisine200Response classifyCuisine(title, ingredientList, language)
 
 Classify Cuisine
 
@@ -202,9 +202,11 @@ Classify the recipe&#39;s cuisine.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
+String title = null; // String | The title of the recipe.
+String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+String language = en; // String | The language of the input. Either 'en' or 'de'.
 try {
-    ClassifyCuisine200Response result = apiInstance.classifyCuisine(contentType);
+    ClassifyCuisine200Response result = apiInstance.classifyCuisine(title, ingredientList, language);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#classifyCuisine");
@@ -217,7 +219,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **title** | **String**| The title of the recipe. | [default to null]
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [default to null]
+ **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
 
 ### Return type
 
@@ -335,7 +339,7 @@ Name | Type | Description  | Notes
 
 ## createRecipeCard
 
-> CreateRecipeCard200Response createRecipeCard(contentType)
+> CreateRecipeCard200Response createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source)
 
 Create Recipe Card
 
@@ -348,9 +352,21 @@ Generate a recipe card for a recipe.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
+String title = null; // String | The title of the recipe.
+String ingredients = null; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+String instructions = null; // String | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+BigDecimal readyInMinutes = null; // BigDecimal | The number of minutes it takes to get the recipe on the table.
+BigDecimal servings = null; // BigDecimal | The number of servings the recipe makes.
+String mask = null; // String | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+String backgroundImage = null; // String | The background image ('none', 'background1', or 'background2').
+File image = null; // File | The binary image of the recipe as jpg.
+String imageUrl = null; // String | If you do not sent a binary image you can also pass the image URL.
+String author = null; // String | The author of the recipe.
+String backgroundColor = null; // String | The background color for the recipe card as a hex-string.
+String fontColor = null; // String | The font color for the recipe card as a hex-string.
+String source = null; // String | The source of the recipe.
 try {
-    CreateRecipeCard200Response result = apiInstance.createRecipeCard(contentType);
+    CreateRecipeCard200Response result = apiInstance.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#createRecipeCard");
@@ -363,7 +379,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **title** | **String**| The title of the recipe. | [default to null]
+ **ingredients** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [default to null]
+ **instructions** | **String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | [default to null]
+ **readyInMinutes** | **BigDecimal**| The number of minutes it takes to get the recipe on the table. | [default to null]
+ **servings** | **BigDecimal**| The number of servings the recipe makes. | [default to null]
+ **mask** | **String**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | [default to null] [enum: ellipseMask, diamondMask, starMask, heartMask, potMask, fishMask]
+ **backgroundImage** | **String**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | [default to null] [enum: none, background1, background2]
+ **image** | **File**| The binary image of the recipe as jpg. | [optional] [default to null]
+ **imageUrl** | **String**| If you do not sent a binary image you can also pass the image URL. | [optional] [default to null]
+ **author** | **String**| The author of the recipe. | [optional] [default to null]
+ **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] [default to null]
+ **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] [default to null]
+ **source** | **String**| The source of the recipe. | [optional] [default to null]
 
 ### Return type
 
@@ -381,7 +409,7 @@ Name | Type | Description  | Notes
 
 ## equipmentByIDImage
 
-> Object equipmentByIDImage(id)
+> File equipmentByIDImage(id)
 
 Equipment by ID Image
 
@@ -396,7 +424,7 @@ Visualize a recipe&#39;s equipment list as an image.
 RecipesApi apiInstance = new RecipesApi();
 BigDecimal id = 44860; // BigDecimal | The recipe id.
 try {
-    Object result = apiInstance.equipmentByIDImage(id);
+    File result = apiInstance.equipmentByIDImage(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#equipmentByIDImage");
@@ -413,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1007,7 +1035,7 @@ Name | Type | Description  | Notes
 
 ## parseIngredients
 
-> Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(contentType, language)
+> Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1020,10 +1048,12 @@ Extract an ingredient from plain text.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
+String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line.
+BigDecimal servings = null; // BigDecimal | The number of servings that you can make from the ingredients.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
+Boolean includeNutrition = null; // Boolean | 
 try {
-    Set<ParseIngredients200ResponseInner> result = apiInstance.parseIngredients(contentType, language);
+    Set<ParseIngredients200ResponseInner> result = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#parseIngredients");
@@ -1036,8 +1066,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
+ **servings** | **BigDecimal**| The number of servings that you can make from the ingredients. | [default to null]
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
+ **includeNutrition** | **Boolean**|  | [optional] [default to null]
 
 ### Return type
 
@@ -1055,7 +1087,7 @@ Name | Type | Description  | Notes
 
 ## priceBreakdownByIDImage
 
-> Object priceBreakdownByIDImage(id)
+> File priceBreakdownByIDImage(id)
 
 Price Breakdown by ID Image
 
@@ -1070,7 +1102,7 @@ Visualize a recipe&#39;s price breakdown.
 RecipesApi apiInstance = new RecipesApi();
 BigDecimal id = 1082038; // BigDecimal | The recipe id.
 try {
-    Object result = apiInstance.priceBreakdownByIDImage(id);
+    File result = apiInstance.priceBreakdownByIDImage(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#priceBreakdownByIDImage");
@@ -1087,7 +1119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1147,7 +1179,7 @@ Name | Type | Description  | Notes
 
 ## recipeNutritionByIDImage
 
-> Object recipeNutritionByIDImage(id)
+> File recipeNutritionByIDImage(id)
 
 Recipe Nutrition by ID Image
 
@@ -1162,7 +1194,7 @@ Visualize a recipe&#39;s nutritional information as an image.
 RecipesApi apiInstance = new RecipesApi();
 BigDecimal id = 1082038; // BigDecimal | The recipe id.
 try {
-    Object result = apiInstance.recipeNutritionByIDImage(id);
+    File result = apiInstance.recipeNutritionByIDImage(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#recipeNutritionByIDImage");
@@ -1179,7 +1211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1193,7 +1225,7 @@ Name | Type | Description  | Notes
 
 ## recipeNutritionLabelImage
 
-> Object recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> File recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Recipe Nutrition Label Image
 
@@ -1211,7 +1243,7 @@ Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nut
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
 Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
 try {
-    Object result = apiInstance.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+    File result = apiInstance.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#recipeNutritionLabelImage");
@@ -1231,7 +1263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1299,7 +1331,7 @@ Name | Type | Description  | Notes
 
 ## recipeTasteByIDImage
 
-> Object recipeTasteByIDImage(id, normalize, rgb)
+> File recipeTasteByIDImage(id, normalize, rgb)
 
 Recipe Taste by ID Image
 
@@ -1316,7 +1348,7 @@ BigDecimal id = 69095; // BigDecimal | The recipe id.
 Boolean normalize = false; // Boolean | Normalize to the strongest taste.
 String rgb = 75,192,192; // String | Red, green, blue values for the chart color.
 try {
-    Object result = apiInstance.recipeTasteByIDImage(id, normalize, rgb);
+    File result = apiInstance.recipeTasteByIDImage(id, normalize, rgb);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#recipeTasteByIDImage");
@@ -1335,7 +1367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1885,7 +1917,7 @@ Name | Type | Description  | Notes
 
 ## visualizeEquipment
 
-> String visualizeEquipment(contentType, accept)
+> String visualizeEquipment(instructions, view, defaultCss, showBacklink)
 
 Equipment Widget
 
@@ -1898,10 +1930,12 @@ Visualize the equipment used to make a recipe.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
-String accept = application/json; // String | Accept header.
+String instructions = null; // String | The recipe's instructions.
+String view = null; // String | How to visualize the ingredients, either 'grid' or 'list'.
+Boolean defaultCss = null; // Boolean | Whether the default CSS should be added to the response.
+Boolean showBacklink = null; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    String result = apiInstance.visualizeEquipment(contentType, accept);
+    String result = apiInstance.visualizeEquipment(instructions, view, defaultCss, showBacklink);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#visualizeEquipment");
@@ -1914,8 +1948,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
+ **instructions** | **String**| The recipe&#39;s instructions. | [default to null]
+ **view** | **String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [default to null] [enum: grid, list]
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to null]
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] [default to null]
 
 ### Return type
 
@@ -1933,7 +1969,7 @@ Name | Type | Description  | Notes
 
 ## visualizePriceBreakdown
 
-> String visualizePriceBreakdown(contentType, accept, language)
+> String visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink)
 
 Price Breakdown Widget
 
@@ -1946,11 +1982,14 @@ Visualize the price breakdown of a recipe.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
-String accept = application/json; // String | Accept header.
+String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line.
+BigDecimal servings = null; // BigDecimal | The number of servings.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
+BigDecimal mode = null; // BigDecimal | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+Boolean defaultCss = null; // Boolean | Whether the default CSS should be added to the response.
+Boolean showBacklink = null; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    String result = apiInstance.visualizePriceBreakdown(contentType, accept, language);
+    String result = apiInstance.visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#visualizePriceBreakdown");
@@ -1963,9 +2002,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
+ **servings** | **BigDecimal**| The number of servings. | [default to null]
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
+ **mode** | **BigDecimal**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] [default to null]
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to null]
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] [default to null]
 
 ### Return type
 
@@ -2081,7 +2123,7 @@ Name | Type | Description  | Notes
 
 ## visualizeRecipeNutrition
 
-> String visualizeRecipeNutrition(contentType, accept, language)
+> String visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink)
 
 Recipe Nutrition Widget
 
@@ -2094,11 +2136,13 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-String contentType = application/json; // String | The content type.
-String accept = application/json; // String | Accept header.
+String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line.
+BigDecimal servings = null; // BigDecimal | The number of servings.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
+Boolean defaultCss = null; // Boolean | Whether the default CSS should be added to the response.
+Boolean showBacklink = null; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    String result = apiInstance.visualizeRecipeNutrition(contentType, accept, language);
+    String result = apiInstance.visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#visualizeRecipeNutrition");
@@ -2111,9 +2155,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
+ **servings** | **BigDecimal**| The number of servings. | [default to null]
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to null]
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] [default to null]
 
 ### Return type
 
@@ -2131,7 +2177,7 @@ Name | Type | Description  | Notes
 
 ## visualizeRecipeNutritionByID
 
-> String visualizeRecipeNutritionByID(id, defaultCss, accept)
+> String visualizeRecipeNutritionByID(id, defaultCss)
 
 Recipe Nutrition by ID Widget
 
@@ -2146,9 +2192,8 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
-String accept = application/json; // String | Accept header.
 try {
-    String result = apiInstance.visualizeRecipeNutritionByID(id, defaultCss, accept);
+    String result = apiInstance.visualizeRecipeNutritionByID(id, defaultCss);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#visualizeRecipeNutritionByID");
@@ -2163,7 +2208,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
 
 ### Return type
 
@@ -2229,7 +2273,7 @@ Name | Type | Description  | Notes
 
 ## visualizeRecipeTaste
 
-> String visualizeRecipeTaste(language, contentType, accept, normalize, rgb)
+> String visualizeRecipeTaste(ingredientList, language, normalize, rgb)
 
 Recipe Taste Widget
 
@@ -2242,13 +2286,12 @@ Visualize a recipe&#39;s taste information as HTML including CSS. You can play a
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
+String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
-String contentType = application/json; // String | The content type.
-String accept = application/json; // String | Accept header.
-Boolean normalize = null; // Boolean | Whether to normalize to the strongest taste.
-String rgb = 75,192,192; // String | Red, green, blue values for the chart color.
+Boolean normalize = null; // Boolean | Normalize to the strongest taste.
+String rgb = null; // String | Red, green, blue values for the chart color.
 try {
-    String result = apiInstance.visualizeRecipeTaste(language, contentType, accept, normalize, rgb);
+    String result = apiInstance.visualizeRecipeTaste(ingredientList, language, normalize, rgb);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#visualizeRecipeTaste");
@@ -2261,10 +2304,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
- **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to null]
+ **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to null]
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] [default to null]
 
 ### Return type

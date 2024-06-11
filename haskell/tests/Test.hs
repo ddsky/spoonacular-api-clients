@@ -170,8 +170,8 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational)
       propMimeEq MimeJSON (Proxy :: Proxy SearchSiteContent200Response)
       propMimeEq MimeJSON (Proxy :: Proxy SearchSiteContent200ResponseArticlesInner)
-      propMimeEq MimeJSON (Proxy :: Proxy SearchSiteContent200ResponseGroceryProductsInner)
-      propMimeEq MimeJSON (Proxy :: Proxy SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner)
+      propMimeEq MimeJSON (Proxy :: Proxy SearchSiteContent200ResponseArticlesInnerDataPointsInner)
       propMimeEq MimeJSON (Proxy :: Proxy SummarizeRecipe200Response)
       propMimeEq MimeJSON (Proxy :: Proxy TalkToChatbot200Response)
+      propMimeEq MimeJSON (Proxy :: Proxy TalkToChatbot200ResponseMediaInner)
       

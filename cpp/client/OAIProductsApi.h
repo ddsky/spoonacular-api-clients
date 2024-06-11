@@ -25,7 +25,7 @@
 #include "OAIClassifyGroceryProduct_request.h"
 #include "OAIGetComparableProducts_200_response.h"
 #include "OAIGetProductInformation_200_response.h"
-#include "OAIObject.h"
+#include "OAIHttpFileElement.h"
 #include "OAISearchGroceryProductsByUPC_200_response.h"
 #include "OAISearchGroceryProducts_200_response.h"
 #include <QSet>
@@ -141,9 +141,8 @@ public:
     /**
     * @param[in]  id qint32 [required]
     * @param[in]  default_css bool [optional]
-    * @param[in]  accept QString [optional]
     */
-    void visualizeProductNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>());
+    void visualizeProductNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>());
 
 
 private:
@@ -187,8 +186,8 @@ Q_SIGNALS:
     void classifyGroceryProductBulkSignal(QSet<OAIClassifyGroceryProductBulk_200_response_inner> summary);
     void getComparableProductsSignal(OAIGetComparableProducts_200_response summary);
     void getProductInformationSignal(OAIGetProductInformation_200_response summary);
-    void productNutritionByIDImageSignal(OAIObject summary);
-    void productNutritionLabelImageSignal(OAIObject summary);
+    void productNutritionByIDImageSignal(OAIHttpFileElement summary);
+    void productNutritionLabelImageSignal(OAIHttpFileElement summary);
     void productNutritionLabelWidgetSignal(QString summary);
     void searchGroceryProductsSignal(OAISearchGroceryProducts_200_response summary);
     void searchGroceryProductsByUPCSignal(OAISearchGroceryProductsByUPC_200_response summary);
@@ -199,8 +198,8 @@ Q_SIGNALS:
     void classifyGroceryProductBulkSignalFull(OAIHttpRequestWorker *worker, QSet<OAIClassifyGroceryProductBulk_200_response_inner> summary);
     void getComparableProductsSignalFull(OAIHttpRequestWorker *worker, OAIGetComparableProducts_200_response summary);
     void getProductInformationSignalFull(OAIHttpRequestWorker *worker, OAIGetProductInformation_200_response summary);
-    void productNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
-    void productNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void productNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
+    void productNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void productNutritionLabelWidgetSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void searchGroceryProductsSignalFull(OAIHttpRequestWorker *worker, OAISearchGroceryProducts_200_response summary);
     void searchGroceryProductsByUPCSignalFull(OAIHttpRequestWorker *worker, OAISearchGroceryProductsByUPC_200_response summary);
@@ -222,11 +221,11 @@ Q_SIGNALS:
     void getProductInformationSignalE(OAIGetProductInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getProductInformationSignalError(OAIGetProductInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use productNutritionByIDImageSignalError() instead")
-    void productNutritionByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void productNutritionByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void productNutritionByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void productNutritionByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use productNutritionLabelImageSignalError() instead")
-    void productNutritionLabelImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void productNutritionLabelImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void productNutritionLabelImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void productNutritionLabelImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use productNutritionLabelWidgetSignalError() instead")
     void productNutritionLabelWidgetSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
     void productNutritionLabelWidgetSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);

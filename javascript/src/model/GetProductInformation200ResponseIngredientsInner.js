@@ -50,13 +50,13 @@ class GetProductInformation200ResponseIngredientsInner {
             obj = obj || new GetProductInformation200ResponseIngredientsInner();
 
             if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], Object);
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('safety_level')) {
-                obj['safety_level'] = ApiClient.convertToType(data['safety_level'], Object);
+                obj['safety_level'] = ApiClient.convertToType(data['safety_level'], 'String');
             }
         }
         return obj;
@@ -75,8 +75,16 @@ class GetProductInformation200ResponseIngredientsInner {
             }
         }
         // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['safety_level'] && !(typeof data['safety_level'] === 'string' || data['safety_level'] instanceof String)) {
+            throw new Error("Expected the field `safety_level` to be a primitive type in the JSON string but got " + data['safety_level']);
         }
 
         return true;
@@ -88,7 +96,7 @@ class GetProductInformation200ResponseIngredientsInner {
 GetProductInformation200ResponseIngredientsInner.RequiredProperties = ["name"];
 
 /**
- * @member {Object} description
+ * @member {String} description
  */
 GetProductInformation200ResponseIngredientsInner.prototype['description'] = undefined;
 
@@ -98,7 +106,7 @@ GetProductInformation200ResponseIngredientsInner.prototype['description'] = unde
 GetProductInformation200ResponseIngredientsInner.prototype['name'] = undefined;
 
 /**
- * @member {Object} safety_level
+ * @member {String} safety_level
  */
 GetProductInformation200ResponseIngredientsInner.prototype['safety_level'] = undefined;
 

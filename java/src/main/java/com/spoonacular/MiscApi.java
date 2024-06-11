@@ -85,7 +85,7 @@ public class MiscApi {
 
     /**
      * Build call for detectFoodInText
-     * @param contentType The content type. (optional)
+     * @param text  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -100,7 +100,7 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public okhttp3.Call detectFoodInTextCall(String contentType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call detectFoodInTextCall(String text, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,8 +125,8 @@ public class MiscApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (contentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarApiClient.parameterToString(contentType));
+        if (text != null) {
+            localVarFormParams.put("text", text);
         }
 
         final String[] localVarAccepts = {
@@ -150,15 +150,20 @@ public class MiscApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call detectFoodInTextValidateBeforeCall(String contentType, final ApiCallback _callback) throws ApiException {
-        return detectFoodInTextCall(contentType, _callback);
+    private okhttp3.Call detectFoodInTextValidateBeforeCall(String text, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'text' is set
+        if (text == null) {
+            throw new ApiException("Missing the required parameter 'text' when calling detectFoodInText(Async)");
+        }
+
+        return detectFoodInTextCall(text, _callback);
 
     }
 
     /**
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-     * @param contentType The content type. (optional)
+     * @param text  (required)
      * @return DetectFoodInText200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -172,15 +177,15 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public DetectFoodInText200Response detectFoodInText(String contentType) throws ApiException {
-        ApiResponse<DetectFoodInText200Response> localVarResp = detectFoodInTextWithHttpInfo(contentType);
+    public DetectFoodInText200Response detectFoodInText(String text) throws ApiException {
+        ApiResponse<DetectFoodInText200Response> localVarResp = detectFoodInTextWithHttpInfo(text);
         return localVarResp.getData();
     }
 
     /**
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-     * @param contentType The content type. (optional)
+     * @param text  (required)
      * @return ApiResponse&lt;DetectFoodInText200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -194,8 +199,8 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public ApiResponse<DetectFoodInText200Response> detectFoodInTextWithHttpInfo(String contentType) throws ApiException {
-        okhttp3.Call localVarCall = detectFoodInTextValidateBeforeCall(contentType, null);
+    public ApiResponse<DetectFoodInText200Response> detectFoodInTextWithHttpInfo(String text) throws ApiException {
+        okhttp3.Call localVarCall = detectFoodInTextValidateBeforeCall(text, null);
         Type localVarReturnType = new TypeToken<DetectFoodInText200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -203,7 +208,7 @@ public class MiscApi {
     /**
      * Detect Food in Text (asynchronously)
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-     * @param contentType The content type. (optional)
+     * @param text  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -218,9 +223,9 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Detect-Food-in-Text">Detect Food in Text Documentation</a>
      */
-    public okhttp3.Call detectFoodInTextAsync(String contentType, final ApiCallback<DetectFoodInText200Response> _callback) throws ApiException {
+    public okhttp3.Call detectFoodInTextAsync(String text, final ApiCallback<DetectFoodInText200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = detectFoodInTextValidateBeforeCall(contentType, _callback);
+        okhttp3.Call localVarCall = detectFoodInTextValidateBeforeCall(text, _callback);
         Type localVarReturnType = new TypeToken<DetectFoodInText200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

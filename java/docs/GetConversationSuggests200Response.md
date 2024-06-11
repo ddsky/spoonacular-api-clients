@@ -9,7 +9,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**suggests** | [**GetConversationSuggests200ResponseSuggests**](GetConversationSuggests200ResponseSuggests.md) |  |  |
-|**words** | **List&lt;Object&gt;** |  |  |
+|**words** | **List&lt;String&gt;** |  |  |
 
 
 

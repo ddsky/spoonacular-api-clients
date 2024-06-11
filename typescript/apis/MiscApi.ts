@@ -28,10 +28,15 @@ export class MiscApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
      * Detect Food in Text
-     * @param contentType The content type.
+     * @param text 
      */
-    public async detectFoodInText(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', _options?: Configuration): Promise<RequestContext> {
+    public async detectFoodInText(text: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'text' is not null or undefined
+        if (text === null || text === undefined) {
+            throw new RequiredError("MiscApi", "detectFoodInText", "text");
+        }
 
 
         // Path Params
@@ -41,9 +46,31 @@ export class MiscApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
+
+        if (text !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('text', text as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods

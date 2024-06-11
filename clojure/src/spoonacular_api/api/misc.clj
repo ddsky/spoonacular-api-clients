@@ -57,7 +57,6 @@
             [spoonacular-api.specs.map-ingredients-to-grocery-products-200-response-inner-products-inner :refer :all]
             [spoonacular-api.specs.analyze-recipe-instructions-200-response :refer :all]
             [spoonacular-api.specs.analyze-recipe-request :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-nutrition-widget-by-id-200-response-bad-inner :refer :all]
             [spoonacular-api.specs.search-grocery-products-200-response :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-extended-ingredients-inner :refer :all]
@@ -75,6 +74,7 @@
             [spoonacular-api.specs.autocomplete-menu-item-search-200-response :refer :all]
             [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner-local-hours-operational :refer :all]
             [spoonacular-api.specs.get-product-information-200-response :refer :all]
+            [spoonacular-api.specs.search-site-content-200-response-articles-inner-data-points-inner :refer :all]
             [spoonacular-api.specs.get-recipe-information-200-response-wine-pairing-product-matches-inner :refer :all]
             [spoonacular-api.specs.get-conversation-suggests-200-response-suggests :refer :all]
             [spoonacular-api.specs.classify-cuisine-200-response :refer :all]
@@ -125,6 +125,7 @@
             [spoonacular-api.specs.connect-user-request :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories-confidence-range95-percent :refer :all]
             [spoonacular-api.specs.get-shopping-list-200-response-aisles-inner-items-inner :refer :all]
+            [spoonacular-api.specs.talk-to-chatbot-200-response-media-inner :refer :all]
             [spoonacular-api.specs.get-comparable-products-200-response-comparable-products :refer :all]
             [spoonacular-api.specs.autocomplete-product-search-200-response :refer :all]
             [spoonacular-api.specs.get-meal-plan-week-200-response-days-inner-nutrition-summary-nutrients-inner :refer :all]
@@ -139,7 +140,6 @@
             [spoonacular-api.specs.compute-glycemic-load-request :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response-parsed-instructions-inner :refer :all]
             [spoonacular-api.specs.get-analyzed-recipe-instructions-200-response :refer :all]
-            [spoonacular-api.specs.search-site-content-200-response-grocery-products-inner :refer :all]
             [spoonacular-api.specs.image-analysis-by-url-200-response-nutrition-calories :refer :all]
             [spoonacular-api.specs.ingredient-search-200-response :refer :all]
             [spoonacular-api.specs.search-all-food-200-response :refer :all]
@@ -164,26 +164,25 @@
 (defn-spec detect-food-in-text-with-http-info any?
   "Detect Food in Text
   Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
-  ([] (detect-food-in-text-with-http-info nil))
-  ([{:keys [Content-Type]} (s/map-of keyword? any?)]
-   (call-api "/food/detect" :post
-             {:path-params   {}
-              :header-params {"Content-Type" Content-Type }
-              :query-params  {}
-              :form-params   {}
-              :content-types ["application/x-www-form-urlencoded"]
-              :accepts       ["application/json"]
-              :auth-names    ["apiKeyScheme"]})))
+  [text string?]
+  (check-required-params text)
+  (call-api "/food/detect" :post
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {"text" text }
+             :content-types ["application/x-www-form-urlencoded"]
+             :accepts       ["application/json"]
+             :auth-names    ["apiKeyScheme"]}))
 
 (defn-spec detect-food-in-text detect-food-in-text-200-response-spec
   "Detect Food in Text
   Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
-  ([] (detect-food-in-text nil))
-  ([optional-params any?]
-   (let [res (:data (detect-food-in-text-with-http-info optional-params))]
-     (if (:decode-models *api-context*)
-        (st/decode detect-food-in-text-200-response-spec res st/string-transformer)
-        res))))
+  [text string?]
+  (let [res (:data (detect-food-in-text-with-http-info text))]
+    (if (:decode-models *api-context*)
+       (st/decode detect-food-in-text-200-response-spec res st/string-transformer)
+       res)))
 
 
 (defn-spec get-a-random-food-joke-with-http-info any?

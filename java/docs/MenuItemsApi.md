@@ -161,7 +161,7 @@ public class Example {
 
 <a id="menuItemNutritionByIDImage"></a>
 # **menuItemNutritionByIDImage**
-> Object menuItemNutritionByIDImage(id)
+> File menuItemNutritionByIDImage(id)
 
 Menu Item Nutrition by ID Image
 
@@ -191,7 +191,7 @@ public class Example {
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
     BigDecimal id = new BigDecimal("424571"); // BigDecimal | The menu item id.
     try {
-      Object result = apiInstance.menuItemNutritionByIDImage(id);
+      File result = apiInstance.menuItemNutritionByIDImage(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MenuItemsApi#menuItemNutritionByIDImage");
@@ -212,7 +212,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ public class Example {
 
 <a id="menuItemNutritionLabelImage"></a>
 # **menuItemNutritionLabelImage**
-> Object menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> File menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Menu Item Nutrition Label Image
 
@@ -266,7 +266,7 @@ public class Example {
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
     Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
     try {
-      Object result = apiInstance.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+      File result = apiInstance.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MenuItemsApi#menuItemNutritionLabelImage");
@@ -290,7 +290,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -485,7 +485,7 @@ public class Example {
 
 <a id="visualizeMenuItemNutritionByID"></a>
 # **visualizeMenuItemNutritionByID**
-> String visualizeMenuItemNutritionByID(id, defaultCss, accept)
+> String visualizeMenuItemNutritionByID(id, defaultCss)
 
 Menu Item Nutrition by ID Widget
 
@@ -515,9 +515,8 @@ public class Example {
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
     Integer id = 1; // Integer | The item's id.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
-    String accept = "application/json"; // String | Accept header.
     try {
-      String result = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss, accept);
+      String result = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MenuItemsApi#visualizeMenuItemNutritionByID");
@@ -536,7 +535,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| The item&#39;s id. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
 
 ### Return type
 

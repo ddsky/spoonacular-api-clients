@@ -5,7 +5,6 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.AnyType
 import org.openapitools.models.GetConversationSuggests200ResponseSuggests
 import scala.collection.immutable.Seq
 
@@ -15,7 +14,7 @@ import scala.collection.immutable.Seq
  * @param words 
  */
 case class GetConversationSuggests200Response(suggests: GetConversationSuggests200ResponseSuggests,
-                words: Seq[AnyType]
+                words: Seq[String]
                 )
 
 object GetConversationSuggests200Response {

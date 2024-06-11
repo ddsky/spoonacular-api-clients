@@ -14,9 +14,9 @@ defmodule SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseIngredientsI
   ]
 
   @type t :: %__MODULE__{
-    :description => any() | nil,
+    :description => String.t | nil,
     :name => String.t,
-    :safety_level => any() | nil
+    :safety_level => String.t | nil
   }
 
   def decode(value) do

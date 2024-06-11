@@ -15,14 +15,17 @@ defmodule SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner do
   ]
 
   @type t :: %__MODULE__{
-    :dataPoints => [any()] | nil,
+    :dataPoints => [SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInnerDataPointsInner.t] | nil,
     :image => String.t,
     :link => String.t,
     :name => String.t
   }
 
+  alias SpoonacularAPI.Deserializer
+
   def decode(value) do
     value
+     |> Deserializer.deserialize(:dataPoints, :list, SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInnerDataPointsInner)
   end
 end
 

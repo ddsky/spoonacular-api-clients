@@ -14,10 +14,7 @@
 */
 
 
-#import "OAIAnyType.h"
 #import "OAIGetConversationSuggests200ResponseSuggests.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
 @protocol OAIGetConversationSuggests200ResponseSuggests;
 @class OAIGetConversationSuggests200ResponseSuggests;
 
@@ -31,6 +28,6 @@
 
 @property(nonatomic) OAIGetConversationSuggests200ResponseSuggests* suggests;
 
-@property(nonatomic) NSArray<OAIAnyType>* words;
+@property(nonatomic) NSArray<NSString*>* words;
 
 @end

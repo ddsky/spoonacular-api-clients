@@ -1776,7 +1776,7 @@ class ProductsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \SplFileObject
      */
     public function productNutritionByIDImage($id, string $contentType = self::contentTypes['productNutritionByIDImage'][0])
     {
@@ -1794,7 +1794,7 @@ class ProductsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function productNutritionByIDImageWithHttpInfo($id, string $contentType = self::contentTypes['productNutritionByIDImage'][0])
     {
@@ -1837,11 +1837,11 @@ class ProductsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\SplFileObject' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('object' !== 'string') {
+                        if ('\SplFileObject' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1859,13 +1859,13 @@ class ProductsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1898,7 +1898,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\SplFileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1942,7 +1942,7 @@ class ProductsApi
      */
     public function productNutritionByIDImageAsyncWithHttpInfo($id, string $contentType = self::contentTypes['productNutritionByIDImage'][0])
     {
-        $returnType = 'object';
+        $returnType = '\SplFileObject';
         $request = $this->productNutritionByIDImageRequest($id, $contentType);
 
         return $this->client
@@ -2091,7 +2091,7 @@ class ProductsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \SplFileObject
      */
     public function productNutritionLabelImage($id, $show_optional_nutrients = null, $show_zero_values = null, $show_ingredients = null, string $contentType = self::contentTypes['productNutritionLabelImage'][0])
     {
@@ -2112,7 +2112,7 @@ class ProductsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function productNutritionLabelImageWithHttpInfo($id, $show_optional_nutrients = null, $show_zero_values = null, $show_ingredients = null, string $contentType = self::contentTypes['productNutritionLabelImage'][0])
     {
@@ -2155,11 +2155,11 @@ class ProductsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\SplFileObject' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('object' !== 'string') {
+                        if ('\SplFileObject' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2177,13 +2177,13 @@ class ProductsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2216,7 +2216,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\SplFileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2266,7 +2266,7 @@ class ProductsApi
      */
     public function productNutritionLabelImageAsyncWithHttpInfo($id, $show_optional_nutrients = null, $show_zero_values = null, $show_ingredients = null, string $contentType = self::contentTypes['productNutritionLabelImage'][0])
     {
-        $returnType = 'object';
+        $returnType = '\SplFileObject';
         $request = $this->productNutritionLabelImageRequest($id, $show_optional_nutrients, $show_zero_values, $show_ingredients, $contentType);
 
         return $this->client
@@ -3610,16 +3610,15 @@ class ProductsApi
      *
      * @param  int $id The item&#39;s id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
-     * @param  string $accept Accept header. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function visualizeProductNutritionByID($id, $default_css = true, $accept = null, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
+    public function visualizeProductNutritionByID($id, $default_css = true, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
     {
-        list($response) = $this->visualizeProductNutritionByIDWithHttpInfo($id, $default_css, $accept, $contentType);
+        list($response) = $this->visualizeProductNutritionByIDWithHttpInfo($id, $default_css, $contentType);
         return $response;
     }
 
@@ -3630,16 +3629,15 @@ class ProductsApi
      *
      * @param  int $id The item&#39;s id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
-     * @param  string $accept Accept header. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function visualizeProductNutritionByIDWithHttpInfo($id, $default_css = true, $accept = null, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
+    public function visualizeProductNutritionByIDWithHttpInfo($id, $default_css = true, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
     {
-        $request = $this->visualizeProductNutritionByIDRequest($id, $default_css, $accept, $contentType);
+        $request = $this->visualizeProductNutritionByIDRequest($id, $default_css, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3756,15 +3754,14 @@ class ProductsApi
      *
      * @param  int $id The item&#39;s id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
-     * @param  string $accept Accept header. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function visualizeProductNutritionByIDAsync($id, $default_css = true, $accept = null, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
+    public function visualizeProductNutritionByIDAsync($id, $default_css = true, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
     {
-        return $this->visualizeProductNutritionByIDAsyncWithHttpInfo($id, $default_css, $accept, $contentType)
+        return $this->visualizeProductNutritionByIDAsyncWithHttpInfo($id, $default_css, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3779,16 +3776,15 @@ class ProductsApi
      *
      * @param  int $id The item&#39;s id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
-     * @param  string $accept Accept header. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function visualizeProductNutritionByIDAsyncWithHttpInfo($id, $default_css = true, $accept = null, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
+    public function visualizeProductNutritionByIDAsyncWithHttpInfo($id, $default_css = true, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
     {
         $returnType = 'string';
-        $request = $this->visualizeProductNutritionByIDRequest($id, $default_css, $accept, $contentType);
+        $request = $this->visualizeProductNutritionByIDRequest($id, $default_css, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3831,13 +3827,12 @@ class ProductsApi
      *
      * @param  int $id The item&#39;s id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
-     * @param  string $accept Accept header. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function visualizeProductNutritionByIDRequest($id, $default_css = true, $accept = null, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
+    public function visualizeProductNutritionByIDRequest($id, $default_css = true, string $contentType = self::contentTypes['visualizeProductNutritionByID'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3846,7 +3841,6 @@ class ProductsApi
                 'Missing the required parameter $id when calling visualizeProductNutritionByID'
             );
         }
-
 
 
 
@@ -3867,10 +3861,6 @@ class ProductsApi
             false // required
         ) ?? []);
 
-        // header params
-        if ($accept !== null) {
-            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
-        }
 
         // path params
         if ($id !== null) {

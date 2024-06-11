@@ -19,7 +19,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="detectFoodInText"></a>
 # **detectFoodInText**
-> DetectFoodInText200Response detectFoodInText(contentType)
+> DetectFoodInText200Response detectFoodInText(text)
 
 Detect Food in Text
 
@@ -47,9 +47,9 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MiscApi apiInstance = new MiscApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
+    String text = "text_example"; // String | 
     try {
-      DetectFoodInText200Response result = apiInstance.detectFoodInText(contentType);
+      DetectFoodInText200Response result = apiInstance.detectFoodInText(text);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MiscApi#detectFoodInText");
@@ -66,7 +66,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
+| **text** | **String**|  | |
 
 ### Return type
 

@@ -19,7 +19,7 @@ class MiscApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def detectFoodInText ( String contentType, Closure onSuccess, Closure onFailure)  {
+    def detectFoodInText ( String text, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/detect"
 
         // params
@@ -28,13 +28,16 @@ class MiscApi {
         def bodyParams
         def contentType
 
-
-
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
+        // verify required params are set
+        if (text == null) {
+            throw new RuntimeException("missing required params text")
         }
 
 
+
+
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = text
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",

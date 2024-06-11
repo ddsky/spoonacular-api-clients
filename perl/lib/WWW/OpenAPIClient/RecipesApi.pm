@@ -118,13 +118,13 @@ sub analyze_a_recipe_search_query {
 #
 # Analyze Recipe Instructions
 #
-# @param string $content_type The content type. (optional)
+# @param string $instructions The recipe&#39;s instructions. (required)
 {
     my $params = {
-    'content_type' => {
+    'instructions' => {
         data_type => 'string',
-        description => 'The content type.',
-        required => '0',
+        description => 'The recipe&#39;s instructions.',
+        required => '1',
     },
     };
     __PACKAGE__->method_documentation->{ 'analyze_recipe_instructions' } = {
@@ -137,6 +137,11 @@ sub analyze_a_recipe_search_query {
 #
 sub analyze_recipe_instructions {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'instructions' is set
+    unless (exists $args{'instructions'}) {
+      croak("Missing the required parameter 'instructions' when calling analyze_recipe_instructions");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/analyzeInstructions';
@@ -153,9 +158,9 @@ sub analyze_recipe_instructions {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'instructions'} ) {
+                $form_params->{'instructions'} = $self->{api_client}->to_form_value($args{'instructions'});
     }
 
     my $_body_data;
@@ -249,12 +254,24 @@ sub autocomplete_recipe_search {
 #
 # Classify Cuisine
 #
-# @param string $content_type The content type. (optional)
+# @param string $title The title of the recipe. (required)
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+# @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
 {
     my $params = {
-    'content_type' => {
+    'title' => {
         data_type => 'string',
-        description => 'The content type.',
+        description => 'The title of the recipe.',
+        required => '1',
+    },
+    'ingredient_list' => {
+        data_type => 'string',
+        description => 'The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).',
+        required => '1',
+    },
+    'language' => {
+        data_type => 'string',
+        description => 'The language of the input. Either &#39;en&#39; or &#39;de&#39;.',
         required => '0',
     },
     };
@@ -268,6 +285,16 @@ sub autocomplete_recipe_search {
 #
 sub classify_cuisine {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'title' is set
+    unless (exists $args{'title'}) {
+      croak("Missing the required parameter 'title' when calling classify_cuisine");
+    }
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling classify_cuisine");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/cuisine';
@@ -284,9 +311,19 @@ sub classify_cuisine {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # query params
+    if ( exists $args{'language'}) {
+        $query_params->{'language'} = $self->{api_client}->to_query_value($args{'language'});
+    }
+
+    # form params
+    if ( exists $args{'title'} ) {
+                $form_params->{'title'} = $self->{api_client}->to_form_value($args{'title'});
+    }
+
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
     }
 
     my $_body_data;
@@ -498,12 +535,84 @@ sub convert_amounts {
 #
 # Create Recipe Card
 #
-# @param string $content_type The content type. (optional)
+# @param string $title The title of the recipe. (required)
+# @param string $ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+# @param string $instructions The instructions to make the recipe. One step per line (separate lines with \\\\n). (required)
+# @param double $ready_in_minutes The number of minutes it takes to get the recipe on the table. (required)
+# @param double $servings The number of servings the recipe makes. (required)
+# @param string $mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). (required)
+# @param string $background_image The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). (required)
+# @param string $image The binary image of the recipe as jpg. (optional)
+# @param string $image_url If you do not sent a binary image you can also pass the image URL. (optional)
+# @param string $author The author of the recipe. (optional)
+# @param string $background_color The background color for the recipe card as a hex-string. (optional)
+# @param string $font_color The font color for the recipe card as a hex-string. (optional)
+# @param string $source The source of the recipe. (optional)
 {
     my $params = {
-    'content_type' => {
+    'title' => {
         data_type => 'string',
-        description => 'The content type.',
+        description => 'The title of the recipe.',
+        required => '1',
+    },
+    'ingredients' => {
+        data_type => 'string',
+        description => 'The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).',
+        required => '1',
+    },
+    'instructions' => {
+        data_type => 'string',
+        description => 'The instructions to make the recipe. One step per line (separate lines with \\\\n).',
+        required => '1',
+    },
+    'ready_in_minutes' => {
+        data_type => 'double',
+        description => 'The number of minutes it takes to get the recipe on the table.',
+        required => '1',
+    },
+    'servings' => {
+        data_type => 'double',
+        description => 'The number of servings the recipe makes.',
+        required => '1',
+    },
+    'mask' => {
+        data_type => 'string',
+        description => 'The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).',
+        required => '1',
+    },
+    'background_image' => {
+        data_type => 'string',
+        description => 'The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).',
+        required => '1',
+    },
+    'image' => {
+        data_type => 'string',
+        description => 'The binary image of the recipe as jpg.',
+        required => '0',
+    },
+    'image_url' => {
+        data_type => 'string',
+        description => 'If you do not sent a binary image you can also pass the image URL.',
+        required => '0',
+    },
+    'author' => {
+        data_type => 'string',
+        description => 'The author of the recipe.',
+        required => '0',
+    },
+    'background_color' => {
+        data_type => 'string',
+        description => 'The background color for the recipe card as a hex-string.',
+        required => '0',
+    },
+    'font_color' => {
+        data_type => 'string',
+        description => 'The font color for the recipe card as a hex-string.',
+        required => '0',
+    },
+    'source' => {
+        data_type => 'string',
+        description => 'The source of the recipe.',
         required => '0',
     },
     };
@@ -517,6 +626,41 @@ sub convert_amounts {
 #
 sub create_recipe_card {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'title' is set
+    unless (exists $args{'title'}) {
+      croak("Missing the required parameter 'title' when calling create_recipe_card");
+    }
+
+    # verify the required parameter 'ingredients' is set
+    unless (exists $args{'ingredients'}) {
+      croak("Missing the required parameter 'ingredients' when calling create_recipe_card");
+    }
+
+    # verify the required parameter 'instructions' is set
+    unless (exists $args{'instructions'}) {
+      croak("Missing the required parameter 'instructions' when calling create_recipe_card");
+    }
+
+    # verify the required parameter 'ready_in_minutes' is set
+    unless (exists $args{'ready_in_minutes'}) {
+      croak("Missing the required parameter 'ready_in_minutes' when calling create_recipe_card");
+    }
+
+    # verify the required parameter 'servings' is set
+    unless (exists $args{'servings'}) {
+      croak("Missing the required parameter 'servings' when calling create_recipe_card");
+    }
+
+    # verify the required parameter 'mask' is set
+    unless (exists $args{'mask'}) {
+      croak("Missing the required parameter 'mask' when calling create_recipe_card");
+    }
+
+    # verify the required parameter 'background_image' is set
+    unless (exists $args{'background_image'}) {
+      croak("Missing the required parameter 'background_image' when calling create_recipe_card");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/visualizeRecipe';
@@ -533,9 +677,70 @@ sub create_recipe_card {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('multipart/form-data');
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'title'} ) {
+                $form_params->{'title'} = $self->{api_client}->to_form_value($args{'title'});
+    }
+
+    # form params
+    if ( exists $args{'ingredients'} ) {
+                $form_params->{'ingredients'} = $self->{api_client}->to_form_value($args{'ingredients'});
+    }
+
+    # form params
+    if ( exists $args{'instructions'} ) {
+                $form_params->{'instructions'} = $self->{api_client}->to_form_value($args{'instructions'});
+    }
+
+    # form params
+    if ( exists $args{'ready_in_minutes'} ) {
+                $form_params->{'readyInMinutes'} = $self->{api_client}->to_form_value($args{'ready_in_minutes'});
+    }
+
+    # form params
+    if ( exists $args{'servings'} ) {
+                $form_params->{'servings'} = $self->{api_client}->to_form_value($args{'servings'});
+    }
+
+    # form params
+    if ( exists $args{'mask'} ) {
+                $form_params->{'mask'} = $self->{api_client}->to_form_value($args{'mask'});
+    }
+
+    # form params
+    if ( exists $args{'background_image'} ) {
+                $form_params->{'backgroundImage'} = $self->{api_client}->to_form_value($args{'background_image'});
+    }
+
+    # form params
+    if ( exists $args{'image'} ) {
+        $form_params->{'image'} = [] unless defined $form_params->{'image'};
+        push @{$form_params->{'image'}}, $args{'image'};
+            }
+
+    # form params
+    if ( exists $args{'image_url'} ) {
+                $form_params->{'imageUrl'} = $self->{api_client}->to_form_value($args{'image_url'});
+    }
+
+    # form params
+    if ( exists $args{'author'} ) {
+                $form_params->{'author'} = $self->{api_client}->to_form_value($args{'author'});
+    }
+
+    # form params
+    if ( exists $args{'background_color'} ) {
+                $form_params->{'backgroundColor'} = $self->{api_client}->to_form_value($args{'background_color'});
+    }
+
+    # form params
+    if ( exists $args{'font_color'} ) {
+                $form_params->{'fontColor'} = $self->{api_client}->to_form_value($args{'font_color'});
+    }
+
+    # form params
+    if ( exists $args{'source'} ) {
+                $form_params->{'source'} = $self->{api_client}->to_form_value($args{'source'});
     }
 
     my $_body_data;
@@ -570,10 +775,10 @@ sub create_recipe_card {
     __PACKAGE__->method_documentation->{ 'equipment_by_id_image' } = {
         summary => 'Equipment by ID Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub equipment_by_id_image {
     my ($self, %args) = @_;
@@ -616,7 +821,7 @@ sub equipment_by_id_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -1570,18 +1775,30 @@ sub guess_nutrition_by_dish_name {
 #
 # Parse Ingredients
 #
-# @param string $content_type The content type. (optional)
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+# @param double $servings The number of servings that you can make from the ingredients. (required)
 # @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+# @param boolean $include_nutrition  (optional)
 {
     my $params = {
-    'content_type' => {
+    'ingredient_list' => {
         data_type => 'string',
-        description => 'The content type.',
-        required => '0',
+        description => 'The ingredient list of the recipe, one ingredient per line.',
+        required => '1',
+    },
+    'servings' => {
+        data_type => 'double',
+        description => 'The number of servings that you can make from the ingredients.',
+        required => '1',
     },
     'language' => {
         data_type => 'string',
         description => 'The language of the input. Either &#39;en&#39; or &#39;de&#39;.',
+        required => '0',
+    },
+    'include_nutrition' => {
+        data_type => 'boolean',
+        description => '',
         required => '0',
     },
     };
@@ -1595,6 +1812,16 @@ sub guess_nutrition_by_dish_name {
 #
 sub parse_ingredients {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling parse_ingredients");
+    }
+
+    # verify the required parameter 'servings' is set
+    unless (exists $args{'servings'}) {
+      croak("Missing the required parameter 'servings' when calling parse_ingredients");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/parseIngredients';
@@ -1616,9 +1843,19 @@ sub parse_ingredients {
         $query_params->{'language'} = $self->{api_client}->to_query_value($args{'language'});
     }
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
+    }
+
+    # form params
+    if ( exists $args{'servings'} ) {
+                $form_params->{'servings'} = $self->{api_client}->to_form_value($args{'servings'});
+    }
+
+    # form params
+    if ( exists $args{'include_nutrition'} ) {
+                $form_params->{'includeNutrition'} = $self->{api_client}->to_form_value($args{'include_nutrition'});
     }
 
     my $_body_data;
@@ -1653,10 +1890,10 @@ sub parse_ingredients {
     __PACKAGE__->method_documentation->{ 'price_breakdown_by_id_image' } = {
         summary => 'Price Breakdown by ID Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub price_breakdown_by_id_image {
     my ($self, %args) = @_;
@@ -1699,7 +1936,7 @@ sub price_breakdown_by_id_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -1785,10 +2022,10 @@ sub quick_answer {
     __PACKAGE__->method_documentation->{ 'recipe_nutrition_by_id_image' } = {
         summary => 'Recipe Nutrition by ID Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub recipe_nutrition_by_id_image {
     my ($self, %args) = @_;
@@ -1831,7 +2068,7 @@ sub recipe_nutrition_by_id_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -1870,10 +2107,10 @@ sub recipe_nutrition_by_id_image {
     __PACKAGE__->method_documentation->{ 'recipe_nutrition_label_image' } = {
         summary => 'Recipe Nutrition Label Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub recipe_nutrition_label_image {
     my ($self, %args) = @_;
@@ -1931,7 +2168,7 @@ sub recipe_nutrition_label_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -2075,10 +2312,10 @@ sub recipe_nutrition_label_widget {
     __PACKAGE__->method_documentation->{ 'recipe_taste_by_id_image' } = {
         summary => 'Recipe Taste by ID Image',
         params => $params,
-        returns => 'object',
+        returns => 'string',
         };
 }
-# @return object
+# @return string
 #
 sub recipe_taste_by_id_image {
     my ($self, %args) = @_;
@@ -2131,7 +2368,7 @@ sub recipe_taste_by_id_image {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('object', $response);
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
     return $_response_object;
 }
 
@@ -4323,18 +4560,30 @@ sub summarize_recipe {
 #
 # Equipment Widget
 #
-# @param string $content_type The content type. (optional)
-# @param string $accept Accept header. (optional)
+# @param string $instructions The recipe&#39;s instructions. (required)
+# @param string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+# @param boolean $default_css Whether the default CSS should be added to the response. (optional)
+# @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
     my $params = {
-    'content_type' => {
+    'instructions' => {
         data_type => 'string',
-        description => 'The content type.',
+        description => 'The recipe&#39;s instructions.',
+        required => '1',
+    },
+    'view' => {
+        data_type => 'string',
+        description => 'How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.',
         required => '0',
     },
-    'accept' => {
-        data_type => 'string',
-        description => 'Accept header.',
+    'default_css' => {
+        data_type => 'boolean',
+        description => 'Whether the default CSS should be added to the response.',
+        required => '0',
+    },
+    'show_backlink' => {
+        data_type => 'boolean',
+        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
         required => '0',
     },
     };
@@ -4348,6 +4597,11 @@ sub summarize_recipe {
 #
 sub visualize_equipment {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'instructions' is set
+    unless (exists $args{'instructions'}) {
+      croak("Missing the required parameter 'instructions' when calling visualize_equipment");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/visualizeEquipment';
@@ -4364,14 +4618,24 @@ sub visualize_equipment {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'instructions'} ) {
+                $form_params->{'instructions'} = $self->{api_client}->to_form_value($args{'instructions'});
     }
 
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
+    # form params
+    if ( exists $args{'view'} ) {
+                $form_params->{'view'} = $self->{api_client}->to_form_value($args{'view'});
+    }
+
+    # form params
+    if ( exists $args{'default_css'} ) {
+                $form_params->{'defaultCss'} = $self->{api_client}->to_form_value($args{'default_css'});
+    }
+
+    # form params
+    if ( exists $args{'show_backlink'} ) {
+                $form_params->{'showBacklink'} = $self->{api_client}->to_form_value($args{'show_backlink'});
     }
 
     my $_body_data;
@@ -4394,24 +4658,42 @@ sub visualize_equipment {
 #
 # Price Breakdown Widget
 #
-# @param string $content_type The content type. (optional)
-# @param string $accept Accept header. (optional)
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+# @param double $servings The number of servings. (required)
 # @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+# @param double $mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
+# @param boolean $default_css Whether the default CSS should be added to the response. (optional)
+# @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
     my $params = {
-    'content_type' => {
+    'ingredient_list' => {
         data_type => 'string',
-        description => 'The content type.',
-        required => '0',
+        description => 'The ingredient list of the recipe, one ingredient per line.',
+        required => '1',
     },
-    'accept' => {
-        data_type => 'string',
-        description => 'Accept header.',
-        required => '0',
+    'servings' => {
+        data_type => 'double',
+        description => 'The number of servings.',
+        required => '1',
     },
     'language' => {
         data_type => 'string',
         description => 'The language of the input. Either &#39;en&#39; or &#39;de&#39;.',
+        required => '0',
+    },
+    'mode' => {
+        data_type => 'double',
+        description => 'The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).',
+        required => '0',
+    },
+    'default_css' => {
+        data_type => 'boolean',
+        description => 'Whether the default CSS should be added to the response.',
+        required => '0',
+    },
+    'show_backlink' => {
+        data_type => 'boolean',
+        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
         required => '0',
     },
     };
@@ -4425,6 +4707,16 @@ sub visualize_equipment {
 #
 sub visualize_price_breakdown {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling visualize_price_breakdown");
+    }
+
+    # verify the required parameter 'servings' is set
+    unless (exists $args{'servings'}) {
+      croak("Missing the required parameter 'servings' when calling visualize_price_breakdown");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/visualizePriceEstimator';
@@ -4446,14 +4738,29 @@ sub visualize_price_breakdown {
         $query_params->{'language'} = $self->{api_client}->to_query_value($args{'language'});
     }
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
     }
 
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
+    # form params
+    if ( exists $args{'servings'} ) {
+                $form_params->{'servings'} = $self->{api_client}->to_form_value($args{'servings'});
+    }
+
+    # form params
+    if ( exists $args{'mode'} ) {
+                $form_params->{'mode'} = $self->{api_client}->to_form_value($args{'mode'});
+    }
+
+    # form params
+    if ( exists $args{'default_css'} ) {
+                $form_params->{'defaultCss'} = $self->{api_client}->to_form_value($args{'default_css'});
+    }
+
+    # form params
+    if ( exists $args{'show_backlink'} ) {
+                $form_params->{'showBacklink'} = $self->{api_client}->to_form_value($args{'show_backlink'});
     }
 
     my $_body_data;
@@ -4643,24 +4950,36 @@ sub visualize_recipe_ingredients_by_id {
 #
 # Recipe Nutrition Widget
 #
-# @param string $content_type The content type. (optional)
-# @param string $accept Accept header. (optional)
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
+# @param double $servings The number of servings. (required)
 # @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+# @param boolean $default_css Whether the default CSS should be added to the response. (optional)
+# @param boolean $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 {
     my $params = {
-    'content_type' => {
+    'ingredient_list' => {
         data_type => 'string',
-        description => 'The content type.',
-        required => '0',
+        description => 'The ingredient list of the recipe, one ingredient per line.',
+        required => '1',
     },
-    'accept' => {
-        data_type => 'string',
-        description => 'Accept header.',
-        required => '0',
+    'servings' => {
+        data_type => 'double',
+        description => 'The number of servings.',
+        required => '1',
     },
     'language' => {
         data_type => 'string',
         description => 'The language of the input. Either &#39;en&#39; or &#39;de&#39;.',
+        required => '0',
+    },
+    'default_css' => {
+        data_type => 'boolean',
+        description => 'Whether the default CSS should be added to the response.',
+        required => '0',
+    },
+    'show_backlink' => {
+        data_type => 'boolean',
+        description => 'Whether to show a backlink to spoonacular. If set false, this call counts against your quota.',
         required => '0',
     },
     };
@@ -4674,6 +4993,16 @@ sub visualize_recipe_ingredients_by_id {
 #
 sub visualize_recipe_nutrition {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling visualize_recipe_nutrition");
+    }
+
+    # verify the required parameter 'servings' is set
+    unless (exists $args{'servings'}) {
+      croak("Missing the required parameter 'servings' when calling visualize_recipe_nutrition");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/visualizeNutrition';
@@ -4695,14 +5024,24 @@ sub visualize_recipe_nutrition {
         $query_params->{'language'} = $self->{api_client}->to_query_value($args{'language'});
     }
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
     }
 
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
+    # form params
+    if ( exists $args{'servings'} ) {
+                $form_params->{'servings'} = $self->{api_client}->to_form_value($args{'servings'});
+    }
+
+    # form params
+    if ( exists $args{'default_css'} ) {
+                $form_params->{'defaultCss'} = $self->{api_client}->to_form_value($args{'default_css'});
+    }
+
+    # form params
+    if ( exists $args{'show_backlink'} ) {
+                $form_params->{'showBacklink'} = $self->{api_client}->to_form_value($args{'show_backlink'});
     }
 
     my $_body_data;
@@ -4727,7 +5066,6 @@ sub visualize_recipe_nutrition {
 #
 # @param int $id The item&#39;s id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
-# @param string $accept Accept header. (optional)
 {
     my $params = {
     'id' => {
@@ -4738,11 +5076,6 @@ sub visualize_recipe_nutrition {
     'default_css' => {
         data_type => 'boolean',
         description => 'Whether the default CSS should be added to the response.',
-        required => '0',
-    },
-    'accept' => {
-        data_type => 'string',
-        description => 'Accept header.',
         required => '0',
     },
     };
@@ -4780,11 +5113,6 @@ sub visualize_recipe_nutrition_by_id {
     # query params
     if ( exists $args{'default_css'}) {
         $query_params->{'defaultCss'} = $self->{api_client}->to_query_value($args{'default_css'});
-    }
-
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
     }
 
     # path params
@@ -4892,31 +5220,25 @@ sub visualize_recipe_price_breakdown_by_id {
 #
 # Recipe Taste Widget
 #
+# @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
 # @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-# @param string $content_type The content type. (optional)
-# @param string $accept Accept header. (optional)
-# @param boolean $normalize Whether to normalize to the strongest taste. (optional)
+# @param boolean $normalize Normalize to the strongest taste. (optional)
 # @param string $rgb Red, green, blue values for the chart color. (optional)
 {
     my $params = {
+    'ingredient_list' => {
+        data_type => 'string',
+        description => 'The ingredient list of the recipe, one ingredient per line.',
+        required => '1',
+    },
     'language' => {
         data_type => 'string',
         description => 'The language of the input. Either &#39;en&#39; or &#39;de&#39;.',
         required => '0',
     },
-    'content_type' => {
-        data_type => 'string',
-        description => 'The content type.',
-        required => '0',
-    },
-    'accept' => {
-        data_type => 'string',
-        description => 'Accept header.',
-        required => '0',
-    },
     'normalize' => {
         data_type => 'boolean',
-        description => 'Whether to normalize to the strongest taste.',
+        description => 'Normalize to the strongest taste.',
         required => '0',
     },
     'rgb' => {
@@ -4935,6 +5257,11 @@ sub visualize_recipe_price_breakdown_by_id {
 #
 sub visualize_recipe_taste {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredient_list' is set
+    unless (exists $args{'ingredient_list'}) {
+      croak("Missing the required parameter 'ingredient_list' when calling visualize_recipe_taste");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/visualizeTaste';
@@ -4956,24 +5283,19 @@ sub visualize_recipe_taste {
         $query_params->{'language'} = $self->{api_client}->to_query_value($args{'language'});
     }
 
-    # query params
-    if ( exists $args{'normalize'}) {
-        $query_params->{'normalize'} = $self->{api_client}->to_query_value($args{'normalize'});
+    # form params
+    if ( exists $args{'ingredient_list'} ) {
+                $form_params->{'ingredientList'} = $self->{api_client}->to_form_value($args{'ingredient_list'});
     }
 
-    # query params
-    if ( exists $args{'rgb'}) {
-        $query_params->{'rgb'} = $self->{api_client}->to_query_value($args{'rgb'});
+    # form params
+    if ( exists $args{'normalize'} ) {
+                $form_params->{'normalize'} = $self->{api_client}->to_form_value($args{'normalize'});
     }
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
-    }
-
-    # header params
-    if ( exists $args{'accept'}) {
-        $header_params->{'Accept'} = $self->{api_client}->to_header_value($args{'accept'});
+    # form params
+    if ( exists $args{'rgb'} ) {
+                $form_params->{'rgb'} = $self->{api_client}->to_form_value($args{'rgb'});
     }
 
     my $_body_data;

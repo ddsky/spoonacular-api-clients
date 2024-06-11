@@ -160,7 +160,7 @@ src/main/groovy/org/openapitools/model/SearchRestaurants200ResponseRestaurantsIn
 src/main/groovy/org/openapitools/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.groovy
 src/main/groovy/org/openapitools/model/SearchSiteContent200Response.groovy
 src/main/groovy/org/openapitools/model/SearchSiteContent200ResponseArticlesInner.groovy
-src/main/groovy/org/openapitools/model/SearchSiteContent200ResponseGroceryProductsInner.groovy
-src/main/groovy/org/openapitools/model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.groovy
+src/main/groovy/org/openapitools/model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.groovy
 src/main/groovy/org/openapitools/model/SummarizeRecipe200Response.groovy
 src/main/groovy/org/openapitools/model/TalkToChatbot200Response.groovy
+src/main/groovy/org/openapitools/model/TalkToChatbot200ResponseMediaInner.groovy

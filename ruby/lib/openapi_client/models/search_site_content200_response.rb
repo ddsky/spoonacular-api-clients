@@ -43,9 +43,9 @@ module OpenapiClient
     def self.openapi_types
       {
         :'articles' => :'Array<SearchSiteContent200ResponseArticlesInner>',
-        :'grocery_products' => :'Array<SearchSiteContent200ResponseGroceryProductsInner>',
-        :'menu_items' => :'Array<SearchSiteContent200ResponseGroceryProductsInner>',
-        :'recipes' => :'Array<SearchSiteContent200ResponseGroceryProductsInner>'
+        :'grocery_products' => :'Array<SearchSiteContent200ResponseArticlesInner>',
+        :'menu_items' => :'Array<SearchSiteContent200ResponseArticlesInner>',
+        :'recipes' => :'Array<SearchSiteContent200ResponseArticlesInner>'
       }
     end
 

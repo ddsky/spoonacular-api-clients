@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | **mixed[]** |  | [optional]
+**data_points** | [**\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInnerDataPointsInner[]**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  | [optional]
 **image** | **string** |  |
 **link** | **string** |  |
 **name** | **string** |  |

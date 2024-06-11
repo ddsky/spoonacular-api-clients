@@ -51,7 +51,7 @@ void main() {
       // TODO
     });
 
-    // Object generatedText
+    // String generatedText
     test('to test the property `generatedText`', () async {
       // TODO
     });

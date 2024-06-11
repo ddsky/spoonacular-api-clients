@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **menuItemNutritionByIDImage**
-> any menuItemNutritionByIDImage()
+> HttpFile menuItemNutritionByIDImage()
 
 Visualize a menu item\'s nutritional information as HTML including CSS.
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **menuItemNutritionLabelImage**
-> any menuItemNutritionLabelImage()
+> HttpFile menuItemNutritionLabelImage()
 
 Visualize a menu item\'s nutritional label information as an image.
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**any**
+**HttpFile**
 
 ### Authorization
 
@@ -432,8 +432,6 @@ let body:.MenuItemsApiVisualizeMenuItemNutritionByIDRequest = {
   id: 1,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
-  // 'application/json' | 'text/html' | 'media/_*' | Accept header. (optional)
-  accept: "application/json",
 };
 
 apiInstance.visualizeMenuItemNutritionByID(body).then((data:any) => {
@@ -448,7 +446,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
- **accept** | [**&#39;application/json&#39; | &#39;text/html&#39; | &#39;media/_*&#39;**]**Array<&#39;application/json&#39; &#124; &#39;text/html&#39; &#124; &#39;media/_*&#39;>** | Accept header. | (optional) defaults to undefined
 
 
 ### Return type

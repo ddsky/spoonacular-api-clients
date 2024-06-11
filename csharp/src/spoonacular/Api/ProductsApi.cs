@@ -157,8 +157,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object ProductNutritionByIDImage(decimal id, int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream ProductNutritionByIDImage(decimal id, int operationIndex = 0);
 
         /// <summary>
         /// Product Nutrition by ID Image
@@ -169,8 +169,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ProductNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> ProductNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
         /// <summary>
         /// Product Nutrition Label Image
         /// </summary>
@@ -183,8 +183,8 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object ProductNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream ProductNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Product Nutrition Label Image
@@ -198,8 +198,8 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ProductNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> ProductNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Product Nutrition Label Widget
         /// </summary>
@@ -308,10 +308,9 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string VisualizeProductNutritionByID(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0);
+        string VisualizeProductNutritionByID(int id, bool? defaultCss = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Product Nutrition by ID Widget
@@ -322,10 +321,9 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> VisualizeProductNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0);
+        ApiResponse<string> VisualizeProductNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -476,8 +474,8 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ProductNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Product Nutrition by ID Image
@@ -489,8 +487,8 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ProductNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> ProductNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Product Nutrition Label Image
         /// </summary>
@@ -504,8 +502,8 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ProductNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Product Nutrition Label Image
@@ -520,8 +518,8 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ProductNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> ProductNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Product Nutrition Label Widget
         /// </summary>
@@ -636,11 +634,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> VisualizeProductNutritionByIDAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> VisualizeProductNutritionByIDAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Product Nutrition by ID Widget
@@ -651,11 +648,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeProductNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> VisualizeProductNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1568,10 +1564,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object ProductNutritionByIDImage(decimal id, int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream ProductNutritionByIDImage(decimal id, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = ProductNutritionByIDImageWithHttpInfo(id);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = ProductNutritionByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1581,8 +1577,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> ProductNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> ProductNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1618,7 +1614,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/food/products/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/food/products/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ProductNutritionByIDImage", localVarResponse);
@@ -1638,10 +1634,10 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ProductNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await ProductNutritionByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await ProductNutritionByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1652,8 +1648,8 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> ProductNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> ProductNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -1690,7 +1686,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/food/products/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/food/products/{id}/nutritionWidget.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1713,10 +1709,10 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object ProductNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream ProductNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = ProductNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = ProductNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
             return localVarResponse.Data;
         }
 
@@ -1729,8 +1725,8 @@ namespace spoonacular.Api
         /// <param name="showZeroValues">Whether to show zero values. (optional)</param>
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> ProductNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public spoonacular.Client.ApiResponse<System.IO.Stream> ProductNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1778,7 +1774,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/food/products/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/food/products/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ProductNutritionLabelImage", localVarResponse);
@@ -1801,10 +1797,10 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ProductNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<Object> localVarResponse = await ProductNutritionLabelImageWithHttpInfoAsync(id, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await ProductNutritionLabelImageWithHttpInfoAsync(id, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1818,8 +1814,8 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> ProductNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> ProductNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -1868,7 +1864,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/food/products/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/food/products/{id}/nutritionLabel.png", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2500,12 +2496,11 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string VisualizeProductNutritionByID(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0)
+        public string VisualizeProductNutritionByID(int id, bool? defaultCss = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeProductNutritionByIDWithHttpInfo(id, defaultCss, accept);
+            spoonacular.Client.ApiResponse<string> localVarResponse = VisualizeProductNutritionByIDWithHttpInfo(id, defaultCss);
             return localVarResponse.Data;
         }
 
@@ -2515,10 +2510,9 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> VisualizeProductNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> VisualizeProductNutritionByIDWithHttpInfo(int id, bool? defaultCss = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -2546,10 +2540,6 @@ namespace spoonacular.Api
             if (defaultCss != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "defaultCss", defaultCss));
-            }
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
             }
 
             localVarRequestOptions.Operation = "ProductsApi.VisualizeProductNutritionByID";
@@ -2581,13 +2571,12 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> VisualizeProductNutritionByIDAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> VisualizeProductNutritionByIDAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeProductNutritionByIDWithHttpInfoAsync(id, defaultCss, accept, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<string> localVarResponse = await VisualizeProductNutritionByIDWithHttpInfoAsync(id, defaultCss, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2597,11 +2586,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The item&#39;s id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
-        /// <param name="accept">Accept header. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeProductNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), string? accept = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> VisualizeProductNutritionByIDWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -2630,10 +2618,6 @@ namespace spoonacular.Api
             if (defaultCss != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "defaultCss", defaultCss));
-            }
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", spoonacular.Client.ClientUtils.ParameterToString(accept)); // header parameter
             }
 
             localVarRequestOptions.Operation = "ProductsApi.VisualizeProductNutritionByID";

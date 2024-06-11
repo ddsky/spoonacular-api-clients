@@ -142,7 +142,7 @@ try {
 ## `menuItemNutritionByIDImage()`
 
 ```php
-menuItemNutritionByIDImage($id): object
+menuItemNutritionByIDImage($id): \SplFileObject
 ```
 
 Menu Item Nutrition by ID Image
@@ -186,7 +186,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -204,7 +204,7 @@ try {
 ## `menuItemNutritionLabelImage()`
 
 ```php
-menuItemNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): object
+menuItemNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): \SplFileObject
 ```
 
 Menu Item Nutrition Label Image
@@ -254,7 +254,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -426,7 +426,7 @@ try {
 ## `visualizeMenuItemNutritionByID()`
 
 ```php
-visualizeMenuItemNutritionByID($id, $default_css, $accept): string
+visualizeMenuItemNutritionByID($id, $default_css): string
 ```
 
 Menu Item Nutrition by ID Widget
@@ -454,10 +454,9 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
 );
 $id = 1; // int | The item's id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
-$accept = application/json; // string | Accept header.
 
 try {
-    $result = $apiInstance->visualizeMenuItemNutritionByID($id, $default_css, $accept);
+    $result = $apiInstance->visualizeMenuItemNutritionByID($id, $default_css);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MenuItemsApi->visualizeMenuItemNutritionByID: ', $e->getMessage(), PHP_EOL;
@@ -470,7 +469,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The item&#39;s id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 

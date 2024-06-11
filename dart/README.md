@@ -322,10 +322,10 @@ Class | Method | HTTP request | Description
  - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](doc//SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [SearchSiteContent200Response](doc//SearchSiteContent200Response.md)
  - [SearchSiteContent200ResponseArticlesInner](doc//SearchSiteContent200ResponseArticlesInner.md)
- - [SearchSiteContent200ResponseGroceryProductsInner](doc//SearchSiteContent200ResponseGroceryProductsInner.md)
- - [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](doc//SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [SearchSiteContent200ResponseArticlesInnerDataPointsInner](doc//SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [SummarizeRecipe200Response](doc//SummarizeRecipe200Response.md)
  - [TalkToChatbot200Response](doc//TalkToChatbot200Response.md)
+ - [TalkToChatbot200ResponseMediaInner](doc//TalkToChatbot200ResponseMediaInner.md)
 
 
 ## Documentation For Authorization

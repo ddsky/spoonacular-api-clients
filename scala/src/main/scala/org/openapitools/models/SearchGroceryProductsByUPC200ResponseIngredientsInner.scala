@@ -5,7 +5,6 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.AnyType
 
 /**
  * 
@@ -13,9 +12,9 @@ import org.openapitools.models.AnyType
  * @param name 
  * @param safetyUnderscorelevel 
  */
-case class SearchGroceryProductsByUPC200ResponseIngredientsInner(description: Option[AnyType],
+case class SearchGroceryProductsByUPC200ResponseIngredientsInner(description: Option[String],
                 name: String,
-                safetyUnderscorelevel: Option[AnyType]
+                safetyUnderscorelevel: Option[String]
                 )
 
 object SearchGroceryProductsByUPC200ResponseIngredientsInner {

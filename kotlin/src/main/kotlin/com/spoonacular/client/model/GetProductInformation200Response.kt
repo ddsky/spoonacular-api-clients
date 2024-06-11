@@ -92,7 +92,7 @@ data class GetProductInformation200Response (
     val spoonacularScore: java.math.BigDecimal,
 
     @Json(name = "generatedText")
-    val generatedText: kotlin.Any? = null
+    val generatedText: kotlin.String? = null
 
 )
 

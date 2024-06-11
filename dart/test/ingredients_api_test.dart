@@ -75,7 +75,7 @@ void main() {
     //
     // Visualize a recipe's ingredient list.
     //
-    //Future<Object> ingredientsByIDImage(num id, { String measure }) async
+    //Future<MultipartFile> ingredientsByIDImage(num id, { String measure }) async
     test('test ingredientsByIDImage', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Visualize ingredients of a recipe. You can play around with that endpoint!
     //
-    //Future<String> visualizeIngredients({ String contentType, String language, String accept }) async
+    //Future<String> visualizeIngredients(String ingredientList, num servings, { String language, String measure, String view, bool defaultCss, bool showBacklink }) async
     test('test visualizeIngredients', () async {
       // TODO
     });

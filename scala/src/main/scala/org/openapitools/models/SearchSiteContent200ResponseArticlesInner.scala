@@ -5,8 +5,7 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.AnyType
-import scala.collection.immutable.Seq
+import org.openapitools.models.SearchSiteContent200ResponseArticlesInnerDataPointsInner
 
 /**
  * 
@@ -15,7 +14,7 @@ import scala.collection.immutable.Seq
  * @param link 
  * @param name 
  */
-case class SearchSiteContent200ResponseArticlesInner(dataPoints: Option[Seq[AnyType]],
+case class SearchSiteContent200ResponseArticlesInner(dataPoints: Option[Set[SearchSiteContent200ResponseArticlesInnerDataPointsInner]],
                 image: String,
                 link: String,
                 name: String

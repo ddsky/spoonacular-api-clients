@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Suggests** | [**GetConversationSuggests200ResponseSuggests**](GetConversationSuggests200ResponseSuggests.md) |  | 
-**Words** | **[]interface{}** |  | 
+**Words** | **[]string** |  | 
 
 ## Methods
 
 ### NewGetConversationSuggests200Response
 
-`func NewGetConversationSuggests200Response(suggests GetConversationSuggests200ResponseSuggests, words []interface{}, ) *GetConversationSuggests200Response`
+`func NewGetConversationSuggests200Response(suggests GetConversationSuggests200ResponseSuggests, words []string, ) *GetConversationSuggests200Response`
 
 NewGetConversationSuggests200Response instantiates a new GetConversationSuggests200Response object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetSuggests sets Suggests field to given value.
 
 ### GetWords
 
-`func (o *GetConversationSuggests200Response) GetWords() []interface{}`
+`func (o *GetConversationSuggests200Response) GetWords() []string`
 
 GetWords returns the Words field if non-nil, zero value otherwise.
 
 ### GetWordsOk
 
-`func (o *GetConversationSuggests200Response) GetWordsOk() (*[]interface{}, bool)`
+`func (o *GetConversationSuggests200Response) GetWordsOk() (*[]string, bool)`
 
 GetWordsOk returns a tuple with the Words field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWords
 
-`func (o *GetConversationSuggests200Response) SetWords(v []interface{})`
+`func (o *GetConversationSuggests200Response) SetWords(v []string)`
 
 SetWords sets Words field to given value.
 

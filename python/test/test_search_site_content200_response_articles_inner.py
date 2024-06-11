@@ -37,7 +37,9 @@ class TestSearchSiteContent200ResponseArticlesInner(unittest.TestCase):
         if include_optional:
             return SearchSiteContent200ResponseArticlesInner(
                 data_points = [
-                    null
+                    spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
+                        key = '0', 
+                        value = '0', )
                     ],
                 image = '0',
                 link = '0',

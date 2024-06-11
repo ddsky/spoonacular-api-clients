@@ -38,7 +38,7 @@ class GetProductInformation200Response(BaseModel):
     badges: List[StrictStr]
     important_badges: List[StrictStr] = Field(alias="importantBadges")
     ingredient_count: StrictInt = Field(alias="ingredientCount")
-    generated_text: Optional[Any] = Field(default=None, alias="generatedText")
+    generated_text: Optional[StrictStr] = Field(default=None, alias="generatedText")
     ingredient_list: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="ingredientList")
     ingredients: Annotated[List[GetProductInformation200ResponseIngredientsInner], Field(min_length=0)]
     likes: Union[StrictFloat, StrictInt]
@@ -101,11 +101,6 @@ class GetProductInformation200Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of servings
         if self.servings:
             _dict['servings'] = self.servings.to_dict()
-        # set to None if generated_text (nullable) is None
-        # and model_fields_set contains the field
-        if self.generated_text is None and "generated_text" in self.model_fields_set:
-            _dict['generatedText'] = None
-
         return _dict
 
     @classmethod

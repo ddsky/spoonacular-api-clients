@@ -26,12 +26,11 @@ type MiscAPIService service
 type ApiDetectFoodInTextRequest struct {
 	ctx context.Context
 	ApiService *MiscAPIService
-	contentType *string
+	text *string
 }
 
-// The content type.
-func (r ApiDetectFoodInTextRequest) ContentType(contentType string) ApiDetectFoodInTextRequest {
-	r.contentType = &contentType
+func (r ApiDetectFoodInTextRequest) Text(text string) ApiDetectFoodInTextRequest {
+	r.text = &text
 	return r
 }
 
@@ -74,6 +73,9 @@ func (a *MiscAPIService) DetectFoodInTextExecute(r ApiDetectFoodInTextRequest) (
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.text == nil {
+		return localVarReturnValue, nil, reportError("text is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
@@ -92,9 +94,7 @@ func (a *MiscAPIService) DetectFoodInTextExecute(r ApiDetectFoodInTextRequest) (
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.contentType != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", r.contentType, "")
-	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "text", r.text, "")
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -15,7 +15,7 @@ export interface GetWinePairing200ResponseProductMatchesInner {
     id: number;
     title: string;
     averageRating: number;
-    description?: any | null;
+    description?: string;
     imageUrl: string;
     link: string;
     price: string;

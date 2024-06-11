@@ -7,9 +7,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **articles** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**grocery_products** | [**List[SearchSiteContent200ResponseGroceryProductsInner]**](SearchSiteContent200ResponseGroceryProductsInner.md) |  | 
-**menu_items** | [**List[SearchSiteContent200ResponseGroceryProductsInner]**](SearchSiteContent200ResponseGroceryProductsInner.md) |  | 
-**recipes** | [**List[SearchSiteContent200ResponseGroceryProductsInner]**](SearchSiteContent200ResponseGroceryProductsInner.md) |  | 
+**grocery_products** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
+**menu_items** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
+**recipes** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
 
 ## Example
 

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **detect_food_in_text**
-> DetectFoodInText200Response detect_food_in_text(content_type=content_type)
+> DetectFoodInText200Response detect_food_in_text(text)
 
 Detect Food in Text
 
@@ -55,11 +55,11 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MiscApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
+    text = 'text_example' # str | 
 
     try:
         # Detect Food in Text
-        api_response = api_instance.detect_food_in_text(content_type=content_type)
+        api_response = api_instance.detect_food_in_text(text)
         print("The response of MiscApi->detect_food_in_text:\n")
         pprint(api_response)
     except Exception as e:
@@ -73,7 +73,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
+ **text** | **str**|  | 
 
 ### Return type
 

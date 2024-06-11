@@ -228,7 +228,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'words' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[string]',
         base_name => 'words',
         description => '',
         format => '',
@@ -238,7 +238,7 @@ __PACKAGE__->method_documentation({
 
 __PACKAGE__->openapi_types( {
     'suggests' => 'GetConversationSuggests200ResponseSuggests',
-    'words' => 'ARRAY[object]'
+    'words' => 'ARRAY[string]'
 } );
 
 __PACKAGE__->attribute_map( {

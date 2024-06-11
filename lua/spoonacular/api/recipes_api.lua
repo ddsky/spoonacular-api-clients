@@ -16,7 +16,6 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
 local spoonacular_analyze_a_recipe_search_query_200_response = require "spoonacular.model.analyze_a_recipe_search_query_200_response"
 local spoonacular_analyze_recipe_instructions_200_response = require "spoonacular.model.analyze_recipe_instructions_200_response"
 local spoonacular_autocomplete_recipe_search_200_response_inner = require "spoonacular.model.autocomplete_recipe_search_200_response_inner"
@@ -120,7 +119,7 @@ function recipes_api:analyze_a_recipe_search_query(q)
 	end
 end
 
-function recipes_api:analyze_recipe_instructions(content_type)
+function recipes_api:analyze_recipe_instructions(instructions)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -139,9 +138,9 @@ function recipes_api:analyze_recipe_instructions(content_type)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
+	req:set_body(http_util.dict_to_query({
+		["instructions"] = instructions;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -230,13 +229,13 @@ function recipes_api:autocomplete_recipe_search(query, Number_)
 	end
 end
 
-function recipes_api:classify_cuisine(content_type)
+function recipes_api:classify_cuisine(title, ingredient_list, language)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/recipes/cuisine",
-			self.basePath);
+		path = string.format("%s/recipes/cuisine?language=%s",
+			self.basePath, http_util.encodeURIComponent(language));
 	})
 
 	-- set HTTP verb
@@ -249,9 +248,10 @@ function recipes_api:classify_cuisine(content_type)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
+	req:set_body(http_util.dict_to_query({
+		["title"] = title;
+		["ingredientList"] = ingredient_list;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -393,7 +393,7 @@ function recipes_api:convert_amounts(ingredient_name, source_amount, source_unit
 	end
 end
 
-function recipes_api:create_recipe_card(content_type)
+function recipes_api:create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, image, image_url, author, background_color, font_color, source)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -412,9 +412,21 @@ function recipes_api:create_recipe_card(content_type)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
+	req:set_body(http_util.dict_to_query({
+		["title"] = title;
+		["ingredients"] = ingredients;
+		["instructions"] = instructions;
+		["readyInMinutes"] = ready_in_minutes;
+		["servings"] = servings;
+		["mask"] = mask;
+		["backgroundImage"] = background_image;
+		["image"] = image;
+		["imageUrl"] = image_url;
+		["author"] = author;
+		["backgroundColor"] = background_color;
+		["fontColor"] = font_color;
+		["source"] = source;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -488,7 +500,7 @@ function recipes_api:equipment_by_id_image(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -1106,7 +1118,7 @@ function recipes_api:guess_nutrition_by_dish_name(title)
 	end
 end
 
-function recipes_api:parse_ingredients(content_type, language)
+function recipes_api:parse_ingredients(ingredient_list, servings, language, include_nutrition)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -1125,9 +1137,11 @@ function recipes_api:parse_ingredients(content_type, language)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
+	req:set_body(http_util.dict_to_query({
+		["ingredientList"] = ingredient_list;
+		["servings"] = servings;
+		["includeNutrition"] = include_nutrition;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -1204,7 +1218,7 @@ function recipes_api:price_breakdown_by_id_image(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -1304,7 +1318,7 @@ function recipes_api:recipe_nutrition_by_id_image(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -1354,7 +1368,7 @@ function recipes_api:recipe_nutrition_label_image(id, show_optional_nutrients, s
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -1454,7 +1468,7 @@ function recipes_api:recipe_taste_by_id_image(id, normalize, rgb)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -1672,7 +1686,7 @@ function recipes_api:summarize_recipe(id)
 	end
 end
 
-function recipes_api:visualize_equipment(content_type, accept)
+function recipes_api:visualize_equipment(instructions, view, default_css, show_backlink)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -1691,12 +1705,12 @@ function recipes_api:visualize_equipment(content_type, accept)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
+	req:set_body(http_util.dict_to_query({
+		["instructions"] = instructions;
+		["view"] = view;
+		["defaultCss"] = default_css;
+		["showBacklink"] = show_backlink;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -1732,7 +1746,7 @@ function recipes_api:visualize_equipment(content_type, accept)
 	end
 end
 
-function recipes_api:visualize_price_breakdown(content_type, accept, language)
+function recipes_api:visualize_price_breakdown(ingredient_list, servings, language, mode, default_css, show_backlink)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -1751,12 +1765,13 @@ function recipes_api:visualize_price_breakdown(content_type, accept, language)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
+	req:set_body(http_util.dict_to_query({
+		["ingredientList"] = ingredient_list;
+		["servings"] = servings;
+		["mode"] = mode;
+		["defaultCss"] = default_css;
+		["showBacklink"] = show_backlink;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -1892,7 +1907,7 @@ function recipes_api:visualize_recipe_ingredients_by_id(id, default_css, measure
 	end
 end
 
-function recipes_api:visualize_recipe_nutrition(content_type, accept, language)
+function recipes_api:visualize_recipe_nutrition(ingredient_list, servings, language, default_css, show_backlink)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -1911,12 +1926,12 @@ function recipes_api:visualize_recipe_nutrition(content_type, accept, language)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
+	req:set_body(http_util.dict_to_query({
+		["ingredientList"] = ingredient_list;
+		["servings"] = servings;
+		["defaultCss"] = default_css;
+		["showBacklink"] = show_backlink;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -1952,7 +1967,7 @@ function recipes_api:visualize_recipe_nutrition(content_type, accept, language)
 	end
 end
 
-function recipes_api:visualize_recipe_nutrition_by_id(id, default_css, accept)
+function recipes_api:visualize_recipe_nutrition_by_id(id, default_css)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -1967,9 +1982,6 @@ function recipes_api:visualize_recipe_nutrition_by_id(id, default_css, accept)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])
@@ -2055,13 +2067,13 @@ function recipes_api:visualize_recipe_price_breakdown_by_id(id, default_css)
 	end
 end
 
-function recipes_api:visualize_recipe_taste(language, content_type, accept, normalize, rgb)
+function recipes_api:visualize_recipe_taste(ingredient_list, language, normalize, rgb)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/recipes/visualizeTaste?language=%s&normalize=%s&rgb=%s",
-			self.basePath, http_util.encodeURIComponent(language), http_util.encodeURIComponent(normalize), http_util.encodeURIComponent(rgb));
+		path = string.format("%s/recipes/visualizeTaste?language=%s",
+			self.basePath, http_util.encodeURIComponent(language));
 	})
 
 	-- set HTTP verb
@@ -2074,12 +2086,11 @@ function recipes_api:visualize_recipe_taste(language, content_type, accept, norm
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
+	req:set_body(http_util.dict_to_query({
+		["ingredientList"] = ingredient_list;
+		["normalize"] = normalize;
+		["rgb"] = rgb;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])

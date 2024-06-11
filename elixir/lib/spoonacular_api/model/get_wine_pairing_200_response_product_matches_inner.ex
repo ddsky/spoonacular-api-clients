@@ -23,7 +23,7 @@ defmodule SpoonacularAPI.Model.GetWinePairing200ResponseProductMatchesInner do
     :id => integer(),
     :title => String.t,
     :averageRating => float(),
-    :description => any() | nil,
+    :description => String.t | nil,
     :imageUrl => String.t,
     :link => String.t,
     :price => String.t,

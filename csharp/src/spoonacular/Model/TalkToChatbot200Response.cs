@@ -42,7 +42,7 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="answerText">answerText (required).</param>
         /// <param name="media">media (required).</param>
-        public TalkToChatbot200Response(string answerText = default(string), List<Object> media = default(List<Object>))
+        public TalkToChatbot200Response(string answerText = default(string), List<TalkToChatbot200ResponseMediaInner> media = default(List<TalkToChatbot200ResponseMediaInner>))
         {
             // to ensure "answerText" is required (not null)
             if (answerText == null)
@@ -68,7 +68,7 @@ namespace spoonacular.Model
         /// Gets or Sets Media
         /// </summary>
         [DataMember(Name = "media", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Media { get; set; }
+        public List<TalkToChatbot200ResponseMediaInner> Media { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

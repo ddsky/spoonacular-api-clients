@@ -160,10 +160,10 @@ docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchSiteContent200Response.md
 docs/SearchSiteContent200ResponseArticlesInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInner.md
-docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md
+docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
+docs/TalkToChatbot200ResponseMediaInner.md
 docs/WineApi.md
 git_push.sh
 spoonacular.sln
@@ -323,11 +323,11 @@ src/spoonacular.Test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHour
 src/spoonacular.Test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTests.cs
 src/spoonacular.Test/Model/SearchRestaurants200ResponseRestaurantsInnerTests.cs
 src/spoonacular.Test/Model/SearchRestaurants200ResponseTests.cs
+src/spoonacular.Test/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInnerTests.cs
 src/spoonacular.Test/Model/SearchSiteContent200ResponseArticlesInnerTests.cs
-src/spoonacular.Test/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerTests.cs
-src/spoonacular.Test/Model/SearchSiteContent200ResponseGroceryProductsInnerTests.cs
 src/spoonacular.Test/Model/SearchSiteContent200ResponseTests.cs
 src/spoonacular.Test/Model/SummarizeRecipe200ResponseTests.cs
+src/spoonacular.Test/Model/TalkToChatbot200ResponseMediaInnerTests.cs
 src/spoonacular.Test/Model/TalkToChatbot200ResponseTests.cs
 src/spoonacular.Test/spoonacular.Test.csproj
 src/spoonacular/Api/DefaultApi.cs
@@ -505,8 +505,8 @@ src/spoonacular/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.cs
 src/spoonacular/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.cs
 src/spoonacular/Model/SearchSiteContent200Response.cs
 src/spoonacular/Model/SearchSiteContent200ResponseArticlesInner.cs
-src/spoonacular/Model/SearchSiteContent200ResponseGroceryProductsInner.cs
-src/spoonacular/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.cs
+src/spoonacular/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.cs
 src/spoonacular/Model/SummarizeRecipe200Response.cs
 src/spoonacular/Model/TalkToChatbot200Response.cs
+src/spoonacular/Model/TalkToChatbot200ResponseMediaInner.cs
 src/spoonacular/spoonacular.csproj

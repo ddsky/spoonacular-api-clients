@@ -91,10 +91,10 @@ bool OAIGetConversationSuggests_200_response::is_suggests_Valid() const{
     return m_suggests_isValid;
 }
 
-QList<QJsonValue> OAIGetConversationSuggests_200_response::getWords() const {
+QList<QString> OAIGetConversationSuggests_200_response::getWords() const {
     return m_words;
 }
-void OAIGetConversationSuggests_200_response::setWords(const QList<QJsonValue> &words) {
+void OAIGetConversationSuggests_200_response::setWords(const QList<QString> &words) {
     m_words = words;
     m_words_isSet = true;
 }

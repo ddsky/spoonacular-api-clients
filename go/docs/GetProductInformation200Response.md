@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Badges** | **[]string** |  | 
 **ImportantBadges** | **[]string** |  | 
 **IngredientCount** | **int32** |  | 
-**GeneratedText** | Pointer to **interface{}** |  | [optional] 
+**GeneratedText** | Pointer to **string** |  | [optional] 
 **IngredientList** | **string** |  | 
 **Ingredients** | [**[]GetProductInformation200ResponseIngredientsInner**](GetProductInformation200ResponseIngredientsInner.md) |  | 
 **Likes** | **float32** |  | 
@@ -182,20 +182,20 @@ SetIngredientCount sets IngredientCount field to given value.
 
 ### GetGeneratedText
 
-`func (o *GetProductInformation200Response) GetGeneratedText() interface{}`
+`func (o *GetProductInformation200Response) GetGeneratedText() string`
 
 GetGeneratedText returns the GeneratedText field if non-nil, zero value otherwise.
 
 ### GetGeneratedTextOk
 
-`func (o *GetProductInformation200Response) GetGeneratedTextOk() (*interface{}, bool)`
+`func (o *GetProductInformation200Response) GetGeneratedTextOk() (*string, bool)`
 
 GetGeneratedTextOk returns a tuple with the GeneratedText field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGeneratedText
 
-`func (o *GetProductInformation200Response) SetGeneratedText(v interface{})`
+`func (o *GetProductInformation200Response) SetGeneratedText(v string)`
 
 SetGeneratedText sets GeneratedText field to given value.
 
@@ -205,16 +205,6 @@ SetGeneratedText sets GeneratedText field to given value.
 
 HasGeneratedText returns a boolean if a field has been set.
 
-### SetGeneratedTextNil
-
-`func (o *GetProductInformation200Response) SetGeneratedTextNil(b bool)`
-
- SetGeneratedTextNil sets the value for GeneratedText to be an explicit nil
-
-### UnsetGeneratedText
-`func (o *GetProductInformation200Response) UnsetGeneratedText()`
-
-UnsetGeneratedText ensures that no value is present for GeneratedText, not even an explicit nil
 ### GetIngredientList
 
 `func (o *GetProductInformation200Response) GetIngredientList() string`

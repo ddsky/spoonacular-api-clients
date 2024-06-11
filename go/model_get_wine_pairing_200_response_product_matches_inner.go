@@ -25,7 +25,7 @@ type GetWinePairing200ResponseProductMatchesInner struct {
 	Id int32 `json:"id"`
 	Title string `json:"title"`
 	AverageRating float32 `json:"averageRating"`
-	Description interface{} `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	ImageUrl string `json:"imageUrl"`
 	Link string `json:"link"`
 	Price string `json:"price"`
@@ -132,37 +132,36 @@ func (o *GetWinePairing200ResponseProductMatchesInner) SetAverageRating(v float3
 	o.AverageRating = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetWinePairing200ResponseProductMatchesInner) GetDescription() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *GetWinePairing200ResponseProductMatchesInner) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
 		return ret
 	}
-	return o.Description
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetWinePairing200ResponseProductMatchesInner) GetDescriptionOk() (*interface{}, bool) {
+func (o *GetWinePairing200ResponseProductMatchesInner) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *GetWinePairing200ResponseProductMatchesInner) HasDescription() bool {
-	if o != nil && IsNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given interface{} and assigns it to the Description field.
-func (o *GetWinePairing200ResponseProductMatchesInner) SetDescription(v interface{}) {
-	o.Description = v
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *GetWinePairing200ResponseProductMatchesInner) SetDescription(v string) {
+	o.Description = &v
 }
 
 // GetImageUrl returns the ImageUrl field value
@@ -298,7 +297,7 @@ func (o GetWinePairing200ResponseProductMatchesInner) ToMap() (map[string]interf
 	toSerialize["id"] = o.Id
 	toSerialize["title"] = o.Title
 	toSerialize["averageRating"] = o.AverageRating
-	if o.Description != nil {
+	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
 	toSerialize["imageUrl"] = o.ImageUrl

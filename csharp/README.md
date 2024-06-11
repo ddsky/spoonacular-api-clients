@@ -378,10 +378,10 @@ Class | Method | HTTP request | Description
  - [Model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [Model.SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [Model.SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [Model.SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [Model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [Model.SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [Model.SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [Model.TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [Model.TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 <a id="documentation-for-authorization"></a>

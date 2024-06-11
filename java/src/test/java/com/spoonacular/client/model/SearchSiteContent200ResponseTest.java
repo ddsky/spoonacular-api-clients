@@ -19,7 +19,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner;
-import com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInner;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;

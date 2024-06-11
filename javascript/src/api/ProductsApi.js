@@ -271,7 +271,7 @@ export default class ProductsApi {
      * Callback function to receive the result of the productNutritionByIDImage operation.
      * @callback module:api/ProductsApi~productNutritionByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -280,7 +280,7 @@ export default class ProductsApi {
      * Visualize a product's nutritional information as an image.
      * @param {Number} id The id of the product.
      * @param {module:api/ProductsApi~productNutritionByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     productNutritionByIDImage(id, callback) {
       let postBody = null;
@@ -302,7 +302,7 @@ export default class ProductsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/food/products/{id}/nutritionWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -314,7 +314,7 @@ export default class ProductsApi {
      * Callback function to receive the result of the productNutritionLabelImage operation.
      * @callback module:api/ProductsApi~productNutritionLabelImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -327,7 +327,7 @@ export default class ProductsApi {
      * @param {Boolean} [showZeroValues] Whether to show zero values.
      * @param {Boolean} [showIngredients] Whether to show a list of ingredients.
      * @param {module:api/ProductsApi~productNutritionLabelImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     productNutritionLabelImage(id, opts, callback) {
       opts = opts || {};
@@ -353,7 +353,7 @@ export default class ProductsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/food/products/{id}/nutritionLabel.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -534,7 +534,6 @@ export default class ProductsApi {
      * @param {Number} id The item's id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
-     * @param {module:model/String} [accept] Accept header.
      * @param {module:api/ProductsApi~visualizeProductNutritionByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
@@ -553,7 +552,6 @@ export default class ProductsApi {
         'defaultCss': opts['defaultCss']
       };
       let headerParams = {
-        'Accept': opts['accept']
       };
       let formParams = {
       };
