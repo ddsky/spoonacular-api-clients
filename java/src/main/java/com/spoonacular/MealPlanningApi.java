@@ -1580,10 +1580,10 @@ public class MealPlanningApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}"
+        String localVarPath = "/mealplanner/{username}/shopping-list/{start_date}/{end_date}"
             .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
-            .replace("{" + "start-date" + "}", localVarApiClient.escapeString(startDate.toString()))
-            .replace("{" + "end-date" + "}", localVarApiClient.escapeString(endDate.toString()));
+            .replace("{" + "start_date" + "}", localVarApiClient.escapeString(startDate.toString()))
+            .replace("{" + "end_date" + "}", localVarApiClient.escapeString(endDate.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2077,9 +2077,9 @@ public class MealPlanningApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/mealplanner/{username}/week/{start-date}"
+        String localVarPath = "/mealplanner/{username}/week/{start_date}"
             .replace("{" + "username" + "}", localVarApiClient.escapeString(username.toString()))
-            .replace("{" + "start-date" + "}", localVarApiClient.escapeString(startDate.toString()));
+            .replace("{" + "start_date" + "}", localVarApiClient.escapeString(startDate.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

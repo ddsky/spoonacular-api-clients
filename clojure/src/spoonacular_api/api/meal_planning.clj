@@ -384,10 +384,10 @@
 (defn-spec generate-shopping-list-with-http-info any?
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?]
-  (check-required-params username start-date end-date hash)
-  (call-api "/mealplanner/{username}/shopping-list/{start-date}/{end-date}" :post
-            {:path-params   {"username" username "start-date" start-date "end-date" end-date }
+  [username string?, start_date string?, end_date string?, hash string?]
+  (check-required-params username start_date end_date hash)
+  (call-api "/mealplanner/{username}/shopping-list/{start_date}/{end_date}" :post
+            {:path-params   {"username" username "start_date" start_date "end_date" end_date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
@@ -398,8 +398,8 @@
 (defn-spec generate-shopping-list generate-shopping-list-200-response-spec
   "Generate Shopping List
   Generate the shopping list for a user from the meal planner in a given time frame."
-  [username string?, start-date string?, end-date string?, hash string?]
-  (let [res (:data (generate-shopping-list-with-http-info username start-date end-date hash))]
+  [username string?, start_date string?, end_date string?, hash string?]
+  (let [res (:data (generate-shopping-list-with-http-info username start_date end_date hash))]
     (if (:decode-models *api-context*)
        (st/decode generate-shopping-list-200-response-spec res st/string-transformer)
        res)))
@@ -456,10 +456,10 @@
 (defn-spec get-meal-plan-week-with-http-info any?
   "Get Meal Plan Week
   Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
-  [username string?, start-date string?, hash string?]
-  (check-required-params username start-date hash)
-  (call-api "/mealplanner/{username}/week/{start-date}" :get
-            {:path-params   {"username" username "start-date" start-date }
+  [username string?, start_date string?, hash string?]
+  (check-required-params username start_date hash)
+  (call-api "/mealplanner/{username}/week/{start_date}" :get
+            {:path-params   {"username" username "start_date" start_date }
              :header-params {}
              :query-params  {"hash" hash }
              :form-params   {}
@@ -470,8 +470,8 @@
 (defn-spec get-meal-plan-week get-meal-plan-week-200-response-spec
   "Get Meal Plan Week
   Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
-  [username string?, start-date string?, hash string?]
-  (let [res (:data (get-meal-plan-week-with-http-info username start-date hash))]
+  [username string?, start_date string?, hash string?]
+  (let [res (:data (get-meal-plan-week-with-http-info username start_date hash))]
     (if (:decode-models *api-context*)
        (st/decode get-meal-plan-week-200-response-spec res st/string-transformer)
        res)))

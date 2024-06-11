@@ -278,10 +278,10 @@ Class | Method | HTTP request | Description
 *OAIMealPlanningApi* | [**deleteFromShoppingList**](docs/OAIMealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *OAIMealPlanningApi* | [**deleteMealPlanTemplate**](docs/OAIMealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *OAIMealPlanningApi* | [**generateMealPlan**](docs/OAIMealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
-*OAIMealPlanningApi* | [**generateShoppingList**](docs/OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*OAIMealPlanningApi* | [**generateShoppingList**](docs/OAIMealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *OAIMealPlanningApi* | [**getMealPlanTemplate**](docs/OAIMealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *OAIMealPlanningApi* | [**getMealPlanTemplates**](docs/OAIMealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*OAIMealPlanningApi* | [**getMealPlanWeek**](docs/OAIMealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*OAIMealPlanningApi* | [**getMealPlanWeek**](docs/OAIMealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *OAIMealPlanningApi* | [**getShoppingList**](docs/OAIMealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *OAIMenuItemsApi* | [**autocompleteMenuItemSearch**](docs/OAIMenuItemsApi.md#autocompletemenuitemsearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *OAIMenuItemsApi* | [**getMenuItemInformation**](docs/OAIMenuItemsApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information

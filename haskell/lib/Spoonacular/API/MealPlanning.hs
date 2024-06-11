@@ -318,7 +318,7 @@ instance Produces GenerateMealPlan MimeJSON
 
 -- *** generateShoppingList
 
--- | @POST \/mealplanner\/{username}\/shopping-list\/{start-date}\/{end-date}@
+-- | @POST \/mealplanner\/{username}\/shopping-list\/{start_date}\/{end_date}@
 -- 
 -- Generate Shopping List
 -- 
@@ -393,7 +393,7 @@ instance Produces GetMealPlanTemplates MimeJSON
 
 -- *** getMealPlanWeek
 
--- | @GET \/mealplanner\/{username}\/week\/{start-date}@
+-- | @GET \/mealplanner\/{username}\/week\/{start_date}@
 -- 
 -- Get Meal Plan Week
 -- 

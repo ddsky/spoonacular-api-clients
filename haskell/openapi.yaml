@@ -9922,7 +9922,7 @@ paths:
       summary: Generate Meal Plan
       tags:
       - meal planning
-  /mealplanner/{username}/week/{start-date}:
+  /mealplanner/{username}/week/{start_date}:
     get:
       deprecated: false
       description: Retrieve a meal planned week for the given user. The username must
@@ -9945,7 +9945,7 @@ paths:
       - description: The start date of the meal planned week in the format yyyy-mm-dd.
         explode: false
         in: path
-        name: start-date
+        name: start_date
         required: true
         schema:
           example: 2020-06-01
@@ -11656,7 +11656,7 @@ paths:
       summary: Get Shopping List
       tags:
       - meal planning
-  /mealplanner/{username}/shopping-list/{start-date}/{end-date}:
+  /mealplanner/{username}/shopping-list/{start_date}/{end_date}:
     post:
       deprecated: false
       description: Generate the shopping list for a user from the meal planner in
@@ -11678,7 +11678,7 @@ paths:
       - description: The start date in the format yyyy-mm-dd.
         explode: false
         in: path
-        name: start-date
+        name: start_date
         required: true
         schema:
           example: 2020-06-01
@@ -11687,7 +11687,7 @@ paths:
       - description: The end date in the format yyyy-mm-dd.
         explode: false
         in: path
-        name: end-date
+        name: end_date
         required: true
         schema:
           example: 2020-06-07
