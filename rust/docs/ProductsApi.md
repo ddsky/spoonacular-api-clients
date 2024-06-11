@@ -173,7 +173,7 @@ Name | Type | Description  | Required | Notes
 
 ## product_nutrition_by_id_image
 
-> serde_json::Value product_nutrition_by_id_image(id)
+> std::path::PathBuf product_nutrition_by_id_image(id)
 Product Nutrition by ID Image
 
 Visualize a product's nutritional information as an image.
@@ -187,7 +187,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Required | Notes
 
 ## product_nutrition_label_image
 
-> serde_json::Value product_nutrition_label_image(id, show_optional_nutrients, show_zero_values, show_ingredients)
+> std::path::PathBuf product_nutrition_label_image(id, show_optional_nutrients, show_zero_values, show_ingredients)
 Product Nutrition Label Image
 
 Get a product's nutrition label as an image.
@@ -220,7 +220,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**std::path::PathBuf**](std::path::PathBuf.md)
 
 ### Authorization
 
@@ -341,7 +341,7 @@ Name | Type | Description  | Required | Notes
 
 ## visualize_product_nutrition_by_id
 
-> String visualize_product_nutrition_by_id(id, default_css, accept)
+> String visualize_product_nutrition_by_id(id, default_css)
 Product Nutrition by ID Widget
 
 Visualize a product's nutritional information as HTML including CSS.
@@ -353,7 +353,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **i32** | The item's id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
-**accept** | Option<**String**> | Accept header. |  |
 
 ### Return type
 

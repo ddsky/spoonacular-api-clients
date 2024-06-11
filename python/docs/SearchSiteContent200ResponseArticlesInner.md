@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | **List[object]** |  | [optional] 
+**data_points** | [**List[SearchSiteContent200ResponseArticlesInnerDataPointsInner]**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  | [optional] 
 **image** | **str** |  | 
 **link** | **str** |  | 
 **name** | **str** |  | 

@@ -59,7 +59,7 @@ module OpenapiClient
         :'id' => :'Integer',
         :'title' => :'String',
         :'average_rating' => :'Float',
-        :'description' => :'Object',
+        :'description' => :'String',
         :'image_url' => :'String',
         :'link' => :'String',
         :'price' => :'String',
@@ -71,7 +71,6 @@ module OpenapiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'description',
       ])
     end
 

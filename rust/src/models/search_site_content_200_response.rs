@@ -17,16 +17,16 @@ pub struct SearchSiteContent200Response {
     #[serde(rename = "Articles")]
     pub articles: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>,
     #[serde(rename = "Grocery Products")]
-    pub grocery_products: Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInner>,
+    pub grocery_products: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>,
     #[serde(rename = "Menu Items")]
-    pub menu_items: Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInner>,
+    pub menu_items: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>,
     #[serde(rename = "Recipes")]
-    pub recipes: Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInner>,
+    pub recipes: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>,
 }
 
 impl SearchSiteContent200Response {
     /// 
-    pub fn new(articles: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>, grocery_products: Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInner>, menu_items: Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInner>, recipes: Vec<crate::models::SearchSiteContent200ResponseGroceryProductsInner>) -> SearchSiteContent200Response {
+    pub fn new(articles: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>, grocery_products: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>, menu_items: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>, recipes: Vec<crate::models::SearchSiteContent200ResponseArticlesInner>) -> SearchSiteContent200Response {
         SearchSiteContent200Response {
             articles,
             grocery_products,

@@ -518,12 +518,30 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize ingredients of a recipe. You can play around with that endpoint!
      * Ingredients Widget
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param accept Accept header.
+     * @param measure The original system of measurement, either \\\&#39;metric\\\&#39; or \\\&#39;us\\\&#39;.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      */
-    public async visualizeIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<RequestContext> {
+    public async visualizeIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', measure?: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'ingredientList' is not null or undefined
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new RequiredError("IngredientsApi", "visualizeIngredients", "ingredientList");
+        }
+
+
+        // verify required parameter 'servings' is not null or undefined
+        if (servings === null || servings === undefined) {
+            throw new RequiredError("IngredientsApi", "visualizeIngredients", "servings");
+        }
+
+
+
 
 
 
@@ -540,12 +558,51 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("language", ObjectSerializer.serialize(language, "'en' | 'de'", ""));
         }
 
-        // Header Params
-        requestContext.setHeaderParam("Content-Type", ObjectSerializer.serialize(contentType, "'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data'", ""));
+        // Form Params
+        const useForm = canConsumeForm([
+            'application/x-www-form-urlencoded',
+        ]);
 
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
+        let localVarFormParams
+        if (useForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new URLSearchParams();
+        }
 
+        if (ingredientList !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('ingredientList', ingredientList as any);
+        }
+        if (servings !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('servings', servings as any);
+        }
+        if (measure !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('measure', measure as any);
+        }
+        if (view !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('view', view as any);
+        }
+        if (defaultCss !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('defaultCss', defaultCss as any);
+        }
+        if (showBacklink !== undefined) {
+             // TODO: replace .append with .set
+             localVarFormParams.append('showBacklink', showBacklink as any);
+        }
+
+        requestContext.setBody(localVarFormParams);
+
+        if(!useForm) {
+            const contentType = ObjectSerializer.getPreferredMediaType([
+                "application/x-www-form-urlencoded"
+            ]);
+            requestContext.setHeaderParam("Content-Type", contentType);
+        }
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -801,13 +858,10 @@ export class IngredientsApiResponseProcessor {
      * @params response Response returned by the server for a request to ingredientsByIDImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async ingredientsByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async ingredientsByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -822,10 +876,10 @@ export class IngredientsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

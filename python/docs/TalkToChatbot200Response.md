@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answer_text** | **str** |  | 
-**media** | **List[object]** |  | 
+**media** | [**List[TalkToChatbot200ResponseMediaInner]**](TalkToChatbot200ResponseMediaInner.md) |  | 
 
 ## Example
 

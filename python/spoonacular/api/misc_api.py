@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictFloat, StrictInt, StrictStr
 from typing import Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.detect_food_in_text200_response import DetectFoodInText200Response
@@ -53,7 +53,7 @@ class MiscApi:
     @validate_call
     def detect_food_in_text(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        text: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,8 +71,8 @@ class MiscApi:
 
         Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param text: (required)
+        :type text: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -96,7 +96,7 @@ class MiscApi:
         """ # noqa: E501
 
         _param = self._detect_food_in_text_serialize(
-            content_type=content_type,
+            text=text,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -123,7 +123,7 @@ class MiscApi:
     @validate_call
     def detect_food_in_text_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        text: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -141,8 +141,8 @@ class MiscApi:
 
         Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param text: (required)
+        :type text: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -166,7 +166,7 @@ class MiscApi:
         """ # noqa: E501
 
         _param = self._detect_food_in_text_serialize(
-            content_type=content_type,
+            text=text,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -193,7 +193,7 @@ class MiscApi:
     @validate_call
     def detect_food_in_text_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        text: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -211,8 +211,8 @@ class MiscApi:
 
         Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param text: (required)
+        :type text: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -236,7 +236,7 @@ class MiscApi:
         """ # noqa: E501
 
         _param = self._detect_food_in_text_serialize(
-            content_type=content_type,
+            text=text,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -258,7 +258,7 @@ class MiscApi:
 
     def _detect_food_in_text_serialize(
         self,
-        content_type,
+        text,
         _request_auth,
         _content_type,
         _headers,
@@ -280,9 +280,9 @@ class MiscApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
         # process the form parameters
+        if text is not None:
+            _form_params.append(('text', text))
         # process the body parameter
 
 

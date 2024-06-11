@@ -42,7 +42,7 @@ class TestGetConversationSuggests200Response(unittest.TestCase):
                             name = '0', )
                         ], ),
                 words = [
-                    null
+                    ''
                     ]
             )
         else:
@@ -53,7 +53,7 @@ class TestGetConversationSuggests200Response(unittest.TestCase):
                             name = '0', )
                         ], ),
                 words = [
-                    null
+                    ''
                     ],
         )
         """

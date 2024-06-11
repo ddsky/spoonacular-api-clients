@@ -36,7 +36,7 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 /// Detect Food in Text
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 ///
-/// @param contentType The content type. (optional)
+/// @param text 
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -44,7 +44,7 @@ extern NSInteger kOAIMiscApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return OAIDetectFoodInText200Response*
--(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) detectFoodInTextWithText: (NSString*) text
     completionHandler: (void (^)(OAIDetectFoodInText200Response* output, NSError* error)) handler;
 
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **kotlin.String** |  | 
-**description** | [**kotlin.Any**](.md) |  |  [optional]
-**safetyLevel** | [**kotlin.Any**](.md) |  |  [optional]
+**description** | **kotlin.String** |  |  [optional]
+**safetyLevel** | **kotlin.String** |  |  [optional]
 
 
 

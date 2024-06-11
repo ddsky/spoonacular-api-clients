@@ -30,7 +30,7 @@ void main() {
     //
     // This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
     //
-    //Future<AnalyzeRecipeInstructions200Response> analyzeRecipeInstructions({ String contentType }) async
+    //Future<AnalyzeRecipeInstructions200Response> analyzeRecipeInstructions(String instructions) async
     test('test analyzeRecipeInstructions', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Classify the recipe's cuisine.
     //
-    //Future<ClassifyCuisine200Response> classifyCuisine({ String contentType }) async
+    //Future<ClassifyCuisine200Response> classifyCuisine(String title, String ingredientList, { String language }) async
     test('test classifyCuisine', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Generate a recipe card for a recipe.
     //
-    //Future<CreateRecipeCard200Response> createRecipeCard({ String contentType }) async
+    //Future<CreateRecipeCard200Response> createRecipeCard(String title, String ingredients, String instructions, num readyInMinutes, num servings, String mask, String backgroundImage, { MultipartFile image, String imageUrl, String author, String backgroundColor, String fontColor, String source_ }) async
     test('test createRecipeCard', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Visualize a recipe's equipment list as an image.
     //
-    //Future<Object> equipmentByIDImage(num id) async
+    //Future<MultipartFile> equipmentByIDImage(num id) async
     test('test equipmentByIDImage', () async {
       // TODO
     });
@@ -201,7 +201,7 @@ void main() {
     //
     // Extract an ingredient from plain text.
     //
-    //Future<Set<ParseIngredients200ResponseInner>> parseIngredients({ String contentType, String language }) async
+    //Future<Set<ParseIngredients200ResponseInner>> parseIngredients(String ingredientList, num servings, { String language, bool includeNutrition }) async
     test('test parseIngredients', () async {
       // TODO
     });
@@ -210,7 +210,7 @@ void main() {
     //
     // Visualize a recipe's price breakdown.
     //
-    //Future<Object> priceBreakdownByIDImage(num id) async
+    //Future<MultipartFile> priceBreakdownByIDImage(num id) async
     test('test priceBreakdownByIDImage', () async {
       // TODO
     });
@@ -228,7 +228,7 @@ void main() {
     //
     // Visualize a recipe's nutritional information as an image.
     //
-    //Future<Object> recipeNutritionByIDImage(num id) async
+    //Future<MultipartFile> recipeNutritionByIDImage(num id) async
     test('test recipeNutritionByIDImage', () async {
       // TODO
     });
@@ -237,7 +237,7 @@ void main() {
     //
     // Get a recipe's nutrition label as an image.
     //
-    //Future<Object> recipeNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<MultipartFile> recipeNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test recipeNutritionLabelImage', () async {
       // TODO
     });
@@ -255,7 +255,7 @@ void main() {
     //
     // Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
     //
-    //Future<Object> recipeTasteByIDImage(num id, { bool normalize, String rgb }) async
+    //Future<MultipartFile> recipeTasteByIDImage(num id, { bool normalize, String rgb }) async
     test('test recipeTasteByIDImage', () async {
       // TODO
     });
@@ -300,7 +300,7 @@ void main() {
     //
     // Visualize the equipment used to make a recipe.
     //
-    //Future<String> visualizeEquipment({ String contentType, String accept }) async
+    //Future<String> visualizeEquipment(String instructions, { String view, bool defaultCss, bool showBacklink }) async
     test('test visualizeEquipment', () async {
       // TODO
     });
@@ -309,7 +309,7 @@ void main() {
     //
     // Visualize the price breakdown of a recipe.
     //
-    //Future<String> visualizePriceBreakdown({ String contentType, String accept, String language }) async
+    //Future<String> visualizePriceBreakdown(String ingredientList, num servings, { String language, num mode, bool defaultCss, bool showBacklink }) async
     test('test visualizePriceBreakdown', () async {
       // TODO
     });
@@ -336,7 +336,7 @@ void main() {
     //
     // Visualize a recipe's nutritional information as HTML including CSS.
     //
-    //Future<String> visualizeRecipeNutrition({ String contentType, String accept, String language }) async
+    //Future<String> visualizeRecipeNutrition(String ingredientList, num servings, { String language, bool defaultCss, bool showBacklink }) async
     test('test visualizeRecipeNutrition', () async {
       // TODO
     });
@@ -345,7 +345,7 @@ void main() {
     //
     // Visualize a recipe's nutritional information as HTML including CSS.
     //
-    //Future<String> visualizeRecipeNutritionByID(int id, { bool defaultCss, String accept }) async
+    //Future<String> visualizeRecipeNutritionByID(int id, { bool defaultCss }) async
     test('test visualizeRecipeNutritionByID', () async {
       // TODO
     });
@@ -363,7 +363,7 @@ void main() {
     //
     // Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
     //
-    //Future<String> visualizeRecipeTaste({ String language, String contentType, String accept, bool normalize, String rgb }) async
+    //Future<String> visualizeRecipeTaste(String ingredientList, { String language, bool normalize, String rgb }) async
     test('test visualizeRecipeTaste', () async {
       // TODO
     });

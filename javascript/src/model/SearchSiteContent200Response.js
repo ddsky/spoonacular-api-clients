@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import SearchSiteContent200ResponseArticlesInner from './SearchSiteContent200ResponseArticlesInner';
-import SearchSiteContent200ResponseGroceryProductsInner from './SearchSiteContent200ResponseGroceryProductsInner';
 
 /**
  * The SearchSiteContent200Response model module.
@@ -26,9 +25,9 @@ class SearchSiteContent200Response {
      * 
      * @alias module:model/SearchSiteContent200Response
      * @param articles {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
-     * @param groceryProducts {Array.<module:model/SearchSiteContent200ResponseGroceryProductsInner>} 
-     * @param menuItems {Array.<module:model/SearchSiteContent200ResponseGroceryProductsInner>} 
-     * @param recipes {Array.<module:model/SearchSiteContent200ResponseGroceryProductsInner>} 
+     * @param groceryProducts {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
+     * @param menuItems {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
+     * @param recipes {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
      */
     constructor(articles, groceryProducts, menuItems, recipes) { 
         
@@ -62,13 +61,13 @@ class SearchSiteContent200Response {
                 obj['Articles'] = ApiClient.convertToType(data['Articles'], [SearchSiteContent200ResponseArticlesInner]);
             }
             if (data.hasOwnProperty('Grocery Products')) {
-                obj['Grocery Products'] = ApiClient.convertToType(data['Grocery Products'], [SearchSiteContent200ResponseGroceryProductsInner]);
+                obj['Grocery Products'] = ApiClient.convertToType(data['Grocery Products'], [SearchSiteContent200ResponseArticlesInner]);
             }
             if (data.hasOwnProperty('Menu Items')) {
-                obj['Menu Items'] = ApiClient.convertToType(data['Menu Items'], [SearchSiteContent200ResponseGroceryProductsInner]);
+                obj['Menu Items'] = ApiClient.convertToType(data['Menu Items'], [SearchSiteContent200ResponseArticlesInner]);
             }
             if (data.hasOwnProperty('Recipes')) {
-                obj['Recipes'] = ApiClient.convertToType(data['Recipes'], [SearchSiteContent200ResponseGroceryProductsInner]);
+                obj['Recipes'] = ApiClient.convertToType(data['Recipes'], [SearchSiteContent200ResponseArticlesInner]);
             }
         }
         return obj;
@@ -103,7 +102,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Grocery Products` (array)
             for (const item of data['Grocery Products']) {
-                SearchSiteContent200ResponseGroceryProductsInner.validateJSON(item);
+                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
             };
         }
         if (data['Menu Items']) { // data not null
@@ -113,7 +112,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Menu Items` (array)
             for (const item of data['Menu Items']) {
-                SearchSiteContent200ResponseGroceryProductsInner.validateJSON(item);
+                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
             };
         }
         if (data['Recipes']) { // data not null
@@ -123,7 +122,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Recipes` (array)
             for (const item of data['Recipes']) {
-                SearchSiteContent200ResponseGroceryProductsInner.validateJSON(item);
+                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
             };
         }
 
@@ -141,17 +140,17 @@ SearchSiteContent200Response.RequiredProperties = ["Articles", "Grocery Products
 SearchSiteContent200Response.prototype['Articles'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseGroceryProductsInner>} Grocery Products
+ * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Grocery Products
  */
 SearchSiteContent200Response.prototype['Grocery Products'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseGroceryProductsInner>} Menu Items
+ * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Menu Items
  */
 SearchSiteContent200Response.prototype['Menu Items'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseGroceryProductsInner>} Recipes
+ * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Recipes
  */
 SearchSiteContent200Response.prototype['Recipes'] = undefined;
 

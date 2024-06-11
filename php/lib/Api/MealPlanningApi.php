@@ -3545,7 +3545,7 @@ class MealPlanningApi
         }
 
 
-        $resourcePath = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}';
+        $resourcePath = '/mealplanner/{username}/shopping-list/{start_date}/{end_date}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3574,7 +3574,7 @@ class MealPlanningApi
         // path params
         if ($start_date !== null) {
             $resourcePath = str_replace(
-                '{' . 'start-date' . '}',
+                '{' . 'start_date' . '}',
                 ObjectSerializer::toPathValue($start_date),
                 $resourcePath
             );
@@ -3582,7 +3582,7 @@ class MealPlanningApi
         // path params
         if ($end_date !== null) {
             $resourcePath = str_replace(
-                '{' . 'end-date' . '}',
+                '{' . 'end_date' . '}',
                 ObjectSerializer::toPathValue($end_date),
                 $resourcePath
             );
@@ -4592,7 +4592,7 @@ class MealPlanningApi
         }
 
 
-        $resourcePath = '/mealplanner/{username}/week/{start-date}';
+        $resourcePath = '/mealplanner/{username}/week/{start_date}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4621,7 +4621,7 @@ class MealPlanningApi
         // path params
         if ($start_date !== null) {
             $resourcePath = str_replace(
-                '{' . 'start-date' . '}',
+                '{' . 'start_date' . '}',
                 ObjectSerializer::toPathValue($start_date),
                 $resourcePath
             );

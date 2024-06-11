@@ -93,10 +93,10 @@ QJsonObject OAISearchSiteContent_200_response_Articles_inner::asJsonObject() con
     return obj;
 }
 
-QList<QJsonValue> OAISearchSiteContent_200_response_Articles_inner::getDataPoints() const {
+QSet<OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner> OAISearchSiteContent_200_response_Articles_inner::getDataPoints() const {
     return m_data_points;
 }
-void OAISearchSiteContent_200_response_Articles_inner::setDataPoints(const QList<QJsonValue> &data_points) {
+void OAISearchSiteContent_200_response_Articles_inner::setDataPoints(const QSet<OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner> &data_points) {
     m_data_points = data_points;
     m_data_points_isSet = true;
 }

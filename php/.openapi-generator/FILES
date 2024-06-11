@@ -162,10 +162,10 @@ docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/Model/SearchSiteContent200Response.md
 docs/Model/SearchSiteContent200ResponseArticlesInner.md
-docs/Model/SearchSiteContent200ResponseGroceryProductsInner.md
-docs/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md
+docs/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md
 docs/Model/SummarizeRecipe200Response.md
 docs/Model/TalkToChatbot200Response.md
+docs/Model/TalkToChatbot200ResponseMediaInner.md
 git_push.sh
 lib/Api/DefaultApi.php
 lib/Api/IngredientsApi.php
@@ -329,10 +329,10 @@ lib/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.php
 lib/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.php
 lib/Model/SearchSiteContent200Response.php
 lib/Model/SearchSiteContent200ResponseArticlesInner.php
-lib/Model/SearchSiteContent200ResponseGroceryProductsInner.php
-lib/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.php
+lib/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.php
 lib/Model/SummarizeRecipe200Response.php
 lib/Model/TalkToChatbot200Response.php
+lib/Model/TalkToChatbot200ResponseMediaInner.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/DefaultApiTest.php
@@ -491,9 +491,9 @@ test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTest
 test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTest.php
 test/Model/SearchRestaurants200ResponseRestaurantsInnerTest.php
 test/Model/SearchRestaurants200ResponseTest.php
+test/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInnerTest.php
 test/Model/SearchSiteContent200ResponseArticlesInnerTest.php
-test/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerTest.php
-test/Model/SearchSiteContent200ResponseGroceryProductsInnerTest.php
 test/Model/SearchSiteContent200ResponseTest.php
 test/Model/SummarizeRecipe200ResponseTest.php
+test/Model/TalkToChatbot200ResponseMediaInnerTest.php
 test/Model/TalkToChatbot200ResponseTest.php

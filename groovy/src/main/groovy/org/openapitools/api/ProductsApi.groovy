@@ -174,7 +174,7 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -207,7 +207,7 @@ class ProductsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -327,7 +327,7 @@ class ProductsApi {
 
     }
 
-    def visualizeProductNutritionByID ( Integer id, Boolean defaultCss, String accept, Closure onSuccess, Closure onFailure)  {
+    def visualizeProductNutritionByID ( Integer id, Boolean defaultCss, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/food/products/${id}/nutritionWidget"
 
         // params
@@ -345,9 +345,6 @@ class ProductsApi {
             queryParams.put("defaultCss", defaultCss)
         }
 
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
 

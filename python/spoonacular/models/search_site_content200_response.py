@@ -22,7 +22,6 @@ from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.search_site_content200_response_articles_inner import SearchSiteContent200ResponseArticlesInner
-from spoonacular.models.search_site_content200_response_grocery_products_inner import SearchSiteContent200ResponseGroceryProductsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,9 +30,9 @@ class SearchSiteContent200Response(BaseModel):
     
     """ # noqa: E501
     articles: Annotated[List[SearchSiteContent200ResponseArticlesInner], Field(min_length=0)] = Field(alias="Articles")
-    grocery_products: Annotated[List[SearchSiteContent200ResponseGroceryProductsInner], Field(min_length=0)] = Field(alias="Grocery Products")
-    menu_items: Annotated[List[SearchSiteContent200ResponseGroceryProductsInner], Field(min_length=0)] = Field(alias="Menu Items")
-    recipes: Annotated[List[SearchSiteContent200ResponseGroceryProductsInner], Field(min_length=0)] = Field(alias="Recipes")
+    grocery_products: Annotated[List[SearchSiteContent200ResponseArticlesInner], Field(min_length=0)] = Field(alias="Grocery Products")
+    menu_items: Annotated[List[SearchSiteContent200ResponseArticlesInner], Field(min_length=0)] = Field(alias="Menu Items")
+    recipes: Annotated[List[SearchSiteContent200ResponseArticlesInner], Field(min_length=0)] = Field(alias="Recipes")
     __properties: ClassVar[List[str]] = ["Articles", "Grocery Products", "Menu Items", "Recipes"]
 
     model_config = {
@@ -116,9 +115,9 @@ class SearchSiteContent200Response(BaseModel):
 
         _obj = cls.model_validate({
             "Articles": [SearchSiteContent200ResponseArticlesInner.from_dict(_item) for _item in obj["Articles"]] if obj.get("Articles") is not None else None,
-            "Grocery Products": [SearchSiteContent200ResponseGroceryProductsInner.from_dict(_item) for _item in obj["Grocery Products"]] if obj.get("Grocery Products") is not None else None,
-            "Menu Items": [SearchSiteContent200ResponseGroceryProductsInner.from_dict(_item) for _item in obj["Menu Items"]] if obj.get("Menu Items") is not None else None,
-            "Recipes": [SearchSiteContent200ResponseGroceryProductsInner.from_dict(_item) for _item in obj["Recipes"]] if obj.get("Recipes") is not None else None
+            "Grocery Products": [SearchSiteContent200ResponseArticlesInner.from_dict(_item) for _item in obj["Grocery Products"]] if obj.get("Grocery Products") is not None else None,
+            "Menu Items": [SearchSiteContent200ResponseArticlesInner.from_dict(_item) for _item in obj["Menu Items"]] if obj.get("Menu Items") is not None else None,
+            "Recipes": [SearchSiteContent200ResponseArticlesInner.from_dict(_item) for _item in obj["Recipes"]] if obj.get("Recipes") is not None else None
         })
         return _obj
 

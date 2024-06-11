@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answerText** | **String** |  | 
-**media** | [**List<Object>**](Object.md) |  | [default to const []]
+**media** | [**List<TalkToChatbot200ResponseMediaInner>**](TalkToChatbot200ResponseMediaInner.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

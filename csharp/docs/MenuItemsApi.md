@@ -214,7 +214,7 @@ catch (ApiException e)
 
 <a id="menuitemnutritionbyidimage"></a>
 # **MenuItemNutritionByIDImage**
-> Object MenuItemNutritionByIDImage (decimal id)
+> System.IO.Stream MenuItemNutritionByIDImage (decimal id)
 
 Menu Item Nutrition by ID Image
 
@@ -247,7 +247,7 @@ namespace Example
             try
             {
                 // Menu Item Nutrition by ID Image
-                Object result = apiInstance.MenuItemNutritionByIDImage(id);
+                System.IO.Stream result = apiInstance.MenuItemNutritionByIDImage(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -268,7 +268,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Menu Item Nutrition by ID Image
-    ApiResponse<Object> response = apiInstance.MenuItemNutritionByIDImageWithHttpInfo(id);
+    ApiResponse<System.IO.Stream> response = apiInstance.MenuItemNutritionByIDImageWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -289,7 +289,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -313,7 +313,7 @@ catch (ApiException e)
 
 <a id="menuitemnutritionlabelimage"></a>
 # **MenuItemNutritionLabelImage**
-> Object MenuItemNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> System.IO.Stream MenuItemNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Menu Item Nutrition Label Image
 
@@ -349,7 +349,7 @@ namespace Example
             try
             {
                 // Menu Item Nutrition Label Image
-                Object result = apiInstance.MenuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+                System.IO.Stream result = apiInstance.MenuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -370,7 +370,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Menu Item Nutrition Label Image
-    ApiResponse<Object> response = apiInstance.MenuItemNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
+    ApiResponse<System.IO.Stream> response = apiInstance.MenuItemNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -394,7 +394,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -646,7 +646,7 @@ catch (ApiException e)
 
 <a id="visualizemenuitemnutritionbyid"></a>
 # **VisualizeMenuItemNutritionByID**
-> string VisualizeMenuItemNutritionByID (int id, bool? defaultCss = null, string? accept = null)
+> string VisualizeMenuItemNutritionByID (int id, bool? defaultCss = null)
 
 Menu Item Nutrition by ID Widget
 
@@ -676,12 +676,11 @@ namespace Example
             var apiInstance = new MenuItemsApi(config);
             var id = 1;  // int | The item's id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
-            var accept = application/json;  // string? | Accept header. (optional) 
 
             try
             {
                 // Menu Item Nutrition by ID Widget
-                string result = apiInstance.VisualizeMenuItemNutritionByID(id, defaultCss, accept);
+                string result = apiInstance.VisualizeMenuItemNutritionByID(id, defaultCss);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -702,7 +701,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Menu Item Nutrition by ID Widget
-    ApiResponse<string> response = apiInstance.VisualizeMenuItemNutritionByIDWithHttpInfo(id, defaultCss, accept);
+    ApiResponse<string> response = apiInstance.VisualizeMenuItemNutritionByIDWithHttpInfo(id, defaultCss);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -721,7 +720,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **int** | The item&#39;s id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **string?** | Accept header. | [optional]  |
 
 ### Return type
 

@@ -73,7 +73,7 @@ class GetWinePairing200ResponseProductMatchesInner {
                 obj['averageRating'] = ApiClient.convertToType(data['averageRating'], 'Number');
             }
             if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], Object);
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('imageUrl')) {
                 obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
@@ -109,6 +109,10 @@ class GetWinePairing200ResponseProductMatchesInner {
         // ensure the json data is a string
         if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
             throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
         }
         // ensure the json data is a string
         if (data['imageUrl'] && !(typeof data['imageUrl'] === 'string' || data['imageUrl'] instanceof String)) {
@@ -147,7 +151,7 @@ GetWinePairing200ResponseProductMatchesInner.prototype['title'] = undefined;
 GetWinePairing200ResponseProductMatchesInner.prototype['averageRating'] = undefined;
 
 /**
- * @member {Object} description
+ * @member {String} description
  */
 GetWinePairing200ResponseProductMatchesInner.prototype['description'] = undefined;
 

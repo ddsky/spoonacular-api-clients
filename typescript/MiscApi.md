@@ -33,8 +33,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .MiscApi(configuration);
 
 let body:.MiscApiDetectFoodInTextRequest = {
-  // 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data' | The content type. (optional)
-  contentType: "application/json",
+  // string
+  text: "text_example",
 };
 
 apiInstance.detectFoodInText(body).then((data:any) => {
@@ -47,7 +47,7 @@ apiInstance.detectFoodInText(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | [**&#39;application/x-www-form-urlencoded&#39; | &#39;application/json&#39; | &#39;multipart/form-data&#39;**]**Array<&#39;application/x-www-form-urlencoded&#39; &#124; &#39;application/json&#39; &#124; &#39;multipart/form-data&#39;>** | The content type. | (optional) defaults to undefined
+ **text** | [**string**] |  | defaults to undefined
 
 
 ### Return type

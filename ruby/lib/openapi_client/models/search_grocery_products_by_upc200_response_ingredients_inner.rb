@@ -38,17 +38,15 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'Object',
+        :'description' => :'String',
         :'name' => :'String',
-        :'safety_level' => :'Object'
+        :'safety_level' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'description',
-        :'safety_level'
       ])
     end
 

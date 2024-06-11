@@ -37,7 +37,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'answer_text' => :'String',
-        :'media' => :'Array<Object>'
+        :'media' => :'Array<TalkToChatbot200ResponseMediaInner>'
       }
     end
 

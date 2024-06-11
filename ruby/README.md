@@ -112,10 +112,10 @@ Class | Method | HTTP request | Description
 *OpenapiClient::MealPlanningApi* | [**delete_from_shopping_list**](docs/MealPlanningApi.md#delete_from_shopping_list) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *OpenapiClient::MealPlanningApi* | [**delete_meal_plan_template**](docs/MealPlanningApi.md#delete_meal_plan_template) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *OpenapiClient::MealPlanningApi* | [**generate_meal_plan**](docs/MealPlanningApi.md#generate_meal_plan) | **GET** /mealplanner/generate | Generate Meal Plan
-*OpenapiClient::MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*OpenapiClient::MealPlanningApi* | [**generate_shopping_list**](docs/MealPlanningApi.md#generate_shopping_list) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *OpenapiClient::MealPlanningApi* | [**get_meal_plan_template**](docs/MealPlanningApi.md#get_meal_plan_template) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *OpenapiClient::MealPlanningApi* | [**get_meal_plan_templates**](docs/MealPlanningApi.md#get_meal_plan_templates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*OpenapiClient::MealPlanningApi* | [**get_meal_plan_week**](docs/MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*OpenapiClient::MealPlanningApi* | [**get_meal_plan_week**](docs/MealPlanningApi.md#get_meal_plan_week) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *OpenapiClient::MealPlanningApi* | [**get_shopping_list**](docs/MealPlanningApi.md#get_shopping_list) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *OpenapiClient::MenuItemsApi* | [**autocomplete_menu_item_search**](docs/MenuItemsApi.md#autocomplete_menu_item_search) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *OpenapiClient::MenuItemsApi* | [**get_menu_item_information**](docs/MenuItemsApi.md#get_menu_item_information) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -344,10 +344,10 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [OpenapiClient::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [OpenapiClient::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [OpenapiClient::SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [OpenapiClient::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [OpenapiClient::SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [OpenapiClient::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [OpenapiClient::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [OpenapiClient::TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 ## Documentation for Authorization

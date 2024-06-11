@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredientsByIDImage**
-> Object ingredientsByIDImage(id, measure)
+> MultipartFile ingredientsByIDImage(id, measure)
 
 Ingredients by ID Image
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeIngredients**
-> String visualizeIngredients(contentType, language, accept)
+> String visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink)
 
 Ingredients Widget
 
@@ -460,12 +460,16 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = IngredientsApi();
-final contentType = application/json; // String | The content type.
+final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+final servings = 8.14; // num | The number of servings.
 final language = en; // String | The language of the input. Either 'en' or 'de'.
-final accept = application/json; // String | Accept header.
+final measure = measure_example; // String | The original system of measurement, either 'metric' or 'us'.
+final view = view_example; // String | How to visualize the ingredients, either 'grid' or 'list'.
+final defaultCss = true; // bool | Whether the default CSS should be added to the response.
+final showBacklink = true; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    final result = api_instance.visualizeIngredients(contentType, language, accept);
+    final result = api_instance.visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink);
     print(result);
 } catch (e) {
     print('Exception when calling IngredientsApi->visualizeIngredients: $e\n');
@@ -476,9 +480,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **servings** | **num**| The number of servings. | 
  **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **measure** | **String**| The original system of measurement, either 'metric' or 'us'. | [optional] 
+ **view** | **String**| How to visualize the ingredients, either 'grid' or 'list'. | [optional] 
+ **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 

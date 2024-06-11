@@ -19,10 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +56,7 @@ import com.spoonacular.client.JSON;
 public class SearchSiteContent200ResponseArticlesInner {
   public static final String SERIALIZED_NAME_DATA_POINTS = "dataPoints";
   @SerializedName(SERIALIZED_NAME_DATA_POINTS)
-  private List<Object> dataPoints;
+  private Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints;
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -72,14 +73,14 @@ public class SearchSiteContent200ResponseArticlesInner {
   public SearchSiteContent200ResponseArticlesInner() {
   }
 
-  public SearchSiteContent200ResponseArticlesInner dataPoints(List<Object> dataPoints) {
+  public SearchSiteContent200ResponseArticlesInner dataPoints(Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints) {
     this.dataPoints = dataPoints;
     return this;
   }
 
-  public SearchSiteContent200ResponseArticlesInner addDataPointsItem(Object dataPointsItem) {
+  public SearchSiteContent200ResponseArticlesInner addDataPointsItem(SearchSiteContent200ResponseArticlesInnerDataPointsInner dataPointsItem) {
     if (this.dataPoints == null) {
-      this.dataPoints = new ArrayList<>();
+      this.dataPoints = new LinkedHashSet<>();
     }
     this.dataPoints.add(dataPointsItem);
     return this;
@@ -90,11 +91,11 @@ public class SearchSiteContent200ResponseArticlesInner {
    * @return dataPoints
   **/
   @javax.annotation.Nullable
-  public List<Object> getDataPoints() {
+  public Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> getDataPoints() {
     return dataPoints;
   }
 
-  public void setDataPoints(List<Object> dataPoints) {
+  public void setDataPoints(Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints) {
     this.dataPoints = dataPoints;
   }
 
@@ -247,9 +248,19 @@ public class SearchSiteContent200ResponseArticlesInner {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("dataPoints") != null && !jsonObj.get("dataPoints").isJsonNull() && !jsonObj.get("dataPoints").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dataPoints` to be an array in the JSON string but got `%s`", jsonObj.get("dataPoints").toString()));
+      if (jsonObj.get("dataPoints") != null && !jsonObj.get("dataPoints").isJsonNull()) {
+        JsonArray jsonArraydataPoints = jsonObj.getAsJsonArray("dataPoints");
+        if (jsonArraydataPoints != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("dataPoints").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `dataPoints` to be an array in the JSON string but got `%s`", jsonObj.get("dataPoints").toString()));
+          }
+
+          // validate the optional field `dataPoints` (array)
+          for (int i = 0; i < jsonArraydataPoints.size(); i++) {
+            SearchSiteContent200ResponseArticlesInnerDataPointsInner.validateJsonElement(jsonArraydataPoints.get(i));
+          };
+        }
       }
       if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));

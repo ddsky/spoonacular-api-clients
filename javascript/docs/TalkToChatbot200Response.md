@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answerText** | **String** |  | 
-**media** | **[Object]** |  | 
+**media** | [**[TalkToChatbot200ResponseMediaInner]**](TalkToChatbot200ResponseMediaInner.md) |  | 
 
 

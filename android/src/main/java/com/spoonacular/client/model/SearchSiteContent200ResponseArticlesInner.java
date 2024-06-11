@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.OasAnyTypeNotMapped;
+import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 public class SearchSiteContent200ResponseArticlesInner {
   
   @SerializedName("dataPoints")
-  private List<OasAnyTypeNotMapped> dataPoints = null;
+  private Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints = null;
   @SerializedName("image")
   private String image = null;
   @SerializedName("link")
@@ -32,10 +32,10 @@ public class SearchSiteContent200ResponseArticlesInner {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<OasAnyTypeNotMapped> getDataPoints() {
+  public Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> getDataPoints() {
     return dataPoints;
   }
-  public void setDataPoints(List<OasAnyTypeNotMapped> dataPoints) {
+  public void setDataPoints(Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints) {
     this.dataPoints = dataPoints;
   }
 

@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 ## ProductNutritionByIDImage
 
-> map[string]interface{} ProductNutritionByIDImage(ctx, id).Execute()
+> *os.File ProductNutritionByIDImage(ctx, id).Execute()
 
 Product Nutrition by ID Image
 
@@ -392,7 +392,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ProductNutritionByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ProductNutritionByIDImage`: map[string]interface{}
+	// response from `ProductNutritionByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ProductNutritionByIDImage`: %v\n", resp)
 }
 ```
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ## ProductNutritionLabelImage
 
-> map[string]interface{} ProductNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+> *os.File ProductNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
 
 Product Nutrition Label Image
 
@@ -465,7 +465,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ProductNutritionLabelImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ProductNutritionLabelImage`: map[string]interface{}
+	// response from `ProductNutritionLabelImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.ProductNutritionLabelImage`: %v\n", resp)
 }
 ```
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeProductNutritionByID
 
-> string VisualizeProductNutritionByID(ctx, id).DefaultCss(defaultCss).Accept(accept).Execute()
+> string VisualizeProductNutritionByID(ctx, id).DefaultCss(defaultCss).Execute()
 
 Product Nutrition by ID Widget
 
@@ -767,11 +767,10 @@ import (
 func main() {
 	id := int32(1) // int32 | The item's id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-	accept := "application/json" // string | Accept header. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductsAPI.VisualizeProductNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
+	resp, r, err := apiClient.ProductsAPI.VisualizeProductNutritionByID(context.Background(), id).DefaultCss(defaultCss).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.VisualizeProductNutritionByID``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -798,7 +797,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **defaultCss** | **bool** | Whether the default CSS should be added to the response. | [default to true]
- **accept** | **string** | Accept header. | 
 
 ### Return type
 

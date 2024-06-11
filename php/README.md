@@ -105,10 +105,10 @@ Class | Method | HTTP request | Description
 *MealPlanningApi* | [**deleteFromShoppingList**](docs/Api/MealPlanningApi.md#deletefromshoppinglist) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
 *MealPlanningApi* | [**deleteMealPlanTemplate**](docs/Api/MealPlanningApi.md#deletemealplantemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
 *MealPlanningApi* | [**generateMealPlan**](docs/Api/MealPlanningApi.md#generatemealplan) | **GET** /mealplanner/generate | Generate Meal Plan
-*MealPlanningApi* | [**generateShoppingList**](docs/Api/MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start-date}/{end-date} | Generate Shopping List
+*MealPlanningApi* | [**generateShoppingList**](docs/Api/MealPlanningApi.md#generateshoppinglist) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
 *MealPlanningApi* | [**getMealPlanTemplate**](docs/Api/MealPlanningApi.md#getmealplantemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
 *MealPlanningApi* | [**getMealPlanTemplates**](docs/Api/MealPlanningApi.md#getmealplantemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-*MealPlanningApi* | [**getMealPlanWeek**](docs/Api/MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start-date} | Get Meal Plan Week
+*MealPlanningApi* | [**getMealPlanWeek**](docs/Api/MealPlanningApi.md#getmealplanweek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
 *MealPlanningApi* | [**getShoppingList**](docs/Api/MealPlanningApi.md#getshoppinglist) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
 *MenuItemsApi* | [**autocompleteMenuItemSearch**](docs/Api/MenuItemsApi.md#autocompletemenuitemsearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
 *MenuItemsApi* | [**getMenuItemInformation**](docs/Api/MenuItemsApi.md#getmenuiteminformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
@@ -336,10 +336,10 @@ Class | Method | HTTP request | Description
 - [SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
 - [SearchSiteContent200Response](docs/Model/SearchSiteContent200Response.md)
 - [SearchSiteContent200ResponseArticlesInner](docs/Model/SearchSiteContent200ResponseArticlesInner.md)
-- [SearchSiteContent200ResponseGroceryProductsInner](docs/Model/SearchSiteContent200ResponseGroceryProductsInner.md)
-- [SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/Model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+- [SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/Model/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
 - [SummarizeRecipe200Response](docs/Model/SummarizeRecipe200Response.md)
 - [TalkToChatbot200Response](docs/Model/TalkToChatbot200Response.md)
+- [TalkToChatbot200ResponseMediaInner](docs/Model/TalkToChatbot200ResponseMediaInner.md)
 
 ## Authorization
 

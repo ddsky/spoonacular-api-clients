@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 # **productNutritionByIDImage**
 ```objc
 -(NSURLSessionTask*) productNutritionByIDImageWithId: (NSNumber*) _id
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Product Nutrition by ID Image
@@ -340,7 +340,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Product Nutrition by ID Image
 [apiInstance productNutritionByIDImageWithId:_id
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
     showOptionalNutrients: (NSNumber*) showOptionalNutrients
     showZeroValues: (NSNumber*) showZeroValues
     showIngredients: (NSNumber*) showIngredients
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Product Nutrition Label Image
@@ -406,7 +406,7 @@ OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
               showOptionalNutrients:showOptionalNutrients
               showZeroValues:showZeroValues
               showIngredients:showIngredients
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -675,7 +675,6 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) visualizeProductNutritionByIDWithId: (NSNumber*) _id
     defaultCss: (NSNumber*) defaultCss
-    accept: (NSString*) accept
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -695,14 +694,12 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 NSNumber* _id = 1; // The item's id.
 NSNumber* defaultCss = false; // Whether the default CSS should be added to the response. (optional) (default to @(YES))
-NSString* accept = application/json; // Accept header. (optional)
 
 OAIProductsApi*apiInstance = [[OAIProductsApi alloc] init];
 
 // Product Nutrition by ID Widget
 [apiInstance visualizeProductNutritionByIDWithId:_id
               defaultCss:defaultCss
-              accept:accept
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -719,7 +716,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_id** | **NSNumber***| The item&#39;s id. | 
  **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] [default to @(YES)]
- **accept** | **NSString***| Accept header. | [optional] 
 
 ### Return type
 

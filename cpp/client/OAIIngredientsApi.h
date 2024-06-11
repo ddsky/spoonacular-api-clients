@@ -22,10 +22,10 @@
 #include "OAIComputeIngredientAmount_200_response.h"
 #include "OAIGetIngredientInformation_200_response.h"
 #include "OAIGetIngredientSubstitutes_200_response.h"
+#include "OAIHttpFileElement.h"
 #include "OAIIngredientSearch_200_response.h"
 #include "OAIMapIngredientsToGroceryProducts_200_response_inner.h"
 #include "OAIMapIngredientsToGroceryProducts_request.h"
-#include "OAIObject.h"
 #include <QSet>
 #include <QString>
 
@@ -130,11 +130,15 @@ public:
     void mapIngredientsToGroceryProducts(const OAIMapIngredientsToGroceryProducts_request &oai_map_ingredients_to_grocery_products_request);
 
     /**
-    * @param[in]  content_type QString [optional]
+    * @param[in]  ingredient_list QString [required]
+    * @param[in]  servings double [required]
     * @param[in]  language QString [optional]
-    * @param[in]  accept QString [optional]
+    * @param[in]  measure QString [optional]
+    * @param[in]  view QString [optional]
+    * @param[in]  default_css bool [optional]
+    * @param[in]  show_backlink bool [optional]
     */
-    void visualizeIngredients(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>());
+    void visualizeIngredients(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &measure = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &view = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_backlink = ::OpenAPI::OptionalParam<bool>());
 
 
 private:
@@ -177,7 +181,7 @@ Q_SIGNALS:
     void getIngredientSubstitutesSignal(OAIGetIngredientSubstitutes_200_response summary);
     void getIngredientSubstitutesByIDSignal(OAIGetIngredientSubstitutes_200_response summary);
     void ingredientSearchSignal(OAIIngredientSearch_200_response summary);
-    void ingredientsByIDImageSignal(OAIObject summary);
+    void ingredientsByIDImageSignal(OAIHttpFileElement summary);
     void mapIngredientsToGroceryProductsSignal(QSet<OAIMapIngredientsToGroceryProducts_200_response_inner> summary);
     void visualizeIngredientsSignal(QString summary);
 
@@ -187,7 +191,7 @@ Q_SIGNALS:
     void getIngredientSubstitutesSignalFull(OAIHttpRequestWorker *worker, OAIGetIngredientSubstitutes_200_response summary);
     void getIngredientSubstitutesByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetIngredientSubstitutes_200_response summary);
     void ingredientSearchSignalFull(OAIHttpRequestWorker *worker, OAIIngredientSearch_200_response summary);
-    void ingredientsByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void ingredientsByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void mapIngredientsToGroceryProductsSignalFull(OAIHttpRequestWorker *worker, QSet<OAIMapIngredientsToGroceryProducts_200_response_inner> summary);
     void visualizeIngredientsSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
@@ -210,8 +214,8 @@ Q_SIGNALS:
     void ingredientSearchSignalE(OAIIngredientSearch_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ingredientSearchSignalError(OAIIngredientSearch_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ingredientsByIDImageSignalError() instead")
-    void ingredientsByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ingredientsByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ingredientsByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ingredientsByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use mapIngredientsToGroceryProductsSignalError() instead")
     void mapIngredientsToGroceryProductsSignalE(QSet<OAIMapIngredientsToGroceryProducts_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void mapIngredientsToGroceryProductsSignalError(QSet<OAIMapIngredientsToGroceryProducts_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);

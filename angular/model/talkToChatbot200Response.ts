@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { TalkToChatbot200ResponseMediaInner } from './talkToChatbot200ResponseMediaInner';
 
 
 /**
@@ -16,6 +17,6 @@
  */
 export interface TalkToChatbot200Response { 
     answerText: string;
-    media: Array<any>;
+    media: Array<TalkToChatbot200ResponseMediaInner>;
 }
 

@@ -1293,7 +1293,7 @@ void OAIMealPlanningApi::generateMealPlanCallback(OAIHttpRequestWorker *worker) 
 }
 
 void OAIMealPlanningApi::generateShoppingList(const QString &username, const QString &start_date, const QString &end_date, const QString &hash) {
-    QString fullPath = QString(_serverConfigs["generateShoppingList"][_serverIndices.value("generateShoppingList")].URL()+"/mealplanner/{username}/shopping-list/{start-date}/{end-date}");
+    QString fullPath = QString(_serverConfigs["generateShoppingList"][_serverIndices.value("generateShoppingList")].URL()+"/mealplanner/{username}/shopping-list/{start_date}/{end_date}");
     
     if (_apiKeys.contains("apiKeyScheme")) {
         addHeaders("apiKeyScheme",_apiKeys.find("apiKeyScheme").value());
@@ -1316,29 +1316,29 @@ void OAIMealPlanningApi::generateShoppingList(const QString &username, const QSt
     
     {
         QString start_datePathParam("{");
-        start_datePathParam.append("start-date").append("}");
+        start_datePathParam.append("start_date").append("}");
         QString pathPrefix, pathSuffix, pathDelimiter;
         QString pathStyle = "simple";
         if (pathStyle == "")
             pathStyle = "simple";
         pathPrefix = getParamStylePrefix(pathStyle);
         pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "start-date", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"start-date"+pathSuffix : pathPrefix;
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "start_date", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"start_date"+pathSuffix : pathPrefix;
         fullPath.replace(start_datePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(start_date)));
     }
     
     {
         QString end_datePathParam("{");
-        end_datePathParam.append("end-date").append("}");
+        end_datePathParam.append("end_date").append("}");
         QString pathPrefix, pathSuffix, pathDelimiter;
         QString pathStyle = "simple";
         if (pathStyle == "")
             pathStyle = "simple";
         pathPrefix = getParamStylePrefix(pathStyle);
         pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "end-date", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"end-date"+pathSuffix : pathPrefix;
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "end_date", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"end_date"+pathSuffix : pathPrefix;
         fullPath.replace(end_datePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(end_date)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
@@ -1662,7 +1662,7 @@ void OAIMealPlanningApi::getMealPlanTemplatesCallback(OAIHttpRequestWorker *work
 }
 
 void OAIMealPlanningApi::getMealPlanWeek(const QString &username, const QString &start_date, const QString &hash) {
-    QString fullPath = QString(_serverConfigs["getMealPlanWeek"][_serverIndices.value("getMealPlanWeek")].URL()+"/mealplanner/{username}/week/{start-date}");
+    QString fullPath = QString(_serverConfigs["getMealPlanWeek"][_serverIndices.value("getMealPlanWeek")].URL()+"/mealplanner/{username}/week/{start_date}");
     
     if (_apiKeys.contains("apiKeyScheme")) {
         addHeaders("apiKeyScheme",_apiKeys.find("apiKeyScheme").value());
@@ -1685,15 +1685,15 @@ void OAIMealPlanningApi::getMealPlanWeek(const QString &username, const QString 
     
     {
         QString start_datePathParam("{");
-        start_datePathParam.append("start-date").append("}");
+        start_datePathParam.append("start_date").append("}");
         QString pathPrefix, pathSuffix, pathDelimiter;
         QString pathStyle = "simple";
         if (pathStyle == "")
             pathStyle = "simple";
         pathPrefix = getParamStylePrefix(pathStyle);
         pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "start-date", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"start-date"+pathSuffix : pathPrefix;
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "start_date", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"start_date"+pathSuffix : pathPrefix;
         fullPath.replace(start_datePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(start_date)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;

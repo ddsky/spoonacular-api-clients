@@ -19,7 +19,7 @@ class TalkToChatbot200Response {
 
   String answerText;
 
-  List<Object> media;
+  List<TalkToChatbot200ResponseMediaInner> media;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TalkToChatbot200Response &&
@@ -62,7 +62,7 @@ class TalkToChatbot200Response {
 
       return TalkToChatbot200Response(
         answerText: mapValueOfType<String>(json, r'answerText')!,
-        media: Object.listFromJson(json[r'media']),
+        media: TalkToChatbot200ResponseMediaInner.listFromJson(json[r'media']),
       );
     }
     return null;

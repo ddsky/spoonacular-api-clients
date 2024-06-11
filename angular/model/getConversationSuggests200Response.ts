@@ -17,6 +17,6 @@ import { GetConversationSuggests200ResponseSuggests } from './getConversationSug
  */
 export interface GetConversationSuggests200Response { 
     suggests: GetConversationSuggests200ResponseSuggests;
-    words: Array<any>;
+    words: Array<string>;
 }
 

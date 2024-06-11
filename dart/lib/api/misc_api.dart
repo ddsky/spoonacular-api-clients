@@ -24,9 +24,8 @@ class MiscApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<Response> detectFoodInTextWithHttpInfo({ String? contentType, }) async {
+  /// * [String] text (required):
+  Future<Response> detectFoodInTextWithHttpInfo(String text,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/detect';
 
@@ -37,12 +36,11 @@ class MiscApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (text != null) {
+      formParams[r'text'] = parameterToString(text);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -61,10 +59,9 @@ class MiscApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<DetectFoodInText200Response?> detectFoodInText({ String? contentType, }) async {
-    final response = await detectFoodInTextWithHttpInfo( contentType: contentType, );
+  /// * [String] text (required):
+  Future<DetectFoodInText200Response?> detectFoodInText(String text,) async {
+    final response = await detectFoodInTextWithHttpInfo(text,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

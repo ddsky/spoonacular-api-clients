@@ -955,7 +955,7 @@ sub generate_shopping_list {
     }
 
     # parse inputs
-    my $_resource_path = '/mealplanner/{username}/shopping-list/{start-date}/{end-date}';
+    my $_resource_path = '/mealplanner/{username}/shopping-list/{start_date}/{end_date}';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -983,14 +983,14 @@ sub generate_shopping_list {
 
     # path params
     if ( exists $args{'start_date'}) {
-        my $_base_variable = "{" . "start-date" . "}";
+        my $_base_variable = "{" . "start_date" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'start_date'});
         $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
     if ( exists $args{'end_date'}) {
-        my $_base_variable = "{" . "end-date" . "}";
+        my $_base_variable = "{" . "end_date" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'end_date'});
         $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
@@ -1247,7 +1247,7 @@ sub get_meal_plan_week {
     }
 
     # parse inputs
-    my $_resource_path = '/mealplanner/{username}/week/{start-date}';
+    my $_resource_path = '/mealplanner/{username}/week/{start_date}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1275,7 +1275,7 @@ sub get_meal_plan_week {
 
     # path params
     if ( exists $args{'start_date'}) {
-        my $_base_variable = "{" . "start-date" . "}";
+        my $_base_variable = "{" . "start_date" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'start_date'});
         $_resource_path =~ s/$_base_variable/$_base_value/g;
     }

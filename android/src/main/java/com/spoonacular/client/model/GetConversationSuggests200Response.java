@@ -13,7 +13,6 @@
 package com.spoonacular.client.model;
 
 import com.spoonacular.client.model.GetConversationSuggests200ResponseSuggests;
-import com.spoonacular.client.model.OasAnyTypeNotMapped;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ public class GetConversationSuggests200Response {
   @SerializedName("suggests")
   private GetConversationSuggests200ResponseSuggests suggests = null;
   @SerializedName("words")
-  private List<OasAnyTypeNotMapped> words = null;
+  private List<String> words = null;
 
   /**
    **/
@@ -42,10 +41,10 @@ public class GetConversationSuggests200Response {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<OasAnyTypeNotMapped> getWords() {
+  public List<String> getWords() {
     return words;
   }
-  public void setWords(List<OasAnyTypeNotMapped> words) {
+  public void setWords(List<String> words) {
     this.words = words;
   }
 

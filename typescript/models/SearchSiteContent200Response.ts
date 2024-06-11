@@ -11,7 +11,6 @@
  */
 
 import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseGroceryProductsInner } from '../models/SearchSiteContent200ResponseGroceryProductsInner';
 import { HttpFile } from '../http/http';
 
 /**
@@ -19,9 +18,9 @@ import { HttpFile } from '../http/http';
 */
 export class SearchSiteContent200Response {
     'articles': Set<SearchSiteContent200ResponseArticlesInner>;
-    'groceryProducts': Set<SearchSiteContent200ResponseGroceryProductsInner>;
-    'menuItems': Set<SearchSiteContent200ResponseGroceryProductsInner>;
-    'recipes': Set<SearchSiteContent200ResponseGroceryProductsInner>;
+    'groceryProducts': Set<SearchSiteContent200ResponseArticlesInner>;
+    'menuItems': Set<SearchSiteContent200ResponseArticlesInner>;
+    'recipes': Set<SearchSiteContent200ResponseArticlesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,19 +34,19 @@ export class SearchSiteContent200Response {
         {
             "name": "groceryProducts",
             "baseName": "Grocery Products",
-            "type": "Set<SearchSiteContent200ResponseGroceryProductsInner>",
+            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
             "format": ""
         },
         {
             "name": "menuItems",
             "baseName": "Menu Items",
-            "type": "Set<SearchSiteContent200ResponseGroceryProductsInner>",
+            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
             "format": ""
         },
         {
             "name": "recipes",
             "baseName": "Recipes",
-            "type": "Set<SearchSiteContent200ResponseGroceryProductsInner>",
+            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
             "format": ""
         }    ];
 

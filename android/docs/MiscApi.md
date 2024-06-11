@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detectFoodInText
 
-> DetectFoodInText200Response detectFoodInText(contentType)
+> DetectFoodInText200Response detectFoodInText(text)
 
 Detect Food in Text
 
@@ -33,9 +33,9 @@ Take any text and find all mentions of food contained within it. This task is al
 //import com.spoonacular.MiscApi;
 
 MiscApi apiInstance = new MiscApi();
-String contentType = application/json; // String | The content type.
+String text = null; // String | 
 try {
-    DetectFoodInText200Response result = apiInstance.detectFoodInText(contentType);
+    DetectFoodInText200Response result = apiInstance.detectFoodInText(text);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MiscApi#detectFoodInText");
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] [default to null] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **text** | **String**|  | [default to null]
 
 ### Return type
 

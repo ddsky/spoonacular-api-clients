@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a id="detectFoodInText"></a>
 # **detectFoodInText**
-> DetectFoodInText200Response detectFoodInText(contentType)
+> DetectFoodInText200Response detectFoodInText(text)
 
 Detect Food in Text
 
@@ -32,9 +32,9 @@ Take any text and find all mentions of food contained within it. This task is al
 //import com.spoonacular.client.model.*
 
 val apiInstance = MiscApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
+val text : kotlin.String = text_example // kotlin.String | 
 try {
-    val result : DetectFoodInText200Response = apiInstance.detectFoodInText(contentType)
+    val result : DetectFoodInText200Response = apiInstance.detectFoodInText(text)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#detectFoodInText")
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **text** | **kotlin.String**|  |
 
 ### Return type
 

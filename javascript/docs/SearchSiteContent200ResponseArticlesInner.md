@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dataPoints** | **[Object]** |  | [optional] 
+**dataPoints** | [**[SearchSiteContent200ResponseArticlesInnerDataPointsInner]**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  | [optional] 
 **image** | **String** |  | 
 **link** | **String** |  | 
 **name** | **String** |  | 

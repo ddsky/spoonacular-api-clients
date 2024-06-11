@@ -16,7 +16,6 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
 local spoonacular_autocomplete_product_search_200_response = require "spoonacular.model.autocomplete_product_search_200_response"
 local spoonacular_classify_grocery_product_bulk_200_response_inner = require "spoonacular.model.classify_grocery_product_bulk_200_response_inner"
 local spoonacular_classify_grocery_product_bulk_request_inner = require "spoonacular.model.classify_grocery_product_bulk_request_inner"
@@ -357,7 +356,7 @@ function products_api:product_nutrition_by_id_image(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -407,7 +406,7 @@ function products_api:product_nutrition_label_image(id, show_optional_nutrients,
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -569,7 +568,7 @@ function products_api:search_grocery_products_by_upc(upc)
 	end
 end
 
-function products_api:visualize_product_nutrition_by_id(id, default_css, accept)
+function products_api:visualize_product_nutrition_by_id(id, default_css)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -584,9 +583,6 @@ function products_api:visualize_product_nutrition_by_id(id, default_css, accept)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])

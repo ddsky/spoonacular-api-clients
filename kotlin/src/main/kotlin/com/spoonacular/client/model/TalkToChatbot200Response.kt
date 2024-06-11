@@ -15,6 +15,7 @@
 
 package com.spoonacular.client.model
 
+import com.spoonacular.client.model.TalkToChatbot200ResponseMediaInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,7 +34,7 @@ data class TalkToChatbot200Response (
     val answerText: kotlin.String,
 
     @Json(name = "media")
-    val media: kotlin.collections.List<kotlin.Any>
+    val media: kotlin.collections.List<TalkToChatbot200ResponseMediaInner>
 
 )
 

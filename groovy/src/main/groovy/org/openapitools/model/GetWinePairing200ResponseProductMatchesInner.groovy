@@ -4,7 +4,6 @@ import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 @Canonical
 class GetWinePairing200ResponseProductMatchesInner {
@@ -15,7 +14,7 @@ class GetWinePairing200ResponseProductMatchesInner {
     
     BigDecimal averageRating
     
-    Object description = null
+    String description
     
     String imageUrl
     

@@ -27,9 +27,9 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner(BaseModel):
     """
     SearchGroceryProductsByUPC200ResponseIngredientsInner
     """ # noqa: E501
-    description: Optional[Any] = None
+    description: Optional[StrictStr] = None
     name: StrictStr
-    safety_level: Optional[Any] = None
+    safety_level: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["description", "name", "safety_level"]
 
     model_config = {
@@ -71,16 +71,6 @@ class SearchGroceryProductsByUPC200ResponseIngredientsInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
-        # set to None if safety_level (nullable) is None
-        # and model_fields_set contains the field
-        if self.safety_level is None and "safety_level" in self.model_fields_set:
-            _dict['safety_level'] = None
-
         return _dict
 
     @classmethod

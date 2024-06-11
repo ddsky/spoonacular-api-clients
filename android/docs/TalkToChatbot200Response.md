@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answerText** | **String** |  | 
-**media** | [**List&lt;OasAnyTypeNotMapped&gt;**](OasAnyTypeNotMapped.md) |  | 
+**media** | [**List&lt;TalkToChatbot200ResponseMediaInner&gt;**](TalkToChatbot200ResponseMediaInner.md) |  | 
 
 
 

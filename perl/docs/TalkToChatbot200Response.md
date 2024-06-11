@@ -9,7 +9,7 @@ use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answer_text** | **string** |  | 
-**media** | **ARRAY[object]** |  | 
+**media** | [**ARRAY[TalkToChatbot200ResponseMediaInner]**](TalkToChatbot200ResponseMediaInner.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -85,26 +85,26 @@ module OpenapiClient
 
     # Analyze Recipe Instructions
     # This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
+    # @param instructions [String] The recipe&#39;s instructions.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @return [AnalyzeRecipeInstructions200Response]
-    def analyze_recipe_instructions(opts = {})
-      data, _status_code, _headers = analyze_recipe_instructions_with_http_info(opts)
+    def analyze_recipe_instructions(instructions, opts = {})
+      data, _status_code, _headers = analyze_recipe_instructions_with_http_info(instructions, opts)
       data
     end
 
     # Analyze Recipe Instructions
     # This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
+    # @param instructions [String] The recipe&#39;s instructions.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @return [Array<(AnalyzeRecipeInstructions200Response, Integer, Hash)>] AnalyzeRecipeInstructions200Response data, response status code and response headers
-    def analyze_recipe_instructions_with_http_info(opts = {})
+    def analyze_recipe_instructions_with_http_info(instructions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.analyze_recipe_instructions ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'instructions' is set
+      if @api_client.config.client_side_validation && instructions.nil?
+        fail ArgumentError, "Missing the required parameter 'instructions' when calling RecipesApi.analyze_recipe_instructions"
       end
       # resource path
       local_var_path = '/recipes/analyzeInstructions'
@@ -121,10 +121,10 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['instructions'] = instructions
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -225,32 +225,45 @@ module OpenapiClient
 
     # Classify Cuisine
     # Classify the recipe's cuisine.
+    # @param title [String] The title of the recipe.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
+    # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
     # @return [ClassifyCuisine200Response]
-    def classify_cuisine(opts = {})
-      data, _status_code, _headers = classify_cuisine_with_http_info(opts)
+    def classify_cuisine(title, ingredient_list, opts = {})
+      data, _status_code, _headers = classify_cuisine_with_http_info(title, ingredient_list, opts)
       data
     end
 
     # Classify Cuisine
     # Classify the recipe&#39;s cuisine.
+    # @param title [String] The title of the recipe.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
+    # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
     # @return [Array<(ClassifyCuisine200Response, Integer, Hash)>] ClassifyCuisine200Response data, response status code and response headers
-    def classify_cuisine_with_http_info(opts = {})
+    def classify_cuisine_with_http_info(title, ingredient_list, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.classify_cuisine ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'title' is set
+      if @api_client.config.client_side_validation && title.nil?
+        fail ArgumentError, "Missing the required parameter 'title' when calling RecipesApi.classify_cuisine"
+      end
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling RecipesApi.classify_cuisine"
+      end
+      allowable_values = ["en", "de"]
+      if @api_client.config.client_side_validation && opts[:'language'] && !allowable_values.include?(opts[:'language'])
+        fail ArgumentError, "invalid value for \"language\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/recipes/cuisine'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'language'] = opts[:'language'] if !opts[:'language'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -261,10 +274,11 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['title'] = title
+      form_params['ingredientList'] = ingredient_list
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -454,26 +468,84 @@ module OpenapiClient
 
     # Create Recipe Card
     # Generate a recipe card for a recipe.
+    # @param title [String] The title of the recipe.
+    # @param ingredients [String] The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    # @param instructions [String] The instructions to make the recipe. One step per line (separate lines with \\\\n).
+    # @param ready_in_minutes [Float] The number of minutes it takes to get the recipe on the table.
+    # @param servings [Float] The number of servings the recipe makes.
+    # @param mask [String] The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+    # @param background_image [String] The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
+    # @option opts [File] :image The binary image of the recipe as jpg.
+    # @option opts [String] :image_url If you do not sent a binary image you can also pass the image URL.
+    # @option opts [String] :author The author of the recipe.
+    # @option opts [String] :background_color The background color for the recipe card as a hex-string.
+    # @option opts [String] :font_color The font color for the recipe card as a hex-string.
+    # @option opts [String] :source The source of the recipe.
     # @return [CreateRecipeCard200Response]
-    def create_recipe_card(opts = {})
-      data, _status_code, _headers = create_recipe_card_with_http_info(opts)
+    def create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts = {})
+      data, _status_code, _headers = create_recipe_card_with_http_info(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts)
       data
     end
 
     # Create Recipe Card
     # Generate a recipe card for a recipe.
+    # @param title [String] The title of the recipe.
+    # @param ingredients [String] The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    # @param instructions [String] The instructions to make the recipe. One step per line (separate lines with \\\\n).
+    # @param ready_in_minutes [Float] The number of minutes it takes to get the recipe on the table.
+    # @param servings [Float] The number of servings the recipe makes.
+    # @param mask [String] The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+    # @param background_image [String] The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
+    # @option opts [File] :image The binary image of the recipe as jpg.
+    # @option opts [String] :image_url If you do not sent a binary image you can also pass the image URL.
+    # @option opts [String] :author The author of the recipe.
+    # @option opts [String] :background_color The background color for the recipe card as a hex-string.
+    # @option opts [String] :font_color The font color for the recipe card as a hex-string.
+    # @option opts [String] :source The source of the recipe.
     # @return [Array<(CreateRecipeCard200Response, Integer, Hash)>] CreateRecipeCard200Response data, response status code and response headers
-    def create_recipe_card_with_http_info(opts = {})
+    def create_recipe_card_with_http_info(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.create_recipe_card ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'title' is set
+      if @api_client.config.client_side_validation && title.nil?
+        fail ArgumentError, "Missing the required parameter 'title' when calling RecipesApi.create_recipe_card"
+      end
+      # verify the required parameter 'ingredients' is set
+      if @api_client.config.client_side_validation && ingredients.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredients' when calling RecipesApi.create_recipe_card"
+      end
+      # verify the required parameter 'instructions' is set
+      if @api_client.config.client_side_validation && instructions.nil?
+        fail ArgumentError, "Missing the required parameter 'instructions' when calling RecipesApi.create_recipe_card"
+      end
+      # verify the required parameter 'ready_in_minutes' is set
+      if @api_client.config.client_side_validation && ready_in_minutes.nil?
+        fail ArgumentError, "Missing the required parameter 'ready_in_minutes' when calling RecipesApi.create_recipe_card"
+      end
+      # verify the required parameter 'servings' is set
+      if @api_client.config.client_side_validation && servings.nil?
+        fail ArgumentError, "Missing the required parameter 'servings' when calling RecipesApi.create_recipe_card"
+      end
+      # verify the required parameter 'mask' is set
+      if @api_client.config.client_side_validation && mask.nil?
+        fail ArgumentError, "Missing the required parameter 'mask' when calling RecipesApi.create_recipe_card"
+      end
+      # verify enum value
+      allowable_values = ["ellipseMask", "diamondMask", "starMask", "heartMask", "potMask", "fishMask"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(mask)
+        fail ArgumentError, "invalid value for \"mask\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'background_image' is set
+      if @api_client.config.client_side_validation && background_image.nil?
+        fail ArgumentError, "Missing the required parameter 'background_image' when calling RecipesApi.create_recipe_card"
+      end
+      # verify enum value
+      allowable_values = ["none", "background1", "background2"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(background_image)
+        fail ArgumentError, "invalid value for \"background_image\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/recipes/visualizeRecipe'
@@ -490,10 +562,22 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['title'] = title
+      form_params['ingredients'] = ingredients
+      form_params['instructions'] = instructions
+      form_params['readyInMinutes'] = ready_in_minutes
+      form_params['servings'] = servings
+      form_params['mask'] = mask
+      form_params['backgroundImage'] = background_image
+      form_params['image'] = opts[:'image'] if !opts[:'image'].nil?
+      form_params['imageUrl'] = opts[:'image_url'] if !opts[:'image_url'].nil?
+      form_params['author'] = opts[:'author'] if !opts[:'author'].nil?
+      form_params['backgroundColor'] = opts[:'background_color'] if !opts[:'background_color'].nil?
+      form_params['fontColor'] = opts[:'font_color'] if !opts[:'font_color'].nil?
+      form_params['source'] = opts[:'source'] if !opts[:'source'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -525,7 +609,7 @@ module OpenapiClient
     # Visualize a recipe's equipment list as an image.
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [File]
     def equipment_by_id_image(id, opts = {})
       data, _status_code, _headers = equipment_by_id_image_with_http_info(id, opts)
       data
@@ -535,7 +619,7 @@ module OpenapiClient
     # Visualize a recipe&#39;s equipment list as an image.
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def equipment_by_id_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.equipment_by_id_image ...'
@@ -562,7 +646,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1400,28 +1484,36 @@ module OpenapiClient
 
     # Parse Ingredients
     # Extract an ingredient from plain text.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param servings [Float] The number of servings that you can make from the ingredients.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+    # @option opts [Boolean] :include_nutrition 
     # @return [Array<ParseIngredients200ResponseInner>]
-    def parse_ingredients(opts = {})
-      data, _status_code, _headers = parse_ingredients_with_http_info(opts)
+    def parse_ingredients(ingredient_list, servings, opts = {})
+      data, _status_code, _headers = parse_ingredients_with_http_info(ingredient_list, servings, opts)
       data
     end
 
     # Parse Ingredients
     # Extract an ingredient from plain text.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param servings [Float] The number of servings that you can make from the ingredients.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+    # @option opts [Boolean] :include_nutrition 
     # @return [Array<(Array<ParseIngredients200ResponseInner>, Integer, Hash)>] Array<ParseIngredients200ResponseInner> data, response status code and response headers
-    def parse_ingredients_with_http_info(opts = {})
+    def parse_ingredients_with_http_info(ingredient_list, servings, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.parse_ingredients ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling RecipesApi.parse_ingredients"
+      end
+      # verify the required parameter 'servings' is set
+      if @api_client.config.client_side_validation && servings.nil?
+        fail ArgumentError, "Missing the required parameter 'servings' when calling RecipesApi.parse_ingredients"
       end
       allowable_values = ["en", "de"]
       if @api_client.config.client_side_validation && opts[:'language'] && !allowable_values.include?(opts[:'language'])
@@ -1443,10 +1535,12 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['ingredientList'] = ingredient_list
+      form_params['servings'] = servings
+      form_params['includeNutrition'] = opts[:'include_nutrition'] if !opts[:'include_nutrition'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -1478,7 +1572,7 @@ module OpenapiClient
     # Visualize a recipe's price breakdown.
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [File]
     def price_breakdown_by_id_image(id, opts = {})
       data, _status_code, _headers = price_breakdown_by_id_image_with_http_info(id, opts)
       data
@@ -1488,7 +1582,7 @@ module OpenapiClient
     # Visualize a recipe&#39;s price breakdown.
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def price_breakdown_by_id_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.price_breakdown_by_id_image ...'
@@ -1515,7 +1609,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1605,7 +1699,7 @@ module OpenapiClient
     # Visualize a recipe's nutritional information as an image.
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [File]
     def recipe_nutrition_by_id_image(id, opts = {})
       data, _status_code, _headers = recipe_nutrition_by_id_image_with_http_info(id, opts)
       data
@@ -1615,7 +1709,7 @@ module OpenapiClient
     # Visualize a recipe&#39;s nutritional information as an image.
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def recipe_nutrition_by_id_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.recipe_nutrition_by_id_image ...'
@@ -1642,7 +1736,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1671,7 +1765,7 @@ module OpenapiClient
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
     # @option opts [Boolean] :show_ingredients Whether to show a list of ingredients.
-    # @return [Object]
+    # @return [File]
     def recipe_nutrition_label_image(id, opts = {})
       data, _status_code, _headers = recipe_nutrition_label_image_with_http_info(id, opts)
       data
@@ -1684,7 +1778,7 @@ module OpenapiClient
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
     # @option opts [Boolean] :show_ingredients Whether to show a list of ingredients.
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def recipe_nutrition_label_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.recipe_nutrition_label_image ...'
@@ -1714,7 +1808,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1817,7 +1911,7 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Normalize to the strongest taste.
     # @option opts [String] :rgb Red, green, blue values for the chart color.
-    # @return [Object]
+    # @return [File]
     def recipe_taste_by_id_image(id, opts = {})
       data, _status_code, _headers = recipe_taste_by_id_image_with_http_info(id, opts)
       data
@@ -1829,7 +1923,7 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Normalize to the strongest taste.
     # @option opts [String] :rgb Red, green, blue values for the chart color.
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def recipe_taste_by_id_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.recipe_taste_by_id_image ...'
@@ -1858,7 +1952,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -2693,32 +2787,36 @@ module OpenapiClient
 
     # Equipment Widget
     # Visualize the equipment used to make a recipe.
+    # @param instructions [String] The recipe&#39;s instructions.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
+    # @option opts [String] :view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [String]
-    def visualize_equipment(opts = {})
-      data, _status_code, _headers = visualize_equipment_with_http_info(opts)
+    def visualize_equipment(instructions, opts = {})
+      data, _status_code, _headers = visualize_equipment_with_http_info(instructions, opts)
       data
     end
 
     # Equipment Widget
     # Visualize the equipment used to make a recipe.
+    # @param instructions [String] The recipe&#39;s instructions.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
+    # @option opts [String] :view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
-    def visualize_equipment_with_http_info(opts = {})
+    def visualize_equipment_with_http_info(instructions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.visualize_equipment ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'instructions' is set
+      if @api_client.config.client_side_validation && instructions.nil?
+        fail ArgumentError, "Missing the required parameter 'instructions' when calling RecipesApi.visualize_equipment"
       end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
+      allowable_values = ["grid", "list"]
+      if @api_client.config.client_side_validation && opts[:'view'] && !allowable_values.include?(opts[:'view'])
+        fail ArgumentError, "invalid value for \"view\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/recipes/visualizeEquipment'
@@ -2735,11 +2833,13 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['instructions'] = instructions
+      form_params['view'] = opts[:'view'] if !opts[:'view'].nil?
+      form_params['defaultCss'] = opts[:'default_css'] if !opts[:'default_css'].nil?
+      form_params['showBacklink'] = opts[:'show_backlink'] if !opts[:'show_backlink'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -2769,34 +2869,40 @@ module OpenapiClient
 
     # Price Breakdown Widget
     # Visualize the price breakdown of a recipe.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+    # @option opts [Float] :mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [String]
-    def visualize_price_breakdown(opts = {})
-      data, _status_code, _headers = visualize_price_breakdown_with_http_info(opts)
+    def visualize_price_breakdown(ingredient_list, servings, opts = {})
+      data, _status_code, _headers = visualize_price_breakdown_with_http_info(ingredient_list, servings, opts)
       data
     end
 
     # Price Breakdown Widget
     # Visualize the price breakdown of a recipe.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+    # @option opts [Float] :mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
-    def visualize_price_breakdown_with_http_info(opts = {})
+    def visualize_price_breakdown_with_http_info(ingredient_list, servings, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.visualize_price_breakdown ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling RecipesApi.visualize_price_breakdown"
       end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
+      # verify the required parameter 'servings' is set
+      if @api_client.config.client_side_validation && servings.nil?
+        fail ArgumentError, "Missing the required parameter 'servings' when calling RecipesApi.visualize_price_breakdown"
       end
       allowable_values = ["en", "de"]
       if @api_client.config.client_side_validation && opts[:'language'] && !allowable_values.include?(opts[:'language'])
@@ -2818,11 +2924,14 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['ingredientList'] = ingredient_list
+      form_params['servings'] = servings
+      form_params['mode'] = opts[:'mode'] if !opts[:'mode'].nil?
+      form_params['defaultCss'] = opts[:'default_css'] if !opts[:'default_css'].nil?
+      form_params['showBacklink'] = opts[:'show_backlink'] if !opts[:'show_backlink'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -2991,34 +3100,38 @@ module OpenapiClient
 
     # Recipe Nutrition Widget
     # Visualize a recipe's nutritional information as HTML including CSS.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [String]
-    def visualize_recipe_nutrition(opts = {})
-      data, _status_code, _headers = visualize_recipe_nutrition_with_http_info(opts)
+    def visualize_recipe_nutrition(ingredient_list, servings, opts = {})
+      data, _status_code, _headers = visualize_recipe_nutrition_with_http_info(ingredient_list, servings, opts)
       data
     end
 
     # Recipe Nutrition Widget
     # Visualize a recipe&#39;s nutritional information as HTML including CSS.
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
+    # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
-    def visualize_recipe_nutrition_with_http_info(opts = {})
+    def visualize_recipe_nutrition_with_http_info(ingredient_list, servings, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.visualize_recipe_nutrition ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling RecipesApi.visualize_recipe_nutrition"
       end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
+      # verify the required parameter 'servings' is set
+      if @api_client.config.client_side_validation && servings.nil?
+        fail ArgumentError, "Missing the required parameter 'servings' when calling RecipesApi.visualize_recipe_nutrition"
       end
       allowable_values = ["en", "de"]
       if @api_client.config.client_side_validation && opts[:'language'] && !allowable_values.include?(opts[:'language'])
@@ -3040,11 +3153,13 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['ingredientList'] = ingredient_list
+      form_params['servings'] = servings
+      form_params['defaultCss'] = opts[:'default_css'] if !opts[:'default_css'].nil?
+      form_params['showBacklink'] = opts[:'show_backlink'] if !opts[:'show_backlink'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -3077,7 +3192,6 @@ module OpenapiClient
     # @param id [Integer] The item&#39;s id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
-    # @option opts [String] :accept Accept header.
     # @return [String]
     def visualize_recipe_nutrition_by_id(id, opts = {})
       data, _status_code, _headers = visualize_recipe_nutrition_by_id_with_http_info(id, opts)
@@ -3089,7 +3203,6 @@ module OpenapiClient
     # @param id [Integer] The item&#39;s id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
-    # @option opts [String] :accept Accept header.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def visualize_recipe_nutrition_by_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -3098,10 +3211,6 @@ module OpenapiClient
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling RecipesApi.visualize_recipe_nutrition_by_id"
-      end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/recipes/{id}/nutritionWidget'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -3114,7 +3223,6 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/html'])
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -3213,42 +3321,36 @@ module OpenapiClient
 
     # Recipe Taste Widget
     # Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
-    # @option opts [Boolean] :normalize Whether to normalize to the strongest taste.
+    # @option opts [Boolean] :normalize Normalize to the strongest taste.
     # @option opts [String] :rgb Red, green, blue values for the chart color.
     # @return [String]
-    def visualize_recipe_taste(opts = {})
-      data, _status_code, _headers = visualize_recipe_taste_with_http_info(opts)
+    def visualize_recipe_taste(ingredient_list, opts = {})
+      data, _status_code, _headers = visualize_recipe_taste_with_http_info(ingredient_list, opts)
       data
     end
 
     # Recipe Taste Widget
     # Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-    # @option opts [String] :content_type The content type.
-    # @option opts [String] :accept Accept header.
-    # @option opts [Boolean] :normalize Whether to normalize to the strongest taste.
+    # @option opts [Boolean] :normalize Normalize to the strongest taste.
     # @option opts [String] :rgb Red, green, blue values for the chart color.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
-    def visualize_recipe_taste_with_http_info(opts = {})
+    def visualize_recipe_taste_with_http_info(ingredient_list, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.visualize_recipe_taste ...'
+      end
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling RecipesApi.visualize_recipe_taste"
       end
       allowable_values = ["en", "de"]
       if @api_client.config.client_side_validation && opts[:'language'] && !allowable_values.include?(opts[:'language'])
         fail ArgumentError, "invalid value for \"language\", must be one of #{allowable_values}"
-      end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
-      end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/recipes/visualizeTaste'
@@ -3256,8 +3358,6 @@ module OpenapiClient
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'language'] = opts[:'language'] if !opts[:'language'].nil?
-      query_params[:'normalize'] = opts[:'normalize'] if !opts[:'normalize'].nil?
-      query_params[:'rgb'] = opts[:'rgb'] if !opts[:'rgb'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -3268,11 +3368,12 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['ingredientList'] = ingredient_list
+      form_params['normalize'] = opts[:'normalize'] if !opts[:'normalize'].nil?
+      form_params['rgb'] = opts[:'rgb'] if !opts[:'rgb'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]

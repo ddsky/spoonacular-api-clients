@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## MenuItemNutritionByIDImage
 
-> map[string]interface{} MenuItemNutritionByIDImage(ctx, id).Execute()
+> *os.File MenuItemNutritionByIDImage(ctx, id).Execute()
 
 Menu Item Nutrition by ID Image
 
@@ -182,7 +182,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.MenuItemNutritionByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `MenuItemNutritionByIDImage`: map[string]interface{}
+	// response from `MenuItemNutritionByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.MenuItemNutritionByIDImage`: %v\n", resp)
 }
 ```
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## MenuItemNutritionLabelImage
 
-> map[string]interface{} MenuItemNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+> *os.File MenuItemNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
 
 Menu Item Nutrition Label Image
 
@@ -255,7 +255,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.MenuItemNutritionLabelImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `MenuItemNutritionLabelImage`: map[string]interface{}
+	// response from `MenuItemNutritionLabelImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.MenuItemNutritionLabelImage`: %v\n", resp)
 }
 ```
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeMenuItemNutritionByID
 
-> string VisualizeMenuItemNutritionByID(ctx, id).DefaultCss(defaultCss).Accept(accept).Execute()
+> string VisualizeMenuItemNutritionByID(ctx, id).DefaultCss(defaultCss).Execute()
 
 Menu Item Nutrition by ID Widget
 
@@ -487,11 +487,10 @@ import (
 func main() {
 	id := int32(1) // int32 | The item's id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-	accept := "application/json" // string | Accept header. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MenuItemsAPI.VisualizeMenuItemNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
+	resp, r, err := apiClient.MenuItemsAPI.VisualizeMenuItemNutritionByID(context.Background(), id).DefaultCss(defaultCss).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.VisualizeMenuItemNutritionByID``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -518,7 +517,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **defaultCss** | **bool** | Whether the default CSS should be added to the response. | [default to true]
- **accept** | **string** | Accept header. | 
 
 ### Return type
 

@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include <QJsonValue>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -40,8 +39,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QJsonValue getDescription() const;
-    void setDescription(const QJsonValue &description);
+    QString getDescription() const;
+    void setDescription(const QString &description);
     bool is_description_Set() const;
     bool is_description_Valid() const;
 
@@ -50,8 +49,8 @@ public:
     bool is_name_Set() const;
     bool is_name_Valid() const;
 
-    QJsonValue getSafetyLevel() const;
-    void setSafetyLevel(const QJsonValue &safety_level);
+    QString getSafetyLevel() const;
+    void setSafetyLevel(const QString &safety_level);
     bool is_safety_level_Set() const;
     bool is_safety_level_Valid() const;
 
@@ -61,7 +60,7 @@ public:
 private:
     void initializeModel();
 
-    QJsonValue m_description;
+    QString m_description;
     bool m_description_isSet;
     bool m_description_isValid;
 
@@ -69,7 +68,7 @@ private:
     bool m_name_isSet;
     bool m_name_isValid;
 
-    QJsonValue m_safety_level;
+    QString m_safety_level;
     bool m_safety_level_isSet;
     bool m_safety_level_isValid;
 };

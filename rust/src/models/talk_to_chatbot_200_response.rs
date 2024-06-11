@@ -17,12 +17,12 @@ pub struct TalkToChatbot200Response {
     #[serde(rename = "answerText")]
     pub answer_text: String,
     #[serde(rename = "media")]
-    pub media: Vec<serde_json::Value>,
+    pub media: Vec<crate::models::TalkToChatbot200ResponseMediaInner>,
 }
 
 impl TalkToChatbot200Response {
     /// 
-    pub fn new(answer_text: String, media: Vec<serde_json::Value>) -> TalkToChatbot200Response {
+    pub fn new(answer_text: String, media: Vec<crate::models::TalkToChatbot200ResponseMediaInner>) -> TalkToChatbot200Response {
         TalkToChatbot200Response {
             answer_text,
             media,

@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Articles** | [**[]SearchSiteContent200ResponseArticlesInner**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**GroceryProducts** | [**[]SearchSiteContent200ResponseGroceryProductsInner**](SearchSiteContent200ResponseGroceryProductsInner.md) |  | 
-**MenuItems** | [**[]SearchSiteContent200ResponseGroceryProductsInner**](SearchSiteContent200ResponseGroceryProductsInner.md) |  | 
-**Recipes** | [**[]SearchSiteContent200ResponseGroceryProductsInner**](SearchSiteContent200ResponseGroceryProductsInner.md) |  | 
+**GroceryProducts** | [**[]SearchSiteContent200ResponseArticlesInner**](SearchSiteContent200ResponseArticlesInner.md) |  | 
+**MenuItems** | [**[]SearchSiteContent200ResponseArticlesInner**](SearchSiteContent200ResponseArticlesInner.md) |  | 
+**Recipes** | [**[]SearchSiteContent200ResponseArticlesInner**](SearchSiteContent200ResponseArticlesInner.md) |  | 
 
 ## Methods
 
 ### NewSearchSiteContent200Response
 
-`func NewSearchSiteContent200Response(articles []SearchSiteContent200ResponseArticlesInner, groceryProducts []SearchSiteContent200ResponseGroceryProductsInner, menuItems []SearchSiteContent200ResponseGroceryProductsInner, recipes []SearchSiteContent200ResponseGroceryProductsInner, ) *SearchSiteContent200Response`
+`func NewSearchSiteContent200Response(articles []SearchSiteContent200ResponseArticlesInner, groceryProducts []SearchSiteContent200ResponseArticlesInner, menuItems []SearchSiteContent200ResponseArticlesInner, recipes []SearchSiteContent200ResponseArticlesInner, ) *SearchSiteContent200Response`
 
 NewSearchSiteContent200Response instantiates a new SearchSiteContent200Response object
 This constructor will assign default values to properties that have it defined,
@@ -50,60 +50,60 @@ SetArticles sets Articles field to given value.
 
 ### GetGroceryProducts
 
-`func (o *SearchSiteContent200Response) GetGroceryProducts() []SearchSiteContent200ResponseGroceryProductsInner`
+`func (o *SearchSiteContent200Response) GetGroceryProducts() []SearchSiteContent200ResponseArticlesInner`
 
 GetGroceryProducts returns the GroceryProducts field if non-nil, zero value otherwise.
 
 ### GetGroceryProductsOk
 
-`func (o *SearchSiteContent200Response) GetGroceryProductsOk() (*[]SearchSiteContent200ResponseGroceryProductsInner, bool)`
+`func (o *SearchSiteContent200Response) GetGroceryProductsOk() (*[]SearchSiteContent200ResponseArticlesInner, bool)`
 
 GetGroceryProductsOk returns a tuple with the GroceryProducts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroceryProducts
 
-`func (o *SearchSiteContent200Response) SetGroceryProducts(v []SearchSiteContent200ResponseGroceryProductsInner)`
+`func (o *SearchSiteContent200Response) SetGroceryProducts(v []SearchSiteContent200ResponseArticlesInner)`
 
 SetGroceryProducts sets GroceryProducts field to given value.
 
 
 ### GetMenuItems
 
-`func (o *SearchSiteContent200Response) GetMenuItems() []SearchSiteContent200ResponseGroceryProductsInner`
+`func (o *SearchSiteContent200Response) GetMenuItems() []SearchSiteContent200ResponseArticlesInner`
 
 GetMenuItems returns the MenuItems field if non-nil, zero value otherwise.
 
 ### GetMenuItemsOk
 
-`func (o *SearchSiteContent200Response) GetMenuItemsOk() (*[]SearchSiteContent200ResponseGroceryProductsInner, bool)`
+`func (o *SearchSiteContent200Response) GetMenuItemsOk() (*[]SearchSiteContent200ResponseArticlesInner, bool)`
 
 GetMenuItemsOk returns a tuple with the MenuItems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMenuItems
 
-`func (o *SearchSiteContent200Response) SetMenuItems(v []SearchSiteContent200ResponseGroceryProductsInner)`
+`func (o *SearchSiteContent200Response) SetMenuItems(v []SearchSiteContent200ResponseArticlesInner)`
 
 SetMenuItems sets MenuItems field to given value.
 
 
 ### GetRecipes
 
-`func (o *SearchSiteContent200Response) GetRecipes() []SearchSiteContent200ResponseGroceryProductsInner`
+`func (o *SearchSiteContent200Response) GetRecipes() []SearchSiteContent200ResponseArticlesInner`
 
 GetRecipes returns the Recipes field if non-nil, zero value otherwise.
 
 ### GetRecipesOk
 
-`func (o *SearchSiteContent200Response) GetRecipesOk() (*[]SearchSiteContent200ResponseGroceryProductsInner, bool)`
+`func (o *SearchSiteContent200Response) GetRecipesOk() (*[]SearchSiteContent200ResponseArticlesInner, bool)`
 
 GetRecipesOk returns a tuple with the Recipes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipes
 
-`func (o *SearchSiteContent200Response) SetRecipes(v []SearchSiteContent200ResponseGroceryProductsInner)`
+`func (o *SearchSiteContent200Response) SetRecipes(v []SearchSiteContent200ResponseArticlesInner)`
 
 SetRecipes sets Recipes field to given value.
 

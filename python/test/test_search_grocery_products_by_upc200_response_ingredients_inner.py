@@ -36,9 +36,9 @@ class TestSearchGroceryProductsByUPC200ResponseIngredientsInner(unittest.TestCas
         model = SearchGroceryProductsByUPC200ResponseIngredientsInner()
         if include_optional:
             return SearchGroceryProductsByUPC200ResponseIngredientsInner(
-                description = None,
+                description = '',
                 name = '',
-                safety_level = None
+                safety_level = ''
             )
         else:
             return SearchGroceryProductsByUPC200ResponseIngredientsInner(

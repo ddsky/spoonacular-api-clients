@@ -374,7 +374,7 @@ module OpenapiClient
     # Visualize a product's nutritional information as an image.
     # @param id [Float] The id of the product.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [File]
     def product_nutrition_by_id_image(id, opts = {})
       data, _status_code, _headers = product_nutrition_by_id_image_with_http_info(id, opts)
       data
@@ -384,7 +384,7 @@ module OpenapiClient
     # Visualize a product&#39;s nutritional information as an image.
     # @param id [Float] The id of the product.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def product_nutrition_by_id_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProductsApi.product_nutrition_by_id_image ...'
@@ -411,7 +411,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -440,7 +440,7 @@ module OpenapiClient
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
     # @option opts [Boolean] :show_ingredients Whether to show a list of ingredients.
-    # @return [Object]
+    # @return [File]
     def product_nutrition_label_image(id, opts = {})
       data, _status_code, _headers = product_nutrition_label_image_with_http_info(id, opts)
       data
@@ -453,7 +453,7 @@ module OpenapiClient
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
     # @option opts [Boolean] :show_ingredients Whether to show a list of ingredients.
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def product_nutrition_label_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProductsApi.product_nutrition_label_image ...'
@@ -483,7 +483,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -757,7 +757,6 @@ module OpenapiClient
     # @param id [Integer] The item&#39;s id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
-    # @option opts [String] :accept Accept header.
     # @return [String]
     def visualize_product_nutrition_by_id(id, opts = {})
       data, _status_code, _headers = visualize_product_nutrition_by_id_with_http_info(id, opts)
@@ -769,7 +768,6 @@ module OpenapiClient
     # @param id [Integer] The item&#39;s id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
-    # @option opts [String] :accept Accept header.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def visualize_product_nutrition_by_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -778,10 +776,6 @@ module OpenapiClient
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.visualize_product_nutrition_by_id"
-      end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/food/products/{id}/nutritionWidget'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -794,7 +788,6 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/html'])
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

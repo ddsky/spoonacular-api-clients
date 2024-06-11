@@ -272,7 +272,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'generated_text' => {
-        datatype => 'object',
+        datatype => 'string',
         base_name => 'generatedText',
         description => '',
         format => '',
@@ -344,7 +344,7 @@ __PACKAGE__->openapi_types( {
     'badges' => 'ARRAY[string]',
     'important_badges' => 'ARRAY[string]',
     'ingredient_count' => 'int',
-    'generated_text' => 'object',
+    'generated_text' => 'string',
     'ingredient_list' => 'string',
     'ingredients' => 'ARRAY[GetProductInformation200ResponseIngredientsInner]',
     'likes' => 'double',

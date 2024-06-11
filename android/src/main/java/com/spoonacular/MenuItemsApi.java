@@ -25,6 +25,7 @@ import com.android.volley.VolleyError;
 
 import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response;
 import java.math.BigDecimal;
+import java.io.File;
 import com.spoonacular.client.model.GetMenuItemInformation200Response;
 import com.spoonacular.client.model.SearchMenuItems200Response;
 
@@ -321,9 +322,9 @@ public class MenuItemsApi {
   * Menu Item Nutrition by ID Image
   * Visualize a menu item&#39;s nutritional information as HTML including CSS.
    * @param id The menu item id.
-   * @return Object
+   * @return File
   */
-  public Object menuItemNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File menuItemNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -358,7 +359,7 @@ public class MenuItemsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -384,7 +385,7 @@ public class MenuItemsApi {
    * Visualize a menu item&#39;s nutritional information as HTML including CSS.
    * @param id The menu item id.
   */
-  public void menuItemNutritionByIDImage (BigDecimal id, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void menuItemNutritionByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -429,7 +430,7 @@ public class MenuItemsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -451,9 +452,9 @@ public class MenuItemsApi {
    * @param showOptionalNutrients Whether to show optional nutrients.
    * @param showZeroValues Whether to show zero values.
    * @param showIngredients Whether to show a list of ingredients.
-   * @return Object
+   * @return File
   */
-  public Object menuItemNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File menuItemNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -491,7 +492,7 @@ public class MenuItemsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -517,7 +518,7 @@ public class MenuItemsApi {
    * Visualize a menu item&#39;s nutritional label information as an image.
    * @param id The menu item id.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void menuItemNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void menuItemNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -565,7 +566,7 @@ public class MenuItemsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -876,10 +877,9 @@ public class MenuItemsApi {
   * Visualize a menu item&#39;s nutritional information as HTML including CSS.
    * @param id The item&#39;s id.
    * @param defaultCss Whether the default CSS should be added to the response.
-   * @param accept Accept header.
    * @return String
   */
-  public String visualizeMenuItemNutritionByID (Integer id, Boolean defaultCss, String accept) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String visualizeMenuItemNutritionByID (Integer id, Boolean defaultCss) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -897,7 +897,6 @@ public class MenuItemsApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "defaultCss", defaultCss));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -940,9 +939,9 @@ public class MenuItemsApi {
       /**
    * Menu Item Nutrition by ID Widget
    * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param accept Accept header.
+   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
   */
-  public void visualizeMenuItemNutritionByID (Integer id, Boolean defaultCss, String accept, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void visualizeMenuItemNutritionByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -963,7 +962,6 @@ public class MenuItemsApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "defaultCss", defaultCss));
 
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
 
     String[] contentTypes = {
       

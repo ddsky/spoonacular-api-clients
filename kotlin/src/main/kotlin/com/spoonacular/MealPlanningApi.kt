@@ -855,7 +855,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replace("{"+"username"+"}", encodeURIComponent(username.toString())).replace("{"+"start-date"+"}", encodeURIComponent(startDate.toString())).replace("{"+"end-date"+"}", encodeURIComponent(endDate.toString())),
+            path = "/mealplanner/{username}/shopping-list/{start_date}/{end_date}".replace("{"+"username"+"}", encodeURIComponent(username.toString())).replace("{"+"start_date"+"}", encodeURIComponent(startDate.toString())).replace("{"+"end_date"+"}", encodeURIComponent(endDate.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
@@ -1092,7 +1092,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/mealplanner/{username}/week/{start-date}".replace("{"+"username"+"}", encodeURIComponent(username.toString())).replace("{"+"start-date"+"}", encodeURIComponent(startDate.toString())),
+            path = "/mealplanner/{username}/week/{start_date}".replace("{"+"username"+"}", encodeURIComponent(username.toString())).replace("{"+"start_date"+"}", encodeURIComponent(startDate.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

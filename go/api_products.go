@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -669,7 +670,7 @@ type ApiProductNutritionByIDImageRequest struct {
 	id float32
 }
 
-func (r ApiProductNutritionByIDImageRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductNutritionByIDImageRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.ProductNutritionByIDImageExecute(r)
 }
 
@@ -691,13 +692,13 @@ func (a *ProductsAPIService) ProductNutritionByIDImage(ctx context.Context, id f
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ProductsAPIService) ProductNutritionByIDImageExecute(r ApiProductNutritionByIDImageRequest) (map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *ProductsAPIService) ProductNutritionByIDImageExecute(r ApiProductNutritionByIDImageRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.ProductNutritionByIDImage")
@@ -807,7 +808,7 @@ func (r ApiProductNutritionLabelImageRequest) ShowIngredients(showIngredients bo
 	return r
 }
 
-func (r ApiProductNutritionLabelImageRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductNutritionLabelImageRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.ProductNutritionLabelImageExecute(r)
 }
 
@@ -829,13 +830,13 @@ func (a *ProductsAPIService) ProductNutritionLabelImage(ctx context.Context, id 
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ProductsAPIService) ProductNutritionLabelImageExecute(r ApiProductNutritionLabelImageRequest) (map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *ProductsAPIService) ProductNutritionLabelImageExecute(r ApiProductNutritionLabelImageRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.ProductNutritionLabelImage")
@@ -1445,18 +1446,11 @@ type ApiVisualizeProductNutritionByIDRequest struct {
 	ApiService *ProductsAPIService
 	id int32
 	defaultCss *bool
-	accept *string
 }
 
 // Whether the default CSS should be added to the response.
 func (r ApiVisualizeProductNutritionByIDRequest) DefaultCss(defaultCss bool) ApiVisualizeProductNutritionByIDRequest {
 	r.defaultCss = &defaultCss
-	return r
-}
-
-// Accept header.
-func (r ApiVisualizeProductNutritionByIDRequest) Accept(accept string) ApiVisualizeProductNutritionByIDRequest {
-	r.accept = &accept
 	return r
 }
 
@@ -1525,9 +1519,6 @@ func (a *ProductsAPIService) VisualizeProductNutritionByIDExecute(r ApiVisualize
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

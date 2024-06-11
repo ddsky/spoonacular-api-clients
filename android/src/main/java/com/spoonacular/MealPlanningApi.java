@@ -1403,7 +1403,7 @@ public class MealPlanningApi {
     }
 
     // create path and map variables
-    String path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end-date" + "\\}", apiInvoker.escapeString(endDate.toString()));
+    String path = "/mealplanner/{username}/shopping-list/{start_date}/{end_date}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start_date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end_date" + "\\}", apiInvoker.escapeString(endDate.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1481,7 +1481,7 @@ public class MealPlanningApi {
     }
 
     // create path and map variables
-    String path = "/mealplanner/{username}/shopping-list/{start-date}/{end-date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end-date" + "\\}", apiInvoker.escapeString(endDate.toString()));
+    String path = "/mealplanner/{username}/shopping-list/{start_date}/{end_date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start_date" + "\\}", apiInvoker.escapeString(startDate.toString())).replaceAll("\\{" + "end_date" + "\\}", apiInvoker.escapeString(endDate.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1850,7 +1850,7 @@ public class MealPlanningApi {
     }
 
     // create path and map variables
-    String path = "/mealplanner/{username}/week/{start-date}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString()));
+    String path = "/mealplanner/{username}/week/{start_date}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start_date" + "\\}", apiInvoker.escapeString(startDate.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1923,7 +1923,7 @@ public class MealPlanningApi {
     }
 
     // create path and map variables
-    String path = "/mealplanner/{username}/week/{start-date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start-date" + "\\}", apiInvoker.escapeString(startDate.toString()));
+    String path = "/mealplanner/{username}/week/{start_date}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString())).replaceAll("\\{" + "start_date" + "\\}", apiInvoker.escapeString(startDate.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -1,6 +1,6 @@
 -module(spoonacular_misc_api).
 
--export([detect_food_in_text/1, detect_food_in_text/2,
+-export([detect_food_in_text/2, detect_food_in_text/3,
          get_a_random_food_joke/1, get_a_random_food_joke/2,
          get_conversation_suggests/2, get_conversation_suggests/3,
          get_random_food_trivia/1, get_random_food_trivia/2,
@@ -16,20 +16,20 @@
 
 %% @doc Detect Food in Text
 %% Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
--spec detect_food_in_text(ctx:ctx()) -> {ok, spoonacular_detect_food_in_text_200_response:spoonacular_detect_food_in_text_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-detect_food_in_text(Ctx) ->
-    detect_food_in_text(Ctx, #{}).
+-spec detect_food_in_text(ctx:ctx(), binary()) -> {ok, spoonacular_detect_food_in_text_200_response:spoonacular_detect_food_in_text_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+detect_food_in_text(Ctx, Text) ->
+    detect_food_in_text(Ctx, Text, #{}).
 
--spec detect_food_in_text(ctx:ctx(), maps:map()) -> {ok, spoonacular_detect_food_in_text_200_response:spoonacular_detect_food_in_text_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-detect_food_in_text(Ctx, Optional) ->
+-spec detect_food_in_text(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_detect_food_in_text_200_response:spoonacular_detect_food_in_text_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+detect_food_in_text(Ctx, Text, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
     Method = post,
     Path = [?BASE_URL, "/food/detect"],
     QS = [],
-    Headers = []++spoonacular_utils:optional_params(['Content-Type'], _OptionalParams),
-    Body1 = [],
+    Headers = [],
+    Body1 = {form, [{<<"text">>, Text}]++spoonacular_utils:optional_params([], _OptionalParams)},
     ContentTypeHeader = spoonacular_utils:select_header_content_type([<<"application/x-www-form-urlencoded">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 

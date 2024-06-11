@@ -687,10 +687,10 @@ class MealPlanningApi {
   ///   The private hash for the username.
   Future<Response> generateShoppingListWithHttpInfo(String username, String startDate, String endDate, String hash,) async {
     // ignore: prefer_const_declarations
-    final path = r'/mealplanner/{username}/shopping-list/{start-date}/{end-date}'
+    final path = r'/mealplanner/{username}/shopping-list/{start_date}/{end_date}'
       .replaceAll('{username}', username)
-      .replaceAll('{start-date}', startDate)
-      .replaceAll('{end-date}', endDate);
+      .replaceAll('{start_date}', startDate)
+      .replaceAll('{end_date}', endDate);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -906,9 +906,9 @@ class MealPlanningApi {
   ///   The private hash for the username.
   Future<Response> getMealPlanWeekWithHttpInfo(String username, String startDate, String hash,) async {
     // ignore: prefer_const_declarations
-    final path = r'/mealplanner/{username}/week/{start-date}'
+    final path = r'/mealplanner/{username}/week/{start_date}'
       .replaceAll('{username}', username)
-      .replaceAll('{start-date}', startDate);
+      .replaceAll('{start_date}', startDate);
 
     // ignore: prefer_final_locals
     Object? postBody;

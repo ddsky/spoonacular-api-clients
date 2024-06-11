@@ -6,7 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.GetProductInformation200ResponseIngredientsInner;
 import org.openapitools.model.SearchGroceryProductsByUPC200ResponseNutrition;
 import org.openapitools.model.SearchGroceryProductsByUPC200ResponseServings;
@@ -28,7 +27,7 @@ class GetProductInformation200Response {
     
     Integer ingredientCount
     
-    Object generatedText = null
+    String generatedText
     
     String ingredientList
     

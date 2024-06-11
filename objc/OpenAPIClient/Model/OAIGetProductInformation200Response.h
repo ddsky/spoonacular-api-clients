@@ -14,12 +14,9 @@
 */
 
 
-#import "OAIAnyType.h"
 #import "OAIGetProductInformation200ResponseIngredientsInner.h"
 #import "OAISearchGroceryProductsByUPC200ResponseNutrition.h"
 #import "OAISearchGroceryProductsByUPC200ResponseServings.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
 @protocol OAIGetProductInformation200ResponseIngredientsInner;
 @class OAIGetProductInformation200ResponseIngredientsInner;
 @protocol OAISearchGroceryProductsByUPC200ResponseNutrition;
@@ -49,7 +46,7 @@
 
 @property(nonatomic) NSNumber* ingredientCount;
 
-@property(nonatomic) OAIAnyType* generatedText;
+@property(nonatomic) NSString* generatedText;
 
 @property(nonatomic) NSString* ingredientList;
 

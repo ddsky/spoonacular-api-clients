@@ -13,9 +13,9 @@
 import { HttpFile } from '../http/http';
 
 export class GetProductInformation200ResponseIngredientsInner {
-    'description'?: any | null;
+    'description'?: string;
     'name': string;
-    'safetyLevel'?: any | null;
+    'safetyLevel'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,7 +23,7 @@ export class GetProductInformation200ResponseIngredientsInner {
         {
             "name": "description",
             "baseName": "description",
-            "type": "any",
+            "type": "string",
             "format": ""
         },
         {
@@ -35,7 +35,7 @@ export class GetProductInformation200ResponseIngredientsInner {
         {
             "name": "safetyLevel",
             "baseName": "safety_level",
-            "type": "any",
+            "type": "string",
             "format": ""
         }    ];
 

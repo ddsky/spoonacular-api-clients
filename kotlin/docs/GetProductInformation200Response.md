@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **price** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  | 
 **servings** | [**SearchGroceryProductsByUPC200ResponseServings**](SearchGroceryProductsByUPC200ResponseServings.md) |  | 
 **spoonacularScore** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  | 
-**generatedText** | [**kotlin.Any**](.md) |  |  [optional]
+**generatedText** | **kotlin.String** |  |  [optional]
 
 
 

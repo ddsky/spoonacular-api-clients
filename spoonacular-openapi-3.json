@@ -7123,7 +7123,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -7329,7 +7330,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -7846,7 +7848,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -8355,7 +8358,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -8936,7 +8940,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -9099,7 +9104,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -11008,12 +11014,27 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "ingredientList=3 tomatoes, 5 oranges, 1 tsp salt"
+                "type": "object",
+                "required": [
+                  "ingredientList"
+                ],
+                "properties": {
+                  "ingredientList": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line."
+                  },
+                  "normalize": {
+                    "type": "boolean",
+                    "description": "Normalize to the strongest taste."
+                  },
+                  "rgb": {
+                    "type": "string",
+                    "description": "Red, green, blue values for the chart color."
+                  }
                 }
+              },
+              "example": {
+                "ingredientList": "3 tomatoes, 5 oranges, 1 tsp salt"
               }
             }
           },
@@ -11022,23 +11043,6 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/language"
-          },
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "in": "query",
-            "name": "normalize",
-            "description": "Whether to normalize to the strongest taste."
-          },
-          {
-            "$ref": "#/components/parameters/rgb"
           }
         ],
         "externalDocs": {
@@ -11083,23 +11087,38 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "ingredientList=3 oz flour&servings=2"
+                "type": "object",
+                "required": [
+                  "ingredientList",
+                  "servings"
+                ],
+                "properties": {
+                  "ingredientList": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line."
+                  },
+                  "servings": {
+                    "type": "number",
+                    "description": "The number of servings."
+                  },
+                  "defaultCss": {
+                    "type": "boolean",
+                    "description": "Whether the default CSS should be added to the response."
+                  },
+                  "showBacklink": {
+                    "type": "boolean",
+                    "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota."
+                  }
                 }
+              },
+              "example": {
+                "ingredientList": "3 oz flour",
+                "servings": 2
               }
             }
           }
         },
         "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
-          },
           {
             "$ref": "#/components/parameters/language"
           }
@@ -11146,23 +11165,42 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "ingredientList=3 oz flour&servings=2"
+                "type": "object",
+                "required": [
+                  "ingredientList",
+                  "servings"
+                ],
+                "properties": {
+                  "ingredientList": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line."
+                  },
+                  "servings": {
+                    "type": "number",
+                    "description": "The number of servings."
+                  },
+                  "mode": {
+                    "type": "number",
+                    "description": "The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full)."
+                  },
+                  "defaultCss": {
+                    "type": "boolean",
+                    "description": "Whether the default CSS should be added to the response."
+                  },
+                  "showBacklink": {
+                    "type": "boolean",
+                    "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota."
+                  }
                 }
+              },
+              "example": {
+                "ingredientList": "3 oz flour",
+                "servings": "2"
               }
             }
           }
         },
         "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
-          },
           {
             "$ref": "#/components/parameters/language"
           }
@@ -11209,24 +11247,40 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "instructions=Preheat oven. Cut cucumber with a knife and put in a blender."
+                "type": "object",
+                "required": [
+                  "instructions"
+                ],
+                "properties": {
+                  "instructions": {
+                    "type": "string",
+                    "description": "The recipe's instructions."
+                  },
+                  "view": {
+                    "type": "string",
+                    "enum": [
+                      "grid",
+                      "list"
+                    ],
+                    "description": "How to visualize the ingredients, either 'grid' or 'list'."
+                  },
+                  "defaultCss": {
+                    "type": "boolean",
+                    "description": "Whether the default CSS should be added to the response."
+                  },
+                  "showBacklink": {
+                    "type": "boolean",
+                    "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota."
+                  }
                 }
+              },
+              "example": {
+                "instructions": "Preheat oven. Cut cucumber with a knife and put in a blender."
               }
             }
           }
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
-          }
-        ],
+        "parameters": [],
         "externalDocs": {
           "description": "Read entire docs",
           "url": "https://spoonacular.com/food-api/docs#Equipment-Widget"
@@ -11609,21 +11663,98 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "title=My recipe&ingredients=2 cups of green beans&instructions=cook the beans&readyInMinutes=60&servings=2&mask=ellipseMask&backgroundImage=background1"
+                "type": "object",
+                "required": [
+                  "title",
+                  "ingredients",
+                  "instructions",
+                  "readyInMinutes",
+                  "servings",
+                  "mask",
+                  "backgroundImage"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The title of the recipe."
+                  },
+                  "ingredients": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line (separate lines with \\n)."
+                  },
+                  "instructions": {
+                    "type": "string",
+                    "description": "The instructions to make the recipe. One step per line (separate lines with \\n)."
+                  },
+                  "readyInMinutes": {
+                    "type": "number",
+                    "description": "The number of minutes it takes to get the recipe on the table."
+                  },
+                  "servings": {
+                    "type": "number",
+                    "description": "The number of servings the recipe makes."
+                  },
+                  "mask": {
+                    "type": "string",
+                    "enum": [
+                      "ellipseMask",
+                      "diamondMask",
+                      "starMask",
+                      "heartMask",
+                      "potMask",
+                      "fishMask"
+                    ],
+                    "description": "The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask')."
+                  },
+                  "backgroundImage": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "background1",
+                      "background2"
+                    ],
+                    "description": "The background image ('none', 'background1', or 'background2')."
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The binary image of the recipe as jpg."
+                  },
+                  "imageUrl": {
+                    "type": "string",
+                    "description": "If you do not sent a binary image you can also pass the image URL."
+                  },
+                  "author": {
+                    "type": "string",
+                    "description": "The author of the recipe."
+                  },
+                  "backgroundColor": {
+                    "type": "string",
+                    "description": "The background color for the recipe card as a hex-string."
+                  },
+                  "fontColor": {
+                    "type": "string",
+                    "description": "The font color for the recipe card as a hex-string."
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "The source of the recipe."
+                  }
                 }
+              },
+              "example": {
+                "title": "My recipe",
+                "ingredients": "2 cups of green beans",
+                "instructions": "cook the beans",
+                "readyInMinutes": 60,
+                "servings": 2,
+                "mask": "ellipseMask",
+                "backgroundImage": "background1"
               }
             }
           }
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          }
-        ],
+        "parameters": [],
         "externalDocs": {
           "description": "Read entire docs",
           "url": "https://spoonacular.com/food-api/docs#Create-Recipe-Card"
@@ -11971,21 +12102,24 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "instructions=Put the garlic in a pan and then add the onion. Add some salt and oregano."
+                "type": "object",
+                "required": [
+                  "instructions"
+                ],
+                "properties": {
+                  "instructions": {
+                    "type": "string",
+                    "description": "The recipe's instructions."
+                  }
                 }
+              },
+              "example": {
+                "instructions": "Put the garlic in a pan and then add the onion. Add some salt and oregano."
               }
             }
           }
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          }
-        ],
+        "parameters": [],
         "externalDocs": {
           "description": "Read entire docs",
           "url": "https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions"
@@ -12073,19 +12207,32 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "title=Pork roast with green beans&ingredientList=3 oz pork shoulder"
+                "type": "object",
+                "required": [
+                  "title",
+                  "ingredientList"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The title of the recipe."
+                  },
+                  "ingredientList": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line (separate lines with \\n)."
+                  }
                 }
+              },
+              "example": {
+                "title": "Pork roast with green beans",
+                "ingredientList": "3 oz pork shoulder"
               }
             }
           }
         },
         "parameters": [
           {
-            "$ref": "#/components/parameters/Content-Type"
+            "$ref": "#/components/parameters/language"
           }
         ],
         "externalDocs": {
@@ -13232,20 +13379,33 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "ingredientList=1 cup green tea&servings=1"
+                "type": "object",
+                "required": [
+                  "ingredientList",
+                  "servings"
+                ],
+                "properties": {
+                  "ingredientList": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line."
+                  },
+                  "servings": {
+                    "type": "number",
+                    "description": "The number of servings that you can make from the ingredients."
+                  },
+                  "includeNutrition": {
+                    "type": "boolean"
+                  }
                 }
+              },
+              "example": {
+                "ingredientList": "1 cup green tea",
+                "servings": "1"
               }
             }
           }
         },
         "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          },
           {
             "$ref": "#/components/parameters/language"
           }
@@ -13302,9 +13462,6 @@
           },
           {
             "$ref": "#/components/parameters/defaultCss"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
           }
         ],
         "externalDocs": {
@@ -13354,25 +13511,56 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "ingredientList=3 oz flour&servings=2"
+                "type": "object",
+                "required": [
+                  "ingredientList",
+                  "servings"
+                ],
+                "properties": {
+                  "ingredientList": {
+                    "type": "string",
+                    "description": "The ingredient list of the recipe, one ingredient per line (separate lines with \\n)."
+                  },
+                  "servings": {
+                    "type": "number",
+                    "description": "The number of servings."
+                  },
+                  "measure": {
+                    "type": "string",
+                    "enum": [
+                      "us",
+                      "metric"
+                    ],
+                    "description": "The original system of measurement, either 'metric' or 'us'."
+                  },
+                  "view": {
+                    "type": "string",
+                    "enum": [
+                      "grid",
+                      "list"
+                    ],
+                    "description": "How to visualize the ingredients, either 'grid' or 'list'."
+                  },
+                  "defaultCss": {
+                    "type": "boolean",
+                    "description": "Whether the default CSS should be added to the response."
+                  },
+                  "showBacklink": {
+                    "type": "boolean",
+                    "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota."
+                  }
                 }
+              },
+              "example": {
+                "ingredientList": "3 oz flour",
+                "servings": 2
               }
             }
           }
         },
         "parameters": [
           {
-            "$ref": "#/components/parameters/Content-Type"
-          },
-          {
             "$ref": "#/components/parameters/language"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
           }
         ],
         "externalDocs": {
@@ -15875,11 +16063,15 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "description": {},
+                          "description": {
+                            "type": "string"
+                          },
                           "name": {
                             "type": "string"
                           },
-                          "safety_level": {}
+                          "safety_level": {
+                            "type": "string"
+                          }
                         },
                         "required": [
                           "name"
@@ -16307,407 +16499,6 @@
                 "schema": {
                   "description": "",
                   "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "id": 22347,
-                      "title": "SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag",
-                      "breadcrumbs": [
-                        "bars"
-                      ],
-                      "imageType": "jpg",
-                      "badges": [
-                        "msg_free",
-                        "no_artificial_colors",
-                        "no_artificial_flavors",
-                        "no_artificial_ingredients",
-                        "gluten_free"
-                      ],
-                      "importantBadges": [
-                        "no_artificial_flavors",
-                        "no_artificial_colors",
-                        "no_artificial_ingredients",
-                        "gluten_free",
-                        "msg_free"
-                      ],
-                      "ingredientCount": 32,
-                      "generatedText": null,
-                      "ingredientList": "Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness",
-                      "ingredients": [
-                        {
-                          "description": null,
-                          "name": "emulsifier",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "added sugar",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "sweetener",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "cooking fat",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "cooking oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "lecithin",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "yeast",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "menu item type",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "nuts",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "partially hydrogenated vegetable oil",
-                          "safety_level": "low"
-                        },
-                        {
-                          "description": "Unlike partially hydrogenated oils, fully hydrogenated oils do not contain trans fat and thus are currently considered safer.",
-                          "name": "hydrogenated vegetable oil",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "calcium",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "nut butter",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "legumes",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "refined sweetener",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "non food item",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "tree nuts",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "chocolate",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "sugar",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "snack",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "corn syrup",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "drink",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "milk",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "spread",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "vegetable oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "yeast nutrient",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "palm kernel oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial ingredient",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "stabilizer",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "additive",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "nutrient",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "soybean oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "supplement",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "mineral",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial flavor",
-                          "safety_level": "medium"
-                        },
-                        {
-                          "description": null,
-                          "name": "skim milk",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "peanuts",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "corn syrup solids",
-                          "safety_level": "medium"
-                        },
-                        {
-                          "description": "Unlike partially hydrogenated oils, fully hydrogenated oils do not contain trans fat and thus are currently considered safer.",
-                          "name": "hydrogenated palm kernel oil",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "cottonseed oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "milkfat",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "lactose",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "corn syrup",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "cocoa butter",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "tbhq to maintain freshness",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "peanut butter",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "egg whites",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "sugar",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "milk chocolate",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "palm oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial flavor",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "salt",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "almonds",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "skim milk less than 2% - lactose",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "vegetable oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "less than 2% - glycerin",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "dextrose",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": "Soy lecithin is not a concern for most people allergic to soy.",
-                          "name": "soy lecithin",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "invert sugar",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "chocolate",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "rapeseed oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "partially hydrogenated soybean oil",
-                          "safety_level": "low"
-                        },
-                        {
-                          "description": null,
-                          "name": "calcium carbonate",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "partially hydrogenated palm kernel oil",
-                          "safety_level": "low"
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial flavor.snickers brand",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "snickers brand almond bar",
-                          "safety_level": null
-                        }
-                      ],
-                      "likes": 0,
-                      "aisle": "Sweet Snacks",
-                      "nutrition": {
-                        "nutrients": [
-                          {
-                            "name": "Fat",
-                            "amount": 4,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 6.15
-                          },
-                          {
-                            "name": "Protein",
-                            "amount": 10,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 20
-                          },
-                          {
-                            "name": "Calories",
-                            "amount": 200,
-                            "unit": "cal",
-                            "percentOfDailyNeeds": 10
-                          },
-                          {
-                            "name": "Carbohydrates",
-                            "amount": 26,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 9.45
-                          }
-                        ],
-                        "caloricBreakdown": {
-                          "percentProtein": 22.22,
-                          "percentFat": 20,
-                          "percentCarbs": 57.78
-                        }
-                      },
-                      "price": 324,
-                      "servings": {
-                        "number": 8,
-                        "size": 4,
-                        "unit": "pieces"
-                      },
-                      "spoonacularScore": 0
-                    }
-                  },
                   "properties": {
                     "id": {
                       "type": "integer"
@@ -16741,7 +16532,9 @@
                     "ingredientCount": {
                       "type": "integer"
                     },
-                    "generatedText": {},
+                    "generatedText": {
+                      "type": "string"
+                    },
                     "ingredientList": {
                       "type": "string",
                       "minLength": 1
@@ -16753,12 +16546,16 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "description": {},
+                          "description": {
+                            "type": "string"
+                          },
                           "name": {
                             "type": "string",
                             "minLength": 1
                           },
-                          "safety_level": {}
+                          "safety_level": {
+                            "type": "string"
+                          }
                         },
                         "required": [
                           "name"
@@ -17781,9 +17578,6 @@
           },
           {
             "$ref": "#/components/parameters/defaultCss"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
           }
         ],
         "externalDocs": {
@@ -17813,7 +17607,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -17976,7 +17771,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -19430,9 +19226,6 @@
           },
           {
             "$ref": "#/components/parameters/defaultCss"
-          },
-          {
-            "$ref": "#/components/parameters/Accept"
           }
         ],
         "externalDocs": {
@@ -19462,7 +19255,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -19625,7 +19419,8 @@
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "object"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -19944,7 +19739,7 @@
         ]
       }
     },
-    "/mealplanner/{username}/week/{start-date}": {
+    "/mealplanner/{username}/week/{start_date}": {
       "get": {
         "responses": {
           "200": {
@@ -21062,7 +20857,7 @@
             "in": "path"
           },
           {
-            "name": "start-date",
+            "name": "start_date",
             "description": "The start date of the meal planned week in the format yyyy-mm-dd.",
             "schema": {
               "type": "string",
@@ -21098,7 +20893,7 @@
             "type": "string",
             "example": "2020-06-01"
           },
-          "name": "start-date",
+          "name": "start_date",
           "in": "path",
           "description": "The start date.",
           "required": true
@@ -25185,7 +24980,7 @@
         }
       ]
     },
-    "/mealplanner/{username}/shopping-list/{start-date}/{end-date}": {
+    "/mealplanner/{username}/shopping-list/{start_date}/{end_date}": {
       "post": {
         "responses": {
           "200": {
@@ -25428,7 +25223,7 @@
             "in": "path"
           },
           {
-            "name": "start-date",
+            "name": "start_date",
             "description": "The start date in the format yyyy-mm-dd.",
             "schema": {
               "type": "string",
@@ -25440,7 +25235,7 @@
             "in": "path"
           },
           {
-            "name": "end-date",
+            "name": "end_date",
             "description": "The end date in the format yyyy-mm-dd.",
             "schema": {
               "type": "string",
@@ -25476,7 +25271,7 @@
             "type": "string",
             "example": "2021-10-01"
           },
-          "name": "start-date",
+          "name": "start_date",
           "in": "path",
           "required": true,
           "description": "The start date."
@@ -25486,7 +25281,7 @@
             "type": "string",
             "example": "2021-10-07"
           },
-          "name": "end-date",
+          "name": "end_date",
           "in": "path",
           "required": true,
           "description": "The end date."
@@ -26566,29 +26361,6 @@
                 "schema": {
                   "description": "",
                   "type": "object",
-                  "x-examples": {
-                    "example-1": {
-                      "pairedWines": [
-                        "merlot",
-                        "cabernet sauvignon",
-                        "pinot noir"
-                      ],
-                      "pairingText": "Merlot, Cabernet Sauvignon, and Pinot Noir are my top picks for Steak. After all, beef and red wine are a classic combination. Generally, leaner steaks go well with light or medium-bodied reds, such as pinot noir or merlot, while fattier steaks can handle a bold red, such as cabernet sauvingnon. The Sterling Vineyards Merlot with a 5 out of 5 star rating seems like a good match. It costs about 29 dollars per bottle.",
-                      "productMatches": [
-                        {
-                          "id": 428278,
-                          "title": "Sterling Vineyards Merlot",
-                          "averageRating": 1,
-                          "description": null,
-                          "imageUrl": "https://spoonacular.com/productImages/428278-312x231.jpg",
-                          "link": "https://www.amazon.com/2014-Sterling-Vineyards-Valley-Merlot/dp/B071FP8NPG?tag=spoonacular-20",
-                          "price": "$28.99",
-                          "ratingCount": 1,
-                          "score": 0.75
-                        }
-                      ]
-                    }
-                  },
                   "properties": {
                     "pairedWines": {
                       "type": "array",
@@ -26617,7 +26389,9 @@
                           "averageRating": {
                             "type": "number"
                           },
-                          "description": {},
+                          "description": {
+                            "type": "string"
+                          },
                           "imageUrl": {
                             "type": "string",
                             "minLength": 1
@@ -27796,21 +27570,23 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "type": "string"
-              },
-              "examples": {
-                "example-1": {
-                  "value": "text=I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
                 }
+              },
+              "example": {
+                "text": "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
               }
             }
           }
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Content-Type"
-          }
-        ],
+        "parameters": [],
         "externalDocs": {
           "description": "Read entire docs",
           "url": "https://spoonacular.com/food-api/docs#Detect-Food-in-Text"
@@ -27849,8 +27625,23 @@
                         "properties": {
                           "dataPoints": {
                             "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 0,
                             "items": {
-                              "properties": {}
+                              "required": [
+                                "key",
+                                "value"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
                             }
                           },
                           "image": {
@@ -29288,7 +29079,18 @@
                     "media": {
                       "type": "array",
                       "items": {
-                        "properties": {}
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "link": {
+                            "type": "string"
+                          }
+                        }
                       }
                     }
                   },
@@ -29402,7 +29204,7 @@
                     "words": {
                       "type": "array",
                       "items": {
-                        "properties": {}
+                        "type": "string"
                       }
                     }
                   },
@@ -29652,36 +29454,6 @@
           "example": "en"
         },
         "description": "The language of the input. Either 'en' or 'de'."
-      },
-      "Content-Type": {
-        "name": "Content-Type",
-        "in": "header",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "enum": [
-            "application/x-www-form-urlencoded",
-            "application/json",
-            "multipart/form-data"
-          ],
-          "example": "application/json"
-        },
-        "description": "The content type."
-      },
-      "Accept": {
-        "name": "Accept",
-        "in": "header",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "enum": [
-            "application/json",
-            "text/html",
-            "media/*"
-          ],
-          "example": "application/json"
-        },
-        "description": "Accept header."
       },
       "username": {
         "name": "username",

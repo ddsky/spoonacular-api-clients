@@ -163,7 +163,7 @@ pub async fn get_menu_item_information(configuration: &configuration::Configurat
 }
 
 /// Visualize a menu item's nutritional information as HTML including CSS.
-pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Configuration, id: f32) -> Result<serde_json::Value, Error<MenuItemNutritionByIdImageError>> {
+pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Configuration, id: f32) -> Result<std::path::PathBuf, Error<MenuItemNutritionByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,7 +199,7 @@ pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Conf
 }
 
 /// Visualize a menu item's nutritional label information as an image.
-pub async fn menu_item_nutrition_label_image(configuration: &configuration::Configuration, id: f32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<serde_json::Value, Error<MenuItemNutritionLabelImageError>> {
+pub async fn menu_item_nutrition_label_image(configuration: &configuration::Configuration, id: f32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<MenuItemNutritionLabelImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -364,7 +364,7 @@ pub async fn search_menu_items(configuration: &configuration::Configuration, que
 }
 
 /// Visualize a menu item's nutritional information as HTML including CSS.
-pub async fn visualize_menu_item_nutrition_by_id(configuration: &configuration::Configuration, id: i32, default_css: Option<bool>, accept: Option<&str>) -> Result<String, Error<VisualizeMenuItemNutritionByIdError>> {
+pub async fn visualize_menu_item_nutrition_by_id(configuration: &configuration::Configuration, id: i32, default_css: Option<bool>) -> Result<String, Error<VisualizeMenuItemNutritionByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -377,9 +377,6 @@ pub async fn visualize_menu_item_nutrition_by_id(configuration: &configuration::
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = accept {
-        local_var_req_builder = local_var_req_builder.header("Accept", local_var_param_value.to_string());
     }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();

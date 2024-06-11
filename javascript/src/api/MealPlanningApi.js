@@ -549,8 +549,8 @@ export default class MealPlanningApi {
 
       let pathParams = {
         'username': username,
-        'start-date': startDate,
-        'end-date': endDate
+        'start_date': startDate,
+        'end_date': endDate
       };
       let queryParams = {
         'hash': hash
@@ -565,7 +565,7 @@ export default class MealPlanningApi {
       let accepts = ['application/json'];
       let returnType = GenerateShoppingList200Response;
       return this.apiClient.callApi(
-        '/mealplanner/{username}/shopping-list/{start-date}/{end-date}', 'POST',
+        '/mealplanner/{username}/shopping-list/{start_date}/{end_date}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -709,7 +709,7 @@ export default class MealPlanningApi {
 
       let pathParams = {
         'username': username,
-        'start-date': startDate
+        'start_date': startDate
       };
       let queryParams = {
         'hash': hash
@@ -724,7 +724,7 @@ export default class MealPlanningApi {
       let accepts = ['application/json'];
       let returnType = GetMealPlanWeek200Response;
       return this.apiClient.callApi(
-        '/mealplanner/{username}/week/{start-date}', 'GET',
+        '/mealplanner/{username}/week/{start_date}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -313,10 +313,10 @@ bool OAIGetProductInformation_200_response::is_ingredient_count_Valid() const{
     return m_ingredient_count_isValid;
 }
 
-QJsonValue OAIGetProductInformation_200_response::getGeneratedText() const {
+QString OAIGetProductInformation_200_response::getGeneratedText() const {
     return m_generated_text;
 }
-void OAIGetProductInformation_200_response::setGeneratedText(const QJsonValue &generated_text) {
+void OAIGetProductInformation_200_response::setGeneratedText(const QString &generated_text) {
     m_generated_text = generated_text;
     m_generated_text_isSet = true;
 }

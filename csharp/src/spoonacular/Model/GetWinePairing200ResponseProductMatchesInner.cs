@@ -49,7 +49,7 @@ namespace spoonacular.Model
         /// <param name="price">price (required).</param>
         /// <param name="ratingCount">ratingCount (required).</param>
         /// <param name="score">score (required).</param>
-        public GetWinePairing200ResponseProductMatchesInner(int id = default(int), string title = default(string), decimal averageRating = default(decimal), Object description = default(Object), string imageUrl = default(string), string link = default(string), string price = default(string), int ratingCount = default(int), decimal score = default(decimal))
+        public GetWinePairing200ResponseProductMatchesInner(int id = default(int), string title = default(string), decimal averageRating = default(decimal), string description = default(string), string imageUrl = default(string), string link = default(string), string price = default(string), int ratingCount = default(int), decimal score = default(decimal))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -103,8 +103,8 @@ namespace spoonacular.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public Object Description { get; set; }
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl

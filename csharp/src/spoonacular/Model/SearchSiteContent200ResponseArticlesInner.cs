@@ -44,7 +44,7 @@ namespace spoonacular.Model
         /// <param name="image">image (required).</param>
         /// <param name="link">link (required).</param>
         /// <param name="name">name (required).</param>
-        public SearchSiteContent200ResponseArticlesInner(List<Object> dataPoints = default(List<Object>), string image = default(string), string link = default(string), string name = default(string))
+        public SearchSiteContent200ResponseArticlesInner(List<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints = default(List<SearchSiteContent200ResponseArticlesInnerDataPointsInner>), string image = default(string), string link = default(string), string name = default(string))
         {
             // to ensure "image" is required (not null)
             if (image == null)
@@ -71,7 +71,7 @@ namespace spoonacular.Model
         /// Gets or Sets DataPoints
         /// </summary>
         [DataMember(Name = "dataPoints", EmitDefaultValue = false)]
-        public List<Object> DataPoints { get; set; }
+        public List<SearchSiteContent200ResponseArticlesInnerDataPointsInner> DataPoints { get; set; }
 
         /// <summary>
         /// Gets or Sets Image

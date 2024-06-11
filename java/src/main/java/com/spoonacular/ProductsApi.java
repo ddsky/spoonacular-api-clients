@@ -33,6 +33,7 @@ import com.spoonacular.client.model.ClassifyGroceryProduct200Response;
 import com.spoonacular.client.model.ClassifyGroceryProductBulk200ResponseInner;
 import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner;
 import com.spoonacular.client.model.ClassifyGroceryProductRequest;
+import java.io.File;
 import com.spoonacular.client.model.GetComparableProducts200Response;
 import com.spoonacular.client.model.GetProductInformation200Response;
 import com.spoonacular.client.model.SearchGroceryProducts200Response;
@@ -901,7 +902,7 @@ public class ProductsApi {
      * Product Nutrition by ID Image
      * Visualize a product&#39;s nutritional information as an image.
      * @param id The id of the product. (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -914,8 +915,8 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public Object productNutritionByIDImage(BigDecimal id) throws ApiException {
-        ApiResponse<Object> localVarResp = productNutritionByIDImageWithHttpInfo(id);
+    public File productNutritionByIDImage(BigDecimal id) throws ApiException {
+        ApiResponse<File> localVarResp = productNutritionByIDImageWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -923,7 +924,7 @@ public class ProductsApi {
      * Product Nutrition by ID Image
      * Visualize a product&#39;s nutritional information as an image.
      * @param id The id of the product. (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -936,9 +937,9 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public ApiResponse<Object> productNutritionByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
+    public ApiResponse<File> productNutritionByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
         okhttp3.Call localVarCall = productNutritionByIDImageValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -960,10 +961,10 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call productNutritionByIDImageAsync(BigDecimal id, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call productNutritionByIDImageAsync(BigDecimal id, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = productNutritionByIDImageValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1062,7 +1063,7 @@ public class ProductsApi {
      * @param showOptionalNutrients Whether to show optional nutrients. (optional)
      * @param showZeroValues Whether to show zero values. (optional)
      * @param showIngredients Whether to show a list of ingredients. (optional)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1075,8 +1076,8 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public Object productNutritionLabelImage(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
-        ApiResponse<Object> localVarResp = productNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
+    public File productNutritionLabelImage(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+        ApiResponse<File> localVarResp = productNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
 
@@ -1087,7 +1088,7 @@ public class ProductsApi {
      * @param showOptionalNutrients Whether to show optional nutrients. (optional)
      * @param showZeroValues Whether to show zero values. (optional)
      * @param showIngredients Whether to show a list of ingredients. (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1100,9 +1101,9 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public ApiResponse<Object> productNutritionLabelImageWithHttpInfo(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<File> productNutritionLabelImageWithHttpInfo(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = productNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1127,10 +1128,10 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call productNutritionLabelImageAsync(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call productNutritionLabelImageAsync(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = productNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1685,7 +1686,6 @@ public class ProductsApi {
      * Build call for visualizeProductNutritionByID
      * @param id The item&#39;s id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1700,7 +1700,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Widget">Product Nutrition by ID Widget Documentation</a>
      */
-    public okhttp3.Call visualizeProductNutritionByIDCall(Integer id, Boolean defaultCss, String accept, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call visualizeProductNutritionByIDCall(Integer id, Boolean defaultCss, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1730,10 +1730,6 @@ public class ProductsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("defaultCss", defaultCss));
         }
 
-        if (accept != null) {
-            localVarHeaderParams.put("Accept", localVarApiClient.parameterToString(accept));
-        }
-
         final String[] localVarAccepts = {
             "text/html"
         };
@@ -1754,13 +1750,13 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call visualizeProductNutritionByIDValidateBeforeCall(Integer id, Boolean defaultCss, String accept, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call visualizeProductNutritionByIDValidateBeforeCall(Integer id, Boolean defaultCss, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling visualizeProductNutritionByID(Async)");
         }
 
-        return visualizeProductNutritionByIDCall(id, defaultCss, accept, _callback);
+        return visualizeProductNutritionByIDCall(id, defaultCss, _callback);
 
     }
 
@@ -1769,7 +1765,6 @@ public class ProductsApi {
      * Visualize a product&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1783,8 +1778,8 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Widget">Product Nutrition by ID Widget Documentation</a>
      */
-    public String visualizeProductNutritionByID(Integer id, Boolean defaultCss, String accept) throws ApiException {
-        ApiResponse<String> localVarResp = visualizeProductNutritionByIDWithHttpInfo(id, defaultCss, accept);
+    public String visualizeProductNutritionByID(Integer id, Boolean defaultCss) throws ApiException {
+        ApiResponse<String> localVarResp = visualizeProductNutritionByIDWithHttpInfo(id, defaultCss);
         return localVarResp.getData();
     }
 
@@ -1793,7 +1788,6 @@ public class ProductsApi {
      * Visualize a product&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1807,8 +1801,8 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Widget">Product Nutrition by ID Widget Documentation</a>
      */
-    public ApiResponse<String> visualizeProductNutritionByIDWithHttpInfo(Integer id, Boolean defaultCss, String accept) throws ApiException {
-        okhttp3.Call localVarCall = visualizeProductNutritionByIDValidateBeforeCall(id, defaultCss, accept, null);
+    public ApiResponse<String> visualizeProductNutritionByIDWithHttpInfo(Integer id, Boolean defaultCss) throws ApiException {
+        okhttp3.Call localVarCall = visualizeProductNutritionByIDValidateBeforeCall(id, defaultCss, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1818,7 +1812,6 @@ public class ProductsApi {
      * Visualize a product&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1833,9 +1826,9 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Widget">Product Nutrition by ID Widget Documentation</a>
      */
-    public okhttp3.Call visualizeProductNutritionByIDAsync(Integer id, Boolean defaultCss, String accept, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call visualizeProductNutritionByIDAsync(Integer id, Boolean defaultCss, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = visualizeProductNutritionByIDValidateBeforeCall(id, defaultCss, accept, _callback);
+        okhttp3.Call localVarCall = visualizeProductNutritionByIDValidateBeforeCall(id, defaultCss, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

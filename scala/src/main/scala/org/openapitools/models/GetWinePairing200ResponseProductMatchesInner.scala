@@ -5,7 +5,6 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.AnyType
 import org.openapitools.models.BigDecimal
 
 /**
@@ -23,7 +22,7 @@ import org.openapitools.models.BigDecimal
 case class GetWinePairing200ResponseProductMatchesInner(id: Int,
                 title: String,
                 averageRating: BigDecimal,
-                description: Option[AnyType],
+                description: Option[String],
                 imageUrl: String,
                 link: String,
                 price: String,

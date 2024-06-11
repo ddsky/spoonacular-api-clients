@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.analyze_a_recipe_search_query200_response import AnalyzeARecipeSearchQuery200Response
@@ -336,7 +336,7 @@ class RecipesApi:
     @validate_call
     def analyze_recipe_instructions(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        instructions: Annotated[StrictStr, Field(description="The recipe's instructions.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -354,8 +354,8 @@ class RecipesApi:
 
         This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param instructions: The recipe's instructions. (required)
+        :type instructions: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -379,7 +379,7 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._analyze_recipe_instructions_serialize(
-            content_type=content_type,
+            instructions=instructions,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -406,7 +406,7 @@ class RecipesApi:
     @validate_call
     def analyze_recipe_instructions_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        instructions: Annotated[StrictStr, Field(description="The recipe's instructions.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -424,8 +424,8 @@ class RecipesApi:
 
         This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param instructions: The recipe's instructions. (required)
+        :type instructions: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -449,7 +449,7 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._analyze_recipe_instructions_serialize(
-            content_type=content_type,
+            instructions=instructions,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -476,7 +476,7 @@ class RecipesApi:
     @validate_call
     def analyze_recipe_instructions_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        instructions: Annotated[StrictStr, Field(description="The recipe's instructions.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -494,8 +494,8 @@ class RecipesApi:
 
         This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param instructions: The recipe's instructions. (required)
+        :type instructions: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -519,7 +519,7 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._analyze_recipe_instructions_serialize(
-            content_type=content_type,
+            instructions=instructions,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -541,7 +541,7 @@ class RecipesApi:
 
     def _analyze_recipe_instructions_serialize(
         self,
-        content_type,
+        instructions,
         _request_auth,
         _content_type,
         _headers,
@@ -563,9 +563,9 @@ class RecipesApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
         # process the form parameters
+        if instructions is not None:
+            _form_params.append(('instructions', instructions))
         # process the body parameter
 
 
@@ -902,7 +902,9 @@ class RecipesApi:
     @validate_call
     def classify_cuisine(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        title: Annotated[StrictStr, Field(description="The title of the recipe.")],
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -920,8 +922,12 @@ class RecipesApi:
 
         Classify the recipe's cuisine.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param title: The title of the recipe. (required)
+        :type title: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredient_list: str
+        :param language: The language of the input. Either 'en' or 'de'.
+        :type language: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -945,7 +951,9 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._classify_cuisine_serialize(
-            content_type=content_type,
+            title=title,
+            ingredient_list=ingredient_list,
+            language=language,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -972,7 +980,9 @@ class RecipesApi:
     @validate_call
     def classify_cuisine_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        title: Annotated[StrictStr, Field(description="The title of the recipe.")],
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -990,8 +1000,12 @@ class RecipesApi:
 
         Classify the recipe's cuisine.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param title: The title of the recipe. (required)
+        :type title: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredient_list: str
+        :param language: The language of the input. Either 'en' or 'de'.
+        :type language: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1015,7 +1029,9 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._classify_cuisine_serialize(
-            content_type=content_type,
+            title=title,
+            ingredient_list=ingredient_list,
+            language=language,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1042,7 +1058,9 @@ class RecipesApi:
     @validate_call
     def classify_cuisine_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        title: Annotated[StrictStr, Field(description="The title of the recipe.")],
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1060,8 +1078,12 @@ class RecipesApi:
 
         Classify the recipe's cuisine.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param title: The title of the recipe. (required)
+        :type title: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredient_list: str
+        :param language: The language of the input. Either 'en' or 'de'.
+        :type language: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1085,7 +1107,9 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._classify_cuisine_serialize(
-            content_type=content_type,
+            title=title,
+            ingredient_list=ingredient_list,
+            language=language,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1107,7 +1131,9 @@ class RecipesApi:
 
     def _classify_cuisine_serialize(
         self,
-        content_type,
+        title,
+        ingredient_list,
+        language,
         _request_auth,
         _content_type,
         _headers,
@@ -1128,10 +1154,16 @@ class RecipesApi:
 
         # process the path parameters
         # process the query parameters
+        if language is not None:
+            
+            _query_params.append(('language', language))
+            
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
         # process the form parameters
+        if title is not None:
+            _form_params.append(('title', title))
+        if ingredient_list is not None:
+            _form_params.append(('ingredientList', ingredient_list))
         # process the body parameter
 
 
@@ -1799,7 +1831,19 @@ class RecipesApi:
     @validate_call
     def create_recipe_card(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        title: Annotated[StrictStr, Field(description="The title of the recipe.")],
+        ingredients: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        instructions: Annotated[StrictStr, Field(description="The instructions to make the recipe. One step per line (separate lines with \\\\n).")],
+        ready_in_minutes: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of minutes it takes to get the recipe on the table.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings the recipe makes.")],
+        mask: Annotated[StrictStr, Field(description="The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').")],
+        background_image: Annotated[StrictStr, Field(description="The background image ('none', 'background1', or 'background2').")],
+        image: Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="The binary image of the recipe as jpg.")] = None,
+        image_url: Annotated[Optional[StrictStr], Field(description="If you do not sent a binary image you can also pass the image URL.")] = None,
+        author: Annotated[Optional[StrictStr], Field(description="The author of the recipe.")] = None,
+        background_color: Annotated[Optional[StrictStr], Field(description="The background color for the recipe card as a hex-string.")] = None,
+        font_color: Annotated[Optional[StrictStr], Field(description="The font color for the recipe card as a hex-string.")] = None,
+        source: Annotated[Optional[StrictStr], Field(description="The source of the recipe.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1817,8 +1861,32 @@ class RecipesApi:
 
         Generate a recipe card for a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param title: The title of the recipe. (required)
+        :type title: str
+        :param ingredients: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredients: str
+        :param instructions: The instructions to make the recipe. One step per line (separate lines with \\\\n). (required)
+        :type instructions: str
+        :param ready_in_minutes: The number of minutes it takes to get the recipe on the table. (required)
+        :type ready_in_minutes: float
+        :param servings: The number of servings the recipe makes. (required)
+        :type servings: float
+        :param mask: The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask'). (required)
+        :type mask: str
+        :param background_image: The background image ('none', 'background1', or 'background2'). (required)
+        :type background_image: str
+        :param image: The binary image of the recipe as jpg.
+        :type image: bytearray
+        :param image_url: If you do not sent a binary image you can also pass the image URL.
+        :type image_url: str
+        :param author: The author of the recipe.
+        :type author: str
+        :param background_color: The background color for the recipe card as a hex-string.
+        :type background_color: str
+        :param font_color: The font color for the recipe card as a hex-string.
+        :type font_color: str
+        :param source: The source of the recipe.
+        :type source: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1842,7 +1910,19 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._create_recipe_card_serialize(
-            content_type=content_type,
+            title=title,
+            ingredients=ingredients,
+            instructions=instructions,
+            ready_in_minutes=ready_in_minutes,
+            servings=servings,
+            mask=mask,
+            background_image=background_image,
+            image=image,
+            image_url=image_url,
+            author=author,
+            background_color=background_color,
+            font_color=font_color,
+            source=source,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1869,7 +1949,19 @@ class RecipesApi:
     @validate_call
     def create_recipe_card_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        title: Annotated[StrictStr, Field(description="The title of the recipe.")],
+        ingredients: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        instructions: Annotated[StrictStr, Field(description="The instructions to make the recipe. One step per line (separate lines with \\\\n).")],
+        ready_in_minutes: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of minutes it takes to get the recipe on the table.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings the recipe makes.")],
+        mask: Annotated[StrictStr, Field(description="The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').")],
+        background_image: Annotated[StrictStr, Field(description="The background image ('none', 'background1', or 'background2').")],
+        image: Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="The binary image of the recipe as jpg.")] = None,
+        image_url: Annotated[Optional[StrictStr], Field(description="If you do not sent a binary image you can also pass the image URL.")] = None,
+        author: Annotated[Optional[StrictStr], Field(description="The author of the recipe.")] = None,
+        background_color: Annotated[Optional[StrictStr], Field(description="The background color for the recipe card as a hex-string.")] = None,
+        font_color: Annotated[Optional[StrictStr], Field(description="The font color for the recipe card as a hex-string.")] = None,
+        source: Annotated[Optional[StrictStr], Field(description="The source of the recipe.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1887,8 +1979,32 @@ class RecipesApi:
 
         Generate a recipe card for a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param title: The title of the recipe. (required)
+        :type title: str
+        :param ingredients: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredients: str
+        :param instructions: The instructions to make the recipe. One step per line (separate lines with \\\\n). (required)
+        :type instructions: str
+        :param ready_in_minutes: The number of minutes it takes to get the recipe on the table. (required)
+        :type ready_in_minutes: float
+        :param servings: The number of servings the recipe makes. (required)
+        :type servings: float
+        :param mask: The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask'). (required)
+        :type mask: str
+        :param background_image: The background image ('none', 'background1', or 'background2'). (required)
+        :type background_image: str
+        :param image: The binary image of the recipe as jpg.
+        :type image: bytearray
+        :param image_url: If you do not sent a binary image you can also pass the image URL.
+        :type image_url: str
+        :param author: The author of the recipe.
+        :type author: str
+        :param background_color: The background color for the recipe card as a hex-string.
+        :type background_color: str
+        :param font_color: The font color for the recipe card as a hex-string.
+        :type font_color: str
+        :param source: The source of the recipe.
+        :type source: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1912,7 +2028,19 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._create_recipe_card_serialize(
-            content_type=content_type,
+            title=title,
+            ingredients=ingredients,
+            instructions=instructions,
+            ready_in_minutes=ready_in_minutes,
+            servings=servings,
+            mask=mask,
+            background_image=background_image,
+            image=image,
+            image_url=image_url,
+            author=author,
+            background_color=background_color,
+            font_color=font_color,
+            source=source,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1939,7 +2067,19 @@ class RecipesApi:
     @validate_call
     def create_recipe_card_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        title: Annotated[StrictStr, Field(description="The title of the recipe.")],
+        ingredients: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        instructions: Annotated[StrictStr, Field(description="The instructions to make the recipe. One step per line (separate lines with \\\\n).")],
+        ready_in_minutes: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of minutes it takes to get the recipe on the table.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings the recipe makes.")],
+        mask: Annotated[StrictStr, Field(description="The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').")],
+        background_image: Annotated[StrictStr, Field(description="The background image ('none', 'background1', or 'background2').")],
+        image: Annotated[Optional[Union[StrictBytes, StrictStr]], Field(description="The binary image of the recipe as jpg.")] = None,
+        image_url: Annotated[Optional[StrictStr], Field(description="If you do not sent a binary image you can also pass the image URL.")] = None,
+        author: Annotated[Optional[StrictStr], Field(description="The author of the recipe.")] = None,
+        background_color: Annotated[Optional[StrictStr], Field(description="The background color for the recipe card as a hex-string.")] = None,
+        font_color: Annotated[Optional[StrictStr], Field(description="The font color for the recipe card as a hex-string.")] = None,
+        source: Annotated[Optional[StrictStr], Field(description="The source of the recipe.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1957,8 +2097,32 @@ class RecipesApi:
 
         Generate a recipe card for a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param title: The title of the recipe. (required)
+        :type title: str
+        :param ingredients: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredients: str
+        :param instructions: The instructions to make the recipe. One step per line (separate lines with \\\\n). (required)
+        :type instructions: str
+        :param ready_in_minutes: The number of minutes it takes to get the recipe on the table. (required)
+        :type ready_in_minutes: float
+        :param servings: The number of servings the recipe makes. (required)
+        :type servings: float
+        :param mask: The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask'). (required)
+        :type mask: str
+        :param background_image: The background image ('none', 'background1', or 'background2'). (required)
+        :type background_image: str
+        :param image: The binary image of the recipe as jpg.
+        :type image: bytearray
+        :param image_url: If you do not sent a binary image you can also pass the image URL.
+        :type image_url: str
+        :param author: The author of the recipe.
+        :type author: str
+        :param background_color: The background color for the recipe card as a hex-string.
+        :type background_color: str
+        :param font_color: The font color for the recipe card as a hex-string.
+        :type font_color: str
+        :param source: The source of the recipe.
+        :type source: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1982,7 +2146,19 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._create_recipe_card_serialize(
-            content_type=content_type,
+            title=title,
+            ingredients=ingredients,
+            instructions=instructions,
+            ready_in_minutes=ready_in_minutes,
+            servings=servings,
+            mask=mask,
+            background_image=background_image,
+            image=image,
+            image_url=image_url,
+            author=author,
+            background_color=background_color,
+            font_color=font_color,
+            source=source,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2004,7 +2180,19 @@ class RecipesApi:
 
     def _create_recipe_card_serialize(
         self,
-        content_type,
+        title,
+        ingredients,
+        instructions,
+        ready_in_minutes,
+        servings,
+        mask,
+        background_image,
+        image,
+        image_url,
+        author,
+        background_color,
+        font_color,
+        source,
         _request_auth,
         _content_type,
         _headers,
@@ -2026,9 +2214,33 @@ class RecipesApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
         # process the form parameters
+        if title is not None:
+            _form_params.append(('title', title))
+        if ingredients is not None:
+            _form_params.append(('ingredients', ingredients))
+        if instructions is not None:
+            _form_params.append(('instructions', instructions))
+        if ready_in_minutes is not None:
+            _form_params.append(('readyInMinutes', ready_in_minutes))
+        if servings is not None:
+            _form_params.append(('servings', servings))
+        if mask is not None:
+            _form_params.append(('mask', mask))
+        if background_image is not None:
+            _form_params.append(('backgroundImage', background_image))
+        if image is not None:
+            _files['image'] = image
+        if image_url is not None:
+            _form_params.append(('imageUrl', image_url))
+        if author is not None:
+            _form_params.append(('author', author))
+        if background_color is not None:
+            _form_params.append(('backgroundColor', background_color))
+        if font_color is not None:
+            _form_params.append(('fontColor', font_color))
+        if source is not None:
+            _form_params.append(('source', source))
         # process the body parameter
 
 
@@ -2092,7 +2304,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Equipment by ID Image
 
         Visualize a recipe's equipment list as an image.
@@ -2130,7 +2342,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -2162,7 +2374,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Equipment by ID Image
 
         Visualize a recipe's equipment list as an image.
@@ -2200,7 +2412,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -2270,7 +2482,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -5796,8 +6008,10 @@ class RecipesApi:
     @validate_call
     def parse_ingredients(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings that you can make from the ingredients.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        include_nutrition: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5815,10 +6029,14 @@ class RecipesApi:
 
         Extract an ingredient from plain text.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings that you can make from the ingredients. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param include_nutrition:
+        :type include_nutrition: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5842,8 +6060,10 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._parse_ingredients_serialize(
-            content_type=content_type,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            include_nutrition=include_nutrition,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5870,8 +6090,10 @@ class RecipesApi:
     @validate_call
     def parse_ingredients_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings that you can make from the ingredients.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        include_nutrition: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5889,10 +6111,14 @@ class RecipesApi:
 
         Extract an ingredient from plain text.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings that you can make from the ingredients. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param include_nutrition:
+        :type include_nutrition: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5916,8 +6142,10 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._parse_ingredients_serialize(
-            content_type=content_type,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            include_nutrition=include_nutrition,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5944,8 +6172,10 @@ class RecipesApi:
     @validate_call
     def parse_ingredients_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings that you can make from the ingredients.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        include_nutrition: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5963,10 +6193,14 @@ class RecipesApi:
 
         Extract an ingredient from plain text.
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings that you can make from the ingredients. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param include_nutrition:
+        :type include_nutrition: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5990,8 +6224,10 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._parse_ingredients_serialize(
-            content_type=content_type,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            include_nutrition=include_nutrition,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6013,8 +6249,10 @@ class RecipesApi:
 
     def _parse_ingredients_serialize(
         self,
-        content_type,
+        ingredient_list,
+        servings,
         language,
+        include_nutrition,
         _request_auth,
         _content_type,
         _headers,
@@ -6040,9 +6278,13 @@ class RecipesApi:
             _query_params.append(('language', language))
             
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
         # process the form parameters
+        if ingredient_list is not None:
+            _form_params.append(('ingredientList', ingredient_list))
+        if servings is not None:
+            _form_params.append(('servings', servings))
+        if include_nutrition is not None:
+            _form_params.append(('includeNutrition', include_nutrition))
         # process the body parameter
 
 
@@ -6106,7 +6348,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Price Breakdown by ID Image
 
         Visualize a recipe's price breakdown.
@@ -6144,7 +6386,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6176,7 +6418,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Price Breakdown by ID Image
 
         Visualize a recipe's price breakdown.
@@ -6214,7 +6456,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6284,7 +6526,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6642,7 +6884,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Recipe Nutrition by ID Image
 
         Visualize a recipe's nutritional information as an image.
@@ -6680,7 +6922,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6712,7 +6954,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Recipe Nutrition by ID Image
 
         Visualize a recipe's nutritional information as an image.
@@ -6750,7 +6992,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6820,7 +7062,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6912,7 +7154,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Recipe Nutrition Label Image
 
         Get a recipe's nutrition label as an image.
@@ -6959,7 +7201,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -6994,7 +7236,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Recipe Nutrition Label Image
 
         Get a recipe's nutrition label as an image.
@@ -7041,7 +7283,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -7123,7 +7365,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -7564,7 +7806,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Recipe Taste by ID Image
 
         Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -7608,7 +7850,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -7642,7 +7884,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Recipe Taste by ID Image
 
         Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -7686,7 +7928,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -7764,7 +8006,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -11916,8 +12158,10 @@ class RecipesApi:
     @validate_call
     def visualize_equipment(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        instructions: Annotated[StrictStr, Field(description="The recipe's instructions.")],
+        view: Annotated[Optional[StrictStr], Field(description="How to visualize the ingredients, either 'grid' or 'list'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11935,10 +12179,14 @@ class RecipesApi:
 
         Visualize the equipment used to make a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param instructions: The recipe's instructions. (required)
+        :type instructions: str
+        :param view: How to visualize the ingredients, either 'grid' or 'list'.
+        :type view: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11962,8 +12210,10 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_equipment_serialize(
-            content_type=content_type,
-            accept=accept,
+            instructions=instructions,
+            view=view,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11990,8 +12240,10 @@ class RecipesApi:
     @validate_call
     def visualize_equipment_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        instructions: Annotated[StrictStr, Field(description="The recipe's instructions.")],
+        view: Annotated[Optional[StrictStr], Field(description="How to visualize the ingredients, either 'grid' or 'list'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12009,10 +12261,14 @@ class RecipesApi:
 
         Visualize the equipment used to make a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param instructions: The recipe's instructions. (required)
+        :type instructions: str
+        :param view: How to visualize the ingredients, either 'grid' or 'list'.
+        :type view: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12036,8 +12292,10 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_equipment_serialize(
-            content_type=content_type,
-            accept=accept,
+            instructions=instructions,
+            view=view,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12064,8 +12322,10 @@ class RecipesApi:
     @validate_call
     def visualize_equipment_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        instructions: Annotated[StrictStr, Field(description="The recipe's instructions.")],
+        view: Annotated[Optional[StrictStr], Field(description="How to visualize the ingredients, either 'grid' or 'list'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12083,10 +12343,14 @@ class RecipesApi:
 
         Visualize the equipment used to make a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param instructions: The recipe's instructions. (required)
+        :type instructions: str
+        :param view: How to visualize the ingredients, either 'grid' or 'list'.
+        :type view: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12110,8 +12374,10 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_equipment_serialize(
-            content_type=content_type,
-            accept=accept,
+            instructions=instructions,
+            view=view,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12133,8 +12399,10 @@ class RecipesApi:
 
     def _visualize_equipment_serialize(
         self,
-        content_type,
-        accept,
+        instructions,
+        view,
+        default_css,
+        show_backlink,
         _request_auth,
         _content_type,
         _headers,
@@ -12156,11 +12424,15 @@ class RecipesApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
+        if instructions is not None:
+            _form_params.append(('instructions', instructions))
+        if view is not None:
+            _form_params.append(('view', view))
+        if default_css is not None:
+            _form_params.append(('defaultCss', default_css))
+        if show_backlink is not None:
+            _form_params.append(('showBacklink', show_backlink))
         # process the body parameter
 
 
@@ -12211,9 +12483,12 @@ class RecipesApi:
     @validate_call
     def visualize_price_breakdown(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        mode: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12231,12 +12506,18 @@ class RecipesApi:
 
         Visualize the price breakdown of a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param mode: The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+        :type mode: float
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12260,9 +12541,12 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_price_breakdown_serialize(
-            content_type=content_type,
-            accept=accept,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            mode=mode,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12289,9 +12573,12 @@ class RecipesApi:
     @validate_call
     def visualize_price_breakdown_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        mode: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12309,12 +12596,18 @@ class RecipesApi:
 
         Visualize the price breakdown of a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param mode: The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+        :type mode: float
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12338,9 +12631,12 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_price_breakdown_serialize(
-            content_type=content_type,
-            accept=accept,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            mode=mode,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12367,9 +12663,12 @@ class RecipesApi:
     @validate_call
     def visualize_price_breakdown_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        mode: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12387,12 +12686,18 @@ class RecipesApi:
 
         Visualize the price breakdown of a recipe.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param mode: The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+        :type mode: float
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12416,9 +12721,12 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_price_breakdown_serialize(
-            content_type=content_type,
-            accept=accept,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            mode=mode,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12440,9 +12748,12 @@ class RecipesApi:
 
     def _visualize_price_breakdown_serialize(
         self,
-        content_type,
-        accept,
+        ingredient_list,
+        servings,
         language,
+        mode,
+        default_css,
+        show_backlink,
         _request_auth,
         _content_type,
         _headers,
@@ -12468,11 +12779,17 @@ class RecipesApi:
             _query_params.append(('language', language))
             
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
+        if ingredient_list is not None:
+            _form_params.append(('ingredientList', ingredient_list))
+        if servings is not None:
+            _form_params.append(('servings', servings))
+        if mode is not None:
+            _form_params.append(('mode', mode))
+        if default_css is not None:
+            _form_params.append(('defaultCss', default_css))
+        if show_backlink is not None:
+            _form_params.append(('showBacklink', show_backlink))
         # process the body parameter
 
 
@@ -13108,9 +13425,11 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_nutrition(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13128,12 +13447,16 @@ class RecipesApi:
 
         Visualize a recipe's nutritional information as HTML including CSS.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13157,9 +13480,11 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_recipe_nutrition_serialize(
-            content_type=content_type,
-            accept=accept,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13186,9 +13511,11 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_nutrition_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13206,12 +13533,16 @@ class RecipesApi:
 
         Visualize a recipe's nutritional information as HTML including CSS.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13235,9 +13566,11 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_recipe_nutrition_serialize(
-            content_type=content_type,
-            accept=accept,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13264,9 +13597,11 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_nutrition_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13284,12 +13619,16 @@ class RecipesApi:
 
         Visualize a recipe's nutritional information as HTML including CSS.
 
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13313,9 +13652,11 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_recipe_nutrition_serialize(
-            content_type=content_type,
-            accept=accept,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13337,9 +13678,11 @@ class RecipesApi:
 
     def _visualize_recipe_nutrition_serialize(
         self,
-        content_type,
-        accept,
+        ingredient_list,
+        servings,
         language,
+        default_css,
+        show_backlink,
         _request_auth,
         _content_type,
         _headers,
@@ -13365,11 +13708,15 @@ class RecipesApi:
             _query_params.append(('language', language))
             
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
+        if ingredient_list is not None:
+            _form_params.append(('ingredientList', ingredient_list))
+        if servings is not None:
+            _form_params.append(('servings', servings))
+        if default_css is not None:
+            _form_params.append(('defaultCss', default_css))
+        if show_backlink is not None:
+            _form_params.append(('showBacklink', show_backlink))
         # process the body parameter
 
 
@@ -13422,7 +13769,6 @@ class RecipesApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13444,8 +13790,6 @@ class RecipesApi:
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
-        :param accept: Accept header.
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13471,7 +13815,6 @@ class RecipesApi:
         _param = self._visualize_recipe_nutrition_by_id_serialize(
             id=id,
             default_css=default_css,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13500,7 +13843,6 @@ class RecipesApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13522,8 +13864,6 @@ class RecipesApi:
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
-        :param accept: Accept header.
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13549,7 +13889,6 @@ class RecipesApi:
         _param = self._visualize_recipe_nutrition_by_id_serialize(
             id=id,
             default_css=default_css,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13578,7 +13917,6 @@ class RecipesApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13600,8 +13938,6 @@ class RecipesApi:
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
-        :param accept: Accept header.
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13627,7 +13963,6 @@ class RecipesApi:
         _param = self._visualize_recipe_nutrition_by_id_serialize(
             id=id,
             default_css=default_css,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13651,7 +13986,6 @@ class RecipesApi:
         self,
         id,
         default_css,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -13679,8 +14013,6 @@ class RecipesApi:
             _query_params.append(('defaultCss', default_css))
             
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
 
@@ -14003,10 +14335,9 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_taste(
         self,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
-        normalize: Annotated[Optional[StrictBool], Field(description="Whether to normalize to the strongest taste.")] = None,
+        normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
             None,
@@ -14025,13 +14356,11 @@ class RecipesApi:
 
         Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
-        :param normalize: Whether to normalize to the strongest taste.
+        :param normalize: Normalize to the strongest taste.
         :type normalize: bool
         :param rgb: Red, green, blue values for the chart color.
         :type rgb: str
@@ -14058,9 +14387,8 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_recipe_taste_serialize(
+            ingredient_list=ingredient_list,
             language=language,
-            content_type=content_type,
-            accept=accept,
             normalize=normalize,
             rgb=rgb,
             _request_auth=_request_auth,
@@ -14089,10 +14417,9 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_taste_with_http_info(
         self,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
-        normalize: Annotated[Optional[StrictBool], Field(description="Whether to normalize to the strongest taste.")] = None,
+        normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
             None,
@@ -14111,13 +14438,11 @@ class RecipesApi:
 
         Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
-        :param normalize: Whether to normalize to the strongest taste.
+        :param normalize: Normalize to the strongest taste.
         :type normalize: bool
         :param rgb: Red, green, blue values for the chart color.
         :type rgb: str
@@ -14144,9 +14469,8 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_recipe_taste_serialize(
+            ingredient_list=ingredient_list,
             language=language,
-            content_type=content_type,
-            accept=accept,
             normalize=normalize,
             rgb=rgb,
             _request_auth=_request_auth,
@@ -14175,10 +14499,9 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_taste_without_preload_content(
         self,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
-        normalize: Annotated[Optional[StrictBool], Field(description="Whether to normalize to the strongest taste.")] = None,
+        normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
             None,
@@ -14197,13 +14520,11 @@ class RecipesApi:
 
         Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line. (required)
+        :type ingredient_list: str
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param content_type: The content type.
-        :type content_type: str
-        :param accept: Accept header.
-        :type accept: str
-        :param normalize: Whether to normalize to the strongest taste.
+        :param normalize: Normalize to the strongest taste.
         :type normalize: bool
         :param rgb: Red, green, blue values for the chart color.
         :type rgb: str
@@ -14230,9 +14551,8 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._visualize_recipe_taste_serialize(
+            ingredient_list=ingredient_list,
             language=language,
-            content_type=content_type,
-            accept=accept,
             normalize=normalize,
             rgb=rgb,
             _request_auth=_request_auth,
@@ -14256,9 +14576,8 @@ class RecipesApi:
 
     def _visualize_recipe_taste_serialize(
         self,
+        ingredient_list,
         language,
-        content_type,
-        accept,
         normalize,
         rgb,
         _request_auth,
@@ -14285,20 +14604,14 @@ class RecipesApi:
             
             _query_params.append(('language', language))
             
-        if normalize is not None:
-            
-            _query_params.append(('normalize', normalize))
-            
-        if rgb is not None:
-            
-            _query_params.append(('rgb', rgb))
-            
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
+        if ingredient_list is not None:
+            _form_params.append(('ingredientList', ingredient_list))
+        if normalize is not None:
+            _form_params.append(('normalize', normalize))
+        if rgb is not None:
+            _form_params.append(('rgb', rgb))
         # process the body parameter
 
 

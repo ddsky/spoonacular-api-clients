@@ -13,13 +13,13 @@ part of openapi.api;
 class SearchSiteContent200ResponseArticlesInner {
   /// Returns a new [SearchSiteContent200ResponseArticlesInner] instance.
   SearchSiteContent200ResponseArticlesInner({
-    this.dataPoints = const [],
+    this.dataPoints = const {},
     required this.image,
     required this.link,
     required this.name,
   });
 
-  List<Object> dataPoints;
+  Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints;
 
   String image;
 
@@ -47,7 +47,7 @@ class SearchSiteContent200ResponseArticlesInner {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'dataPoints'] = this.dataPoints;
+      json[r'dataPoints'] = this.dataPoints.toList(growable: false);
       json[r'image'] = this.image;
       json[r'link'] = this.link;
       json[r'name'] = this.name;
@@ -73,7 +73,7 @@ class SearchSiteContent200ResponseArticlesInner {
       }());
 
       return SearchSiteContent200ResponseArticlesInner(
-        dataPoints: Object.listFromJson(json[r'dataPoints']),
+        dataPoints: SearchSiteContent200ResponseArticlesInnerDataPointsInner.listFromJson(json[r'dataPoints']).toSet(),
         image: mapValueOfType<String>(json, r'image')!,
         link: mapValueOfType<String>(json, r'link')!,
         name: mapValueOfType<String>(json, r'name')!,

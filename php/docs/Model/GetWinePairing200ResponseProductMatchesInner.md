@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  |
 **title** | **string** |  |
 **average_rating** | **float** |  |
-**description** | **mixed** |  | [optional]
+**description** | **string** |  | [optional]
 **image_url** | **string** |  |
 **link** | **string** |  |
 **price** | **string** |  |

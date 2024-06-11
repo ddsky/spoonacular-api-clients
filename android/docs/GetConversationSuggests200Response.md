@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **suggests** | [**GetConversationSuggests200ResponseSuggests**](GetConversationSuggests200ResponseSuggests.md) |  | 
-**words** | [**List&lt;OasAnyTypeNotMapped&gt;**](OasAnyTypeNotMapped.md) |  | 
+**words** | **List&lt;String&gt;** |  | 
 
 
 

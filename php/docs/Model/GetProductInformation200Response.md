@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **badges** | **string[]** |  |
 **important_badges** | **string[]** |  |
 **ingredient_count** | **int** |  |
-**generated_text** | **mixed** |  | [optional]
+**generated_text** | **string** |  | [optional]
 **ingredient_list** | **string** |  |
 **ingredients** | [**\OpenAPI\Client\Model\GetProductInformation200ResponseIngredientsInner[]**](GetProductInformation200ResponseIngredientsInner.md) |  |
 **likes** | **float** |  |

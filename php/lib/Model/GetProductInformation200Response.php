@@ -66,7 +66,7 @@ class GetProductInformation200Response implements ModelInterface, ArrayAccess, \
         'badges' => 'string[]',
         'important_badges' => 'string[]',
         'ingredient_count' => 'int',
-        'generated_text' => 'mixed',
+        'generated_text' => 'string',
         'ingredient_list' => 'string',
         'ingredients' => '\OpenAPI\Client\Model\GetProductInformation200ResponseIngredientsInner[]',
         'likes' => 'float',
@@ -116,7 +116,7 @@ class GetProductInformation200Response implements ModelInterface, ArrayAccess, \
         'badges' => false,
         'important_badges' => false,
         'ingredient_count' => false,
-        'generated_text' => true,
+        'generated_text' => false,
         'ingredient_list' => false,
         'ingredients' => false,
         'likes' => false,
@@ -663,7 +663,7 @@ class GetProductInformation200Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets generated_text
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getGeneratedText()
     {
@@ -673,21 +673,14 @@ class GetProductInformation200Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets generated_text
      *
-     * @param mixed|null $generated_text generated_text
+     * @param string|null $generated_text generated_text
      *
      * @return self
      */
     public function setGeneratedText($generated_text)
     {
         if (is_null($generated_text)) {
-            array_push($this->openAPINullablesSetToNull, 'generated_text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('generated_text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable generated_text cannot be null');
         }
         $this->container['generated_text'] = $generated_text;
 

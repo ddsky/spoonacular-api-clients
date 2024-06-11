@@ -126,8 +126,7 @@ isa_ok($api, 'WWW::OpenAPIClient::ProductsApi');
 # uncomment below and update the test
 #my $visualize_product_nutrition_by_id_id = undef; # replace NULL with a proper value
 #my $visualize_product_nutrition_by_id_default_css = undef; # replace NULL with a proper value
-#my $visualize_product_nutrition_by_id_accept = undef; # replace NULL with a proper value
-#my $visualize_product_nutrition_by_id_result = $api->visualize_product_nutrition_by_id(id => $visualize_product_nutrition_by_id_id, default_css => $visualize_product_nutrition_by_id_default_css, accept => $visualize_product_nutrition_by_id_accept);
+#my $visualize_product_nutrition_by_id_result = $api->visualize_product_nutrition_by_id(id => $visualize_product_nutrition_by_id_id, default_css => $visualize_product_nutrition_by_id_default_css);
 
 
 done_testing();

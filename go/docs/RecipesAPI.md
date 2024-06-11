@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ## AnalyzeRecipeInstructions
 
-> AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions(ctx).ContentType(contentType).Execute()
+> AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions(ctx).Instructions(instructions).Execute()
 
 Analyze Recipe Instructions
 
@@ -134,11 +134,11 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
+	instructions := "instructions_example" // string | The recipe's instructions.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.AnalyzeRecipeInstructions(context.Background()).ContentType(contentType).Execute()
+	resp, r, err := apiClient.RecipesAPI.AnalyzeRecipeInstructions(context.Background()).Instructions(instructions).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.AnalyzeRecipeInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -159,7 +159,7 @@ Other parameters are passed through a pointer to a apiAnalyzeRecipeInstructionsR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
+ **instructions** | **string** | The recipe&#39;s instructions. | 
 
 ### Return type
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ## ClassifyCuisine
 
-> ClassifyCuisine200Response ClassifyCuisine(ctx).ContentType(contentType).Execute()
+> ClassifyCuisine200Response ClassifyCuisine(ctx).Title(title).IngredientList(ingredientList).Language(language).Execute()
 
 Classify Cuisine
 
@@ -268,11 +268,13 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
+	title := "title_example" // string | The title of the recipe.
+	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.ClassifyCuisine(context.Background()).ContentType(contentType).Execute()
+	resp, r, err := apiClient.RecipesAPI.ClassifyCuisine(context.Background()).Title(title).IngredientList(ingredientList).Language(language).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.ClassifyCuisine``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -293,7 +295,9 @@ Other parameters are passed through a pointer to a apiClassifyCuisineRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
+ **title** | **string** | The title of the recipe. | 
+ **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
 
 ### Return type
 
@@ -455,7 +459,7 @@ Name | Type | Description  | Notes
 
 ## CreateRecipeCard
 
-> CreateRecipeCard200Response CreateRecipeCard(ctx).ContentType(contentType).Execute()
+> CreateRecipeCard200Response CreateRecipeCard(ctx).Title(title).Ingredients(ingredients).Instructions(instructions).ReadyInMinutes(readyInMinutes).Servings(servings).Mask(mask).BackgroundImage(backgroundImage).Image(image).ImageUrl(imageUrl).Author(author).BackgroundColor(backgroundColor).FontColor(fontColor).Source(source).Execute()
 
 Create Recipe Card
 
@@ -474,11 +478,23 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
+	title := "title_example" // string | The title of the recipe.
+	ingredients := "ingredients_example" // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+	instructions := "instructions_example" // string | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+	readyInMinutes := float32(8.14) // float32 | The number of minutes it takes to get the recipe on the table.
+	servings := float32(8.14) // float32 | The number of servings the recipe makes.
+	mask := "mask_example" // string | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+	backgroundImage := "backgroundImage_example" // string | The background image ('none', 'background1', or 'background2').
+	image := os.NewFile(1234, "some_file") // *os.File | The binary image of the recipe as jpg. (optional)
+	imageUrl := "imageUrl_example" // string | If you do not sent a binary image you can also pass the image URL. (optional)
+	author := "author_example" // string | The author of the recipe. (optional)
+	backgroundColor := "backgroundColor_example" // string | The background color for the recipe card as a hex-string. (optional)
+	fontColor := "fontColor_example" // string | The font color for the recipe card as a hex-string. (optional)
+	source := "source_example" // string | The source of the recipe. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.CreateRecipeCard(context.Background()).ContentType(contentType).Execute()
+	resp, r, err := apiClient.RecipesAPI.CreateRecipeCard(context.Background()).Title(title).Ingredients(ingredients).Instructions(instructions).ReadyInMinutes(readyInMinutes).Servings(servings).Mask(mask).BackgroundImage(backgroundImage).Image(image).ImageUrl(imageUrl).Author(author).BackgroundColor(backgroundColor).FontColor(fontColor).Source(source).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.CreateRecipeCard``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -499,7 +515,19 @@ Other parameters are passed through a pointer to a apiCreateRecipeCardRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
+ **title** | **string** | The title of the recipe. | 
+ **ingredients** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **instructions** | **string** | The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
+ **readyInMinutes** | **float32** | The number of minutes it takes to get the recipe on the table. | 
+ **servings** | **float32** | The number of servings the recipe makes. | 
+ **mask** | **string** | The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | 
+ **backgroundImage** | **string** | The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | 
+ **image** | ***os.File** | The binary image of the recipe as jpg. | 
+ **imageUrl** | **string** | If you do not sent a binary image you can also pass the image URL. | 
+ **author** | **string** | The author of the recipe. | 
+ **backgroundColor** | **string** | The background color for the recipe card as a hex-string. | 
+ **fontColor** | **string** | The font color for the recipe card as a hex-string. | 
+ **source** | **string** | The source of the recipe. | 
 
 ### Return type
 
@@ -521,7 +549,7 @@ Name | Type | Description  | Notes
 
 ## EquipmentByIDImage
 
-> map[string]interface{} EquipmentByIDImage(ctx, id).Execute()
+> *os.File EquipmentByIDImage(ctx, id).Execute()
 
 Equipment by ID Image
 
@@ -549,7 +577,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.EquipmentByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EquipmentByIDImage`: map[string]interface{}
+	// response from `EquipmentByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.EquipmentByIDImage`: %v\n", resp)
 }
 ```
@@ -573,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -1443,7 +1471,7 @@ Name | Type | Description  | Notes
 
 ## ParseIngredients
 
-> []ParseIngredients200ResponseInner ParseIngredients(ctx).ContentType(contentType).Language(language).Execute()
+> []ParseIngredients200ResponseInner ParseIngredients(ctx).IngredientList(ingredientList).Servings(servings).Language(language).IncludeNutrition(includeNutrition).Execute()
 
 Parse Ingredients
 
@@ -1462,12 +1490,14 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
+	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line.
+	servings := float32(8.14) // float32 | The number of servings that you can make from the ingredients.
 	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
+	includeNutrition := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.ParseIngredients(context.Background()).ContentType(contentType).Language(language).Execute()
+	resp, r, err := apiClient.RecipesAPI.ParseIngredients(context.Background()).IngredientList(ingredientList).Servings(servings).Language(language).IncludeNutrition(includeNutrition).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.ParseIngredients``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1488,8 +1518,10 @@ Other parameters are passed through a pointer to a apiParseIngredientsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
+ **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **float32** | The number of servings that you can make from the ingredients. | 
  **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
+ **includeNutrition** | **bool** |  | 
 
 ### Return type
 
@@ -1511,7 +1543,7 @@ Name | Type | Description  | Notes
 
 ## PriceBreakdownByIDImage
 
-> map[string]interface{} PriceBreakdownByIDImage(ctx, id).Execute()
+> *os.File PriceBreakdownByIDImage(ctx, id).Execute()
 
 Price Breakdown by ID Image
 
@@ -1539,7 +1571,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.PriceBreakdownByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PriceBreakdownByIDImage`: map[string]interface{}
+	// response from `PriceBreakdownByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.PriceBreakdownByIDImage`: %v\n", resp)
 }
 ```
@@ -1563,7 +1595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -1647,7 +1679,7 @@ Name | Type | Description  | Notes
 
 ## RecipeNutritionByIDImage
 
-> map[string]interface{} RecipeNutritionByIDImage(ctx, id).Execute()
+> *os.File RecipeNutritionByIDImage(ctx, id).Execute()
 
 Recipe Nutrition by ID Image
 
@@ -1675,7 +1707,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.RecipeNutritionByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RecipeNutritionByIDImage`: map[string]interface{}
+	// response from `RecipeNutritionByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.RecipeNutritionByIDImage`: %v\n", resp)
 }
 ```
@@ -1699,7 +1731,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -1717,7 +1749,7 @@ Name | Type | Description  | Notes
 
 ## RecipeNutritionLabelImage
 
-> map[string]interface{} RecipeNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
+> *os.File RecipeNutritionLabelImage(ctx, id).ShowOptionalNutrients(showOptionalNutrients).ShowZeroValues(showZeroValues).ShowIngredients(showIngredients).Execute()
 
 Recipe Nutrition Label Image
 
@@ -1748,7 +1780,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.RecipeNutritionLabelImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RecipeNutritionLabelImage`: map[string]interface{}
+	// response from `RecipeNutritionLabelImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.RecipeNutritionLabelImage`: %v\n", resp)
 }
 ```
@@ -1775,7 +1807,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -1871,7 +1903,7 @@ Name | Type | Description  | Notes
 
 ## RecipeTasteByIDImage
 
-> map[string]interface{} RecipeTasteByIDImage(ctx, id).Normalize(normalize).Rgb(rgb).Execute()
+> *os.File RecipeTasteByIDImage(ctx, id).Normalize(normalize).Rgb(rgb).Execute()
 
 Recipe Taste by ID Image
 
@@ -1901,7 +1933,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.RecipeTasteByIDImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RecipeTasteByIDImage`: map[string]interface{}
+	// response from `RecipeTasteByIDImage`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.RecipeTasteByIDImage`: %v\n", resp)
 }
 ```
@@ -1927,7 +1959,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -2565,7 +2597,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeEquipment
 
-> string VisualizeEquipment(ctx).ContentType(contentType).Accept(accept).Execute()
+> string VisualizeEquipment(ctx).Instructions(instructions).View(view).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 
 Equipment Widget
 
@@ -2584,12 +2616,14 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
-	accept := "application/json" // string | Accept header. (optional)
+	instructions := "instructions_example" // string | The recipe's instructions.
+	view := "view_example" // string | How to visualize the ingredients, either 'grid' or 'list'. (optional)
+	defaultCss := true // bool | Whether the default CSS should be added to the response. (optional)
+	showBacklink := true // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.VisualizeEquipment(context.Background()).ContentType(contentType).Accept(accept).Execute()
+	resp, r, err := apiClient.RecipesAPI.VisualizeEquipment(context.Background()).Instructions(instructions).View(view).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.VisualizeEquipment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2610,8 +2644,10 @@ Other parameters are passed through a pointer to a apiVisualizeEquipmentRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
- **accept** | **string** | Accept header. | 
+ **instructions** | **string** | The recipe&#39;s instructions. | 
+ **view** | **string** | How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | 
+ **defaultCss** | **bool** | Whether the default CSS should be added to the response. | 
+ **showBacklink** | **bool** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | 
 
 ### Return type
 
@@ -2633,7 +2669,7 @@ Name | Type | Description  | Notes
 
 ## VisualizePriceBreakdown
 
-> string VisualizePriceBreakdown(ctx).ContentType(contentType).Accept(accept).Language(language).Execute()
+> string VisualizePriceBreakdown(ctx).IngredientList(ingredientList).Servings(servings).Language(language).Mode(mode).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 
 Price Breakdown Widget
 
@@ -2652,13 +2688,16 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
-	accept := "application/json" // string | Accept header. (optional)
+	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line.
+	servings := float32(8.14) // float32 | The number of servings.
 	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
+	mode := float32(8.14) // float32 | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). (optional)
+	defaultCss := true // bool | Whether the default CSS should be added to the response. (optional)
+	showBacklink := true // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.VisualizePriceBreakdown(context.Background()).ContentType(contentType).Accept(accept).Language(language).Execute()
+	resp, r, err := apiClient.RecipesAPI.VisualizePriceBreakdown(context.Background()).IngredientList(ingredientList).Servings(servings).Language(language).Mode(mode).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.VisualizePriceBreakdown``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2679,9 +2718,12 @@ Other parameters are passed through a pointer to a apiVisualizePriceBreakdownReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
- **accept** | **string** | Accept header. | 
+ **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **float32** | The number of servings. | 
  **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
+ **mode** | **float32** | The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | 
+ **defaultCss** | **bool** | Whether the default CSS should be added to the response. | 
+ **showBacklink** | **bool** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | 
 
 ### Return type
 
@@ -2849,7 +2891,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeRecipeNutrition
 
-> string VisualizeRecipeNutrition(ctx).ContentType(contentType).Accept(accept).Language(language).Execute()
+> string VisualizeRecipeNutrition(ctx).IngredientList(ingredientList).Servings(servings).Language(language).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 
 Recipe Nutrition Widget
 
@@ -2868,13 +2910,15 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
-	accept := "application/json" // string | Accept header. (optional)
+	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line.
+	servings := float32(8.14) // float32 | The number of servings.
 	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
+	defaultCss := true // bool | Whether the default CSS should be added to the response. (optional)
+	showBacklink := true // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.VisualizeRecipeNutrition(context.Background()).ContentType(contentType).Accept(accept).Language(language).Execute()
+	resp, r, err := apiClient.RecipesAPI.VisualizeRecipeNutrition(context.Background()).IngredientList(ingredientList).Servings(servings).Language(language).DefaultCss(defaultCss).ShowBacklink(showBacklink).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.VisualizeRecipeNutrition``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2895,9 +2939,11 @@ Other parameters are passed through a pointer to a apiVisualizeRecipeNutritionRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
- **accept** | **string** | Accept header. | 
+ **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **float32** | The number of servings. | 
  **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
+ **defaultCss** | **bool** | Whether the default CSS should be added to the response. | 
+ **showBacklink** | **bool** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | 
 
 ### Return type
 
@@ -2919,7 +2965,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeRecipeNutritionByID
 
-> string VisualizeRecipeNutritionByID(ctx, id).DefaultCss(defaultCss).Accept(accept).Execute()
+> string VisualizeRecipeNutritionByID(ctx, id).DefaultCss(defaultCss).Execute()
 
 Recipe Nutrition by ID Widget
 
@@ -2940,11 +2986,10 @@ import (
 func main() {
 	id := int32(1) // int32 | The item's id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
-	accept := "application/json" // string | Accept header. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.VisualizeRecipeNutritionByID(context.Background(), id).DefaultCss(defaultCss).Accept(accept).Execute()
+	resp, r, err := apiClient.RecipesAPI.VisualizeRecipeNutritionByID(context.Background(), id).DefaultCss(defaultCss).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.VisualizeRecipeNutritionByID``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2971,7 +3016,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **defaultCss** | **bool** | Whether the default CSS should be added to the response. | [default to true]
- **accept** | **string** | Accept header. | 
 
 ### Return type
 
@@ -3065,7 +3109,7 @@ Name | Type | Description  | Notes
 
 ## VisualizeRecipeTaste
 
-> string VisualizeRecipeTaste(ctx).Language(language).ContentType(contentType).Accept(accept).Normalize(normalize).Rgb(rgb).Execute()
+> string VisualizeRecipeTaste(ctx).IngredientList(ingredientList).Language(language).Normalize(normalize).Rgb(rgb).Execute()
 
 Recipe Taste Widget
 
@@ -3084,15 +3128,14 @@ import (
 )
 
 func main() {
+	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line.
 	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
-	contentType := "application/json" // string | The content type. (optional)
-	accept := "application/json" // string | Accept header. (optional)
-	normalize := true // bool | Whether to normalize to the strongest taste. (optional)
-	rgb := "75,192,192" // string | Red, green, blue values for the chart color. (optional)
+	normalize := true // bool | Normalize to the strongest taste. (optional)
+	rgb := "rgb_example" // string | Red, green, blue values for the chart color. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.VisualizeRecipeTaste(context.Background()).Language(language).ContentType(contentType).Accept(accept).Normalize(normalize).Rgb(rgb).Execute()
+	resp, r, err := apiClient.RecipesAPI.VisualizeRecipeTaste(context.Background()).IngredientList(ingredientList).Language(language).Normalize(normalize).Rgb(rgb).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.VisualizeRecipeTaste``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3113,10 +3156,9 @@ Other parameters are passed through a pointer to a apiVisualizeRecipeTasteReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. | 
  **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
- **contentType** | **string** | The content type. | 
- **accept** | **string** | Accept header. | 
- **normalize** | **bool** | Whether to normalize to the strongest taste. | 
+ **normalize** | **bool** | Normalize to the strongest taste. | 
  **rgb** | **string** | Red, green, blue values for the chart color. | 
 
 ### Return type

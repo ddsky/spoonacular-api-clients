@@ -241,7 +241,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'description' => {
-        datatype => 'object',
+        datatype => 'string',
         base_name => 'description',
         description => '',
         format => '',
@@ -288,7 +288,7 @@ __PACKAGE__->openapi_types( {
     'id' => 'int',
     'title' => 'string',
     'average_rating' => 'double',
-    'description' => 'object',
+    'description' => 'string',
     'image_url' => 'string',
     'link' => 'string',
     'price' => 'string',

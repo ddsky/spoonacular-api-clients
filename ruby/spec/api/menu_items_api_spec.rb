@@ -62,7 +62,7 @@ describe 'MenuItemsApi' do
   # Visualize a menu item&#39;s nutritional information as HTML including CSS.
   # @param id The menu item id.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [File]
   describe 'menu_item_nutrition_by_id_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -77,7 +77,7 @@ describe 'MenuItemsApi' do
   # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
   # @option opts [Boolean] :show_zero_values Whether to show zero values.
   # @option opts [Boolean] :show_ingredients Whether to show a list of ingredients.
-  # @return [Object]
+  # @return [File]
   describe 'menu_item_nutrition_label_image test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -129,7 +129,6 @@ describe 'MenuItemsApi' do
   # @param id The item&#39;s id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
-  # @option opts [String] :accept Accept header.
   # @return [String]
   describe 'visualize_menu_item_nutrition_by_id test' do
     it 'should work' do

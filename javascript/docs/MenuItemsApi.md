@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## menuItemNutritionByIDImage
 
-> Object menuItemNutritionByIDImage(id)
+> File menuItemNutritionByIDImage(id)
 
 Menu Item Nutrition by ID Image
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## menuItemNutritionLabelImage
 
-> Object menuItemNutritionLabelImage(id, opts)
+> File menuItemNutritionLabelImage(id, opts)
 
 Menu Item Nutrition Label Image
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -388,8 +388,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.MenuItemsApi();
 let id = 1; // Number | The item's id.
 let opts = {
-  'defaultCss': false, // Boolean | Whether the default CSS should be added to the response.
-  'accept': application/json // String | Accept header.
+  'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
 apiInstance.visualizeMenuItemNutritionByID(id, opts, (error, data, response) => {
   if (error) {
@@ -407,7 +406,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The item&#39;s id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] 
 
 ### Return type
 

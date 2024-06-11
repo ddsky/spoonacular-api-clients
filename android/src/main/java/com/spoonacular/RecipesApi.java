@@ -32,6 +32,7 @@ import com.spoonacular.client.model.ComputeGlycemicLoad200Response;
 import com.spoonacular.client.model.ComputeGlycemicLoadRequest;
 import com.spoonacular.client.model.ConvertAmounts200Response;
 import com.spoonacular.client.model.CreateRecipeCard200Response;
+import java.io.File;
 import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response;
 import com.spoonacular.client.model.GetRandomRecipes200Response;
 import com.spoonacular.client.model.GetRecipeEquipmentByID200Response;
@@ -213,11 +214,16 @@ public class RecipesApi {
   /**
   * Analyze Recipe Instructions
   * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
-   * @param contentType The content type.
+   * @param instructions The recipe&#39;s instructions.
    * @return AnalyzeRecipeInstructions200Response
   */
-  public AnalyzeRecipeInstructions200Response analyzeRecipeInstructions (String contentType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AnalyzeRecipeInstructions200Response analyzeRecipeInstructions (String instructions) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'instructions' when calling analyzeRecipeInstructions",
+        new ApiException(400, "Missing the required parameter 'instructions' when calling analyzeRecipeInstructions"));
+    }
 
     // create path and map variables
     String path = "/recipes/analyzeInstructions";
@@ -228,7 +234,6 @@ public class RecipesApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -237,10 +242,14 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("instructions", ApiInvoker.parameterToString(instructions));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -272,11 +281,16 @@ public class RecipesApi {
       /**
    * Analyze Recipe Instructions
    * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
-   * @param contentType The content type.
+   * @param instructions The recipe&#39;s instructions.
   */
-  public void analyzeRecipeInstructions (String contentType, final Response.Listener<AnalyzeRecipeInstructions200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void analyzeRecipeInstructions (String instructions, final Response.Listener<AnalyzeRecipeInstructions200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'instructions' when calling analyzeRecipeInstructions",
+        new ApiException(400, "Missing the required parameter 'instructions' when calling analyzeRecipeInstructions"));
+    }
 
     // create path and map variables
     String path = "/recipes/analyzeInstructions".replaceAll("\\{format\\}","json");
@@ -289,7 +303,6 @@ public class RecipesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -300,12 +313,17 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("instructions", ApiInvoker.parameterToString(instructions));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -455,11 +473,23 @@ public class RecipesApi {
   /**
   * Classify Cuisine
   * Classify the recipe&#39;s cuisine.
-   * @param contentType The content type.
+   * @param title The title of the recipe.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
    * @return ClassifyCuisine200Response
   */
-  public ClassifyCuisine200Response classifyCuisine (String contentType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ClassifyCuisine200Response classifyCuisine (String title, String ingredientList, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'title' is set
+    if (title == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'title' when calling classifyCuisine",
+        new ApiException(400, "Missing the required parameter 'title' when calling classifyCuisine"));
+    }
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling classifyCuisine",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling classifyCuisine"));
+    }
 
     // create path and map variables
     String path = "/recipes/cuisine";
@@ -470,7 +500,7 @@ public class RecipesApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -479,10 +509,18 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (title != null) {
+        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("title", ApiInvoker.parameterToString(title));
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -514,11 +552,21 @@ public class RecipesApi {
       /**
    * Classify Cuisine
    * Classify the recipe&#39;s cuisine.
-   * @param contentType The content type.
+   * @param title The title of the recipe.   * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
   */
-  public void classifyCuisine (String contentType, final Response.Listener<ClassifyCuisine200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void classifyCuisine (String title, String ingredientList, String language, final Response.Listener<ClassifyCuisine200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'title' is set
+    if (title == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'title' when calling classifyCuisine",
+        new ApiException(400, "Missing the required parameter 'title' when calling classifyCuisine"));
+    }
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling classifyCuisine",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling classifyCuisine"));
+    }
 
     // create path and map variables
     String path = "/recipes/cuisine".replaceAll("\\{format\\}","json");
@@ -530,8 +578,8 @@ public class RecipesApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -542,12 +590,22 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (title != null) {
+        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("title", ApiInvoker.parameterToString(title));
+formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -874,11 +932,58 @@ public class RecipesApi {
   /**
   * Create Recipe Card
   * Generate a recipe card for a recipe.
-   * @param contentType The content type.
+   * @param title The title of the recipe.
+   * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+   * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+   * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+   * @param servings The number of servings the recipe makes.
+   * @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+   * @param backgroundImage The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
+   * @param image The binary image of the recipe as jpg.
+   * @param imageUrl If you do not sent a binary image you can also pass the image URL.
+   * @param author The author of the recipe.
+   * @param backgroundColor The background color for the recipe card as a hex-string.
+   * @param fontColor The font color for the recipe card as a hex-string.
+   * @param source The source of the recipe.
    * @return CreateRecipeCard200Response
   */
-  public CreateRecipeCard200Response createRecipeCard (String contentType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CreateRecipeCard200Response createRecipeCard (String title, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, File image, String imageUrl, String author, String backgroundColor, String fontColor, String source) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'title' is set
+    if (title == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'title' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'title' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'ingredients' is set
+    if (ingredients == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredients' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'ingredients' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'instructions' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'instructions' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'readyInMinutes' is set
+    if (readyInMinutes == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'readyInMinutes' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'readyInMinutes' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'servings' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'mask' is set
+    if (mask == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'mask' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'mask' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'backgroundImage' is set
+    if (backgroundImage == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'backgroundImage' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'backgroundImage' when calling createRecipeCard"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeRecipe";
@@ -889,7 +994,6 @@ public class RecipesApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
     String[] contentTypes = {
       "multipart/form-data"
     };
@@ -898,10 +1002,61 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (title != null) {
+        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (ingredients != null) {
+        localVarBuilder.addTextBody("ingredients", ApiInvoker.parameterToString(ingredients), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (readyInMinutes != null) {
+        localVarBuilder.addTextBody("readyInMinutes", ApiInvoker.parameterToString(readyInMinutes), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (mask != null) {
+        localVarBuilder.addTextBody("mask", ApiInvoker.parameterToString(mask), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (backgroundImage != null) {
+        localVarBuilder.addTextBody("backgroundImage", ApiInvoker.parameterToString(backgroundImage), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (image != null) {
+        localVarBuilder.addBinaryBody("image", image);
+      }
+      if (imageUrl != null) {
+        localVarBuilder.addTextBody("imageUrl", ApiInvoker.parameterToString(imageUrl), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (author != null) {
+        localVarBuilder.addTextBody("author", ApiInvoker.parameterToString(author), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (backgroundColor != null) {
+        localVarBuilder.addTextBody("backgroundColor", ApiInvoker.parameterToString(backgroundColor), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (fontColor != null) {
+        localVarBuilder.addTextBody("fontColor", ApiInvoker.parameterToString(fontColor), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (source != null) {
+        localVarBuilder.addTextBody("source", ApiInvoker.parameterToString(source), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("title", ApiInvoker.parameterToString(title));
+      formParams.put("ingredients", ApiInvoker.parameterToString(ingredients));
+      formParams.put("instructions", ApiInvoker.parameterToString(instructions));
+      formParams.put("readyInMinutes", ApiInvoker.parameterToString(readyInMinutes));
+      formParams.put("servings", ApiInvoker.parameterToString(servings));
+      formParams.put("mask", ApiInvoker.parameterToString(mask));
+      formParams.put("backgroundImage", ApiInvoker.parameterToString(backgroundImage));
+      formParams.put("imageUrl", ApiInvoker.parameterToString(imageUrl));
+      formParams.put("author", ApiInvoker.parameterToString(author));
+      formParams.put("backgroundColor", ApiInvoker.parameterToString(backgroundColor));
+      formParams.put("fontColor", ApiInvoker.parameterToString(fontColor));
+      formParams.put("source", ApiInvoker.parameterToString(source));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -933,11 +1088,46 @@ public class RecipesApi {
       /**
    * Create Recipe Card
    * Generate a recipe card for a recipe.
-   * @param contentType The content type.
+   * @param title The title of the recipe.   * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).   * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).   * @param readyInMinutes The number of minutes it takes to get the recipe on the table.   * @param servings The number of servings the recipe makes.   * @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).   * @param backgroundImage The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).   * @param image The binary image of the recipe as jpg.   * @param imageUrl If you do not sent a binary image you can also pass the image URL.   * @param author The author of the recipe.   * @param backgroundColor The background color for the recipe card as a hex-string.   * @param fontColor The font color for the recipe card as a hex-string.   * @param source The source of the recipe.
   */
-  public void createRecipeCard (String contentType, final Response.Listener<CreateRecipeCard200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void createRecipeCard (String title, String ingredients, String instructions, BigDecimal readyInMinutes, BigDecimal servings, String mask, String backgroundImage, File image, String imageUrl, String author, String backgroundColor, String fontColor, String source, final Response.Listener<CreateRecipeCard200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'title' is set
+    if (title == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'title' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'title' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'ingredients' is set
+    if (ingredients == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredients' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'ingredients' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'instructions' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'instructions' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'readyInMinutes' is set
+    if (readyInMinutes == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'readyInMinutes' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'readyInMinutes' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'servings' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'mask' is set
+    if (mask == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'mask' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'mask' when calling createRecipeCard"));
+    }
+    // verify the required parameter 'backgroundImage' is set
+    if (backgroundImage == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'backgroundImage' when calling createRecipeCard",
+        new ApiException(400, "Missing the required parameter 'backgroundImage' when calling createRecipeCard"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeRecipe".replaceAll("\\{format\\}","json");
@@ -950,7 +1140,6 @@ public class RecipesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
 
     String[] contentTypes = {
       "multipart/form-data"
@@ -961,12 +1150,77 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (title != null) {
+        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (ingredients != null) {
+        localVarBuilder.addTextBody("ingredients", ApiInvoker.parameterToString(ingredients), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (readyInMinutes != null) {
+        localVarBuilder.addTextBody("readyInMinutes", ApiInvoker.parameterToString(readyInMinutes), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (mask != null) {
+        localVarBuilder.addTextBody("mask", ApiInvoker.parameterToString(mask), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (backgroundImage != null) {
+        localVarBuilder.addTextBody("backgroundImage", ApiInvoker.parameterToString(backgroundImage), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (image != null) {
+        localVarBuilder.addBinaryBody("image", image);
+      }
+      
+      if (imageUrl != null) {
+        localVarBuilder.addTextBody("imageUrl", ApiInvoker.parameterToString(imageUrl), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (author != null) {
+        localVarBuilder.addTextBody("author", ApiInvoker.parameterToString(author), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (backgroundColor != null) {
+        localVarBuilder.addTextBody("backgroundColor", ApiInvoker.parameterToString(backgroundColor), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (fontColor != null) {
+        localVarBuilder.addTextBody("fontColor", ApiInvoker.parameterToString(fontColor), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (source != null) {
+        localVarBuilder.addTextBody("source", ApiInvoker.parameterToString(source), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("title", ApiInvoker.parameterToString(title));
+formParams.put("ingredients", ApiInvoker.parameterToString(ingredients));
+formParams.put("instructions", ApiInvoker.parameterToString(instructions));
+formParams.put("readyInMinutes", ApiInvoker.parameterToString(readyInMinutes));
+formParams.put("servings", ApiInvoker.parameterToString(servings));
+formParams.put("mask", ApiInvoker.parameterToString(mask));
+formParams.put("backgroundImage", ApiInvoker.parameterToString(backgroundImage));
+
+formParams.put("imageUrl", ApiInvoker.parameterToString(imageUrl));
+formParams.put("author", ApiInvoker.parameterToString(author));
+formParams.put("backgroundColor", ApiInvoker.parameterToString(backgroundColor));
+formParams.put("fontColor", ApiInvoker.parameterToString(fontColor));
+formParams.put("source", ApiInvoker.parameterToString(source));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -995,9 +1249,9 @@ public class RecipesApi {
   * Equipment by ID Image
   * Visualize a recipe&#39;s equipment list as an image.
    * @param id The recipe id.
-   * @return Object
+   * @return File
   */
-  public Object equipmentByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File equipmentByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1032,7 +1286,7 @@ public class RecipesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -1058,7 +1312,7 @@ public class RecipesApi {
    * Visualize a recipe&#39;s equipment list as an image.
    * @param id The recipe id.
   */
-  public void equipmentByIDImage (BigDecimal id, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void equipmentByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1103,7 +1357,7 @@ public class RecipesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -2685,12 +2939,24 @@ public class RecipesApi {
   /**
   * Parse Ingredients
   * Extract an ingredient from plain text.
-   * @param contentType The content type.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+   * @param servings The number of servings that you can make from the ingredients.
    * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+   * @param includeNutrition 
    * @return Set<ParseIngredients200ResponseInner>
   */
-  public Set<ParseIngredients200ResponseInner> parseIngredients (String contentType, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Set<ParseIngredients200ResponseInner> parseIngredients (String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling parseIngredients",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling parseIngredients"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling parseIngredients",
+        new ApiException(400, "Missing the required parameter 'servings' when calling parseIngredients"));
+    }
 
     // create path and map variables
     String path = "/recipes/parseIngredients";
@@ -2702,7 +2968,6 @@ public class RecipesApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -2711,10 +2976,22 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (includeNutrition != null) {
+        localVarBuilder.addTextBody("includeNutrition", ApiInvoker.parameterToString(includeNutrition), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+      formParams.put("servings", ApiInvoker.parameterToString(servings));
+      formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -2746,11 +3023,21 @@ public class RecipesApi {
       /**
    * Parse Ingredients
    * Extract an ingredient from plain text.
-   * @param contentType The content type.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.   * @param servings The number of servings that you can make from the ingredients.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param includeNutrition 
   */
-  public void parseIngredients (String contentType, String language, final Response.Listener<Set<ParseIngredients200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
+  public void parseIngredients (String ingredientList, BigDecimal servings, String language, Boolean includeNutrition, final Response.Listener<Set<ParseIngredients200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling parseIngredients",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling parseIngredients"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling parseIngredients",
+        new ApiException(400, "Missing the required parameter 'servings' when calling parseIngredients"));
+    }
 
     // create path and map variables
     String path = "/recipes/parseIngredients".replaceAll("\\{format\\}","json");
@@ -2764,7 +3051,6 @@ public class RecipesApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -2775,12 +3061,27 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (includeNutrition != null) {
+        localVarBuilder.addTextBody("includeNutrition", ApiInvoker.parameterToString(includeNutrition), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+formParams.put("servings", ApiInvoker.parameterToString(servings));
+formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -2809,9 +3110,9 @@ public class RecipesApi {
   * Price Breakdown by ID Image
   * Visualize a recipe&#39;s price breakdown.
    * @param id The recipe id.
-   * @return Object
+   * @return File
   */
-  public Object priceBreakdownByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File priceBreakdownByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -2846,7 +3147,7 @@ public class RecipesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -2872,7 +3173,7 @@ public class RecipesApi {
    * Visualize a recipe&#39;s price breakdown.
    * @param id The recipe id.
   */
-  public void priceBreakdownByIDImage (BigDecimal id, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void priceBreakdownByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -2917,7 +3218,7 @@ public class RecipesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -3065,9 +3366,9 @@ public class RecipesApi {
   * Recipe Nutrition by ID Image
   * Visualize a recipe&#39;s nutritional information as an image.
    * @param id The recipe id.
-   * @return Object
+   * @return File
   */
-  public Object recipeNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File recipeNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3102,7 +3403,7 @@ public class RecipesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -3128,7 +3429,7 @@ public class RecipesApi {
    * Visualize a recipe&#39;s nutritional information as an image.
    * @param id The recipe id.
   */
-  public void recipeNutritionByIDImage (BigDecimal id, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeNutritionByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3173,7 +3474,7 @@ public class RecipesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -3195,9 +3496,9 @@ public class RecipesApi {
    * @param showOptionalNutrients Whether to show optional nutrients.
    * @param showZeroValues Whether to show zero values.
    * @param showIngredients Whether to show a list of ingredients.
-   * @return Object
+   * @return File
   */
-  public Object recipeNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File recipeNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3235,7 +3536,7 @@ public class RecipesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -3261,7 +3562,7 @@ public class RecipesApi {
    * Get a recipe&#39;s nutrition label as an image.
    * @param id The recipe id.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void recipeNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3309,7 +3610,7 @@ public class RecipesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -3469,9 +3770,9 @@ public class RecipesApi {
    * @param id The recipe id.
    * @param normalize Normalize to the strongest taste.
    * @param rgb Red, green, blue values for the chart color.
-   * @return Object
+   * @return File
   */
-  public Object recipeTasteByIDImage (BigDecimal id, Boolean normalize, String rgb) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File recipeTasteByIDImage (BigDecimal id, Boolean normalize, String rgb) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3508,7 +3809,7 @@ public class RecipesApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Object) ApiInvoker.deserialize(localVarResponse, "", Object.class);
+         return (File) ApiInvoker.deserialize(localVarResponse, "", File.class);
       } else {
          return null;
       }
@@ -3534,7 +3835,7 @@ public class RecipesApi {
    * Get a recipe&#39;s taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
    * @param id The recipe id.   * @param normalize Normalize to the strongest taste.   * @param rgb Red, green, blue values for the chart color.
   */
-  public void recipeTasteByIDImage (BigDecimal id, Boolean normalize, String rgb, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeTasteByIDImage (BigDecimal id, Boolean normalize, String rgb, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3581,7 +3882,7 @@ public class RecipesApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Object) ApiInvoker.deserialize(localVarResponse,  "", Object.class));
+              responseListener.onResponse((File) ApiInvoker.deserialize(localVarResponse,  "", File.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -4611,12 +4912,19 @@ public class RecipesApi {
   /**
   * Equipment Widget
   * Visualize the equipment used to make a recipe.
-   * @param contentType The content type.
-   * @param accept Accept header.
+   * @param instructions The recipe&#39;s instructions.
+   * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
    * @return String
   */
-  public String visualizeEquipment (String contentType, String accept) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String visualizeEquipment (String instructions, String view, Boolean defaultCss, Boolean showBacklink) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'instructions' when calling visualizeEquipment",
+        new ApiException(400, "Missing the required parameter 'instructions' when calling visualizeEquipment"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeEquipment";
@@ -4627,8 +4935,6 @@ public class RecipesApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -4637,10 +4943,26 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (view != null) {
+        localVarBuilder.addTextBody("view", ApiInvoker.parameterToString(view), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (defaultCss != null) {
+        localVarBuilder.addTextBody("defaultCss", ApiInvoker.parameterToString(defaultCss), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (showBacklink != null) {
+        localVarBuilder.addTextBody("showBacklink", ApiInvoker.parameterToString(showBacklink), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("instructions", ApiInvoker.parameterToString(instructions));
+      formParams.put("view", ApiInvoker.parameterToString(view));
+      formParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
+      formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -4672,11 +4994,16 @@ public class RecipesApi {
       /**
    * Equipment Widget
    * Visualize the equipment used to make a recipe.
-   * @param contentType The content type.   * @param accept Accept header.
+   * @param instructions The recipe&#39;s instructions.   * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.   * @param defaultCss Whether the default CSS should be added to the response.   * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   */
-  public void visualizeEquipment (String contentType, String accept, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void visualizeEquipment (String instructions, String view, Boolean defaultCss, Boolean showBacklink, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'instructions' is set
+    if (instructions == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'instructions' when calling visualizeEquipment",
+        new ApiException(400, "Missing the required parameter 'instructions' when calling visualizeEquipment"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeEquipment".replaceAll("\\{format\\}","json");
@@ -4689,8 +5016,6 @@ public class RecipesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -4701,12 +5026,32 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (instructions != null) {
+        localVarBuilder.addTextBody("instructions", ApiInvoker.parameterToString(instructions), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (view != null) {
+        localVarBuilder.addTextBody("view", ApiInvoker.parameterToString(view), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (defaultCss != null) {
+        localVarBuilder.addTextBody("defaultCss", ApiInvoker.parameterToString(defaultCss), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (showBacklink != null) {
+        localVarBuilder.addTextBody("showBacklink", ApiInvoker.parameterToString(showBacklink), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("instructions", ApiInvoker.parameterToString(instructions));
+formParams.put("view", ApiInvoker.parameterToString(view));
+formParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
+formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -4734,13 +5079,26 @@ public class RecipesApi {
   /**
   * Price Breakdown Widget
   * Visualize the price breakdown of a recipe.
-   * @param contentType The content type.
-   * @param accept Accept header.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+   * @param servings The number of servings.
    * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+   * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
    * @return String
   */
-  public String visualizePriceBreakdown (String contentType, String accept, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String visualizePriceBreakdown (String ingredientList, BigDecimal servings, String language, BigDecimal mode, Boolean defaultCss, Boolean showBacklink) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling visualizePriceBreakdown",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizePriceBreakdown"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling visualizePriceBreakdown",
+        new ApiException(400, "Missing the required parameter 'servings' when calling visualizePriceBreakdown"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizePriceEstimator";
@@ -4752,8 +5110,6 @@ public class RecipesApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -4762,10 +5118,30 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (mode != null) {
+        localVarBuilder.addTextBody("mode", ApiInvoker.parameterToString(mode), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (defaultCss != null) {
+        localVarBuilder.addTextBody("defaultCss", ApiInvoker.parameterToString(defaultCss), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (showBacklink != null) {
+        localVarBuilder.addTextBody("showBacklink", ApiInvoker.parameterToString(showBacklink), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+      formParams.put("servings", ApiInvoker.parameterToString(servings));
+      formParams.put("mode", ApiInvoker.parameterToString(mode));
+      formParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
+      formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -4797,11 +5173,21 @@ public class RecipesApi {
       /**
    * Price Breakdown Widget
    * Visualize the price breakdown of a recipe.
-   * @param contentType The content type.   * @param accept Accept header.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.   * @param servings The number of servings.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).   * @param defaultCss Whether the default CSS should be added to the response.   * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   */
-  public void visualizePriceBreakdown (String contentType, String accept, String language, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void visualizePriceBreakdown (String ingredientList, BigDecimal servings, String language, BigDecimal mode, Boolean defaultCss, Boolean showBacklink, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling visualizePriceBreakdown",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizePriceBreakdown"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling visualizePriceBreakdown",
+        new ApiException(400, "Missing the required parameter 'servings' when calling visualizePriceBreakdown"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizePriceEstimator".replaceAll("\\{format\\}","json");
@@ -4815,8 +5201,6 @@ public class RecipesApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -4827,12 +5211,37 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (mode != null) {
+        localVarBuilder.addTextBody("mode", ApiInvoker.parameterToString(mode), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (defaultCss != null) {
+        localVarBuilder.addTextBody("defaultCss", ApiInvoker.parameterToString(defaultCss), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (showBacklink != null) {
+        localVarBuilder.addTextBody("showBacklink", ApiInvoker.parameterToString(showBacklink), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+formParams.put("servings", ApiInvoker.parameterToString(servings));
+formParams.put("mode", ApiInvoker.parameterToString(mode));
+formParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
+formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -5123,13 +5532,25 @@ public class RecipesApi {
   /**
   * Recipe Nutrition Widget
   * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-   * @param contentType The content type.
-   * @param accept Accept header.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+   * @param servings The number of servings.
    * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
    * @return String
   */
-  public String visualizeRecipeNutrition (String contentType, String accept, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String visualizeRecipeNutrition (String ingredientList, BigDecimal servings, String language, Boolean defaultCss, Boolean showBacklink) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling visualizeRecipeNutrition",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizeRecipeNutrition"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling visualizeRecipeNutrition",
+        new ApiException(400, "Missing the required parameter 'servings' when calling visualizeRecipeNutrition"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeNutrition";
@@ -5141,8 +5562,6 @@ public class RecipesApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -5151,10 +5570,26 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (defaultCss != null) {
+        localVarBuilder.addTextBody("defaultCss", ApiInvoker.parameterToString(defaultCss), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (showBacklink != null) {
+        localVarBuilder.addTextBody("showBacklink", ApiInvoker.parameterToString(showBacklink), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+      formParams.put("servings", ApiInvoker.parameterToString(servings));
+      formParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
+      formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -5186,11 +5621,21 @@ public class RecipesApi {
       /**
    * Recipe Nutrition Widget
    * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-   * @param contentType The content type.   * @param accept Accept header.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.   * @param servings The number of servings.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param defaultCss Whether the default CSS should be added to the response.   * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
   */
-  public void visualizeRecipeNutrition (String contentType, String accept, String language, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void visualizeRecipeNutrition (String ingredientList, BigDecimal servings, String language, Boolean defaultCss, Boolean showBacklink, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling visualizeRecipeNutrition",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizeRecipeNutrition"));
+    }
+    // verify the required parameter 'servings' is set
+    if (servings == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'servings' when calling visualizeRecipeNutrition",
+        new ApiException(400, "Missing the required parameter 'servings' when calling visualizeRecipeNutrition"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeNutrition".replaceAll("\\{format\\}","json");
@@ -5204,8 +5649,6 @@ public class RecipesApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -5216,12 +5659,32 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (servings != null) {
+        localVarBuilder.addTextBody("servings", ApiInvoker.parameterToString(servings), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (defaultCss != null) {
+        localVarBuilder.addTextBody("defaultCss", ApiInvoker.parameterToString(defaultCss), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (showBacklink != null) {
+        localVarBuilder.addTextBody("showBacklink", ApiInvoker.parameterToString(showBacklink), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+formParams.put("servings", ApiInvoker.parameterToString(servings));
+formParams.put("defaultCss", ApiInvoker.parameterToString(defaultCss));
+formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 
@@ -5251,10 +5714,9 @@ public class RecipesApi {
   * Visualize a recipe&#39;s nutritional information as HTML including CSS.
    * @param id The item&#39;s id.
    * @param defaultCss Whether the default CSS should be added to the response.
-   * @param accept Accept header.
    * @return String
   */
-  public String visualizeRecipeNutritionByID (Integer id, Boolean defaultCss, String accept) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String visualizeRecipeNutritionByID (Integer id, Boolean defaultCss) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -5272,7 +5734,6 @@ public class RecipesApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "defaultCss", defaultCss));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -5315,9 +5776,9 @@ public class RecipesApi {
       /**
    * Recipe Nutrition by ID Widget
    * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param accept Accept header.
+   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
   */
-  public void visualizeRecipeNutritionByID (Integer id, Boolean defaultCss, String accept, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void visualizeRecipeNutritionByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -5338,7 +5799,6 @@ public class RecipesApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "defaultCss", defaultCss));
 
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
 
     String[] contentTypes = {
       
@@ -5512,15 +5972,19 @@ public class RecipesApi {
   /**
   * Recipe Taste Widget
   * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.
    * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-   * @param contentType The content type.
-   * @param accept Accept header.
-   * @param normalize Whether to normalize to the strongest taste.
+   * @param normalize Normalize to the strongest taste.
    * @param rgb Red, green, blue values for the chart color.
    * @return String
   */
-  public String visualizeRecipeTaste (String language, String contentType, String accept, Boolean normalize, String rgb) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String visualizeRecipeTaste (String ingredientList, String language, Boolean normalize, String rgb) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeTaste";
@@ -5532,10 +5996,6 @@ public class RecipesApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "normalize", normalize));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "rgb", rgb));
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -5544,10 +6004,22 @@ public class RecipesApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (normalize != null) {
+        localVarBuilder.addTextBody("normalize", ApiInvoker.parameterToString(normalize), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (rgb != null) {
+        localVarBuilder.addTextBody("rgb", ApiInvoker.parameterToString(rgb), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+      formParams.put("normalize", ApiInvoker.parameterToString(normalize));
+      formParams.put("rgb", ApiInvoker.parameterToString(rgb));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -5579,11 +6051,16 @@ public class RecipesApi {
       /**
    * Recipe Taste Widget
    * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
-   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param contentType The content type.   * @param accept Accept header.   * @param normalize Whether to normalize to the strongest taste.   * @param rgb Red, green, blue values for the chart color.
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param normalize Normalize to the strongest taste.   * @param rgb Red, green, blue values for the chart color.
   */
-  public void visualizeRecipeTaste (String language, String contentType, String accept, Boolean normalize, String rgb, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void visualizeRecipeTaste (String ingredientList, String language, Boolean normalize, String rgb, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste",
+        new ApiException(400, "Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste"));
+    }
 
     // create path and map variables
     String path = "/recipes/visualizeTaste".replaceAll("\\{format\\}","json");
@@ -5596,11 +6073,7 @@ public class RecipesApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "language", language));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "normalize", normalize));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "rgb", rgb));
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
-    headerParams.put("Accept", ApiInvoker.parameterToString(accept));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -5611,12 +6084,27 @@ public class RecipesApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (ingredientList != null) {
+        localVarBuilder.addTextBody("ingredientList", ApiInvoker.parameterToString(ingredientList), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (normalize != null) {
+        localVarBuilder.addTextBody("normalize", ApiInvoker.parameterToString(normalize), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (rgb != null) {
+        localVarBuilder.addTextBody("rgb", ApiInvoker.parameterToString(rgb), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("ingredientList", ApiInvoker.parameterToString(ingredientList));
+formParams.put("normalize", ApiInvoker.parameterToString(normalize));
+formParams.put("rgb", ApiInvoker.parameterToString(rgb));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 

@@ -38,14 +38,20 @@ class TestTalkToChatbot200Response(unittest.TestCase):
             return TalkToChatbot200Response(
                 answer_text = '0',
                 media = [
-                    null
+                    spoonacular.models.talk_to_chatbot_200_response_media_inner.talkToChatbot_200_response_media_inner(
+                        title = '', 
+                        image = '', 
+                        link = '', )
                     ]
             )
         else:
             return TalkToChatbot200Response(
                 answer_text = '0',
                 media = [
-                    null
+                    spoonacular.models.talk_to_chatbot_200_response_media_inner.talkToChatbot_200_response_media_inner(
+                        title = '', 
+                        image = '', 
+                        link = '', )
                     ],
         )
         """

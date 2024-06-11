@@ -2396,7 +2396,7 @@ class IngredientsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \SplFileObject
      */
     public function ingredientsByIDImage($id, $measure = null, string $contentType = self::contentTypes['ingredientsByIDImage'][0])
     {
@@ -2415,7 +2415,7 @@ class IngredientsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function ingredientsByIDImageWithHttpInfo($id, $measure = null, string $contentType = self::contentTypes['ingredientsByIDImage'][0])
     {
@@ -2458,11 +2458,11 @@ class IngredientsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\SplFileObject' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('object' !== 'string') {
+                        if ('\SplFileObject' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2480,13 +2480,13 @@ class IngredientsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2519,7 +2519,7 @@ class IngredientsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\SplFileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2565,7 +2565,7 @@ class IngredientsApi
      */
     public function ingredientsByIDImageAsyncWithHttpInfo($id, $measure = null, string $contentType = self::contentTypes['ingredientsByIDImage'][0])
     {
-        $returnType = 'object';
+        $returnType = '\SplFileObject';
         $request = $this->ingredientsByIDImageRequest($id, $measure, $contentType);
 
         return $this->client
@@ -3028,18 +3028,22 @@ class IngredientsApi
      *
      * Ingredients Widget
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param  float $servings The number of servings. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  string $accept Accept header. (optional)
+     * @param  string $measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param  string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
+     * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeIngredients'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function visualizeIngredients($content_type = null, $language = null, $accept = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
+    public function visualizeIngredients($ingredient_list, $servings, $language = null, $measure = null, $view = null, $default_css = null, $show_backlink = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
     {
-        list($response) = $this->visualizeIngredientsWithHttpInfo($content_type, $language, $accept, $contentType);
+        list($response) = $this->visualizeIngredientsWithHttpInfo($ingredient_list, $servings, $language, $measure, $view, $default_css, $show_backlink, $contentType);
         return $response;
     }
 
@@ -3048,18 +3052,22 @@ class IngredientsApi
      *
      * Ingredients Widget
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param  float $servings The number of servings. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  string $accept Accept header. (optional)
+     * @param  string $measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param  string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
+     * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeIngredients'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function visualizeIngredientsWithHttpInfo($content_type = null, $language = null, $accept = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
+    public function visualizeIngredientsWithHttpInfo($ingredient_list, $servings, $language = null, $measure = null, $view = null, $default_css = null, $show_backlink = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
     {
-        $request = $this->visualizeIngredientsRequest($content_type, $language, $accept, $contentType);
+        $request = $this->visualizeIngredientsRequest($ingredient_list, $servings, $language, $measure, $view, $default_css, $show_backlink, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3174,17 +3182,21 @@ class IngredientsApi
      *
      * Ingredients Widget
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param  float $servings The number of servings. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  string $accept Accept header. (optional)
+     * @param  string $measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param  string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
+     * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function visualizeIngredientsAsync($content_type = null, $language = null, $accept = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
+    public function visualizeIngredientsAsync($ingredient_list, $servings, $language = null, $measure = null, $view = null, $default_css = null, $show_backlink = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
     {
-        return $this->visualizeIngredientsAsyncWithHttpInfo($content_type, $language, $accept, $contentType)
+        return $this->visualizeIngredientsAsyncWithHttpInfo($ingredient_list, $servings, $language, $measure, $view, $default_css, $show_backlink, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3197,18 +3209,22 @@ class IngredientsApi
      *
      * Ingredients Widget
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param  float $servings The number of servings. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  string $accept Accept header. (optional)
+     * @param  string $measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param  string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
+     * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function visualizeIngredientsAsyncWithHttpInfo($content_type = null, $language = null, $accept = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
+    public function visualizeIngredientsAsyncWithHttpInfo($ingredient_list, $servings, $language = null, $measure = null, $view = null, $default_css = null, $show_backlink = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
     {
         $returnType = 'string';
-        $request = $this->visualizeIngredientsRequest($content_type, $language, $accept, $contentType);
+        $request = $this->visualizeIngredientsRequest($ingredient_list, $servings, $language, $measure, $view, $default_css, $show_backlink, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3249,16 +3265,36 @@ class IngredientsApi
     /**
      * Create request for operation 'visualizeIngredients'
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+     * @param  float $servings The number of servings. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  string $accept Accept header. (optional)
+     * @param  string $measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+     * @param  string $view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param  bool $default_css Whether the default CSS should be added to the response. (optional)
+     * @param  bool $show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function visualizeIngredientsRequest($content_type = null, $language = null, $accept = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
+    public function visualizeIngredientsRequest($ingredient_list, $servings, $language = null, $measure = null, $view = null, $default_css = null, $show_backlink = null, string $contentType = self::contentTypes['visualizeIngredients'][0])
     {
+
+        // verify the required parameter 'ingredient_list' is set
+        if ($ingredient_list === null || (is_array($ingredient_list) && count($ingredient_list) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ingredient_list when calling visualizeIngredients'
+            );
+        }
+
+        // verify the required parameter 'servings' is set
+        if ($servings === null || (is_array($servings) && count($servings) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $servings when calling visualizeIngredients'
+            );
+        }
+
+
 
 
 
@@ -3281,16 +3317,32 @@ class IngredientsApi
             false // required
         ) ?? []);
 
-        // header params
-        if ($content_type !== null) {
-            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
-        }
-        // header params
-        if ($accept !== null) {
-            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
-        }
 
 
+        // form params
+        if ($ingredient_list !== null) {
+            $formParams['ingredientList'] = ObjectSerializer::toFormValue($ingredient_list);
+        }
+        // form params
+        if ($servings !== null) {
+            $formParams['servings'] = ObjectSerializer::toFormValue($servings);
+        }
+        // form params
+        if ($measure !== null) {
+            $formParams['measure'] = ObjectSerializer::toFormValue($measure);
+        }
+        // form params
+        if ($view !== null) {
+            $formParams['view'] = ObjectSerializer::toFormValue($view);
+        }
+        // form params
+        if ($default_css !== null) {
+            $formParams['defaultCss'] = ObjectSerializer::toFormValue($default_css);
+        }
+        // form params
+        if ($show_backlink !== null) {
+            $formParams['showBacklink'] = ObjectSerializer::toFormValue($show_backlink);
+        }
 
         $headers = $this->headerSelector->selectHeaders(
             ['text/html', ],

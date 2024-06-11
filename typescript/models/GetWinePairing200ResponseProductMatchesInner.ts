@@ -16,7 +16,7 @@ export class GetWinePairing200ResponseProductMatchesInner {
     'id': number;
     'title': string;
     'averageRating': number;
-    'description'?: any | null;
+    'description'?: string;
     'imageUrl': string;
     'link': string;
     'price': string;
@@ -47,7 +47,7 @@ export class GetWinePairing200ResponseProductMatchesInner {
         {
             "name": "description",
             "baseName": "description",
-            "type": "any",
+            "type": "string",
             "format": ""
         },
         {

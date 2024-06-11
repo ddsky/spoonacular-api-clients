@@ -12,7 +12,6 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.OasAnyTypeNotMapped;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,19 +19,19 @@ import com.google.gson.annotations.SerializedName;
 public class GetProductInformation200ResponseIngredientsInner {
   
   @SerializedName("description")
-  private OasAnyTypeNotMapped description = null;
+  private String description = null;
   @SerializedName("name")
   private String name = null;
   @SerializedName("safety_level")
-  private OasAnyTypeNotMapped safetyLevel = null;
+  private String safetyLevel = null;
 
   /**
    **/
   @ApiModelProperty(value = "")
-  public OasAnyTypeNotMapped getDescription() {
+  public String getDescription() {
     return description;
   }
-  public void setDescription(OasAnyTypeNotMapped description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
@@ -49,10 +48,10 @@ public class GetProductInformation200ResponseIngredientsInner {
   /**
    **/
   @ApiModelProperty(value = "")
-  public OasAnyTypeNotMapped getSafetyLevel() {
+  public String getSafetyLevel() {
     return safetyLevel;
   }
-  public void setSafetyLevel(OasAnyTypeNotMapped safetyLevel) {
+  public void setSafetyLevel(String safetyLevel) {
     this.safetyLevel = safetyLevel;
   }
 

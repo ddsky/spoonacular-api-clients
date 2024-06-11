@@ -955,17 +955,17 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list/{start-date}/{end-date}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/shopping-list/{start_date}/{end_date}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (username != nil) {
         pathParams[@"username"] = username;
     }
     if (startDate != nil) {
-        pathParams[@"start-date"] = startDate;
+        pathParams[@"start_date"] = startDate;
     }
     if (endDate != nil) {
-        pathParams[@"end-date"] = endDate;
+        pathParams[@"end_date"] = endDate;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -1247,14 +1247,14 @@ NSInteger kOAIMealPlanningApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/week/{start-date}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/mealplanner/{username}/week/{start_date}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (username != nil) {
         pathParams[@"username"] = username;
     }
     if (startDate != nil) {
-        pathParams[@"start-date"] = startDate;
+        pathParams[@"start_date"] = startDate;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];

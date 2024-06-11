@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **i32** |  | 
 **title** | **String** |  | 
 **average_rating** | **f32** |  | 
-**description** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**description** | Option<**String**> |  | [optional]
 **image_url** | **String** |  | 
 **link** | **String** |  | 
 **price** | **String** |  | 

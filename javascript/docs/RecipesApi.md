@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ## analyzeRecipeInstructions
 
-> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(opts)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -118,10 +118,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let opts = {
-  'contentType': application/json // String | The content type.
-};
-apiInstance.analyzeRecipeInstructions(opts, (error, data, response) => {
+let instructions = "instructions_example"; // String | The recipe's instructions.
+apiInstance.analyzeRecipeInstructions(instructions, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -135,7 +133,7 @@ apiInstance.analyzeRecipeInstructions(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **instructions** | **String**| The recipe&#39;s instructions. | 
 
 ### Return type
 
@@ -208,7 +206,7 @@ Name | Type | Description  | Notes
 
 ## classifyCuisine
 
-> ClassifyCuisine200Response classifyCuisine(opts)
+> ClassifyCuisine200Response classifyCuisine(title, ingredientList, opts)
 
 Classify Cuisine
 
@@ -226,10 +224,12 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let title = "title_example"; // String | The title of the recipe.
+let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 let opts = {
-  'contentType': application/json // String | The content type.
+  'language': en // String | The language of the input. Either 'en' or 'de'.
 };
-apiInstance.classifyCuisine(opts, (error, data, response) => {
+apiInstance.classifyCuisine(title, ingredientList, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -243,7 +243,9 @@ apiInstance.classifyCuisine(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **title** | **String**| The title of the recipe. | 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -373,7 +375,7 @@ Name | Type | Description  | Notes
 
 ## createRecipeCard
 
-> CreateRecipeCard200Response createRecipeCard(opts)
+> CreateRecipeCard200Response createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, opts)
 
 Create Recipe Card
 
@@ -391,10 +393,22 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let title = "title_example"; // String | The title of the recipe.
+let ingredients = "ingredients_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+let instructions = "instructions_example"; // String | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+let readyInMinutes = 3.4; // Number | The number of minutes it takes to get the recipe on the table.
+let servings = 3.4; // Number | The number of servings the recipe makes.
+let mask = "mask_example"; // String | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+let backgroundImage = "backgroundImage_example"; // String | The background image ('none', 'background1', or 'background2').
 let opts = {
-  'contentType': application/json // String | The content type.
+  'image': "/path/to/file", // File | The binary image of the recipe as jpg.
+  'imageUrl': "imageUrl_example", // String | If you do not sent a binary image you can also pass the image URL.
+  'author': "author_example", // String | The author of the recipe.
+  'backgroundColor': "backgroundColor_example", // String | The background color for the recipe card as a hex-string.
+  'fontColor': "fontColor_example", // String | The font color for the recipe card as a hex-string.
+  'source': "source_example" // String | The source of the recipe.
 };
-apiInstance.createRecipeCard(opts, (error, data, response) => {
+apiInstance.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -408,7 +422,19 @@ apiInstance.createRecipeCard(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **title** | **String**| The title of the recipe. | 
+ **ingredients** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **instructions** | **String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
+ **readyInMinutes** | **Number**| The number of minutes it takes to get the recipe on the table. | 
+ **servings** | **Number**| The number of servings the recipe makes. | 
+ **mask** | **String**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | 
+ **backgroundImage** | **String**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | 
+ **image** | **File**| The binary image of the recipe as jpg. | [optional] 
+ **imageUrl** | **String**| If you do not sent a binary image you can also pass the image URL. | [optional] 
+ **author** | **String**| The author of the recipe. | [optional] 
+ **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] 
+ **source** | **String**| The source of the recipe. | [optional] 
 
 ### Return type
 
@@ -426,7 +452,7 @@ Name | Type | Description  | Notes
 
 ## equipmentByIDImage
 
-> Object equipmentByIDImage(id)
+> File equipmentByIDImage(id)
 
 Equipment by ID Image
 
@@ -463,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1131,7 +1157,7 @@ Name | Type | Description  | Notes
 
 ## parseIngredients
 
-> [ParseIngredients200ResponseInner] parseIngredients(opts)
+> [ParseIngredients200ResponseInner] parseIngredients(ingredientList, servings, opts)
 
 Parse Ingredients
 
@@ -1149,11 +1175,13 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
+let servings = 3.4; // Number | The number of servings that you can make from the ingredients.
 let opts = {
-  'contentType': application/json, // String | The content type.
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'includeNutrition': true // Boolean | 
 };
-apiInstance.parseIngredients(opts, (error, data, response) => {
+apiInstance.parseIngredients(ingredientList, servings, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1167,8 +1195,10 @@ apiInstance.parseIngredients(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **Number**| The number of servings that you can make from the ingredients. | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **includeNutrition** | **Boolean**|  | [optional] 
 
 ### Return type
 
@@ -1186,7 +1216,7 @@ Name | Type | Description  | Notes
 
 ## priceBreakdownByIDImage
 
-> Object priceBreakdownByIDImage(id)
+> File priceBreakdownByIDImage(id)
 
 Price Breakdown by ID Image
 
@@ -1223,7 +1253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1288,7 +1318,7 @@ Name | Type | Description  | Notes
 
 ## recipeNutritionByIDImage
 
-> Object recipeNutritionByIDImage(id)
+> File recipeNutritionByIDImage(id)
 
 Recipe Nutrition by ID Image
 
@@ -1325,7 +1355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1339,7 +1369,7 @@ Name | Type | Description  | Notes
 
 ## recipeNutritionLabelImage
 
-> Object recipeNutritionLabelImage(id, opts)
+> File recipeNutritionLabelImage(id, opts)
 
 Recipe Nutrition Label Image
 
@@ -1384,7 +1414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1459,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ## recipeTasteByIDImage
 
-> Object recipeTasteByIDImage(id, opts)
+> File recipeTasteByIDImage(id, opts)
 
 Recipe Taste by ID Image
 
@@ -1502,7 +1532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -2078,7 +2108,7 @@ Name | Type | Description  | Notes
 
 ## visualizeEquipment
 
-> String visualizeEquipment(opts)
+> String visualizeEquipment(instructions, opts)
 
 Equipment Widget
 
@@ -2096,11 +2126,13 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let instructions = "instructions_example"; // String | The recipe's instructions.
 let opts = {
-  'contentType': application/json, // String | The content type.
-  'accept': application/json // String | Accept header.
+  'view': "view_example", // String | How to visualize the ingredients, either 'grid' or 'list'.
+  'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.
+  'showBacklink': true // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 };
-apiInstance.visualizeEquipment(opts, (error, data, response) => {
+apiInstance.visualizeEquipment(instructions, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2114,8 +2146,10 @@ apiInstance.visualizeEquipment(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **instructions** | **String**| The recipe&#39;s instructions. | 
+ **view** | **String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2133,7 +2167,7 @@ Name | Type | Description  | Notes
 
 ## visualizePriceBreakdown
 
-> String visualizePriceBreakdown(opts)
+> String visualizePriceBreakdown(ingredientList, servings, opts)
 
 Price Breakdown Widget
 
@@ -2151,12 +2185,15 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
+let servings = 3.4; // Number | The number of servings.
 let opts = {
-  'contentType': application/json, // String | The content type.
-  'accept': application/json, // String | Accept header.
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'mode': 3.4, // Number | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+  'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.
+  'showBacklink': true // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 };
-apiInstance.visualizePriceBreakdown(opts, (error, data, response) => {
+apiInstance.visualizePriceBreakdown(ingredientList, servings, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2170,9 +2207,12 @@ apiInstance.visualizePriceBreakdown(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **Number**| The number of servings. | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **mode** | **Number**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] 
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2302,7 +2342,7 @@ Name | Type | Description  | Notes
 
 ## visualizeRecipeNutrition
 
-> String visualizeRecipeNutrition(opts)
+> String visualizeRecipeNutrition(ingredientList, servings, opts)
 
 Recipe Nutrition Widget
 
@@ -2320,12 +2360,14 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
+let servings = 3.4; // Number | The number of servings.
 let opts = {
-  'contentType': application/json, // String | The content type.
-  'accept': application/json, // String | Accept header.
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.
+  'showBacklink': true // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 };
-apiInstance.visualizeRecipeNutrition(opts, (error, data, response) => {
+apiInstance.visualizeRecipeNutrition(ingredientList, servings, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2339,9 +2381,11 @@ apiInstance.visualizeRecipeNutrition(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **Number**| The number of servings. | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2379,8 +2423,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let id = 1; // Number | The item's id.
 let opts = {
-  'defaultCss': false, // Boolean | Whether the default CSS should be added to the response.
-  'accept': application/json // String | Accept header.
+  'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
 apiInstance.visualizeRecipeNutritionByID(id, opts, (error, data, response) => {
   if (error) {
@@ -2398,7 +2441,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The item&#39;s id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] 
 
 ### Return type
 
@@ -2471,7 +2513,7 @@ Name | Type | Description  | Notes
 
 ## visualizeRecipeTaste
 
-> String visualizeRecipeTaste(opts)
+> String visualizeRecipeTaste(ingredientList, opts)
 
 Recipe Taste Widget
 
@@ -2489,14 +2531,13 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
 let opts = {
   'language': en, // String | The language of the input. Either 'en' or 'de'.
-  'contentType': application/json, // String | The content type.
-  'accept': application/json, // String | Accept header.
-  'normalize': true, // Boolean | Whether to normalize to the strongest taste.
-  'rgb': 75,192,192 // String | Red, green, blue values for the chart color.
+  'normalize': true, // Boolean | Normalize to the strongest taste.
+  'rgb': "rgb_example" // String | Red, green, blue values for the chart color.
 };
-apiInstance.visualizeRecipeTaste(opts, (error, data, response) => {
+apiInstance.visualizeRecipeTaste(ingredientList, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2510,10 +2551,9 @@ apiInstance.visualizeRecipeTaste(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
- **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] 
+ **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] 
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] 
 
 ### Return type

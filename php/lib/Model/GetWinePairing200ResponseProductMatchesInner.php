@@ -61,7 +61,7 @@ class GetWinePairing200ResponseProductMatchesInner implements ModelInterface, Ar
         'id' => 'int',
         'title' => 'string',
         'average_rating' => 'float',
-        'description' => 'mixed',
+        'description' => 'string',
         'image_url' => 'string',
         'link' => 'string',
         'price' => 'string',
@@ -97,7 +97,7 @@ class GetWinePairing200ResponseProductMatchesInner implements ModelInterface, Ar
         'id' => false,
         'title' => false,
         'average_rating' => false,
-        'description' => true,
+        'description' => false,
         'image_url' => false,
         'link' => false,
         'price' => false,
@@ -475,7 +475,7 @@ class GetWinePairing200ResponseProductMatchesInner implements ModelInterface, Ar
     /**
      * Gets description
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getDescription()
     {
@@ -485,21 +485,14 @@ class GetWinePairing200ResponseProductMatchesInner implements ModelInterface, Ar
     /**
      * Sets description
      *
-     * @param mixed|null $description description
+     * @param string|null $description description
      *
      * @return self
      */
     public function setDescription($description)
     {
         if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 

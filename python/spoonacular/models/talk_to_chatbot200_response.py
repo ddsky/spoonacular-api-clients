@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from spoonacular.models.talk_to_chatbot200_response_media_inner import TalkToChatbot200ResponseMediaInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class TalkToChatbot200Response(BaseModel):
     
     """ # noqa: E501
     answer_text: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="answerText")
-    media: List[Any]
+    media: List[TalkToChatbot200ResponseMediaInner]
     __properties: ClassVar[List[str]] = ["answerText", "media"]
 
     model_config = {
@@ -71,6 +72,13 @@ class TalkToChatbot200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in media (list)
+        _items = []
+        if self.media:
+            for _item in self.media:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['media'] = _items
         return _dict
 
     @classmethod
@@ -84,7 +92,7 @@ class TalkToChatbot200Response(BaseModel):
 
         _obj = cls.model_validate({
             "answerText": obj.get("answerText"),
-            "media": obj.get("media")
+            "media": [TalkToChatbot200ResponseMediaInner.from_dict(_item) for _item in obj["media"]] if obj.get("media") is not None else None
         })
         return _obj
 

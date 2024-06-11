@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **detectFoodInText**
-> DetectFoodInText200Response detectFoodInText(contentType)
+> DetectFoodInText200Response detectFoodInText(text)
 
 Detect Food in Text
 
@@ -38,10 +38,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MiscApi();
-final contentType = application/json; // String | The content type.
+final text = text_example; // String | 
 
 try {
-    final result = api_instance.detectFoodInText(contentType);
+    final result = api_instance.detectFoodInText(text);
     print(result);
 } catch (e) {
     print('Exception when calling MiscApi->detectFoodInText: $e\n');
@@ -52,7 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **text** | **String**|  | 
 
 ### Return type
 

@@ -10,10 +10,11 @@
  * Do not edit the class manually.
  */
 
+import { SearchSiteContent200ResponseArticlesInnerDataPointsInner } from '../models/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 import { HttpFile } from '../http/http';
 
 export class SearchSiteContent200ResponseArticlesInner {
-    'dataPoints'?: Array<any>;
+    'dataPoints'?: Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner>;
     'image': string;
     'link': string;
     'name': string;
@@ -24,7 +25,7 @@ export class SearchSiteContent200ResponseArticlesInner {
         {
             "name": "dataPoints",
             "baseName": "dataPoints",
-            "type": "Array<any>",
+            "type": "Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner>",
             "format": ""
         },
         {

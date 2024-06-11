@@ -16,12 +16,12 @@
 
 module Api.Request.Recipes exposing
     ( analyzeARecipeSearchQuery
-    , analyzeRecipeInstructions, ContentType(..), contentTypeVariants
+    , analyzeRecipeInstructions
     , autocompleteRecipeSearch
-    , classifyCuisine, ContentType(..), contentTypeVariants
+    , classifyCuisine, Language(..), languageVariants
     , computeGlycemicLoad, Language(..), languageVariants
     , convertAmounts
-    , createRecipeCard, ContentType(..), contentTypeVariants
+    , createRecipeCard, Mask(..), maskVariants, BackgroundImage(..), backgroundImageVariants
     , equipmentByIDImage
     , extractRecipeFromWebsite
     , getAnalyzedRecipeInstructions
@@ -35,7 +35,7 @@ module Api.Request.Recipes exposing
     , getRecipeTasteByID
     , getSimilarRecipes
     , guessNutritionByDishName
-    , parseIngredients, Language(..), languageVariants, ContentType(..), contentTypeVariants
+    , parseIngredients, Language(..), languageVariants
     , priceBreakdownByIDImage
     , quickAnswer
     , recipeNutritionByIDImage
@@ -46,14 +46,14 @@ module Api.Request.Recipes exposing
     , searchRecipesByIngredients
     , searchRecipesByNutrients
     , summarizeRecipe
-    , visualizeEquipment, ContentType(..), contentTypeVariants, Accept(..), acceptVariants
-    , visualizePriceBreakdown, Language(..), languageVariants, ContentType(..), contentTypeVariants, Accept(..), acceptVariants
+    , visualizeEquipment, View(..), viewVariants
+    , visualizePriceBreakdown, Language(..), languageVariants
     , visualizeRecipeEquipmentByID
     , visualizeRecipeIngredientsByID, Measure(..), measureVariants
-    , visualizeRecipeNutrition, Language(..), languageVariants, ContentType(..), contentTypeVariants, Accept(..), acceptVariants
-    , visualizeRecipeNutritionByID, Accept(..), acceptVariants
+    , visualizeRecipeNutrition, Language(..), languageVariants
+    , visualizeRecipeNutritionByID
     , visualizeRecipePriceBreakdownByID
-    , visualizeRecipeTaste, Language(..), languageVariants, ContentType(..), contentTypeVariants, Accept(..), acceptVariants
+    , visualizeRecipeTaste, Language(..), languageVariants
     , visualizeRecipeTasteByID
     )
 
@@ -63,62 +63,29 @@ import Dict
 import Http
 import Json.Decode
 import Json.Encode
+import File exposing (File)
 
 
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
+type Language
+    = LanguageEn
+    | LanguageDe
 
 
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
+languageVariants : List Language
+languageVariants =
+    [ LanguageEn
+    , LanguageDe
     ]
 
 
-stringFromContentType : ContentType -> String
-stringFromContentType model =
+stringFromLanguage : Language -> String
+stringFromLanguage model =
     case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
+        LanguageEn ->
+            "en"
 
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
-
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
-
-
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
-    ]
-
-
-stringFromContentType : ContentType -> String
-stringFromContentType model =
-    case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
-
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
+        LanguageDe ->
+            "de"
 
 
 
@@ -147,31 +114,75 @@ stringFromLanguage model =
 
 
 
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
+type Mask
+    = MaskEllipseMask
+    | MaskDiamondMask
+    | MaskStarMask
+    | MaskHeartMask
+    | MaskPotMask
+    | MaskFishMask
 
 
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
+maskVariants : List Mask
+maskVariants =
+    [ MaskEllipseMask
+    , MaskDiamondMask
+    , MaskStarMask
+    , MaskHeartMask
+    , MaskPotMask
+    , MaskFishMask
     ]
 
 
-stringFromContentType : ContentType -> String
-stringFromContentType model =
+stringFromMask : Mask -> String
+stringFromMask model =
     case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
+        MaskEllipseMask ->
+            "ellipseMask"
 
-        ContentTypeApplicationJson ->
-            "application/json"
+        MaskDiamondMask ->
+            "diamondMask"
 
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
+        MaskStarMask ->
+            "starMask"
+
+        MaskHeartMask ->
+            "heartMask"
+
+        MaskPotMask ->
+            "potMask"
+
+        MaskFishMask ->
+            "fishMask"
+
+
+
+
+type BackgroundImage
+    = BackgroundImageNone
+    | BackgroundImageBackground1
+    | BackgroundImageBackground2
+
+
+backgroundImageVariants : List BackgroundImage
+backgroundImageVariants =
+    [ BackgroundImageNone
+    , BackgroundImageBackground1
+    , BackgroundImageBackground2
+    ]
+
+
+stringFromBackgroundImage : BackgroundImage -> String
+stringFromBackgroundImage model =
+    case model of
+        BackgroundImageNone ->
+            "none"
+
+        BackgroundImageBackground1 ->
+            "background1"
+
+        BackgroundImageBackground2 ->
+            "background2"
 
 
 
@@ -200,89 +211,26 @@ stringFromLanguage model =
 
 
 
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
+type View
+    = ViewGrid
+    | ViewList
 
 
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
+viewVariants : List View
+viewVariants =
+    [ ViewGrid
+    , ViewList
     ]
 
 
-stringFromContentType : ContentType -> String
-stringFromContentType model =
+stringFromView : View -> String
+stringFromView model =
     case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
+        ViewGrid ->
+            "grid"
 
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
-
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
-
-
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
-    ]
-
-
-stringFromContentType : ContentType -> String
-stringFromContentType model =
-    case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
-
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
-
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
-
-
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
-    ]
-
-
-stringFromAccept : Accept -> String
-stringFromAccept model =
-    case model of
-        AcceptApplicationJson ->
-            "application/json"
-
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
+        ViewList ->
+            "list"
 
 
 
@@ -307,64 +255,6 @@ stringFromLanguage model =
 
         LanguageDe ->
             "de"
-
-
-
-
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
-
-
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
-    ]
-
-
-stringFromContentType : ContentType -> String
-stringFromContentType model =
-    case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
-
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
-
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
-
-
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
-    ]
-
-
-stringFromAccept : Accept -> String
-stringFromAccept model =
-    case model of
-        AcceptApplicationJson ->
-            "application/json"
-
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
 
 
 
@@ -417,93 +307,6 @@ stringFromLanguage model =
 
 
 
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
-
-
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
-    ]
-
-
-stringFromContentType : ContentType -> String
-stringFromContentType model =
-    case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
-
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
-
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
-
-
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
-    ]
-
-
-stringFromAccept : Accept -> String
-stringFromAccept model =
-    case model of
-        AcceptApplicationJson ->
-            "application/json"
-
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
-
-
-
-
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
-
-
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
-    ]
-
-
-stringFromAccept : Accept -> String
-stringFromAccept model =
-    case model of
-        AcceptApplicationJson ->
-            "application/json"
-
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
-
-
-
-
 type Language
     = LanguageEn
     | LanguageDe
@@ -527,64 +330,6 @@ stringFromLanguage model =
 
 
 
-
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
-
-
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
-    ]
-
-
-stringFromContentType : ContentType -> String
-stringFromContentType model =
-    case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
-
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
-
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
-
-
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
-    ]
-
-
-stringFromAccept : Accept -> String
-stringFromAccept model =
-    case model of
-        AcceptApplicationJson ->
-            "application/json"
-
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
-
-
-
 {-| Parse a recipe search query to find out its intention.
 -}
 analyzeARecipeSearchQuery : String -> Api.Request Api.Data.AnalyzeARecipeSearchQuery200Response
@@ -601,15 +346,15 @@ analyzeARecipeSearchQuery q_query =
 
 {-| This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 -}
-analyzeRecipeInstructions : Maybe ContentType -> Api.Request Api.Data.AnalyzeRecipeInstructions200Response
-analyzeRecipeInstructions contentType_header =
+analyzeRecipeInstructions : String -> Api.Request Api.Data.AnalyzeRecipeInstructions200Response
+analyzeRecipeInstructions instructions =
     Api.request
         "POST"
         "/recipes/analyzeInstructions"
         []
         []
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "instructions" instructions ])
         Api.Data.analyzeRecipeInstructions200ResponseDecoder
 
 
@@ -629,15 +374,15 @@ autocompleteRecipeSearch query_query number_query =
 
 {-| Classify the recipe's cuisine.
 -}
-classifyCuisine : Maybe ContentType -> Api.Request Api.Data.ClassifyCuisine200Response
-classifyCuisine contentType_header =
+classifyCuisine : Maybe Language -> String -> String -> Api.Request Api.Data.ClassifyCuisine200Response
+classifyCuisine language_query title ingredientList =
     Api.request
         "POST"
         "/recipes/cuisine"
         []
+        [ ( "language", Maybe.map stringFromLanguage language_query ) ]
         []
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ) ]
-        Nothing
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "title" title, Just <| Http.stringPart "ingredientList" ingredientList ])
         Api.Data.classifyCuisine200ResponseDecoder
 
 
@@ -671,21 +416,21 @@ convertAmounts ingredientName_query sourceAmount_query sourceUnit_query targetUn
 
 {-| Generate a recipe card for a recipe.
 -}
-createRecipeCard : Maybe ContentType -> Api.Request Api.Data.CreateRecipeCard200Response
-createRecipeCard contentType_header =
+createRecipeCard : String -> String -> String -> Float -> Float -> Mask -> BackgroundImage -> Maybe File -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Api.Request Api.Data.CreateRecipeCard200Response
+createRecipeCard title ingredients instructions readyInMinutes servings mask backgroundImage image imageUrl author backgroundColor fontColor source =
     Api.request
         "POST"
         "/recipes/visualizeRecipe"
         []
         []
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "title" title, Just <| Http.stringPart "ingredients" ingredients, Just <| Http.stringPart "instructions" instructions, Just <| Http.stringPart "readyInMinutes"String.fromFloat readyInMinutes, Just <| Http.stringPart "servings"String.fromFloat servings, Just <| Http.stringPart "mask"Api.Data.stringFromMask mask, Just <| Http.stringPart "backgroundImage"Api.Data.stringFromBackgroundImage backgroundImage, Maybe.map (Http.filePart "image") image, Maybe.map (Http.stringPart "imageUrl") imageUrl, Maybe.map (Http.stringPart "author") author, Maybe.map (Http.stringPart "backgroundColor") backgroundColor, Maybe.map (Http.stringPart "fontColor") fontColor, Maybe.map (Http.stringPart "source") source ])
         Api.Data.createRecipeCard200ResponseDecoder
 
 
 {-| Visualize a recipe's equipment list as an image.
 -}
-equipmentByIDImage : Float -> Api.Request (Dict.Dict String Api.Data.Object)
+equipmentByIDImage : Float -> Api.Request File
 equipmentByIDImage id_path =
     Api.request
         "GET"
@@ -694,7 +439,7 @@ equipmentByIDImage id_path =
         []
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
@@ -867,21 +612,21 @@ guessNutritionByDishName title_query =
 
 {-| Extract an ingredient from plain text.
 -}
-parseIngredients : Maybe Language -> Maybe ContentType -> Api.Request (List Api.Data.ParseIngredients200ResponseInner)
-parseIngredients language_query contentType_header =
+parseIngredients : Maybe Language -> String -> Float -> Maybe Bool -> Api.Request (List Api.Data.ParseIngredients200ResponseInner)
+parseIngredients language_query ingredientList servings includeNutrition =
     Api.request
         "POST"
         "/recipes/parseIngredients"
         []
         [ ( "language", Maybe.map stringFromLanguage language_query ) ]
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "ingredientList" ingredientList, Just <| Http.stringPart "servings"String.fromFloat servings, Maybe.map (Http.stringPart "includeNutrition"(\val -> if val then "true" else "false")) includeNutrition ])
         (Json.Decode.list Api.Data.parseIngredients200ResponseInnerDecoder)
 
 
 {-| Visualize a recipe's price breakdown.
 -}
-priceBreakdownByIDImage : Float -> Api.Request (Dict.Dict String Api.Data.Object)
+priceBreakdownByIDImage : Float -> Api.Request File
 priceBreakdownByIDImage id_path =
     Api.request
         "GET"
@@ -890,7 +635,7 @@ priceBreakdownByIDImage id_path =
         []
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Answer a nutrition related natural language question.
@@ -909,7 +654,7 @@ quickAnswer q_query =
 
 {-| Visualize a recipe's nutritional information as an image.
 -}
-recipeNutritionByIDImage : Float -> Api.Request (Dict.Dict String Api.Data.Object)
+recipeNutritionByIDImage : Float -> Api.Request File
 recipeNutritionByIDImage id_path =
     Api.request
         "GET"
@@ -918,12 +663,12 @@ recipeNutritionByIDImage id_path =
         []
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Get a recipe's nutrition label as an image.
 -}
-recipeNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request (Dict.Dict String Api.Data.Object)
+recipeNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
 recipeNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
@@ -932,7 +677,7 @@ recipeNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_que
         [ ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Get a recipe's nutrition label as an HTML widget.
@@ -951,7 +696,7 @@ recipeNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_query 
 
 {-| Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 -}
-recipeTasteByIDImage : Float -> Maybe Bool -> Maybe String -> Api.Request (Dict.Dict String Api.Data.Object)
+recipeTasteByIDImage : Float -> Maybe Bool -> Maybe String -> Api.Request File
 recipeTasteByIDImage id_path normalize_query rgb_query =
     Api.request
         "GET"
@@ -960,7 +705,7 @@ recipeTasteByIDImage id_path normalize_query rgb_query =
         [ ( "normalize", Maybe.map (\val -> if val then "true" else "false") normalize_query ), ( "rgb", Maybe.map identity rgb_query ) ]
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
@@ -1021,29 +766,29 @@ summarizeRecipe id_path =
 
 {-| Visualize the equipment used to make a recipe.
 -}
-visualizeEquipment : Maybe ContentType -> Maybe Accept -> Api.Request String
-visualizeEquipment contentType_header accept_header =
+visualizeEquipment : String -> Maybe View -> Maybe Bool -> Maybe Bool -> Api.Request String
+visualizeEquipment instructions view defaultCss showBacklink =
     Api.request
         "POST"
         "/recipes/visualizeEquipment"
         []
         []
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ), ( "Accept", Maybe.map stringFromAccept accept_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "instructions" instructions, Maybe.map (Http.stringPart "view"Api.Data.stringFromView) view, Maybe.map (Http.stringPart "defaultCss"(\val -> if val then "true" else "false")) defaultCss, Maybe.map (Http.stringPart "showBacklink"(\val -> if val then "true" else "false")) showBacklink ])
         Json.Decode.string
 
 
 {-| Visualize the price breakdown of a recipe.
 -}
-visualizePriceBreakdown : Maybe Language -> Maybe ContentType -> Maybe Accept -> Api.Request String
-visualizePriceBreakdown language_query contentType_header accept_header =
+visualizePriceBreakdown : Maybe Language -> String -> Float -> Maybe Float -> Maybe Bool -> Maybe Bool -> Api.Request String
+visualizePriceBreakdown language_query ingredientList servings mode defaultCss showBacklink =
     Api.request
         "POST"
         "/recipes/visualizePriceEstimator"
         []
         [ ( "language", Maybe.map stringFromLanguage language_query ) ]
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ), ( "Accept", Maybe.map stringFromAccept accept_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "ingredientList" ingredientList, Just <| Http.stringPart "servings"String.fromFloat servings, Maybe.map (Http.stringPart "mode"String.fromFloat) mode, Maybe.map (Http.stringPart "defaultCss"(\val -> if val then "true" else "false")) defaultCss, Maybe.map (Http.stringPart "showBacklink"(\val -> if val then "true" else "false")) showBacklink ])
         Json.Decode.string
 
 
@@ -1077,28 +822,28 @@ visualizeRecipeIngredientsByID id_path defaultCss_query measure_query =
 
 {-| Visualize a recipe's nutritional information as HTML including CSS.
 -}
-visualizeRecipeNutrition : Maybe Language -> Maybe ContentType -> Maybe Accept -> Api.Request String
-visualizeRecipeNutrition language_query contentType_header accept_header =
+visualizeRecipeNutrition : Maybe Language -> String -> Float -> Maybe Bool -> Maybe Bool -> Api.Request String
+visualizeRecipeNutrition language_query ingredientList servings defaultCss showBacklink =
     Api.request
         "POST"
         "/recipes/visualizeNutrition"
         []
         [ ( "language", Maybe.map stringFromLanguage language_query ) ]
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ), ( "Accept", Maybe.map stringFromAccept accept_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "ingredientList" ingredientList, Just <| Http.stringPart "servings"String.fromFloat servings, Maybe.map (Http.stringPart "defaultCss"(\val -> if val then "true" else "false")) defaultCss, Maybe.map (Http.stringPart "showBacklink"(\val -> if val then "true" else "false")) showBacklink ])
         Json.Decode.string
 
 
 {-| Visualize a recipe's nutritional information as HTML including CSS.
 -}
-visualizeRecipeNutritionByID : Int -> Maybe Bool -> Maybe Accept -> Api.Request String
-visualizeRecipeNutritionByID id_path defaultCss_query accept_header =
+visualizeRecipeNutritionByID : Int -> Maybe Bool -> Api.Request String
+visualizeRecipeNutritionByID id_path defaultCss_query =
     Api.request
         "GET"
         "/recipes/{id}/nutritionWidget"
         [ ( "id", String.fromInt id_path ) ]
         [ ( "defaultCss", Maybe.map (\val -> if val then "true" else "false") defaultCss_query ) ]
-        [ ( "Accept", Maybe.map stringFromAccept accept_header ) ]
+        []
         Nothing
         Json.Decode.string
 
@@ -1119,15 +864,15 @@ visualizeRecipePriceBreakdownByID id_path defaultCss_query =
 
 {-| Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 -}
-visualizeRecipeTaste : Maybe Language -> Maybe Bool -> Maybe String -> Maybe ContentType -> Maybe Accept -> Api.Request String
-visualizeRecipeTaste language_query normalize_query rgb_query contentType_header accept_header =
+visualizeRecipeTaste : Maybe Language -> String -> Maybe Bool -> Maybe String -> Api.Request String
+visualizeRecipeTaste language_query ingredientList normalize rgb =
     Api.request
         "POST"
         "/recipes/visualizeTaste"
         []
-        [ ( "language", Maybe.map stringFromLanguage language_query ), ( "normalize", Maybe.map (\val -> if val then "true" else "false") normalize_query ), ( "rgb", Maybe.map identity rgb_query ) ]
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ), ( "Accept", Maybe.map stringFromAccept accept_header ) ]
-        Nothing
+        [ ( "language", Maybe.map stringFromLanguage language_query ) ]
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "ingredientList" ingredientList, Maybe.map (Http.stringPart "normalize"(\val -> if val then "true" else "false")) normalize, Maybe.map (Http.stringPart "rgb") rgb ])
         Json.Decode.string
 
 

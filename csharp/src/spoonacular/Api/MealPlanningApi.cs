@@ -2623,8 +2623,8 @@ namespace spoonacular.Api
             }
 
             localVarRequestOptions.PathParameters.Add("username", spoonacular.Client.ClientUtils.ParameterToString(username)); // path parameter
-            localVarRequestOptions.PathParameters.Add("start-date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
-            localVarRequestOptions.PathParameters.Add("end-date", spoonacular.Client.ClientUtils.ParameterToString(endDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("start_date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("end_date", spoonacular.Client.ClientUtils.ParameterToString(endDate)); // path parameter
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "hash", hash));
 
             localVarRequestOptions.Operation = "MealPlanningApi.GenerateShoppingList";
@@ -2637,7 +2637,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/{start-date}/{end-date}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/{start_date}/{end_date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GenerateShoppingList", localVarResponse);
@@ -2728,8 +2728,8 @@ namespace spoonacular.Api
             }
 
             localVarRequestOptions.PathParameters.Add("username", spoonacular.Client.ClientUtils.ParameterToString(username)); // path parameter
-            localVarRequestOptions.PathParameters.Add("start-date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
-            localVarRequestOptions.PathParameters.Add("end-date", spoonacular.Client.ClientUtils.ParameterToString(endDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("start_date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("end_date", spoonacular.Client.ClientUtils.ParameterToString(endDate)); // path parameter
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "hash", hash));
 
             localVarRequestOptions.Operation = "MealPlanningApi.GenerateShoppingList";
@@ -2742,7 +2742,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/{start-date}/{end-date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/{start_date}/{end_date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3173,7 +3173,7 @@ namespace spoonacular.Api
             }
 
             localVarRequestOptions.PathParameters.Add("username", spoonacular.Client.ClientUtils.ParameterToString(username)); // path parameter
-            localVarRequestOptions.PathParameters.Add("start-date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("start_date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "hash", hash));
 
             localVarRequestOptions.Operation = "MealPlanningApi.GetMealPlanWeek";
@@ -3186,7 +3186,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetMealPlanWeek200Response>("/mealplanner/{username}/week/{start-date}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetMealPlanWeek200Response>("/mealplanner/{username}/week/{start_date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMealPlanWeek", localVarResponse);
@@ -3269,7 +3269,7 @@ namespace spoonacular.Api
             }
 
             localVarRequestOptions.PathParameters.Add("username", spoonacular.Client.ClientUtils.ParameterToString(username)); // path parameter
-            localVarRequestOptions.PathParameters.Add("start-date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("start_date", spoonacular.Client.ClientUtils.ParameterToString(startDate)); // path parameter
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "hash", hash));
 
             localVarRequestOptions.Operation = "MealPlanningApi.GetMealPlanWeek";
@@ -3282,7 +3282,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMealPlanWeek200Response>("/mealplanner/{username}/week/{start-date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMealPlanWeek200Response>("/mealplanner/{username}/week/{start_date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

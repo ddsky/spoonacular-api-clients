@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **Integer** |  | 
 **title** | **String** |  | 
 **averageRating** | [**BigDecimal**](BigDecimal.md) |  | 
-**description** | [**OasAnyTypeNotMapped**](.md) |  |  [optional]
+**description** | **String** |  |  [optional]
 **imageUrl** | **String** |  | 
 **link** | **String** |  | 
 **price** | **String** |  | 

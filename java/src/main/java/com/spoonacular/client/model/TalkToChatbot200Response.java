@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.spoonacular.client.model.TalkToChatbot200ResponseMediaInner;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,7 +60,7 @@ public class TalkToChatbot200Response {
 
   public static final String SERIALIZED_NAME_MEDIA = "media";
   @SerializedName(SERIALIZED_NAME_MEDIA)
-  private List<Object> media = new ArrayList<>();
+  private List<TalkToChatbot200ResponseMediaInner> media = new ArrayList<>();
 
   public TalkToChatbot200Response() {
   }
@@ -83,12 +84,12 @@ public class TalkToChatbot200Response {
   }
 
 
-  public TalkToChatbot200Response media(List<Object> media) {
+  public TalkToChatbot200Response media(List<TalkToChatbot200ResponseMediaInner> media) {
     this.media = media;
     return this;
   }
 
-  public TalkToChatbot200Response addMediaItem(Object mediaItem) {
+  public TalkToChatbot200Response addMediaItem(TalkToChatbot200ResponseMediaInner mediaItem) {
     if (this.media == null) {
       this.media = new ArrayList<>();
     }
@@ -101,11 +102,11 @@ public class TalkToChatbot200Response {
    * @return media
   **/
   @javax.annotation.Nonnull
-  public List<Object> getMedia() {
+  public List<TalkToChatbot200ResponseMediaInner> getMedia() {
     return media;
   }
 
-  public void setMedia(List<Object> media) {
+  public void setMedia(List<TalkToChatbot200ResponseMediaInner> media) {
     this.media = media;
   }
 
@@ -197,12 +198,16 @@ public class TalkToChatbot200Response {
       if (!jsonObj.get("answerText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `answerText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("answerText").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("media") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("media").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("media").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `media` to be an array in the JSON string but got `%s`", jsonObj.get("media").toString()));
       }
+
+      JsonArray jsonArraymedia = jsonObj.getAsJsonArray("media");
+      // validate the required field `media` (array)
+      for (int i = 0; i < jsonArraymedia.size(); i++) {
+        TalkToChatbot200ResponseMediaInner.validateJsonElement(jsonArraymedia.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -60,7 +60,7 @@ class TalkToChatbot200Response implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'answer_text' => 'string',
-        'media' => 'mixed[]'
+        'media' => '\OpenAPI\Client\Model\TalkToChatbot200ResponseMediaInner[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class TalkToChatbot200Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets media
      *
-     * @return mixed[]
+     * @return \OpenAPI\Client\Model\TalkToChatbot200ResponseMediaInner[]
      */
     public function getMedia()
     {
@@ -353,7 +353,7 @@ class TalkToChatbot200Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets media
      *
-     * @param mixed[] $media media
+     * @param \OpenAPI\Client\Model\TalkToChatbot200ResponseMediaInner[] $media media
      *
      * @return self
      */

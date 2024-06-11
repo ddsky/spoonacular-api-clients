@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## DetectFoodInText
 
-> DetectFoodInText200Response DetectFoodInText(ctx).ContentType(contentType).Execute()
+> DetectFoodInText200Response DetectFoodInText(ctx).Text(text).Execute()
 
 Detect Food in Text
 
@@ -39,11 +39,11 @@ import (
 )
 
 func main() {
-	contentType := "application/json" // string | The content type. (optional)
+	text := "text_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.DetectFoodInText(context.Background()).ContentType(contentType).Execute()
+	resp, r, err := apiClient.MiscAPI.DetectFoodInText(context.Background()).Text(text).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.DetectFoodInText``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,7 +64,7 @@ Other parameters are passed through a pointer to a apiDetectFoodInTextRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **string** | The content type. | 
+ **text** | **string** |  | 
 
 ### Return type
 

@@ -482,14 +482,14 @@ class ApiClient {
           return SearchSiteContent200Response.fromJson(value);
         case 'SearchSiteContent200ResponseArticlesInner':
           return SearchSiteContent200ResponseArticlesInner.fromJson(value);
-        case 'SearchSiteContent200ResponseGroceryProductsInner':
-          return SearchSiteContent200ResponseGroceryProductsInner.fromJson(value);
-        case 'SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner':
-          return SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.fromJson(value);
+        case 'SearchSiteContent200ResponseArticlesInnerDataPointsInner':
+          return SearchSiteContent200ResponseArticlesInnerDataPointsInner.fromJson(value);
         case 'SummarizeRecipe200Response':
           return SummarizeRecipe200Response.fromJson(value);
         case 'TalkToChatbot200Response':
           return TalkToChatbot200Response.fromJson(value);
+        case 'TalkToChatbot200ResponseMediaInner':
+          return TalkToChatbot200ResponseMediaInner.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

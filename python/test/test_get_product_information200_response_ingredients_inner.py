@@ -36,9 +36,9 @@ class TestGetProductInformation200ResponseIngredientsInner(unittest.TestCase):
         model = GetProductInformation200ResponseIngredientsInner()
         if include_optional:
             return GetProductInformation200ResponseIngredientsInner(
-                description = None,
+                description = '',
                 name = '0',
-                safety_level = None
+                safety_level = ''
             )
         else:
             return GetProductInformation200ResponseIngredientsInner(

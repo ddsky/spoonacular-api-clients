@@ -117,7 +117,7 @@ Configure apiKeyScheme:
 
 <a id="menuItemNutritionByIDImage"></a>
 # **menuItemNutritionByIDImage**
-> kotlin.Any menuItemNutritionByIDImage(id)
+> java.io.File menuItemNutritionByIDImage(id)
 
 Menu Item Nutrition by ID Image
 
@@ -132,7 +132,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 val apiInstance = MenuItemsApi()
 val id : java.math.BigDecimal = 424571 // java.math.BigDecimal | The menu item id.
 try {
-    val result : kotlin.Any = apiInstance.menuItemNutritionByIDImage(id)
+    val result : java.io.File = apiInstance.menuItemNutritionByIDImage(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MenuItemsApi#menuItemNutritionByIDImage")
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Configure apiKeyScheme:
 
 <a id="menuItemNutritionLabelImage"></a>
 # **menuItemNutritionLabelImage**
-> kotlin.Any menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> java.io.File menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Menu Item Nutrition Label Image
 
@@ -185,7 +185,7 @@ val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether t
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
 val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
 try {
-    val result : kotlin.Any = apiInstance.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+    val result : java.io.File = apiInstance.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MenuItemsApi#menuItemNutritionLabelImage")
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -353,7 +353,7 @@ Configure apiKeyScheme:
 
 <a id="visualizeMenuItemNutritionByID"></a>
 # **visualizeMenuItemNutritionByID**
-> kotlin.String visualizeMenuItemNutritionByID(id, defaultCss, accept)
+> kotlin.String visualizeMenuItemNutritionByID(id, defaultCss)
 
 Menu Item Nutrition by ID Widget
 
@@ -368,9 +368,8 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 val apiInstance = MenuItemsApi()
 val id : kotlin.Int = 1 // kotlin.Int | The item's id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
 try {
-    val result : kotlin.String = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss, accept)
+    val result : kotlin.String = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MenuItemsApi#visualizeMenuItemNutritionByID")
@@ -387,7 +386,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **kotlin.Int**| The item&#39;s id. |
  **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
 
 ### Return type
 

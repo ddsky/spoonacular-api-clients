@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) ingredientsByIDImageWithId: (NSNumber*) _id
     measure: (NSString*) measure
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 ```
 
 Ingredients by ID Image
@@ -478,7 +478,7 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 // Ingredients by ID Image
 [apiInstance ingredientsByIDImageWithId:_id
               measure:measure
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(NSURL* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+**NSURL***
 
 ### Authorization
 
@@ -569,9 +569,13 @@ Name | Type | Description  | Notes
 
 # **visualizeIngredients**
 ```objc
--(NSURLSessionTask*) visualizeIngredientsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) visualizeIngredientsWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
-    accept: (NSString*) accept
+    measure: (NSString*) measure
+    view: (NSString*) view
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -589,16 +593,24 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
 
 
-NSString* contentType = application/json; // The content type. (optional)
+NSString* ingredientList = @"ingredientList_example"; // The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+NSNumber* servings = @56; // The number of servings.
 NSString* language = en; // The language of the input. Either 'en' or 'de'. (optional)
-NSString* accept = application/json; // Accept header. (optional)
+NSString* measure = @"measure_example"; // The original system of measurement, either 'metric' or 'us'. (optional)
+NSString* view = @"view_example"; // How to visualize the ingredients, either 'grid' or 'list'. (optional)
+NSNumber* defaultCss = @56; // Whether the default CSS should be added to the response. (optional)
+NSNumber* showBacklink = @56; // Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
 OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
 // Ingredients Widget
-[apiInstance visualizeIngredientsWithContentType:contentType
+[apiInstance visualizeIngredientsWithIngredientList:ingredientList
+              servings:servings
               language:language
-              accept:accept
+              measure:measure
+              view:view
+              defaultCss:defaultCss
+              showBacklink:showBacklink
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -613,9 +625,13 @@ OAIIngredientsApi*apiInstance = [[OAIIngredientsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **NSString***| The content type. | [optional] 
+ **ingredientList** | **NSString***| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **servings** | **NSNumber***| The number of servings. | 
  **language** | **NSString***| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **accept** | **NSString***| Accept header. | [optional] 
+ **measure** | **NSString***| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] 
+ **view** | **NSString***| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **defaultCss** | **NSNumber***| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **NSNumber***| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 

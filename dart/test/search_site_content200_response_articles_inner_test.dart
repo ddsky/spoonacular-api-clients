@@ -16,7 +16,7 @@ void main() {
   // final instance = SearchSiteContent200ResponseArticlesInner();
 
   group('test SearchSiteContent200ResponseArticlesInner', () {
-    // List<Object> dataPoints (default value: const [])
+    // Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints (default value: const {})
     test('to test the property `dataPoints`', () async {
       // TODO
     });

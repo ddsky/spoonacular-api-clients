@@ -19,8 +19,8 @@ pub struct GetWinePairing200ResponseProductMatchesInner {
     pub title: String,
     #[serde(rename = "averageRating")]
     pub average_rating: f32,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub description: Option<Option<serde_json::Value>>,
+    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
     #[serde(rename = "imageUrl")]
     pub image_url: String,
     #[serde(rename = "link")]
