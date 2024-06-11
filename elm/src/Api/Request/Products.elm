@@ -25,7 +25,7 @@ module Api.Request.Products exposing
     , productNutritionLabelWidget
     , searchGroceryProducts
     , searchGroceryProductsByUPC
-    , visualizeProductNutritionByID, Accept(..), acceptVariants
+    , visualizeProductNutritionByID
     )
 
 import Api
@@ -34,6 +34,7 @@ import Dict
 import Http
 import Json.Decode
 import Json.Encode
+import File exposing (File)
 
 
 type Locale
@@ -56,35 +57,6 @@ stringFromLocale model =
 
         LocaleGB ->
             "en_GB"
-
-
-
-
-type Accept
-    = AcceptApplicationJson
-    | AcceptTextHtml
-    | AcceptMedia*
-
-
-acceptVariants : List Accept
-acceptVariants =
-    [ AcceptApplicationJson
-    , AcceptTextHtml
-    , AcceptMedia*
-    ]
-
-
-stringFromAccept : Accept -> String
-stringFromAccept model =
-    case model of
-        AcceptApplicationJson ->
-            "application/json"
-
-        AcceptTextHtml ->
-            "text/html"
-
-        AcceptMedia* ->
-            "media/_*"
 
 
 
@@ -160,7 +132,7 @@ getProductInformation id_path =
 
 {-| Visualize a product's nutritional information as an image.
 -}
-productNutritionByIDImage : Float -> Api.Request (Dict.Dict String Api.Data.Object)
+productNutritionByIDImage : Float -> Api.Request File
 productNutritionByIDImage id_path =
     Api.request
         "GET"
@@ -169,12 +141,12 @@ productNutritionByIDImage id_path =
         []
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Get a product's nutrition label as an image.
 -}
-productNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request (Dict.Dict String Api.Data.Object)
+productNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
 productNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
@@ -183,7 +155,7 @@ productNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_qu
         [ ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
-        (Json.Decode.dict )
+        File.decoder
 
 
 {-| Get a product's nutrition label as an HTML widget.
@@ -230,14 +202,14 @@ searchGroceryProductsByUPC upc_path =
 
 {-| Visualize a product's nutritional information as HTML including CSS.
 -}
-visualizeProductNutritionByID : Int -> Maybe Bool -> Maybe Accept -> Api.Request String
-visualizeProductNutritionByID id_path defaultCss_query accept_header =
+visualizeProductNutritionByID : Int -> Maybe Bool -> Api.Request String
+visualizeProductNutritionByID id_path defaultCss_query =
     Api.request
         "GET"
         "/food/products/{id}/nutritionWidget"
         [ ( "id", String.fromInt id_path ) ]
         [ ( "defaultCss", Maybe.map (\val -> if val then "true" else "false") defaultCss_query ) ]
-        [ ( "Accept", Maybe.map stringFromAccept accept_header ) ]
+        []
         Nothing
         Json.Decode.string
 

@@ -53,13 +53,13 @@ sub new {
 #
 # Detect Food in Text
 #
-# @param string $content_type The content type. (optional)
+# @param string $text  (required)
 {
     my $params = {
-    'content_type' => {
+    'text' => {
         data_type => 'string',
-        description => 'The content type.',
-        required => '0',
+        description => '',
+        required => '1',
     },
     };
     __PACKAGE__->method_documentation->{ 'detect_food_in_text' } = {
@@ -72,6 +72,11 @@ sub new {
 #
 sub detect_food_in_text {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'text' is set
+    unless (exists $args{'text'}) {
+      croak("Missing the required parameter 'text' when calling detect_food_in_text");
+    }
 
     # parse inputs
     my $_resource_path = '/food/detect';
@@ -88,9 +93,9 @@ sub detect_food_in_text {
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/x-www-form-urlencoded');
 
-    # header params
-    if ( exists $args{'content_type'}) {
-        $header_params->{'Content-Type'} = $self->{api_client}->to_header_value($args{'content_type'});
+    # form params
+    if ( exists $args{'text'} ) {
+                $form_params->{'text'} = $self->{api_client}->to_form_value($args{'text'});
     }
 
     my $_body_data;

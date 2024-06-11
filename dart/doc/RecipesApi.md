@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyzeRecipeInstructions**
-> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(contentType)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -114,10 +114,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
+final instructions = instructions_example; // String | The recipe's instructions.
 
 try {
-    final result = api_instance.analyzeRecipeInstructions(contentType);
+    final result = api_instance.analyzeRecipeInstructions(instructions);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->analyzeRecipeInstructions: $e\n');
@@ -128,7 +128,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **instructions** | **String**| The recipe's instructions. | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classifyCuisine**
-> ClassifyCuisine200Response classifyCuisine(contentType)
+> ClassifyCuisine200Response classifyCuisine(title, ingredientList, language)
 
 Classify Cuisine
 
@@ -210,10 +210,12 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
+final title = title_example; // String | The title of the recipe.
+final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+final language = en; // String | The language of the input. Either 'en' or 'de'.
 
 try {
-    final result = api_instance.classifyCuisine(contentType);
+    final result = api_instance.classifyCuisine(title, ingredientList, language);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->classifyCuisine: $e\n');
@@ -224,7 +226,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **title** | **String**| The title of the recipe. | 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
 
 ### Return type
 
@@ -344,7 +348,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createRecipeCard**
-> CreateRecipeCard200Response createRecipeCard(contentType)
+> CreateRecipeCard200Response createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source_)
 
 Create Recipe Card
 
@@ -359,10 +363,22 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
+final title = title_example; // String | The title of the recipe.
+final ingredients = ingredients_example; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+final instructions = instructions_example; // String | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+final readyInMinutes = 8.14; // num | The number of minutes it takes to get the recipe on the table.
+final servings = 8.14; // num | The number of servings the recipe makes.
+final mask = mask_example; // String | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+final backgroundImage = backgroundImage_example; // String | The background image ('none', 'background1', or 'background2').
+final image = BINARY_DATA_HERE; // MultipartFile | The binary image of the recipe as jpg.
+final imageUrl = imageUrl_example; // String | If you do not sent a binary image you can also pass the image URL.
+final author = author_example; // String | The author of the recipe.
+final backgroundColor = backgroundColor_example; // String | The background color for the recipe card as a hex-string.
+final fontColor = fontColor_example; // String | The font color for the recipe card as a hex-string.
+final source_ = source__example; // String | The source of the recipe.
 
 try {
-    final result = api_instance.createRecipeCard(contentType);
+    final result = api_instance.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source_);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->createRecipeCard: $e\n');
@@ -373,7 +389,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **title** | **String**| The title of the recipe. | 
+ **ingredients** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **instructions** | **String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
+ **readyInMinutes** | **num**| The number of minutes it takes to get the recipe on the table. | 
+ **servings** | **num**| The number of servings the recipe makes. | 
+ **mask** | **String**| The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask'). | 
+ **backgroundImage** | **String**| The background image ('none', 'background1', or 'background2'). | 
+ **image** | **MultipartFile**| The binary image of the recipe as jpg. | [optional] 
+ **imageUrl** | **String**| If you do not sent a binary image you can also pass the image URL. | [optional] 
+ **author** | **String**| The author of the recipe. | [optional] 
+ **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] 
+ **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] 
+ **source_** | **String**| The source of the recipe. | [optional] 
 
 ### Return type
 
@@ -391,7 +419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **equipmentByIDImage**
-> Object equipmentByIDImage(id)
+> MultipartFile equipmentByIDImage(id)
 
 Equipment by ID Image
 
@@ -424,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -1030,7 +1058,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parseIngredients**
-> Set<ParseIngredients200ResponseInner> parseIngredients(contentType, language)
+> Set<ParseIngredients200ResponseInner> parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1045,11 +1073,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
+final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
+final servings = 8.14; // num | The number of servings that you can make from the ingredients.
 final language = en; // String | The language of the input. Either 'en' or 'de'.
+final includeNutrition = true; // bool | 
 
 try {
-    final result = api_instance.parseIngredients(contentType, language);
+    final result = api_instance.parseIngredients(ingredientList, servings, language, includeNutrition);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->parseIngredients: $e\n');
@@ -1060,8 +1090,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **num**| The number of servings that you can make from the ingredients. | 
  **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
+ **includeNutrition** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -1079,7 +1111,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **priceBreakdownByIDImage**
-> Object priceBreakdownByIDImage(id)
+> MultipartFile priceBreakdownByIDImage(id)
 
 Price Breakdown by ID Image
 
@@ -1112,7 +1144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -1173,7 +1205,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipeNutritionByIDImage**
-> Object recipeNutritionByIDImage(id)
+> MultipartFile recipeNutritionByIDImage(id)
 
 Recipe Nutrition by ID Image
 
@@ -1206,7 +1238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -1220,7 +1252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipeNutritionLabelImage**
-> Object recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> MultipartFile recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Recipe Nutrition Label Image
 
@@ -1259,7 +1291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -1328,7 +1360,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipeTasteByIDImage**
-> Object recipeTasteByIDImage(id, normalize, rgb)
+> MultipartFile recipeTasteByIDImage(id, normalize, rgb)
 
 Recipe Taste by ID Image
 
@@ -1365,7 +1397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**MultipartFile**](MultipartFile.md)
 
 ### Authorization
 
@@ -1919,7 +1951,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeEquipment**
-> String visualizeEquipment(contentType, accept)
+> String visualizeEquipment(instructions, view, defaultCss, showBacklink)
 
 Equipment Widget
 
@@ -1934,11 +1966,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
-final accept = application/json; // String | Accept header.
+final instructions = instructions_example; // String | The recipe's instructions.
+final view = view_example; // String | How to visualize the ingredients, either 'grid' or 'list'.
+final defaultCss = true; // bool | Whether the default CSS should be added to the response.
+final showBacklink = true; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    final result = api_instance.visualizeEquipment(contentType, accept);
+    final result = api_instance.visualizeEquipment(instructions, view, defaultCss, showBacklink);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->visualizeEquipment: $e\n');
@@ -1949,8 +1983,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **instructions** | **String**| The recipe's instructions. | 
+ **view** | **String**| How to visualize the ingredients, either 'grid' or 'list'. | [optional] 
+ **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -1968,7 +2004,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizePriceBreakdown**
-> String visualizePriceBreakdown(contentType, accept, language)
+> String visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink)
 
 Price Breakdown Widget
 
@@ -1983,12 +2019,15 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
-final accept = application/json; // String | Accept header.
+final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
+final servings = 8.14; // num | The number of servings.
 final language = en; // String | The language of the input. Either 'en' or 'de'.
+final mode = 8.14; // num | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+final defaultCss = true; // bool | Whether the default CSS should be added to the response.
+final showBacklink = true; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    final result = api_instance.visualizePriceBreakdown(contentType, accept, language);
+    final result = api_instance.visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->visualizePriceBreakdown: $e\n');
@@ -1999,9 +2038,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **num**| The number of servings. | 
  **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
+ **mode** | **num**| The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). | [optional] 
+ **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2119,7 +2161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeRecipeNutrition**
-> String visualizeRecipeNutrition(contentType, accept, language)
+> String visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink)
 
 Recipe Nutrition Widget
 
@@ -2134,12 +2176,14 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final contentType = application/json; // String | The content type.
-final accept = application/json; // String | Accept header.
+final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
+final servings = 8.14; // num | The number of servings.
 final language = en; // String | The language of the input. Either 'en' or 'de'.
+final defaultCss = true; // bool | Whether the default CSS should be added to the response.
+final showBacklink = true; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    final result = api_instance.visualizeRecipeNutrition(contentType, accept, language);
+    final result = api_instance.visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->visualizeRecipeNutrition: $e\n');
@@ -2150,9 +2194,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **num**| The number of servings. | 
  **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
+ **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -2170,7 +2216,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeRecipeNutritionByID**
-> String visualizeRecipeNutritionByID(id, defaultCss, accept)
+> String visualizeRecipeNutritionByID(id, defaultCss)
 
 Recipe Nutrition by ID Widget
 
@@ -2187,10 +2233,9 @@ import 'package:openapi/api.dart';
 final api_instance = RecipesApi();
 final id = 1; // int | The item's id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
-final accept = application/json; // String | Accept header.
 
 try {
-    final result = api_instance.visualizeRecipeNutritionByID(id, defaultCss, accept);
+    final result = api_instance.visualizeRecipeNutritionByID(id, defaultCss);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->visualizeRecipeNutritionByID: $e\n');
@@ -2203,7 +2248,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item's id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] 
 
 ### Return type
 
@@ -2270,7 +2314,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualizeRecipeTaste**
-> String visualizeRecipeTaste(language, contentType, accept, normalize, rgb)
+> String visualizeRecipeTaste(ingredientList, language, normalize, rgb)
 
 Recipe Taste Widget
 
@@ -2285,14 +2329,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
+final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
 final language = en; // String | The language of the input. Either 'en' or 'de'.
-final contentType = application/json; // String | The content type.
-final accept = application/json; // String | Accept header.
-final normalize = true; // bool | Whether to normalize to the strongest taste.
-final rgb = 75,192,192; // String | Red, green, blue values for the chart color.
+final normalize = true; // bool | Normalize to the strongest taste.
+final rgb = rgb_example; // String | Red, green, blue values for the chart color.
 
 try {
-    final result = api_instance.visualizeRecipeTaste(language, contentType, accept, normalize, rgb);
+    final result = api_instance.visualizeRecipeTaste(ingredientList, language, normalize, rgb);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->visualizeRecipeTaste: $e\n');
@@ -2303,10 +2346,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
  **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
- **contentType** | **String**| The content type. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
- **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] 
+ **normalize** | **bool**| Normalize to the strongest taste. | [optional] 
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] 
 
 ### Return type

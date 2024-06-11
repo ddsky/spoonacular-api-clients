@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **badges** | **NSArray&lt;NSString*&gt;*** |  | 
 **importantBadges** | **NSArray&lt;NSString*&gt;*** |  | 
 **ingredientCount** | **NSNumber*** |  | 
-**generatedText** | [**OAIAnyType***](.md) |  | [optional] 
+**generatedText** | **NSString*** |  | [optional] 
 **ingredientList** | **NSString*** |  | 
 **ingredients** | [**NSArray&lt;OAIGetProductInformation200ResponseIngredientsInner&gt;***](OAIGetProductInformation200ResponseIngredientsInner.md) |  | 
 **likes** | **NSNumber*** |  | 

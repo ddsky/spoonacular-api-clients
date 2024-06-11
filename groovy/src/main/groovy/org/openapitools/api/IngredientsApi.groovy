@@ -261,7 +261,7 @@ class IngredientsApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    Object.class )
+                    File.class )
 
     }
 
@@ -291,7 +291,7 @@ class IngredientsApi {
 
     }
 
-    def visualizeIngredients ( String contentType, String language, String accept, Closure onSuccess, Closure onFailure)  {
+    def visualizeIngredients ( String ingredientList, BigDecimal servings, String language, String measure, String view, Boolean defaultCss, Boolean showBacklink, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/recipes/visualizeIngredients"
 
         // params
@@ -300,19 +300,29 @@ class IngredientsApi {
         def bodyParams
         def contentType
 
+        // verify required params are set
+        if (ingredientList == null) {
+            throw new RuntimeException("missing required params ingredientList")
+        }
+        // verify required params are set
+        if (servings == null) {
+            throw new RuntimeException("missing required params servings")
+        }
 
         if (language != null) {
             queryParams.put("language", language)
         }
 
-        if (contentType != null) {
-            headerParams.put("Content-Type", contentType)
-        }
-        if (accept != null) {
-            headerParams.put("Accept", accept)
-        }
 
 
+        contentType = 'application/x-www-form-urlencoded';
+        bodyParams = [:]
+        bodyParams.put("ingredientList", ingredientList)
+        bodyParams.put("servings", servings)
+        bodyParams.put("measure", measure)
+        bodyParams.put("view", view)
+        bodyParams.put("defaultCss", defaultCss)
+        bodyParams.put("showBacklink", showBacklink)
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",

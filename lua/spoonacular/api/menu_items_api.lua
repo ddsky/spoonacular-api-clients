@@ -16,7 +16,6 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
 local spoonacular_autocomplete_menu_item_search_200_response = require "spoonacular.model.autocomplete_menu_item_search_200_response"
 local spoonacular_get_menu_item_information_200_response = require "spoonacular.model.get_menu_item_information_200_response"
 local spoonacular_search_menu_items_200_response = require "spoonacular.model.search_menu_items_200_response"
@@ -185,7 +184,7 @@ function menu_items_api:menu_item_nutrition_by_id_image(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -235,7 +234,7 @@ function menu_items_api:menu_item_nutrition_label_image(id, show_optional_nutrie
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -347,7 +346,7 @@ function menu_items_api:search_menu_items(query, min_calories, max_calories, min
 	end
 end
 
-function menu_items_api:visualize_menu_item_nutrition_by_id(id, default_css, accept)
+function menu_items_api:visualize_menu_item_nutrition_by_id(id, default_css)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -362,9 +361,6 @@ function menu_items_api:visualize_menu_item_nutrition_by_id(id, default_css, acc
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])

@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **object** |  | [optional] 
+**description** | **str** |  | [optional] 
 **name** | **str** |  | 
-**safety_level** | **object** |  | [optional] 
+**safety_level** | **str** |  | [optional] 
 
 ## Example
 

@@ -356,7 +356,7 @@ export default class IngredientsApi {
      * Callback function to receive the result of the ingredientsByIDImage operation.
      * @callback module:api/IngredientsApi~ingredientsByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -367,7 +367,7 @@ export default class IngredientsApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} [measure] Whether the the measures should be 'us' or 'metric'.
      * @param {module:api/IngredientsApi~ingredientsByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     ingredientsByIDImage(id, opts, callback) {
       opts = opts || {};
@@ -391,7 +391,7 @@ export default class IngredientsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/recipes/{id}/ingredientWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -452,16 +452,28 @@ export default class IngredientsApi {
     /**
      * Ingredients Widget
      * Visualize ingredients of a recipe. You can play around with that endpoint!
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param {Number} servings The number of servings.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
      * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
-     * @param {module:model/String} [accept] Accept header.
+     * @param {module:model/String} [measure] The original system of measurement, either 'metric' or 'us'.
+     * @param {module:model/String} [view] How to visualize the ingredients, either 'grid' or 'list'.
+     * @param {Boolean} [defaultCss] Whether the default CSS should be added to the response.
+     * @param {Boolean} [showBacklink] Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param {module:api/IngredientsApi~visualizeIngredientsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    visualizeIngredients(opts, callback) {
+    visualizeIngredients(ingredientList, servings, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling visualizeIngredients");
+      }
+      // verify the required parameter 'servings' is set
+      if (servings === undefined || servings === null) {
+        throw new Error("Missing the required parameter 'servings' when calling visualizeIngredients");
+      }
 
       let pathParams = {
       };
@@ -469,10 +481,14 @@ export default class IngredientsApi {
         'language': opts['language']
       };
       let headerParams = {
-        'Content-Type': opts['contentType'],
-        'Accept': opts['accept']
       };
       let formParams = {
+        'ingredientList': ingredientList,
+        'servings': servings,
+        'measure': opts['measure'],
+        'view': opts['view'],
+        'defaultCss': opts['defaultCss'],
+        'showBacklink': opts['showBacklink']
       };
 
       let authNames = ['apiKeyScheme'];

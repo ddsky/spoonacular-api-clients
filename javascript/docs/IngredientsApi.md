@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ## ingredientsByIDImage
 
-> Object ingredientsByIDImage(id, opts)
+> File ingredientsByIDImage(id, opts)
 
 Ingredients by ID Image
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ## visualizeIngredients
 
-> String visualizeIngredients(opts)
+> String visualizeIngredients(ingredientList, servings, opts)
 
 Ingredients Widget
 
@@ -502,12 +502,16 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
+let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+let servings = 3.4; // Number | The number of servings.
 let opts = {
-  'contentType': application/json, // String | The content type.
   'language': en, // String | The language of the input. Either 'en' or 'de'.
-  'accept': application/json // String | Accept header.
+  'measure': "measure_example", // String | The original system of measurement, either 'metric' or 'us'.
+  'view': "view_example", // String | How to visualize the ingredients, either 'grid' or 'list'.
+  'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.
+  'showBacklink': true // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 };
-apiInstance.visualizeIngredients(opts, (error, data, response) => {
+apiInstance.visualizeIngredients(ingredientList, servings, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -521,9 +525,13 @@ apiInstance.visualizeIngredients(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **servings** | **Number**| The number of servings. | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **accept** | **String**| Accept header. | [optional] 
+ **measure** | **String**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] 
+ **view** | **String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 

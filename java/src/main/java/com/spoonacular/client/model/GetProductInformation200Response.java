@@ -27,7 +27,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -88,7 +87,7 @@ public class GetProductInformation200Response {
 
   public static final String SERIALIZED_NAME_GENERATED_TEXT = "generatedText";
   @SerializedName(SERIALIZED_NAME_GENERATED_TEXT)
-  private Object generatedText = null;
+  private String generatedText;
 
   public static final String SERIALIZED_NAME_INGREDIENT_LIST = "ingredientList";
   @SerializedName(SERIALIZED_NAME_INGREDIENT_LIST)
@@ -282,7 +281,7 @@ public class GetProductInformation200Response {
   }
 
 
-  public GetProductInformation200Response generatedText(Object generatedText) {
+  public GetProductInformation200Response generatedText(String generatedText) {
     this.generatedText = generatedText;
     return this;
   }
@@ -292,11 +291,11 @@ public class GetProductInformation200Response {
    * @return generatedText
   **/
   @javax.annotation.Nullable
-  public Object getGeneratedText() {
+  public String getGeneratedText() {
     return generatedText;
   }
 
-  public void setGeneratedText(Object generatedText) {
+  public void setGeneratedText(String generatedText) {
     this.generatedText = generatedText;
   }
 
@@ -489,20 +488,9 @@ public class GetProductInformation200Response {
         Objects.equals(this.spoonacularScore, getProductInformation200Response.spoonacularScore);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, title, breadcrumbs, imageType, badges, importantBadges, ingredientCount, generatedText, ingredientList, ingredients, likes, aisle, nutrition, price, servings, spoonacularScore);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -634,6 +622,9 @@ public class GetProductInformation200Response {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("importantBadges").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `importantBadges` to be an array in the JSON string but got `%s`", jsonObj.get("importantBadges").toString()));
+      }
+      if ((jsonObj.get("generatedText") != null && !jsonObj.get("generatedText").isJsonNull()) && !jsonObj.get("generatedText").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `generatedText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("generatedText").toString()));
       }
       if (!jsonObj.get("ingredientList").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ingredientList` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ingredientList").toString()));

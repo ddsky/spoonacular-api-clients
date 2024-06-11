@@ -22,7 +22,7 @@ var _ MappedNullable = &SearchSiteContent200ResponseArticlesInner{}
 
 // SearchSiteContent200ResponseArticlesInner struct for SearchSiteContent200ResponseArticlesInner
 type SearchSiteContent200ResponseArticlesInner struct {
-	DataPoints []interface{} `json:"dataPoints,omitempty"`
+	DataPoints []SearchSiteContent200ResponseArticlesInnerDataPointsInner `json:"dataPoints,omitempty"`
 	Image string `json:"image"`
 	Link string `json:"link"`
 	Name string `json:"name"`
@@ -51,9 +51,9 @@ func NewSearchSiteContent200ResponseArticlesInnerWithDefaults() *SearchSiteConte
 }
 
 // GetDataPoints returns the DataPoints field value if set, zero value otherwise.
-func (o *SearchSiteContent200ResponseArticlesInner) GetDataPoints() []interface{} {
+func (o *SearchSiteContent200ResponseArticlesInner) GetDataPoints() []SearchSiteContent200ResponseArticlesInnerDataPointsInner {
 	if o == nil || IsNil(o.DataPoints) {
-		var ret []interface{}
+		var ret []SearchSiteContent200ResponseArticlesInnerDataPointsInner
 		return ret
 	}
 	return o.DataPoints
@@ -61,7 +61,7 @@ func (o *SearchSiteContent200ResponseArticlesInner) GetDataPoints() []interface{
 
 // GetDataPointsOk returns a tuple with the DataPoints field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchSiteContent200ResponseArticlesInner) GetDataPointsOk() ([]interface{}, bool) {
+func (o *SearchSiteContent200ResponseArticlesInner) GetDataPointsOk() ([]SearchSiteContent200ResponseArticlesInnerDataPointsInner, bool) {
 	if o == nil || IsNil(o.DataPoints) {
 		return nil, false
 	}
@@ -77,8 +77,8 @@ func (o *SearchSiteContent200ResponseArticlesInner) HasDataPoints() bool {
 	return false
 }
 
-// SetDataPoints gets a reference to the given []interface{} and assigns it to the DataPoints field.
-func (o *SearchSiteContent200ResponseArticlesInner) SetDataPoints(v []interface{}) {
+// SetDataPoints gets a reference to the given []SearchSiteContent200ResponseArticlesInnerDataPointsInner and assigns it to the DataPoints field.
+func (o *SearchSiteContent200ResponseArticlesInner) SetDataPoints(v []SearchSiteContent200ResponseArticlesInnerDataPointsInner) {
 	o.DataPoints = v
 }
 

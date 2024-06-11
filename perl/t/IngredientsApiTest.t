@@ -113,10 +113,14 @@ isa_ok($api, 'WWW::OpenAPIClient::IngredientsApi');
 # visualize_ingredients test
 #
 # uncomment below and update the test
-#my $visualize_ingredients_content_type = undef; # replace NULL with a proper value
+#my $visualize_ingredients_ingredient_list = undef; # replace NULL with a proper value
+#my $visualize_ingredients_servings = undef; # replace NULL with a proper value
 #my $visualize_ingredients_language = undef; # replace NULL with a proper value
-#my $visualize_ingredients_accept = undef; # replace NULL with a proper value
-#my $visualize_ingredients_result = $api->visualize_ingredients(content_type => $visualize_ingredients_content_type, language => $visualize_ingredients_language, accept => $visualize_ingredients_accept);
+#my $visualize_ingredients_measure = undef; # replace NULL with a proper value
+#my $visualize_ingredients_view = undef; # replace NULL with a proper value
+#my $visualize_ingredients_default_css = undef; # replace NULL with a proper value
+#my $visualize_ingredients_show_backlink = undef; # replace NULL with a proper value
+#my $visualize_ingredients_result = $api->visualize_ingredients(ingredient_list => $visualize_ingredients_ingredient_list, servings => $visualize_ingredients_servings, language => $visualize_ingredients_language, measure => $visualize_ingredients_measure, view => $visualize_ingredients_view, default_css => $visualize_ingredients_default_css, show_backlink => $visualize_ingredients_show_backlink);
 
 
 done_testing();

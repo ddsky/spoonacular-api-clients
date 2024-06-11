@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AnswerText** | **string** |  | 
-**Media** | **[]interface{}** |  | 
+**Media** | [**[]TalkToChatbot200ResponseMediaInner**](TalkToChatbot200ResponseMediaInner.md) |  | 
 
 ## Methods
 
 ### NewTalkToChatbot200Response
 
-`func NewTalkToChatbot200Response(answerText string, media []interface{}, ) *TalkToChatbot200Response`
+`func NewTalkToChatbot200Response(answerText string, media []TalkToChatbot200ResponseMediaInner, ) *TalkToChatbot200Response`
 
 NewTalkToChatbot200Response instantiates a new TalkToChatbot200Response object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetAnswerText sets AnswerText field to given value.
 
 ### GetMedia
 
-`func (o *TalkToChatbot200Response) GetMedia() []interface{}`
+`func (o *TalkToChatbot200Response) GetMedia() []TalkToChatbot200ResponseMediaInner`
 
 GetMedia returns the Media field if non-nil, zero value otherwise.
 
 ### GetMediaOk
 
-`func (o *TalkToChatbot200Response) GetMediaOk() (*[]interface{}, bool)`
+`func (o *TalkToChatbot200Response) GetMediaOk() (*[]TalkToChatbot200ResponseMediaInner, bool)`
 
 GetMediaOk returns a tuple with the Media field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMedia
 
-`func (o *TalkToChatbot200Response) SetMedia(v []interface{})`
+`func (o *TalkToChatbot200Response) SetMedia(v []TalkToChatbot200ResponseMediaInner)`
 
 SetMedia sets Media field to given value.
 

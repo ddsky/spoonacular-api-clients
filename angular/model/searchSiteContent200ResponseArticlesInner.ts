@@ -9,10 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { SearchSiteContent200ResponseArticlesInnerDataPointsInner } from './searchSiteContent200ResponseArticlesInnerDataPointsInner';
 
 
 export interface SearchSiteContent200ResponseArticlesInner { 
-    dataPoints?: Array<any>;
+    dataPoints?: Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner>;
     image: string;
     link: string;
     name: string;

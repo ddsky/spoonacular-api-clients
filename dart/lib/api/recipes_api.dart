@@ -84,9 +84,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<Response> analyzeRecipeInstructionsWithHttpInfo({ String? contentType, }) async {
+  /// * [String] instructions (required):
+  ///   The recipe's instructions.
+  Future<Response> analyzeRecipeInstructionsWithHttpInfo(String instructions,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/analyzeInstructions';
 
@@ -97,12 +97,11 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (instructions != null) {
+      formParams[r'instructions'] = parameterToString(instructions);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -121,10 +120,10 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<AnalyzeRecipeInstructions200Response?> analyzeRecipeInstructions({ String? contentType, }) async {
-    final response = await analyzeRecipeInstructionsWithHttpInfo( contentType: contentType, );
+  /// * [String] instructions (required):
+  ///   The recipe's instructions.
+  Future<AnalyzeRecipeInstructions200Response?> analyzeRecipeInstructions(String instructions,) async {
+    final response = await analyzeRecipeInstructionsWithHttpInfo(instructions,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -220,9 +219,15 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<Response> classifyCuisineWithHttpInfo({ String? contentType, }) async {
+  /// * [String] title (required):
+  ///   The title of the recipe.
+  ///
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ///
+  /// * [String] language:
+  ///   The language of the input. Either 'en' or 'de'.
+  Future<Response> classifyCuisineWithHttpInfo(String title, String ingredientList, { String? language, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/cuisine';
 
@@ -233,12 +238,18 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
+    if (language != null) {
+      queryParams.addAll(_queryParams('', 'language', language));
     }
 
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (title != null) {
+      formParams[r'title'] = parameterToString(title);
+    }
+    if (ingredientList != null) {
+      formParams[r'ingredientList'] = parameterToString(ingredientList);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -257,10 +268,16 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<ClassifyCuisine200Response?> classifyCuisine({ String? contentType, }) async {
-    final response = await classifyCuisineWithHttpInfo( contentType: contentType, );
+  /// * [String] title (required):
+  ///   The title of the recipe.
+  ///
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ///
+  /// * [String] language:
+  ///   The language of the input. Either 'en' or 'de'.
+  Future<ClassifyCuisine200Response?> classifyCuisine(String title, String ingredientList, { String? language, }) async {
+    final response = await classifyCuisineWithHttpInfo(title, ingredientList,  language: language, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -429,9 +446,45 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<Response> createRecipeCardWithHttpInfo({ String? contentType, }) async {
+  /// * [String] title (required):
+  ///   The title of the recipe.
+  ///
+  /// * [String] ingredients (required):
+  ///   The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ///
+  /// * [String] instructions (required):
+  ///   The instructions to make the recipe. One step per line (separate lines with \\\\n).
+  ///
+  /// * [num] readyInMinutes (required):
+  ///   The number of minutes it takes to get the recipe on the table.
+  ///
+  /// * [num] servings (required):
+  ///   The number of servings the recipe makes.
+  ///
+  /// * [String] mask (required):
+  ///   The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+  ///
+  /// * [String] backgroundImage (required):
+  ///   The background image ('none', 'background1', or 'background2').
+  ///
+  /// * [MultipartFile] image:
+  ///   The binary image of the recipe as jpg.
+  ///
+  /// * [String] imageUrl:
+  ///   If you do not sent a binary image you can also pass the image URL.
+  ///
+  /// * [String] author:
+  ///   The author of the recipe.
+  ///
+  /// * [String] backgroundColor:
+  ///   The background color for the recipe card as a hex-string.
+  ///
+  /// * [String] fontColor:
+  ///   The font color for the recipe card as a hex-string.
+  ///
+  /// * [String] source_:
+  ///   The source of the recipe.
+  Future<Response> createRecipeCardWithHttpInfo(String title, String ingredients, String instructions, num readyInMinutes, num servings, String mask, String backgroundImage, { MultipartFile? image, String? imageUrl, String? author, String? backgroundColor, String? fontColor, String? source_, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/visualizeRecipe';
 
@@ -442,14 +495,63 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-
     const contentTypes = <String>['multipart/form-data'];
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
+    if (title != null) {
+      hasFields = true;
+      mp.fields[r'title'] = parameterToString(title);
+    }
+    if (ingredients != null) {
+      hasFields = true;
+      mp.fields[r'ingredients'] = parameterToString(ingredients);
+    }
+    if (instructions != null) {
+      hasFields = true;
+      mp.fields[r'instructions'] = parameterToString(instructions);
+    }
+    if (readyInMinutes != null) {
+      hasFields = true;
+      mp.fields[r'readyInMinutes'] = parameterToString(readyInMinutes);
+    }
+    if (servings != null) {
+      hasFields = true;
+      mp.fields[r'servings'] = parameterToString(servings);
+    }
+    if (mask != null) {
+      hasFields = true;
+      mp.fields[r'mask'] = parameterToString(mask);
+    }
+    if (backgroundImage != null) {
+      hasFields = true;
+      mp.fields[r'backgroundImage'] = parameterToString(backgroundImage);
+    }
+    if (image != null) {
+      hasFields = true;
+      mp.fields[r'image'] = image.field;
+      mp.files.add(image);
+    }
+    if (imageUrl != null) {
+      hasFields = true;
+      mp.fields[r'imageUrl'] = parameterToString(imageUrl);
+    }
+    if (author != null) {
+      hasFields = true;
+      mp.fields[r'author'] = parameterToString(author);
+    }
+    if (backgroundColor != null) {
+      hasFields = true;
+      mp.fields[r'backgroundColor'] = parameterToString(backgroundColor);
+    }
+    if (fontColor != null) {
+      hasFields = true;
+      mp.fields[r'fontColor'] = parameterToString(fontColor);
+    }
+    if (source_ != null) {
+      hasFields = true;
+      mp.fields[r'source'] = parameterToString(source_);
+    }
     if (hasFields) {
       postBody = mp;
     }
@@ -471,10 +573,46 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  Future<CreateRecipeCard200Response?> createRecipeCard({ String? contentType, }) async {
-    final response = await createRecipeCardWithHttpInfo( contentType: contentType, );
+  /// * [String] title (required):
+  ///   The title of the recipe.
+  ///
+  /// * [String] ingredients (required):
+  ///   The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  ///
+  /// * [String] instructions (required):
+  ///   The instructions to make the recipe. One step per line (separate lines with \\\\n).
+  ///
+  /// * [num] readyInMinutes (required):
+  ///   The number of minutes it takes to get the recipe on the table.
+  ///
+  /// * [num] servings (required):
+  ///   The number of servings the recipe makes.
+  ///
+  /// * [String] mask (required):
+  ///   The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+  ///
+  /// * [String] backgroundImage (required):
+  ///   The background image ('none', 'background1', or 'background2').
+  ///
+  /// * [MultipartFile] image:
+  ///   The binary image of the recipe as jpg.
+  ///
+  /// * [String] imageUrl:
+  ///   If you do not sent a binary image you can also pass the image URL.
+  ///
+  /// * [String] author:
+  ///   The author of the recipe.
+  ///
+  /// * [String] backgroundColor:
+  ///   The background color for the recipe card as a hex-string.
+  ///
+  /// * [String] fontColor:
+  ///   The font color for the recipe card as a hex-string.
+  ///
+  /// * [String] source_:
+  ///   The source of the recipe.
+  Future<CreateRecipeCard200Response?> createRecipeCard(String title, String ingredients, String instructions, num readyInMinutes, num servings, String mask, String backgroundImage, { MultipartFile? image, String? imageUrl, String? author, String? backgroundColor, String? fontColor, String? source_, }) async {
+    final response = await createRecipeCardWithHttpInfo(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage,  image: image, imageUrl: imageUrl, author: author, backgroundColor: backgroundColor, fontColor: fontColor, source_: source_, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -532,7 +670,7 @@ class RecipesApi {
   ///
   /// * [num] id (required):
   ///   The recipe id.
-  Future<Object?> equipmentByIDImage(num id,) async {
+  Future<MultipartFile?> equipmentByIDImage(num id,) async {
     final response = await equipmentByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -541,7 +679,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -1405,12 +1543,17 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
+  ///
+  /// * [num] servings (required):
+  ///   The number of servings that you can make from the ingredients.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Response> parseIngredientsWithHttpInfo({ String? contentType, String? language, }) async {
+  ///
+  /// * [bool] includeNutrition:
+  Future<Response> parseIngredientsWithHttpInfo(String ingredientList, num servings, { String? language, bool? includeNutrition, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/parseIngredients';
 
@@ -1425,12 +1568,17 @@ class RecipesApi {
       queryParams.addAll(_queryParams('', 'language', language));
     }
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (ingredientList != null) {
+      formParams[r'ingredientList'] = parameterToString(ingredientList);
+    }
+    if (servings != null) {
+      formParams[r'servings'] = parameterToString(servings);
+    }
+    if (includeNutrition != null) {
+      formParams[r'includeNutrition'] = parameterToString(includeNutrition);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -1449,13 +1597,18 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
+  ///
+  /// * [num] servings (required):
+  ///   The number of servings that you can make from the ingredients.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Set<ParseIngredients200ResponseInner>?> parseIngredients({ String? contentType, String? language, }) async {
-    final response = await parseIngredientsWithHttpInfo( contentType: contentType, language: language, );
+  ///
+  /// * [bool] includeNutrition:
+  Future<Set<ParseIngredients200ResponseInner>?> parseIngredients(String ingredientList, num servings, { String? language, bool? includeNutrition, }) async {
+    final response = await parseIngredientsWithHttpInfo(ingredientList, servings,  language: language, includeNutrition: includeNutrition, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1516,7 +1669,7 @@ class RecipesApi {
   ///
   /// * [num] id (required):
   ///   The recipe id.
-  Future<Object?> priceBreakdownByIDImage(num id,) async {
+  Future<MultipartFile?> priceBreakdownByIDImage(num id,) async {
     final response = await priceBreakdownByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1525,7 +1678,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -1635,7 +1788,7 @@ class RecipesApi {
   ///
   /// * [num] id (required):
   ///   The recipe id.
-  Future<Object?> recipeNutritionByIDImage(num id,) async {
+  Future<MultipartFile?> recipeNutritionByIDImage(num id,) async {
     final response = await recipeNutritionByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1644,7 +1797,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -1722,7 +1875,7 @@ class RecipesApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Object?> recipeNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<MultipartFile?> recipeNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await recipeNutritionLabelImageWithHttpInfo(id,  showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1731,7 +1884,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -1896,7 +2049,7 @@ class RecipesApi {
   ///
   /// * [String] rgb:
   ///   Red, green, blue values for the chart color.
-  Future<Object?> recipeTasteByIDImage(num id, { bool? normalize, String? rgb, }) async {
+  Future<MultipartFile?> recipeTasteByIDImage(num id, { bool? normalize, String? rgb, }) async {
     final response = await recipeTasteByIDImageWithHttpInfo(id,  normalize: normalize, rgb: rgb, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1905,7 +2058,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -3754,12 +3907,18 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] instructions (required):
+  ///   The recipe's instructions.
   ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<Response> visualizeEquipmentWithHttpInfo({ String? contentType, String? accept, }) async {
+  /// * [String] view:
+  ///   How to visualize the ingredients, either 'grid' or 'list'.
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<Response> visualizeEquipmentWithHttpInfo(String instructions, { String? view, bool? defaultCss, bool? showBacklink, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/visualizeEquipment';
 
@@ -3770,15 +3929,20 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (instructions != null) {
+      formParams[r'instructions'] = parameterToString(instructions);
+    }
+    if (view != null) {
+      formParams[r'view'] = parameterToString(view);
+    }
+    if (defaultCss != null) {
+      formParams[r'defaultCss'] = parameterToString(defaultCss);
+    }
+    if (showBacklink != null) {
+      formParams[r'showBacklink'] = parameterToString(showBacklink);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -3797,13 +3961,19 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] instructions (required):
+  ///   The recipe's instructions.
   ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<String?> visualizeEquipment({ String? contentType, String? accept, }) async {
-    final response = await visualizeEquipmentWithHttpInfo( contentType: contentType, accept: accept, );
+  /// * [String] view:
+  ///   How to visualize the ingredients, either 'grid' or 'list'.
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<String?> visualizeEquipment(String instructions, { String? view, bool? defaultCss, bool? showBacklink, }) async {
+    final response = await visualizeEquipmentWithHttpInfo(instructions,  view: view, defaultCss: defaultCss, showBacklink: showBacklink, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3825,15 +3995,24 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
   ///
-  /// * [String] accept:
-  ///   Accept header.
+  /// * [num] servings (required):
+  ///   The number of servings.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Response> visualizePriceBreakdownWithHttpInfo({ String? contentType, String? accept, String? language, }) async {
+  ///
+  /// * [num] mode:
+  ///   The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<Response> visualizePriceBreakdownWithHttpInfo(String ingredientList, num servings, { String? language, num? mode, bool? defaultCss, bool? showBacklink, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/visualizePriceEstimator';
 
@@ -3848,15 +4027,23 @@ class RecipesApi {
       queryParams.addAll(_queryParams('', 'language', language));
     }
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (ingredientList != null) {
+      formParams[r'ingredientList'] = parameterToString(ingredientList);
+    }
+    if (servings != null) {
+      formParams[r'servings'] = parameterToString(servings);
+    }
+    if (mode != null) {
+      formParams[r'mode'] = parameterToString(mode);
+    }
+    if (defaultCss != null) {
+      formParams[r'defaultCss'] = parameterToString(defaultCss);
+    }
+    if (showBacklink != null) {
+      formParams[r'showBacklink'] = parameterToString(showBacklink);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -3875,16 +4062,25 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
   ///
-  /// * [String] accept:
-  ///   Accept header.
+  /// * [num] servings (required):
+  ///   The number of servings.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<String?> visualizePriceBreakdown({ String? contentType, String? accept, String? language, }) async {
-    final response = await visualizePriceBreakdownWithHttpInfo( contentType: contentType, accept: accept, language: language, );
+  ///
+  /// * [num] mode:
+  ///   The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<String?> visualizePriceBreakdown(String ingredientList, num servings, { String? language, num? mode, bool? defaultCss, bool? showBacklink, }) async {
+    final response = await visualizePriceBreakdownWithHttpInfo(ingredientList, servings,  language: language, mode: mode, defaultCss: defaultCss, showBacklink: showBacklink, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4053,15 +4249,21 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
   ///
-  /// * [String] accept:
-  ///   Accept header.
+  /// * [num] servings (required):
+  ///   The number of servings.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Response> visualizeRecipeNutritionWithHttpInfo({ String? contentType, String? accept, String? language, }) async {
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<Response> visualizeRecipeNutritionWithHttpInfo(String ingredientList, num servings, { String? language, bool? defaultCss, bool? showBacklink, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/visualizeNutrition';
 
@@ -4076,15 +4278,20 @@ class RecipesApi {
       queryParams.addAll(_queryParams('', 'language', language));
     }
 
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
-    }
-
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (ingredientList != null) {
+      formParams[r'ingredientList'] = parameterToString(ingredientList);
+    }
+    if (servings != null) {
+      formParams[r'servings'] = parameterToString(servings);
+    }
+    if (defaultCss != null) {
+      formParams[r'defaultCss'] = parameterToString(defaultCss);
+    }
+    if (showBacklink != null) {
+      formParams[r'showBacklink'] = parameterToString(showBacklink);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -4103,16 +4310,22 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
-  ///   The content type.
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
   ///
-  /// * [String] accept:
-  ///   Accept header.
+  /// * [num] servings (required):
+  ///   The number of servings.
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<String?> visualizeRecipeNutrition({ String? contentType, String? accept, String? language, }) async {
-    final response = await visualizeRecipeNutritionWithHttpInfo( contentType: contentType, accept: accept, language: language, );
+  ///
+  /// * [bool] defaultCss:
+  ///   Whether the default CSS should be added to the response.
+  ///
+  /// * [bool] showBacklink:
+  ///   Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+  Future<String?> visualizeRecipeNutrition(String ingredientList, num servings, { String? language, bool? defaultCss, bool? showBacklink, }) async {
+    final response = await visualizeRecipeNutritionWithHttpInfo(ingredientList, servings,  language: language, defaultCss: defaultCss, showBacklink: showBacklink, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4139,10 +4352,7 @@ class RecipesApi {
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
-  ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<Response> visualizeRecipeNutritionByIDWithHttpInfo(int id, { bool? defaultCss, String? accept, }) async {
+  Future<Response> visualizeRecipeNutritionByIDWithHttpInfo(int id, { bool? defaultCss, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/nutritionWidget'
       .replaceAll('{id}', id.toString());
@@ -4156,10 +4366,6 @@ class RecipesApi {
 
     if (defaultCss != null) {
       queryParams.addAll(_queryParams('', 'defaultCss', defaultCss));
-    }
-
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
     }
 
     const contentTypes = <String>[];
@@ -4187,11 +4393,8 @@ class RecipesApi {
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
-  ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<String?> visualizeRecipeNutritionByID(int id, { bool? defaultCss, String? accept, }) async {
-    final response = await visualizeRecipeNutritionByIDWithHttpInfo(id,  defaultCss: defaultCss, accept: accept, );
+  Future<String?> visualizeRecipeNutritionByID(int id, { bool? defaultCss, }) async {
+    final response = await visualizeRecipeNutritionByIDWithHttpInfo(id,  defaultCss: defaultCss, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -4282,21 +4485,18 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
+  ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  ///
-  /// * [String] accept:
-  ///   Accept header.
-  ///
   /// * [bool] normalize:
-  ///   Whether to normalize to the strongest taste.
+  ///   Normalize to the strongest taste.
   ///
   /// * [String] rgb:
   ///   Red, green, blue values for the chart color.
-  Future<Response> visualizeRecipeTasteWithHttpInfo({ String? language, String? contentType, String? accept, bool? normalize, String? rgb, }) async {
+  Future<Response> visualizeRecipeTasteWithHttpInfo(String ingredientList, { String? language, bool? normalize, String? rgb, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/visualizeTaste';
 
@@ -4310,22 +4510,18 @@ class RecipesApi {
     if (language != null) {
       queryParams.addAll(_queryParams('', 'language', language));
     }
-    if (normalize != null) {
-      queryParams.addAll(_queryParams('', 'normalize', normalize));
-    }
-    if (rgb != null) {
-      queryParams.addAll(_queryParams('', 'rgb', rgb));
-    }
-
-    if (contentType != null) {
-      headerParams[r'Content-Type'] = parameterToString(contentType);
-    }
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
-    }
 
     const contentTypes = <String>['application/x-www-form-urlencoded'];
 
+    if (ingredientList != null) {
+      formParams[r'ingredientList'] = parameterToString(ingredientList);
+    }
+    if (normalize != null) {
+      formParams[r'normalize'] = parameterToString(normalize);
+    }
+    if (rgb != null) {
+      formParams[r'rgb'] = parameterToString(rgb);
+    }
 
     return apiClient.invokeAPI(
       path,
@@ -4344,22 +4540,19 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
+  /// * [String] ingredientList (required):
+  ///   The ingredient list of the recipe, one ingredient per line.
+  ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
   ///
-  /// * [String] contentType:
-  ///   The content type.
-  ///
-  /// * [String] accept:
-  ///   Accept header.
-  ///
   /// * [bool] normalize:
-  ///   Whether to normalize to the strongest taste.
+  ///   Normalize to the strongest taste.
   ///
   /// * [String] rgb:
   ///   Red, green, blue values for the chart color.
-  Future<String?> visualizeRecipeTaste({ String? language, String? contentType, String? accept, bool? normalize, String? rgb, }) async {
-    final response = await visualizeRecipeTasteWithHttpInfo( language: language, contentType: contentType, accept: accept, normalize: normalize, rgb: rgb, );
+  Future<String?> visualizeRecipeTaste(String ingredientList, { String? language, bool? normalize, String? rgb, }) async {
+    final response = await visualizeRecipeTasteWithHttpInfo(ingredientList,  language: language, normalize: normalize, rgb: rgb, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

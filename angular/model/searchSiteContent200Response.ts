@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import { SearchSiteContent200ResponseArticlesInner } from './searchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseGroceryProductsInner } from './searchSiteContent200ResponseGroceryProductsInner';
 
 
 /**
@@ -18,8 +17,8 @@ import { SearchSiteContent200ResponseGroceryProductsInner } from './searchSiteCo
  */
 export interface SearchSiteContent200Response { 
     Articles: Set<SearchSiteContent200ResponseArticlesInner>;
-    Grocery_Products: Set<SearchSiteContent200ResponseGroceryProductsInner>;
-    Menu_Items: Set<SearchSiteContent200ResponseGroceryProductsInner>;
-    Recipes: Set<SearchSiteContent200ResponseGroceryProductsInner>;
+    Grocery_Products: Set<SearchSiteContent200ResponseArticlesInner>;
+    Menu_Items: Set<SearchSiteContent200ResponseArticlesInner>;
+    Recipes: Set<SearchSiteContent200ResponseArticlesInner>;
 }
 

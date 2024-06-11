@@ -111,7 +111,7 @@ try {
 ## `analyzeRecipeInstructions()`
 
 ```php
-analyzeRecipeInstructions($content_type): \OpenAPI\Client\Model\AnalyzeRecipeInstructions200Response
+analyzeRecipeInstructions($instructions): \OpenAPI\Client\Model\AnalyzeRecipeInstructions200Response
 ```
 
 Analyze Recipe Instructions
@@ -137,10 +137,10 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
+$instructions = 'instructions_example'; // string | The recipe's instructions.
 
 try {
-    $result = $apiInstance->analyzeRecipeInstructions($content_type);
+    $result = $apiInstance->analyzeRecipeInstructions($instructions);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->analyzeRecipeInstructions: ', $e->getMessage(), PHP_EOL;
@@ -151,7 +151,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
+| **instructions** | **string**| The recipe&#39;s instructions. | |
 
 ### Return type
 
@@ -237,7 +237,7 @@ try {
 ## `classifyCuisine()`
 
 ```php
-classifyCuisine($content_type): \OpenAPI\Client\Model\ClassifyCuisine200Response
+classifyCuisine($title, $ingredient_list, $language): \OpenAPI\Client\Model\ClassifyCuisine200Response
 ```
 
 Classify Cuisine
@@ -263,10 +263,12 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
+$title = 'title_example'; // string | The title of the recipe.
+$ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+$language = en; // string | The language of the input. Either 'en' or 'de'.
 
 try {
-    $result = $apiInstance->classifyCuisine($content_type);
+    $result = $apiInstance->classifyCuisine($title, $ingredient_list, $language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->classifyCuisine: ', $e->getMessage(), PHP_EOL;
@@ -277,7 +279,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
+| **title** | **string**| The title of the recipe. | |
+| **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
@@ -431,7 +435,7 @@ try {
 ## `createRecipeCard()`
 
 ```php
-createRecipeCard($content_type): \OpenAPI\Client\Model\CreateRecipeCard200Response
+createRecipeCard($title, $ingredients, $instructions, $ready_in_minutes, $servings, $mask, $background_image, $image, $image_url, $author, $background_color, $font_color, $source): \OpenAPI\Client\Model\CreateRecipeCard200Response
 ```
 
 Create Recipe Card
@@ -457,10 +461,22 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
+$title = 'title_example'; // string | The title of the recipe.
+$ingredients = 'ingredients_example'; // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+$instructions = 'instructions_example'; // string | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+$ready_in_minutes = 3.4; // float | The number of minutes it takes to get the recipe on the table.
+$servings = 3.4; // float | The number of servings the recipe makes.
+$mask = 'mask_example'; // string | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+$background_image = 'background_image_example'; // string | The background image ('none', 'background1', or 'background2').
+$image = "/path/to/file.txt"; // \SplFileObject | The binary image of the recipe as jpg.
+$image_url = 'image_url_example'; // string | If you do not sent a binary image you can also pass the image URL.
+$author = 'author_example'; // string | The author of the recipe.
+$background_color = 'background_color_example'; // string | The background color for the recipe card as a hex-string.
+$font_color = 'font_color_example'; // string | The font color for the recipe card as a hex-string.
+$source = 'source_example'; // string | The source of the recipe.
 
 try {
-    $result = $apiInstance->createRecipeCard($content_type);
+    $result = $apiInstance->createRecipeCard($title, $ingredients, $instructions, $ready_in_minutes, $servings, $mask, $background_image, $image, $image_url, $author, $background_color, $font_color, $source);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->createRecipeCard: ', $e->getMessage(), PHP_EOL;
@@ -471,7 +487,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
+| **title** | **string**| The title of the recipe. | |
+| **ingredients** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **instructions** | **string**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | |
+| **ready_in_minutes** | **float**| The number of minutes it takes to get the recipe on the table. | |
+| **servings** | **float**| The number of servings the recipe makes. | |
+| **mask** | **string**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | |
+| **background_image** | **string**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | |
+| **image** | **\SplFileObject****\SplFileObject**| The binary image of the recipe as jpg. | [optional] |
+| **image_url** | **string**| If you do not sent a binary image you can also pass the image URL. | [optional] |
+| **author** | **string**| The author of the recipe. | [optional] |
+| **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] |
+| **font_color** | **string**| The font color for the recipe card as a hex-string. | [optional] |
+| **source** | **string**| The source of the recipe. | [optional] |
 
 ### Return type
 
@@ -493,7 +521,7 @@ try {
 ## `equipmentByIDImage()`
 
 ```php
-equipmentByIDImage($id): object
+equipmentByIDImage($id): \SplFileObject
 ```
 
 Equipment by ID Image
@@ -537,7 +565,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -1327,7 +1355,7 @@ try {
 ## `parseIngredients()`
 
 ```php
-parseIngredients($content_type, $language): \OpenAPI\Client\Model\ParseIngredients200ResponseInner[]
+parseIngredients($ingredient_list, $servings, $language, $include_nutrition): \OpenAPI\Client\Model\ParseIngredients200ResponseInner[]
 ```
 
 Parse Ingredients
@@ -1353,11 +1381,13 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
+$ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
+$servings = 3.4; // float | The number of servings that you can make from the ingredients.
 $language = en; // string | The language of the input. Either 'en' or 'de'.
+$include_nutrition = True; // bool
 
 try {
-    $result = $apiInstance->parseIngredients($content_type, $language);
+    $result = $apiInstance->parseIngredients($ingredient_list, $servings, $language, $include_nutrition);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->parseIngredients: ', $e->getMessage(), PHP_EOL;
@@ -1368,8 +1398,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
+| **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **float**| The number of servings that you can make from the ingredients. | |
 | **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **include_nutrition** | **bool**|  | [optional] |
 
 ### Return type
 
@@ -1391,7 +1423,7 @@ try {
 ## `priceBreakdownByIDImage()`
 
 ```php
-priceBreakdownByIDImage($id): object
+priceBreakdownByIDImage($id): \SplFileObject
 ```
 
 Price Breakdown by ID Image
@@ -1435,7 +1467,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -1515,7 +1547,7 @@ try {
 ## `recipeNutritionByIDImage()`
 
 ```php
-recipeNutritionByIDImage($id): object
+recipeNutritionByIDImage($id): \SplFileObject
 ```
 
 Recipe Nutrition by ID Image
@@ -1559,7 +1591,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -1577,7 +1609,7 @@ try {
 ## `recipeNutritionLabelImage()`
 
 ```php
-recipeNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): object
+recipeNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): \SplFileObject
 ```
 
 Recipe Nutrition Label Image
@@ -1627,7 +1659,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -1715,7 +1747,7 @@ try {
 ## `recipeTasteByIDImage()`
 
 ```php
-recipeTasteByIDImage($id, $normalize, $rgb): object
+recipeTasteByIDImage($id, $normalize, $rgb): \SplFileObject
 ```
 
 Recipe Taste by ID Image
@@ -1763,7 +1795,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -2381,7 +2413,7 @@ try {
 ## `visualizeEquipment()`
 
 ```php
-visualizeEquipment($content_type, $accept): string
+visualizeEquipment($instructions, $view, $default_css, $show_backlink): string
 ```
 
 Equipment Widget
@@ -2407,11 +2439,13 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
-$accept = application/json; // string | Accept header.
+$instructions = 'instructions_example'; // string | The recipe's instructions.
+$view = 'view_example'; // string | How to visualize the ingredients, either 'grid' or 'list'.
+$default_css = True; // bool | Whether the default CSS should be added to the response.
+$show_backlink = True; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    $result = $apiInstance->visualizeEquipment($content_type, $accept);
+    $result = $apiInstance->visualizeEquipment($instructions, $view, $default_css, $show_backlink);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->visualizeEquipment: ', $e->getMessage(), PHP_EOL;
@@ -2422,8 +2456,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
-| **accept** | **string**| Accept header. | [optional] |
+| **instructions** | **string**| The recipe&#39;s instructions. | |
+| **view** | **string**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2445,7 +2481,7 @@ try {
 ## `visualizePriceBreakdown()`
 
 ```php
-visualizePriceBreakdown($content_type, $accept, $language): string
+visualizePriceBreakdown($ingredient_list, $servings, $language, $mode, $default_css, $show_backlink): string
 ```
 
 Price Breakdown Widget
@@ -2471,12 +2507,15 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
-$accept = application/json; // string | Accept header.
+$ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
+$servings = 3.4; // float | The number of servings.
 $language = en; // string | The language of the input. Either 'en' or 'de'.
+$mode = 3.4; // float | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+$default_css = True; // bool | Whether the default CSS should be added to the response.
+$show_backlink = True; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    $result = $apiInstance->visualizePriceBreakdown($content_type, $accept, $language);
+    $result = $apiInstance->visualizePriceBreakdown($ingredient_list, $servings, $language, $mode, $default_css, $show_backlink);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->visualizePriceBreakdown: ', $e->getMessage(), PHP_EOL;
@@ -2487,9 +2526,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
-| **accept** | **string**| Accept header. | [optional] |
+| **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **float**| The number of servings. | |
 | **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **mode** | **float**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2641,7 +2683,7 @@ try {
 ## `visualizeRecipeNutrition()`
 
 ```php
-visualizeRecipeNutrition($content_type, $accept, $language): string
+visualizeRecipeNutrition($ingredient_list, $servings, $language, $default_css, $show_backlink): string
 ```
 
 Recipe Nutrition Widget
@@ -2667,12 +2709,14 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
-$accept = application/json; // string | Accept header.
+$ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
+$servings = 3.4; // float | The number of servings.
 $language = en; // string | The language of the input. Either 'en' or 'de'.
+$default_css = True; // bool | Whether the default CSS should be added to the response.
+$show_backlink = True; // bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 try {
-    $result = $apiInstance->visualizeRecipeNutrition($content_type, $accept, $language);
+    $result = $apiInstance->visualizeRecipeNutrition($ingredient_list, $servings, $language, $default_css, $show_backlink);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->visualizeRecipeNutrition: ', $e->getMessage(), PHP_EOL;
@@ -2683,9 +2727,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
-| **accept** | **string**| Accept header. | [optional] |
+| **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **float**| The number of servings. | |
 | **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2707,7 +2753,7 @@ try {
 ## `visualizeRecipeNutritionByID()`
 
 ```php
-visualizeRecipeNutritionByID($id, $default_css, $accept): string
+visualizeRecipeNutritionByID($id, $default_css): string
 ```
 
 Recipe Nutrition by ID Widget
@@ -2735,10 +2781,9 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
 );
 $id = 1; // int | The item's id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
-$accept = application/json; // string | Accept header.
 
 try {
-    $result = $apiInstance->visualizeRecipeNutritionByID($id, $default_css, $accept);
+    $result = $apiInstance->visualizeRecipeNutritionByID($id, $default_css);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->visualizeRecipeNutritionByID: ', $e->getMessage(), PHP_EOL;
@@ -2751,7 +2796,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The item&#39;s id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 
@@ -2837,7 +2881,7 @@ try {
 ## `visualizeRecipeTaste()`
 
 ```php
-visualizeRecipeTaste($language, $content_type, $accept, $normalize, $rgb): string
+visualizeRecipeTaste($ingredient_list, $language, $normalize, $rgb): string
 ```
 
 Recipe Taste Widget
@@ -2863,14 +2907,13 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 $language = en; // string | The language of the input. Either 'en' or 'de'.
-$content_type = application/json; // string | The content type.
-$accept = application/json; // string | Accept header.
-$normalize = True; // bool | Whether to normalize to the strongest taste.
-$rgb = 75,192,192; // string | Red, green, blue values for the chart color.
+$normalize = True; // bool | Normalize to the strongest taste.
+$rgb = 'rgb_example'; // string | Red, green, blue values for the chart color.
 
 try {
-    $result = $apiInstance->visualizeRecipeTaste($language, $content_type, $accept, $normalize, $rgb);
+    $result = $apiInstance->visualizeRecipeTaste($ingredient_list, $language, $normalize, $rgb);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->visualizeRecipeTaste: ', $e->getMessage(), PHP_EOL;
@@ -2881,10 +2924,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | |
 | **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
-| **content_type** | **string**| The content type. | [optional] |
-| **accept** | **string**| Accept header. | [optional] |
-| **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] |
+| **normalize** | **bool**| Normalize to the strongest taste. | [optional] |
 | **rgb** | **string**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type

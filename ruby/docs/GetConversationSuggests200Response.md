@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **suggests** | [**GetConversationSuggests200ResponseSuggests**](GetConversationSuggests200ResponseSuggests.md) |  |  |
-| **words** | **Array&lt;Object&gt;** |  |  |
+| **words** | **Array&lt;String&gt;** |  |  |
 
 ## Example
 

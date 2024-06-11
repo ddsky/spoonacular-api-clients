@@ -144,18 +144,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeAnalyzeRecipeInstructions(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
      * Analyze Recipe Instructions
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
-     * @param contentType The content type. (optional)
+     * @param instructions The recipe&#39;s instructions.
      * @return AnalyzeRecipeInstructions200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -165,8 +156,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun analyzeRecipeInstructions(contentType: ContentTypeAnalyzeRecipeInstructions? = null) : AnalyzeRecipeInstructions200Response {
-        val localVarResponse = analyzeRecipeInstructionsWithHttpInfo(contentType = contentType)
+    fun analyzeRecipeInstructions(instructions: kotlin.String) : AnalyzeRecipeInstructions200Response {
+        val localVarResponse = analyzeRecipeInstructionsWithHttpInfo(instructions = instructions)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as AnalyzeRecipeInstructions200Response
@@ -186,17 +177,17 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Analyze Recipe Instructions
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe&#39;s instructions will be extracted independently of the step they&#39;re used in.
-     * @param contentType The content type. (optional)
+     * @param instructions The recipe&#39;s instructions.
      * @return ApiResponse<AnalyzeRecipeInstructions200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun analyzeRecipeInstructionsWithHttpInfo(contentType: ContentTypeAnalyzeRecipeInstructions?) : ApiResponse<AnalyzeRecipeInstructions200Response?> {
-        val localVariableConfig = analyzeRecipeInstructionsRequestConfig(contentType = contentType)
+    fun analyzeRecipeInstructionsWithHttpInfo(instructions: kotlin.String) : ApiResponse<AnalyzeRecipeInstructions200Response?> {
+        val localVariableConfig = analyzeRecipeInstructionsRequestConfig(instructions = instructions)
 
-        return request<Unit, AnalyzeRecipeInstructions200Response>(
+        return request<Map<String, PartConfig<*>>, AnalyzeRecipeInstructions200Response>(
             localVariableConfig
         )
     }
@@ -204,15 +195,14 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation analyzeRecipeInstructions
      *
-     * @param contentType The content type. (optional)
+     * @param instructions The recipe&#39;s instructions.
      * @return RequestConfig
      */
-    fun analyzeRecipeInstructionsRequestConfig(contentType: ContentTypeAnalyzeRecipeInstructions?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun analyzeRecipeInstructionsRequestConfig(instructions: kotlin.String) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "instructions" to PartConfig(body = instructions, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -308,18 +298,19 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
+     * enum for parameter language
      */
-     enum class ContentTypeClassifyCuisine(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
+     enum class LanguageClassifyCuisine(val value: kotlin.String) {
+         @Json(name = "en") en("en"),
+         @Json(name = "de") de("de")
      }
 
     /**
      * Classify Cuisine
      * Classify the recipe&#39;s cuisine.
-     * @param contentType The content type. (optional)
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return ClassifyCuisine200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -329,8 +320,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun classifyCuisine(contentType: ContentTypeClassifyCuisine? = null) : ClassifyCuisine200Response {
-        val localVarResponse = classifyCuisineWithHttpInfo(contentType = contentType)
+    fun classifyCuisine(title: kotlin.String, ingredientList: kotlin.String, language: LanguageClassifyCuisine? = null) : ClassifyCuisine200Response {
+        val localVarResponse = classifyCuisineWithHttpInfo(title = title, ingredientList = ingredientList, language = language)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as ClassifyCuisine200Response
@@ -350,17 +341,19 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Classify Cuisine
      * Classify the recipe&#39;s cuisine.
-     * @param contentType The content type. (optional)
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return ApiResponse<ClassifyCuisine200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun classifyCuisineWithHttpInfo(contentType: ContentTypeClassifyCuisine?) : ApiResponse<ClassifyCuisine200Response?> {
-        val localVariableConfig = classifyCuisineRequestConfig(contentType = contentType)
+    fun classifyCuisineWithHttpInfo(title: kotlin.String, ingredientList: kotlin.String, language: LanguageClassifyCuisine?) : ApiResponse<ClassifyCuisine200Response?> {
+        val localVariableConfig = classifyCuisineRequestConfig(title = title, ingredientList = ingredientList, language = language)
 
-        return request<Unit, ClassifyCuisine200Response>(
+        return request<Map<String, PartConfig<*>>, ClassifyCuisine200Response>(
             localVariableConfig
         )
     }
@@ -368,15 +361,22 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation classifyCuisine
      *
-     * @param contentType The content type. (optional)
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return RequestConfig
      */
-    fun classifyCuisineRequestConfig(contentType: ContentTypeClassifyCuisine?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+    fun classifyCuisineRequestConfig(title: kotlin.String, ingredientList: kotlin.String, language: LanguageClassifyCuisine?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "title" to PartConfig(body = title, headers = mutableMapOf()),
+            "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),)
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (language != null) {
+                    put("language", listOf(language.value))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -564,18 +564,42 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
+     * enum for parameter mask
      */
-     enum class ContentTypeCreateRecipeCard(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
+     enum class MaskCreateRecipeCard(val value: kotlin.String) {
+         @Json(name = "ellipseMask") ellipseMask("ellipseMask"),
+         @Json(name = "diamondMask") diamondMask("diamondMask"),
+         @Json(name = "starMask") starMask("starMask"),
+         @Json(name = "heartMask") heartMask("heartMask"),
+         @Json(name = "potMask") potMask("potMask"),
+         @Json(name = "fishMask") fishMask("fishMask")
+     }
+
+    /**
+     * enum for parameter backgroundImage
+     */
+     enum class BackgroundImageCreateRecipeCard(val value: kotlin.String) {
+         @Json(name = "none") none("none"),
+         @Json(name = "background1") background1("background1"),
+         @Json(name = "background2") background2("background2")
      }
 
     /**
      * Create Recipe Card
      * Generate a recipe card for a recipe.
-     * @param contentType The content type. (optional)
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+     * @param backgroundImage The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
+     * @param image The binary image of the recipe as jpg. (optional)
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL. (optional)
+     * @param author The author of the recipe. (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @param source The source of the recipe. (optional)
      * @return CreateRecipeCard200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -585,8 +609,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRecipeCard(contentType: ContentTypeCreateRecipeCard? = null) : CreateRecipeCard200Response {
-        val localVarResponse = createRecipeCardWithHttpInfo(contentType = contentType)
+    fun createRecipeCard(title: kotlin.String, ingredients: kotlin.String, instructions: kotlin.String, readyInMinutes: java.math.BigDecimal, servings: java.math.BigDecimal, mask: MaskCreateRecipeCard, backgroundImage: BackgroundImageCreateRecipeCard, image: java.io.File? = null, imageUrl: kotlin.String? = null, author: kotlin.String? = null, backgroundColor: kotlin.String? = null, fontColor: kotlin.String? = null, source: kotlin.String? = null) : CreateRecipeCard200Response {
+        val localVarResponse = createRecipeCardWithHttpInfo(title = title, ingredients = ingredients, instructions = instructions, readyInMinutes = readyInMinutes, servings = servings, mask = mask, backgroundImage = backgroundImage, image = image, imageUrl = imageUrl, author = author, backgroundColor = backgroundColor, fontColor = fontColor, source = source)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as CreateRecipeCard200Response
@@ -606,17 +630,29 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Create Recipe Card
      * Generate a recipe card for a recipe.
-     * @param contentType The content type. (optional)
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+     * @param backgroundImage The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
+     * @param image The binary image of the recipe as jpg. (optional)
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL. (optional)
+     * @param author The author of the recipe. (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @param source The source of the recipe. (optional)
      * @return ApiResponse<CreateRecipeCard200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRecipeCardWithHttpInfo(contentType: ContentTypeCreateRecipeCard?) : ApiResponse<CreateRecipeCard200Response?> {
-        val localVariableConfig = createRecipeCardRequestConfig(contentType = contentType)
+    fun createRecipeCardWithHttpInfo(title: kotlin.String, ingredients: kotlin.String, instructions: kotlin.String, readyInMinutes: java.math.BigDecimal, servings: java.math.BigDecimal, mask: MaskCreateRecipeCard, backgroundImage: BackgroundImageCreateRecipeCard, image: java.io.File?, imageUrl: kotlin.String?, author: kotlin.String?, backgroundColor: kotlin.String?, fontColor: kotlin.String?, source: kotlin.String?) : ApiResponse<CreateRecipeCard200Response?> {
+        val localVariableConfig = createRecipeCardRequestConfig(title = title, ingredients = ingredients, instructions = instructions, readyInMinutes = readyInMinutes, servings = servings, mask = mask, backgroundImage = backgroundImage, image = image, imageUrl = imageUrl, author = author, backgroundColor = backgroundColor, fontColor = fontColor, source = source)
 
-        return request<Unit, CreateRecipeCard200Response>(
+        return request<Map<String, PartConfig<*>>, CreateRecipeCard200Response>(
             localVariableConfig
         )
     }
@@ -624,15 +660,38 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation createRecipeCard
      *
-     * @param contentType The content type. (optional)
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+     * @param backgroundImage The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
+     * @param image The binary image of the recipe as jpg. (optional)
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL. (optional)
+     * @param author The author of the recipe. (optional)
+     * @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+     * @param fontColor The font color for the recipe card as a hex-string. (optional)
+     * @param source The source of the recipe. (optional)
      * @return RequestConfig
      */
-    fun createRecipeCardRequestConfig(contentType: ContentTypeCreateRecipeCard?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun createRecipeCardRequestConfig(title: kotlin.String, ingredients: kotlin.String, instructions: kotlin.String, readyInMinutes: java.math.BigDecimal, servings: java.math.BigDecimal, mask: MaskCreateRecipeCard, backgroundImage: BackgroundImageCreateRecipeCard, image: java.io.File?, imageUrl: kotlin.String?, author: kotlin.String?, backgroundColor: kotlin.String?, fontColor: kotlin.String?, source: kotlin.String?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "title" to PartConfig(body = title, headers = mutableMapOf()),
+            "ingredients" to PartConfig(body = ingredients, headers = mutableMapOf()),
+            "instructions" to PartConfig(body = instructions, headers = mutableMapOf()),
+            "readyInMinutes" to PartConfig(body = readyInMinutes, headers = mutableMapOf()),
+            "servings" to PartConfig(body = servings, headers = mutableMapOf()),
+            "mask" to PartConfig(body = mask.value, headers = mutableMapOf()),
+            "backgroundImage" to PartConfig(body = backgroundImage.value, headers = mutableMapOf()),
+            "image" to PartConfig(body = image, headers = mutableMapOf()),
+            "imageUrl" to PartConfig(body = imageUrl, headers = mutableMapOf()),
+            "author" to PartConfig(body = author, headers = mutableMapOf()),
+            "backgroundColor" to PartConfig(body = backgroundColor, headers = mutableMapOf()),
+            "fontColor" to PartConfig(body = fontColor, headers = mutableMapOf()),
+            "source" to PartConfig(body = source, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "multipart/form-data"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -649,7 +708,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Equipment by ID Image
      * Visualize a recipe&#39;s equipment list as an image.
      * @param id The recipe id.
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -658,11 +717,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun equipmentByIDImage(id: java.math.BigDecimal) : kotlin.Any {
+    fun equipmentByIDImage(id: java.math.BigDecimal) : java.io.File {
         val localVarResponse = equipmentByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -680,16 +739,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Equipment by ID Image
      * Visualize a recipe&#39;s equipment list as an image.
      * @param id The recipe id.
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun equipmentByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<kotlin.Any?> {
+    fun equipmentByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
         val localVariableConfig = equipmentByIDImageRequestConfig(id = id)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -1674,15 +1733,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeParseIngredients(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
      * enum for parameter language
      */
      enum class LanguageParseIngredients(val value: kotlin.String) {
@@ -1693,8 +1743,10 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Parse Ingredients
      * Extract an ingredient from plain text.
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param includeNutrition  (optional)
      * @return kotlin.collections.Set<ParseIngredients200ResponseInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1704,8 +1756,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun parseIngredients(contentType: ContentTypeParseIngredients? = null, language: LanguageParseIngredients? = null) : kotlin.collections.Set<ParseIngredients200ResponseInner> {
-        val localVarResponse = parseIngredientsWithHttpInfo(contentType = contentType, language = language)
+    fun parseIngredients(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients? = null, includeNutrition: kotlin.Boolean? = null) : kotlin.collections.Set<ParseIngredients200ResponseInner> {
+        val localVarResponse = parseIngredientsWithHttpInfo(ingredientList = ingredientList, servings = servings, language = language, includeNutrition = includeNutrition)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<ParseIngredients200ResponseInner>
@@ -1725,18 +1777,20 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Parse Ingredients
      * Extract an ingredient from plain text.
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param includeNutrition  (optional)
      * @return ApiResponse<kotlin.collections.Set<ParseIngredients200ResponseInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun parseIngredientsWithHttpInfo(contentType: ContentTypeParseIngredients?, language: LanguageParseIngredients?) : ApiResponse<kotlin.collections.Set<ParseIngredients200ResponseInner>?> {
-        val localVariableConfig = parseIngredientsRequestConfig(contentType = contentType, language = language)
+    fun parseIngredientsWithHttpInfo(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients?, includeNutrition: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<ParseIngredients200ResponseInner>?> {
+        val localVariableConfig = parseIngredientsRequestConfig(ingredientList = ingredientList, servings = servings, language = language, includeNutrition = includeNutrition)
 
-        return request<Unit, kotlin.collections.Set<ParseIngredients200ResponseInner>>(
+        return request<Map<String, PartConfig<*>>, kotlin.collections.Set<ParseIngredients200ResponseInner>>(
             localVariableConfig
         )
     }
@@ -1744,21 +1798,24 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation parseIngredients
      *
-     * @param contentType The content type. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param includeNutrition  (optional)
      * @return RequestConfig
      */
-    fun parseIngredientsRequestConfig(contentType: ContentTypeParseIngredients?, language: LanguageParseIngredients?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun parseIngredientsRequestConfig(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients?, includeNutrition: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),
+            "servings" to PartConfig(body = servings, headers = mutableMapOf()),
+            "includeNutrition" to PartConfig(body = includeNutrition, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (language != null) {
                     put("language", listOf(language.value))
                 }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
@@ -1775,7 +1832,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Price Breakdown by ID Image
      * Visualize a recipe&#39;s price breakdown.
      * @param id The recipe id.
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1784,11 +1841,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun priceBreakdownByIDImage(id: java.math.BigDecimal) : kotlin.Any {
+    fun priceBreakdownByIDImage(id: java.math.BigDecimal) : java.io.File {
         val localVarResponse = priceBreakdownByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1806,16 +1863,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Price Breakdown by ID Image
      * Visualize a recipe&#39;s price breakdown.
      * @param id The recipe id.
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun priceBreakdownByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<kotlin.Any?> {
+    fun priceBreakdownByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
         val localVariableConfig = priceBreakdownByIDImageRequestConfig(id = id)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -1919,7 +1976,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Recipe Nutrition by ID Image
      * Visualize a recipe&#39;s nutritional information as an image.
      * @param id The recipe id.
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1928,11 +1985,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeNutritionByIDImage(id: java.math.BigDecimal) : kotlin.Any {
+    fun recipeNutritionByIDImage(id: java.math.BigDecimal) : java.io.File {
         val localVarResponse = recipeNutritionByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1950,16 +2007,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Recipe Nutrition by ID Image
      * Visualize a recipe&#39;s nutritional information as an image.
      * @param id The recipe id.
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<kotlin.Any?> {
+    fun recipeNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
         val localVariableConfig = recipeNutritionByIDImageRequestConfig(id = id)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -1992,7 +2049,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param showOptionalNutrients Whether to show optional nutrients. (optional)
      * @param showZeroValues Whether to show zero values. (optional)
      * @param showIngredients Whether to show a list of ingredients. (optional)
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -2001,11 +2058,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.Any {
+    fun recipeNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
         val localVarResponse = recipeNutritionLabelImageWithHttpInfo(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -2026,16 +2083,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param showOptionalNutrients Whether to show optional nutrients. (optional)
      * @param showZeroValues Whether to show zero values. (optional)
      * @param showIngredients Whether to show a list of ingredients. (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.Any?> {
+    fun recipeNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
         val localVariableConfig = recipeNutritionLabelImageRequestConfig(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -2177,7 +2234,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param id The recipe id.
      * @param normalize Normalize to the strongest taste. (optional)
      * @param rgb Red, green, blue values for the chart color. (optional)
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -2186,11 +2243,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeTasteByIDImage(id: java.math.BigDecimal, normalize: kotlin.Boolean? = null, rgb: kotlin.String? = null) : kotlin.Any {
+    fun recipeTasteByIDImage(id: java.math.BigDecimal, normalize: kotlin.Boolean? = null, rgb: kotlin.String? = null) : java.io.File {
         val localVarResponse = recipeTasteByIDImageWithHttpInfo(id = id, normalize = normalize, rgb = rgb)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -2210,16 +2267,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param id The recipe id.
      * @param normalize Normalize to the strongest taste. (optional)
      * @param rgb Red, green, blue values for the chart color. (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeTasteByIDImageWithHttpInfo(id: java.math.BigDecimal, normalize: kotlin.Boolean?, rgb: kotlin.String?) : ApiResponse<kotlin.Any?> {
+    fun recipeTasteByIDImageWithHttpInfo(id: java.math.BigDecimal, normalize: kotlin.Boolean?, rgb: kotlin.String?) : ApiResponse<java.io.File?> {
         val localVariableConfig = recipeTasteByIDImageRequestConfig(id = id, normalize = normalize, rgb = rgb)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -3611,28 +3668,20 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
+     * enum for parameter view
      */
-     enum class ContentTypeVisualizeEquipment(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
-     * enum for parameter accept
-     */
-     enum class AcceptVisualizeEquipment(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
+     enum class ViewVisualizeEquipment(val value: kotlin.String) {
+         @Json(name = "grid") grid("grid"),
+         @Json(name = "list") list("list")
      }
 
     /**
      * Equipment Widget
      * Visualize the equipment used to make a recipe.
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param instructions The recipe&#39;s instructions.
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3642,8 +3691,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizeEquipment(contentType: ContentTypeVisualizeEquipment? = null, accept: AcceptVisualizeEquipment? = null) : kotlin.String {
-        val localVarResponse = visualizeEquipmentWithHttpInfo(contentType = contentType, accept = accept)
+    fun visualizeEquipment(instructions: kotlin.String, view: ViewVisualizeEquipment? = null, defaultCss: kotlin.Boolean? = null, showBacklink: kotlin.Boolean? = null) : kotlin.String {
+        val localVarResponse = visualizeEquipmentWithHttpInfo(instructions = instructions, view = view, defaultCss = defaultCss, showBacklink = showBacklink)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -3663,18 +3712,20 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Equipment Widget
      * Visualize the equipment used to make a recipe.
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param instructions The recipe&#39;s instructions.
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizeEquipmentWithHttpInfo(contentType: ContentTypeVisualizeEquipment?, accept: AcceptVisualizeEquipment?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizeEquipmentRequestConfig(contentType = contentType, accept = accept)
+    fun visualizeEquipmentWithHttpInfo(instructions: kotlin.String, view: ViewVisualizeEquipment?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizeEquipmentRequestConfig(instructions = instructions, view = view, defaultCss = defaultCss, showBacklink = showBacklink)
 
-        return request<Unit, kotlin.String>(
+        return request<Map<String, PartConfig<*>>, kotlin.String>(
             localVariableConfig
         )
     }
@@ -3682,17 +3733,20 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeEquipment
      *
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param instructions The recipe&#39;s instructions.
+     * @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return RequestConfig
      */
-    fun visualizeEquipmentRequestConfig(contentType: ContentTypeVisualizeEquipment?, accept: AcceptVisualizeEquipment?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun visualizeEquipmentRequestConfig(instructions: kotlin.String, view: ViewVisualizeEquipment?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "instructions" to PartConfig(body = instructions, headers = mutableMapOf()),
+            "view" to PartConfig(body = view.value, headers = mutableMapOf()),
+            "defaultCss" to PartConfig(body = defaultCss, headers = mutableMapOf()),
+            "showBacklink" to PartConfig(body = showBacklink, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         
         return RequestConfig(
             method = RequestMethod.POST,
@@ -3705,24 +3759,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeVisualizePriceBreakdown(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
-     * enum for parameter accept
-     */
-     enum class AcceptVisualizePriceBreakdown(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
-     }
-
-    /**
      * enum for parameter language
      */
      enum class LanguageVisualizePriceBreakdown(val value: kotlin.String) {
@@ -3733,9 +3769,12 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Price Breakdown Widget
      * Visualize the price breakdown of a recipe.
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3745,8 +3784,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizePriceBreakdown(contentType: ContentTypeVisualizePriceBreakdown? = null, accept: AcceptVisualizePriceBreakdown? = null, language: LanguageVisualizePriceBreakdown? = null) : kotlin.String {
-        val localVarResponse = visualizePriceBreakdownWithHttpInfo(contentType = contentType, accept = accept, language = language)
+    fun visualizePriceBreakdown(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizePriceBreakdown? = null, mode: java.math.BigDecimal? = null, defaultCss: kotlin.Boolean? = null, showBacklink: kotlin.Boolean? = null) : kotlin.String {
+        val localVarResponse = visualizePriceBreakdownWithHttpInfo(ingredientList = ingredientList, servings = servings, language = language, mode = mode, defaultCss = defaultCss, showBacklink = showBacklink)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -3766,19 +3805,22 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Price Breakdown Widget
      * Visualize the price breakdown of a recipe.
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizePriceBreakdownWithHttpInfo(contentType: ContentTypeVisualizePriceBreakdown?, accept: AcceptVisualizePriceBreakdown?, language: LanguageVisualizePriceBreakdown?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizePriceBreakdownRequestConfig(contentType = contentType, accept = accept, language = language)
+    fun visualizePriceBreakdownWithHttpInfo(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizePriceBreakdown?, mode: java.math.BigDecimal?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizePriceBreakdownRequestConfig(ingredientList = ingredientList, servings = servings, language = language, mode = mode, defaultCss = defaultCss, showBacklink = showBacklink)
 
-        return request<Unit, kotlin.String>(
+        return request<Map<String, PartConfig<*>>, kotlin.String>(
             localVariableConfig
         )
     }
@@ -3786,23 +3828,28 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizePriceBreakdown
      *
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return RequestConfig
      */
-    fun visualizePriceBreakdownRequestConfig(contentType: ContentTypeVisualizePriceBreakdown?, accept: AcceptVisualizePriceBreakdown?, language: LanguageVisualizePriceBreakdown?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun visualizePriceBreakdownRequestConfig(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizePriceBreakdown?, mode: java.math.BigDecimal?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),
+            "servings" to PartConfig(body = servings, headers = mutableMapOf()),
+            "mode" to PartConfig(body = mode, headers = mutableMapOf()),
+            "defaultCss" to PartConfig(body = defaultCss, headers = mutableMapOf()),
+            "showBacklink" to PartConfig(body = showBacklink, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (language != null) {
                     put("language", listOf(language.value))
                 }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         
         return RequestConfig(
             method = RequestMethod.POST,
@@ -3985,24 +4032,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeVisualizeRecipeNutrition(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
-     * enum for parameter accept
-     */
-     enum class AcceptVisualizeRecipeNutrition(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
-     }
-
-    /**
      * enum for parameter language
      */
      enum class LanguageVisualizeRecipeNutrition(val value: kotlin.String) {
@@ -4013,9 +4042,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Nutrition Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4025,8 +4056,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizeRecipeNutrition(contentType: ContentTypeVisualizeRecipeNutrition? = null, accept: AcceptVisualizeRecipeNutrition? = null, language: LanguageVisualizeRecipeNutrition? = null) : kotlin.String {
-        val localVarResponse = visualizeRecipeNutritionWithHttpInfo(contentType = contentType, accept = accept, language = language)
+    fun visualizeRecipeNutrition(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizeRecipeNutrition? = null, defaultCss: kotlin.Boolean? = null, showBacklink: kotlin.Boolean? = null) : kotlin.String {
+        val localVarResponse = visualizeRecipeNutritionWithHttpInfo(ingredientList = ingredientList, servings = servings, language = language, defaultCss = defaultCss, showBacklink = showBacklink)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -4046,19 +4077,21 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Nutrition Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizeRecipeNutritionWithHttpInfo(contentType: ContentTypeVisualizeRecipeNutrition?, accept: AcceptVisualizeRecipeNutrition?, language: LanguageVisualizeRecipeNutrition?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizeRecipeNutritionRequestConfig(contentType = contentType, accept = accept, language = language)
+    fun visualizeRecipeNutritionWithHttpInfo(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizeRecipeNutrition?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizeRecipeNutritionRequestConfig(ingredientList = ingredientList, servings = servings, language = language, defaultCss = defaultCss, showBacklink = showBacklink)
 
-        return request<Unit, kotlin.String>(
+        return request<Map<String, PartConfig<*>>, kotlin.String>(
             localVariableConfig
         )
     }
@@ -4066,23 +4099,26 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipeNutrition
      *
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+     * @param defaultCss Whether the default CSS should be added to the response. (optional)
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
      * @return RequestConfig
      */
-    fun visualizeRecipeNutritionRequestConfig(contentType: ContentTypeVisualizeRecipeNutrition?, accept: AcceptVisualizeRecipeNutrition?, language: LanguageVisualizeRecipeNutrition?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun visualizeRecipeNutritionRequestConfig(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageVisualizeRecipeNutrition?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),
+            "servings" to PartConfig(body = servings, headers = mutableMapOf()),
+            "defaultCss" to PartConfig(body = defaultCss, headers = mutableMapOf()),
+            "showBacklink" to PartConfig(body = showBacklink, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (language != null) {
                     put("language", listOf(language.value))
                 }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         
         return RequestConfig(
             method = RequestMethod.POST,
@@ -4095,20 +4131,10 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     }
 
     /**
-     * enum for parameter accept
-     */
-     enum class AcceptVisualizeRecipeNutritionByID(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
-     }
-
-    /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4118,8 +4144,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizeRecipeNutritionByID(id: kotlin.Int, defaultCss: kotlin.Boolean? = true, accept: AcceptVisualizeRecipeNutritionByID? = null) : kotlin.String {
-        val localVarResponse = visualizeRecipeNutritionByIDWithHttpInfo(id = id, defaultCss = defaultCss, accept = accept)
+    fun visualizeRecipeNutritionByID(id: kotlin.Int, defaultCss: kotlin.Boolean? = true) : kotlin.String {
+        val localVarResponse = visualizeRecipeNutritionByIDWithHttpInfo(id = id, defaultCss = defaultCss)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -4141,15 +4167,14 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizeRecipeNutritionByIDWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?, accept: AcceptVisualizeRecipeNutritionByID?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizeRecipeNutritionByIDRequestConfig(id = id, defaultCss = defaultCss, accept = accept)
+    fun visualizeRecipeNutritionByIDWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizeRecipeNutritionByIDRequestConfig(id = id, defaultCss = defaultCss)
 
         return request<Unit, kotlin.String>(
             localVariableConfig
@@ -4161,10 +4186,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      *
      * @param id The item&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return RequestConfig
      */
-    fun visualizeRecipeNutritionByIDRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?, accept: AcceptVisualizeRecipeNutritionByID?) : RequestConfig<Unit> {
+    fun visualizeRecipeNutritionByIDRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4173,7 +4197,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
         
         return RequestConfig(
             method = RequestMethod.GET,
@@ -4272,30 +4295,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      }
 
     /**
-     * enum for parameter contentType
-     */
-     enum class ContentTypeVisualizeRecipeTaste(val value: kotlin.String) {
-         @Json(name = "application/x-www-form-urlencoded") applicationSlashXMinusWwwMinusFormMinusUrlencoded("application/x-www-form-urlencoded"),
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "multipart/form-data") multipartSlashFormMinusData("multipart/form-data")
-     }
-
-    /**
-     * enum for parameter accept
-     */
-     enum class AcceptVisualizeRecipeTaste(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
-     }
-
-    /**
      * Recipe Taste Widget
      * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
-     * @param normalize Whether to normalize to the strongest taste. (optional)
+     * @param normalize Normalize to the strongest taste. (optional)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -4306,8 +4310,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizeRecipeTaste(language: LanguageVisualizeRecipeTaste? = null, contentType: ContentTypeVisualizeRecipeTaste? = null, accept: AcceptVisualizeRecipeTaste? = null, normalize: kotlin.Boolean? = null, rgb: kotlin.String? = null) : kotlin.String {
-        val localVarResponse = visualizeRecipeTasteWithHttpInfo(language = language, contentType = contentType, accept = accept, normalize = normalize, rgb = rgb)
+    fun visualizeRecipeTaste(ingredientList: kotlin.String, language: LanguageVisualizeRecipeTaste? = null, normalize: kotlin.Boolean? = null, rgb: kotlin.String? = null) : kotlin.String {
+        val localVarResponse = visualizeRecipeTasteWithHttpInfo(ingredientList = ingredientList, language = language, normalize = normalize, rgb = rgb)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -4327,10 +4331,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Taste Widget
      * Visualize a recipe&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
-     * @param normalize Whether to normalize to the strongest taste. (optional)
+     * @param normalize Normalize to the strongest taste. (optional)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4338,10 +4341,10 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizeRecipeTasteWithHttpInfo(language: LanguageVisualizeRecipeTaste?, contentType: ContentTypeVisualizeRecipeTaste?, accept: AcceptVisualizeRecipeTaste?, normalize: kotlin.Boolean?, rgb: kotlin.String?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizeRecipeTasteRequestConfig(language = language, contentType = contentType, accept = accept, normalize = normalize, rgb = rgb)
+    fun visualizeRecipeTasteWithHttpInfo(ingredientList: kotlin.String, language: LanguageVisualizeRecipeTaste?, normalize: kotlin.Boolean?, rgb: kotlin.String?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizeRecipeTasteRequestConfig(ingredientList = ingredientList, language = language, normalize = normalize, rgb = rgb)
 
-        return request<Unit, kotlin.String>(
+        return request<Map<String, PartConfig<*>>, kotlin.String>(
             localVariableConfig
         )
     }
@@ -4349,31 +4352,24 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipeTaste
      *
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param contentType The content type. (optional)
-     * @param accept Accept header. (optional)
-     * @param normalize Whether to normalize to the strongest taste. (optional)
+     * @param normalize Normalize to the strongest taste. (optional)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return RequestConfig
      */
-    fun visualizeRecipeTasteRequestConfig(language: LanguageVisualizeRecipeTaste?, contentType: ContentTypeVisualizeRecipeTaste?, accept: AcceptVisualizeRecipeTaste?, normalize: kotlin.Boolean?, rgb: kotlin.String?) : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun visualizeRecipeTasteRequestConfig(ingredientList: kotlin.String, language: LanguageVisualizeRecipeTaste?, normalize: kotlin.Boolean?, rgb: kotlin.String?) : RequestConfig<Map<String, PartConfig<*>>> {
+        val localVariableBody = mapOf(
+            "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),
+            "normalize" to PartConfig(body = normalize, headers = mutableMapOf()),
+            "rgb" to PartConfig(body = rgb, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (language != null) {
                     put("language", listOf(language.value))
                 }
-                if (normalize != null) {
-                    put("normalize", listOf(normalize.toString()))
-                }
-                if (rgb != null) {
-                    put("rgb", listOf(rgb.toString()))
-                }
             }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        contentType?.apply { localVariableHeaders["Content-Type"] = this.toString() }
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
-        localVariableHeaders["Content-Type"] = "application/x-www-form-urlencoded"
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         
         return RequestConfig(
             method = RequestMethod.POST,

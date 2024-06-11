@@ -9,6 +9,7 @@ import org.openapitools.models.ClassifyGroceryProduct200Response
 import org.openapitools.models.ClassifyGroceryProductBulk200ResponseInner
 import org.openapitools.models.ClassifyGroceryProductBulkRequestInner
 import org.openapitools.models.ClassifyGroceryProductRequest
+import java.io.File
 import org.openapitools.models.GetComparableProducts200Response
 import org.openapitools.models.GetProductInformation200Response
 import org.openapitools.models.SearchGroceryProducts200Response
@@ -138,9 +139,9 @@ object ProductsApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def productNutritionByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def productNutritionByIDImage(da: DataAccessor): Endpoint[File] =
         get("food" :: "products" :: bigdecimal :: "nutritionWidget.png" :: header("x-api-key")) { (id: BigDecimal, authParamapiKeyScheme: String) =>
           da.Products_productNutritionByIDImage(id, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -152,9 +153,9 @@ object ProductsApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def productNutritionLabelImage(da: DataAccessor): Endpoint[Object] =
+        private def productNutritionLabelImage(da: DataAccessor): Endpoint[File] =
         get("food" :: "products" :: bigdecimal :: "nutritionLabel.png" :: paramOption("showOptionalNutrients").map(_.map(_.toBoolean)) :: paramOption("showZeroValues").map(_.map(_.toBoolean)) :: paramOption("showIngredients").map(_.map(_.toBoolean)) :: header("x-api-key")) { (id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String) =>
           da.Products_productNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -211,8 +212,8 @@ object ProductsApi {
         * @return An endpoint representing a String
         */
         private def visualizeProductNutritionByID(da: DataAccessor): Endpoint[String] =
-        get("food" :: "products" :: int :: "nutritionWidget" :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: headerOption("Accept") :: header("x-api-key")) { (id: Int, defaultCss: Option[Boolean], accept: Option[String], authParamapiKeyScheme: String) =>
-          da.Products_visualizeProductNutritionByID(id, defaultCss, accept, authParamapiKeyScheme) match {
+        get("food" :: "products" :: int :: "nutritionWidget" :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: header("x-api-key")) { (id: Int, defaultCss: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Products_visualizeProductNutritionByID(id, defaultCss, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

@@ -66,7 +66,7 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Analyze Recipe Instructions
 /// This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
 ///
-/// @param contentType The content type. (optional)
+/// @param instructions The recipe&#39;s instructions.
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -74,7 +74,7 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return OAIAnalyzeRecipeInstructions200Response*
--(NSURLSessionTask*) analyzeRecipeInstructionsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) analyzeRecipeInstructionsWithInstructions: (NSString*) instructions
     completionHandler: (void (^)(OAIAnalyzeRecipeInstructions200Response* output, NSError* error)) handler;
 
 
@@ -98,7 +98,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Classify Cuisine
 /// Classify the recipe's cuisine.
 ///
-/// @param contentType The content type. (optional)
+/// @param title The title of the recipe.
+/// @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+/// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -106,7 +108,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return OAIClassifyCuisine200Response*
--(NSURLSessionTask*) classifyCuisineWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) classifyCuisineWithTitle: (NSString*) title
+    ingredientList: (NSString*) ingredientList
+    language: (NSString*) language
     completionHandler: (void (^)(OAIClassifyCuisine200Response* output, NSError* error)) handler;
 
 
@@ -151,7 +155,19 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Create Recipe Card
 /// Generate a recipe card for a recipe.
 ///
-/// @param contentType The content type. (optional)
+/// @param title The title of the recipe.
+/// @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+/// @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+/// @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+/// @param servings The number of servings the recipe makes.
+/// @param mask The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;).
+/// @param backgroundImage The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;).
+/// @param image The binary image of the recipe as jpg. (optional)
+/// @param imageUrl If you do not sent a binary image you can also pass the image URL. (optional)
+/// @param author The author of the recipe. (optional)
+/// @param backgroundColor The background color for the recipe card as a hex-string. (optional)
+/// @param fontColor The font color for the recipe card as a hex-string. (optional)
+/// @param source The source of the recipe. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -159,7 +175,19 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return OAICreateRecipeCard200Response*
--(NSURLSessionTask*) createRecipeCardWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) createRecipeCardWithTitle: (NSString*) title
+    ingredients: (NSString*) ingredients
+    instructions: (NSString*) instructions
+    readyInMinutes: (NSNumber*) readyInMinutes
+    servings: (NSNumber*) servings
+    mask: (NSString*) mask
+    backgroundImage: (NSString*) backgroundImage
+    image: (NSURL*) image
+    imageUrl: (NSString*) imageUrl
+    author: (NSString*) author
+    backgroundColor: (NSString*) backgroundColor
+    fontColor: (NSString*) fontColor
+    source: (NSString*) source
     completionHandler: (void (^)(OAICreateRecipeCard200Response* output, NSError* error)) handler;
 
 
@@ -173,9 +201,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) equipmentByIDImageWithId: (NSNumber*) _id
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Extract Recipe from Website
@@ -389,8 +417,10 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Parse Ingredients
 /// Extract an ingredient from plain text.
 ///
-/// @param contentType The content type. (optional)
+/// @param ingredientList The ingredient list of the recipe, one ingredient per line.
+/// @param servings The number of servings that you can make from the ingredients.
 /// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+/// @param includeNutrition  (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -398,8 +428,10 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return OAISet<OAIParseIngredients200ResponseInner>*
--(NSURLSessionTask*) parseIngredientsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) parseIngredientsWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
+    includeNutrition: (NSNumber*) includeNutrition
     completionHandler: (void (^)(OAISet<OAIParseIngredients200ResponseInner>* output, NSError* error)) handler;
 
 
@@ -413,9 +445,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) priceBreakdownByIDImageWithId: (NSNumber*) _id
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Quick Answer
@@ -443,9 +475,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) recipeNutritionByIDImageWithId: (NSNumber*) _id
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Recipe Nutrition Label Image
@@ -461,12 +493,12 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) recipeNutritionLabelImageWithId: (NSNumber*) _id
     showOptionalNutrients: (NSNumber*) showOptionalNutrients
     showZeroValues: (NSNumber*) showZeroValues
     showIngredients: (NSNumber*) showIngredients
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Recipe Nutrition Label Widget
@@ -504,11 +536,11 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) recipeTasteByIDImageWithId: (NSNumber*) _id
     normalize: (NSNumber*) normalize
     rgb: (NSString*) rgb
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Search Recipes
@@ -926,8 +958,10 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Equipment Widget
 /// Visualize the equipment used to make a recipe.
 ///
-/// @param contentType The content type. (optional)
-/// @param accept Accept header. (optional)
+/// @param instructions The recipe&#39;s instructions.
+/// @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+/// @param defaultCss Whether the default CSS should be added to the response. (optional)
+/// @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -935,17 +969,22 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSString*
--(NSURLSessionTask*) visualizeEquipmentWithContentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizeEquipmentWithInstructions: (NSString*) instructions
+    view: (NSString*) view
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
 /// Price Breakdown Widget
 /// Visualize the price breakdown of a recipe.
 ///
-/// @param contentType The content type. (optional)
-/// @param accept Accept header. (optional)
+/// @param ingredientList The ingredient list of the recipe, one ingredient per line.
+/// @param servings The number of servings.
 /// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+/// @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). (optional)
+/// @param defaultCss Whether the default CSS should be added to the response. (optional)
+/// @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -953,9 +992,12 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSString*
--(NSURLSessionTask*) visualizePriceBreakdownWithContentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizePriceBreakdownWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
+    mode: (NSNumber*) mode
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -998,9 +1040,11 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Recipe Nutrition Widget
 /// Visualize a recipe's nutritional information as HTML including CSS.
 ///
-/// @param contentType The content type. (optional)
-/// @param accept Accept header. (optional)
+/// @param ingredientList The ingredient list of the recipe, one ingredient per line.
+/// @param servings The number of servings.
 /// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
+/// @param defaultCss Whether the default CSS should be added to the response. (optional)
+/// @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -1008,9 +1052,11 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSString*
--(NSURLSessionTask*) visualizeRecipeNutritionWithContentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizeRecipeNutritionWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -1019,7 +1065,6 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///
 /// @param _id The item&#39;s id.
 /// @param defaultCss Whether the default CSS should be added to the response. (optional) (default to @(YES))
-/// @param accept Accept header. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -1029,7 +1074,6 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// @return NSString*
 -(NSURLSessionTask*) visualizeRecipeNutritionByIDWithId: (NSNumber*) _id
     defaultCss: (NSNumber*) defaultCss
-    accept: (NSString*) accept
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -1053,10 +1097,9 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 /// Recipe Taste Widget
 /// Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
 ///
+/// @param ingredientList The ingredient list of the recipe, one ingredient per line.
 /// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-/// @param contentType The content type. (optional)
-/// @param accept Accept header. (optional)
-/// @param normalize Whether to normalize to the strongest taste. (optional)
+/// @param normalize Normalize to the strongest taste. (optional)
 /// @param rgb Red, green, blue values for the chart color. (optional)
 /// 
 ///  code:200 message:"Success",
@@ -1065,9 +1108,8 @@ extern NSInteger kOAIRecipesApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSString*
--(NSURLSessionTask*) visualizeRecipeTasteWithLanguage: (NSString*) language
-    contentType: (NSString*) contentType
-    accept: (NSString*) accept
+-(NSURLSessionTask*) visualizeRecipeTasteWithIngredientList: (NSString*) ingredientList
+    language: (NSString*) language
     normalize: (NSNumber*) normalize
     rgb: (NSString*) rgb
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;

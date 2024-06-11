@@ -161,10 +161,10 @@ add_library(${PROJECT_NAME}
   OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.h
   OAISearchSiteContent_200_response.h
   OAISearchSiteContent_200_response_Articles_inner.h
-  OAISearchSiteContent_200_response_Grocery_Products_inner.h
-  OAISearchSiteContent_200_response_Grocery_Products_inner_dataPoints_inner.h
+  OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner.h
   OAISummarizeRecipe_200_response.h
   OAITalkToChatbot_200_response.h
+  OAITalkToChatbot_200_response_media_inner.h
   OAIDefaultApi.h
   OAIIngredientsApi.h
   OAIMealPlanningApi.h
@@ -331,10 +331,10 @@ add_library(${PROJECT_NAME}
   OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.cpp
   OAISearchSiteContent_200_response.cpp
   OAISearchSiteContent_200_response_Articles_inner.cpp
-  OAISearchSiteContent_200_response_Grocery_Products_inner.cpp
-  OAISearchSiteContent_200_response_Grocery_Products_inner_dataPoints_inner.cpp
+  OAISearchSiteContent_200_response_Articles_inner_dataPoints_inner.cpp
   OAISummarizeRecipe_200_response.cpp
   OAITalkToChatbot_200_response.cpp
+  OAITalkToChatbot_200_response_media_inner.cpp
   OAIDefaultApi.cpp
   OAIIngredientsApi.cpp
   OAIMealPlanningApi.cpp

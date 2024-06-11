@@ -58,7 +58,7 @@ class SearchSiteContent200ResponseArticlesInner implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data_points' => 'mixed[]',
+        'data_points' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInnerDataPointsInner[]',
         'image' => 'string',
         'link' => 'string',
         'name' => 'string'
@@ -296,6 +296,10 @@ class SearchSiteContent200ResponseArticlesInner implements ModelInterface, Array
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['data_points']) && (count($this->container['data_points']) < 0)) {
+            $invalidProperties[] = "invalid value for 'data_points', number of items must be greater than or equal to 0.";
+        }
+
         if ($this->container['image'] === null) {
             $invalidProperties[] = "'image' can't be null";
         }
@@ -335,7 +339,7 @@ class SearchSiteContent200ResponseArticlesInner implements ModelInterface, Array
     /**
      * Gets data_points
      *
-     * @return mixed[]|null
+     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInnerDataPointsInner[]|null
      */
     public function getDataPoints()
     {
@@ -345,7 +349,7 @@ class SearchSiteContent200ResponseArticlesInner implements ModelInterface, Array
     /**
      * Sets data_points
      *
-     * @param mixed[]|null $data_points data_points
+     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInnerDataPointsInner[]|null $data_points data_points
      *
      * @return self
      */
@@ -353,6 +357,11 @@ class SearchSiteContent200ResponseArticlesInner implements ModelInterface, Array
     {
         if (is_null($data_points)) {
             throw new \InvalidArgumentException('non-nullable data_points cannot be null');
+        }
+
+
+        if ((count($data_points) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $data_points when calling SearchSiteContent200ResponseArticlesInner., number of items must be greater than or equal to 0.');
         }
         $this->container['data_points'] = $data_points;
 

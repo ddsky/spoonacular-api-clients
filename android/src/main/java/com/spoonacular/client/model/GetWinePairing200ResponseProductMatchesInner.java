@@ -12,7 +12,6 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.OasAnyTypeNotMapped;
 import java.math.BigDecimal;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ public class GetWinePairing200ResponseProductMatchesInner {
   @SerializedName("averageRating")
   private BigDecimal averageRating = null;
   @SerializedName("description")
-  private OasAnyTypeNotMapped description = null;
+  private String description = null;
   @SerializedName("imageUrl")
   private String imageUrl = null;
   @SerializedName("link")
@@ -72,10 +71,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
   /**
    **/
   @ApiModelProperty(value = "")
-  public OasAnyTypeNotMapped getDescription() {
+  public String getDescription() {
     return description;
   }
-  public void setDescription(OasAnyTypeNotMapped description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 

@@ -16,7 +16,6 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local spoonacular_todo_object_mapping = require "spoonacular.model.todo_object_mapping"
 local spoonacular_autocomplete_ingredient_search_200_response_inner = require "spoonacular.model.autocomplete_ingredient_search_200_response_inner"
 local spoonacular_compute_ingredient_amount_200_response = require "spoonacular.model.compute_ingredient_amount_200_response"
 local spoonacular_get_ingredient_information_200_response = require "spoonacular.model.get_ingredient_information_200_response"
@@ -393,7 +392,7 @@ function ingredients_api:ingredients_by_id_image(id, measure)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_TODO_OBJECT_MAPPING.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -464,7 +463,7 @@ function ingredients_api:map_ingredients_to_grocery_products(map_ingredients_to_
 	end
 end
 
-function ingredients_api:visualize_ingredients(content_type, language, accept)
+function ingredients_api:visualize_ingredients(ingredient_list, servings, language, measure, view, default_css, show_backlink)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -483,12 +482,14 @@ function ingredients_api:visualize_ingredients(content_type, language, accept)
 	--local var_accept = { "text/html" }
 	req.headers:upsert("content-type", "text/html")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
-	if accept then
-		req.headers:upsert("Accept", accept)
-	end
+	req:set_body(http_util.dict_to_query({
+		["ingredientList"] = ingredient_list;
+		["servings"] = servings;
+		["measure"] = measure;
+		["view"] = view;
+		["defaultCss"] = default_css;
+		["showBacklink"] = show_backlink;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])

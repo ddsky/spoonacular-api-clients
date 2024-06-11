@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detectFoodInText
 
-> DetectFoodInText200Response detectFoodInText(opts)
+> DetectFoodInText200Response detectFoodInText(text)
 
 Detect Food in Text
 
@@ -38,10 +38,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let opts = {
-  'contentType': application/json // String | The content type.
-};
-apiInstance.detectFoodInText(opts, (error, data, response) => {
+let text = "text_example"; // String | 
+apiInstance.detectFoodInText(text, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -55,7 +53,7 @@ apiInstance.detectFoodInText(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| The content type. | [optional] 
+ **text** | **String**|  | 
 
 ### Return type
 

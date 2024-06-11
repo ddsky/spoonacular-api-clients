@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## menuItemNutritionByIDImage
 
-> Object menuItemNutritionByIDImage(id)
+> File menuItemNutritionByIDImage(id)
 
 Menu Item Nutrition by ID Image
 
@@ -125,7 +125,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 MenuItemsApi apiInstance = new MenuItemsApi();
 BigDecimal id = 424571; // BigDecimal | The menu item id.
 try {
-    Object result = apiInstance.menuItemNutritionByIDImage(id);
+    File result = apiInstance.menuItemNutritionByIDImage(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#menuItemNutritionByIDImage");
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## menuItemNutritionLabelImage
 
-> Object menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> File menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Menu Item Nutrition Label Image
 
@@ -174,7 +174,7 @@ Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nut
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
 Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
 try {
-    Object result = apiInstance.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+    File result = apiInstance.menuItemNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#menuItemNutritionLabelImage");
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ## visualizeMenuItemNutritionByID
 
-> String visualizeMenuItemNutritionByID(id, defaultCss, accept)
+> String visualizeMenuItemNutritionByID(id, defaultCss)
 
 Menu Item Nutrition by ID Widget
 
@@ -345,9 +345,8 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 MenuItemsApi apiInstance = new MenuItemsApi();
 Integer id = 1; // Integer | The item's id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
-String accept = application/json; // String | Accept header.
 try {
-    String result = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss, accept);
+    String result = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#visualizeMenuItemNutritionByID");
@@ -362,7 +361,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **String**| Accept header. | [optional] [default to null] [enum: application/json, text/html, media/*]
 
 ### Return type
 

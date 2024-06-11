@@ -119,7 +119,7 @@ end
 
 ## analyze_recipe_instructions
 
-> <AnalyzeRecipeInstructions200Response> analyze_recipe_instructions(opts)
+> <AnalyzeRecipeInstructions200Response> analyze_recipe_instructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -139,13 +139,11 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-opts = {
-  content_type: 'application/x-www-form-urlencoded' # String | The content type.
-}
+instructions = 'instructions_example' # String | The recipe's instructions.
 
 begin
   # Analyze Recipe Instructions
-  result = api_instance.analyze_recipe_instructions(opts)
+  result = api_instance.analyze_recipe_instructions(instructions)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->analyze_recipe_instructions: #{e}"
@@ -156,12 +154,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AnalyzeRecipeInstructions200Response>, Integer, Hash)> analyze_recipe_instructions_with_http_info(opts)
+> <Array(<AnalyzeRecipeInstructions200Response>, Integer, Hash)> analyze_recipe_instructions_with_http_info(instructions)
 
 ```ruby
 begin
   # Analyze Recipe Instructions
-  data, status_code, headers = api_instance.analyze_recipe_instructions_with_http_info(opts)
+  data, status_code, headers = api_instance.analyze_recipe_instructions_with_http_info(instructions)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AnalyzeRecipeInstructions200Response>
@@ -174,7 +172,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
+| **instructions** | **String** | The recipe&#39;s instructions. |  |
 
 ### Return type
 
@@ -267,7 +265,7 @@ end
 
 ## classify_cuisine
 
-> <ClassifyCuisine200Response> classify_cuisine(opts)
+> <ClassifyCuisine200Response> classify_cuisine(title, ingredient_list, opts)
 
 Classify Cuisine
 
@@ -287,13 +285,15 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+title = 'title_example' # String | The title of the recipe.
+ingredient_list = 'ingredient_list_example' # String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 opts = {
-  content_type: 'application/x-www-form-urlencoded' # String | The content type.
+  language: 'en' # String | The language of the input. Either 'en' or 'de'.
 }
 
 begin
   # Classify Cuisine
-  result = api_instance.classify_cuisine(opts)
+  result = api_instance.classify_cuisine(title, ingredient_list, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->classify_cuisine: #{e}"
@@ -304,12 +304,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ClassifyCuisine200Response>, Integer, Hash)> classify_cuisine_with_http_info(opts)
+> <Array(<ClassifyCuisine200Response>, Integer, Hash)> classify_cuisine_with_http_info(title, ingredient_list, opts)
 
 ```ruby
 begin
   # Classify Cuisine
-  data, status_code, headers = api_instance.classify_cuisine_with_http_info(opts)
+  data, status_code, headers = api_instance.classify_cuisine_with_http_info(title, ingredient_list, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ClassifyCuisine200Response>
@@ -322,7 +322,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
+| **title** | **String** | The title of the recipe. |  |
+| **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |  |
+| **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
 
 ### Return type
 
@@ -492,7 +494,7 @@ end
 
 ## create_recipe_card
 
-> <CreateRecipeCard200Response> create_recipe_card(opts)
+> <CreateRecipeCard200Response> create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts)
 
 Create Recipe Card
 
@@ -512,13 +514,25 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+title = 'title_example' # String | The title of the recipe.
+ingredients = 'ingredients_example' # String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+instructions = 'instructions_example' # String | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+ready_in_minutes = 8.14 # Float | The number of minutes it takes to get the recipe on the table.
+servings = 8.14 # Float | The number of servings the recipe makes.
+mask = 'ellipseMask' # String | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+background_image = 'none' # String | The background image ('none', 'background1', or 'background2').
 opts = {
-  content_type: 'application/x-www-form-urlencoded' # String | The content type.
+  image: File.new('/path/to/some/file'), # File | The binary image of the recipe as jpg.
+  image_url: 'image_url_example', # String | If you do not sent a binary image you can also pass the image URL.
+  author: 'author_example', # String | The author of the recipe.
+  background_color: 'background_color_example', # String | The background color for the recipe card as a hex-string.
+  font_color: 'font_color_example', # String | The font color for the recipe card as a hex-string.
+  source: 'source_example' # String | The source of the recipe.
 }
 
 begin
   # Create Recipe Card
-  result = api_instance.create_recipe_card(opts)
+  result = api_instance.create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->create_recipe_card: #{e}"
@@ -529,12 +543,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CreateRecipeCard200Response>, Integer, Hash)> create_recipe_card_with_http_info(opts)
+> <Array(<CreateRecipeCard200Response>, Integer, Hash)> create_recipe_card_with_http_info(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts)
 
 ```ruby
 begin
   # Create Recipe Card
-  data, status_code, headers = api_instance.create_recipe_card_with_http_info(opts)
+  data, status_code, headers = api_instance.create_recipe_card_with_http_info(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreateRecipeCard200Response>
@@ -547,7 +561,19 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
+| **title** | **String** | The title of the recipe. |  |
+| **ingredients** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |  |
+| **instructions** | **String** | The instructions to make the recipe. One step per line (separate lines with \\\\n). |  |
+| **ready_in_minutes** | **Float** | The number of minutes it takes to get the recipe on the table. |  |
+| **servings** | **Float** | The number of servings the recipe makes. |  |
+| **mask** | **String** | The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). |  |
+| **background_image** | **String** | The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). |  |
+| **image** | **File** | The binary image of the recipe as jpg. | [optional] |
+| **image_url** | **String** | If you do not sent a binary image you can also pass the image URL. | [optional] |
+| **author** | **String** | The author of the recipe. | [optional] |
+| **background_color** | **String** | The background color for the recipe card as a hex-string. | [optional] |
+| **font_color** | **String** | The font color for the recipe card as a hex-string. | [optional] |
+| **source** | **String** | The source of the recipe. | [optional] |
 
 ### Return type
 
@@ -565,7 +591,7 @@ end
 
 ## equipment_by_id_image
 
-> Object equipment_by_id_image(id)
+> File equipment_by_id_image(id)
 
 Equipment by ID Image
 
@@ -600,7 +626,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> equipment_by_id_image_with_http_info(id)
+> <Array(File, Integer, Hash)> equipment_by_id_image_with_http_info(id)
 
 ```ruby
 begin
@@ -608,7 +634,7 @@ begin
   data, status_code, headers = api_instance.equipment_by_id_image_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->equipment_by_id_image_with_http_info: #{e}"
 end
@@ -622,7 +648,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1530,7 +1556,7 @@ end
 
 ## parse_ingredients
 
-> <Array<ParseIngredients200ResponseInner>> parse_ingredients(opts)
+> <Array<ParseIngredients200ResponseInner>> parse_ingredients(ingredient_list, servings, opts)
 
 Parse Ingredients
 
@@ -1550,14 +1576,16 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+ingredient_list = 'ingredient_list_example' # String | The ingredient list of the recipe, one ingredient per line.
+servings = 8.14 # Float | The number of servings that you can make from the ingredients.
 opts = {
-  content_type: 'application/x-www-form-urlencoded', # String | The content type.
-  language: 'en' # String | The language of the input. Either 'en' or 'de'.
+  language: 'en', # String | The language of the input. Either 'en' or 'de'.
+  include_nutrition: true # Boolean | 
 }
 
 begin
   # Parse Ingredients
-  result = api_instance.parse_ingredients(opts)
+  result = api_instance.parse_ingredients(ingredient_list, servings, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->parse_ingredients: #{e}"
@@ -1568,12 +1596,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<ParseIngredients200ResponseInner>>, Integer, Hash)> parse_ingredients_with_http_info(opts)
+> <Array(<Array<ParseIngredients200ResponseInner>>, Integer, Hash)> parse_ingredients_with_http_info(ingredient_list, servings, opts)
 
 ```ruby
 begin
   # Parse Ingredients
-  data, status_code, headers = api_instance.parse_ingredients_with_http_info(opts)
+  data, status_code, headers = api_instance.parse_ingredients_with_http_info(ingredient_list, servings, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<ParseIngredients200ResponseInner>>
@@ -1586,8 +1614,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
+| **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. |  |
+| **servings** | **Float** | The number of servings that you can make from the ingredients. |  |
 | **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **include_nutrition** | **Boolean** |  | [optional] |
 
 ### Return type
 
@@ -1605,7 +1635,7 @@ end
 
 ## price_breakdown_by_id_image
 
-> Object price_breakdown_by_id_image(id)
+> File price_breakdown_by_id_image(id)
 
 Price Breakdown by ID Image
 
@@ -1640,7 +1670,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> price_breakdown_by_id_image_with_http_info(id)
+> <Array(File, Integer, Hash)> price_breakdown_by_id_image_with_http_info(id)
 
 ```ruby
 begin
@@ -1648,7 +1678,7 @@ begin
   data, status_code, headers = api_instance.price_breakdown_by_id_image_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->price_breakdown_by_id_image_with_http_info: #{e}"
 end
@@ -1662,7 +1692,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1747,7 +1777,7 @@ end
 
 ## recipe_nutrition_by_id_image
 
-> Object recipe_nutrition_by_id_image(id)
+> File recipe_nutrition_by_id_image(id)
 
 Recipe Nutrition by ID Image
 
@@ -1782,7 +1812,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> recipe_nutrition_by_id_image_with_http_info(id)
+> <Array(File, Integer, Hash)> recipe_nutrition_by_id_image_with_http_info(id)
 
 ```ruby
 begin
@@ -1790,7 +1820,7 @@ begin
   data, status_code, headers = api_instance.recipe_nutrition_by_id_image_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->recipe_nutrition_by_id_image_with_http_info: #{e}"
 end
@@ -1804,7 +1834,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1818,7 +1848,7 @@ end
 
 ## recipe_nutrition_label_image
 
-> Object recipe_nutrition_label_image(id, opts)
+> File recipe_nutrition_label_image(id, opts)
 
 Recipe Nutrition Label Image
 
@@ -1858,7 +1888,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> recipe_nutrition_label_image_with_http_info(id, opts)
+> <Array(File, Integer, Hash)> recipe_nutrition_label_image_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -1866,7 +1896,7 @@ begin
   data, status_code, headers = api_instance.recipe_nutrition_label_image_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->recipe_nutrition_label_image_with_http_info: #{e}"
 end
@@ -1883,7 +1913,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -1978,7 +2008,7 @@ end
 
 ## recipe_taste_by_id_image
 
-> Object recipe_taste_by_id_image(id, opts)
+> File recipe_taste_by_id_image(id, opts)
 
 Recipe Taste by ID Image
 
@@ -2017,7 +2047,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> recipe_taste_by_id_image_with_http_info(id, opts)
+> <Array(File, Integer, Hash)> recipe_taste_by_id_image_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -2025,7 +2055,7 @@ begin
   data, status_code, headers = api_instance.recipe_taste_by_id_image_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->recipe_taste_by_id_image_with_http_info: #{e}"
 end
@@ -2041,7 +2071,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -2697,7 +2727,7 @@ end
 
 ## visualize_equipment
 
-> String visualize_equipment(opts)
+> String visualize_equipment(instructions, opts)
 
 Equipment Widget
 
@@ -2717,14 +2747,16 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+instructions = 'instructions_example' # String | The recipe's instructions.
 opts = {
-  content_type: 'application/x-www-form-urlencoded', # String | The content type.
-  accept: 'application/json' # String | Accept header.
+  view: 'grid', # String | How to visualize the ingredients, either 'grid' or 'list'.
+  default_css: true, # Boolean | Whether the default CSS should be added to the response.
+  show_backlink: true # Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 }
 
 begin
   # Equipment Widget
-  result = api_instance.visualize_equipment(opts)
+  result = api_instance.visualize_equipment(instructions, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->visualize_equipment: #{e}"
@@ -2735,12 +2767,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(String, Integer, Hash)> visualize_equipment_with_http_info(opts)
+> <Array(String, Integer, Hash)> visualize_equipment_with_http_info(instructions, opts)
 
 ```ruby
 begin
   # Equipment Widget
-  data, status_code, headers = api_instance.visualize_equipment_with_http_info(opts)
+  data, status_code, headers = api_instance.visualize_equipment_with_http_info(instructions, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
@@ -2753,8 +2785,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
-| **accept** | **String** | Accept header. | [optional] |
+| **instructions** | **String** | The recipe&#39;s instructions. |  |
+| **view** | **String** | How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] |
+| **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **Boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2772,7 +2806,7 @@ end
 
 ## visualize_price_breakdown
 
-> String visualize_price_breakdown(opts)
+> String visualize_price_breakdown(ingredient_list, servings, opts)
 
 Price Breakdown Widget
 
@@ -2792,15 +2826,18 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+ingredient_list = 'ingredient_list_example' # String | The ingredient list of the recipe, one ingredient per line.
+servings = 8.14 # Float | The number of servings.
 opts = {
-  content_type: 'application/x-www-form-urlencoded', # String | The content type.
-  accept: 'application/json', # String | Accept header.
-  language: 'en' # String | The language of the input. Either 'en' or 'de'.
+  language: 'en', # String | The language of the input. Either 'en' or 'de'.
+  mode: 8.14, # Float | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+  default_css: true, # Boolean | Whether the default CSS should be added to the response.
+  show_backlink: true # Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 }
 
 begin
   # Price Breakdown Widget
-  result = api_instance.visualize_price_breakdown(opts)
+  result = api_instance.visualize_price_breakdown(ingredient_list, servings, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->visualize_price_breakdown: #{e}"
@@ -2811,12 +2848,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(String, Integer, Hash)> visualize_price_breakdown_with_http_info(opts)
+> <Array(String, Integer, Hash)> visualize_price_breakdown_with_http_info(ingredient_list, servings, opts)
 
 ```ruby
 begin
   # Price Breakdown Widget
-  data, status_code, headers = api_instance.visualize_price_breakdown_with_http_info(opts)
+  data, status_code, headers = api_instance.visualize_price_breakdown_with_http_info(ingredient_list, servings, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
@@ -2829,9 +2866,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
-| **accept** | **String** | Accept header. | [optional] |
+| **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. |  |
+| **servings** | **Float** | The number of servings. |  |
 | **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **mode** | **Float** | The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] |
+| **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **Boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -3001,7 +3041,7 @@ end
 
 ## visualize_recipe_nutrition
 
-> String visualize_recipe_nutrition(opts)
+> String visualize_recipe_nutrition(ingredient_list, servings, opts)
 
 Recipe Nutrition Widget
 
@@ -3021,15 +3061,17 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+ingredient_list = 'ingredient_list_example' # String | The ingredient list of the recipe, one ingredient per line.
+servings = 8.14 # Float | The number of servings.
 opts = {
-  content_type: 'application/x-www-form-urlencoded', # String | The content type.
-  accept: 'application/json', # String | Accept header.
-  language: 'en' # String | The language of the input. Either 'en' or 'de'.
+  language: 'en', # String | The language of the input. Either 'en' or 'de'.
+  default_css: true, # Boolean | Whether the default CSS should be added to the response.
+  show_backlink: true # Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 }
 
 begin
   # Recipe Nutrition Widget
-  result = api_instance.visualize_recipe_nutrition(opts)
+  result = api_instance.visualize_recipe_nutrition(ingredient_list, servings, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->visualize_recipe_nutrition: #{e}"
@@ -3040,12 +3082,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(String, Integer, Hash)> visualize_recipe_nutrition_with_http_info(opts)
+> <Array(String, Integer, Hash)> visualize_recipe_nutrition_with_http_info(ingredient_list, servings, opts)
 
 ```ruby
 begin
   # Recipe Nutrition Widget
-  data, status_code, headers = api_instance.visualize_recipe_nutrition_with_http_info(opts)
+  data, status_code, headers = api_instance.visualize_recipe_nutrition_with_http_info(ingredient_list, servings, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
@@ -3058,9 +3100,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **content_type** | **String** | The content type. | [optional] |
-| **accept** | **String** | Accept header. | [optional] |
+| **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. |  |
+| **servings** | **Float** | The number of servings. |  |
 | **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
+| **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional] |
+| **show_backlink** | **Boolean** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -3100,8 +3144,7 @@ end
 api_instance = OpenapiClient::RecipesApi.new
 id = 1 # Integer | The item's id.
 opts = {
-  default_css: false, # Boolean | Whether the default CSS should be added to the response.
-  accept: 'application/json' # String | Accept header.
+  default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
 
 begin
@@ -3137,7 +3180,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The item&#39;s id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
-| **accept** | **String** | Accept header. | [optional] |
 
 ### Return type
 
@@ -3230,7 +3272,7 @@ end
 
 ## visualize_recipe_taste
 
-> String visualize_recipe_taste(opts)
+> String visualize_recipe_taste(ingredient_list, opts)
 
 Recipe Taste Widget
 
@@ -3250,17 +3292,16 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+ingredient_list = 'ingredient_list_example' # String | The ingredient list of the recipe, one ingredient per line.
 opts = {
   language: 'en', # String | The language of the input. Either 'en' or 'de'.
-  content_type: 'application/x-www-form-urlencoded', # String | The content type.
-  accept: 'application/json', # String | Accept header.
-  normalize: true, # Boolean | Whether to normalize to the strongest taste.
-  rgb: '75,192,192' # String | Red, green, blue values for the chart color.
+  normalize: true, # Boolean | Normalize to the strongest taste.
+  rgb: 'rgb_example' # String | Red, green, blue values for the chart color.
 }
 
 begin
   # Recipe Taste Widget
-  result = api_instance.visualize_recipe_taste(opts)
+  result = api_instance.visualize_recipe_taste(ingredient_list, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->visualize_recipe_taste: #{e}"
@@ -3271,12 +3312,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(String, Integer, Hash)> visualize_recipe_taste_with_http_info(opts)
+> <Array(String, Integer, Hash)> visualize_recipe_taste_with_http_info(ingredient_list, opts)
 
 ```ruby
 begin
   # Recipe Taste Widget
-  data, status_code, headers = api_instance.visualize_recipe_taste_with_http_info(opts)
+  data, status_code, headers = api_instance.visualize_recipe_taste_with_http_info(ingredient_list, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
@@ -3289,10 +3330,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. |  |
 | **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
-| **content_type** | **String** | The content type. | [optional] |
-| **accept** | **String** | Accept header. | [optional] |
-| **normalize** | **Boolean** | Whether to normalize to the strongest taste. | [optional] |
+| **normalize** | **Boolean** | Normalize to the strongest taste. | [optional] |
 | **rgb** | **String** | Red, green, blue values for the chart color. | [optional] |
 
 ### Return type

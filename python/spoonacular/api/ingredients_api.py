@@ -2062,7 +2062,7 @@ class IngredientsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> bytearray:
         """Ingredients by ID Image
 
         Visualize a recipe's ingredient list.
@@ -2103,7 +2103,7 @@ class IngredientsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -2136,7 +2136,7 @@ class IngredientsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[bytearray]:
         """Ingredients by ID Image
 
         Visualize a recipe's ingredient list.
@@ -2177,7 +2177,7 @@ class IngredientsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -2251,7 +2251,7 @@ class IngredientsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "bytearray",
             '401': None,
             '403': None,
             '404': None,
@@ -2612,9 +2612,13 @@ class IngredientsApi:
     @validate_call
     def visualize_ingredients(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        measure: Annotated[Optional[StrictStr], Field(description="The original system of measurement, either 'metric' or 'us'.")] = None,
+        view: Annotated[Optional[StrictStr], Field(description="How to visualize the ingredients, either 'grid' or 'list'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2632,12 +2636,20 @@ class IngredientsApi:
 
         Visualize ingredients of a recipe. You can play around with that endpoint!
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param accept: Accept header.
-        :type accept: str
+        :param measure: The original system of measurement, either 'metric' or 'us'.
+        :type measure: str
+        :param view: How to visualize the ingredients, either 'grid' or 'list'.
+        :type view: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2661,9 +2673,13 @@ class IngredientsApi:
         """ # noqa: E501
 
         _param = self._visualize_ingredients_serialize(
-            content_type=content_type,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
-            accept=accept,
+            measure=measure,
+            view=view,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2690,9 +2706,13 @@ class IngredientsApi:
     @validate_call
     def visualize_ingredients_with_http_info(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        measure: Annotated[Optional[StrictStr], Field(description="The original system of measurement, either 'metric' or 'us'.")] = None,
+        view: Annotated[Optional[StrictStr], Field(description="How to visualize the ingredients, either 'grid' or 'list'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2710,12 +2730,20 @@ class IngredientsApi:
 
         Visualize ingredients of a recipe. You can play around with that endpoint!
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param accept: Accept header.
-        :type accept: str
+        :param measure: The original system of measurement, either 'metric' or 'us'.
+        :type measure: str
+        :param view: How to visualize the ingredients, either 'grid' or 'list'.
+        :type view: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2739,9 +2767,13 @@ class IngredientsApi:
         """ # noqa: E501
 
         _param = self._visualize_ingredients_serialize(
-            content_type=content_type,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
-            accept=accept,
+            measure=measure,
+            view=view,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2768,9 +2800,13 @@ class IngredientsApi:
     @validate_call
     def visualize_ingredients_without_preload_content(
         self,
-        content_type: Annotated[Optional[StrictStr], Field(description="The content type.")] = None,
+        ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).")],
+        servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        accept: Annotated[Optional[StrictStr], Field(description="Accept header.")] = None,
+        measure: Annotated[Optional[StrictStr], Field(description="The original system of measurement, either 'metric' or 'us'.")] = None,
+        view: Annotated[Optional[StrictStr], Field(description="How to visualize the ingredients, either 'grid' or 'list'.")] = None,
+        default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
+        show_backlink: Annotated[Optional[StrictBool], Field(description="Whether to show a backlink to spoonacular. If set false, this call counts against your quota.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2788,12 +2824,20 @@ class IngredientsApi:
 
         Visualize ingredients of a recipe. You can play around with that endpoint!
 
-        :param content_type: The content type.
-        :type content_type: str
+        :param ingredient_list: The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). (required)
+        :type ingredient_list: str
+        :param servings: The number of servings. (required)
+        :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param accept: Accept header.
-        :type accept: str
+        :param measure: The original system of measurement, either 'metric' or 'us'.
+        :type measure: str
+        :param view: How to visualize the ingredients, either 'grid' or 'list'.
+        :type view: str
+        :param default_css: Whether the default CSS should be added to the response.
+        :type default_css: bool
+        :param show_backlink: Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+        :type show_backlink: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2817,9 +2861,13 @@ class IngredientsApi:
         """ # noqa: E501
 
         _param = self._visualize_ingredients_serialize(
-            content_type=content_type,
+            ingredient_list=ingredient_list,
+            servings=servings,
             language=language,
-            accept=accept,
+            measure=measure,
+            view=view,
+            default_css=default_css,
+            show_backlink=show_backlink,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2841,9 +2889,13 @@ class IngredientsApi:
 
     def _visualize_ingredients_serialize(
         self,
-        content_type,
+        ingredient_list,
+        servings,
         language,
-        accept,
+        measure,
+        view,
+        default_css,
+        show_backlink,
         _request_auth,
         _content_type,
         _headers,
@@ -2869,11 +2921,19 @@ class IngredientsApi:
             _query_params.append(('language', language))
             
         # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
+        if ingredient_list is not None:
+            _form_params.append(('ingredientList', ingredient_list))
+        if servings is not None:
+            _form_params.append(('servings', servings))
+        if measure is not None:
+            _form_params.append(('measure', measure))
+        if view is not None:
+            _form_params.append(('view', view))
+        if default_css is not None:
+            _form_params.append(('defaultCss', default_css))
+        if show_backlink is not None:
+            _form_params.append(('showBacklink', show_backlink))
         # process the body parameter
 
 

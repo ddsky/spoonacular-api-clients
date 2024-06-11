@@ -5,7 +5,7 @@
 -export_type([spoonacular_search_site_content_200_response_articles_inner/0]).
 
 -type spoonacular_search_site_content_200_response_articles_inner() ::
-    #{ 'dataPoints' => list(),
+    #{ 'dataPoints' => spoonacular_set:spoonacular_set(),
        'image' := binary(),
        'link' := binary(),
        'name' := binary()

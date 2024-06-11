@@ -12,6 +12,7 @@ import org.openapitools.models.ComputeGlycemicLoad200Response
 import org.openapitools.models.ComputeGlycemicLoadRequest
 import org.openapitools.models.ConvertAmounts200Response
 import org.openapitools.models.CreateRecipeCard200Response
+import java.io.File
 import org.openapitools.models.GetAnalyzedRecipeInstructions200Response
 import org.openapitools.models.GetRandomRecipes200Response
 import org.openapitools.models.GetRecipeEquipmentByID200Response
@@ -130,8 +131,8 @@ object RecipesApi {
         * @return An endpoint representing a AnalyzeRecipeInstructions200Response
         */
         private def analyzeRecipeInstructions(da: DataAccessor): Endpoint[AnalyzeRecipeInstructions200Response] =
-        post("recipes" :: "analyzeInstructions" :: headerOption("Content-Type") :: header("x-api-key")) { (contentType: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_analyzeRecipeInstructions(contentType, authParamapiKeyScheme) match {
+        post("recipes" :: "analyzeInstructions" :: string :: header("x-api-key")) { (instructions: String, authParamapiKeyScheme: String) =>
+          da.Recipes_analyzeRecipeInstructions(instructions, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -158,8 +159,8 @@ object RecipesApi {
         * @return An endpoint representing a ClassifyCuisine200Response
         */
         private def classifyCuisine(da: DataAccessor): Endpoint[ClassifyCuisine200Response] =
-        post("recipes" :: "cuisine" :: headerOption("Content-Type") :: header("x-api-key")) { (contentType: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_classifyCuisine(contentType, authParamapiKeyScheme) match {
+        post("recipes" :: "cuisine" :: string :: string :: paramOption("language") :: header("x-api-key")) { (title: String, ingredientList: String, language: Option[String], authParamapiKeyScheme: String) =>
+          da.Recipes_classifyCuisine(title, ingredientList, language, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -200,8 +201,8 @@ object RecipesApi {
         * @return An endpoint representing a CreateRecipeCard200Response
         */
         private def createRecipeCard(da: DataAccessor): Endpoint[CreateRecipeCard200Response] =
-        post("recipes" :: "visualizeRecipe" :: headerOption("Content-Type") :: header("x-api-key")) { (contentType: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_createRecipeCard(contentType, authParamapiKeyScheme) match {
+        post("recipes" :: "visualizeRecipe" :: string :: string :: string :: bigdecimal :: bigdecimal :: string :: string :: fileUpload("image") :: paramOption("imageUrl") :: paramOption("author") :: paramOption("backgroundColor") :: paramOption("fontColor") :: paramOption("source") :: header("x-api-key")) { (title: String, ingredients: String, instructions: String, readyInMinutes: BigDecimal, servings: BigDecimal, mask: String, backgroundImage: String, image: FileUpload, imageUrl: Option[String], author: Option[String], backgroundColor: Option[String], fontColor: Option[String], source: Option[String], authParamapiKeyScheme: String) =>
+          da.Recipes_createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -211,9 +212,9 @@ object RecipesApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def equipmentByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def equipmentByIDImage(da: DataAccessor): Endpoint[File] =
         get("recipes" :: bigdecimal :: "equipmentWidget.png" :: header("x-api-key")) { (id: BigDecimal, authParamapiKeyScheme: String) =>
           da.Recipes_equipmentByIDImage(id, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -396,8 +397,8 @@ object RecipesApi {
         * @return An endpoint representing a Set[ParseIngredients200ResponseInner]
         */
         private def parseIngredients(da: DataAccessor): Endpoint[Set[ParseIngredients200ResponseInner]] =
-        post("recipes" :: "parseIngredients" :: headerOption("Content-Type") :: paramOption("language") :: header("x-api-key")) { (contentType: Option[String], language: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_parseIngredients(contentType, language, authParamapiKeyScheme) match {
+        post("recipes" :: "parseIngredients" :: string :: bigdecimal :: paramOption("language") :: paramOption("includeNutrition").map(_.map(_.toBoolean)) :: header("x-api-key")) { (ingredientList: String, servings: BigDecimal, language: Option[String], includeNutrition: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Recipes_parseIngredients(ingredientList, servings, language, includeNutrition, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -407,9 +408,9 @@ object RecipesApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def priceBreakdownByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def priceBreakdownByIDImage(da: DataAccessor): Endpoint[File] =
         get("recipes" :: bigdecimal :: "priceBreakdownWidget.png" :: header("x-api-key")) { (id: BigDecimal, authParamapiKeyScheme: String) =>
           da.Recipes_priceBreakdownByIDImage(id, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -435,9 +436,9 @@ object RecipesApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def recipeNutritionByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def recipeNutritionByIDImage(da: DataAccessor): Endpoint[File] =
         get("recipes" :: bigdecimal :: "nutritionWidget.png" :: header("x-api-key")) { (id: BigDecimal, authParamapiKeyScheme: String) =>
           da.Recipes_recipeNutritionByIDImage(id, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -449,9 +450,9 @@ object RecipesApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def recipeNutritionLabelImage(da: DataAccessor): Endpoint[Object] =
+        private def recipeNutritionLabelImage(da: DataAccessor): Endpoint[File] =
         get("recipes" :: bigdecimal :: "nutritionLabel.png" :: paramOption("showOptionalNutrients").map(_.map(_.toBoolean)) :: paramOption("showZeroValues").map(_.map(_.toBoolean)) :: paramOption("showIngredients").map(_.map(_.toBoolean)) :: header("x-api-key")) { (id: BigDecimal, showOptionalNutrients: Option[Boolean], showZeroValues: Option[Boolean], showIngredients: Option[Boolean], authParamapiKeyScheme: String) =>
           da.Recipes_recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -477,9 +478,9 @@ object RecipesApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def recipeTasteByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def recipeTasteByIDImage(da: DataAccessor): Endpoint[File] =
         get("recipes" :: bigdecimal :: "tasteWidget.png" :: paramOption("normalize").map(_.map(_.toBoolean)) :: paramOption("rgb") :: header("x-api-key")) { (id: BigDecimal, normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String) =>
           da.Recipes_recipeTasteByIDImage(id, normalize, rgb, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -550,8 +551,8 @@ object RecipesApi {
         * @return An endpoint representing a String
         */
         private def visualizeEquipment(da: DataAccessor): Endpoint[String] =
-        post("recipes" :: "visualizeEquipment" :: headerOption("Content-Type") :: headerOption("Accept") :: header("x-api-key")) { (contentType: Option[String], accept: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_visualizeEquipment(contentType, accept, authParamapiKeyScheme) match {
+        post("recipes" :: "visualizeEquipment" :: string :: paramOption("view") :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: paramOption("showBacklink").map(_.map(_.toBoolean)) :: header("x-api-key")) { (instructions: String, view: Option[String], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Recipes_visualizeEquipment(instructions, view, defaultCss, showBacklink, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -564,8 +565,8 @@ object RecipesApi {
         * @return An endpoint representing a String
         */
         private def visualizePriceBreakdown(da: DataAccessor): Endpoint[String] =
-        post("recipes" :: "visualizePriceEstimator" :: headerOption("Content-Type") :: headerOption("Accept") :: paramOption("language") :: header("x-api-key")) { (contentType: Option[String], accept: Option[String], language: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_visualizePriceBreakdown(contentType, accept, language, authParamapiKeyScheme) match {
+        post("recipes" :: "visualizePriceEstimator" :: string :: bigdecimal :: paramOption("language") :: paramOption("mode").map(_.map(_.toBigDecimal)) :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: paramOption("showBacklink").map(_.map(_.toBoolean)) :: header("x-api-key")) { (ingredientList: String, servings: BigDecimal, language: Option[String], mode: Option[BigDecimal], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Recipes_visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -606,8 +607,8 @@ object RecipesApi {
         * @return An endpoint representing a String
         */
         private def visualizeRecipeNutrition(da: DataAccessor): Endpoint[String] =
-        post("recipes" :: "visualizeNutrition" :: headerOption("Content-Type") :: headerOption("Accept") :: paramOption("language") :: header("x-api-key")) { (contentType: Option[String], accept: Option[String], language: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_visualizeRecipeNutrition(contentType, accept, language, authParamapiKeyScheme) match {
+        post("recipes" :: "visualizeNutrition" :: string :: bigdecimal :: paramOption("language") :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: paramOption("showBacklink").map(_.map(_.toBoolean)) :: header("x-api-key")) { (ingredientList: String, servings: BigDecimal, language: Option[String], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Recipes_visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -620,8 +621,8 @@ object RecipesApi {
         * @return An endpoint representing a String
         */
         private def visualizeRecipeNutritionByID(da: DataAccessor): Endpoint[String] =
-        get("recipes" :: int :: "nutritionWidget" :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: headerOption("Accept") :: header("x-api-key")) { (id: Int, defaultCss: Option[Boolean], accept: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_visualizeRecipeNutritionByID(id, defaultCss, accept, authParamapiKeyScheme) match {
+        get("recipes" :: int :: "nutritionWidget" :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: header("x-api-key")) { (id: Int, defaultCss: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Recipes_visualizeRecipeNutritionByID(id, defaultCss, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -648,8 +649,8 @@ object RecipesApi {
         * @return An endpoint representing a String
         */
         private def visualizeRecipeTaste(da: DataAccessor): Endpoint[String] =
-        post("recipes" :: "visualizeTaste" :: paramOption("language") :: headerOption("Content-Type") :: headerOption("Accept") :: paramOption("normalize").map(_.map(_.toBoolean)) :: paramOption("rgb") :: header("x-api-key")) { (language: Option[String], contentType: Option[String], accept: Option[String], normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String) =>
-          da.Recipes_visualizeRecipeTaste(language, contentType, accept, normalize, rgb, authParamapiKeyScheme) match {
+        post("recipes" :: "visualizeTaste" :: string :: paramOption("language") :: paramOption("normalize").map(_.map(_.toBoolean)) :: paramOption("rgb") :: header("x-api-key")) { (ingredientList: String, language: Option[String], normalize: Option[Boolean], rgb: Option[String], authParamapiKeyScheme: String) =>
+          da.Recipes_visualizeRecipeTaste(ingredientList, language, normalize, rgb, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

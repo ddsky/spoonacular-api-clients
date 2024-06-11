@@ -18,7 +18,7 @@ import { HttpFile } from '../http/http';
 */
 export class GetConversationSuggests200Response {
     'suggests': GetConversationSuggests200ResponseSuggests;
-    'words': Array<any>;
+    'words': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -32,7 +32,7 @@ export class GetConversationSuggests200Response {
         {
             "name": "words",
             "baseName": "words",
-            "type": "Array<any>",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

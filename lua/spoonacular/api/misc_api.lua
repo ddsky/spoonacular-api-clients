@@ -54,7 +54,7 @@ local function new_misc_api(authority, basePath, schemes)
 	}, misc_api_mt)
 end
 
-function misc_api:detect_food_in_text(content_type)
+function misc_api:detect_food_in_text(text)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -73,9 +73,9 @@ function misc_api:detect_food_in_text(content_type)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	if content_type then
-		req.headers:upsert("Content-Type", content_type)
-	end
+	req:set_body(http_util.dict_to_query({
+		["text"] = text;
+	}))
 	-- api key in headers 'x-api-key'
 	if self.api_key['x-api-key'] then
 		req.headers:upsert("apiKeyScheme", self.api_key['x-api-key'])

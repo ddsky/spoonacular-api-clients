@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataPoints** | **List&lt;Object&gt;** |  |  [optional] |
+|**dataPoints** | [**Set&lt;SearchSiteContent200ResponseArticlesInnerDataPointsInner&gt;**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  |  [optional] |
 |**image** | **String** |  |  |
 |**link** | **String** |  |  |
 |**name** | **String** |  |  |

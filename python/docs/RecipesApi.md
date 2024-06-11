@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **analyze_recipe_instructions**
-> AnalyzeRecipeInstructions200Response analyze_recipe_instructions(content_type=content_type)
+> AnalyzeRecipeInstructions200Response analyze_recipe_instructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -166,11 +166,11 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
+    instructions = 'instructions_example' # str | The recipe's instructions.
 
     try:
         # Analyze Recipe Instructions
-        api_response = api_instance.analyze_recipe_instructions(content_type=content_type)
+        api_response = api_instance.analyze_recipe_instructions(instructions)
         print("The response of RecipesApi->analyze_recipe_instructions:\n")
         pprint(api_response)
     except Exception as e:
@@ -184,7 +184,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
+ **instructions** | **str**| The recipe&#39;s instructions. | 
 
 ### Return type
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **classify_cuisine**
-> ClassifyCuisine200Response classify_cuisine(content_type=content_type)
+> ClassifyCuisine200Response classify_cuisine(title, ingredient_list, language=language)
 
 Classify Cuisine
 
@@ -332,11 +332,13 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
+    title = 'title_example' # str | The title of the recipe.
+    ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
 
     try:
         # Classify Cuisine
-        api_response = api_instance.classify_cuisine(content_type=content_type)
+        api_response = api_instance.classify_cuisine(title, ingredient_list, language=language)
         print("The response of RecipesApi->classify_cuisine:\n")
         pprint(api_response)
     except Exception as e:
@@ -350,7 +352,9 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
+ **title** | **str**| The title of the recipe. | 
+ **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
 
 ### Return type
 
@@ -550,7 +554,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_recipe_card**
-> CreateRecipeCard200Response create_recipe_card(content_type=content_type)
+> CreateRecipeCard200Response create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, image=image, image_url=image_url, author=author, background_color=background_color, font_color=font_color, source=source)
 
 Create Recipe Card
 
@@ -587,11 +591,23 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
+    title = 'title_example' # str | The title of the recipe.
+    ingredients = 'ingredients_example' # str | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    instructions = 'instructions_example' # str | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+    ready_in_minutes = 3.4 # float | The number of minutes it takes to get the recipe on the table.
+    servings = 3.4 # float | The number of servings the recipe makes.
+    mask = 'mask_example' # str | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+    background_image = 'background_image_example' # str | The background image ('none', 'background1', or 'background2').
+    image = None # bytearray | The binary image of the recipe as jpg. (optional)
+    image_url = 'image_url_example' # str | If you do not sent a binary image you can also pass the image URL. (optional)
+    author = 'author_example' # str | The author of the recipe. (optional)
+    background_color = 'background_color_example' # str | The background color for the recipe card as a hex-string. (optional)
+    font_color = 'font_color_example' # str | The font color for the recipe card as a hex-string. (optional)
+    source = 'source_example' # str | The source of the recipe. (optional)
 
     try:
         # Create Recipe Card
-        api_response = api_instance.create_recipe_card(content_type=content_type)
+        api_response = api_instance.create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, image=image, image_url=image_url, author=author, background_color=background_color, font_color=font_color, source=source)
         print("The response of RecipesApi->create_recipe_card:\n")
         pprint(api_response)
     except Exception as e:
@@ -605,7 +621,19 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
+ **title** | **str**| The title of the recipe. | 
+ **ingredients** | **str**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **instructions** | **str**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | 
+ **ready_in_minutes** | **float**| The number of minutes it takes to get the recipe on the table. | 
+ **servings** | **float**| The number of servings the recipe makes. | 
+ **mask** | **str**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | 
+ **background_image** | **str**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | 
+ **image** | **bytearray**| The binary image of the recipe as jpg. | [optional] 
+ **image_url** | **str**| If you do not sent a binary image you can also pass the image URL. | [optional] 
+ **author** | **str**| The author of the recipe. | [optional] 
+ **background_color** | **str**| The background color for the recipe card as a hex-string. | [optional] 
+ **font_color** | **str**| The font color for the recipe card as a hex-string. | [optional] 
+ **source** | **str**| The source of the recipe. | [optional] 
 
 ### Return type
 
@@ -632,7 +660,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **equipment_by_id_image**
-> object equipment_by_id_image(id)
+> bytearray equipment_by_id_image(id)
 
 Equipment by ID Image
 
@@ -690,7 +718,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -1725,7 +1753,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parse_ingredients**
-> List[ParseIngredients200ResponseInner] parse_ingredients(content_type=content_type, language=language)
+> List[ParseIngredients200ResponseInner] parse_ingredients(ingredient_list, servings, language=language, include_nutrition=include_nutrition)
 
 Parse Ingredients
 
@@ -1762,12 +1790,14 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
+    ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
+    servings = 3.4 # float | The number of servings that you can make from the ingredients.
     language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
+    include_nutrition = True # bool |  (optional)
 
     try:
         # Parse Ingredients
-        api_response = api_instance.parse_ingredients(content_type=content_type, language=language)
+        api_response = api_instance.parse_ingredients(ingredient_list, servings, language=language, include_nutrition=include_nutrition)
         print("The response of RecipesApi->parse_ingredients:\n")
         pprint(api_response)
     except Exception as e:
@@ -1781,8 +1811,10 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
+ **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **float**| The number of servings that you can make from the ingredients. | 
  **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **include_nutrition** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -1809,7 +1841,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **price_breakdown_by_id_image**
-> object price_breakdown_by_id_image(id)
+> bytearray price_breakdown_by_id_image(id)
 
 Price Breakdown by ID Image
 
@@ -1867,7 +1899,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -1972,7 +2004,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipe_nutrition_by_id_image**
-> object recipe_nutrition_by_id_image(id)
+> bytearray recipe_nutrition_by_id_image(id)
 
 Recipe Nutrition by ID Image
 
@@ -2030,7 +2062,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -2053,7 +2085,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipe_nutrition_label_image**
-> object recipe_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+> bytearray recipe_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
 
 Recipe Nutrition Label Image
 
@@ -2117,7 +2149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -2229,7 +2261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **recipe_taste_by_id_image**
-> object recipe_taste_by_id_image(id, normalize=normalize, rgb=rgb)
+> bytearray recipe_taste_by_id_image(id, normalize=normalize, rgb=rgb)
 
 Recipe Taste by ID Image
 
@@ -2291,7 +2323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -2994,7 +3026,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_equipment**
-> str visualize_equipment(content_type=content_type, accept=accept)
+> str visualize_equipment(instructions, view=view, default_css=default_css, show_backlink=show_backlink)
 
 Equipment Widget
 
@@ -3030,12 +3062,14 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
-    accept = 'application/json' # str | Accept header. (optional)
+    instructions = 'instructions_example' # str | The recipe's instructions.
+    view = 'view_example' # str | How to visualize the ingredients, either 'grid' or 'list'. (optional)
+    default_css = True # bool | Whether the default CSS should be added to the response. (optional)
+    show_backlink = True # bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
     try:
         # Equipment Widget
-        api_response = api_instance.visualize_equipment(content_type=content_type, accept=accept)
+        api_response = api_instance.visualize_equipment(instructions, view=view, default_css=default_css, show_backlink=show_backlink)
         print("The response of RecipesApi->visualize_equipment:\n")
         pprint(api_response)
     except Exception as e:
@@ -3049,8 +3083,10 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
- **accept** | **str**| Accept header. | [optional] 
+ **instructions** | **str**| The recipe&#39;s instructions. | 
+ **view** | **str**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -3077,7 +3113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_price_breakdown**
-> str visualize_price_breakdown(content_type=content_type, accept=accept, language=language)
+> str visualize_price_breakdown(ingredient_list, servings, language=language, mode=mode, default_css=default_css, show_backlink=show_backlink)
 
 Price Breakdown Widget
 
@@ -3113,13 +3149,16 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
-    accept = 'application/json' # str | Accept header. (optional)
+    ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
+    servings = 3.4 # float | The number of servings.
     language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
+    mode = 3.4 # float | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). (optional)
+    default_css = True # bool | Whether the default CSS should be added to the response. (optional)
+    show_backlink = True # bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
     try:
         # Price Breakdown Widget
-        api_response = api_instance.visualize_price_breakdown(content_type=content_type, accept=accept, language=language)
+        api_response = api_instance.visualize_price_breakdown(ingredient_list, servings, language=language, mode=mode, default_css=default_css, show_backlink=show_backlink)
         print("The response of RecipesApi->visualize_price_breakdown:\n")
         pprint(api_response)
     except Exception as e:
@@ -3133,9 +3172,12 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
- **accept** | **str**| Accept header. | [optional] 
+ **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **float**| The number of servings. | 
  **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **mode** | **float**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] 
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -3330,7 +3372,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_recipe_nutrition**
-> str visualize_recipe_nutrition(content_type=content_type, accept=accept, language=language)
+> str visualize_recipe_nutrition(ingredient_list, servings, language=language, default_css=default_css, show_backlink=show_backlink)
 
 Recipe Nutrition Widget
 
@@ -3366,13 +3408,15 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    content_type = 'application/json' # str | The content type. (optional)
-    accept = 'application/json' # str | Accept header. (optional)
+    ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
+    servings = 3.4 # float | The number of servings.
     language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
+    default_css = True # bool | Whether the default CSS should be added to the response. (optional)
+    show_backlink = True # bool | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 
     try:
         # Recipe Nutrition Widget
-        api_response = api_instance.visualize_recipe_nutrition(content_type=content_type, accept=accept, language=language)
+        api_response = api_instance.visualize_recipe_nutrition(ingredient_list, servings, language=language, default_css=default_css, show_backlink=show_backlink)
         print("The response of RecipesApi->visualize_recipe_nutrition:\n")
         pprint(api_response)
     except Exception as e:
@@ -3386,9 +3430,11 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**| The content type. | [optional] 
- **accept** | **str**| Accept header. | [optional] 
+ **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line. | 
+ **servings** | **float**| The number of servings. | 
  **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
+ **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **bool**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 
@@ -3415,7 +3461,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_recipe_nutrition_by_id**
-> str visualize_recipe_nutrition_by_id(id, default_css=default_css, accept=accept)
+> str visualize_recipe_nutrition_by_id(id, default_css=default_css)
 
 Recipe Nutrition by ID Widget
 
@@ -3453,11 +3499,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     api_instance = spoonacular.RecipesApi(api_client)
     id = 1 # int | The item's id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
-    accept = 'application/json' # str | Accept header. (optional)
 
     try:
         # Recipe Nutrition by ID Widget
-        api_response = api_instance.visualize_recipe_nutrition_by_id(id, default_css=default_css, accept=accept)
+        api_response = api_instance.visualize_recipe_nutrition_by_id(id, default_css=default_css)
         print("The response of RecipesApi->visualize_recipe_nutrition_by_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -3473,7 +3518,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item&#39;s id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
- **accept** | **str**| Accept header. | [optional] 
 
 ### Return type
 
@@ -3583,7 +3627,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_recipe_taste**
-> str visualize_recipe_taste(language=language, content_type=content_type, accept=accept, normalize=normalize, rgb=rgb)
+> str visualize_recipe_taste(ingredient_list, language=language, normalize=normalize, rgb=rgb)
 
 Recipe Taste Widget
 
@@ -3619,15 +3663,14 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
+    ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
     language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
-    content_type = 'application/json' # str | The content type. (optional)
-    accept = 'application/json' # str | Accept header. (optional)
-    normalize = True # bool | Whether to normalize to the strongest taste. (optional)
-    rgb = '75,192,192' # str | Red, green, blue values for the chart color. (optional)
+    normalize = True # bool | Normalize to the strongest taste. (optional)
+    rgb = 'rgb_example' # str | Red, green, blue values for the chart color. (optional)
 
     try:
         # Recipe Taste Widget
-        api_response = api_instance.visualize_recipe_taste(language=language, content_type=content_type, accept=accept, normalize=normalize, rgb=rgb)
+        api_response = api_instance.visualize_recipe_taste(ingredient_list, language=language, normalize=normalize, rgb=rgb)
         print("The response of RecipesApi->visualize_recipe_taste:\n")
         pprint(api_response)
     except Exception as e:
@@ -3641,10 +3684,9 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line. | 
  **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **content_type** | **str**| The content type. | [optional] 
- **accept** | **str**| Accept header. | [optional] 
- **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] 
+ **normalize** | **bool**| Normalize to the strongest taste. | [optional] 
  **rgb** | **str**| Red, green, blue values for the chart color. | [optional] 
 
 ### Return type

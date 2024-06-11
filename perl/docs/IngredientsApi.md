@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredients_by_id_image**
-> object ingredients_by_id_image(id => $id, measure => $measure)
+> string ingredients_by_id_image(id => $id, measure => $measure)
 
 Ingredients by ID Image
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_ingredients**
-> string visualize_ingredients(content_type => $content_type, language => $language, accept => $accept)
+> string visualize_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, measure => $measure, view => $view, default_css => $default_css, show_backlink => $show_backlink)
 
 Ingredients Widget
 
@@ -495,12 +495,16 @@ my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $content_type = application/json; # string | The content type.
+my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+my $servings = 3.4; # double | The number of servings.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
-my $accept = application/json; # string | Accept header.
+my $measure = "measure_example"; # string | The original system of measurement, either 'metric' or 'us'.
+my $view = "view_example"; # string | How to visualize the ingredients, either 'grid' or 'list'.
+my $default_css = null; # boolean | Whether the default CSS should be added to the response.
+my $show_backlink = null; # boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
 eval {
-    my $result = $api_instance->visualize_ingredients(content_type => $content_type, language => $language, accept => $accept);
+    my $result = $api_instance->visualize_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, measure => $measure, view => $view, default_css => $default_css, show_backlink => $show_backlink);
     print Dumper($result);
 };
 if ($@) {
@@ -512,9 +516,13 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **string**| The content type. | [optional] 
+ **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | 
+ **servings** | **double**| The number of servings. | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **accept** | **string**| Accept header. | [optional] 
+ **measure** | **string**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] 
+ **view** | **string**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] 
+ **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] 
+ **show_backlink** | **boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] 
 
 ### Return type
 

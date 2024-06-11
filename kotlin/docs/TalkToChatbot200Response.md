@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **answerText** | **kotlin.String** |  | 
-**media** | [**kotlin.collections.List&lt;kotlin.Any&gt;**](kotlin.Any.md) |  | 
+**media** | [**kotlin.collections.List&lt;TalkToChatbot200ResponseMediaInner&gt;**](TalkToChatbot200ResponseMediaInner.md) |  | 
 
 
 

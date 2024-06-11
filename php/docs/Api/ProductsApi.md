@@ -336,7 +336,7 @@ try {
 ## `productNutritionByIDImage()`
 
 ```php
-productNutritionByIDImage($id): object
+productNutritionByIDImage($id): \SplFileObject
 ```
 
 Product Nutrition by ID Image
@@ -380,7 +380,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -398,7 +398,7 @@ try {
 ## `productNutritionLabelImage()`
 
 ```php
-productNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): object
+productNutritionLabelImage($id, $show_optional_nutrients, $show_zero_values, $show_ingredients): \SplFileObject
 ```
 
 Product Nutrition Label Image
@@ -448,7 +448,7 @@ try {
 
 ### Return type
 
-**object**
+**\SplFileObject**
 
 ### Authorization
 
@@ -682,7 +682,7 @@ try {
 ## `visualizeProductNutritionByID()`
 
 ```php
-visualizeProductNutritionByID($id, $default_css, $accept): string
+visualizeProductNutritionByID($id, $default_css): string
 ```
 
 Product Nutrition by ID Widget
@@ -710,10 +710,9 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
 );
 $id = 1; // int | The item's id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
-$accept = application/json; // string | Accept header.
 
 try {
-    $result = $apiInstance->visualizeProductNutritionByID($id, $default_css, $accept);
+    $result = $apiInstance->visualizeProductNutritionByID($id, $default_css);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->visualizeProductNutritionByID: ', $e->getMessage(), PHP_EOL;
@@ -726,7 +725,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The item&#39;s id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **string**| Accept header. | [optional] |
 
 ### Return type
 

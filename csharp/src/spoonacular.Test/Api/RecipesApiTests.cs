@@ -74,8 +74,8 @@ namespace spoonacular.Test.Api
         public void AnalyzeRecipeInstructionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //var response = instance.AnalyzeRecipeInstructions(contentType);
+            //string instructions = null;
+            //var response = instance.AnalyzeRecipeInstructions(instructions);
             //Assert.IsType<AnalyzeRecipeInstructions200Response>(response);
         }
 
@@ -99,8 +99,10 @@ namespace spoonacular.Test.Api
         public void ClassifyCuisineTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //var response = instance.ClassifyCuisine(contentType);
+            //string title = null;
+            //string ingredientList = null;
+            //string? language = null;
+            //var response = instance.ClassifyCuisine(title, ingredientList, language);
             //Assert.IsType<ClassifyCuisine200Response>(response);
         }
 
@@ -139,8 +141,20 @@ namespace spoonacular.Test.Api
         public void CreateRecipeCardTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //var response = instance.CreateRecipeCard(contentType);
+            //string title = null;
+            //string ingredients = null;
+            //string instructions = null;
+            //decimal readyInMinutes = null;
+            //decimal servings = null;
+            //string mask = null;
+            //string backgroundImage = null;
+            //System.IO.Stream? image = null;
+            //string? imageUrl = null;
+            //string? author = null;
+            //string? backgroundColor = null;
+            //string? fontColor = null;
+            //string? source = null;
+            //var response = instance.CreateRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
             //Assert.IsType<CreateRecipeCard200Response>(response);
         }
 
@@ -153,7 +167,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //decimal id = null;
             //var response = instance.EquipmentByIDImage(id);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -321,9 +335,11 @@ namespace spoonacular.Test.Api
         public void ParseIngredientsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
+            //string ingredientList = null;
+            //decimal servings = null;
             //string? language = null;
-            //var response = instance.ParseIngredients(contentType, language);
+            //bool? includeNutrition = null;
+            //var response = instance.ParseIngredients(ingredientList, servings, language, includeNutrition);
             //Assert.IsType<List<ParseIngredients200ResponseInner>>(response);
         }
 
@@ -336,7 +352,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //decimal id = null;
             //var response = instance.PriceBreakdownByIDImage(id);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -360,7 +376,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //decimal id = null;
             //var response = instance.RecipeNutritionByIDImage(id);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -375,7 +391,7 @@ namespace spoonacular.Test.Api
             //bool? showZeroValues = null;
             //bool? showIngredients = null;
             //var response = instance.RecipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -405,7 +421,7 @@ namespace spoonacular.Test.Api
             //bool? normalize = null;
             //string? rgb = null;
             //var response = instance.RecipeTasteByIDImage(id, normalize, rgb);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<System.IO.Stream>(response);
         }
 
         /// <summary>
@@ -639,9 +655,11 @@ namespace spoonacular.Test.Api
         public void VisualizeEquipmentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //string? accept = null;
-            //var response = instance.VisualizeEquipment(contentType, accept);
+            //string instructions = null;
+            //string? view = null;
+            //bool? defaultCss = null;
+            //bool? showBacklink = null;
+            //var response = instance.VisualizeEquipment(instructions, view, defaultCss, showBacklink);
             //Assert.IsType<string>(response);
         }
 
@@ -652,10 +670,13 @@ namespace spoonacular.Test.Api
         public void VisualizePriceBreakdownTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //string? accept = null;
+            //string ingredientList = null;
+            //decimal servings = null;
             //string? language = null;
-            //var response = instance.VisualizePriceBreakdown(contentType, accept, language);
+            //decimal? mode = null;
+            //bool? defaultCss = null;
+            //bool? showBacklink = null;
+            //var response = instance.VisualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink);
             //Assert.IsType<string>(response);
         }
 
@@ -693,10 +714,12 @@ namespace spoonacular.Test.Api
         public void VisualizeRecipeNutritionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? contentType = null;
-            //string? accept = null;
+            //string ingredientList = null;
+            //decimal servings = null;
             //string? language = null;
-            //var response = instance.VisualizeRecipeNutrition(contentType, accept, language);
+            //bool? defaultCss = null;
+            //bool? showBacklink = null;
+            //var response = instance.VisualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink);
             //Assert.IsType<string>(response);
         }
 
@@ -709,8 +732,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //bool? defaultCss = null;
-            //string? accept = null;
-            //var response = instance.VisualizeRecipeNutritionByID(id, defaultCss, accept);
+            //var response = instance.VisualizeRecipeNutritionByID(id, defaultCss);
             //Assert.IsType<string>(response);
         }
 
@@ -734,12 +756,11 @@ namespace spoonacular.Test.Api
         public void VisualizeRecipeTasteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string ingredientList = null;
             //string? language = null;
-            //string? contentType = null;
-            //string? accept = null;
             //bool? normalize = null;
             //string? rgb = null;
-            //var response = instance.VisualizeRecipeTaste(language, contentType, accept, normalize, rgb);
+            //var response = instance.VisualizeRecipeTaste(ingredientList, language, normalize, rgb);
             //Assert.IsType<string>(response);
         }
 

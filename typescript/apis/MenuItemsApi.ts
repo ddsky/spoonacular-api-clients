@@ -386,16 +386,14 @@ export class MenuItemsApiRequestFactory extends BaseAPIRequestFactory {
      * Menu Item Nutrition by ID Widget
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      */
-    public async visualizeMenuItemNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', _options?: Configuration): Promise<RequestContext> {
+    public async visualizeMenuItemNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("MenuItemsApi", "visualizeMenuItemNutritionByID", "id");
         }
-
 
 
 
@@ -411,9 +409,6 @@ export class MenuItemsApiRequestFactory extends BaseAPIRequestFactory {
         if (defaultCss !== undefined) {
             requestContext.setQueryParam("defaultCss", ObjectSerializer.serialize(defaultCss, "boolean", ""));
         }
-
-        // Header Params
-        requestContext.setHeaderParam("Accept", ObjectSerializer.serialize(accept, "'application/json' | 'text/html' | 'media/_*'", ""));
 
 
         let authMethod: SecurityAuthentication | undefined;
@@ -518,13 +513,10 @@ export class MenuItemsApiResponseProcessor {
      * @params response Response returned by the server for a request to menuItemNutritionByIDImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async menuItemNutritionByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async menuItemNutritionByIDImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -539,10 +531,10 @@ export class MenuItemsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -556,13 +548,10 @@ export class MenuItemsApiResponseProcessor {
      * @params response Response returned by the server for a request to menuItemNutritionLabelImage
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async menuItemNutritionLabelImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async menuItemNutritionLabelImageWithHttpInfo(response: ResponseContext): Promise<HttpInfo<HttpFile >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+            const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -577,10 +566,10 @@ export class MenuItemsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: HttpFile = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "HttpFile", "binary"
+            ) as HttpFile;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

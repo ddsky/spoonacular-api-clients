@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_nutrition_by_id_image**
-> object product_nutrition_by_id_image(id => $id)
+> string product_nutrition_by_id_image(id => $id)
 
 Product Nutrition by ID Image
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_nutrition_label_image**
-> object product_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients)
+> string product_nutrition_label_image(id => $id, show_optional_nutrients => $show_optional_nutrients, show_zero_values => $show_zero_values, show_ingredients => $show_ingredients)
 
 Product Nutrition Label Image
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_product_nutrition_by_id**
-> string visualize_product_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept)
+> string visualize_product_nutrition_by_id(id => $id, default_css => $default_css)
 
 Product Nutrition by ID Widget
 
@@ -595,10 +595,9 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
 
 my $id = 1; # int | The item's id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
-my $accept = application/json; # string | Accept header.
 
 eval {
-    my $result = $api_instance->visualize_product_nutrition_by_id(id => $id, default_css => $default_css, accept => $accept);
+    my $result = $api_instance->visualize_product_nutrition_by_id(id => $id, default_css => $default_css);
     print Dumper($result);
 };
 if ($@) {
@@ -612,7 +611,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item&#39;s id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **accept** | **string**| Accept header. | [optional] 
 
 ### Return type
 

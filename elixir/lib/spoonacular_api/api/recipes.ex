@@ -50,26 +50,21 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `instructions` (String.t): The recipe's instructions.
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
 
   ### Returns
 
   - `{:ok, SpoonacularAPI.Model.AnalyzeRecipeInstructions200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec analyze_recipe_instructions(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.AnalyzeRecipeInstructions200Response.t} | {:error, Tesla.Env.t}
-  def analyze_recipe_instructions(connection, opts \\ []) do
-    optional_params = %{
-      :"Content-Type" => :headers
-    }
-
+  @spec analyze_recipe_instructions(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.AnalyzeRecipeInstructions200Response.t} | {:error, Tesla.Env.t}
+  def analyze_recipe_instructions(connection, instructions, _opts \\ []) do
     request =
       %{}
       |> method(:post)
       |> url("/recipes/analyzeInstructions")
-      |> add_optional_params(optional_params, opts)
-      |> ensure_body()
+      |> add_param(:form, :instructions, instructions)
       |> Enum.into([])
 
     connection
@@ -129,26 +124,29 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `title` (String.t): The title of the recipe.
+  - `ingredient_list` (String.t): The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
+    - `:language` (String.t): The language of the input. Either 'en' or 'de'.
 
   ### Returns
 
   - `{:ok, SpoonacularAPI.Model.ClassifyCuisine200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec classify_cuisine(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ClassifyCuisine200Response.t} | {:error, Tesla.Env.t}
-  def classify_cuisine(connection, opts \\ []) do
+  @spec classify_cuisine(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ClassifyCuisine200Response.t} | {:error, Tesla.Env.t}
+  def classify_cuisine(connection, title, ingredient_list, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers
+      :language => :query
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/cuisine")
+      |> add_param(:form, :title, title)
+      |> add_param(:form, :ingredientList, ingredient_list)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -248,26 +246,49 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `title` (String.t): The title of the recipe.
+  - `ingredients` (String.t): The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  - `instructions` (String.t): The instructions to make the recipe. One step per line (separate lines with \\\\n).
+  - `ready_in_minutes` (float()): The number of minutes it takes to get the recipe on the table.
+  - `servings` (float()): The number of servings the recipe makes.
+  - `mask` (String.t): The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+  - `background_image` (String.t): The background image ('none', 'background1', or 'background2').
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
+    - `:image` (String.t): The binary image of the recipe as jpg.
+    - `:imageUrl` (String.t): If you do not sent a binary image you can also pass the image URL.
+    - `:author` (String.t): The author of the recipe.
+    - `:backgroundColor` (String.t): The background color for the recipe card as a hex-string.
+    - `:fontColor` (String.t): The font color for the recipe card as a hex-string.
+    - `:source` (String.t): The source of the recipe.
 
   ### Returns
 
   - `{:ok, SpoonacularAPI.Model.CreateRecipeCard200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_recipe_card(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.CreateRecipeCard200Response.t} | {:error, Tesla.Env.t}
-  def create_recipe_card(connection, opts \\ []) do
+  @spec create_recipe_card(Tesla.Env.client, String.t, String.t, String.t, float(), float(), String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.CreateRecipeCard200Response.t} | {:error, Tesla.Env.t}
+  def create_recipe_card(connection, title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers
+      :image => :form,
+      :imageUrl => :form,
+      :author => :form,
+      :backgroundColor => :form,
+      :fontColor => :form,
+      :source => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/visualizeRecipe")
+      |> add_param(:form, :title, title)
+      |> add_param(:form, :ingredients, ingredients)
+      |> add_param(:form, :instructions, instructions)
+      |> add_param(:form, :readyInMinutes, ready_in_minutes)
+      |> add_param(:form, :servings, servings)
+      |> add_param(:form, :mask, mask)
+      |> add_param(:form, :backgroundImage, background_image)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -292,10 +313,10 @@ defmodule SpoonacularAPI.Api.Recipes do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec equipment_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec equipment_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def equipment_by_id_image(connection, id, _opts \\ []) do
     request =
       %{}
@@ -306,7 +327,7 @@ defmodule SpoonacularAPI.Api.Recipes do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -776,28 +797,31 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `ingredient_list` (String.t): The ingredient list of the recipe, one ingredient per line.
+  - `servings` (float()): The number of servings that you can make from the ingredients.
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
     - `:language` (String.t): The language of the input. Either 'en' or 'de'.
+    - `:includeNutrition` (boolean()): 
 
   ### Returns
 
   - `{:ok, [%ParseIngredients200ResponseInner{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec parse_ingredients(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, list(SpoonacularAPI.Model.ParseIngredients200ResponseInner.t)} | {:error, Tesla.Env.t}
-  def parse_ingredients(connection, opts \\ []) do
+  @spec parse_ingredients(Tesla.Env.client, String.t, float(), keyword()) :: {:ok, nil} | {:ok, list(SpoonacularAPI.Model.ParseIngredients200ResponseInner.t)} | {:error, Tesla.Env.t}
+  def parse_ingredients(connection, ingredient_list, servings, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers,
-      :language => :query
+      :language => :query,
+      :includeNutrition => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/parseIngredients")
+      |> add_param(:form, :ingredientList, ingredient_list)
+      |> add_param(:form, :servings, servings)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -822,10 +846,10 @@ defmodule SpoonacularAPI.Api.Recipes do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec price_breakdown_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec price_breakdown_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def price_breakdown_by_id_image(connection, id, _opts \\ []) do
     request =
       %{}
@@ -836,7 +860,7 @@ defmodule SpoonacularAPI.Api.Recipes do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -889,10 +913,10 @@ defmodule SpoonacularAPI.Api.Recipes do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec recipe_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec recipe_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def recipe_nutrition_by_id_image(connection, id, _opts \\ []) do
     request =
       %{}
@@ -903,7 +927,7 @@ defmodule SpoonacularAPI.Api.Recipes do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -925,10 +949,10 @@ defmodule SpoonacularAPI.Api.Recipes do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec recipe_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec recipe_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def recipe_nutrition_label_image(connection, id, opts \\ []) do
     optional_params = %{
       :showOptionalNutrients => :query,
@@ -946,7 +970,7 @@ defmodule SpoonacularAPI.Api.Recipes do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -1012,10 +1036,10 @@ defmodule SpoonacularAPI.Api.Recipes do
 
   ### Returns
 
-  - `{:ok, map()}` on success
+  - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec recipe_taste_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, Map.t} | {:error, Tesla.Env.t}
+  @spec recipe_taste_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def recipe_taste_by_id_image(connection, id, opts \\ []) do
     optional_params = %{
       :normalize => :query,
@@ -1032,7 +1056,7 @@ defmodule SpoonacularAPI.Api.Recipes do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, %{}},
+      {200, false},
       {401, false},
       {403, false},
       {404, false}
@@ -1545,28 +1569,31 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `instructions` (String.t): The recipe's instructions.
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
-    - `:Accept` (String.t): Accept header.
+    - `:view` (String.t): How to visualize the ingredients, either 'grid' or 'list'.
+    - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
+    - `:showBacklink` (boolean()): Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
   ### Returns
 
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec visualize_equipment(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
-  def visualize_equipment(connection, opts \\ []) do
+  @spec visualize_equipment(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_equipment(connection, instructions, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers,
-      :Accept => :headers
+      :view => :form,
+      :defaultCss => :form,
+      :showBacklink => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/visualizeEquipment")
+      |> add_param(:form, :instructions, instructions)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -1586,30 +1613,35 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `ingredient_list` (String.t): The ingredient list of the recipe, one ingredient per line.
+  - `servings` (float()): The number of servings.
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
-    - `:Accept` (String.t): Accept header.
     - `:language` (String.t): The language of the input. Either 'en' or 'de'.
+    - `:mode` (float()): The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+    - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
+    - `:showBacklink` (boolean()): Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
   ### Returns
 
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec visualize_price_breakdown(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
-  def visualize_price_breakdown(connection, opts \\ []) do
+  @spec visualize_price_breakdown(Tesla.Env.client, String.t, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_price_breakdown(connection, ingredient_list, servings, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers,
-      :Accept => :headers,
-      :language => :query
+      :language => :query,
+      :mode => :form,
+      :defaultCss => :form,
+      :showBacklink => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/visualizePriceEstimator")
+      |> add_param(:form, :ingredientList, ingredient_list)
+      |> add_param(:form, :servings, servings)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -1709,30 +1741,33 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `ingredient_list` (String.t): The ingredient list of the recipe, one ingredient per line.
+  - `servings` (float()): The number of servings.
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
-    - `:Accept` (String.t): Accept header.
     - `:language` (String.t): The language of the input. Either 'en' or 'de'.
+    - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
+    - `:showBacklink` (boolean()): Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 
   ### Returns
 
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec visualize_recipe_nutrition(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
-  def visualize_recipe_nutrition(connection, opts \\ []) do
+  @spec visualize_recipe_nutrition(Tesla.Env.client, String.t, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_recipe_nutrition(connection, ingredient_list, servings, opts \\ []) do
     optional_params = %{
-      :"Content-Type" => :headers,
-      :Accept => :headers,
-      :language => :query
+      :language => :query,
+      :defaultCss => :form,
+      :showBacklink => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/visualizeNutrition")
+      |> add_param(:form, :ingredientList, ingredient_list)
+      |> add_param(:form, :servings, servings)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection
@@ -1755,7 +1790,6 @@ defmodule SpoonacularAPI.Api.Recipes do
   - `id` (integer()): The item's id.
   - `opts` (keyword): Optional parameters
     - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
-    - `:Accept` (String.t): Accept header.
 
   ### Returns
 
@@ -1765,8 +1799,7 @@ defmodule SpoonacularAPI.Api.Recipes do
   @spec visualize_recipe_nutrition_by_id(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def visualize_recipe_nutrition_by_id(connection, id, opts \\ []) do
     optional_params = %{
-      :defaultCss => :query,
-      :Accept => :headers
+      :defaultCss => :query
     }
 
     request =
@@ -1832,11 +1865,10 @@ defmodule SpoonacularAPI.Api.Recipes do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `ingredient_list` (String.t): The ingredient list of the recipe, one ingredient per line.
   - `opts` (keyword): Optional parameters
     - `:language` (String.t): The language of the input. Either 'en' or 'de'.
-    - `:"Content-Type"` (String.t): The content type.
-    - `:Accept` (String.t): Accept header.
-    - `:normalize` (boolean()): Whether to normalize to the strongest taste.
+    - `:normalize` (boolean()): Normalize to the strongest taste.
     - `:rgb` (String.t): Red, green, blue values for the chart color.
 
   ### Returns
@@ -1844,22 +1876,20 @@ defmodule SpoonacularAPI.Api.Recipes do
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec visualize_recipe_taste(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
-  def visualize_recipe_taste(connection, opts \\ []) do
+  @spec visualize_recipe_taste(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  def visualize_recipe_taste(connection, ingredient_list, opts \\ []) do
     optional_params = %{
       :language => :query,
-      :"Content-Type" => :headers,
-      :Accept => :headers,
-      :normalize => :query,
-      :rgb => :query
+      :normalize => :form,
+      :rgb => :form
     }
 
     request =
       %{}
       |> method(:post)
       |> url("/recipes/visualizeTaste")
+      |> add_param(:form, :ingredientList, ingredient_list)
       |> add_optional_params(optional_params, opts)
-      |> ensure_body()
       |> Enum.into([])
 
     connection

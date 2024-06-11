@@ -37,7 +37,7 @@
 #include "OAIGetRecipeTasteByID_200_response.h"
 #include "OAIGetSimilarRecipes_200_response_inner.h"
 #include "OAIGuessNutritionByDishName_200_response.h"
-#include "OAIObject.h"
+#include "OAIHttpFileElement.h"
 #include "OAIParseIngredients_200_response_inner.h"
 #include "OAIQuickAnswer_200_response.h"
 #include "OAISearchRecipesByIngredients_200_response_inner.h"
@@ -89,9 +89,9 @@ public:
     void analyzeARecipeSearchQuery(const QString &q);
 
     /**
-    * @param[in]  content_type QString [optional]
+    * @param[in]  instructions QString [required]
     */
-    void analyzeRecipeInstructions(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>());
+    void analyzeRecipeInstructions(const QString &instructions);
 
     /**
     * @param[in]  query QString [optional]
@@ -100,9 +100,11 @@ public:
     void autocompleteRecipeSearch(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
-    * @param[in]  content_type QString [optional]
+    * @param[in]  title QString [required]
+    * @param[in]  ingredient_list QString [required]
+    * @param[in]  language QString [optional]
     */
-    void classifyCuisine(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>());
+    void classifyCuisine(const QString &title, const QString &ingredient_list, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  oai_compute_glycemic_load_request OAIComputeGlycemicLoad_request [required]
@@ -119,9 +121,21 @@ public:
     void convertAmounts(const QString &ingredient_name, const double &source_amount, const QString &source_unit, const QString &target_unit);
 
     /**
-    * @param[in]  content_type QString [optional]
+    * @param[in]  title QString [required]
+    * @param[in]  ingredients QString [required]
+    * @param[in]  instructions QString [required]
+    * @param[in]  ready_in_minutes double [required]
+    * @param[in]  servings double [required]
+    * @param[in]  mask QString [required]
+    * @param[in]  background_image QString [required]
+    * @param[in]  image OAIHttpFileElement [optional]
+    * @param[in]  image_url QString [optional]
+    * @param[in]  author QString [optional]
+    * @param[in]  background_color QString [optional]
+    * @param[in]  font_color QString [optional]
+    * @param[in]  source QString [optional]
     */
-    void createRecipeCard(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>());
+    void createRecipeCard(const QString &title, const QString &ingredients, const QString &instructions, const double &ready_in_minutes, const double &servings, const QString &mask, const QString &background_image, const ::OpenAPI::OptionalParam<OAIHttpFileElement> &image = ::OpenAPI::OptionalParam<OAIHttpFileElement>(), const ::OpenAPI::OptionalParam<QString> &image_url = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &author = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &background_color = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &font_color = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &source = ::OpenAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  id double [required]
@@ -203,10 +217,12 @@ public:
     void guessNutritionByDishName(const QString &title);
 
     /**
-    * @param[in]  content_type QString [optional]
+    * @param[in]  ingredient_list QString [required]
+    * @param[in]  servings double [required]
     * @param[in]  language QString [optional]
+    * @param[in]  include_nutrition bool [optional]
     */
-    void parseIngredients(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
+    void parseIngredients(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &include_nutrition = ::OpenAPI::OptionalParam<bool>());
 
     /**
     * @param[in]  id double [required]
@@ -444,17 +460,22 @@ public:
     void summarizeRecipe(const qint32 &id);
 
     /**
-    * @param[in]  content_type QString [optional]
-    * @param[in]  accept QString [optional]
+    * @param[in]  instructions QString [required]
+    * @param[in]  view QString [optional]
+    * @param[in]  default_css bool [optional]
+    * @param[in]  show_backlink bool [optional]
     */
-    void visualizeEquipment(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>());
+    void visualizeEquipment(const QString &instructions, const ::OpenAPI::OptionalParam<QString> &view = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_backlink = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  content_type QString [optional]
-    * @param[in]  accept QString [optional]
+    * @param[in]  ingredient_list QString [required]
+    * @param[in]  servings double [required]
     * @param[in]  language QString [optional]
+    * @param[in]  mode double [optional]
+    * @param[in]  default_css bool [optional]
+    * @param[in]  show_backlink bool [optional]
     */
-    void visualizePriceBreakdown(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
+    void visualizePriceBreakdown(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &mode = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_backlink = ::OpenAPI::OptionalParam<bool>());
 
     /**
     * @param[in]  id qint32 [required]
@@ -470,18 +491,19 @@ public:
     void visualizeRecipeIngredientsByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &measure = ::OpenAPI::OptionalParam<QString>());
 
     /**
-    * @param[in]  content_type QString [optional]
-    * @param[in]  accept QString [optional]
+    * @param[in]  ingredient_list QString [required]
+    * @param[in]  servings double [required]
     * @param[in]  language QString [optional]
+    * @param[in]  default_css bool [optional]
+    * @param[in]  show_backlink bool [optional]
     */
-    void visualizeRecipeNutrition(const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
+    void visualizeRecipeNutrition(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_backlink = ::OpenAPI::OptionalParam<bool>());
 
     /**
     * @param[in]  id qint32 [required]
     * @param[in]  default_css bool [optional]
-    * @param[in]  accept QString [optional]
     */
-    void visualizeRecipeNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>());
+    void visualizeRecipeNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>());
 
     /**
     * @param[in]  id qint32 [required]
@@ -490,13 +512,12 @@ public:
     void visualizeRecipePriceBreakdownByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>());
 
     /**
+    * @param[in]  ingredient_list QString [required]
     * @param[in]  language QString [optional]
-    * @param[in]  content_type QString [optional]
-    * @param[in]  accept QString [optional]
     * @param[in]  normalize bool [optional]
     * @param[in]  rgb QString [optional]
     */
-    void visualizeRecipeTaste(const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &content_type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &accept = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &normalize = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &rgb = ::OpenAPI::OptionalParam<QString>());
+    void visualizeRecipeTaste(const QString &ingredient_list, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &normalize = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &rgb = ::OpenAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  id qint32 [required]
@@ -578,7 +599,7 @@ Q_SIGNALS:
     void computeGlycemicLoadSignal(OAIComputeGlycemicLoad_200_response summary);
     void convertAmountsSignal(OAIConvertAmounts_200_response summary);
     void createRecipeCardSignal(OAICreateRecipeCard_200_response summary);
-    void equipmentByIDImageSignal(OAIObject summary);
+    void equipmentByIDImageSignal(OAIHttpFileElement summary);
     void extractRecipeFromWebsiteSignal(OAIGetRecipeInformation_200_response summary);
     void getAnalyzedRecipeInstructionsSignal(OAIGetAnalyzedRecipeInstructions_200_response summary);
     void getRandomRecipesSignal(OAIGetRandomRecipes_200_response summary);
@@ -592,12 +613,12 @@ Q_SIGNALS:
     void getSimilarRecipesSignal(QSet<OAIGetSimilarRecipes_200_response_inner> summary);
     void guessNutritionByDishNameSignal(OAIGuessNutritionByDishName_200_response summary);
     void parseIngredientsSignal(QSet<OAIParseIngredients_200_response_inner> summary);
-    void priceBreakdownByIDImageSignal(OAIObject summary);
+    void priceBreakdownByIDImageSignal(OAIHttpFileElement summary);
     void quickAnswerSignal(OAIQuickAnswer_200_response summary);
-    void recipeNutritionByIDImageSignal(OAIObject summary);
-    void recipeNutritionLabelImageSignal(OAIObject summary);
+    void recipeNutritionByIDImageSignal(OAIHttpFileElement summary);
+    void recipeNutritionLabelImageSignal(OAIHttpFileElement summary);
     void recipeNutritionLabelWidgetSignal(QString summary);
-    void recipeTasteByIDImageSignal(OAIObject summary);
+    void recipeTasteByIDImageSignal(OAIHttpFileElement summary);
     void searchRecipesSignal(OAISearchRecipes_200_response summary);
     void searchRecipesByIngredientsSignal(QSet<OAISearchRecipesByIngredients_200_response_inner> summary);
     void searchRecipesByNutrientsSignal(QSet<OAISearchRecipesByNutrients_200_response_inner> summary);
@@ -619,7 +640,7 @@ Q_SIGNALS:
     void computeGlycemicLoadSignalFull(OAIHttpRequestWorker *worker, OAIComputeGlycemicLoad_200_response summary);
     void convertAmountsSignalFull(OAIHttpRequestWorker *worker, OAIConvertAmounts_200_response summary);
     void createRecipeCardSignalFull(OAIHttpRequestWorker *worker, OAICreateRecipeCard_200_response summary);
-    void equipmentByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void equipmentByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void extractRecipeFromWebsiteSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeInformation_200_response summary);
     void getAnalyzedRecipeInstructionsSignalFull(OAIHttpRequestWorker *worker, OAIGetAnalyzedRecipeInstructions_200_response summary);
     void getRandomRecipesSignalFull(OAIHttpRequestWorker *worker, OAIGetRandomRecipes_200_response summary);
@@ -633,12 +654,12 @@ Q_SIGNALS:
     void getSimilarRecipesSignalFull(OAIHttpRequestWorker *worker, QSet<OAIGetSimilarRecipes_200_response_inner> summary);
     void guessNutritionByDishNameSignalFull(OAIHttpRequestWorker *worker, OAIGuessNutritionByDishName_200_response summary);
     void parseIngredientsSignalFull(OAIHttpRequestWorker *worker, QSet<OAIParseIngredients_200_response_inner> summary);
-    void priceBreakdownByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void priceBreakdownByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void quickAnswerSignalFull(OAIHttpRequestWorker *worker, OAIQuickAnswer_200_response summary);
-    void recipeNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
-    void recipeNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void recipeNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
+    void recipeNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void recipeNutritionLabelWidgetSignalFull(OAIHttpRequestWorker *worker, QString summary);
-    void recipeTasteByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
+    void recipeTasteByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void searchRecipesSignalFull(OAIHttpRequestWorker *worker, OAISearchRecipes_200_response summary);
     void searchRecipesByIngredientsSignalFull(OAIHttpRequestWorker *worker, QSet<OAISearchRecipesByIngredients_200_response_inner> summary);
     void searchRecipesByNutrientsSignalFull(OAIHttpRequestWorker *worker, QSet<OAISearchRecipesByNutrients_200_response_inner> summary);
@@ -675,8 +696,8 @@ Q_SIGNALS:
     void createRecipeCardSignalE(OAICreateRecipeCard_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void createRecipeCardSignalError(OAICreateRecipeCard_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use equipmentByIDImageSignalError() instead")
-    void equipmentByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void equipmentByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void equipmentByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void equipmentByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use extractRecipeFromWebsiteSignalError() instead")
     void extractRecipeFromWebsiteSignalE(OAIGetRecipeInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void extractRecipeFromWebsiteSignalError(OAIGetRecipeInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -717,23 +738,23 @@ Q_SIGNALS:
     void parseIngredientsSignalE(QSet<OAIParseIngredients_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void parseIngredientsSignalError(QSet<OAIParseIngredients_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use priceBreakdownByIDImageSignalError() instead")
-    void priceBreakdownByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void priceBreakdownByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void priceBreakdownByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void priceBreakdownByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use quickAnswerSignalError() instead")
     void quickAnswerSignalE(OAIQuickAnswer_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void quickAnswerSignalError(OAIQuickAnswer_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use recipeNutritionByIDImageSignalError() instead")
-    void recipeNutritionByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void recipeNutritionByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void recipeNutritionByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void recipeNutritionByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use recipeNutritionLabelImageSignalError() instead")
-    void recipeNutritionLabelImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void recipeNutritionLabelImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void recipeNutritionLabelImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void recipeNutritionLabelImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use recipeNutritionLabelWidgetSignalError() instead")
     void recipeNutritionLabelWidgetSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
     void recipeNutritionLabelWidgetSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use recipeTasteByIDImageSignalError() instead")
-    void recipeTasteByIDImageSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void recipeTasteByIDImageSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void recipeTasteByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void recipeTasteByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use searchRecipesSignalError() instead")
     void searchRecipesSignalE(OAISearchRecipes_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void searchRecipesSignalError(OAISearchRecipes_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

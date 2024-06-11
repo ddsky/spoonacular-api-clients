@@ -396,10 +396,10 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLoca
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner;
+use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
+use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
 
 ````
 
@@ -571,10 +571,10 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLoca
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner;
+use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
+use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -860,10 +860,10 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [WWW::OpenAPIClient::Object::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [WWW::OpenAPIClient::Object::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

@@ -9,7 +9,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**answerText** | **String** |  |  |
-|**media** | **List&lt;Object&gt;** |  |  |
+|**media** | [**List&lt;TalkToChatbot200ResponseMediaInner&gt;**](TalkToChatbot200ResponseMediaInner.md) |  |  |
 
 
 

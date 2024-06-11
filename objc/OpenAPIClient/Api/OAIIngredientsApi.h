@@ -177,10 +177,10 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
 ///  code:403 message:"Forbidden",
 ///  code:404 message:"Not Found"
 ///
-/// @return NSObject*
+/// @return NSURL*
 -(NSURLSessionTask*) ingredientsByIDImageWithId: (NSNumber*) _id
     measure: (NSString*) measure
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
 
 
 /// Map Ingredients to Grocery Products
@@ -201,9 +201,13 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
 /// Ingredients Widget
 /// Visualize ingredients of a recipe. You can play around with that endpoint!
 ///
-/// @param contentType The content type. (optional)
+/// @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+/// @param servings The number of servings.
 /// @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-/// @param accept Accept header. (optional)
+/// @param measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. (optional)
+/// @param view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. (optional)
+/// @param defaultCss Whether the default CSS should be added to the response. (optional)
+/// @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 /// 
 ///  code:200 message:"Success",
 ///  code:401 message:"Unauthorized",
@@ -211,9 +215,13 @@ extern NSInteger kOAIIngredientsApiMissingParamErrorCode;
 ///  code:404 message:"Not Found"
 ///
 /// @return NSString*
--(NSURLSessionTask*) visualizeIngredientsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) visualizeIngredientsWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
-    accept: (NSString*) accept
+    measure: (NSString*) measure
+    view: (NSString*) view
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

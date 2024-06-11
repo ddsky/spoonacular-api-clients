@@ -10,7 +10,7 @@
 |**id** | **Integer** |  |  |
 |**title** | **String** |  |  |
 |**averageRating** | **BigDecimal** |  |  |
-|**description** | **Object** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 |**imageUrl** | **String** |  |  |
 |**link** | **String** |  |  |
 |**price** | **String** |  |  |

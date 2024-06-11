@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.OasAnyTypeNotMapped;
+import com.spoonacular.client.model.TalkToChatbot200ResponseMediaInner;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +26,7 @@ public class TalkToChatbot200Response {
   @SerializedName("answerText")
   private String answerText = null;
   @SerializedName("media")
-  private List<OasAnyTypeNotMapped> media = null;
+  private List<TalkToChatbot200ResponseMediaInner> media = null;
 
   /**
    **/
@@ -41,10 +41,10 @@ public class TalkToChatbot200Response {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<OasAnyTypeNotMapped> getMedia() {
+  public List<TalkToChatbot200ResponseMediaInner> getMedia() {
     return media;
   }
-  public void setMedia(List<OasAnyTypeNotMapped> media) {
+  public void setMedia(List<TalkToChatbot200ResponseMediaInner> media) {
     this.media = media;
   }
 

@@ -344,10 +344,10 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [OpenapiClient::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [OpenapiClient::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [OpenapiClient::SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [OpenapiClient::SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [OpenapiClient::SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [OpenapiClient::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [OpenapiClient::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [OpenapiClient::TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 ## Documentation for Authorization

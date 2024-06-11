@@ -25,7 +25,7 @@ export interface GetProductInformation200Response {
     badges: Array<string>;
     importantBadges: Array<string>;
     ingredientCount: number;
-    generatedText?: any | null;
+    generatedText?: string;
     ingredientList: string;
     ingredients: Array<GetProductInformation200ResponseIngredientsInner>;
     likes: number;

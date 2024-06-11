@@ -127,7 +127,7 @@ pub enum TalkToChatbotError {
 
 
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-pub async fn detect_food_in_text(configuration: &configuration::Configuration, content_type: Option<&str>) -> Result<crate::models::DetectFoodInText200Response, Error<DetectFoodInTextError>> {
+pub async fn detect_food_in_text(configuration: &configuration::Configuration, text: &str) -> Result<crate::models::DetectFoodInText200Response, Error<DetectFoodInTextError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -138,9 +138,6 @@ pub async fn detect_food_in_text(configuration: &configuration::Configuration, c
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(local_var_param_value) = content_type {
-        local_var_req_builder = local_var_req_builder.header("Content-Type", local_var_param_value.to_string());
-    }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
@@ -149,6 +146,9 @@ pub async fn detect_food_in_text(configuration: &configuration::Configuration, c
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
+    let mut local_var_form_params = std::collections::HashMap::new();
+    local_var_form_params.insert("text", text.to_string());
+    local_var_req_builder = local_var_req_builder.form(&local_var_form_params);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

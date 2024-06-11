@@ -45,7 +45,13 @@ class GetProductInformation200Response {
 
   int ingredientCount;
 
-  Object? generatedText;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? generatedText;
 
   String ingredientList;
 
@@ -162,7 +168,7 @@ class GetProductInformation200Response {
             ? (json[r'importantBadges'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         ingredientCount: mapValueOfType<int>(json, r'ingredientCount')!,
-        generatedText: mapValueOfType<Object>(json, r'generatedText'),
+        generatedText: mapValueOfType<String>(json, r'generatedText'),
         ingredientList: mapValueOfType<String>(json, r'ingredientList')!,
         ingredients: GetProductInformation200ResponseIngredientsInner.listFromJson(json[r'ingredients']),
         likes: num.parse('${json[r'likes']}'),

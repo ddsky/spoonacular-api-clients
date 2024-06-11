@@ -4272,7 +4272,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -4354,7 +4355,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -4530,7 +4532,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -4715,7 +4718,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -4906,7 +4910,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -5040,7 +5045,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -5759,57 +5765,13 @@ paths:
           example: en
           type: string
         style: form
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
-      - description: Whether to normalize to the strongest taste.
-        explode: true
-        in: query
-        name: normalize
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - description: "Red, green, blue values for the chart color."
-        explode: true
-        in: query
-        name: rgb
-        required: false
-        schema:
-          example: "75,192,192"
-          type: string
-        style: form
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: "ingredientList=3 tomatoes, 5 oranges, 1 tsp salt"
+            example:
+              ingredientList: "3 tomatoes, 5 oranges, 1 tsp salt"
             schema:
-              type: string
+              $ref: '#/components/schemas/visualizeRecipeTaste_request'
         description: ""
         required: true
       responses:
@@ -5840,32 +5802,6 @@ paths:
         url: https://spoonacular.com/food-api/docs#Recipe-Nutrition-Widget
       operationId: visualizeRecipeNutrition
       parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
       - description: The language of the input. Either 'en' or 'de'.
         explode: true
         in: query
@@ -5881,11 +5817,11 @@ paths:
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: ingredientList=3 oz flour&servings=2
+            example:
+              ingredientList: 3 oz flour
+              servings: 2
             schema:
-              type: string
+              $ref: '#/components/schemas/visualizeRecipeNutrition_request'
         required: true
       responses:
         "200":
@@ -5914,32 +5850,6 @@ paths:
         url: https://spoonacular.com/food-api/docs#Price-Breakdown-Widget
       operationId: visualizePriceBreakdown
       parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
       - description: The language of the input. Either 'en' or 'de'.
         explode: true
         in: query
@@ -5955,11 +5865,11 @@ paths:
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: ingredientList=3 oz flour&servings=2
+            example:
+              ingredientList: 3 oz flour
+              servings: "2"
             schema:
-              type: string
+              $ref: '#/components/schemas/visualizePriceBreakdown_request'
         required: true
       responses:
         "200":
@@ -5987,42 +5897,14 @@ paths:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Equipment-Widget
       operationId: visualizeEquipment
-      parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
+      parameters: []
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: instructions=Preheat oven. Cut cucumber with a knife and put
-                  in a blender.
+            example:
+              instructions: Preheat oven. Cut cucumber with a knife and put in a blender.
             schema:
-              type: string
+              $ref: '#/components/schemas/visualizeEquipment_request'
         required: true
       responses:
         "200":
@@ -6256,29 +6138,20 @@ paths:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Create-Recipe-Card
       operationId: createRecipeCard
-      parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
+      parameters: []
       requestBody:
         content:
           multipart/form-data:
-            examples:
-              example-1:
-                value: title=My recipe&ingredients=2 cups of green beans&instructions=cook
-                  the beans&readyInMinutes=60&servings=2&mask=ellipseMask&backgroundImage=background1
+            example:
+              title: My recipe
+              ingredients: 2 cups of green beans
+              instructions: cook the beans
+              readyInMinutes: 60
+              servings: 2
+              mask: ellipseMask
+              backgroundImage: background1
             schema:
-              type: string
+              $ref: '#/components/schemas/createRecipeCard_request'
         required: true
       responses:
         "200":
@@ -6313,29 +6186,15 @@ paths:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Analyze-Recipe-Instructions
       operationId: analyzeRecipeInstructions
-      parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
+      parameters: []
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: instructions=Put the garlic in a pan and then add the onion.
-                  Add some salt and oregano.
+            example:
+              instructions: Put the garlic in a pan and then add the onion. Add some
+                salt and oregano.
             schema:
-              type: string
+              $ref: '#/components/schemas/analyzeRecipeInstructions_request'
         required: true
       responses:
         "200":
@@ -6410,28 +6269,26 @@ paths:
         url: https://spoonacular.com/food-api/docs#Classify-Cuisine
       operationId: classifyCuisine
       parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
+      - description: The language of the input. Either 'en' or 'de'.
+        explode: true
+        in: query
+        name: language
         required: false
         schema:
           enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
+          - en
+          - de
+          example: en
           type: string
-        style: simple
+        style: form
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: title=Pork roast with green beans&ingredientList=3 oz pork
-                  shoulder
+            example:
+              title: Pork roast with green beans
+              ingredientList: 3 oz pork shoulder
             schema:
-              type: string
+              $ref: '#/components/schemas/classifyCuisine_request'
         required: true
       responses:
         "200":
@@ -6594,19 +6451,6 @@ paths:
         url: https://spoonacular.com/food-api/docs#Parse-Ingredients
       operationId: parseIngredients
       parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
       - description: The language of the input. Either 'en' or 'de'.
         explode: true
         in: query
@@ -6622,11 +6466,11 @@ paths:
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: ingredientList=1 cup green tea&servings=1
+            example:
+              ingredientList: 1 cup green tea
+              servings: "1"
             schema:
-              type: string
+              $ref: '#/components/schemas/parseIngredients_request'
         required: true
       responses:
         "200":
@@ -7047,19 +6891,6 @@ paths:
           example: false
           type: boolean
         style: form
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -7087,19 +6918,6 @@ paths:
         url: https://spoonacular.com/food-api/docs#Ingredients-Widget
       operationId: visualizeIngredients
       parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
       - description: The language of the input. Either 'en' or 'de'.
         explode: true
         in: query
@@ -7112,27 +6930,14 @@ paths:
           example: en
           type: string
         style: form
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: ingredientList=3 oz flour&servings=2
+            example:
+              ingredientList: 3 oz flour
+              servings: 2
             schema:
-              type: string
+              $ref: '#/components/schemas/visualizeIngredients_request'
         required: true
       responses:
         "200":
@@ -8907,19 +8712,6 @@ paths:
           example: false
           type: boolean
         style: form
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -8963,7 +8755,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -9097,7 +8890,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -9712,19 +9506,6 @@ paths:
           example: false
           type: boolean
         style: form
-      - description: Accept header.
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          enum:
-          - application/json
-          - text/html
-          - media/*
-          example: application/json
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -9766,7 +9547,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -9901,7 +9683,8 @@ paths:
           content:
             image/png:
               schema:
-                type: object
+                format: binary
+                type: string
           description: Success
         "401":
           description: Unauthorized
@@ -12593,30 +12376,16 @@ paths:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Detect-Food-in-Text
       operationId: detectFoodInText
-      parameters:
-      - description: The content type.
-        explode: false
-        in: header
-        name: Content-Type
-        required: false
-        schema:
-          enum:
-          - application/x-www-form-urlencoded
-          - application/json
-          - multipart/form-data
-          example: application/json
-          type: string
-        style: simple
+      parameters: []
       requestBody:
         content:
           application/x-www-form-urlencoded:
-            examples:
-              example-1:
-                value: "text=I like to eat delicious tacos. The only thing better\
-                  \ is a cheeseburger with cheddar. But then again, pizza with pepperoni,\
-                  \ mushrooms, and tomatoes is so good too!"
+            example:
+              text: "I like to eat delicious tacos. The only thing better is a cheeseburger\
+                \ with cheddar. But then again, pizza with pepperoni, mushrooms, and\
+                \ tomatoes is so good too!"
             schema:
-              type: string
+              $ref: '#/components/schemas/detectFoodInText_request'
         required: true
       responses:
         "200":
@@ -13438,34 +13207,6 @@ components:
         example: en
         type: string
       style: form
-    Content-Type:
-      description: The content type.
-      explode: false
-      in: header
-      name: Content-Type
-      required: false
-      schema:
-        enum:
-        - application/x-www-form-urlencoded
-        - application/json
-        - multipart/form-data
-        example: application/json
-        type: string
-      style: simple
-    Accept:
-      description: Accept header.
-      explode: false
-      in: header
-      name: Accept
-      required: false
-      schema:
-        enum:
-        - application/json
-        - text/html
-        - media/*
-        example: application/json
-        type: string
-      style: simple
     username:
       description: The username.
       explode: false
@@ -16628,6 +16369,83 @@ components:
           equipment:
           - id: 404645
             name: frying pan
+    visualizeRecipeTaste_request:
+      properties:
+        ingredientList:
+          description: "The ingredient list of the recipe, one ingredient per line."
+          type: string
+        normalize:
+          description: Normalize to the strongest taste.
+          type: boolean
+        rgb:
+          description: "Red, green, blue values for the chart color."
+          type: string
+      required:
+      - ingredientList
+      type: object
+    visualizeRecipeNutrition_request:
+      properties:
+        ingredientList:
+          description: "The ingredient list of the recipe, one ingredient per line."
+          type: string
+        servings:
+          description: The number of servings.
+          type: number
+        defaultCss:
+          description: Whether the default CSS should be added to the response.
+          type: boolean
+        showBacklink:
+          description: "Whether to show a backlink to spoonacular. If set false, this\
+            \ call counts against your quota."
+          type: boolean
+      required:
+      - ingredientList
+      - servings
+      type: object
+    visualizePriceBreakdown_request:
+      properties:
+        ingredientList:
+          description: "The ingredient list of the recipe, one ingredient per line."
+          type: string
+        servings:
+          description: The number of servings.
+          type: number
+        mode:
+          description: "The mode in which the widget should be delivered. 1 = separate\
+            \ views (compact), 2 = all in one view (full)."
+          type: number
+        defaultCss:
+          description: Whether the default CSS should be added to the response.
+          type: boolean
+        showBacklink:
+          description: "Whether to show a backlink to spoonacular. If set false, this\
+            \ call counts against your quota."
+          type: boolean
+      required:
+      - ingredientList
+      - servings
+      type: object
+    visualizeEquipment_request:
+      properties:
+        instructions:
+          description: The recipe's instructions.
+          type: string
+        view:
+          description: "How to visualize the ingredients, either 'grid' or 'list'."
+          enum:
+          - grid
+          - list
+          type: string
+        defaultCss:
+          description: Whether the default CSS should be added to the response.
+          type: boolean
+        showBacklink:
+          description: "Whether to show a backlink to spoonacular. If set false, this\
+            \ call counts against your quota."
+          type: boolean
+      required:
+      - instructions
+      type: object
     analyzeRecipe_request:
       properties:
         title:
@@ -16692,6 +16510,72 @@ components:
             \ a look at these similar recipes: Salmon With Soy-ginger Noodles, Ginger-Soy\
             \ Salmon With Soba Noodles, and Soy & ginger salmon with soba noodles."
           title: Soy-and-Ginger-Glazed Salmon with Udon Noodles
+    createRecipeCard_request:
+      properties:
+        title:
+          description: The title of the recipe.
+          type: string
+        ingredients:
+          description: "The ingredient list of the recipe, one ingredient per line\
+            \ (separate lines with \\n)."
+          type: string
+        instructions:
+          description: The instructions to make the recipe. One step per line (separate
+            lines with \n).
+          type: string
+        readyInMinutes:
+          description: The number of minutes it takes to get the recipe on the table.
+          type: number
+        servings:
+          description: The number of servings the recipe makes.
+          type: number
+        mask:
+          description: "The mask to put over the recipe image ('ellipseMask', 'diamondMask',\
+            \ 'starMask', 'heartMask', 'potMask', 'fishMask')."
+          enum:
+          - ellipseMask
+          - diamondMask
+          - starMask
+          - heartMask
+          - potMask
+          - fishMask
+          type: string
+        backgroundImage:
+          description: "The background image ('none', 'background1', or 'background2')."
+          enum:
+          - none
+          - background1
+          - background2
+          type: string
+        image:
+          description: The binary image of the recipe as jpg.
+          format: binary
+          type: string
+        imageUrl:
+          description: If you do not sent a binary image you can also pass the image
+            URL.
+          type: string
+        author:
+          description: The author of the recipe.
+          type: string
+        backgroundColor:
+          description: The background color for the recipe card as a hex-string.
+          type: string
+        fontColor:
+          description: The font color for the recipe card as a hex-string.
+          type: string
+        source:
+          description: The source of the recipe.
+          type: string
+      required:
+      - backgroundImage
+      - ingredients
+      - instructions
+      - mask
+      - readyInMinutes
+      - servings
+      - title
+      type: object
     createRecipeCard_200_response:
       description: ""
       example:
@@ -16706,6 +16590,14 @@ components:
       x-examples:
         example-1:
           url: https://spoonacular.com/url-to-generated-recipe-card.jpg
+    analyzeRecipeInstructions_request:
+      properties:
+        instructions:
+          description: The recipe's instructions.
+          type: string
+      required:
+      - instructions
+      type: object
     analyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner:
       example:
         image: image
@@ -17007,6 +16899,19 @@ components:
           equipment:
           - id: 404645
             name: frying pan
+    classifyCuisine_request:
+      properties:
+        title:
+          description: The title of the recipe.
+          type: string
+        ingredientList:
+          description: "The ingredient list of the recipe, one ingredient per line\
+            \ (separate lines with \\n)."
+          type: string
+      required:
+      - ingredientList
+      - title
+      type: object
     classifyCuisine_200_response:
       description: ""
       example:
@@ -17170,6 +17075,20 @@ components:
           targetAmount: 312.5
           targetUnit: grams
           answer: 2.5 cups flour translates to 312.5 grams.
+    parseIngredients_request:
+      properties:
+        ingredientList:
+          description: "The ingredient list of the recipe, one ingredient per line."
+          type: string
+        servings:
+          description: The number of servings that you can make from the ingredients.
+          type: number
+        includeNutrition:
+          type: boolean
+      required:
+      - ingredientList
+      - servings
+      type: object
     parseIngredients_200_response_inner_estimatedCost:
       example:
         unit: unit
@@ -17436,6 +17355,38 @@ components:
       - unit
       - unitLong
       - unitShort
+      type: object
+    visualizeIngredients_request:
+      properties:
+        ingredientList:
+          description: "The ingredient list of the recipe, one ingredient per line\
+            \ (separate lines with \\n)."
+          type: string
+        servings:
+          description: The number of servings.
+          type: number
+        measure:
+          description: "The original system of measurement, either 'metric' or 'us'."
+          enum:
+          - us
+          - metric
+          type: string
+        view:
+          description: "How to visualize the ingredients, either 'grid' or 'list'."
+          enum:
+          - grid
+          - list
+          type: string
+        defaultCss:
+          description: Whether the default CSS should be added to the response.
+          type: boolean
+        showBacklink:
+          description: "Whether to show a backlink to spoonacular. If set false, this\
+            \ call counts against your quota."
+          type: boolean
+      required:
+      - ingredientList
+      - servings
       type: object
     guessNutritionByDishName_200_response_calories_confidenceRange95Percent:
       example:
@@ -18168,14 +18119,16 @@ components:
           number: 2
     searchGroceryProductsByUPC_200_response_ingredients_inner:
       example:
-        safety_level: ""
+        safety_level: safety_level
         name: name
-        description: ""
+        description: description
       properties:
-        description: {}
+        description:
+          type: string
         name:
           type: string
-        safety_level: {}
+        safety_level:
+          type: string
       required:
       - name
       type: object
@@ -18255,12 +18208,12 @@ components:
         price: 5.962133916683182
         ingredientList: ingredientList
         ingredients:
-        - safety_level: ""
+        - safety_level: safety_level
           name: name
-          description: ""
-        - safety_level: ""
+          description: description
+        - safety_level: safety_level
           name: name
-          description: ""
+          description: description
         spoonacularScore: 7.061401241503109
         id: 0
         imageType: imageType
@@ -18475,15 +18428,17 @@ components:
           number: 10
     getProductInformation_200_response_ingredients_inner:
       example:
-        safety_level: ""
+        safety_level: safety_level
         name: name
-        description: ""
+        description: description
       properties:
-        description: {}
+        description:
+          type: string
         name:
           minLength: 1
           type: string
-        safety_level: {}
+        safety_level:
+          type: string
       required:
       - name
       type: object
@@ -18496,7 +18451,7 @@ components:
         badges:
         - badges
         - badges
-        generatedText: ""
+        generatedText: generatedText
         nutrition:
           caloricBreakdown:
             percentCarbs: 3.616076749251911
@@ -18518,12 +18473,12 @@ components:
         price: 5.962133916683182
         ingredientList: ingredientList
         ingredients:
-        - safety_level: ""
+        - safety_level: safety_level
           name: name
-          description: ""
-        - safety_level: ""
+          description: description
+        - safety_level: safety_level
           name: name
-          description: ""
+          description: description
         spoonacularScore: 5.637376656633329
         id: 0
         imageType: imageType
@@ -18557,7 +18512,8 @@ components:
           type: array
         ingredientCount:
           type: integer
-        generatedText: {}
+        generatedText:
+          type: string
         ingredientList:
           minLength: 1
           type: string
@@ -18597,159 +18553,6 @@ components:
       - spoonacularScore
       - title
       type: object
-      x-examples:
-        example-1:
-          id: 22347
-          title: SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag
-          breadcrumbs:
-          - bars
-          imageType: jpg
-          badges:
-          - msg_free
-          - no_artificial_colors
-          - no_artificial_flavors
-          - no_artificial_ingredients
-          - gluten_free
-          importantBadges:
-          - no_artificial_flavors
-          - no_artificial_colors
-          - no_artificial_ingredients
-          - gluten_free
-          - msg_free
-          ingredientCount: 32
-          ingredientList: "Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa\
-            \ Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial\
-            \ Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2%\
-            \ - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites,\
-            \ Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar,\
-            \ Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin,\
-            \ Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk,\
-            \ Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate,\
-            \ Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate\
-            \ (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin,\
-            \ Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean\
-            \ Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel\
-            \ Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated\
-            \ Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than\
-            \ 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially\
-            \ Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain\
-            \ Freshness"
-          ingredients:
-          - name: emulsifier
-          - name: added sugar
-          - name: sweetener
-          - name: cooking fat
-          - name: cooking oil
-          - name: lecithin
-          - name: yeast
-          - name: menu item type
-          - name: nuts
-          - name: partially hydrogenated vegetable oil
-            safety_level: low
-          - description: "Unlike partially hydrogenated oils, fully hydrogenated oils\
-              \ do not contain trans fat and thus are currently considered safer."
-            name: hydrogenated vegetable oil
-            safety_level: high
-          - name: calcium
-          - name: nut butter
-          - name: legumes
-          - name: refined sweetener
-          - name: non food item
-          - name: tree nuts
-          - name: chocolate
-          - name: sugar
-          - name: snack
-          - name: corn syrup
-          - name: drink
-          - name: milk
-          - name: spread
-          - name: vegetable oil
-          - name: yeast nutrient
-          - name: palm kernel oil
-          - name: artificial ingredient
-          - name: stabilizer
-          - name: additive
-          - name: nutrient
-          - name: soybean oil
-          - name: supplement
-          - name: mineral
-          - name: artificial flavor
-            safety_level: medium
-          - name: skim milk
-          - name: peanuts
-          - name: corn syrup solids
-            safety_level: medium
-          - description: "Unlike partially hydrogenated oils, fully hydrogenated oils\
-              \ do not contain trans fat and thus are currently considered safer."
-            name: hydrogenated palm kernel oil
-            safety_level: high
-          - name: cottonseed oil
-          - name: milkfat
-            safety_level: high
-          - name: lactose
-          - name: corn syrup
-          - name: cocoa butter
-            safety_level: high
-          - name: tbhq to maintain freshness
-          - name: peanut butter
-          - name: egg whites
-          - name: sugar
-          - name: milk chocolate
-          - name: palm oil
-          - name: artificial flavor
-          - name: salt
-          - name: almonds
-          - name: skim milk less than 2% - lactose
-          - name: vegetable oil
-          - name: less than 2% - glycerin
-          - name: dextrose
-            safety_level: high
-          - description: Soy lecithin is not a concern for most people allergic to
-              soy.
-            name: soy lecithin
-            safety_level: high
-          - name: invert sugar
-            safety_level: high
-          - name: chocolate
-          - name: rapeseed oil
-          - name: partially hydrogenated soybean oil
-            safety_level: low
-          - name: calcium carbonate
-            safety_level: high
-          - name: partially hydrogenated palm kernel oil
-            safety_level: low
-          - name: artificial flavor.snickers brand
-          - name: snickers brand almond bar
-          likes: 0
-          aisle: Sweet Snacks
-          nutrition:
-            nutrients:
-            - name: Fat
-              amount: 4
-              unit: g
-              percentOfDailyNeeds: 6.15
-            - name: Protein
-              amount: 10
-              unit: g
-              percentOfDailyNeeds: 20
-            - name: Calories
-              amount: 200
-              unit: cal
-              percentOfDailyNeeds: 10
-            - name: Carbohydrates
-              amount: 26
-              unit: g
-              percentOfDailyNeeds: 9.45
-            caloricBreakdown:
-              percentProtein: 22.22
-              percentFat: 20
-              percentCarbs: 57.78
-          price: 324
-          servings:
-            number: 8
-            size: 4
-            unit: pieces
-          spoonacularScore: 0
     getComparableProducts_200_response_comparableProducts_protein_inner:
       example:
         image: image
@@ -22344,7 +22147,7 @@ components:
         averageRating: 6.027456183070403
         imageUrl: imageUrl
         link: link
-        description: ""
+        description: description
         id: 0
         title: title
         ratingCount: 1
@@ -22356,7 +22159,8 @@ components:
           type: string
         averageRating:
           type: number
-        description: {}
+        description:
+          type: string
         imageUrl:
           minLength: 1
           type: string
@@ -22389,7 +22193,7 @@ components:
           averageRating: 6.027456183070403
           imageUrl: imageUrl
           link: link
-          description: ""
+          description: description
           id: 0
           title: title
           ratingCount: 1
@@ -22398,7 +22202,7 @@ components:
           averageRating: 6.027456183070403
           imageUrl: imageUrl
           link: link
-          description: ""
+          description: description
           id: 0
           title: title
           ratingCount: 1
@@ -22425,27 +22229,6 @@ components:
       - pairingText
       - productMatches
       type: object
-      x-examples:
-        example-1:
-          pairedWines:
-          - merlot
-          - cabernet sauvignon
-          - pinot noir
-          pairingText: "Merlot, Cabernet Sauvignon, and Pinot Noir are my top picks\
-            \ for Steak. After all, beef and red wine are a classic combination. Generally,\
-            \ leaner steaks go well with light or medium-bodied reds, such as pinot\
-            \ noir or merlot, while fattier steaks can handle a bold red, such as\
-            \ cabernet sauvingnon. The Sterling Vineyards Merlot with a 5 out of 5\
-            \ star rating seems like a good match. It costs about 29 dollars per bottle."
-          productMatches:
-          - id: 428278
-            title: Sterling Vineyards Merlot
-            averageRating: 1
-            imageUrl: https://spoonacular.com/productImages/428278-312x231.jpg
-            link: https://www.amazon.com/2014-Sterling-Vineyards-Valley-Merlot/dp/B071FP8NPG?tag=spoonacular-20
-            price: $28.99
-            ratingCount: 1
-            score: 0.75
     getWineDescription_200_response:
       description: ""
       example:
@@ -22868,6 +22651,13 @@ components:
           answer: There are 16.74 mg of Vitamin C in 2 apples. This covers about 20%
             of your daily needs of Vitamin C.
           image: https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
+    detectFoodInText_request:
+      properties:
+        text:
+          type: string
+      required:
+      - text
+      type: object
     detectFoodInText_200_response_annotations_inner:
       example:
         annotation: annotation
@@ -22931,33 +22721,7 @@ components:
           - annotation: pizza
             image: https://spoonacular.com/menuItemImages/cheese-pizza.png
             tag: dish
-    searchSiteContent_200_response_Articles_inner:
-      example:
-        image: image
-        link: link
-        name: name
-        dataPoints:
-        - ""
-        - ""
-      properties:
-        dataPoints:
-          items:
-            properties: {}
-          type: array
-        image:
-          minLength: 1
-          type: string
-        link:
-          minLength: 1
-          type: string
-        name:
-          minLength: 1
-          type: string
-      required:
-      - image
-      - link
-      - name
-    searchSiteContent_200_response_Grocery_Products_inner_dataPoints_inner:
+    searchSiteContent_200_response_Articles_inner_dataPoints_inner:
       example:
         value: value
         key: key
@@ -22971,7 +22735,7 @@ components:
       required:
       - key
       - value
-    searchSiteContent_200_response_Grocery_Products_inner:
+    searchSiteContent_200_response_Articles_inner:
       example:
         image: image
         link: link
@@ -22984,7 +22748,7 @@ components:
       properties:
         dataPoints:
           items:
-            $ref: '#/components/schemas/searchSiteContent_200_response_Grocery_Products_inner_dataPoints_inner'
+            $ref: '#/components/schemas/searchSiteContent_200_response_Articles_inner_dataPoints_inner'
           minItems: 0
           type: array
           uniqueItems: true
@@ -23009,14 +22773,18 @@ components:
           link: link
           name: name
           dataPoints:
-          - ""
-          - ""
+          - value: value
+            key: key
+          - value: value
+            key: key
         - image: image
           link: link
           name: name
           dataPoints:
-          - ""
-          - ""
+          - value: value
+            key: key
+          - value: value
+            key: key
         Menu Items:
         - image: image
           link: link
@@ -23077,19 +22845,19 @@ components:
           uniqueItems: true
         Grocery Products:
           items:
-            $ref: '#/components/schemas/searchSiteContent_200_response_Grocery_Products_inner'
+            $ref: '#/components/schemas/searchSiteContent_200_response_Articles_inner'
           minItems: 0
           type: array
           uniqueItems: true
         Menu Items:
           items:
-            $ref: '#/components/schemas/searchSiteContent_200_response_Grocery_Products_inner'
+            $ref: '#/components/schemas/searchSiteContent_200_response_Articles_inner'
           minItems: 0
           type: array
           uniqueItems: true
         Recipes:
           items:
-            $ref: '#/components/schemas/searchSiteContent_200_response_Grocery_Products_inner'
+            $ref: '#/components/schemas/searchSiteContent_200_response_Articles_inner'
           minItems: 0
           type: array
           uniqueItems: true
@@ -23561,20 +23329,37 @@ components:
         example-1:
           text: "The red food-coloring carmine used in Skittles and other candies\
             \ is made from boiled cochineal bugs, a type of beetle."
+    talkToChatbot_200_response_media_inner:
+      example:
+        image: image
+        link: link
+        title: title
+      properties:
+        title:
+          type: string
+        image:
+          type: string
+        link:
+          type: string
+      type: object
     talkToChatbot_200_response:
       description: ""
       example:
         answerText: answerText
         media:
-        - ""
-        - ""
+        - image: image
+          link: link
+          title: title
+        - image: image
+          link: link
+          title: title
       properties:
         answerText:
           minLength: 1
           type: string
         media:
           items:
-            properties: {}
+            $ref: '#/components/schemas/talkToChatbot_200_response_media_inner'
           type: array
       required:
       - answerText
@@ -23616,14 +23401,14 @@ components:
           - name: name
           - name: name
         words:
-        - ""
-        - ""
+        - words
+        - words
       properties:
         suggests:
           $ref: '#/components/schemas/getConversationSuggests_200_response_suggests'
         words:
           items:
-            properties: {}
+            type: string
           type: array
       required:
       - suggests

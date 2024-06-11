@@ -92,17 +92,15 @@ instance Produces AnalyzeARecipeSearchQuery MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 analyzeRecipeInstructions
-  :: SpoonacularRequest AnalyzeRecipeInstructions MimeNoContent AnalyzeRecipeInstructions200Response MimeJSON
-analyzeRecipeInstructions =
+  :: (Consumes AnalyzeRecipeInstructions MimeFormUrlEncoded)
+  => Instructions -- ^ "instructions" -  The recipe's instructions.
+  -> SpoonacularRequest AnalyzeRecipeInstructions MimeFormUrlEncoded AnalyzeRecipeInstructions200Response MimeJSON
+analyzeRecipeInstructions (Instructions instructions) =
   _mkRequest "POST" ["/recipes/analyzeInstructions"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("instructions", instructions)
 
 data AnalyzeRecipeInstructions  
-
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam AnalyzeRecipeInstructions ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
 
 -- | @application/x-www-form-urlencoded@
 instance Consumes AnalyzeRecipeInstructions MimeFormUrlEncoded
@@ -153,17 +151,22 @@ instance Produces AutocompleteRecipeSearch MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 classifyCuisine
-  :: SpoonacularRequest ClassifyCuisine MimeNoContent ClassifyCuisine200Response MimeJSON
-classifyCuisine =
+  :: (Consumes ClassifyCuisine MimeFormUrlEncoded)
+  => Title -- ^ "title" -  The title of the recipe.
+  -> IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  -> SpoonacularRequest ClassifyCuisine MimeFormUrlEncoded ClassifyCuisine200Response MimeJSON
+classifyCuisine (Title title) (IngredientList ingredientList) =
   _mkRequest "POST" ["/recipes/cuisine"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("title", title)
+    `addForm` toForm ("ingredientList", ingredientList)
 
 data ClassifyCuisine  
 
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam ClassifyCuisine ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+-- | /Optional Param/ "language" - The language of the input. Either 'en' or 'de'.
+instance HasOptionalParam ClassifyCuisine Language where
+  applyOptionalParam req (Language xs) =
+    req `addQuery` toQuery ("language", Just xs)
 
 -- | @application/x-www-form-urlencoded@
 instance Consumes ClassifyCuisine MimeFormUrlEncoded
@@ -246,17 +249,57 @@ instance Produces ConvertAmounts MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 createRecipeCard
-  :: SpoonacularRequest CreateRecipeCard MimeNoContent CreateRecipeCard200Response MimeJSON
-createRecipeCard =
+  :: (Consumes CreateRecipeCard MimeMultipartFormData)
+  => Title -- ^ "title" -  The title of the recipe.
+  -> Ingredients -- ^ "ingredients" -  The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+  -> Instructions -- ^ "instructions" -  The instructions to make the recipe. One step per line (separate lines with \\\\n).
+  -> ReadyInMinutes -- ^ "readyInMinutes" -  The number of minutes it takes to get the recipe on the table.
+  -> Servings -- ^ "servings" -  The number of servings the recipe makes.
+  -> Mask2 -- ^ "mask" -  The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+  -> BackgroundImage2 -- ^ "backgroundImage" -  The background image ('none', 'background1', or 'background2').
+  -> SpoonacularRequest CreateRecipeCard MimeMultipartFormData CreateRecipeCard200Response MimeJSON
+createRecipeCard (Title title) (Ingredients ingredients) (Instructions instructions) (ReadyInMinutes readyInMinutes) (Servings servings) (Mask2 mask) (BackgroundImage2 backgroundImage) =
   _mkRequest "POST" ["/recipes/visualizeRecipe"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `_addMultiFormPart` NH.partLBS "title" (mimeRender' MimeMultipartFormData title)
+    `_addMultiFormPart` NH.partLBS "ingredients" (mimeRender' MimeMultipartFormData ingredients)
+    `_addMultiFormPart` NH.partLBS "instructions" (mimeRender' MimeMultipartFormData instructions)
+    `_addMultiFormPart` NH.partLBS "readyInMinutes" (mimeRender' MimeMultipartFormData readyInMinutes)
+    `_addMultiFormPart` NH.partLBS "servings" (mimeRender' MimeMultipartFormData servings)
+    `_addMultiFormPart` NH.partLBS "mask" (mimeRender' MimeMultipartFormData mask)
+    `_addMultiFormPart` NH.partLBS "backgroundImage" (mimeRender' MimeMultipartFormData backgroundImage)
 
 data CreateRecipeCard  
 
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam CreateRecipeCard ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+-- | /Optional Param/ "image" - The binary image of the recipe as jpg.
+instance HasOptionalParam CreateRecipeCard Image where
+  applyOptionalParam req (Image xs) =
+    req `_addMultiFormPart` NH.partFileSource "image" xs
+
+-- | /Optional Param/ "imageUrl" - If you do not sent a binary image you can also pass the image URL.
+instance HasOptionalParam CreateRecipeCard ImageUrl where
+  applyOptionalParam req (ImageUrl xs) =
+    req `_addMultiFormPart` NH.partLBS "imageUrl" (mimeRender' MimeMultipartFormData xs)
+
+-- | /Optional Param/ "author" - The author of the recipe.
+instance HasOptionalParam CreateRecipeCard Author where
+  applyOptionalParam req (Author xs) =
+    req `_addMultiFormPart` NH.partLBS "author" (mimeRender' MimeMultipartFormData xs)
+
+-- | /Optional Param/ "backgroundColor" - The background color for the recipe card as a hex-string.
+instance HasOptionalParam CreateRecipeCard BackgroundColor where
+  applyOptionalParam req (BackgroundColor xs) =
+    req `_addMultiFormPart` NH.partLBS "backgroundColor" (mimeRender' MimeMultipartFormData xs)
+
+-- | /Optional Param/ "fontColor" - The font color for the recipe card as a hex-string.
+instance HasOptionalParam CreateRecipeCard FontColor where
+  applyOptionalParam req (FontColor xs) =
+    req `_addMultiFormPart` NH.partLBS "fontColor" (mimeRender' MimeMultipartFormData xs)
+
+-- | /Optional Param/ "source" - The source of the recipe.
+instance HasOptionalParam CreateRecipeCard Source where
+  applyOptionalParam req (Source xs) =
+    req `_addMultiFormPart` NH.partLBS "source" (mimeRender' MimeMultipartFormData xs)
 
 -- | @multipart/form-data@
 instance Consumes CreateRecipeCard MimeMultipartFormData
@@ -277,7 +320,7 @@ instance Produces CreateRecipeCard MimeJSON
 -- 
 equipmentByIDImage
   :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest EquipmentByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest EquipmentByIDImage MimeNoContent FilePath MimeImagePng
 equipmentByIDImage (IdDouble id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/equipmentWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -639,17 +682,20 @@ instance Produces GuessNutritionByDishName MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 parseIngredients
-  :: SpoonacularRequest ParseIngredients MimeNoContent [ParseIngredients200ResponseInner] MimeJSON
-parseIngredients =
+  :: (Consumes ParseIngredients MimeFormUrlEncoded)
+  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
+  -> Servings -- ^ "servings" -  The number of servings that you can make from the ingredients.
+  -> SpoonacularRequest ParseIngredients MimeFormUrlEncoded [ParseIngredients200ResponseInner] MimeJSON
+parseIngredients (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/parseIngredients"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("ingredientList", ingredientList)
+    `addForm` toForm ("servings", servings)
 
 data ParseIngredients  
-
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam ParseIngredients ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+instance HasOptionalParam ParseIngredients IncludeNutrition where
+  applyOptionalParam req (IncludeNutrition xs) =
+    req `addForm` toForm ("includeNutrition", xs)
 
 -- | /Optional Param/ "language" - The language of the input. Either 'en' or 'de'.
 instance HasOptionalParam ParseIngredients Language where
@@ -675,7 +721,7 @@ instance Produces ParseIngredients MimeJSON
 -- 
 priceBreakdownByIDImage
   :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest PriceBreakdownByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest PriceBreakdownByIDImage MimeNoContent FilePath MimeImagePng
 priceBreakdownByIDImage (IdDouble id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/priceBreakdownWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -720,7 +766,7 @@ instance Produces QuickAnswer MimeJSON
 -- 
 recipeNutritionByIDImage
   :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest RecipeNutritionByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest RecipeNutritionByIDImage MimeNoContent FilePath MimeImagePng
 recipeNutritionByIDImage (IdDouble id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -742,7 +788,7 @@ instance Produces RecipeNutritionByIDImage MimeImagePng
 -- 
 recipeNutritionLabelImage
   :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest RecipeNutritionLabelImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest RecipeNutritionLabelImage MimeNoContent FilePath MimeImagePng
 recipeNutritionLabelImage (IdDouble id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionLabel.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -821,7 +867,7 @@ instance Produces RecipeNutritionLabelWidget MimeTextHtml
 -- 
 recipeTasteByIDImage
   :: IdDouble -- ^ "id" -  The recipe id.
-  -> SpoonacularRequest RecipeTasteByIDImage MimeNoContent A.Value MimeImagePng
+  -> SpoonacularRequest RecipeTasteByIDImage MimeNoContent FilePath MimeImagePng
 recipeTasteByIDImage (IdDouble id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -1832,22 +1878,30 @@ instance Produces SummarizeRecipe MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeEquipment
-  :: SpoonacularRequest VisualizeEquipment MimeNoContent Text MimeTextHtml
-visualizeEquipment =
+  :: (Consumes VisualizeEquipment MimeFormUrlEncoded)
+  => Instructions -- ^ "instructions" -  The recipe's instructions.
+  -> SpoonacularRequest VisualizeEquipment MimeFormUrlEncoded Text MimeTextHtml
+visualizeEquipment (Instructions instructions) =
   _mkRequest "POST" ["/recipes/visualizeEquipment"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("instructions", instructions)
 
 data VisualizeEquipment  
 
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam VisualizeEquipment ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+-- | /Optional Param/ "view" - How to visualize the ingredients, either 'grid' or 'list'.
+instance HasOptionalParam VisualizeEquipment View where
+  applyOptionalParam req (View xs) =
+    req `addForm` toForm ("view", xs)
 
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeEquipment ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
+-- | /Optional Param/ "defaultCss" - Whether the default CSS should be added to the response.
+instance HasOptionalParam VisualizeEquipment DefaultCss where
+  applyOptionalParam req (DefaultCss xs) =
+    req `addForm` toForm ("defaultCss", xs)
+
+-- | /Optional Param/ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+instance HasOptionalParam VisualizeEquipment ShowBacklink where
+  applyOptionalParam req (ShowBacklink xs) =
+    req `addForm` toForm ("showBacklink", xs)
 
 -- | @application/x-www-form-urlencoded@
 instance Consumes VisualizeEquipment MimeFormUrlEncoded
@@ -1867,22 +1921,32 @@ instance Produces VisualizeEquipment MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizePriceBreakdown
-  :: SpoonacularRequest VisualizePriceBreakdown MimeNoContent Text MimeTextHtml
-visualizePriceBreakdown =
+  :: (Consumes VisualizePriceBreakdown MimeFormUrlEncoded)
+  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
+  -> Servings -- ^ "servings" -  The number of servings.
+  -> SpoonacularRequest VisualizePriceBreakdown MimeFormUrlEncoded Text MimeTextHtml
+visualizePriceBreakdown (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/visualizePriceEstimator"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("ingredientList", ingredientList)
+    `addForm` toForm ("servings", servings)
 
 data VisualizePriceBreakdown  
 
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam VisualizePriceBreakdown ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+-- | /Optional Param/ "mode" - The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+instance HasOptionalParam VisualizePriceBreakdown Mode where
+  applyOptionalParam req (Mode xs) =
+    req `addForm` toForm ("mode", xs)
 
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizePriceBreakdown ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
+-- | /Optional Param/ "defaultCss" - Whether the default CSS should be added to the response.
+instance HasOptionalParam VisualizePriceBreakdown DefaultCss where
+  applyOptionalParam req (DefaultCss xs) =
+    req `addForm` toForm ("defaultCss", xs)
+
+-- | /Optional Param/ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+instance HasOptionalParam VisualizePriceBreakdown ShowBacklink where
+  applyOptionalParam req (ShowBacklink xs) =
+    req `addForm` toForm ("showBacklink", xs)
 
 -- | /Optional Param/ "language" - The language of the input. Either 'en' or 'de'.
 instance HasOptionalParam VisualizePriceBreakdown Language where
@@ -1966,22 +2030,27 @@ instance Produces VisualizeRecipeIngredientsByID MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipeNutrition
-  :: SpoonacularRequest VisualizeRecipeNutrition MimeNoContent Text MimeTextHtml
-visualizeRecipeNutrition =
+  :: (Consumes VisualizeRecipeNutrition MimeFormUrlEncoded)
+  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
+  -> Servings -- ^ "servings" -  The number of servings.
+  -> SpoonacularRequest VisualizeRecipeNutrition MimeFormUrlEncoded Text MimeTextHtml
+visualizeRecipeNutrition (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/visualizeNutrition"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("ingredientList", ingredientList)
+    `addForm` toForm ("servings", servings)
 
 data VisualizeRecipeNutrition  
 
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam VisualizeRecipeNutrition ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
+-- | /Optional Param/ "defaultCss" - Whether the default CSS should be added to the response.
+instance HasOptionalParam VisualizeRecipeNutrition DefaultCss where
+  applyOptionalParam req (DefaultCss xs) =
+    req `addForm` toForm ("defaultCss", xs)
 
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeRecipeNutrition ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
+-- | /Optional Param/ "showBacklink" - Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+instance HasOptionalParam VisualizeRecipeNutrition ShowBacklink where
+  applyOptionalParam req (ShowBacklink xs) =
+    req `addForm` toForm ("showBacklink", xs)
 
 -- | /Optional Param/ "language" - The language of the input. Either 'en' or 'de'.
 instance HasOptionalParam VisualizeRecipeNutrition Language where
@@ -2018,11 +2087,6 @@ data VisualizeRecipeNutritionByID
 instance HasOptionalParam VisualizeRecipeNutritionByID DefaultCss where
   applyOptionalParam req (DefaultCss xs) =
     req `addQuery` toQuery ("defaultCss", Just xs)
-
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeRecipeNutritionByID ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
 -- | @text/html@
 instance Produces VisualizeRecipeNutritionByID MimeTextHtml
 
@@ -2065,37 +2129,30 @@ instance Produces VisualizeRecipePriceBreakdownByID MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipeTaste
-  :: SpoonacularRequest VisualizeRecipeTaste MimeNoContent Text MimeTextHtml
-visualizeRecipeTaste =
+  :: (Consumes VisualizeRecipeTaste MimeFormUrlEncoded)
+  => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
+  -> SpoonacularRequest VisualizeRecipeTaste MimeFormUrlEncoded Text MimeTextHtml
+visualizeRecipeTaste (IngredientList ingredientList) =
   _mkRequest "POST" ["/recipes/visualizeTaste"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addForm` toForm ("ingredientList", ingredientList)
 
 data VisualizeRecipeTaste  
+
+-- | /Optional Param/ "normalize" - Normalize to the strongest taste.
+instance HasOptionalParam VisualizeRecipeTaste Normalize where
+  applyOptionalParam req (Normalize xs) =
+    req `addForm` toForm ("normalize", xs)
+
+-- | /Optional Param/ "rgb" - Red, green, blue values for the chart color.
+instance HasOptionalParam VisualizeRecipeTaste Rgb where
+  applyOptionalParam req (Rgb xs) =
+    req `addForm` toForm ("rgb", xs)
 
 -- | /Optional Param/ "language" - The language of the input. Either 'en' or 'de'.
 instance HasOptionalParam VisualizeRecipeTaste Language where
   applyOptionalParam req (Language xs) =
     req `addQuery` toQuery ("language", Just xs)
-
--- | /Optional Param/ "Content-Type" - The content type.
-instance HasOptionalParam VisualizeRecipeTaste ParamContentType where
-  applyOptionalParam req (ParamContentType xs) =
-    req `addHeader` toHeader ("Content-Type", xs)
-
--- | /Optional Param/ "Accept" - Accept header.
-instance HasOptionalParam VisualizeRecipeTaste ParamAccept where
-  applyOptionalParam req (ParamAccept xs) =
-    req `addHeader` toHeader ("Accept", xs)
-
--- | /Optional Param/ "normalize" - Whether to normalize to the strongest taste.
-instance HasOptionalParam VisualizeRecipeTaste Normalize where
-  applyOptionalParam req (Normalize xs) =
-    req `addQuery` toQuery ("normalize", Just xs)
-
--- | /Optional Param/ "rgb" - Red, green, blue values for the chart color.
-instance HasOptionalParam VisualizeRecipeTaste Rgb where
-  applyOptionalParam req (Rgb xs) =
-    req `addQuery` toQuery ("rgb", Just xs)
 
 -- | @application/x-www-form-urlencoded@
 instance Consumes VisualizeRecipeTaste MimeFormUrlEncoded

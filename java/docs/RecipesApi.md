@@ -120,7 +120,7 @@ public class Example {
 
 <a id="analyzeRecipeInstructions"></a>
 # **analyzeRecipeInstructions**
-> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(contentType)
+> AnalyzeRecipeInstructions200Response analyzeRecipeInstructions(instructions)
 
 Analyze Recipe Instructions
 
@@ -148,9 +148,9 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
+    String instructions = "instructions_example"; // String | The recipe's instructions.
     try {
-      AnalyzeRecipeInstructions200Response result = apiInstance.analyzeRecipeInstructions(contentType);
+      AnalyzeRecipeInstructions200Response result = apiInstance.analyzeRecipeInstructions(instructions);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#analyzeRecipeInstructions");
@@ -167,7 +167,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
+| **instructions** | **String**| The recipe&#39;s instructions. | |
 
 ### Return type
 
@@ -266,7 +266,7 @@ public class Example {
 
 <a id="classifyCuisine"></a>
 # **classifyCuisine**
-> ClassifyCuisine200Response classifyCuisine(contentType)
+> ClassifyCuisine200Response classifyCuisine(title, ingredientList, language)
 
 Classify Cuisine
 
@@ -294,9 +294,11 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
+    String title = "title_example"; // String | The title of the recipe.
+    String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    String language = "en"; // String | The language of the input. Either 'en' or 'de'.
     try {
-      ClassifyCuisine200Response result = apiInstance.classifyCuisine(contentType);
+      ClassifyCuisine200Response result = apiInstance.classifyCuisine(title, ingredientList, language);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#classifyCuisine");
@@ -313,7 +315,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
+| **title** | **String**| The title of the recipe. | |
+| **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
 
 ### Return type
 
@@ -490,7 +494,7 @@ public class Example {
 
 <a id="createRecipeCard"></a>
 # **createRecipeCard**
-> CreateRecipeCard200Response createRecipeCard(contentType)
+> CreateRecipeCard200Response createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source)
 
 Create Recipe Card
 
@@ -518,9 +522,21 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
+    String title = "title_example"; // String | The title of the recipe.
+    String ingredients = "ingredients_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    String instructions = "instructions_example"; // String | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+    BigDecimal readyInMinutes = new BigDecimal(78); // BigDecimal | The number of minutes it takes to get the recipe on the table.
+    BigDecimal servings = new BigDecimal(78); // BigDecimal | The number of servings the recipe makes.
+    String mask = "ellipseMask"; // String | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+    String backgroundImage = "none"; // String | The background image ('none', 'background1', or 'background2').
+    File image = new File("/path/to/file"); // File | The binary image of the recipe as jpg.
+    String imageUrl = "imageUrl_example"; // String | If you do not sent a binary image you can also pass the image URL.
+    String author = "author_example"; // String | The author of the recipe.
+    String backgroundColor = "backgroundColor_example"; // String | The background color for the recipe card as a hex-string.
+    String fontColor = "fontColor_example"; // String | The font color for the recipe card as a hex-string.
+    String source = "source_example"; // String | The source of the recipe.
     try {
-      CreateRecipeCard200Response result = apiInstance.createRecipeCard(contentType);
+      CreateRecipeCard200Response result = apiInstance.createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#createRecipeCard");
@@ -537,7 +553,19 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
+| **title** | **String**| The title of the recipe. | |
+| **ingredients** | **String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **instructions** | **String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | |
+| **readyInMinutes** | **BigDecimal**| The number of minutes it takes to get the recipe on the table. | |
+| **servings** | **BigDecimal**| The number of servings the recipe makes. | |
+| **mask** | **String**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | [enum: ellipseMask, diamondMask, starMask, heartMask, potMask, fishMask] |
+| **backgroundImage** | **String**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | [enum: none, background1, background2] |
+| **image** | **File**| The binary image of the recipe as jpg. | [optional] |
+| **imageUrl** | **String**| If you do not sent a binary image you can also pass the image URL. | [optional] |
+| **author** | **String**| The author of the recipe. | [optional] |
+| **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] |
+| **fontColor** | **String**| The font color for the recipe card as a hex-string. | [optional] |
+| **source** | **String**| The source of the recipe. | [optional] |
 
 ### Return type
 
@@ -562,7 +590,7 @@ public class Example {
 
 <a id="equipmentByIDImage"></a>
 # **equipmentByIDImage**
-> Object equipmentByIDImage(id)
+> File equipmentByIDImage(id)
 
 Equipment by ID Image
 
@@ -592,7 +620,7 @@ public class Example {
     RecipesApi apiInstance = new RecipesApi(defaultClient);
     BigDecimal id = new BigDecimal("44860"); // BigDecimal | The recipe id.
     try {
-      Object result = apiInstance.equipmentByIDImage(id);
+      File result = apiInstance.equipmentByIDImage(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#equipmentByIDImage");
@@ -613,7 +641,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1526,7 +1554,7 @@ public class Example {
 
 <a id="parseIngredients"></a>
 # **parseIngredients**
-> Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(contentType, language)
+> Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1554,10 +1582,12 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
+    String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
+    BigDecimal servings = new BigDecimal(78); // BigDecimal | The number of servings that you can make from the ingredients.
     String language = "en"; // String | The language of the input. Either 'en' or 'de'.
+    Boolean includeNutrition = true; // Boolean | 
     try {
-      Set<ParseIngredients200ResponseInner> result = apiInstance.parseIngredients(contentType, language);
+      Set<ParseIngredients200ResponseInner> result = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#parseIngredients");
@@ -1574,8 +1604,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
+| **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **BigDecimal**| The number of servings that you can make from the ingredients. | |
 | **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **includeNutrition** | **Boolean**|  | [optional] |
 
 ### Return type
 
@@ -1600,7 +1632,7 @@ public class Example {
 
 <a id="priceBreakdownByIDImage"></a>
 # **priceBreakdownByIDImage**
-> Object priceBreakdownByIDImage(id)
+> File priceBreakdownByIDImage(id)
 
 Price Breakdown by ID Image
 
@@ -1630,7 +1662,7 @@ public class Example {
     RecipesApi apiInstance = new RecipesApi(defaultClient);
     BigDecimal id = new BigDecimal("1082038"); // BigDecimal | The recipe id.
     try {
-      Object result = apiInstance.priceBreakdownByIDImage(id);
+      File result = apiInstance.priceBreakdownByIDImage(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#priceBreakdownByIDImage");
@@ -1651,7 +1683,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1744,7 +1776,7 @@ public class Example {
 
 <a id="recipeNutritionByIDImage"></a>
 # **recipeNutritionByIDImage**
-> Object recipeNutritionByIDImage(id)
+> File recipeNutritionByIDImage(id)
 
 Recipe Nutrition by ID Image
 
@@ -1774,7 +1806,7 @@ public class Example {
     RecipesApi apiInstance = new RecipesApi(defaultClient);
     BigDecimal id = new BigDecimal("1082038"); // BigDecimal | The recipe id.
     try {
-      Object result = apiInstance.recipeNutritionByIDImage(id);
+      File result = apiInstance.recipeNutritionByIDImage(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#recipeNutritionByIDImage");
@@ -1795,7 +1827,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1816,7 +1848,7 @@ public class Example {
 
 <a id="recipeNutritionLabelImage"></a>
 # **recipeNutritionLabelImage**
-> Object recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
+> File recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients)
 
 Recipe Nutrition Label Image
 
@@ -1849,7 +1881,7 @@ public class Example {
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
     Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
     try {
-      Object result = apiInstance.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+      File result = apiInstance.recipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#recipeNutritionLabelImage");
@@ -1873,7 +1905,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -1974,7 +2006,7 @@ public class Example {
 
 <a id="recipeTasteByIDImage"></a>
 # **recipeTasteByIDImage**
-> Object recipeTasteByIDImage(id, normalize, rgb)
+> File recipeTasteByIDImage(id, normalize, rgb)
 
 Recipe Taste by ID Image
 
@@ -2006,7 +2038,7 @@ public class Example {
     Boolean normalize = false; // Boolean | Normalize to the strongest taste.
     String rgb = "75,192,192"; // String | Red, green, blue values for the chart color.
     try {
-      Object result = apiInstance.recipeTasteByIDImage(id, normalize, rgb);
+      File result = apiInstance.recipeTasteByIDImage(id, normalize, rgb);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#recipeTasteByIDImage");
@@ -2029,7 +2061,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -2690,7 +2722,7 @@ public class Example {
 
 <a id="visualizeEquipment"></a>
 # **visualizeEquipment**
-> String visualizeEquipment(contentType, accept)
+> String visualizeEquipment(instructions, view, defaultCss, showBacklink)
 
 Equipment Widget
 
@@ -2718,10 +2750,12 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
-    String accept = "application/json"; // String | Accept header.
+    String instructions = "instructions_example"; // String | The recipe's instructions.
+    String view = "grid"; // String | How to visualize the ingredients, either 'grid' or 'list'.
+    Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
+    Boolean showBacklink = true; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     try {
-      String result = apiInstance.visualizeEquipment(contentType, accept);
+      String result = apiInstance.visualizeEquipment(instructions, view, defaultCss, showBacklink);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#visualizeEquipment");
@@ -2738,8 +2772,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
+| **instructions** | **String**| The recipe&#39;s instructions. | |
+| **view** | **String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list] |
+| **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2764,7 +2800,7 @@ public class Example {
 
 <a id="visualizePriceBreakdown"></a>
 # **visualizePriceBreakdown**
-> String visualizePriceBreakdown(contentType, accept, language)
+> String visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink)
 
 Price Breakdown Widget
 
@@ -2792,11 +2828,14 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
-    String accept = "application/json"; // String | Accept header.
+    String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
+    BigDecimal servings = new BigDecimal(78); // BigDecimal | The number of servings.
     String language = "en"; // String | The language of the input. Either 'en' or 'de'.
+    BigDecimal mode = new BigDecimal(78); // BigDecimal | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+    Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
+    Boolean showBacklink = true; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     try {
-      String result = apiInstance.visualizePriceBreakdown(contentType, accept, language);
+      String result = apiInstance.visualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#visualizePriceBreakdown");
@@ -2813,9 +2852,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
+| **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **BigDecimal**| The number of servings. | |
 | **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **mode** | **BigDecimal**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] |
+| **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2990,7 +3032,7 @@ public class Example {
 
 <a id="visualizeRecipeNutrition"></a>
 # **visualizeRecipeNutrition**
-> String visualizeRecipeNutrition(contentType, accept, language)
+> String visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink)
 
 Recipe Nutrition Widget
 
@@ -3018,11 +3060,13 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
-    String accept = "application/json"; // String | Accept header.
+    String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
+    BigDecimal servings = new BigDecimal(78); // BigDecimal | The number of servings.
     String language = "en"; // String | The language of the input. Either 'en' or 'de'.
+    Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
+    Boolean showBacklink = true; // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     try {
-      String result = apiInstance.visualizeRecipeNutrition(contentType, accept, language);
+      String result = apiInstance.visualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#visualizeRecipeNutrition");
@@ -3039,9 +3083,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
+| **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **BigDecimal**| The number of servings. | |
 | **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| **showBacklink** | **Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -3066,7 +3112,7 @@ public class Example {
 
 <a id="visualizeRecipeNutritionByID"></a>
 # **visualizeRecipeNutritionByID**
-> String visualizeRecipeNutritionByID(id, defaultCss, accept)
+> String visualizeRecipeNutritionByID(id, defaultCss)
 
 Recipe Nutrition by ID Widget
 
@@ -3096,9 +3142,8 @@ public class Example {
     RecipesApi apiInstance = new RecipesApi(defaultClient);
     Integer id = 1; // Integer | The item's id.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
-    String accept = "application/json"; // String | Accept header.
     try {
-      String result = apiInstance.visualizeRecipeNutritionByID(id, defaultCss, accept);
+      String result = apiInstance.visualizeRecipeNutritionByID(id, defaultCss);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#visualizeRecipeNutritionByID");
@@ -3117,7 +3162,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **Integer**| The item&#39;s id. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
 
 ### Return type
 
@@ -3216,7 +3260,7 @@ public class Example {
 
 <a id="visualizeRecipeTaste"></a>
 # **visualizeRecipeTaste**
-> String visualizeRecipeTaste(language, contentType, accept, normalize, rgb)
+> String visualizeRecipeTaste(ingredientList, language, normalize, rgb)
 
 Recipe Taste Widget
 
@@ -3244,13 +3288,12 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     RecipesApi apiInstance = new RecipesApi(defaultClient);
+    String ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
     String language = "en"; // String | The language of the input. Either 'en' or 'de'.
-    String contentType = "application/x-www-form-urlencoded"; // String | The content type.
-    String accept = "application/json"; // String | Accept header.
-    Boolean normalize = true; // Boolean | Whether to normalize to the strongest taste.
-    String rgb = "75,192,192"; // String | Red, green, blue values for the chart color.
+    Boolean normalize = true; // Boolean | Normalize to the strongest taste.
+    String rgb = "rgb_example"; // String | Red, green, blue values for the chart color.
     try {
-      String result = apiInstance.visualizeRecipeTaste(language, contentType, accept, normalize, rgb);
+      String result = apiInstance.visualizeRecipeTaste(ingredientList, language, normalize, rgb);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RecipesApi#visualizeRecipeTaste");
@@ -3267,10 +3310,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | |
 | **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
-| **contentType** | **String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data] |
-| **accept** | **String**| Accept header. | [optional] [enum: application/json, text/html, media/*] |
-| **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] |
+| **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] |
 | **rgb** | **String**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type

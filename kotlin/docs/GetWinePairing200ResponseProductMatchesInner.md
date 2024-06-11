@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **price** | **kotlin.String** |  | 
 **ratingCount** | **kotlin.Int** |  | 
 **score** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  | 
-**description** | [**kotlin.Any**](.md) |  |  [optional]
+**description** | **kotlin.String** |  |  [optional]
 
 
 

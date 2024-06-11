@@ -363,7 +363,7 @@ Configure apiKeyScheme:
 
 <a id="ingredientsByIDImage"></a>
 # **ingredientsByIDImage**
-> kotlin.Any ingredientsByIDImage(id, measure)
+> java.io.File ingredientsByIDImage(id, measure)
 
 Ingredients by ID Image
 
@@ -379,7 +379,7 @@ val apiInstance = IngredientsApi()
 val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
 val measure : kotlin.String = metric // kotlin.String | Whether the the measures should be 'us' or 'metric'.
 try {
-    val result : kotlin.Any = apiInstance.ingredientsByIDImage(id, measure)
+    val result : java.io.File = apiInstance.ingredientsByIDImage(id, measure)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling IngredientsApi#ingredientsByIDImage")
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**java.io.File**](java.io.File.md)
 
 ### Authorization
 
@@ -465,7 +465,7 @@ Configure apiKeyScheme:
 
 <a id="visualizeIngredients"></a>
 # **visualizeIngredients**
-> kotlin.String visualizeIngredients(contentType, language, accept)
+> kotlin.String visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink)
 
 Ingredients Widget
 
@@ -478,11 +478,15 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 //import com.spoonacular.client.model.*
 
 val apiInstance = IngredientsApi()
-val contentType : kotlin.String = application/json // kotlin.String | The content type.
+val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings.
 val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
-val accept : kotlin.String = application/json // kotlin.String | Accept header.
+val measure : kotlin.String = measure_example // kotlin.String | The original system of measurement, either 'metric' or 'us'.
+val view : kotlin.String = view_example // kotlin.String | How to visualize the ingredients, either 'grid' or 'list'.
+val defaultCss : kotlin.Boolean = true // kotlin.Boolean | Whether the default CSS should be added to the response.
+val showBacklink : kotlin.Boolean = true // kotlin.Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 try {
-    val result : kotlin.String = apiInstance.visualizeIngredients(contentType, language, accept)
+    val result : kotlin.String = apiInstance.visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling IngredientsApi#visualizeIngredients")
@@ -497,9 +501,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **kotlin.String**| The content type. | [optional] [enum: application/x-www-form-urlencoded, application/json, multipart/form-data]
+ **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |
+ **servings** | **java.math.BigDecimal**| The number of servings. |
  **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **accept** | **kotlin.String**| Accept header. | [optional] [enum: application/json, text/html, media/*]
+ **measure** | **kotlin.String**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] [enum: us, metric]
+ **view** | **kotlin.String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list]
+ **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
+ **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
 
 ### Return type
 

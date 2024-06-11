@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **image** | **kotlin.String** |  | 
 **link** | **kotlin.String** |  | 
 **name** | **kotlin.String** |  | 
-**dataPoints** | [**kotlin.collections.List&lt;kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**dataPoints** | [**kotlin.collections.Set&lt;SearchSiteContent200ResponseArticlesInnerDataPointsInner&gt;**](SearchSiteContent200ResponseArticlesInnerDataPointsInner.md) |  |  [optional]
 
 
 

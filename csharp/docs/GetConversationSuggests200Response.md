@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Suggests** | [**GetConversationSuggests200ResponseSuggests**](GetConversationSuggests200ResponseSuggests.md) |  | 
-**Words** | **List&lt;Object&gt;** |  | 
+**Words** | **List&lt;string&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -34,10 +34,10 @@ data class GetProductInformation200ResponseIngredientsInner (
     val name: kotlin.String,
 
     @Json(name = "description")
-    val description: kotlin.Any? = null,
+    val description: kotlin.String? = null,
 
     @Json(name = "safety_level")
-    val safetyLevel: kotlin.Any? = null
+    val safetyLevel: kotlin.String? = null
 
 )
 

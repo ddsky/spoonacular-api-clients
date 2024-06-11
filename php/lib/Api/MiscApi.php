@@ -158,16 +158,16 @@ class MiscApi
      *
      * Detect Food in Text
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $text text (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['detectFoodInText'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DetectFoodInText200Response
      */
-    public function detectFoodInText($content_type = null, string $contentType = self::contentTypes['detectFoodInText'][0])
+    public function detectFoodInText($text, string $contentType = self::contentTypes['detectFoodInText'][0])
     {
-        list($response) = $this->detectFoodInTextWithHttpInfo($content_type, $contentType);
+        list($response) = $this->detectFoodInTextWithHttpInfo($text, $contentType);
         return $response;
     }
 
@@ -176,16 +176,16 @@ class MiscApi
      *
      * Detect Food in Text
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $text (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['detectFoodInText'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DetectFoodInText200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function detectFoodInTextWithHttpInfo($content_type = null, string $contentType = self::contentTypes['detectFoodInText'][0])
+    public function detectFoodInTextWithHttpInfo($text, string $contentType = self::contentTypes['detectFoodInText'][0])
     {
-        $request = $this->detectFoodInTextRequest($content_type, $contentType);
+        $request = $this->detectFoodInTextRequest($text, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -300,15 +300,15 @@ class MiscApi
      *
      * Detect Food in Text
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $text (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['detectFoodInText'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function detectFoodInTextAsync($content_type = null, string $contentType = self::contentTypes['detectFoodInText'][0])
+    public function detectFoodInTextAsync($text, string $contentType = self::contentTypes['detectFoodInText'][0])
     {
-        return $this->detectFoodInTextAsyncWithHttpInfo($content_type, $contentType)
+        return $this->detectFoodInTextAsyncWithHttpInfo($text, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -321,16 +321,16 @@ class MiscApi
      *
      * Detect Food in Text
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $text (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['detectFoodInText'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function detectFoodInTextAsyncWithHttpInfo($content_type = null, string $contentType = self::contentTypes['detectFoodInText'][0])
+    public function detectFoodInTextAsyncWithHttpInfo($text, string $contentType = self::contentTypes['detectFoodInText'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DetectFoodInText200Response';
-        $request = $this->detectFoodInTextRequest($content_type, $contentType);
+        $request = $this->detectFoodInTextRequest($text, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -371,15 +371,21 @@ class MiscApi
     /**
      * Create request for operation 'detectFoodInText'
      *
-     * @param  string $content_type The content type. (optional)
+     * @param  string $text (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['detectFoodInText'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function detectFoodInTextRequest($content_type = null, string $contentType = self::contentTypes['detectFoodInText'][0])
+    public function detectFoodInTextRequest($text, string $contentType = self::contentTypes['detectFoodInText'][0])
     {
 
+        // verify the required parameter 'text' is set
+        if ($text === null || (is_array($text) && count($text) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $text when calling detectFoodInText'
+            );
+        }
 
 
         $resourcePath = '/food/detect';
@@ -390,12 +396,12 @@ class MiscApi
         $multipart = false;
 
 
-        // header params
-        if ($content_type !== null) {
-            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+
+
+        // form params
+        if ($text !== null) {
+            $formParams['text'] = ObjectSerializer::toFormValue($text);
         }
-
-
 
         $headers = $this->headerSelector->selectHeaders(
             ['application/json', ],

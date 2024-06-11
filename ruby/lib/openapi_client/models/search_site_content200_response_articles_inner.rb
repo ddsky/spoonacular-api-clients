@@ -41,7 +41,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data_points' => :'Array<Object>',
+        :'data_points' => :'Array<SearchSiteContent200ResponseArticlesInnerDataPointsInner>',
         :'image' => :'String',
         :'link' => :'String',
         :'name' => :'String'
@@ -99,6 +99,10 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if !@data_points.nil? && @data_points.length < 0
+        invalid_properties.push('invalid value for "data_points", number of items must be greater than or equal to 0.')
+      end
+
       if @image.nil?
         invalid_properties.push('invalid value for "image", image cannot be nil.')
       end
@@ -130,6 +134,7 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if !@data_points.nil? && @data_points.length < 0
       return false if @image.nil?
       return false if @image.to_s.length < 1
       return false if @link.nil?
@@ -137,6 +142,20 @@ module OpenapiClient
       return false if @name.nil?
       return false if @name.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] data_points Value to be assigned
+    def data_points=(data_points)
+      if data_points.nil?
+        fail ArgumentError, 'data_points cannot be nil'
+      end
+
+      if data_points.length < 0
+        fail ArgumentError, 'invalid value for "data_points", number of items must be greater than or equal to 0.'
+      end
+
+      @data_points = data_points
     end
 
     # Custom attribute writer method with validation

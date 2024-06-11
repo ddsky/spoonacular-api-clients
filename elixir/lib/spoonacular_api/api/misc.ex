@@ -16,26 +16,21 @@ defmodule SpoonacularAPI.Api.Misc do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `text` (String.t): 
   - `opts` (keyword): Optional parameters
-    - `:"Content-Type"` (String.t): The content type.
 
   ### Returns
 
   - `{:ok, SpoonacularAPI.Model.DetectFoodInText200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec detect_food_in_text(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.DetectFoodInText200Response.t} | {:error, Tesla.Env.t}
-  def detect_food_in_text(connection, opts \\ []) do
-    optional_params = %{
-      :"Content-Type" => :headers
-    }
-
+  @spec detect_food_in_text(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.DetectFoodInText200Response.t} | {:error, Tesla.Env.t}
+  def detect_food_in_text(connection, text, _opts \\ []) do
     request =
       %{}
       |> method(:post)
       |> url("/food/detect")
-      |> add_optional_params(optional_params, opts)
-      |> ensure_body()
+      |> add_param(:form, :text, text)
       |> Enum.into([])
 
     connection

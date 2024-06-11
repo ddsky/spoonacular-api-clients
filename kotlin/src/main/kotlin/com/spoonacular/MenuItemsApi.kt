@@ -202,7 +202,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * Menu Item Nutrition by ID Image
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
      * @param id The menu item id.
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -211,11 +211,11 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun menuItemNutritionByIDImage(id: java.math.BigDecimal) : kotlin.Any {
+    fun menuItemNutritionByIDImage(id: java.math.BigDecimal) : java.io.File {
         val localVarResponse = menuItemNutritionByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -233,16 +233,16 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * Menu Item Nutrition by ID Image
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
      * @param id The menu item id.
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun menuItemNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<kotlin.Any?> {
+    fun menuItemNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
         val localVariableConfig = menuItemNutritionByIDImageRequestConfig(id = id)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -275,7 +275,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param showOptionalNutrients Whether to show optional nutrients. (optional)
      * @param showZeroValues Whether to show zero values. (optional)
      * @param showIngredients Whether to show a list of ingredients. (optional)
-     * @return kotlin.Any
+     * @return java.io.File
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -284,11 +284,11 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun menuItemNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.Any {
+    fun menuItemNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
         val localVarResponse = menuItemNutritionLabelImageWithHttpInfo(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as java.io.File
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -309,16 +309,16 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param showOptionalNutrients Whether to show optional nutrients. (optional)
      * @param showZeroValues Whether to show zero values. (optional)
      * @param showIngredients Whether to show a list of ingredients. (optional)
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<java.io.File?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun menuItemNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.Any?> {
+    fun menuItemNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
         val localVariableConfig = menuItemNutritionLabelImageRequestConfig(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, java.io.File>(
             localVariableConfig
         )
     }
@@ -597,20 +597,10 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     }
 
     /**
-     * enum for parameter accept
-     */
-     enum class AcceptVisualizeMenuItemNutritionByID(val value: kotlin.String) {
-         @Json(name = "application/json") applicationSlashJson("application/json"),
-         @Json(name = "text/html") textSlashHtml("text/html"),
-         @Json(name = "media/_*") mediaSlashStar("media/_*")
-     }
-
-    /**
      * Menu Item Nutrition by ID Widget
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -620,8 +610,8 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun visualizeMenuItemNutritionByID(id: kotlin.Int, defaultCss: kotlin.Boolean? = true, accept: AcceptVisualizeMenuItemNutritionByID? = null) : kotlin.String {
-        val localVarResponse = visualizeMenuItemNutritionByIDWithHttpInfo(id = id, defaultCss = defaultCss, accept = accept)
+    fun visualizeMenuItemNutritionByID(id: kotlin.Int, defaultCss: kotlin.Boolean? = true) : kotlin.String {
+        val localVarResponse = visualizeMenuItemNutritionByIDWithHttpInfo(id = id, defaultCss = defaultCss)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -643,15 +633,14 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
      * @param id The item&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun visualizeMenuItemNutritionByIDWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?, accept: AcceptVisualizeMenuItemNutritionByID?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = visualizeMenuItemNutritionByIDRequestConfig(id = id, defaultCss = defaultCss, accept = accept)
+    fun visualizeMenuItemNutritionByIDWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = visualizeMenuItemNutritionByIDRequestConfig(id = id, defaultCss = defaultCss)
 
         return request<Unit, kotlin.String>(
             localVariableConfig
@@ -663,10 +652,9 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      *
      * @param id The item&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
-     * @param accept Accept header. (optional)
      * @return RequestConfig
      */
-    fun visualizeMenuItemNutritionByIDRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?, accept: AcceptVisualizeMenuItemNutritionByID?) : RequestConfig<Unit> {
+    fun visualizeMenuItemNutritionByIDRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -675,7 +663,6 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        accept?.apply { localVariableHeaders["Accept"] = this.toString() }
         
         return RequestConfig(
             method = RequestMethod.GET,

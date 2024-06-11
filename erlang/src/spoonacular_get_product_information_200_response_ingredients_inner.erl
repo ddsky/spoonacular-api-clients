@@ -5,9 +5,9 @@
 -export_type([spoonacular_get_product_information_200_response_ingredients_inner/0]).
 
 -type spoonacular_get_product_information_200_response_ingredients_inner() ::
-    #{ 'description' => spoonacular_any_type:spoonacular_any_type(),
+    #{ 'description' => binary(),
        'name' := binary(),
-       'safety_level' => spoonacular_any_type:spoonacular_any_type()
+       'safety_level' => binary()
      }.
 
 encode(#{ 'description' := Description,

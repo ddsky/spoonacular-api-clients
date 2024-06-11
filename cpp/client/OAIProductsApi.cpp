@@ -792,7 +792,7 @@ void OAIProductsApi::productNutritionByIDImageCallback(OAIHttpRequestWorker *wor
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -931,7 +931,7 @@ void OAIProductsApi::productNutritionLabelImageCallback(OAIHttpRequestWorker *wo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1477,7 +1477,7 @@ void OAIProductsApi::searchGroceryProductsByUPCCallback(OAIHttpRequestWorker *wo
     }
 }
 
-void OAIProductsApi::visualizeProductNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<QString> &accept) {
+void OAIProductsApi::visualizeProductNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css) {
     QString fullPath = QString(_serverConfigs["visualizeProductNutritionByID"][_serverIndices.value("visualizeProductNutritionByID")].URL()+"/food/products/{id}/nutritionWidget");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1520,12 +1520,6 @@ void OAIProductsApi::visualizeProductNutritionByID(const qint32 &id, const ::Ope
     OAIHttpRequestInput input(fullPath, "GET");
 
 
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);

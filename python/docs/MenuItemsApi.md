@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **menu_item_nutrition_by_id_image**
-> object menu_item_nutrition_by_id_image(id)
+> bytearray menu_item_nutrition_by_id_image(id)
 
 Menu Item Nutrition by ID Image
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **menu_item_nutrition_label_image**
-> object menu_item_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
+> bytearray menu_item_nutrition_label_image(id, show_optional_nutrients=show_optional_nutrients, show_zero_values=show_zero_values, show_ingredients=show_ingredients)
 
 Menu Item Nutrition Label Image
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**bytearray**
 
 ### Authorization
 
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **visualize_menu_item_nutrition_by_id**
-> str visualize_menu_item_nutrition_by_id(id, default_css=default_css, accept=accept)
+> str visualize_menu_item_nutrition_by_id(id, default_css=default_css)
 
 Menu Item Nutrition by ID Widget
 
@@ -579,11 +579,10 @@ with spoonacular.ApiClient(configuration) as api_client:
     api_instance = spoonacular.MenuItemsApi(api_client)
     id = 1 # int | The item's id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
-    accept = 'application/json' # str | Accept header. (optional)
 
     try:
         # Menu Item Nutrition by ID Widget
-        api_response = api_instance.visualize_menu_item_nutrition_by_id(id, default_css=default_css, accept=accept)
+        api_response = api_instance.visualize_menu_item_nutrition_by_id(id, default_css=default_css)
         print("The response of MenuItemsApi->visualize_menu_item_nutrition_by_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -599,7 +598,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item&#39;s id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
- **accept** | **str**| Accept header. | [optional] 
 
 ### Return type
 

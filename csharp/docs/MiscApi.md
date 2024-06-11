@@ -18,7 +18,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="detectfoodintext"></a>
 # **DetectFoodInText**
-> DetectFoodInText200Response DetectFoodInText (string? contentType = null)
+> DetectFoodInText200Response DetectFoodInText (string text)
 
 Detect Food in Text
 
@@ -46,12 +46,12 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
+            var text = "text_example";  // string | 
 
             try
             {
                 // Detect Food in Text
-                DetectFoodInText200Response result = apiInstance.DetectFoodInText(contentType);
+                DetectFoodInText200Response result = apiInstance.DetectFoodInText(text);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -72,7 +72,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Detect Food in Text
-    ApiResponse<DetectFoodInText200Response> response = apiInstance.DetectFoodInTextWithHttpInfo(contentType);
+    ApiResponse<DetectFoodInText200Response> response = apiInstance.DetectFoodInTextWithHttpInfo(text);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
+| **text** | **string** |  |  |
 
 ### Return type
 

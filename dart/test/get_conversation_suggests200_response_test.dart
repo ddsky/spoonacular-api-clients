@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // List<Object> words (default value: const [])
+    // List<String> words (default value: const [])
     test('to test the property `words`', () async {
       // TODO
     });

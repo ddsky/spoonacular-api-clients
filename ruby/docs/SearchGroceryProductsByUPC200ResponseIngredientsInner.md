@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **description** | **Object** |  | [optional] |
+| **description** | **String** |  | [optional] |
 | **name** | **String** |  |  |
-| **safety_level** | **Object** |  | [optional] |
+| **safety_level** | **String** |  | [optional] |
 
 ## Example
 

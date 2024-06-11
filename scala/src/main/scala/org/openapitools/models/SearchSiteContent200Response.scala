@@ -6,7 +6,6 @@ import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
 import org.openapitools.models.SearchSiteContent200ResponseArticlesInner
-import org.openapitools.models.SearchSiteContent200ResponseGroceryProductsInner
 
 /**
  * 
@@ -16,9 +15,9 @@ import org.openapitools.models.SearchSiteContent200ResponseGroceryProductsInner
  * @param Recipes 
  */
 case class SearchSiteContent200Response(Articles: Set[SearchSiteContent200ResponseArticlesInner],
-                Grocery Products: Set[SearchSiteContent200ResponseGroceryProductsInner],
-                Menu Items: Set[SearchSiteContent200ResponseGroceryProductsInner],
-                Recipes: Set[SearchSiteContent200ResponseGroceryProductsInner]
+                Grocery Products: Set[SearchSiteContent200ResponseArticlesInner],
+                Menu Items: Set[SearchSiteContent200ResponseArticlesInner],
+                Recipes: Set[SearchSiteContent200ResponseArticlesInner]
                 )
 
 object SearchSiteContent200Response {

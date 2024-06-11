@@ -301,10 +301,10 @@ Class | Method | HTTP request | Description
  - [com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [com.spoonacular.client.model.SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInner](docs/SearchSiteContent200ResponseGroceryProductsInner.md)
- - [com.spoonacular.client.model.SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner](docs/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner.md)
+ - [com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [com.spoonacular.client.model.SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [com.spoonacular.client.model.TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
+ - [com.spoonacular.client.model.TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
 
 
 <a id="documentation-for-authorization"></a>

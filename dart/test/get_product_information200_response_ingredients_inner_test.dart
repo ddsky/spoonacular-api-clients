@@ -16,7 +16,7 @@ void main() {
   // final instance = GetProductInformation200ResponseIngredientsInner();
 
   group('test GetProductInformation200ResponseIngredientsInner', () {
-    // Object description
+    // String description
     test('to test the property `description`', () async {
       // TODO
     });
@@ -26,7 +26,7 @@ void main() {
       // TODO
     });
 
-    // Object safetyLevel
+    // String safetyLevel
     test('to test the property `safetyLevel`', () async {
       // TODO
     });

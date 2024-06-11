@@ -62,12 +62,23 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
 ///
 /// Detect Food in Text
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-///  @param contentType The content type. (optional)
+///  @param text  
 ///
 ///  @returns OAIDetectFoodInText200Response*
 ///
--(NSURLSessionTask*) detectFoodInTextWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) detectFoodInTextWithText: (NSString*) text
     completionHandler: (void (^)(OAIDetectFoodInText200Response* output, NSError* error)) handler {
+    // verify the required parameter 'text' is set
+    if (text == nil) {
+        NSParameterAssert(text);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"text"] };
+            NSError* error = [NSError errorWithDomain:kOAIMiscApiErrorDomain code:kOAIMiscApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/food/detect"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -75,9 +86,6 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    if (contentType != nil) {
-        headerParams[@"Content-Type"] = contentType;
-    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -96,6 +104,9 @@ NSInteger kOAIMiscApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    if (text) {
+        formParams[@"text"] = text;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

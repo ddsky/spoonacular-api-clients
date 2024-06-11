@@ -15,7 +15,7 @@
 |**badges** | **List&lt;String&gt;** |  |  |
 |**importantBadges** | **List&lt;String&gt;** |  |  |
 |**ingredientCount** | **Integer** |  |  |
-|**generatedText** | **Object** |  |  [optional] |
+|**generatedText** | **String** |  |  [optional] |
 |**ingredientList** | **String** |  |  |
 |**ingredients** | [**List&lt;GetProductInformation200ResponseIngredientsInner&gt;**](GetProductInformation200ResponseIngredientsInner.md) |  |  |
 |**likes** | **BigDecimal** |  |  |

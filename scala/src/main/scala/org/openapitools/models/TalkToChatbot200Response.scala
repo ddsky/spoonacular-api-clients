@@ -5,7 +5,7 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.AnyType
+import org.openapitools.models.TalkToChatbot200ResponseMediaInner
 import scala.collection.immutable.Seq
 
 /**
@@ -14,7 +14,7 @@ import scala.collection.immutable.Seq
  * @param media 
  */
 case class TalkToChatbot200Response(answerText: String,
-                media: Seq[AnyType]
+                media: Seq[TalkToChatbot200ResponseMediaInner]
                 )
 
 object TalkToChatbot200Response {

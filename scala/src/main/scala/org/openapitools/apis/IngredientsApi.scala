@@ -6,6 +6,7 @@ import org.openapitools.models._
 import org.openapitools.models.AutocompleteIngredientSearch200ResponseInner
 import org.openapitools.models.BigDecimal
 import org.openapitools.models.ComputeIngredientAmount200Response
+import java.io.File
 import org.openapitools.models.GetIngredientInformation200Response
 import org.openapitools.models.GetIngredientSubstitutes200Response
 import org.openapitools.models.IngredientSearch200Response
@@ -148,9 +149,9 @@ object IngredientsApi {
 
         /**
         * 
-        * @return An endpoint representing a Object
+        * @return An endpoint representing a File
         */
-        private def ingredientsByIDImage(da: DataAccessor): Endpoint[Object] =
+        private def ingredientsByIDImage(da: DataAccessor): Endpoint[File] =
         get("recipes" :: bigdecimal :: "ingredientWidget.png" :: paramOption("measure") :: header("x-api-key")) { (id: BigDecimal, measure: Option[String], authParamapiKeyScheme: String) =>
           da.Ingredients_ingredientsByIDImage(id, measure, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
@@ -179,8 +180,8 @@ object IngredientsApi {
         * @return An endpoint representing a String
         */
         private def visualizeIngredients(da: DataAccessor): Endpoint[String] =
-        post("recipes" :: "visualizeIngredients" :: headerOption("Content-Type") :: paramOption("language") :: headerOption("Accept") :: header("x-api-key")) { (contentType: Option[String], language: Option[String], accept: Option[String], authParamapiKeyScheme: String) =>
-          da.Ingredients_visualizeIngredients(contentType, language, accept, authParamapiKeyScheme) match {
+        post("recipes" :: "visualizeIngredients" :: string :: bigdecimal :: paramOption("language") :: paramOption("measure") :: paramOption("view") :: paramOption("defaultCss").map(_.map(_.toBoolean)) :: paramOption("showBacklink").map(_.map(_.toBoolean)) :: header("x-api-key")) { (ingredientList: String, servings: BigDecimal, language: Option[String], measure: Option[String], view: Option[String], defaultCss: Option[Boolean], showBacklink: Option[Boolean], authParamapiKeyScheme: String) =>
+          da.Ingredients_visualizeIngredients(ingredientList, servings, language, measure, view, defaultCss, showBacklink, authParamapiKeyScheme) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

@@ -22,8 +22,8 @@
 #include <QJsonObject>
 
 #include "OAIGetConversationSuggests_200_response_suggests.h"
-#include <QJsonValue>
 #include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -47,8 +47,8 @@ public:
     bool is_suggests_Set() const;
     bool is_suggests_Valid() const;
 
-    QList<QJsonValue> getWords() const;
-    void setWords(const QList<QJsonValue> &words);
+    QList<QString> getWords() const;
+    void setWords(const QList<QString> &words);
     bool is_words_Set() const;
     bool is_words_Valid() const;
 
@@ -62,7 +62,7 @@ private:
     bool m_suggests_isSet;
     bool m_suggests_isValid;
 
-    QList<QJsonValue> m_words;
+    QList<QString> m_words;
     bool m_words_isSet;
     bool m_words_isValid;
 };

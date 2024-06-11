@@ -506,7 +506,7 @@ module OpenapiClient
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
-    # @return [Object]
+    # @return [File]
     def ingredients_by_id_image(id, opts = {})
       data, _status_code, _headers = ingredients_by_id_image_with_http_info(id, opts)
       data
@@ -517,7 +517,7 @@ module OpenapiClient
     # @param id [Float] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def ingredients_by_id_image_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IngredientsApi.ingredients_by_id_image ...'
@@ -549,7 +549,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -641,38 +641,54 @@ module OpenapiClient
 
     # Ingredients Widget
     # Visualize ingredients of a recipe. You can play around with that endpoint!
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-    # @option opts [String] :accept Accept header.
+    # @option opts [String] :measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;.
+    # @option opts [String] :view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [String]
-    def visualize_ingredients(opts = {})
-      data, _status_code, _headers = visualize_ingredients_with_http_info(opts)
+    def visualize_ingredients(ingredient_list, servings, opts = {})
+      data, _status_code, _headers = visualize_ingredients_with_http_info(ingredient_list, servings, opts)
       data
     end
 
     # Ingredients Widget
     # Visualize ingredients of a recipe. You can play around with that endpoint!
+    # @param ingredient_list [String] The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+    # @param servings [Float] The number of servings.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :content_type The content type.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-    # @option opts [String] :accept Accept header.
+    # @option opts [String] :measure The original system of measurement, either &#39;metric&#39; or &#39;us&#39;.
+    # @option opts [String] :view How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+    # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
+    # @option opts [Boolean] :show_backlink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
-    def visualize_ingredients_with_http_info(opts = {})
+    def visualize_ingredients_with_http_info(ingredient_list, servings, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IngredientsApi.visualize_ingredients ...'
       end
-      allowable_values = ["application/x-www-form-urlencoded", "application/json", "multipart/form-data"]
-      if @api_client.config.client_side_validation && opts[:'content_type'] && !allowable_values.include?(opts[:'content_type'])
-        fail ArgumentError, "invalid value for \"content_type\", must be one of #{allowable_values}"
+      # verify the required parameter 'ingredient_list' is set
+      if @api_client.config.client_side_validation && ingredient_list.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredient_list' when calling IngredientsApi.visualize_ingredients"
+      end
+      # verify the required parameter 'servings' is set
+      if @api_client.config.client_side_validation && servings.nil?
+        fail ArgumentError, "Missing the required parameter 'servings' when calling IngredientsApi.visualize_ingredients"
       end
       allowable_values = ["en", "de"]
       if @api_client.config.client_side_validation && opts[:'language'] && !allowable_values.include?(opts[:'language'])
         fail ArgumentError, "invalid value for \"language\", must be one of #{allowable_values}"
       end
-      allowable_values = ["application/json", "text/html", "media/*"]
-      if @api_client.config.client_side_validation && opts[:'accept'] && !allowable_values.include?(opts[:'accept'])
-        fail ArgumentError, "invalid value for \"accept\", must be one of #{allowable_values}"
+      allowable_values = ["us", "metric"]
+      if @api_client.config.client_side_validation && opts[:'measure'] && !allowable_values.include?(opts[:'measure'])
+        fail ArgumentError, "invalid value for \"measure\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["grid", "list"]
+      if @api_client.config.client_side_validation && opts[:'view'] && !allowable_values.include?(opts[:'view'])
+        fail ArgumentError, "invalid value for \"view\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/recipes/visualizeIngredients'
@@ -690,11 +706,15 @@ module OpenapiClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'Content-Type'] = opts[:'content_type'] if !opts[:'content_type'].nil?
-      header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
+      form_params['ingredientList'] = ingredient_list
+      form_params['servings'] = servings
+      form_params['measure'] = opts[:'measure'] if !opts[:'measure'].nil?
+      form_params['view'] = opts[:'view'] if !opts[:'view'].nil?
+      form_params['defaultCss'] = opts[:'default_css'] if !opts[:'default_css'].nil?
+      form_params['showBacklink'] = opts[:'show_backlink'] if !opts[:'show_backlink'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]

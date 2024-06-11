@@ -386,7 +386,7 @@ void OAIRecipesApi::analyzeARecipeSearchQueryCallback(OAIHttpRequestWorker *work
     }
 }
 
-void OAIRecipesApi::analyzeRecipeInstructions(const ::OpenAPI::OptionalParam<QString> &content_type) {
+void OAIRecipesApi::analyzeRecipeInstructions(const QString &instructions) {
     QString fullPath = QString(_serverConfigs["analyzeRecipeInstructions"][_serverIndices.value("analyzeRecipeInstructions")].URL()+"/recipes/analyzeInstructions");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -398,13 +398,11 @@ void OAIRecipesApi::analyzeRecipeInstructions(const ::OpenAPI::OptionalParam<QSt
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (content_type.hasValue())
+    
     {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
+        input.add_var("instructions", ::OpenAPI::toStringValue(instructions));
+    }
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -590,25 +588,43 @@ void OAIRecipesApi::autocompleteRecipeSearchCallback(OAIHttpRequestWorker *worke
     }
 }
 
-void OAIRecipesApi::classifyCuisine(const ::OpenAPI::OptionalParam<QString> &content_type) {
+void OAIRecipesApi::classifyCuisine(const QString &title, const QString &ingredient_list, const ::OpenAPI::OptionalParam<QString> &language) {
     QString fullPath = QString(_serverConfigs["classifyCuisine"][_serverIndices.value("classifyCuisine")].URL()+"/recipes/cuisine");
     
     if (_apiKeys.contains("apiKeyScheme")) {
         addHeaders("apiKeyScheme",_apiKeys.find("apiKeyScheme").value());
     }
     
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (language.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "language", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+    }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (content_type.hasValue())
+    
     {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
+        input.add_var("title", ::OpenAPI::toStringValue(title));
+    }
+    
+    {
+        input.add_var("ingredientList", ::OpenAPI::toStringValue(ingredient_list));
+    }
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -915,7 +931,7 @@ void OAIRecipesApi::convertAmountsCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIRecipesApi::createRecipeCard(const ::OpenAPI::OptionalParam<QString> &content_type) {
+void OAIRecipesApi::createRecipeCard(const QString &title, const QString &ingredients, const QString &instructions, const double &ready_in_minutes, const double &servings, const QString &mask, const QString &background_image, const ::OpenAPI::OptionalParam<OAIHttpFileElement> &image, const ::OpenAPI::OptionalParam<QString> &image_url, const ::OpenAPI::OptionalParam<QString> &author, const ::OpenAPI::OptionalParam<QString> &background_color, const ::OpenAPI::OptionalParam<QString> &font_color, const ::OpenAPI::OptionalParam<QString> &source) {
     QString fullPath = QString(_serverConfigs["createRecipeCard"][_serverIndices.value("createRecipeCard")].URL()+"/recipes/visualizeRecipe");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -927,13 +943,59 @@ void OAIRecipesApi::createRecipeCard(const ::OpenAPI::OptionalParam<QString> &co
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (content_type.hasValue())
+    
     {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
+        input.add_var("title", ::OpenAPI::toStringValue(title));
+    }
+    
+    {
+        input.add_var("ingredients", ::OpenAPI::toStringValue(ingredients));
+    }
+    
+    {
+        input.add_var("instructions", ::OpenAPI::toStringValue(instructions));
+    }
+    
+    {
+        input.add_var("readyInMinutes", ::OpenAPI::toStringValue(ready_in_minutes));
+    }
+    
+    {
+        input.add_var("servings", ::OpenAPI::toStringValue(servings));
+    }
+    
+    {
+        input.add_var("mask", ::OpenAPI::toStringValue(mask));
+    }
+    
+    {
+        input.add_var("backgroundImage", ::OpenAPI::toStringValue(background_image));
+    }
+    if (image.hasValue())
+    {
+        input.add_file("image", image.value().local_filename, image.value().request_filename, image.value().mime_type);
+    }
+    if (image_url.hasValue())
+    {
+        input.add_var("imageUrl", ::OpenAPI::toStringValue(image_url.value()));
+    }
+    if (author.hasValue())
+    {
+        input.add_var("author", ::OpenAPI::toStringValue(author.value()));
+    }
+    if (background_color.hasValue())
+    {
+        input.add_var("backgroundColor", ::OpenAPI::toStringValue(background_color.value()));
+    }
+    if (font_color.hasValue())
+    {
+        input.add_var("fontColor", ::OpenAPI::toStringValue(font_color.value()));
+    }
+    if (source.hasValue())
+    {
+        input.add_var("source", ::OpenAPI::toStringValue(source.value()));
+    }
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -1055,7 +1117,7 @@ void OAIRecipesApi::equipmentByIDImageCallback(OAIHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -2449,7 +2511,7 @@ void OAIRecipesApi::guessNutritionByDishNameCallback(OAIHttpRequestWorker *worke
     }
 }
 
-void OAIRecipesApi::parseIngredients(const ::OpenAPI::OptionalParam<QString> &content_type, const ::OpenAPI::OptionalParam<QString> &language) {
+void OAIRecipesApi::parseIngredients(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<bool> &include_nutrition) {
     QString fullPath = QString(_serverConfigs["parseIngredients"][_serverIndices.value("parseIngredients")].URL()+"/recipes/parseIngredients");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -2477,13 +2539,19 @@ void OAIRecipesApi::parseIngredients(const ::OpenAPI::OptionalParam<QString> &co
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (content_type.hasValue())
+    
     {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
+        input.add_var("ingredientList", ::OpenAPI::toStringValue(ingredient_list));
+    }
+    
+    {
+        input.add_var("servings", ::OpenAPI::toStringValue(servings));
+    }
+    if (include_nutrition.hasValue())
+    {
+        input.add_var("includeNutrition", ::OpenAPI::toStringValue(include_nutrition.value()));
+    }
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -2614,7 +2682,7 @@ void OAIRecipesApi::priceBreakdownByIDImageCallback(OAIHttpRequestWorker *worker
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -2802,7 +2870,7 @@ void OAIRecipesApi::recipeNutritionByIDImageCallback(OAIHttpRequestWorker *worke
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -2941,7 +3009,7 @@ void OAIRecipesApi::recipeNutritionLabelImageCallback(OAIHttpRequestWorker *work
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -3220,7 +3288,7 @@ void OAIRecipesApi::recipeTasteByIDImageCallback(OAIHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIObject output(QString(worker->response));
+    OAIHttpFileElement output = worker->getHttpFileElement();
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -6294,7 +6362,7 @@ void OAIRecipesApi::summarizeRecipeCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIRecipesApi::visualizeEquipment(const ::OpenAPI::OptionalParam<QString> &content_type, const ::OpenAPI::OptionalParam<QString> &accept) {
+void OAIRecipesApi::visualizeEquipment(const QString &instructions, const ::OpenAPI::OptionalParam<QString> &view, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_backlink) {
     QString fullPath = QString(_serverConfigs["visualizeEquipment"][_serverIndices.value("visualizeEquipment")].URL()+"/recipes/visualizeEquipment");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -6306,19 +6374,23 @@ void OAIRecipesApi::visualizeEquipment(const ::OpenAPI::OptionalParam<QString> &
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
+    
+    {
+        input.add_var("instructions", ::OpenAPI::toStringValue(instructions));
+    }
+    if (view.hasValue())
+    {
+        input.add_var("view", ::OpenAPI::toStringValue(view.value()));
+    }
+    if (default_css.hasValue())
+    {
+        input.add_var("defaultCss", ::OpenAPI::toStringValue(default_css.value()));
+    }
+    if (show_backlink.hasValue())
+    {
+        input.add_var("showBacklink", ::OpenAPI::toStringValue(show_backlink.value()));
+    }
 
-    if (content_type.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -6386,7 +6458,7 @@ void OAIRecipesApi::visualizeEquipmentCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIRecipesApi::visualizePriceBreakdown(const ::OpenAPI::OptionalParam<QString> &content_type, const ::OpenAPI::OptionalParam<QString> &accept, const ::OpenAPI::OptionalParam<QString> &language) {
+void OAIRecipesApi::visualizePriceBreakdown(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<double> &mode, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_backlink) {
     QString fullPath = QString(_serverConfigs["visualizePriceBreakdown"][_serverIndices.value("visualizePriceBreakdown")].URL()+"/recipes/visualizePriceEstimator");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -6414,19 +6486,27 @@ void OAIRecipesApi::visualizePriceBreakdown(const ::OpenAPI::OptionalParam<QStri
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
+    
+    {
+        input.add_var("ingredientList", ::OpenAPI::toStringValue(ingredient_list));
+    }
+    
+    {
+        input.add_var("servings", ::OpenAPI::toStringValue(servings));
+    }
+    if (mode.hasValue())
+    {
+        input.add_var("mode", ::OpenAPI::toStringValue(mode.value()));
+    }
+    if (default_css.hasValue())
+    {
+        input.add_var("defaultCss", ::OpenAPI::toStringValue(default_css.value()));
+    }
+    if (show_backlink.hasValue())
+    {
+        input.add_var("showBacklink", ::OpenAPI::toStringValue(show_backlink.value()));
+    }
 
-    if (content_type.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -6729,7 +6809,7 @@ void OAIRecipesApi::visualizeRecipeIngredientsByIDCallback(OAIHttpRequestWorker 
     }
 }
 
-void OAIRecipesApi::visualizeRecipeNutrition(const ::OpenAPI::OptionalParam<QString> &content_type, const ::OpenAPI::OptionalParam<QString> &accept, const ::OpenAPI::OptionalParam<QString> &language) {
+void OAIRecipesApi::visualizeRecipeNutrition(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_backlink) {
     QString fullPath = QString(_serverConfigs["visualizeRecipeNutrition"][_serverIndices.value("visualizeRecipeNutrition")].URL()+"/recipes/visualizeNutrition");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -6757,19 +6837,23 @@ void OAIRecipesApi::visualizeRecipeNutrition(const ::OpenAPI::OptionalParam<QStr
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
+    
+    {
+        input.add_var("ingredientList", ::OpenAPI::toStringValue(ingredient_list));
+    }
+    
+    {
+        input.add_var("servings", ::OpenAPI::toStringValue(servings));
+    }
+    if (default_css.hasValue())
+    {
+        input.add_var("defaultCss", ::OpenAPI::toStringValue(default_css.value()));
+    }
+    if (show_backlink.hasValue())
+    {
+        input.add_var("showBacklink", ::OpenAPI::toStringValue(show_backlink.value()));
+    }
 
-    if (content_type.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -6837,7 +6921,7 @@ void OAIRecipesApi::visualizeRecipeNutritionCallback(OAIHttpRequestWorker *worke
     }
 }
 
-void OAIRecipesApi::visualizeRecipeNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<QString> &accept) {
+void OAIRecipesApi::visualizeRecipeNutritionByID(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css) {
     QString fullPath = QString(_serverConfigs["visualizeRecipeNutritionByID"][_serverIndices.value("visualizeRecipeNutritionByID")].URL()+"/recipes/{id}/nutritionWidget");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -6880,12 +6964,6 @@ void OAIRecipesApi::visualizeRecipeNutritionByID(const qint32 &id, const ::OpenA
     OAIHttpRequestInput input(fullPath, "GET");
 
 
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -7063,7 +7141,7 @@ void OAIRecipesApi::visualizeRecipePriceBreakdownByIDCallback(OAIHttpRequestWork
     }
 }
 
-void OAIRecipesApi::visualizeRecipeTaste(const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<QString> &content_type, const ::OpenAPI::OptionalParam<QString> &accept, const ::OpenAPI::OptionalParam<bool> &normalize, const ::OpenAPI::OptionalParam<QString> &rgb) {
+void OAIRecipesApi::visualizeRecipeTaste(const QString &ingredient_list, const ::OpenAPI::OptionalParam<QString> &language, const ::OpenAPI::OptionalParam<bool> &normalize, const ::OpenAPI::OptionalParam<QString> &rgb) {
     QString fullPath = QString(_serverConfigs["visualizeRecipeTaste"][_serverIndices.value("visualizeRecipeTaste")].URL()+"/recipes/visualizeTaste");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -7086,54 +7164,24 @@ void OAIRecipesApi::visualizeRecipeTaste(const ::OpenAPI::OptionalParam<QString>
 
         fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
     }
-    if (normalize.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "normalize", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(normalize.value())));
-    }
-    if (rgb.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "rgb", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("rgb")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(rgb.value())));
-    }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
+    
+    {
+        input.add_var("ingredientList", ::OpenAPI::toStringValue(ingredient_list));
+    }
+    if (normalize.hasValue())
+    {
+        input.add_var("normalize", ::OpenAPI::toStringValue(normalize.value()));
+    }
+    if (rgb.hasValue())
+    {
+        input.add_var("rgb", ::OpenAPI::toStringValue(rgb.value()));
+    }
 
-    if (content_type.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
-    if (accept.hasValue())
-    {
-        if (!::OpenAPI::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::OpenAPI::toStringValue(accept.value()));
-        }
-        }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);

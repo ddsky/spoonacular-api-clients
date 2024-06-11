@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | 
 **Title** | **string** |  | 
 **AverageRating** | **float32** |  | 
-**Description** | Pointer to **interface{}** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **ImageUrl** | **string** |  | 
 **Link** | **string** |  | 
 **Price** | **string** |  | 
@@ -95,20 +95,20 @@ SetAverageRating sets AverageRating field to given value.
 
 ### GetDescription
 
-`func (o *GetWinePairing200ResponseProductMatchesInner) GetDescription() interface{}`
+`func (o *GetWinePairing200ResponseProductMatchesInner) GetDescription() string`
 
 GetDescription returns the Description field if non-nil, zero value otherwise.
 
 ### GetDescriptionOk
 
-`func (o *GetWinePairing200ResponseProductMatchesInner) GetDescriptionOk() (*interface{}, bool)`
+`func (o *GetWinePairing200ResponseProductMatchesInner) GetDescriptionOk() (*string, bool)`
 
 GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDescription
 
-`func (o *GetWinePairing200ResponseProductMatchesInner) SetDescription(v interface{})`
+`func (o *GetWinePairing200ResponseProductMatchesInner) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
 
@@ -118,16 +118,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *GetWinePairing200ResponseProductMatchesInner) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *GetWinePairing200ResponseProductMatchesInner) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetImageUrl
 
 `func (o *GetWinePairing200ResponseProductMatchesInner) GetImageUrl() string`

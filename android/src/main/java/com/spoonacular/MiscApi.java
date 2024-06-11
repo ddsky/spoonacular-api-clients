@@ -69,11 +69,16 @@ public class MiscApi {
   /**
   * Detect Food in Text
   * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-   * @param contentType The content type.
+   * @param text 
    * @return DetectFoodInText200Response
   */
-  public DetectFoodInText200Response detectFoodInText (String contentType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DetectFoodInText200Response detectFoodInText (String text) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'text' is set
+    if (text == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'text' when calling detectFoodInText",
+        new ApiException(400, "Missing the required parameter 'text' when calling detectFoodInText"));
+    }
 
     // create path and map variables
     String path = "/food/detect";
@@ -84,7 +89,6 @@ public class MiscApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
     };
@@ -93,10 +97,14 @@ public class MiscApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (text != null) {
+        localVarBuilder.addTextBody("text", ApiInvoker.parameterToString(text), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
+      formParams.put("text", ApiInvoker.parameterToString(text));
     }
 
     String[] authNames = new String[] { "apiKeyScheme" };
@@ -128,11 +136,16 @@ public class MiscApi {
       /**
    * Detect Food in Text
    * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-   * @param contentType The content type.
+   * @param text 
   */
-  public void detectFoodInText (String contentType, final Response.Listener<DetectFoodInText200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void detectFoodInText (String text, final Response.Listener<DetectFoodInText200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'text' is set
+    if (text == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'text' when calling detectFoodInText",
+        new ApiException(400, "Missing the required parameter 'text' when calling detectFoodInText"));
+    }
 
     // create path and map variables
     String path = "/food/detect".replaceAll("\\{format\\}","json");
@@ -145,7 +158,6 @@ public class MiscApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
 
-    headerParams.put("Content-Type", ApiInvoker.parameterToString(contentType));
 
     String[] contentTypes = {
       "application/x-www-form-urlencoded"
@@ -156,12 +168,17 @@ public class MiscApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
+      if (text != null) {
+        localVarBuilder.addTextBody("text", ApiInvoker.parameterToString(text), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-          }
+      formParams.put("text", ApiInvoker.parameterToString(text));
+    }
 
     String[] authNames = new String[] { "apiKeyScheme" };
 

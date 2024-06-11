@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import TalkToChatbot200ResponseMediaInner from './TalkToChatbot200ResponseMediaInner';
 
 /**
  * The TalkToChatbot200Response model module.
@@ -24,7 +25,7 @@ class TalkToChatbot200Response {
      * 
      * @alias module:model/TalkToChatbot200Response
      * @param answerText {String} 
-     * @param media {Array.<Object>} 
+     * @param media {Array.<module:model/TalkToChatbot200ResponseMediaInner>} 
      */
     constructor(answerText, media) { 
         
@@ -56,7 +57,7 @@ class TalkToChatbot200Response {
                 obj['answerText'] = ApiClient.convertToType(data['answerText'], 'String');
             }
             if (data.hasOwnProperty('media')) {
-                obj['media'] = ApiClient.convertToType(data['media'], [Object]);
+                obj['media'] = ApiClient.convertToType(data['media'], [TalkToChatbot200ResponseMediaInner]);
             }
         }
         return obj;
@@ -78,9 +79,15 @@ class TalkToChatbot200Response {
         if (data['answerText'] && !(typeof data['answerText'] === 'string' || data['answerText'] instanceof String)) {
             throw new Error("Expected the field `answerText` to be a primitive type in the JSON string but got " + data['answerText']);
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['media'])) {
-            throw new Error("Expected the field `media` to be an array in the JSON data but got " + data['media']);
+        if (data['media']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['media'])) {
+                throw new Error("Expected the field `media` to be an array in the JSON data but got " + data['media']);
+            }
+            // validate the optional field `media` (array)
+            for (const item of data['media']) {
+                TalkToChatbot200ResponseMediaInner.validateJSON(item);
+            };
         }
 
         return true;
@@ -97,7 +104,7 @@ TalkToChatbot200Response.RequiredProperties = ["answerText", "media"];
 TalkToChatbot200Response.prototype['answerText'] = undefined;
 
 /**
- * @member {Array.<Object>} media
+ * @member {Array.<module:model/TalkToChatbot200ResponseMediaInner>} media
  */
 TalkToChatbot200Response.prototype['media'] = undefined;
 

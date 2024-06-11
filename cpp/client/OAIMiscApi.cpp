@@ -233,7 +233,7 @@ QString OAIMiscApi::getParamStyleDelimiter(const QString &style, const QString &
     }
 }
 
-void OAIMiscApi::detectFoodInText(const ::OpenAPI::OptionalParam<QString> &content_type) {
+void OAIMiscApi::detectFoodInText(const QString &text) {
     QString fullPath = QString(_serverConfigs["detectFoodInText"][_serverIndices.value("detectFoodInText")].URL()+"/food/detect");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -245,13 +245,11 @@ void OAIMiscApi::detectFoodInText(const ::OpenAPI::OptionalParam<QString> &conte
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (content_type.hasValue())
+    
     {
-        if (!::OpenAPI::toStringValue(content_type.value()).isEmpty()) {
-            input.headers.insert("Content-Type", ::OpenAPI::toStringValue(content_type.value()));
-        }
-        }
+        input.add_var("text", ::OpenAPI::toStringValue(text));
+    }
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);

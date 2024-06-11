@@ -55,23 +55,25 @@ export default class MiscApi {
     /**
      * Detect Food in Text
      * Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
+     * @param {String} text 
      * @param {module:api/MiscApi~detectFoodInTextCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DetectFoodInText200Response}
      */
-    detectFoodInText(opts, callback) {
-      opts = opts || {};
+    detectFoodInText(text, callback) {
       let postBody = null;
+      // verify the required parameter 'text' is set
+      if (text === undefined || text === null) {
+        throw new Error("Missing the required parameter 'text' when calling detectFoodInText");
+      }
 
       let pathParams = {
       };
       let queryParams = {
       };
       let headerParams = {
-        'Content-Type': opts['contentType']
       };
       let formParams = {
+        'text': text
       };
 
       let authNames = ['apiKeyScheme'];

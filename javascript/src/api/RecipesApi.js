@@ -112,23 +112,25 @@ export default class RecipesApi {
     /**
      * Analyze Recipe Instructions
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
+     * @param {String} instructions The recipe's instructions.
      * @param {module:api/RecipesApi~analyzeRecipeInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AnalyzeRecipeInstructions200Response}
      */
-    analyzeRecipeInstructions(opts, callback) {
-      opts = opts || {};
+    analyzeRecipeInstructions(instructions, callback) {
       let postBody = null;
+      // verify the required parameter 'instructions' is set
+      if (instructions === undefined || instructions === null) {
+        throw new Error("Missing the required parameter 'instructions' when calling analyzeRecipeInstructions");
+      }
 
       let pathParams = {
       };
       let queryParams = {
       };
       let headerParams = {
-        'Content-Type': opts['contentType']
       };
       let formParams = {
+        'instructions': instructions
       };
 
       let authNames = ['apiKeyScheme'];
@@ -196,23 +198,35 @@ export default class RecipesApi {
     /**
      * Classify Cuisine
      * Classify the recipe's cuisine.
+     * @param {String} title The title of the recipe.
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
+     * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
      * @param {module:api/RecipesApi~classifyCuisineCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ClassifyCuisine200Response}
      */
-    classifyCuisine(opts, callback) {
+    classifyCuisine(title, ingredientList, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'title' is set
+      if (title === undefined || title === null) {
+        throw new Error("Missing the required parameter 'title' when calling classifyCuisine");
+      }
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling classifyCuisine");
+      }
 
       let pathParams = {
       };
       let queryParams = {
+        'language': opts['language']
       };
       let headerParams = {
-        'Content-Type': opts['contentType']
       };
       let formParams = {
+        'title': title,
+        'ingredientList': ingredientList
       };
 
       let authNames = ['apiKeyScheme'];
@@ -344,23 +358,75 @@ export default class RecipesApi {
     /**
      * Create Recipe Card
      * Generate a recipe card for a recipe.
+     * @param {String} title The title of the recipe.
+     * @param {String} ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param {String} instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param {Number} readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param {Number} servings The number of servings the recipe makes.
+     * @param {module:model/String} mask The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+     * @param {module:model/String} backgroundImage The background image ('none', 'background1', or 'background2').
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
+     * @param {File} [image] The binary image of the recipe as jpg.
+     * @param {String} [imageUrl] If you do not sent a binary image you can also pass the image URL.
+     * @param {String} [author] The author of the recipe.
+     * @param {String} [backgroundColor] The background color for the recipe card as a hex-string.
+     * @param {String} [fontColor] The font color for the recipe card as a hex-string.
+     * @param {String} [source] The source of the recipe.
      * @param {module:api/RecipesApi~createRecipeCardCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CreateRecipeCard200Response}
      */
-    createRecipeCard(opts, callback) {
+    createRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'title' is set
+      if (title === undefined || title === null) {
+        throw new Error("Missing the required parameter 'title' when calling createRecipeCard");
+      }
+      // verify the required parameter 'ingredients' is set
+      if (ingredients === undefined || ingredients === null) {
+        throw new Error("Missing the required parameter 'ingredients' when calling createRecipeCard");
+      }
+      // verify the required parameter 'instructions' is set
+      if (instructions === undefined || instructions === null) {
+        throw new Error("Missing the required parameter 'instructions' when calling createRecipeCard");
+      }
+      // verify the required parameter 'readyInMinutes' is set
+      if (readyInMinutes === undefined || readyInMinutes === null) {
+        throw new Error("Missing the required parameter 'readyInMinutes' when calling createRecipeCard");
+      }
+      // verify the required parameter 'servings' is set
+      if (servings === undefined || servings === null) {
+        throw new Error("Missing the required parameter 'servings' when calling createRecipeCard");
+      }
+      // verify the required parameter 'mask' is set
+      if (mask === undefined || mask === null) {
+        throw new Error("Missing the required parameter 'mask' when calling createRecipeCard");
+      }
+      // verify the required parameter 'backgroundImage' is set
+      if (backgroundImage === undefined || backgroundImage === null) {
+        throw new Error("Missing the required parameter 'backgroundImage' when calling createRecipeCard");
+      }
 
       let pathParams = {
       };
       let queryParams = {
       };
       let headerParams = {
-        'Content-Type': opts['contentType']
       };
       let formParams = {
+        'title': title,
+        'ingredients': ingredients,
+        'instructions': instructions,
+        'readyInMinutes': readyInMinutes,
+        'servings': servings,
+        'mask': mask,
+        'backgroundImage': backgroundImage,
+        'image': opts['image'],
+        'imageUrl': opts['imageUrl'],
+        'author': opts['author'],
+        'backgroundColor': opts['backgroundColor'],
+        'fontColor': opts['fontColor'],
+        'source': opts['source']
       };
 
       let authNames = ['apiKeyScheme'];
@@ -378,7 +444,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the equipmentByIDImage operation.
      * @callback module:api/RecipesApi~equipmentByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -387,7 +453,7 @@ export default class RecipesApi {
      * Visualize a recipe's equipment list as an image.
      * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~equipmentByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     equipmentByIDImage(id, callback) {
       let postBody = null;
@@ -409,7 +475,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/recipes/{id}/equipmentWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -982,15 +1048,25 @@ export default class RecipesApi {
     /**
      * Parse Ingredients
      * Extract an ingredient from plain text.
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param {Number} servings The number of servings that you can make from the ingredients.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
      * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
+     * @param {Boolean} [includeNutrition] 
      * @param {module:api/RecipesApi~parseIngredientsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ParseIngredients200ResponseInner>}
      */
-    parseIngredients(opts, callback) {
+    parseIngredients(ingredientList, servings, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling parseIngredients");
+      }
+      // verify the required parameter 'servings' is set
+      if (servings === undefined || servings === null) {
+        throw new Error("Missing the required parameter 'servings' when calling parseIngredients");
+      }
 
       let pathParams = {
       };
@@ -998,9 +1074,11 @@ export default class RecipesApi {
         'language': opts['language']
       };
       let headerParams = {
-        'Content-Type': opts['contentType']
       };
       let formParams = {
+        'ingredientList': ingredientList,
+        'servings': servings,
+        'includeNutrition': opts['includeNutrition']
       };
 
       let authNames = ['apiKeyScheme'];
@@ -1018,7 +1096,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the priceBreakdownByIDImage operation.
      * @callback module:api/RecipesApi~priceBreakdownByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1027,7 +1105,7 @@ export default class RecipesApi {
      * Visualize a recipe's price breakdown.
      * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~priceBreakdownByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     priceBreakdownByIDImage(id, callback) {
       let postBody = null;
@@ -1049,7 +1127,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/recipes/{id}/priceBreakdownWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1104,7 +1182,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the recipeNutritionByIDImage operation.
      * @callback module:api/RecipesApi~recipeNutritionByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1113,7 +1191,7 @@ export default class RecipesApi {
      * Visualize a recipe's nutritional information as an image.
      * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~recipeNutritionByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     recipeNutritionByIDImage(id, callback) {
       let postBody = null;
@@ -1135,7 +1213,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/recipes/{id}/nutritionWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1147,7 +1225,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the recipeNutritionLabelImage operation.
      * @callback module:api/RecipesApi~recipeNutritionLabelImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1160,7 +1238,7 @@ export default class RecipesApi {
      * @param {Boolean} [showZeroValues] Whether to show zero values.
      * @param {Boolean} [showIngredients] Whether to show a list of ingredients.
      * @param {module:api/RecipesApi~recipeNutritionLabelImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     recipeNutritionLabelImage(id, opts, callback) {
       opts = opts || {};
@@ -1186,7 +1264,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/recipes/{id}/nutritionLabel.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1251,7 +1329,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the recipeTasteByIDImage operation.
      * @callback module:api/RecipesApi~recipeTasteByIDImageCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {File} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1263,7 +1341,7 @@ export default class RecipesApi {
      * @param {Boolean} [normalize] Normalize to the strongest taste.
      * @param {String} [rgb] Red, green, blue values for the chart color.
      * @param {module:api/RecipesApi~recipeTasteByIDImageCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link File}
      */
     recipeTasteByIDImage(id, opts, callback) {
       opts = opts || {};
@@ -1288,7 +1366,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['image/png'];
-      let returnType = Object;
+      let returnType = File;
       return this.apiClient.callApi(
         '/recipes/{id}/tasteWidget.png', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1825,25 +1903,33 @@ export default class RecipesApi {
     /**
      * Equipment Widget
      * Visualize the equipment used to make a recipe.
+     * @param {String} instructions The recipe's instructions.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
-     * @param {module:model/String} [accept] Accept header.
+     * @param {module:model/String} [view] How to visualize the ingredients, either 'grid' or 'list'.
+     * @param {Boolean} [defaultCss] Whether the default CSS should be added to the response.
+     * @param {Boolean} [showBacklink] Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param {module:api/RecipesApi~visualizeEquipmentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    visualizeEquipment(opts, callback) {
+    visualizeEquipment(instructions, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'instructions' is set
+      if (instructions === undefined || instructions === null) {
+        throw new Error("Missing the required parameter 'instructions' when calling visualizeEquipment");
+      }
 
       let pathParams = {
       };
       let queryParams = {
       };
       let headerParams = {
-        'Content-Type': opts['contentType'],
-        'Accept': opts['accept']
       };
       let formParams = {
+        'instructions': instructions,
+        'view': opts['view'],
+        'defaultCss': opts['defaultCss'],
+        'showBacklink': opts['showBacklink']
       };
 
       let authNames = ['apiKeyScheme'];
@@ -1868,16 +1954,27 @@ export default class RecipesApi {
     /**
      * Price Breakdown Widget
      * Visualize the price breakdown of a recipe.
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param {Number} servings The number of servings.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
-     * @param {module:model/String} [accept] Accept header.
      * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
+     * @param {Number} [mode] The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
+     * @param {Boolean} [defaultCss] Whether the default CSS should be added to the response.
+     * @param {Boolean} [showBacklink] Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param {module:api/RecipesApi~visualizePriceBreakdownCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    visualizePriceBreakdown(opts, callback) {
+    visualizePriceBreakdown(ingredientList, servings, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling visualizePriceBreakdown");
+      }
+      // verify the required parameter 'servings' is set
+      if (servings === undefined || servings === null) {
+        throw new Error("Missing the required parameter 'servings' when calling visualizePriceBreakdown");
+      }
 
       let pathParams = {
       };
@@ -1885,10 +1982,13 @@ export default class RecipesApi {
         'language': opts['language']
       };
       let headerParams = {
-        'Content-Type': opts['contentType'],
-        'Accept': opts['accept']
       };
       let formParams = {
+        'ingredientList': ingredientList,
+        'servings': servings,
+        'mode': opts['mode'],
+        'defaultCss': opts['defaultCss'],
+        'showBacklink': opts['showBacklink']
       };
 
       let authNames = ['apiKeyScheme'];
@@ -2009,16 +2109,26 @@ export default class RecipesApi {
     /**
      * Recipe Nutrition Widget
      * Visualize a recipe's nutritional information as HTML including CSS.
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param {Number} servings The number of servings.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} [contentType] The content type.
-     * @param {module:model/String} [accept] Accept header.
      * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
+     * @param {Boolean} [defaultCss] Whether the default CSS should be added to the response.
+     * @param {Boolean} [showBacklink] Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param {module:api/RecipesApi~visualizeRecipeNutritionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    visualizeRecipeNutrition(opts, callback) {
+    visualizeRecipeNutrition(ingredientList, servings, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling visualizeRecipeNutrition");
+      }
+      // verify the required parameter 'servings' is set
+      if (servings === undefined || servings === null) {
+        throw new Error("Missing the required parameter 'servings' when calling visualizeRecipeNutrition");
+      }
 
       let pathParams = {
       };
@@ -2026,10 +2136,12 @@ export default class RecipesApi {
         'language': opts['language']
       };
       let headerParams = {
-        'Content-Type': opts['contentType'],
-        'Accept': opts['accept']
       };
       let formParams = {
+        'ingredientList': ingredientList,
+        'servings': servings,
+        'defaultCss': opts['defaultCss'],
+        'showBacklink': opts['showBacklink']
       };
 
       let authNames = ['apiKeyScheme'];
@@ -2057,7 +2169,6 @@ export default class RecipesApi {
      * @param {Number} id The item's id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
-     * @param {module:model/String} [accept] Accept header.
      * @param {module:api/RecipesApi~visualizeRecipeNutritionByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
@@ -2076,7 +2187,6 @@ export default class RecipesApi {
         'defaultCss': opts['defaultCss']
       };
       let headerParams = {
-        'Accept': opts['accept']
       };
       let formParams = {
       };
@@ -2150,31 +2260,33 @@ export default class RecipesApi {
     /**
      * Recipe Taste Widget
      * Visualize a recipe's taste information as HTML including CSS. You can play around with that endpoint!
+     * @param {String} ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
-     * @param {module:model/String} [contentType] The content type.
-     * @param {module:model/String} [accept] Accept header.
-     * @param {Boolean} [normalize] Whether to normalize to the strongest taste.
+     * @param {Boolean} [normalize] Normalize to the strongest taste.
      * @param {String} [rgb] Red, green, blue values for the chart color.
      * @param {module:api/RecipesApi~visualizeRecipeTasteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    visualizeRecipeTaste(opts, callback) {
+    visualizeRecipeTaste(ingredientList, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'ingredientList' is set
+      if (ingredientList === undefined || ingredientList === null) {
+        throw new Error("Missing the required parameter 'ingredientList' when calling visualizeRecipeTaste");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'language': opts['language'],
-        'normalize': opts['normalize'],
-        'rgb': opts['rgb']
+        'language': opts['language']
       };
       let headerParams = {
-        'Content-Type': opts['contentType'],
-        'Accept': opts['accept']
       };
       let formParams = {
+        'ingredientList': ingredientList,
+        'normalize': opts['normalize'],
+        'rgb': opts['rgb']
       };
 
       let authNames = ['apiKeyScheme'];

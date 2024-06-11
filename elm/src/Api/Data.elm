@@ -165,10 +165,10 @@ module Api.Data exposing
     , SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
     , SearchSiteContent200Response
     , SearchSiteContent200ResponseArticlesInner
-    , SearchSiteContent200ResponseGroceryProductsInner
-    , SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+    , SearchSiteContent200ResponseArticlesInnerDataPointsInner
     , SummarizeRecipe200Response
     , TalkToChatbot200Response
+    , TalkToChatbot200ResponseMediaInner
     , encodeAddMealPlanTemplate200Response
     , encodeAddMealPlanTemplate200ResponseItemsInner
     , encodeAddMealPlanTemplate200ResponseItemsInnerValue
@@ -319,10 +319,10 @@ module Api.Data exposing
     , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
     , encodeSearchSiteContent200Response
     , encodeSearchSiteContent200ResponseArticlesInner
-    , encodeSearchSiteContent200ResponseGroceryProductsInner
-    , encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+    , encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner
     , encodeSummarizeRecipe200Response
     , encodeTalkToChatbot200Response
+    , encodeTalkToChatbot200ResponseMediaInner
     , addMealPlanTemplate200ResponseDecoder
     , addMealPlanTemplate200ResponseItemsInnerDecoder
     , addMealPlanTemplate200ResponseItemsInnerValueDecoder
@@ -473,10 +473,10 @@ module Api.Data exposing
     , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder
     , searchSiteContent200ResponseDecoder
     , searchSiteContent200ResponseArticlesInnerDecoder
-    , searchSiteContent200ResponseGroceryProductsInnerDecoder
-    , searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerDecoder
+    , searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder
     , summarizeRecipe200ResponseDecoder
     , talkToChatbot200ResponseDecoder
+    , talkToChatbot200ResponseMediaInnerDecoder
     )
 
 import Api
@@ -873,7 +873,7 @@ type alias GetComparableProducts200ResponseComparableProductsProteinInner =
 -}
 type alias GetConversationSuggests200Response =
     { suggests : GetConversationSuggests200ResponseSuggests
-    , words : List Maybe AnyType
+    , words : List String
     }
 
 
@@ -1054,7 +1054,7 @@ type alias GetProductInformation200Response =
     , badges : List String
     , importantBadges : List String
     , ingredientCount : Int
-    , generatedText : Maybe AnyType
+    , generatedText : Maybe String
     , ingredientList : String
     , ingredients : List GetProductInformation200ResponseIngredientsInner
     , likes : Float
@@ -1067,9 +1067,9 @@ type alias GetProductInformation200Response =
 
 
 type alias GetProductInformation200ResponseIngredientsInner =
-    { description : Maybe AnyType
+    { description : Maybe String
     , name : String
-    , safetyLevel : Maybe AnyType
+    , safetyLevel : Maybe String
     }
 
 
@@ -1421,7 +1421,7 @@ type alias GetWinePairing200ResponseProductMatchesInner =
     { id : Int
     , title : String
     , averageRating : Float
-    , description : Maybe AnyType
+    , description : Maybe String
     , imageUrl : String
     , link : String
     , price : String
@@ -1742,9 +1742,9 @@ type alias SearchGroceryProductsByUPC200Response =
 
 
 type alias SearchGroceryProductsByUPC200ResponseIngredientsInner =
-    { description : Maybe AnyType
+    { description : Maybe String
     , name : String
-    , safetyLevel : Maybe AnyType
+    , safetyLevel : Maybe String
     }
 
 
@@ -1908,29 +1908,21 @@ type alias SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
 -}
 type alias SearchSiteContent200Response =
     { articles : List SearchSiteContent200ResponseArticlesInner
-    , groceryProducts : List SearchSiteContent200ResponseGroceryProductsInner
-    , menuItems : List SearchSiteContent200ResponseGroceryProductsInner
-    , recipes : List SearchSiteContent200ResponseGroceryProductsInner
+    , groceryProducts : List SearchSiteContent200ResponseArticlesInner
+    , menuItems : List SearchSiteContent200ResponseArticlesInner
+    , recipes : List SearchSiteContent200ResponseArticlesInner
     }
 
 
 type alias SearchSiteContent200ResponseArticlesInner =
-    { dataPoints : Maybe ( List Maybe AnyType )
+    { dataPoints : Maybe ( List SearchSiteContent200ResponseArticlesInnerDataPointsInner )
     , image : String
     , link : String
     , name : String
     }
 
 
-type alias SearchSiteContent200ResponseGroceryProductsInner =
-    { dataPoints : Maybe ( List SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner )
-    , image : String
-    , link : String
-    , name : String
-    }
-
-
-type alias SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner =
+type alias SearchSiteContent200ResponseArticlesInnerDataPointsInner =
     { key : String
     , value : String
     }
@@ -1949,7 +1941,14 @@ type alias SummarizeRecipe200Response =
 -}
 type alias TalkToChatbot200Response =
     { answerText : String
-    , media : List Maybe AnyType
+    , media : List TalkToChatbot200ResponseMediaInner
+    }
+
+
+type alias TalkToChatbot200ResponseMediaInner =
+    { title : Maybe String
+    , image : Maybe String
+    , link : Maybe String
     }
 
 
@@ -3026,7 +3025,7 @@ encodeGetConversationSuggests200ResponsePairs model =
     let
         pairs =
             [ encode "suggests" encodeGetConversationSuggests200ResponseSuggests model.suggests
-            , encode "words" (Json.Encode.list encodeAnyType) model.words
+            , encode "words" (Json.Encode.list Json.Encode.string) model.words
             ]
     in
     pairs
@@ -3476,7 +3475,7 @@ encodeGetProductInformation200ResponsePairs model =
             , encode "badges" (Json.Encode.list Json.Encode.string) model.badges
             , encode "importantBadges" (Json.Encode.list Json.Encode.string) model.importantBadges
             , encode "ingredientCount" Json.Encode.int model.ingredientCount
-            , maybeEncodeNullable "generatedText" encodeAnyType model.generatedText
+            , maybeEncode "generatedText" Json.Encode.string model.generatedText
             , encode "ingredientList" Json.Encode.string model.ingredientList
             , encode "ingredients" (Json.Encode.list encodeGetProductInformation200ResponseIngredientsInner) model.ingredients
             , encode "likes" Json.Encode.float model.likes
@@ -3504,9 +3503,9 @@ encodeGetProductInformation200ResponseIngredientsInnerPairs : GetProductInformat
 encodeGetProductInformation200ResponseIngredientsInnerPairs model =
     let
         pairs =
-            [ maybeEncodeNullable "description" encodeAnyType model.description
+            [ maybeEncode "description" Json.Encode.string model.description
             , encode "name" Json.Encode.string model.name
-            , maybeEncodeNullable "safety_level" encodeAnyType model.safetyLevel
+            , maybeEncode "safety_level" Json.Encode.string model.safetyLevel
             ]
     in
     pairs
@@ -4286,7 +4285,7 @@ encodeGetWinePairing200ResponseProductMatchesInnerPairs model =
             [ encode "id" Json.Encode.int model.id
             , encode "title" Json.Encode.string model.title
             , encode "averageRating" Json.Encode.float model.averageRating
-            , maybeEncodeNullable "description" encodeAnyType model.description
+            , maybeEncode "description" Json.Encode.string model.description
             , encode "imageUrl" Json.Encode.string model.imageUrl
             , encode "link" Json.Encode.string model.link
             , encode "price" Json.Encode.string model.price
@@ -5108,9 +5107,9 @@ encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerPairs : SearchGrocery
 encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerPairs model =
     let
         pairs =
-            [ maybeEncodeNullable "description" encodeAnyType model.description
+            [ maybeEncode "description" Json.Encode.string model.description
             , encode "name" Json.Encode.string model.name
-            , maybeEncodeNullable "safety_level" encodeAnyType model.safetyLevel
+            , maybeEncode "safety_level" Json.Encode.string model.safetyLevel
             ]
     in
     pairs
@@ -5493,9 +5492,9 @@ encodeSearchSiteContent200ResponsePairs model =
     let
         pairs =
             [ encode "Articles" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.articles
-            , encode "Grocery Products" (Json.Encode.list encodeSearchSiteContent200ResponseGroceryProductsInner) model.groceryProducts
-            , encode "Menu Items" (Json.Encode.list encodeSearchSiteContent200ResponseGroceryProductsInner) model.menuItems
-            , encode "Recipes" (Json.Encode.list encodeSearchSiteContent200ResponseGroceryProductsInner) model.recipes
+            , encode "Grocery Products" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.groceryProducts
+            , encode "Menu Items" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.menuItems
+            , encode "Recipes" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.recipes
             ]
     in
     pairs
@@ -5515,7 +5514,7 @@ encodeSearchSiteContent200ResponseArticlesInnerPairs : SearchSiteContent200Respo
 encodeSearchSiteContent200ResponseArticlesInnerPairs model =
     let
         pairs =
-            [ maybeEncode "dataPoints" (Json.Encode.list encodeAnyType) model.dataPoints
+            [ maybeEncode "dataPoints" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner) model.dataPoints
             , encode "image" Json.Encode.string model.image
             , encode "link" Json.Encode.string model.link
             , encode "name" Json.Encode.string model.name
@@ -5524,41 +5523,18 @@ encodeSearchSiteContent200ResponseArticlesInnerPairs model =
     pairs
 
 
-encodeSearchSiteContent200ResponseGroceryProductsInner : SearchSiteContent200ResponseGroceryProductsInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseGroceryProductsInner =
-    encodeObject << encodeSearchSiteContent200ResponseGroceryProductsInnerPairs
+encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner : SearchSiteContent200ResponseArticlesInnerDataPointsInner -> Json.Encode.Value
+encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner =
+    encodeObject << encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs
 
 
-encodeSearchSiteContent200ResponseGroceryProductsInnerWithTag : ( String, String ) -> SearchSiteContent200ResponseGroceryProductsInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseGroceryProductsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchSiteContent200ResponseGroceryProductsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerWithTag : ( String, String ) -> SearchSiteContent200ResponseArticlesInnerDataPointsInner -> Json.Encode.Value
+encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeSearchSiteContent200ResponseGroceryProductsInnerPairs : SearchSiteContent200ResponseGroceryProductsInner -> List EncodedField
-encodeSearchSiteContent200ResponseGroceryProductsInnerPairs model =
-    let
-        pairs =
-            [ maybeEncode "dataPoints" (Json.Encode.list encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner) model.dataPoints
-            , encode "image" Json.Encode.string model.image
-            , encode "link" Json.Encode.string model.link
-            , encode "name" Json.Encode.string model.name
-            ]
-    in
-    pairs
-
-
-encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner : SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInner =
-    encodeObject << encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerPairs
-
-
-encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerWithTag : ( String, String ) -> SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerPairs : SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner -> List EncodedField
-encodeSearchSiteContent200ResponseGroceryProductsInnerDataPointsInnerPairs model =
+encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs : SearchSiteContent200ResponseArticlesInnerDataPointsInner -> List EncodedField
+encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs model =
     let
         pairs =
             [ encode "key" Json.Encode.string model.key
@@ -5605,7 +5581,29 @@ encodeTalkToChatbot200ResponsePairs model =
     let
         pairs =
             [ encode "answerText" Json.Encode.string model.answerText
-            , encode "media" (Json.Encode.list encodeAnyType) model.media
+            , encode "media" (Json.Encode.list encodeTalkToChatbot200ResponseMediaInner) model.media
+            ]
+    in
+    pairs
+
+
+encodeTalkToChatbot200ResponseMediaInner : TalkToChatbot200ResponseMediaInner -> Json.Encode.Value
+encodeTalkToChatbot200ResponseMediaInner =
+    encodeObject << encodeTalkToChatbot200ResponseMediaInnerPairs
+
+
+encodeTalkToChatbot200ResponseMediaInnerWithTag : ( String, String ) -> TalkToChatbot200ResponseMediaInner -> Json.Encode.Value
+encodeTalkToChatbot200ResponseMediaInnerWithTag (tagField, tag) model =
+    encodeObject (encodeTalkToChatbot200ResponseMediaInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeTalkToChatbot200ResponseMediaInnerPairs : TalkToChatbot200ResponseMediaInner -> List EncodedField
+encodeTalkToChatbot200ResponseMediaInnerPairs model =
+    let
+        pairs =
+            [ maybeEncode "title" Json.Encode.string model.title
+            , maybeEncode "image" Json.Encode.string model.image
+            , maybeEncode "link" Json.Encode.string model.link
             ]
     in
     pairs
@@ -6001,7 +5999,7 @@ getConversationSuggests200ResponseDecoder : Json.Decode.Decoder GetConversationS
 getConversationSuggests200ResponseDecoder =
     Json.Decode.succeed GetConversationSuggests200Response
         |> decode "suggests" getConversationSuggests200ResponseSuggestsDecoder 
-        |> decode "words" (Json.Decode.list anyTypeDecoder) 
+        |> decode "words" (Json.Decode.list Json.Decode.string) 
 
 
 getConversationSuggests200ResponseSuggestsDecoder : Json.Decode.Decoder GetConversationSuggests200ResponseSuggests
@@ -6185,7 +6183,7 @@ getProductInformation200ResponseDecoder =
         |> decode "badges" (Json.Decode.list Json.Decode.string) 
         |> decode "importantBadges" (Json.Decode.list Json.Decode.string) 
         |> decode "ingredientCount" Json.Decode.int 
-        |> maybeDecodeNullable "generatedText" anyTypeDecoder Nothing
+        |> maybeDecode "generatedText" Json.Decode.string Nothing
         |> decode "ingredientList" Json.Decode.string 
         |> decode "ingredients" (Json.Decode.list getProductInformation200ResponseIngredientsInnerDecoder) 
         |> decode "likes" Json.Decode.float 
@@ -6199,9 +6197,9 @@ getProductInformation200ResponseDecoder =
 getProductInformation200ResponseIngredientsInnerDecoder : Json.Decode.Decoder GetProductInformation200ResponseIngredientsInner
 getProductInformation200ResponseIngredientsInnerDecoder =
     Json.Decode.succeed GetProductInformation200ResponseIngredientsInner
-        |> maybeDecodeNullable "description" anyTypeDecoder Nothing
+        |> maybeDecode "description" Json.Decode.string Nothing
         |> decode "name" Json.Decode.string 
-        |> maybeDecodeNullable "safety_level" anyTypeDecoder Nothing
+        |> maybeDecode "safety_level" Json.Decode.string Nothing
 
 
 getRandomFoodTrivia200ResponseDecoder : Json.Decode.Decoder GetRandomFoodTrivia200Response
@@ -6561,7 +6559,7 @@ getWinePairing200ResponseProductMatchesInnerDecoder =
         |> decode "id" Json.Decode.int 
         |> decode "title" Json.Decode.string 
         |> decode "averageRating" Json.Decode.float 
-        |> maybeDecodeNullable "description" anyTypeDecoder Nothing
+        |> maybeDecode "description" Json.Decode.string Nothing
         |> decode "imageUrl" Json.Decode.string 
         |> decode "link" Json.Decode.string 
         |> decode "price" Json.Decode.string 
@@ -6893,9 +6891,9 @@ searchGroceryProductsByUPC200ResponseDecoder =
 searchGroceryProductsByUPC200ResponseIngredientsInnerDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseIngredientsInner
 searchGroceryProductsByUPC200ResponseIngredientsInnerDecoder =
     Json.Decode.succeed SearchGroceryProductsByUPC200ResponseIngredientsInner
-        |> maybeDecodeNullable "description" anyTypeDecoder Nothing
+        |> maybeDecode "description" Json.Decode.string Nothing
         |> decode "name" Json.Decode.string 
-        |> maybeDecodeNullable "safety_level" anyTypeDecoder Nothing
+        |> maybeDecode "safety_level" Json.Decode.string Nothing
 
 
 searchGroceryProductsByUPC200ResponseNutritionDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseNutrition
@@ -7068,32 +7066,23 @@ searchSiteContent200ResponseDecoder : Json.Decode.Decoder SearchSiteContent200Re
 searchSiteContent200ResponseDecoder =
     Json.Decode.succeed SearchSiteContent200Response
         |> decode "Articles" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
-        |> decode "Grocery Products" (Json.Decode.list searchSiteContent200ResponseGroceryProductsInnerDecoder) 
-        |> decode "Menu Items" (Json.Decode.list searchSiteContent200ResponseGroceryProductsInnerDecoder) 
-        |> decode "Recipes" (Json.Decode.list searchSiteContent200ResponseGroceryProductsInnerDecoder) 
+        |> decode "Grocery Products" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
+        |> decode "Menu Items" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
+        |> decode "Recipes" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
 
 
 searchSiteContent200ResponseArticlesInnerDecoder : Json.Decode.Decoder SearchSiteContent200ResponseArticlesInner
 searchSiteContent200ResponseArticlesInnerDecoder =
     Json.Decode.succeed SearchSiteContent200ResponseArticlesInner
-        |> maybeDecode "dataPoints" (Json.Decode.list anyTypeDecoder) Nothing
+        |> maybeDecode "dataPoints" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder) Nothing
         |> decode "image" Json.Decode.string 
         |> decode "link" Json.Decode.string 
         |> decode "name" Json.Decode.string 
 
 
-searchSiteContent200ResponseGroceryProductsInnerDecoder : Json.Decode.Decoder SearchSiteContent200ResponseGroceryProductsInner
-searchSiteContent200ResponseGroceryProductsInnerDecoder =
-    Json.Decode.succeed SearchSiteContent200ResponseGroceryProductsInner
-        |> maybeDecode "dataPoints" (Json.Decode.list searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerDecoder) Nothing
-        |> decode "image" Json.Decode.string 
-        |> decode "link" Json.Decode.string 
-        |> decode "name" Json.Decode.string 
-
-
-searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerDecoder : Json.Decode.Decoder SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
-searchSiteContent200ResponseGroceryProductsInnerDataPointsInnerDecoder =
-    Json.Decode.succeed SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner
+searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder : Json.Decode.Decoder SearchSiteContent200ResponseArticlesInnerDataPointsInner
+searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder =
+    Json.Decode.succeed SearchSiteContent200ResponseArticlesInnerDataPointsInner
         |> decode "key" Json.Decode.string 
         |> decode "value" Json.Decode.string 
 
@@ -7110,7 +7099,15 @@ talkToChatbot200ResponseDecoder : Json.Decode.Decoder TalkToChatbot200Response
 talkToChatbot200ResponseDecoder =
     Json.Decode.succeed TalkToChatbot200Response
         |> decode "answerText" Json.Decode.string 
-        |> decode "media" (Json.Decode.list anyTypeDecoder) 
+        |> decode "media" (Json.Decode.list talkToChatbot200ResponseMediaInnerDecoder) 
+
+
+talkToChatbot200ResponseMediaInnerDecoder : Json.Decode.Decoder TalkToChatbot200ResponseMediaInner
+talkToChatbot200ResponseMediaInnerDecoder =
+    Json.Decode.succeed TalkToChatbot200ResponseMediaInner
+        |> maybeDecode "title" Json.Decode.string Nothing
+        |> maybeDecode "image" Json.Decode.string Nothing
+        |> maybeDecode "link" Json.Decode.string Nothing
 
 
 

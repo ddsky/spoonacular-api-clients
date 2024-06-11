@@ -382,7 +382,7 @@ class ProductsApi {
   ///
   /// * [num] id (required):
   ///   The id of the product.
-  Future<Object?> productNutritionByIDImage(num id,) async {
+  Future<MultipartFile?> productNutritionByIDImage(num id,) async {
     final response = await productNutritionByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -391,7 +391,7 @@ class ProductsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -469,7 +469,7 @@ class ProductsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Object?> productNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<MultipartFile?> productNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await productNutritionLabelImageWithHttpInfo(id,  showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -478,7 +478,7 @@ class ProductsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MultipartFile',) as MultipartFile;
     
     }
     return null;
@@ -813,10 +813,7 @@ class ProductsApi {
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
-  ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<Response> visualizeProductNutritionByIDWithHttpInfo(int id, { bool? defaultCss, String? accept, }) async {
+  Future<Response> visualizeProductNutritionByIDWithHttpInfo(int id, { bool? defaultCss, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/{id}/nutritionWidget'
       .replaceAll('{id}', id.toString());
@@ -830,10 +827,6 @@ class ProductsApi {
 
     if (defaultCss != null) {
       queryParams.addAll(_queryParams('', 'defaultCss', defaultCss));
-    }
-
-    if (accept != null) {
-      headerParams[r'Accept'] = parameterToString(accept);
     }
 
     const contentTypes = <String>[];
@@ -861,11 +854,8 @@ class ProductsApi {
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
-  ///
-  /// * [String] accept:
-  ///   Accept header.
-  Future<String?> visualizeProductNutritionByID(int id, { bool? defaultCss, String? accept, }) async {
-    final response = await visualizeProductNutritionByIDWithHttpInfo(id,  defaultCss: defaultCss, accept: accept, );
+  Future<String?> visualizeProductNutritionByID(int id, { bool? defaultCss, }) async {
+    final response = await visualizeProductNutritionByIDWithHttpInfo(id,  defaultCss: defaultCss, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

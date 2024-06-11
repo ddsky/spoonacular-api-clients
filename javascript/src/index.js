@@ -163,10 +163,10 @@ import SearchRestaurants200ResponseRestaurantsInnerLocalHours from './model/Sear
 import SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational from './model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import SearchSiteContent200Response from './model/SearchSiteContent200Response';
 import SearchSiteContent200ResponseArticlesInner from './model/SearchSiteContent200ResponseArticlesInner';
-import SearchSiteContent200ResponseGroceryProductsInner from './model/SearchSiteContent200ResponseGroceryProductsInner';
-import SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner from './model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner';
+import SearchSiteContent200ResponseArticlesInnerDataPointsInner from './model/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 import SummarizeRecipe200Response from './model/SummarizeRecipe200Response';
 import TalkToChatbot200Response from './model/TalkToChatbot200Response';
+import TalkToChatbot200ResponseMediaInner from './model/TalkToChatbot200ResponseMediaInner';
 import DefaultApi from './api/DefaultApi';
 import IngredientsApi from './api/IngredientsApi';
 import MealPlanningApi from './api/MealPlanningApi';
@@ -1116,16 +1116,10 @@ export {
     SearchSiteContent200ResponseArticlesInner,
 
     /**
-     * The SearchSiteContent200ResponseGroceryProductsInner model constructor.
-     * @property {module:model/SearchSiteContent200ResponseGroceryProductsInner}
+     * The SearchSiteContent200ResponseArticlesInnerDataPointsInner model constructor.
+     * @property {module:model/SearchSiteContent200ResponseArticlesInnerDataPointsInner}
      */
-    SearchSiteContent200ResponseGroceryProductsInner,
-
-    /**
-     * The SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner model constructor.
-     * @property {module:model/SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner}
-     */
-    SearchSiteContent200ResponseGroceryProductsInnerDataPointsInner,
+    SearchSiteContent200ResponseArticlesInnerDataPointsInner,
 
     /**
      * The SummarizeRecipe200Response model constructor.
@@ -1138,6 +1132,12 @@ export {
      * @property {module:model/TalkToChatbot200Response}
      */
     TalkToChatbot200Response,
+
+    /**
+     * The TalkToChatbot200ResponseMediaInner model constructor.
+     * @property {module:model/TalkToChatbot200ResponseMediaInner}
+     */
+    TalkToChatbot200ResponseMediaInner,
 
     /**
     * The DefaultApi service constructor.

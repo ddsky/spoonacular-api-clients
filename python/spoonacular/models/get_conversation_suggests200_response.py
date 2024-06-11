@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, StrictStr
 from typing import Any, ClassVar, Dict, List
 from spoonacular.models.get_conversation_suggests200_response_suggests import GetConversationSuggests200ResponseSuggests
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class GetConversationSuggests200Response(BaseModel):
     
     """ # noqa: E501
     suggests: GetConversationSuggests200ResponseSuggests
-    words: List[Any]
+    words: List[StrictStr]
     __properties: ClassVar[List[str]] = ["suggests", "words"]
 
     model_config = {

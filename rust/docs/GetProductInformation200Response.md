@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **badges** | **Vec<String>** |  | 
 **important_badges** | **Vec<String>** |  | 
 **ingredient_count** | **i32** |  | 
-**generated_text** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**generated_text** | Option<**String**> |  | [optional]
 **ingredient_list** | **String** |  | 
 **ingredients** | [**Vec<crate::models::GetProductInformation200ResponseIngredientsInner>**](getProductInformation_200_response_ingredients_inner.md) |  | 
 **likes** | **f32** |  | 

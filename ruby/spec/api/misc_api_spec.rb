@@ -35,8 +35,8 @@ describe 'MiscApi' do
   # unit tests for detect_food_in_text
   # Detect Food in Text
   # Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+  # @param text 
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :content_type The content type.
   # @return [DetectFoodInText200Response]
   describe 'detect_food_in_text test' do
     it 'should work' do

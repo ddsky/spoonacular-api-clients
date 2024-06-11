@@ -61,7 +61,7 @@ data class GetWinePairing200ResponseProductMatchesInner (
     val score: java.math.BigDecimal,
 
     @Json(name = "description")
-    val description: kotlin.Any? = null
+    val description: kotlin.String? = null
 
 )
 

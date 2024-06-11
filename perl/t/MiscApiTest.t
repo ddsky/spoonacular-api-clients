@@ -33,8 +33,8 @@ isa_ok($api, 'WWW::OpenAPIClient::MiscApi');
 # detect_food_in_text test
 #
 # uncomment below and update the test
-#my $detect_food_in_text_content_type = undef; # replace NULL with a proper value
-#my $detect_food_in_text_result = $api->detect_food_in_text(content_type => $detect_food_in_text_content_type);
+#my $detect_food_in_text_text = undef; # replace NULL with a proper value
+#my $detect_food_in_text_result = $api->detect_food_in_text(text => $detect_food_in_text_text);
 
 #
 # get_a_random_food_joke test

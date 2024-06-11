@@ -20,7 +20,7 @@ All URIs are relative to https://api.spoonacular.com, except if the operation de
 ## `detectFoodInText()`
 
 ```php
-detectFoodInText($content_type): \OpenAPI\Client\Model\DetectFoodInText200Response
+detectFoodInText($text): \OpenAPI\Client\Model\DetectFoodInText200Response
 ```
 
 Detect Food in Text
@@ -46,10 +46,10 @@ $apiInstance = new OpenAPI\Client\Api\MiscApi(
     new GuzzleHttp\Client(),
     $config
 );
-$content_type = application/json; // string | The content type.
+$text = 'text_example'; // string
 
 try {
-    $result = $apiInstance->detectFoodInText($content_type);
+    $result = $apiInstance->detectFoodInText($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MiscApi->detectFoodInText: ', $e->getMessage(), PHP_EOL;
@@ -60,7 +60,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **content_type** | **string**| The content type. | [optional] |
+| **text** | **string**|  | |
 
 ### Return type
 

@@ -15,7 +15,7 @@
 
 
 module Api.Request.Misc exposing
-    ( detectFoodInText, ContentType(..), contentTypeVariants
+    ( detectFoodInText
     , getARandomFoodJoke
     , getConversationSuggests
     , getRandomFoodTrivia
@@ -35,46 +35,17 @@ import Http
 import Json.Decode
 import Json.Encode
 
-
-type ContentType
-    = ContentTypeApplicationXWwwFormUrlencoded
-    | ContentTypeApplicationJson
-    | ContentTypeMultipartFormData
-
-
-contentTypeVariants : List ContentType
-contentTypeVariants =
-    [ ContentTypeApplicationXWwwFormUrlencoded
-    , ContentTypeApplicationJson
-    , ContentTypeMultipartFormData
-    ]
-
-
-stringFromContentType : ContentType -> String
-stringFromContentType model =
-    case model of
-        ContentTypeApplicationXWwwFormUrlencoded ->
-            "application/x-www-form-urlencoded"
-
-        ContentTypeApplicationJson ->
-            "application/json"
-
-        ContentTypeMultipartFormData ->
-            "multipart/form-data"
-
-
-
 {-| Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
 -}
-detectFoodInText : Maybe ContentType -> Api.Request Api.Data.DetectFoodInText200Response
-detectFoodInText contentType_header =
+detectFoodInText : String -> Api.Request Api.Data.DetectFoodInText200Response
+detectFoodInText text =
     Api.request
         "POST"
         "/food/detect"
         []
         []
-        [ ( "Content-Type", Maybe.map stringFromContentType contentType_header ) ]
-        Nothing
+        []
+        (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "text" text ])
         Api.Data.detectFoodInText200ResponseDecoder
 
 

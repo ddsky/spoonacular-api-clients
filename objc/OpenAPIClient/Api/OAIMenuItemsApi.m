@@ -198,10 +198,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 /// Visualize a menu item's nutritional information as HTML including CSS.
 ///  @param _id The menu item id. 
 ///
-///  @returns NSObject*
+///  @returns NSURL*
 ///
 -(NSURLSessionTask*) menuItemNutritionByIDImageWithId: (NSNumber*) _id
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -253,10 +253,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"NSURL*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((NSURL*)data, error);
                                 }
                             }];
 }
@@ -272,13 +272,13 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 ///
 ///  @param showIngredients Whether to show a list of ingredients. (optional)
 ///
-///  @returns NSObject*
+///  @returns NSURL*
 ///
 -(NSURLSessionTask*) menuItemNutritionLabelImageWithId: (NSNumber*) _id
     showOptionalNutrients: (NSNumber*) showOptionalNutrients
     showZeroValues: (NSNumber*) showZeroValues
     showIngredients: (NSNumber*) showIngredients
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -339,10 +339,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"NSURL*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((NSURL*)data, error);
                                 }
                             }];
 }
@@ -569,13 +569,10 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
 ///
 ///  @param defaultCss Whether the default CSS should be added to the response. (optional, default to @(YES))
 ///
-///  @param accept Accept header. (optional)
-///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) visualizeMenuItemNutritionByIDWithId: (NSNumber*) _id
     defaultCss: (NSNumber*) defaultCss
-    accept: (NSString*) accept
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
@@ -601,9 +598,6 @@ NSInteger kOAIMenuItemsApiMissingParamErrorCode = 234513;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    if (accept != nil) {
-        headerParams[@"Accept"] = accept;
-    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"text/html"]];
     if(acceptHeader.length > 0) {

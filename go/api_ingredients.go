@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -996,7 +997,7 @@ func (r ApiIngredientsByIDImageRequest) Measure(measure string) ApiIngredientsBy
 	return r
 }
 
-func (r ApiIngredientsByIDImageRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiIngredientsByIDImageRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.IngredientsByIDImageExecute(r)
 }
 
@@ -1018,13 +1019,13 @@ func (a *IngredientsAPIService) IngredientsByIDImage(ctx context.Context, id flo
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *IngredientsAPIService) IngredientsByIDImageExecute(r ApiIngredientsByIDImageRequest) (map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *IngredientsAPIService) IngredientsByIDImageExecute(r ApiIngredientsByIDImageRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IngredientsAPIService.IngredientsByIDImage")
@@ -1237,14 +1238,24 @@ func (a *IngredientsAPIService) MapIngredientsToGroceryProductsExecute(r ApiMapI
 type ApiVisualizeIngredientsRequest struct {
 	ctx context.Context
 	ApiService *IngredientsAPIService
-	contentType *string
+	ingredientList *string
+	servings *float32
 	language *string
-	accept *string
+	measure *string
+	view *string
+	defaultCss *bool
+	showBacklink *bool
 }
 
-// The content type.
-func (r ApiVisualizeIngredientsRequest) ContentType(contentType string) ApiVisualizeIngredientsRequest {
-	r.contentType = &contentType
+// The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+func (r ApiVisualizeIngredientsRequest) IngredientList(ingredientList string) ApiVisualizeIngredientsRequest {
+	r.ingredientList = &ingredientList
+	return r
+}
+
+// The number of servings.
+func (r ApiVisualizeIngredientsRequest) Servings(servings float32) ApiVisualizeIngredientsRequest {
+	r.servings = &servings
 	return r
 }
 
@@ -1254,9 +1265,27 @@ func (r ApiVisualizeIngredientsRequest) Language(language string) ApiVisualizeIn
 	return r
 }
 
-// Accept header.
-func (r ApiVisualizeIngredientsRequest) Accept(accept string) ApiVisualizeIngredientsRequest {
-	r.accept = &accept
+// The original system of measurement, either &#39;metric&#39; or &#39;us&#39;.
+func (r ApiVisualizeIngredientsRequest) Measure(measure string) ApiVisualizeIngredientsRequest {
+	r.measure = &measure
+	return r
+}
+
+// How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;.
+func (r ApiVisualizeIngredientsRequest) View(view string) ApiVisualizeIngredientsRequest {
+	r.view = &view
+	return r
+}
+
+// Whether the default CSS should be added to the response.
+func (r ApiVisualizeIngredientsRequest) DefaultCss(defaultCss bool) ApiVisualizeIngredientsRequest {
+	r.defaultCss = &defaultCss
+	return r
+}
+
+// Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
+func (r ApiVisualizeIngredientsRequest) ShowBacklink(showBacklink bool) ApiVisualizeIngredientsRequest {
+	r.showBacklink = &showBacklink
 	return r
 }
 
@@ -1299,6 +1328,12 @@ func (a *IngredientsAPIService) VisualizeIngredientsExecute(r ApiVisualizeIngred
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.ingredientList == nil {
+		return localVarReturnValue, nil, reportError("ingredientList is required and must be specified")
+	}
+	if r.servings == nil {
+		return localVarReturnValue, nil, reportError("servings is required and must be specified")
+	}
 
 	if r.language != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
@@ -1320,11 +1355,19 @@ func (a *IngredientsAPIService) VisualizeIngredientsExecute(r ApiVisualizeIngred
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.contentType != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", r.contentType, "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "ingredientList", r.ingredientList, "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "servings", r.servings, "")
+	if r.measure != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "measure", r.measure, "")
 	}
-	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	if r.view != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "view", r.view, "")
+	}
+	if r.defaultCss != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "defaultCss", r.defaultCss, "")
+	}
+	if r.showBacklink != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "showBacklink", r.showBacklink, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

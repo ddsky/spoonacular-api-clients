@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **suggests** | [**GetConversationSuggests200ResponseSuggests**](GetConversationSuggests200ResponseSuggests.md) |  | 
-**words** | **[Object]** |  | 
+**words** | **[String]** |  | 
 
 

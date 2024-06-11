@@ -102,6 +102,19 @@ export class RecipesService {
         this.encoder = this.configuration.encoder || new CustomHttpParameterCodec();
     }
 
+    /**
+     * @param consumes string[] mime-types
+     * @return true: consumes contains 'multipart/form-data', false: otherwise
+     */
+    private canConsumeForm(consumes: string[]): boolean {
+        const form = 'multipart/form-data';
+        for (const consume of consumes) {
+            if (form === consume) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // @ts-ignore
     private addToHttpParams(httpParams: HttpParams, value: any, key?: string): HttpParams {
@@ -221,19 +234,19 @@ export class RecipesService {
     /**
      * Analyze Recipe Instructions
      * This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe\&#39;s instructions will be extracted independently of the step they\&#39;re used in.
-     * @param contentType The content type.
+     * @param instructions The recipe\\\&#39;s instructions.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public analyzeRecipeInstructions(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<AnalyzeRecipeInstructions200Response>;
-    public analyzeRecipeInstructions(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AnalyzeRecipeInstructions200Response>>;
-    public analyzeRecipeInstructions(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AnalyzeRecipeInstructions200Response>>;
-    public analyzeRecipeInstructions(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public analyzeRecipeInstructions(instructions: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<AnalyzeRecipeInstructions200Response>;
+    public analyzeRecipeInstructions(instructions: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AnalyzeRecipeInstructions200Response>>;
+    public analyzeRecipeInstructions(instructions: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AnalyzeRecipeInstructions200Response>>;
+    public analyzeRecipeInstructions(instructions: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (instructions === null || instructions === undefined) {
+            throw new Error('Required parameter instructions was null or undefined when calling analyzeRecipeInstructions.');
+        }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -264,6 +277,25 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (instructions !== undefined) {
+            localVarFormParams = localVarFormParams.append('instructions', <any>instructions) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -280,6 +312,7 @@ export class RecipesService {
         return this.httpClient.request<AnalyzeRecipeInstructions200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -374,19 +407,30 @@ export class RecipesService {
     /**
      * Classify Cuisine
      * Classify the recipe\&#39;s cuisine.
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public classifyCuisine(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ClassifyCuisine200Response>;
-    public classifyCuisine(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ClassifyCuisine200Response>>;
-    public classifyCuisine(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ClassifyCuisine200Response>>;
-    public classifyCuisine(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public classifyCuisine(title: string, ingredientList: string, language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ClassifyCuisine200Response>;
+    public classifyCuisine(title: string, ingredientList: string, language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ClassifyCuisine200Response>>;
+    public classifyCuisine(title: string, ingredientList: string, language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ClassifyCuisine200Response>>;
+    public classifyCuisine(title: string, ingredientList: string, language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (title === null || title === undefined) {
+            throw new Error('Required parameter title was null or undefined when calling classifyCuisine.');
+        }
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new Error('Required parameter ingredientList was null or undefined when calling classifyCuisine.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (language !== undefined && language !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>language, 'language');
+        }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -417,6 +461,28 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (title !== undefined) {
+            localVarFormParams = localVarFormParams.append('title', <any>title) as any || localVarFormParams;
+        }
+        if (ingredientList !== undefined) {
+            localVarFormParams = localVarFormParams.append('ingredientList', <any>ingredientList) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -433,6 +499,8 @@ export class RecipesService {
         return this.httpClient.request<ClassifyCuisine200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
+                params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -639,19 +707,49 @@ export class RecipesService {
     /**
      * Create Recipe Card
      * Generate a recipe card for a recipe.
-     * @param contentType The content type.
+     * @param title The title of the recipe.
+     * @param ingredients The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+     * @param instructions The instructions to make the recipe. One step per line (separate lines with \\\\n).
+     * @param readyInMinutes The number of minutes it takes to get the recipe on the table.
+     * @param servings The number of servings the recipe makes.
+     * @param mask The mask to put over the recipe image (\\\&#39;ellipseMask\\\&#39;, \\\&#39;diamondMask\\\&#39;, \\\&#39;starMask\\\&#39;, \\\&#39;heartMask\\\&#39;, \\\&#39;potMask\\\&#39;, \\\&#39;fishMask\\\&#39;).
+     * @param backgroundImage The background image (\\\&#39;none\\\&#39;, \\\&#39;background1\\\&#39;, or \\\&#39;background2\\\&#39;).
+     * @param image The binary image of the recipe as jpg.
+     * @param imageUrl If you do not sent a binary image you can also pass the image URL.
+     * @param author The author of the recipe.
+     * @param backgroundColor The background color for the recipe card as a hex-string.
+     * @param fontColor The font color for the recipe card as a hex-string.
+     * @param source The source of the recipe.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createRecipeCard(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<CreateRecipeCard200Response>;
-    public createRecipeCard(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateRecipeCard200Response>>;
-    public createRecipeCard(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateRecipeCard200Response>>;
-    public createRecipeCard(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public createRecipeCard(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: Blob, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<CreateRecipeCard200Response>;
+    public createRecipeCard(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: Blob, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateRecipeCard200Response>>;
+    public createRecipeCard(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: Blob, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateRecipeCard200Response>>;
+    public createRecipeCard(title: string, ingredients: string, instructions: string, readyInMinutes: number, servings: number, mask: string, backgroundImage: string, image?: Blob, imageUrl?: string, author?: string, backgroundColor?: string, fontColor?: string, source?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (title === null || title === undefined) {
+            throw new Error('Required parameter title was null or undefined when calling createRecipeCard.');
+        }
+        if (ingredients === null || ingredients === undefined) {
+            throw new Error('Required parameter ingredients was null or undefined when calling createRecipeCard.');
+        }
+        if (instructions === null || instructions === undefined) {
+            throw new Error('Required parameter instructions was null or undefined when calling createRecipeCard.');
+        }
+        if (readyInMinutes === null || readyInMinutes === undefined) {
+            throw new Error('Required parameter readyInMinutes was null or undefined when calling createRecipeCard.');
+        }
+        if (servings === null || servings === undefined) {
+            throw new Error('Required parameter servings was null or undefined when calling createRecipeCard.');
+        }
+        if (mask === null || mask === undefined) {
+            throw new Error('Required parameter mask was null or undefined when calling createRecipeCard.');
+        }
+        if (backgroundImage === null || backgroundImage === undefined) {
+            throw new Error('Required parameter backgroundImage was null or undefined when calling createRecipeCard.');
+        }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -682,6 +780,64 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'multipart/form-data'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        // see https://stackoverflow.com/questions/4007969/application-x-www-form-urlencoded-or-multipart-form-data
+        localVarUseForm = canConsumeForm;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (title !== undefined) {
+            localVarFormParams = localVarFormParams.append('title', <any>title) as any || localVarFormParams;
+        }
+        if (ingredients !== undefined) {
+            localVarFormParams = localVarFormParams.append('ingredients', <any>ingredients) as any || localVarFormParams;
+        }
+        if (instructions !== undefined) {
+            localVarFormParams = localVarFormParams.append('instructions', <any>instructions) as any || localVarFormParams;
+        }
+        if (readyInMinutes !== undefined) {
+            localVarFormParams = localVarFormParams.append('readyInMinutes', <any>readyInMinutes) as any || localVarFormParams;
+        }
+        if (servings !== undefined) {
+            localVarFormParams = localVarFormParams.append('servings', <any>servings) as any || localVarFormParams;
+        }
+        if (mask !== undefined) {
+            localVarFormParams = localVarFormParams.append('mask', <any>mask) as any || localVarFormParams;
+        }
+        if (backgroundImage !== undefined) {
+            localVarFormParams = localVarFormParams.append('backgroundImage', <any>backgroundImage) as any || localVarFormParams;
+        }
+        if (image !== undefined) {
+            localVarFormParams = localVarFormParams.append('image', <any>image) as any || localVarFormParams;
+        }
+        if (imageUrl !== undefined) {
+            localVarFormParams = localVarFormParams.append('imageUrl', <any>imageUrl) as any || localVarFormParams;
+        }
+        if (author !== undefined) {
+            localVarFormParams = localVarFormParams.append('author', <any>author) as any || localVarFormParams;
+        }
+        if (backgroundColor !== undefined) {
+            localVarFormParams = localVarFormParams.append('backgroundColor', <any>backgroundColor) as any || localVarFormParams;
+        }
+        if (fontColor !== undefined) {
+            localVarFormParams = localVarFormParams.append('fontColor', <any>fontColor) as any || localVarFormParams;
+        }
+        if (source !== undefined) {
+            localVarFormParams = localVarFormParams.append('source', <any>source) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -698,6 +854,7 @@ export class RecipesService {
         return this.httpClient.request<CreateRecipeCard200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -715,9 +872,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public equipmentByIDImage(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public equipmentByIDImage(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public equipmentByIDImage(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public equipmentByIDImage(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<Blob>;
+    public equipmentByIDImage(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Blob>>;
+    public equipmentByIDImage(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Blob>>;
     public equipmentByIDImage(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling equipmentByIDImage.');
@@ -755,22 +912,11 @@ export class RecipesService {
         }
 
 
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/equipmentWidget.png`;
-        return this.httpClient.request<object>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                responseType: <any>responseType_,
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
@@ -1754,15 +1900,23 @@ export class RecipesService {
     /**
      * Parse Ingredients
      * Extract an ingredient from plain text.
-     * @param contentType The content type.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param includeNutrition 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public parseIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<ParseIngredients200ResponseInner>>;
-    public parseIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<ParseIngredients200ResponseInner>>>;
-    public parseIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<ParseIngredients200ResponseInner>>>;
-    public parseIngredients(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<ParseIngredients200ResponseInner>>;
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<ParseIngredients200ResponseInner>>>;
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<ParseIngredients200ResponseInner>>>;
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new Error('Required parameter ingredientList was null or undefined when calling parseIngredients.');
+        }
+        if (servings === null || servings === undefined) {
+            throw new Error('Required parameter servings was null or undefined when calling parseIngredients.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (language !== undefined && language !== null) {
@@ -1771,9 +1925,6 @@ export class RecipesService {
         }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -1804,6 +1955,31 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (ingredientList !== undefined) {
+            localVarFormParams = localVarFormParams.append('ingredientList', <any>ingredientList) as any || localVarFormParams;
+        }
+        if (servings !== undefined) {
+            localVarFormParams = localVarFormParams.append('servings', <any>servings) as any || localVarFormParams;
+        }
+        if (includeNutrition !== undefined) {
+            localVarFormParams = localVarFormParams.append('includeNutrition', <any>includeNutrition) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -1820,6 +1996,7 @@ export class RecipesService {
         return this.httpClient.request<Set<ParseIngredients200ResponseInner>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1838,9 +2015,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public priceBreakdownByIDImage(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public priceBreakdownByIDImage(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public priceBreakdownByIDImage(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public priceBreakdownByIDImage(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<Blob>;
+    public priceBreakdownByIDImage(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Blob>>;
+    public priceBreakdownByIDImage(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Blob>>;
     public priceBreakdownByIDImage(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling priceBreakdownByIDImage.');
@@ -1878,22 +2055,11 @@ export class RecipesService {
         }
 
 
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/priceBreakdownWidget.png`;
-        return this.httpClient.request<object>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                responseType: <any>responseType_,
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
@@ -1989,9 +2155,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public recipeNutritionByIDImage(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public recipeNutritionByIDImage(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public recipeNutritionByIDImage(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public recipeNutritionByIDImage(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<Blob>;
+    public recipeNutritionByIDImage(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Blob>>;
+    public recipeNutritionByIDImage(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Blob>>;
     public recipeNutritionByIDImage(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling recipeNutritionByIDImage.');
@@ -2029,22 +2195,11 @@ export class RecipesService {
         }
 
 
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/nutritionWidget.png`;
-        return this.httpClient.request<object>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                responseType: <any>responseType_,
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
@@ -2064,9 +2219,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<Blob>;
+    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Blob>>;
+    public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Blob>>;
     public recipeNutritionLabelImage(id: number, showOptionalNutrients?: boolean, showZeroValues?: boolean, showIngredients?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling recipeNutritionLabelImage.');
@@ -2118,23 +2273,12 @@ export class RecipesService {
         }
 
 
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/nutritionLabel.png`;
-        return this.httpClient.request<object>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
-                responseType: <any>responseType_,
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
@@ -2248,9 +2392,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<object>;
-    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<object>>;
-    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<object>>;
+    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<Blob>;
+    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Blob>>;
+    public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Blob>>;
     public recipeTasteByIDImage(id: number, normalize?: boolean, rgb?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'image/png', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling recipeTasteByIDImage.');
@@ -2298,23 +2442,12 @@ export class RecipesService {
         }
 
 
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tasteWidget.png`;
-        return this.httpClient.request<object>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
-                responseType: <any>responseType_,
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
@@ -3507,23 +3640,22 @@ export class RecipesService {
     /**
      * Equipment Widget
      * Visualize the equipment used to make a recipe.
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param instructions The recipe\\\&#39;s instructions.
+     * @param view How to visualize the ingredients, either \\\&#39;grid\\\&#39; or \\\&#39;list\\\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public visualizeEquipment(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public visualizeEquipment(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public visualizeEquipment(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public visualizeEquipment(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public visualizeEquipment(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public visualizeEquipment(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public visualizeEquipment(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public visualizeEquipment(instructions: string, view?: string, defaultCss?: boolean, showBacklink?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (instructions === null || instructions === undefined) {
+            throw new Error('Required parameter instructions was null or undefined when calling visualizeEquipment.');
+        }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
-        if (accept !== undefined && accept !== null) {
-            localVarHeaders = localVarHeaders.set('Accept', String(accept));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -3554,6 +3686,34 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (instructions !== undefined) {
+            localVarFormParams = localVarFormParams.append('instructions', <any>instructions) as any || localVarFormParams;
+        }
+        if (view !== undefined) {
+            localVarFormParams = localVarFormParams.append('view', <any>view) as any || localVarFormParams;
+        }
+        if (defaultCss !== undefined) {
+            localVarFormParams = localVarFormParams.append('defaultCss', <any>defaultCss) as any || localVarFormParams;
+        }
+        if (showBacklink !== undefined) {
+            localVarFormParams = localVarFormParams.append('showBacklink', <any>showBacklink) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -3570,6 +3730,7 @@ export class RecipesService {
         return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3583,16 +3744,25 @@ export class RecipesService {
     /**
      * Price Breakdown Widget
      * Visualize the price breakdown of a recipe.
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param mode The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full).
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public visualizePriceBreakdown(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public visualizePriceBreakdown(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public visualizePriceBreakdown(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public visualizePriceBreakdown(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public visualizePriceBreakdown(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public visualizePriceBreakdown(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public visualizePriceBreakdown(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public visualizePriceBreakdown(ingredientList: string, servings: number, language?: 'en' | 'de', mode?: number, defaultCss?: boolean, showBacklink?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new Error('Required parameter ingredientList was null or undefined when calling visualizePriceBreakdown.');
+        }
+        if (servings === null || servings === undefined) {
+            throw new Error('Required parameter servings was null or undefined when calling visualizePriceBreakdown.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (language !== undefined && language !== null) {
@@ -3601,12 +3771,6 @@ export class RecipesService {
         }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
-        if (accept !== undefined && accept !== null) {
-            localVarHeaders = localVarHeaders.set('Accept', String(accept));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -3637,6 +3801,37 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (ingredientList !== undefined) {
+            localVarFormParams = localVarFormParams.append('ingredientList', <any>ingredientList) as any || localVarFormParams;
+        }
+        if (servings !== undefined) {
+            localVarFormParams = localVarFormParams.append('servings', <any>servings) as any || localVarFormParams;
+        }
+        if (mode !== undefined) {
+            localVarFormParams = localVarFormParams.append('mode', <any>mode) as any || localVarFormParams;
+        }
+        if (defaultCss !== undefined) {
+            localVarFormParams = localVarFormParams.append('defaultCss', <any>defaultCss) as any || localVarFormParams;
+        }
+        if (showBacklink !== undefined) {
+            localVarFormParams = localVarFormParams.append('showBacklink', <any>showBacklink) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -3653,6 +3848,7 @@ export class RecipesService {
         return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -3832,16 +4028,24 @@ export class RecipesService {
     /**
      * Recipe Nutrition Widget
      * Visualize a recipe\&#39;s nutritional information as HTML including CSS.
-     * @param contentType The content type.
-     * @param accept Accept header.
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
+     * @param servings The number of servings.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
+     * @param defaultCss Whether the default CSS should be added to the response.
+     * @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public visualizeRecipeNutrition(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public visualizeRecipeNutrition(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public visualizeRecipeNutrition(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public visualizeRecipeNutrition(contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public visualizeRecipeNutrition(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public visualizeRecipeNutrition(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public visualizeRecipeNutrition(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public visualizeRecipeNutrition(ingredientList: string, servings: number, language?: 'en' | 'de', defaultCss?: boolean, showBacklink?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new Error('Required parameter ingredientList was null or undefined when calling visualizeRecipeNutrition.');
+        }
+        if (servings === null || servings === undefined) {
+            throw new Error('Required parameter servings was null or undefined when calling visualizeRecipeNutrition.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (language !== undefined && language !== null) {
@@ -3850,12 +4054,6 @@ export class RecipesService {
         }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
-        if (accept !== undefined && accept !== null) {
-            localVarHeaders = localVarHeaders.set('Accept', String(accept));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -3886,6 +4084,34 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (ingredientList !== undefined) {
+            localVarFormParams = localVarFormParams.append('ingredientList', <any>ingredientList) as any || localVarFormParams;
+        }
+        if (servings !== undefined) {
+            localVarFormParams = localVarFormParams.append('servings', <any>servings) as any || localVarFormParams;
+        }
+        if (defaultCss !== undefined) {
+            localVarFormParams = localVarFormParams.append('defaultCss', <any>defaultCss) as any || localVarFormParams;
+        }
+        if (showBacklink !== undefined) {
+            localVarFormParams = localVarFormParams.append('showBacklink', <any>showBacklink) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -3902,6 +4128,7 @@ export class RecipesService {
         return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -3918,14 +4145,13 @@ export class RecipesService {
      * Visualize a recipe\&#39;s nutritional information as HTML including CSS.
      * @param id The item\&#39;s id.
      * @param defaultCss Whether the default CSS should be added to the response.
-     * @param accept Accept header.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, accept?: 'application/json' | 'text/html' | 'media/_*', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling visualizeRecipeNutritionByID.');
         }
@@ -3937,9 +4163,6 @@ export class RecipesService {
         }
 
         let localVarHeaders = this.defaultHeaders;
-        if (accept !== undefined && accept !== null) {
-            localVarHeaders = localVarHeaders.set('Accept', String(accept));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -4080,40 +4303,28 @@ export class RecipesService {
     /**
      * Recipe Taste Widget
      * Visualize a recipe\&#39;s taste information as HTML including CSS. You can play around with that endpoint!
+     * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param contentType The content type.
-     * @param accept Accept header.
-     * @param normalize Whether to normalize to the strongest taste.
+     * @param normalize Normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public visualizeRecipeTaste(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public visualizeRecipeTaste(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public visualizeRecipeTaste(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public visualizeRecipeTaste(language?: 'en' | 'de', contentType?: 'application/x-www-form-urlencoded' | 'application/json' | 'multipart/form-data', accept?: 'application/json' | 'text/html' | 'media/_*', normalize?: boolean, rgb?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public visualizeRecipeTaste(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public visualizeRecipeTaste(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public visualizeRecipeTaste(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public visualizeRecipeTaste(ingredientList: string, language?: 'en' | 'de', normalize?: boolean, rgb?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/html', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (ingredientList === null || ingredientList === undefined) {
+            throw new Error('Required parameter ingredientList was null or undefined when calling visualizeRecipeTaste.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (language !== undefined && language !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>language, 'language');
         }
-        if (normalize !== undefined && normalize !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>normalize, 'normalize');
-        }
-        if (rgb !== undefined && rgb !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>rgb, 'rgb');
-        }
 
         let localVarHeaders = this.defaultHeaders;
-        if (contentType !== undefined && contentType !== null) {
-            localVarHeaders = localVarHeaders.set('Content-Type', String(contentType));
-        }
-        if (accept !== undefined && accept !== null) {
-            localVarHeaders = localVarHeaders.set('Accept', String(accept));
-        }
 
         let localVarCredential: string | undefined;
         // authentication (apiKeyScheme) required
@@ -4144,6 +4355,31 @@ export class RecipesService {
             localVarTransferCache = true;
         }
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/x-www-form-urlencoded'
+        ];
+
+        const canConsumeForm = this.canConsumeForm(consumes);
+
+        let localVarFormParams: { append(param: string, value: any): any; };
+        let localVarUseForm = false;
+        let localVarConvertFormParamsToString = false;
+        if (localVarUseForm) {
+            localVarFormParams = new FormData();
+        } else {
+            localVarFormParams = new HttpParams({encoder: this.encoder});
+        }
+
+        if (ingredientList !== undefined) {
+            localVarFormParams = localVarFormParams.append('ingredientList', <any>ingredientList) as any || localVarFormParams;
+        }
+        if (normalize !== undefined) {
+            localVarFormParams = localVarFormParams.append('normalize', <any>normalize) as any || localVarFormParams;
+        }
+        if (rgb !== undefined) {
+            localVarFormParams = localVarFormParams.append('rgb', <any>rgb) as any || localVarFormParams;
+        }
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -4160,6 +4396,7 @@ export class RecipesService {
         return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

@@ -19,7 +19,7 @@ class GetConversationSuggests200Response {
 
   GetConversationSuggests200ResponseSuggests suggests;
 
-  List<Object> words;
+  List<String> words;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetConversationSuggests200Response &&
@@ -62,7 +62,9 @@ class GetConversationSuggests200Response {
 
       return GetConversationSuggests200Response(
         suggests: GetConversationSuggests200ResponseSuggests.fromJson(json[r'suggests'])!,
-        words: Object.listFromJson(json[r'words']),
+        words: json[r'words'] is Iterable
+            ? (json[r'words'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
       );
     }
     return null;

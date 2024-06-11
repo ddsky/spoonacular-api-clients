@@ -146,7 +146,7 @@ catch (ApiException e)
 
 <a id="analyzerecipeinstructions"></a>
 # **AnalyzeRecipeInstructions**
-> AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions (string? contentType = null)
+> AnalyzeRecipeInstructions200Response AnalyzeRecipeInstructions (string instructions)
 
 Analyze Recipe Instructions
 
@@ -174,12 +174,12 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
+            var instructions = "instructions_example";  // string | The recipe's instructions.
 
             try
             {
                 // Analyze Recipe Instructions
-                AnalyzeRecipeInstructions200Response result = apiInstance.AnalyzeRecipeInstructions(contentType);
+                AnalyzeRecipeInstructions200Response result = apiInstance.AnalyzeRecipeInstructions(instructions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -200,7 +200,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Analyze Recipe Instructions
-    ApiResponse<AnalyzeRecipeInstructions200Response> response = apiInstance.AnalyzeRecipeInstructionsWithHttpInfo(contentType);
+    ApiResponse<AnalyzeRecipeInstructions200Response> response = apiInstance.AnalyzeRecipeInstructionsWithHttpInfo(instructions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -217,7 +217,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
+| **instructions** | **string** | The recipe&#39;s instructions. |  |
 
 ### Return type
 
@@ -346,7 +346,7 @@ catch (ApiException e)
 
 <a id="classifycuisine"></a>
 # **ClassifyCuisine**
-> ClassifyCuisine200Response ClassifyCuisine (string? contentType = null)
+> ClassifyCuisine200Response ClassifyCuisine (string title, string ingredientList, string? language = null)
 
 Classify Cuisine
 
@@ -374,12 +374,14 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
+            var title = "title_example";  // string | The title of the recipe.
+            var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+            var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
 
             try
             {
                 // Classify Cuisine
-                ClassifyCuisine200Response result = apiInstance.ClassifyCuisine(contentType);
+                ClassifyCuisine200Response result = apiInstance.ClassifyCuisine(title, ingredientList, language);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -400,7 +402,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Classify Cuisine
-    ApiResponse<ClassifyCuisine200Response> response = apiInstance.ClassifyCuisineWithHttpInfo(contentType);
+    ApiResponse<ClassifyCuisine200Response> response = apiInstance.ClassifyCuisineWithHttpInfo(title, ingredientList, language);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -417,7 +419,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
+| **title** | **string** | The title of the recipe. |  |
+| **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |  |
+| **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
 
 ### Return type
 
@@ -651,7 +655,7 @@ catch (ApiException e)
 
 <a id="createrecipecard"></a>
 # **CreateRecipeCard**
-> CreateRecipeCard200Response CreateRecipeCard (string? contentType = null)
+> CreateRecipeCard200Response CreateRecipeCard (string title, string ingredients, string instructions, decimal readyInMinutes, decimal servings, string mask, string backgroundImage, System.IO.Stream? image = null, string? imageUrl = null, string? author = null, string? backgroundColor = null, string? fontColor = null, string? source = null)
 
 Create Recipe Card
 
@@ -679,12 +683,24 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
+            var title = "title_example";  // string | The title of the recipe.
+            var ingredients = "ingredients_example";  // string | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
+            var instructions = "instructions_example";  // string | The instructions to make the recipe. One step per line (separate lines with \\\\n).
+            var readyInMinutes = 8.14D;  // decimal | The number of minutes it takes to get the recipe on the table.
+            var servings = 8.14D;  // decimal | The number of servings the recipe makes.
+            var mask = "ellipseMask";  // string | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask').
+            var backgroundImage = "none";  // string | The background image ('none', 'background1', or 'background2').
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream? | The binary image of the recipe as jpg. (optional) 
+            var imageUrl = "imageUrl_example";  // string? | If you do not sent a binary image you can also pass the image URL. (optional) 
+            var author = "author_example";  // string? | The author of the recipe. (optional) 
+            var backgroundColor = "backgroundColor_example";  // string? | The background color for the recipe card as a hex-string. (optional) 
+            var fontColor = "fontColor_example";  // string? | The font color for the recipe card as a hex-string. (optional) 
+            var source = "source_example";  // string? | The source of the recipe. (optional) 
 
             try
             {
                 // Create Recipe Card
-                CreateRecipeCard200Response result = apiInstance.CreateRecipeCard(contentType);
+                CreateRecipeCard200Response result = apiInstance.CreateRecipeCard(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -705,7 +721,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Recipe Card
-    ApiResponse<CreateRecipeCard200Response> response = apiInstance.CreateRecipeCardWithHttpInfo(contentType);
+    ApiResponse<CreateRecipeCard200Response> response = apiInstance.CreateRecipeCardWithHttpInfo(title, ingredients, instructions, readyInMinutes, servings, mask, backgroundImage, image, imageUrl, author, backgroundColor, fontColor, source);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -722,7 +738,19 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
+| **title** | **string** | The title of the recipe. |  |
+| **ingredients** | **string** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |  |
+| **instructions** | **string** | The instructions to make the recipe. One step per line (separate lines with \\\\n). |  |
+| **readyInMinutes** | **decimal** | The number of minutes it takes to get the recipe on the table. |  |
+| **servings** | **decimal** | The number of servings the recipe makes. |  |
+| **mask** | **string** | The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). |  |
+| **backgroundImage** | **string** | The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). |  |
+| **image** | **System.IO.Stream?****System.IO.Stream?** | The binary image of the recipe as jpg. | [optional]  |
+| **imageUrl** | **string?** | If you do not sent a binary image you can also pass the image URL. | [optional]  |
+| **author** | **string?** | The author of the recipe. | [optional]  |
+| **backgroundColor** | **string?** | The background color for the recipe card as a hex-string. | [optional]  |
+| **fontColor** | **string?** | The font color for the recipe card as a hex-string. | [optional]  |
+| **source** | **string?** | The source of the recipe. | [optional]  |
 
 ### Return type
 
@@ -750,7 +778,7 @@ catch (ApiException e)
 
 <a id="equipmentbyidimage"></a>
 # **EquipmentByIDImage**
-> Object EquipmentByIDImage (decimal id)
+> System.IO.Stream EquipmentByIDImage (decimal id)
 
 Equipment by ID Image
 
@@ -783,7 +811,7 @@ namespace Example
             try
             {
                 // Equipment by ID Image
-                Object result = apiInstance.EquipmentByIDImage(id);
+                System.IO.Stream result = apiInstance.EquipmentByIDImage(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -804,7 +832,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Equipment by ID Image
-    ApiResponse<Object> response = apiInstance.EquipmentByIDImageWithHttpInfo(id);
+    ApiResponse<System.IO.Stream> response = apiInstance.EquipmentByIDImageWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -825,7 +853,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -2065,7 +2093,7 @@ catch (ApiException e)
 
 <a id="parseingredients"></a>
 # **ParseIngredients**
-> List&lt;ParseIngredients200ResponseInner&gt; ParseIngredients (string? contentType = null, string? language = null)
+> List&lt;ParseIngredients200ResponseInner&gt; ParseIngredients (string ingredientList, decimal servings, string? language = null, bool? includeNutrition = null)
 
 Parse Ingredients
 
@@ -2093,13 +2121,15 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
+            var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line.
+            var servings = 8.14D;  // decimal | The number of servings that you can make from the ingredients.
             var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
+            var includeNutrition = true;  // bool? |  (optional) 
 
             try
             {
                 // Parse Ingredients
-                List<ParseIngredients200ResponseInner> result = apiInstance.ParseIngredients(contentType, language);
+                List<ParseIngredients200ResponseInner> result = apiInstance.ParseIngredients(ingredientList, servings, language, includeNutrition);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2120,7 +2150,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Parse Ingredients
-    ApiResponse<List<ParseIngredients200ResponseInner>> response = apiInstance.ParseIngredientsWithHttpInfo(contentType, language);
+    ApiResponse<List<ParseIngredients200ResponseInner>> response = apiInstance.ParseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2137,8 +2167,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
+| **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. |  |
+| **servings** | **decimal** | The number of servings that you can make from the ingredients. |  |
 | **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
+| **includeNutrition** | **bool?** |  | [optional]  |
 
 ### Return type
 
@@ -2166,7 +2198,7 @@ catch (ApiException e)
 
 <a id="pricebreakdownbyidimage"></a>
 # **PriceBreakdownByIDImage**
-> Object PriceBreakdownByIDImage (decimal id)
+> System.IO.Stream PriceBreakdownByIDImage (decimal id)
 
 Price Breakdown by ID Image
 
@@ -2199,7 +2231,7 @@ namespace Example
             try
             {
                 // Price Breakdown by ID Image
-                Object result = apiInstance.PriceBreakdownByIDImage(id);
+                System.IO.Stream result = apiInstance.PriceBreakdownByIDImage(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2220,7 +2252,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Price Breakdown by ID Image
-    ApiResponse<Object> response = apiInstance.PriceBreakdownByIDImageWithHttpInfo(id);
+    ApiResponse<System.IO.Stream> response = apiInstance.PriceBreakdownByIDImageWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2241,7 +2273,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -2364,7 +2396,7 @@ catch (ApiException e)
 
 <a id="recipenutritionbyidimage"></a>
 # **RecipeNutritionByIDImage**
-> Object RecipeNutritionByIDImage (decimal id)
+> System.IO.Stream RecipeNutritionByIDImage (decimal id)
 
 Recipe Nutrition by ID Image
 
@@ -2397,7 +2429,7 @@ namespace Example
             try
             {
                 // Recipe Nutrition by ID Image
-                Object result = apiInstance.RecipeNutritionByIDImage(id);
+                System.IO.Stream result = apiInstance.RecipeNutritionByIDImage(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2418,7 +2450,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Recipe Nutrition by ID Image
-    ApiResponse<Object> response = apiInstance.RecipeNutritionByIDImageWithHttpInfo(id);
+    ApiResponse<System.IO.Stream> response = apiInstance.RecipeNutritionByIDImageWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2439,7 +2471,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -2463,7 +2495,7 @@ catch (ApiException e)
 
 <a id="recipenutritionlabelimage"></a>
 # **RecipeNutritionLabelImage**
-> Object RecipeNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> System.IO.Stream RecipeNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Recipe Nutrition Label Image
 
@@ -2499,7 +2531,7 @@ namespace Example
             try
             {
                 // Recipe Nutrition Label Image
-                Object result = apiInstance.RecipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
+                System.IO.Stream result = apiInstance.RecipeNutritionLabelImage(id, showOptionalNutrients, showZeroValues, showIngredients);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2520,7 +2552,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Recipe Nutrition Label Image
-    ApiResponse<Object> response = apiInstance.RecipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
+    ApiResponse<System.IO.Stream> response = apiInstance.RecipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2544,7 +2576,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -2675,7 +2707,7 @@ catch (ApiException e)
 
 <a id="recipetastebyidimage"></a>
 # **RecipeTasteByIDImage**
-> Object RecipeTasteByIDImage (decimal id, bool? normalize = null, string? rgb = null)
+> System.IO.Stream RecipeTasteByIDImage (decimal id, bool? normalize = null, string? rgb = null)
 
 Recipe Taste by ID Image
 
@@ -2710,7 +2742,7 @@ namespace Example
             try
             {
                 // Recipe Taste by ID Image
-                Object result = apiInstance.RecipeTasteByIDImage(id, normalize, rgb);
+                System.IO.Stream result = apiInstance.RecipeTasteByIDImage(id, normalize, rgb);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2731,7 +2763,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Recipe Taste by ID Image
-    ApiResponse<Object> response = apiInstance.RecipeTasteByIDImageWithHttpInfo(id, normalize, rgb);
+    ApiResponse<System.IO.Stream> response = apiInstance.RecipeTasteByIDImageWithHttpInfo(id, normalize, rgb);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2754,7 +2786,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+**System.IO.Stream**
 
 ### Authorization
 
@@ -3526,7 +3558,7 @@ catch (ApiException e)
 
 <a id="visualizeequipment"></a>
 # **VisualizeEquipment**
-> string VisualizeEquipment (string? contentType = null, string? accept = null)
+> string VisualizeEquipment (string instructions, string? view = null, bool? defaultCss = null, bool? showBacklink = null)
 
 Equipment Widget
 
@@ -3554,13 +3586,15 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
-            var accept = application/json;  // string? | Accept header. (optional) 
+            var instructions = "instructions_example";  // string | The recipe's instructions.
+            var view = "grid";  // string? | How to visualize the ingredients, either 'grid' or 'list'. (optional) 
+            var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
+            var showBacklink = true;  // bool? | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional) 
 
             try
             {
                 // Equipment Widget
-                string result = apiInstance.VisualizeEquipment(contentType, accept);
+                string result = apiInstance.VisualizeEquipment(instructions, view, defaultCss, showBacklink);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3581,7 +3615,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Equipment Widget
-    ApiResponse<string> response = apiInstance.VisualizeEquipmentWithHttpInfo(contentType, accept);
+    ApiResponse<string> response = apiInstance.VisualizeEquipmentWithHttpInfo(instructions, view, defaultCss, showBacklink);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3598,8 +3632,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
-| **accept** | **string?** | Accept header. | [optional]  |
+| **instructions** | **string** | The recipe&#39;s instructions. |  |
+| **view** | **string?** | How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional]  |
+| **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional]  |
+| **showBacklink** | **bool?** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]  |
 
 ### Return type
 
@@ -3627,7 +3663,7 @@ catch (ApiException e)
 
 <a id="visualizepricebreakdown"></a>
 # **VisualizePriceBreakdown**
-> string VisualizePriceBreakdown (string? contentType = null, string? accept = null, string? language = null)
+> string VisualizePriceBreakdown (string ingredientList, decimal servings, string? language = null, decimal? mode = null, bool? defaultCss = null, bool? showBacklink = null)
 
 Price Breakdown Widget
 
@@ -3655,14 +3691,17 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
-            var accept = application/json;  // string? | Accept header. (optional) 
+            var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line.
+            var servings = 8.14D;  // decimal | The number of servings.
             var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
+            var mode = 8.14D;  // decimal? | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). (optional) 
+            var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
+            var showBacklink = true;  // bool? | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional) 
 
             try
             {
                 // Price Breakdown Widget
-                string result = apiInstance.VisualizePriceBreakdown(contentType, accept, language);
+                string result = apiInstance.VisualizePriceBreakdown(ingredientList, servings, language, mode, defaultCss, showBacklink);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3683,7 +3722,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Price Breakdown Widget
-    ApiResponse<string> response = apiInstance.VisualizePriceBreakdownWithHttpInfo(contentType, accept, language);
+    ApiResponse<string> response = apiInstance.VisualizePriceBreakdownWithHttpInfo(ingredientList, servings, language, mode, defaultCss, showBacklink);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3700,9 +3739,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
-| **accept** | **string?** | Accept header. | [optional]  |
+| **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. |  |
+| **servings** | **decimal** | The number of servings. |  |
 | **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
+| **mode** | **decimal?** | The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional]  |
+| **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional]  |
+| **showBacklink** | **bool?** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]  |
 
 ### Return type
 
@@ -3934,7 +3976,7 @@ catch (ApiException e)
 
 <a id="visualizerecipenutrition"></a>
 # **VisualizeRecipeNutrition**
-> string VisualizeRecipeNutrition (string? contentType = null, string? accept = null, string? language = null)
+> string VisualizeRecipeNutrition (string ingredientList, decimal servings, string? language = null, bool? defaultCss = null, bool? showBacklink = null)
 
 Recipe Nutrition Widget
 
@@ -3962,14 +4004,16 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var contentType = application/json;  // string? | The content type. (optional) 
-            var accept = application/json;  // string? | Accept header. (optional) 
+            var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line.
+            var servings = 8.14D;  // decimal | The number of servings.
             var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
+            var defaultCss = true;  // bool? | Whether the default CSS should be added to the response. (optional) 
+            var showBacklink = true;  // bool? | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional) 
 
             try
             {
                 // Recipe Nutrition Widget
-                string result = apiInstance.VisualizeRecipeNutrition(contentType, accept, language);
+                string result = apiInstance.VisualizeRecipeNutrition(ingredientList, servings, language, defaultCss, showBacklink);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3990,7 +4034,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Recipe Nutrition Widget
-    ApiResponse<string> response = apiInstance.VisualizeRecipeNutritionWithHttpInfo(contentType, accept, language);
+    ApiResponse<string> response = apiInstance.VisualizeRecipeNutritionWithHttpInfo(ingredientList, servings, language, defaultCss, showBacklink);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4007,9 +4051,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **contentType** | **string?** | The content type. | [optional]  |
-| **accept** | **string?** | Accept header. | [optional]  |
+| **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. |  |
+| **servings** | **decimal** | The number of servings. |  |
 | **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
+| **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional]  |
+| **showBacklink** | **bool?** | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]  |
 
 ### Return type
 
@@ -4037,7 +4083,7 @@ catch (ApiException e)
 
 <a id="visualizerecipenutritionbyid"></a>
 # **VisualizeRecipeNutritionByID**
-> string VisualizeRecipeNutritionByID (int id, bool? defaultCss = null, string? accept = null)
+> string VisualizeRecipeNutritionByID (int id, bool? defaultCss = null)
 
 Recipe Nutrition by ID Widget
 
@@ -4067,12 +4113,11 @@ namespace Example
             var apiInstance = new RecipesApi(config);
             var id = 1;  // int | The item's id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
-            var accept = application/json;  // string? | Accept header. (optional) 
 
             try
             {
                 // Recipe Nutrition by ID Widget
-                string result = apiInstance.VisualizeRecipeNutritionByID(id, defaultCss, accept);
+                string result = apiInstance.VisualizeRecipeNutritionByID(id, defaultCss);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4093,7 +4138,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Recipe Nutrition by ID Widget
-    ApiResponse<string> response = apiInstance.VisualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss, accept);
+    ApiResponse<string> response = apiInstance.VisualizeRecipeNutritionByIDWithHttpInfo(id, defaultCss);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4112,7 +4157,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **int** | The item&#39;s id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
-| **accept** | **string?** | Accept header. | [optional]  |
 
 ### Return type
 
@@ -4241,7 +4285,7 @@ catch (ApiException e)
 
 <a id="visualizerecipetaste"></a>
 # **VisualizeRecipeTaste**
-> string VisualizeRecipeTaste (string? language = null, string? contentType = null, string? accept = null, bool? normalize = null, string? rgb = null)
+> string VisualizeRecipeTaste (string ingredientList, string? language = null, bool? normalize = null, string? rgb = null)
 
 Recipe Taste Widget
 
@@ -4269,16 +4313,15 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
+            var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line.
             var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
-            var contentType = application/json;  // string? | The content type. (optional) 
-            var accept = application/json;  // string? | Accept header. (optional) 
-            var normalize = true;  // bool? | Whether to normalize to the strongest taste. (optional) 
-            var rgb = 75,192,192;  // string? | Red, green, blue values for the chart color. (optional) 
+            var normalize = true;  // bool? | Normalize to the strongest taste. (optional) 
+            var rgb = "rgb_example";  // string? | Red, green, blue values for the chart color. (optional) 
 
             try
             {
                 // Recipe Taste Widget
-                string result = apiInstance.VisualizeRecipeTaste(language, contentType, accept, normalize, rgb);
+                string result = apiInstance.VisualizeRecipeTaste(ingredientList, language, normalize, rgb);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4299,7 +4342,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Recipe Taste Widget
-    ApiResponse<string> response = apiInstance.VisualizeRecipeTasteWithHttpInfo(language, contentType, accept, normalize, rgb);
+    ApiResponse<string> response = apiInstance.VisualizeRecipeTasteWithHttpInfo(ingredientList, language, normalize, rgb);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4316,10 +4359,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. |  |
 | **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
-| **contentType** | **string?** | The content type. | [optional]  |
-| **accept** | **string?** | Accept header. | [optional]  |
-| **normalize** | **bool?** | Whether to normalize to the strongest taste. | [optional]  |
+| **normalize** | **bool?** | Normalize to the strongest taste. | [optional]  |
 | **rgb** | **string?** | Red, green, blue values for the chart color. | [optional]  |
 
 ### Return type

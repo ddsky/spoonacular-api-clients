@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **title** | **str** |  | 
 **average_rating** | **float** |  | 
-**description** | **object** |  | [optional] 
+**description** | **str** |  | [optional] 
 **image_url** | **str** |  | 
 **link** | **str** |  | 
 **price** | **str** |  | 

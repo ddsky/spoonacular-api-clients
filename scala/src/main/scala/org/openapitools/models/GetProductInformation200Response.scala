@@ -5,7 +5,6 @@ import io.finch.circe._
 import io.circe.generic.semiauto._
 import io.circe.java8.time._
 import spoonacular._
-import org.openapitools.models.AnyType
 import org.openapitools.models.BigDecimal
 import org.openapitools.models.GetProductInformation200ResponseIngredientsInner
 import org.openapitools.models.SearchGroceryProductsByUPC200ResponseNutrition
@@ -38,7 +37,7 @@ case class GetProductInformation200Response(id: Int,
                 badges: Seq[String],
                 importantBadges: Seq[String],
                 ingredientCount: Int,
-                generatedText: Option[AnyType],
+                generatedText: Option[String],
                 ingredientList: String,
                 ingredients: Seq[GetProductInformation200ResponseIngredientsInner],
                 likes: BigDecimal,

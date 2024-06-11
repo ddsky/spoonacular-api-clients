@@ -22,9 +22,9 @@ var _ MappedNullable = &SearchGroceryProductsByUPC200ResponseIngredientsInner{}
 
 // SearchGroceryProductsByUPC200ResponseIngredientsInner struct for SearchGroceryProductsByUPC200ResponseIngredientsInner
 type SearchGroceryProductsByUPC200ResponseIngredientsInner struct {
-	Description interface{} `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Name string `json:"name"`
-	SafetyLevel interface{} `json:"safety_level,omitempty"`
+	SafetyLevel *string `json:"safety_level,omitempty"`
 }
 
 type _SearchGroceryProductsByUPC200ResponseIngredientsInner SearchGroceryProductsByUPC200ResponseIngredientsInner
@@ -47,37 +47,36 @@ func NewSearchGroceryProductsByUPC200ResponseIngredientsInnerWithDefaults() *Sea
 	return &this
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetDescription() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
 		return ret
 	}
-	return o.Description
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetDescriptionOk() (*interface{}, bool) {
+func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetDescriptionOk() (*string, bool) {
 	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) HasDescription() bool {
-	if o != nil && IsNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given interface{} and assigns it to the Description field.
-func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) SetDescription(v interface{}) {
-	o.Description = v
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) SetDescription(v string) {
+	o.Description = &v
 }
 
 // GetName returns the Name field value
@@ -104,37 +103,36 @@ func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) SetName(v string
 	o.Name = v
 }
 
-// GetSafetyLevel returns the SafetyLevel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetSafetyLevel() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetSafetyLevel returns the SafetyLevel field value if set, zero value otherwise.
+func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetSafetyLevel() string {
+	if o == nil || IsNil(o.SafetyLevel) {
+		var ret string
 		return ret
 	}
-	return o.SafetyLevel
+	return *o.SafetyLevel
 }
 
 // GetSafetyLevelOk returns a tuple with the SafetyLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetSafetyLevelOk() (*interface{}, bool) {
+func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) GetSafetyLevelOk() (*string, bool) {
 	if o == nil || IsNil(o.SafetyLevel) {
 		return nil, false
 	}
-	return &o.SafetyLevel, true
+	return o.SafetyLevel, true
 }
 
 // HasSafetyLevel returns a boolean if a field has been set.
 func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) HasSafetyLevel() bool {
-	if o != nil && IsNil(o.SafetyLevel) {
+	if o != nil && !IsNil(o.SafetyLevel) {
 		return true
 	}
 
 	return false
 }
 
-// SetSafetyLevel gets a reference to the given interface{} and assigns it to the SafetyLevel field.
-func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) SetSafetyLevel(v interface{}) {
-	o.SafetyLevel = v
+// SetSafetyLevel gets a reference to the given string and assigns it to the SafetyLevel field.
+func (o *SearchGroceryProductsByUPC200ResponseIngredientsInner) SetSafetyLevel(v string) {
+	o.SafetyLevel = &v
 }
 
 func (o SearchGroceryProductsByUPC200ResponseIngredientsInner) MarshalJSON() ([]byte, error) {
@@ -147,11 +145,11 @@ func (o SearchGroceryProductsByUPC200ResponseIngredientsInner) MarshalJSON() ([]
 
 func (o SearchGroceryProductsByUPC200ResponseIngredientsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Description != nil {
+	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
 	toSerialize["name"] = o.Name
-	if o.SafetyLevel != nil {
+	if !IsNil(o.SafetyLevel) {
 		toSerialize["safety_level"] = o.SafetyLevel
 	}
 	return toSerialize, nil

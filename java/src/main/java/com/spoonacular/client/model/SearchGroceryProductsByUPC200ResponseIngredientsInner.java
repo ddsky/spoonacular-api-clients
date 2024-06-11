@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,7 +53,7 @@ import com.spoonacular.client.JSON;
 public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private Object description = null;
+  private String description;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -62,12 +61,12 @@ public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
 
   public static final String SERIALIZED_NAME_SAFETY_LEVEL = "safety_level";
   @SerializedName(SERIALIZED_NAME_SAFETY_LEVEL)
-  private Object safetyLevel = null;
+  private String safetyLevel;
 
   public SearchGroceryProductsByUPC200ResponseIngredientsInner() {
   }
 
-  public SearchGroceryProductsByUPC200ResponseIngredientsInner description(Object description) {
+  public SearchGroceryProductsByUPC200ResponseIngredientsInner description(String description) {
     this.description = description;
     return this;
   }
@@ -77,11 +76,11 @@ public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
    * @return description
   **/
   @javax.annotation.Nullable
-  public Object getDescription() {
+  public String getDescription() {
     return description;
   }
 
-  public void setDescription(Object description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
@@ -105,7 +104,7 @@ public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
   }
 
 
-  public SearchGroceryProductsByUPC200ResponseIngredientsInner safetyLevel(Object safetyLevel) {
+  public SearchGroceryProductsByUPC200ResponseIngredientsInner safetyLevel(String safetyLevel) {
     this.safetyLevel = safetyLevel;
     return this;
   }
@@ -115,11 +114,11 @@ public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
    * @return safetyLevel
   **/
   @javax.annotation.Nullable
-  public Object getSafetyLevel() {
+  public String getSafetyLevel() {
     return safetyLevel;
   }
 
-  public void setSafetyLevel(Object safetyLevel) {
+  public void setSafetyLevel(String safetyLevel) {
     this.safetyLevel = safetyLevel;
   }
 
@@ -139,20 +138,9 @@ public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
         Objects.equals(this.safetyLevel, searchGroceryProductsByUPC200ResponseIngredientsInner.safetyLevel);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(description, name, safetyLevel);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -221,8 +209,14 @@ public class SearchGroceryProductsByUPC200ResponseIngredientsInner {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("safety_level") != null && !jsonObj.get("safety_level").isJsonNull()) && !jsonObj.get("safety_level").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `safety_level` to be a primitive type in the JSON string but got `%s`", jsonObj.get("safety_level").toString()));
       }
   }
 

@@ -609,11 +609,11 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 ///  @param measure Whether the the measures should be 'us' or 'metric'. (optional)
 ///
-///  @returns NSObject*
+///  @returns NSURL*
 ///
 -(NSURLSessionTask*) ingredientsByIDImageWithId: (NSNumber*) _id
     measure: (NSString*) measure
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSURL* output, NSError* error)) handler {
     // verify the required parameter '_id' is set
     if (_id == nil) {
         NSParameterAssert(_id);
@@ -668,10 +668,10 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"NSURL*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((NSURL*)data, error);
                                 }
                             }];
 }
@@ -745,18 +745,52 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
 ///
 /// Ingredients Widget
 /// Visualize ingredients of a recipe. You can play around with that endpoint!
-///  @param contentType The content type. (optional)
+///  @param ingredientList The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). 
+///
+///  @param servings The number of servings. 
 ///
 ///  @param language The language of the input. Either 'en' or 'de'. (optional)
 ///
-///  @param accept Accept header. (optional)
+///  @param measure The original system of measurement, either 'metric' or 'us'. (optional)
+///
+///  @param view How to visualize the ingredients, either 'grid' or 'list'. (optional)
+///
+///  @param defaultCss Whether the default CSS should be added to the response. (optional)
+///
+///  @param showBacklink Whether to show a backlink to spoonacular. If set false, this call counts against your quota. (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) visualizeIngredientsWithContentType: (NSString*) contentType
+-(NSURLSessionTask*) visualizeIngredientsWithIngredientList: (NSString*) ingredientList
+    servings: (NSNumber*) servings
     language: (NSString*) language
-    accept: (NSString*) accept
+    measure: (NSString*) measure
+    view: (NSString*) view
+    defaultCss: (NSNumber*) defaultCss
+    showBacklink: (NSNumber*) showBacklink
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'ingredientList' is set
+    if (ingredientList == nil) {
+        NSParameterAssert(ingredientList);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ingredientList"] };
+            NSError* error = [NSError errorWithDomain:kOAIIngredientsApiErrorDomain code:kOAIIngredientsApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'servings' is set
+    if (servings == nil) {
+        NSParameterAssert(servings);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"servings"] };
+            NSError* error = [NSError errorWithDomain:kOAIIngredientsApiErrorDomain code:kOAIIngredientsApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/recipes/visualizeIngredients"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -767,12 +801,6 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    if (contentType != nil) {
-        headerParams[@"Content-Type"] = contentType;
-    }
-    if (accept != nil) {
-        headerParams[@"Accept"] = accept;
-    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"text/html"]];
     if(acceptHeader.length > 0) {
@@ -791,6 +819,24 @@ NSInteger kOAIIngredientsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    if (ingredientList) {
+        formParams[@"ingredientList"] = ingredientList;
+    }
+    if (servings) {
+        formParams[@"servings"] = servings;
+    }
+    if (measure) {
+        formParams[@"measure"] = measure;
+    }
+    if (view) {
+        formParams[@"view"] = view;
+    }
+    if (defaultCss) {
+        formParams[@"defaultCss"] = defaultCss;
+    }
+    if (showBacklink) {
+        formParams[@"showBacklink"] = showBacklink;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
