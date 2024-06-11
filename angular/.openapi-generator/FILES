@@ -170,5 +170,8 @@ model/searchSiteContent200ResponseGroceryProductsInner.ts
 model/searchSiteContent200ResponseGroceryProductsInnerDataPointsInner.ts
 model/summarizeRecipe200Response.ts
 model/talkToChatbot200Response.ts
+ng-package.json
+package.json
 param.ts
+tsconfig.json
 variables.ts
