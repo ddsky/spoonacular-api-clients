@@ -163,7 +163,7 @@ spec/summarize_recipe_200_response_spec.lua
 spec/talk_to_chatbot_200_response_media_inner_spec.lua
 spec/talk_to_chatbot_200_response_spec.lua
 spec/wine_api_spec.lua
-spoonacular-1.1.1.rockspec
+spoonacular-1.1.1-1.rockspec
 spoonacular/api/default_api.lua
 spoonacular/api/ingredients_api.lua
 spoonacular/api/meal_planning_api.lua
