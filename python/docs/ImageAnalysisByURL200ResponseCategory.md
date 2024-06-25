@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of ImageAnalysisByURL200ResponseCategory from a JSON string
 image_analysis_by_url200_response_category_instance = ImageAnalysisByURL200ResponseCategory.from_json(json)
 # print the JSON string representation of the object
-print ImageAnalysisByURL200ResponseCategory.to_json()
+print(ImageAnalysisByURL200ResponseCategory.to_json())
 
 # convert the object into a dict
 image_analysis_by_url200_response_category_dict = image_analysis_by_url200_response_category_instance.to_dict()
 # create an instance of ImageAnalysisByURL200ResponseCategory from a dict
-image_analysis_by_url200_response_category_form_dict = image_analysis_by_url200_response_category.from_dict(image_analysis_by_url200_response_category_dict)
+image_analysis_by_url200_response_category_from_dict = ImageAnalysisByURL200ResponseCategory.from_dict(image_analysis_by_url200_response_category_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

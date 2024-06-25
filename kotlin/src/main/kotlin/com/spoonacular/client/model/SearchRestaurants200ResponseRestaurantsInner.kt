@@ -109,5 +109,8 @@ data class SearchRestaurants200ResponseRestaurantsInner (
     @Json(name = "aggregated_rating_count")
     val aggregatedRatingCount: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

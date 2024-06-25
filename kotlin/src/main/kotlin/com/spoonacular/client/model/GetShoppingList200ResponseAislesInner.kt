@@ -36,5 +36,8 @@ data class GetShoppingList200ResponseAislesInner (
     @Json(name = "items")
     val items: kotlin.collections.Set<GetShoppingList200ResponseAislesInnerItemsInner>? = null
 
-)
+) {
+
+
+}
 

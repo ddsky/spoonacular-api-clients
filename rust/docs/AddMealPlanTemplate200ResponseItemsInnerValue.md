@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**i32**> |  | [optional]
-**servings** | Option<**f32**> |  | [optional]
+**servings** | Option<**f64**> |  | [optional]
 **title** | Option<**String**> |  | [optional]
 **image_type** | Option<**String**> |  | [optional]
 

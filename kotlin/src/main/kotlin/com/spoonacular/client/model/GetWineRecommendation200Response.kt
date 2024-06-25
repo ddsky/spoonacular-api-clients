@@ -36,5 +36,8 @@ data class GetWineRecommendation200Response (
     @Json(name = "totalFound")
     val totalFound: kotlin.Int
 
-)
+) {
+
+
+}
 

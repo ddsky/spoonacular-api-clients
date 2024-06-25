@@ -32,5 +32,8 @@ data class AddToMealPlanRequestValue (
     @Json(name = "ingredients")
     val ingredients: kotlin.collections.Set<AddToMealPlanRequestValueIngredientsInner>
 
-)
+) {
+
+
+}
 

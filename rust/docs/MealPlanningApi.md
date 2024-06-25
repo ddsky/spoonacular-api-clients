@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## add_meal_plan_template
 
-> crate::models::AddMealPlanTemplate200Response add_meal_plan_template(username, hash)
+> models::AddMealPlanTemplate200Response add_meal_plan_template(username, hash)
 Add Meal Plan Template
 
 Add a meal plan template for a user.
@@ -38,7 +38,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AddMealPlanTemplate200Response**](addMealPlanTemplate_200_response.md)
+[**models::AddMealPlanTemplate200Response**](addMealPlanTemplate_200_response.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Required | Notes
 
 ## add_to_shopping_list
 
-> crate::models::GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
+> models::GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -102,7 +102,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GenerateShoppingList200Response**](generateShoppingList_200_response.md)
+[**models::GenerateShoppingList200Response**](generateShoppingList_200_response.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Required | Notes
 
 ## connect_user
 
-> crate::models::ConnectUser200Response connect_user(connect_user_request)
+> models::ConnectUser200Response connect_user(connect_user_request)
 Connect User
 
 In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
@@ -164,7 +164,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ConnectUser200Response**](connectUser_200_response.md)
+[**models::ConnectUser200Response**](connectUser_200_response.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Delete an item from the user's meal plan.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
-**id** | **f32** | The shopping list item id. | [required] |
+**id** | **f64** | The shopping list item id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
 
 ### Return type
@@ -276,7 +276,7 @@ Name | Type | Description  | Required | Notes
 
 ## generate_meal_plan
 
-> crate::models::GenerateMealPlan200Response generate_meal_plan(time_frame, target_calories, diet, exclude)
+> models::GenerateMealPlan200Response generate_meal_plan(time_frame, target_calories, diet, exclude)
 Generate Meal Plan
 
 Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
@@ -287,13 +287,13 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **time_frame** | Option<**String**> | Either for one \"day\" or an entire \"week\". |  |
-**target_calories** | Option<**f32**> | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. |  |
+**target_calories** | Option<**f64**> | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. |  |
 **diet** | Option<**String**> | Enter a diet that the meal plan has to adhere to. See a full list of supported diets. |  |
 **exclude** | Option<**String**> | A comma-separated list of allergens or ingredients that must be excluded. |  |
 
 ### Return type
 
-[**crate::models::GenerateMealPlan200Response**](generateMealPlan_200_response.md)
+[**models::GenerateMealPlan200Response**](generateMealPlan_200_response.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Required | Notes
 
 ## generate_shopping_list
 
-> crate::models::GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
+> models::GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -326,7 +326,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GenerateShoppingList200Response**](generateShoppingList_200_response.md)
+[**models::GenerateShoppingList200Response**](generateShoppingList_200_response.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_meal_plan_template
 
-> crate::models::GetMealPlanTemplate200Response get_meal_plan_template(username, id, hash)
+> models::GetMealPlanTemplate200Response get_meal_plan_template(username, id, hash)
 Get Meal Plan Template
 
 Get information about a meal plan template.
@@ -358,7 +358,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetMealPlanTemplate200Response**](getMealPlanTemplate_200_response.md)
+[**models::GetMealPlanTemplate200Response**](getMealPlanTemplate_200_response.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_meal_plan_templates
 
-> crate::models::GetMealPlanTemplates200Response get_meal_plan_templates(username, hash)
+> models::GetMealPlanTemplates200Response get_meal_plan_templates(username, hash)
 Get Meal Plan Templates
 
 Get meal plan templates from user or public ones.
@@ -389,7 +389,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetMealPlanTemplates200Response**](getMealPlanTemplates_200_response.md)
+[**models::GetMealPlanTemplates200Response**](getMealPlanTemplates_200_response.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_meal_plan_week
 
-> crate::models::GetMealPlanWeek200Response get_meal_plan_week(username, start_date, hash)
+> models::GetMealPlanWeek200Response get_meal_plan_week(username, start_date, hash)
 Get Meal Plan Week
 
 Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
@@ -421,7 +421,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetMealPlanWeek200Response**](getMealPlanWeek_200_response.md)
+[**models::GetMealPlanWeek200Response**](getMealPlanWeek_200_response.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_shopping_list
 
-> crate::models::GetShoppingList200Response get_shopping_list(username, hash)
+> models::GetShoppingList200Response get_shopping_list(username, hash)
 Get Shopping List
 
 Get the current shopping list for the given user.
@@ -452,7 +452,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetShoppingList200Response**](getShoppingList_200_response.md)
+[**models::GetShoppingList200Response**](getShoppingList_200_response.md)
 
 ### Authorization
 

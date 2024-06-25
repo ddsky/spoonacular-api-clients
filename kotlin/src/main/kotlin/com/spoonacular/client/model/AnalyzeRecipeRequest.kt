@@ -43,5 +43,8 @@ data class AnalyzeRecipeRequest (
     @Json(name = "instructions")
     val instructions: kotlin.String? = null
 
-)
+) {
+
+
+}
 

@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of SearchGroceryProductsByUPC200ResponseNutrition from a JSON string
 search_grocery_products_by_upc200_response_nutrition_instance = SearchGroceryProductsByUPC200ResponseNutrition.from_json(json)
 # print the JSON string representation of the object
-print SearchGroceryProductsByUPC200ResponseNutrition.to_json()
+print(SearchGroceryProductsByUPC200ResponseNutrition.to_json())
 
 # convert the object into a dict
 search_grocery_products_by_upc200_response_nutrition_dict = search_grocery_products_by_upc200_response_nutrition_instance.to_dict()
 # create an instance of SearchGroceryProductsByUPC200ResponseNutrition from a dict
-search_grocery_products_by_upc200_response_nutrition_form_dict = search_grocery_products_by_upc200_response_nutrition.from_dict(search_grocery_products_by_upc200_response_nutrition_dict)
+search_grocery_products_by_upc200_response_nutrition_from_dict = SearchGroceryProductsByUPC200ResponseNutrition.from_dict(search_grocery_products_by_upc200_response_nutrition_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from spoonacular.models.search_all_food200_response_search_results_inner_results_inner import SearchAllFood200ResponseSearchResultsInnerResultsInner
@@ -34,11 +34,11 @@ class SearchAllFood200ResponseSearchResultsInner(BaseModel):
     results: Optional[Annotated[List[SearchAllFood200ResponseSearchResultsInnerResultsInner], Field(min_length=0)]] = None
     __properties: ClassVar[List[str]] = ["name", "totalResults", "results"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

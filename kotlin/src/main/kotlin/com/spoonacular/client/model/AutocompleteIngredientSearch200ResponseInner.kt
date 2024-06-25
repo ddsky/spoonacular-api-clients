@@ -47,5 +47,8 @@ data class AutocompleteIngredientSearch200ResponseInner (
     @Json(name = "possibleUnits")
     val possibleUnits: kotlin.collections.List<kotlin.String>? = null
 
-)
+) {
+
+
+}
 

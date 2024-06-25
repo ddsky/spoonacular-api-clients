@@ -35,5 +35,8 @@ data class ParseIngredients200ResponseInnerEstimatedCost (
     @Json(name = "unit")
     val unit: kotlin.String
 
-)
+) {
+
+
+}
 

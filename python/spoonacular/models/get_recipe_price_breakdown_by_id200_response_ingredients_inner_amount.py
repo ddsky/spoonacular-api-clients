@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from spoonacular.models.get_recipe_price_breakdown_by_id200_response_ingredients_inner_amount_metric import GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
 from typing import Optional, Set
@@ -32,11 +32,11 @@ class GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount(BaseModel):
     us: GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
     __properties: ClassVar[List[str]] = ["metric", "us"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

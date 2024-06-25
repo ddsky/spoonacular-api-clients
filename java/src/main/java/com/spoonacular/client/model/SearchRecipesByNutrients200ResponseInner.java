@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRecipesByNutrients200ResponseInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchRecipesByNutrients200ResponseInner {
   public static final String SERIALIZED_NAME_CALORIES = "calories";
   @SerializedName(SERIALIZED_NAME_CALORIES)

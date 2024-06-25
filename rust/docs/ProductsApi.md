@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## autocomplete_product_search
 
-> crate::models::AutocompleteProductSearch200Response autocomplete_product_search(query, number)
+> models::AutocompleteProductSearch200Response autocomplete_product_search(query, number)
 Autocomplete Product Search
 
 Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
@@ -35,7 +35,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AutocompleteProductSearch200Response**](autocompleteProductSearch_200_response.md)
+[**models::AutocompleteProductSearch200Response**](autocompleteProductSearch_200_response.md)
 
 ### Authorization
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Required | Notes
 
 ## classify_grocery_product
 
-> crate::models::ClassifyGroceryProduct200Response classify_grocery_product(classify_grocery_product_request, locale)
+> models::ClassifyGroceryProduct200Response classify_grocery_product(classify_grocery_product_request, locale)
 Classify Grocery Product
 
 This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
@@ -66,7 +66,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClassifyGroceryProduct200Response**](classifyGroceryProduct_200_response.md)
+[**models::ClassifyGroceryProduct200Response**](classifyGroceryProduct_200_response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Required | Notes
 
 ## classify_grocery_product_bulk
 
-> Vec<crate::models::ClassifyGroceryProductBulk200ResponseInner> classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner, locale)
+> Vec<models::ClassifyGroceryProductBulk200ResponseInner> classify_grocery_product_bulk(classify_grocery_product_bulk_request_inner, locale)
 Classify Grocery Product Bulk
 
 Provide a set of product jsons, get back classified products.
@@ -92,12 +92,12 @@ Provide a set of product jsons, get back classified products.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**classify_grocery_product_bulk_request_inner** | [**Vec<crate::models::ClassifyGroceryProductBulkRequestInner>**](classifyGroceryProductBulk_request_inner.md) |  | [required] |
+**classify_grocery_product_bulk_request_inner** | [**Vec<models::ClassifyGroceryProductBulkRequestInner>**](classifyGroceryProductBulk_request_inner.md) |  | [required] |
 **locale** | Option<**String**> | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). |  |
 
 ### Return type
 
-[**Vec<crate::models::ClassifyGroceryProductBulk200ResponseInner>**](classifyGroceryProductBulk_200_response_inner.md)
+[**Vec<models::ClassifyGroceryProductBulk200ResponseInner>**](classifyGroceryProductBulk_200_response_inner.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_comparable_products
 
-> crate::models::GetComparableProducts200Response get_comparable_products(upc)
+> models::GetComparableProducts200Response get_comparable_products(upc)
 Get Comparable Products
 
 Find comparable products to the given one.
@@ -123,11 +123,11 @@ Find comparable products to the given one.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**upc** | **f32** | The UPC of the product for which you want to find comparable products. | [required] |
+**upc** | **f64** | The UPC of the product for which you want to find comparable products. | [required] |
 
 ### Return type
 
-[**crate::models::GetComparableProducts200Response**](getComparableProducts_200_response.md)
+[**models::GetComparableProducts200Response**](getComparableProducts_200_response.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_product_information
 
-> crate::models::GetProductInformation200Response get_product_information(id)
+> models::GetProductInformation200Response get_product_information(id)
 Get Product Information
 
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
@@ -157,7 +157,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetProductInformation200Response**](getProductInformation_200_response.md)
+[**models::GetProductInformation200Response**](getProductInformation_200_response.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ Visualize a product's nutritional information as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The id of the product. | [required] |
+**id** | **f64** | The id of the product. | [required] |
 
 ### Return type
 
@@ -213,7 +213,7 @@ Get a product's nutrition label as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The product id. | [required] |
+**id** | **f64** | The product id. | [required] |
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
 **show_ingredients** | Option<**bool**> | Whether to show a list of ingredients. |  |
@@ -246,7 +246,7 @@ Get a product's nutrition label as an HTML widget.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The product id. | [required] |
+**id** | **f64** | The product id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
@@ -270,7 +270,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_grocery_products
 
-> crate::models::SearchGroceryProducts200Response search_grocery_products(query, min_calories, max_calories, min_carbs, max_carbs, min_protein, max_protein, min_fat, max_fat, add_product_information, offset, number)
+> models::SearchGroceryProducts200Response search_grocery_products(query, min_calories, max_calories, min_carbs, max_carbs, min_protein, max_protein, min_fat, max_fat, add_product_information, offset, number)
 Search Grocery Products
 
 Search packaged food products, such as frozen pizza or Greek yogurt.
@@ -281,21 +281,21 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | Option<**String**> | The (natural language) search query. |  |
-**min_calories** | Option<**f32**> | The minimum amount of calories the product must have. |  |
-**max_calories** | Option<**f32**> | The maximum amount of calories the product can have. |  |
-**min_carbs** | Option<**f32**> | The minimum amount of carbohydrates in grams the product must have. |  |
-**max_carbs** | Option<**f32**> | The maximum amount of carbohydrates in grams the product can have. |  |
-**min_protein** | Option<**f32**> | The minimum amount of protein in grams the product must have. |  |
-**max_protein** | Option<**f32**> | The maximum amount of protein in grams the product can have. |  |
-**min_fat** | Option<**f32**> | The minimum amount of fat in grams the product must have. |  |
-**max_fat** | Option<**f32**> | The maximum amount of fat in grams the product can have. |  |
+**min_calories** | Option<**f64**> | The minimum amount of calories the product must have. |  |
+**max_calories** | Option<**f64**> | The maximum amount of calories the product can have. |  |
+**min_carbs** | Option<**f64**> | The minimum amount of carbohydrates in grams the product must have. |  |
+**max_carbs** | Option<**f64**> | The maximum amount of carbohydrates in grams the product can have. |  |
+**min_protein** | Option<**f64**> | The minimum amount of protein in grams the product must have. |  |
+**max_protein** | Option<**f64**> | The maximum amount of protein in grams the product can have. |  |
+**min_fat** | Option<**f64**> | The minimum amount of fat in grams the product must have. |  |
+**max_fat** | Option<**f64**> | The maximum amount of fat in grams the product can have. |  |
 **add_product_information** | Option<**bool**> | If set to true, you get more information about the products returned. |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
 
-[**crate::models::SearchGroceryProducts200Response**](searchGroceryProducts_200_response.md)
+[**models::SearchGroceryProducts200Response**](searchGroceryProducts_200_response.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_grocery_products_by_upc
 
-> crate::models::SearchGroceryProductsByUpc200Response search_grocery_products_by_upc(upc)
+> models::SearchGroceryProductsByUpc200Response search_grocery_products_by_upc(upc)
 Search Grocery Products by UPC
 
 Get information about a packaged food using its UPC.
@@ -321,11 +321,11 @@ Get information about a packaged food using its UPC.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**upc** | **f32** | The product's UPC. | [required] |
+**upc** | **f64** | The product's UPC. | [required] |
 
 ### Return type
 
-[**crate::models::SearchGroceryProductsByUpc200Response**](searchGroceryProductsByUPC_200_response.md)
+[**models::SearchGroceryProductsByUpc200Response**](searchGroceryProductsByUPC_200_response.md)
 
 ### Authorization
 

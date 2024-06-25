@@ -31,5 +31,8 @@ data class GetConversationSuggests200ResponseSuggestsInner (
     @Json(name = "name")
     val name: kotlin.String
 
-)
+) {
+
+
+}
 

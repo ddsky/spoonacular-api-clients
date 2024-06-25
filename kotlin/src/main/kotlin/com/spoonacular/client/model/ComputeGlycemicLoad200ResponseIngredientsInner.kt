@@ -43,5 +43,8 @@ data class ComputeGlycemicLoad200ResponseIngredientsInner (
     @Json(name = "glycemicLoad")
     val glycemicLoad: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

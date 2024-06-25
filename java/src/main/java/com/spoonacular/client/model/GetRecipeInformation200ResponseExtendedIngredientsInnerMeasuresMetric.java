@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)

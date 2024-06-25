@@ -274,7 +274,7 @@ void OAIMealPlanningApi::addMealPlanTemplate(const QString &username, const QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -383,7 +383,7 @@ void OAIMealPlanningApi::addToMealPlan(const QString &username, const QString &h
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -497,7 +497,7 @@ void OAIMealPlanningApi::addToShoppingList(const QString &username, const QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -625,7 +625,7 @@ void OAIMealPlanningApi::clearMealPlanDay(const QString &username, const QString
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -832,7 +832,7 @@ void OAIMealPlanningApi::deleteFromMealPlan(const QString &username, const doubl
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -955,7 +955,7 @@ void OAIMealPlanningApi::deleteFromShoppingList(const QString &username, const q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1078,7 +1078,7 @@ void OAIMealPlanningApi::deleteMealPlanTemplate(const QString &username, const q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1173,7 +1173,7 @@ void OAIMealPlanningApi::generateMealPlan(const ::OpenAPI::OptionalParam<QString
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("timeFrame")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(time_frame.value())));
+        fullPath.append(QUrl::toPercentEncoding("timeFrame")).append(querySuffix).append(QUrl::toPercentEncoding(time_frame.stringValue()));
     }
     if (target_calories.hasValue())
     {
@@ -1188,7 +1188,7 @@ void OAIMealPlanningApi::generateMealPlan(const ::OpenAPI::OptionalParam<QString
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("targetCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(target_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("targetCalories")).append(querySuffix).append(QUrl::toPercentEncoding(target_calories.stringValue()));
     }
     if (diet.hasValue())
     {
@@ -1203,7 +1203,7 @@ void OAIMealPlanningApi::generateMealPlan(const ::OpenAPI::OptionalParam<QString
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("diet")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(diet.value())));
+        fullPath.append(QUrl::toPercentEncoding("diet")).append(querySuffix).append(QUrl::toPercentEncoding(diet.stringValue()));
     }
     if (exclude.hasValue())
     {
@@ -1218,7 +1218,7 @@ void OAIMealPlanningApi::generateMealPlan(const ::OpenAPI::OptionalParam<QString
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("exclude")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude.value())));
+        fullPath.append(QUrl::toPercentEncoding("exclude")).append(querySuffix).append(QUrl::toPercentEncoding(exclude.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1355,7 +1355,7 @@ void OAIMealPlanningApi::generateShoppingList(const QString &username, const QSt
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1478,7 +1478,7 @@ void OAIMealPlanningApi::getMealPlanTemplate(const QString &username, const qint
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1587,7 +1587,7 @@ void OAIMealPlanningApi::getMealPlanTemplates(const QString &username, const QSt
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1710,7 +1710,7 @@ void OAIMealPlanningApi::getMealPlanWeek(const QString &username, const QString 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1819,7 +1819,7 @@ void OAIMealPlanningApi::getShoppingList(const QString &username, const QString 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);

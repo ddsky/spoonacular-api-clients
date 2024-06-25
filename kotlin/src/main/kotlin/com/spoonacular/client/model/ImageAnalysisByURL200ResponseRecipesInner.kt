@@ -43,5 +43,8 @@ data class ImageAnalysisByURL200ResponseRecipesInner (
     @Json(name = "url")
     val url: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -2,19 +2,19 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**detectFoodInText**](MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text
-[**getARandomFoodJoke**](MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke
-[**getConversationSuggests**](MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests
-[**getRandomFoodTrivia**](MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia
-[**imageAnalysisByURL**](MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL
-[**imageClassificationByURL**](MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL
-[**searchAllFood**](MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food
-[**searchCustomFoods**](MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods
-[**searchFoodVideos**](MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos
-[**searchSiteContent**](MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content
-[**talkToChatbot**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**detectFoodInText**](MiscApi.md#detectFoodInText) | **POST** /food/detect | Detect Food in Text |
+| [**getARandomFoodJoke**](MiscApi.md#getARandomFoodJoke) | **GET** /food/jokes/random | Random Food Joke |
+| [**getConversationSuggests**](MiscApi.md#getConversationSuggests) | **GET** /food/converse/suggest | Conversation Suggests |
+| [**getRandomFoodTrivia**](MiscApi.md#getRandomFoodTrivia) | **GET** /food/trivia/random | Random Food Trivia |
+| [**imageAnalysisByURL**](MiscApi.md#imageAnalysisByURL) | **GET** /food/images/analyze | Image Analysis by URL |
+| [**imageClassificationByURL**](MiscApi.md#imageClassificationByURL) | **GET** /food/images/classify | Image Classification by URL |
+| [**searchAllFood**](MiscApi.md#searchAllFood) | **GET** /food/search | Search All Food |
+| [**searchCustomFoods**](MiscApi.md#searchCustomFoods) | **GET** /food/customFoods/search | Search Custom Foods |
+| [**searchFoodVideos**](MiscApi.md#searchFoodVideos) | **GET** /food/videos/search | Search Food Videos |
+| [**searchSiteContent**](MiscApi.md#searchSiteContent) | **GET** /food/site/search | Search Site Content |
+| [**talkToChatbot**](MiscApi.md#talkToChatbot) | **GET** /food/converse | Talk to Chatbot |
 
 
 <a id="detectFoodInText"></a>
@@ -46,10 +46,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **text** | **kotlin.String**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **text** | **kotlin.String**|  | |
 
 ### Return type
 
@@ -143,11 +142,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. |
- **number** | **java.math.BigDecimal**| The number of suggestions to return (between 1 and 25). | [optional]
+| **query** | **kotlin.String**| A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **java.math.BigDecimal**| The number of suggestions to return (between 1 and 25). | [optional] |
 
 ### Return type
 
@@ -240,10 +238,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **imageUrl** | **kotlin.String**| The URL of the image to be analyzed. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **imageUrl** | **kotlin.String**| The URL of the image to be analyzed. | |
 
 ### Return type
 
@@ -290,10 +287,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **imageUrl** | **kotlin.String**| The URL of the image to be classified. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **imageUrl** | **kotlin.String**| The URL of the image to be classified. | |
 
 ### Return type
 
@@ -342,12 +338,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The search query. |
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **query** | **kotlin.String**| The search query. | |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -398,14 +393,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **hash** | **kotlin.String**| The private hash for the username. |
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **username** | **kotlin.String**| The username. | |
+| **hash** | **kotlin.String**| The private hash for the username. | |
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -461,19 +455,18 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **type** | **kotlin.String**| The type of the recipes. See a full list of supported meal types. | [optional]
- **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional]
- **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
- **includeIngredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | [optional]
- **excludeIngredients** | **kotlin.String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **minLength** | **java.math.BigDecimal**| Minimum video length in seconds. | [optional]
- **maxLength** | **java.math.BigDecimal**| Maximum video length in seconds. | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **type** | **kotlin.String**| The type of the recipes. See a full list of supported meal types. | [optional] |
+| **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] |
+| **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
+| **includeIngredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **excludeIngredients** | **kotlin.String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] |
+| **minLength** | **java.math.BigDecimal**| Minimum video length in seconds. | [optional] |
+| **maxLength** | **java.math.BigDecimal**| Maximum video length in seconds. | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -520,10 +513,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **kotlin.String**| The query to search for. You can also use partial queries such as \&quot;spagh\&quot; to already find spaghetti recipes, articles, grocery products, and other content. | |
 
 ### Return type
 
@@ -571,11 +563,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **text** | **kotlin.String**| The request / question / answer from the user to the chatbot. |
- **contextId** | **kotlin.String**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional]
+| **text** | **kotlin.String**| The request / question / answer from the user to the chatbot. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contextId** | **kotlin.String**| An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation. | [optional] |
 
 ### Return type
 

@@ -35,5 +35,8 @@ data class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent (
     @Json(name = "min")
     val min: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

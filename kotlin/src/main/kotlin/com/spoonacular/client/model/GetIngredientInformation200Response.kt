@@ -101,5 +101,8 @@ data class GetIngredientInformation200Response (
     @Json(name = "categoryPath")
     val categoryPath: kotlin.collections.List<kotlin.String>
 
-)
+) {
+
+
+}
 

@@ -51,7 +51,7 @@ import com.spoonacular.client.JSON;
 /**
  * AutocompleteIngredientSearch200ResponseInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class AutocompleteIngredientSearch200ResponseInner {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -71,7 +71,7 @@ public class AutocompleteIngredientSearch200ResponseInner {
 
   public static final String SERIALIZED_NAME_POSSIBLE_UNITS = "possibleUnits";
   @SerializedName(SERIALIZED_NAME_POSSIBLE_UNITS)
-  private List<String> possibleUnits;
+  private List<String> possibleUnits = new ArrayList<>();
 
   public AutocompleteIngredientSearch200ResponseInner() {
   }

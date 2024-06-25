@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## get_dish_pairing_for_wine
 
-> crate::models::GetDishPairingForWine200Response get_dish_pairing_for_wine(wine)
+> models::GetDishPairingForWine200Response get_dish_pairing_for_wine(wine)
 Dish Pairing for Wine
 
 Find a dish that goes well with a given wine.
@@ -27,7 +27,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetDishPairingForWine200Response**](getDishPairingForWine_200_response.md)
+[**models::GetDishPairingForWine200Response**](getDishPairingForWine_200_response.md)
 
 ### Authorization
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_wine_description
 
-> crate::models::GetWineDescription200Response get_wine_description(wine)
+> models::GetWineDescription200Response get_wine_description(wine)
 Wine Description
 
 Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
@@ -57,7 +57,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetWineDescription200Response**](getWineDescription_200_response.md)
+[**models::GetWineDescription200Response**](getWineDescription_200_response.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_wine_pairing
 
-> crate::models::GetWinePairing200Response get_wine_pairing(food, max_price)
+> models::GetWinePairing200Response get_wine_pairing(food, max_price)
 Wine Pairing
 
 Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
@@ -84,11 +84,11 @@ Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **food** | **String** | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\"). | [required] |
-**max_price** | Option<**f32**> | The maximum price for the specific wine recommendation in USD. |  |
+**max_price** | Option<**f64**> | The maximum price for the specific wine recommendation in USD. |  |
 
 ### Return type
 
-[**crate::models::GetWinePairing200Response**](getWinePairing_200_response.md)
+[**models::GetWinePairing200Response**](getWinePairing_200_response.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_wine_recommendation
 
-> crate::models::GetWineRecommendation200Response get_wine_recommendation(wine, max_price, min_rating, number)
+> models::GetWineRecommendation200Response get_wine_recommendation(wine, max_price, min_rating, number)
 Wine Recommendation
 
 Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
@@ -115,13 +115,13 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wine** | **String** | The type of wine to get a specific product recommendation for. | [required] |
-**max_price** | Option<**f32**> | The maximum price for the specific wine recommendation in USD. |  |
-**min_rating** | Option<**f32**> | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. |  |
-**number** | Option<**f32**> | The number of wine recommendations expected (between 1 and 100). |  |[default to 10]
+**max_price** | Option<**f64**> | The maximum price for the specific wine recommendation in USD. |  |
+**min_rating** | Option<**f64**> | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. |  |
+**number** | Option<**f64**> | The number of wine recommendations expected (between 1 and 100). |  |[default to 10]
 
 ### Return type
 
-[**crate::models::GetWineRecommendation200Response**](getWineRecommendation_200_response.md)
+[**models::GetWineRecommendation200Response**](getWineRecommendation_200_response.md)
 
 ### Authorization
 

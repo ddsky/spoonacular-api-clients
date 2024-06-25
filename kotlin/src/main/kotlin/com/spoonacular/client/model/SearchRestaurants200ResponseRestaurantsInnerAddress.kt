@@ -67,5 +67,8 @@ data class SearchRestaurants200ResponseRestaurantsInnerAddress (
     @Json(name = "longitude")
     val longitude: java.math.BigDecimal? = null
 
-)
+) {
+
+
+}
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.parse_ingredients200_response_inner_nutrition_caloric_breakdown import ParseIngredients200ResponseInnerNutritionCaloricBreakdown
@@ -34,11 +34,11 @@ class SearchGroceryProductsByUPC200ResponseNutrition(BaseModel):
     caloric_breakdown: ParseIngredients200ResponseInnerNutritionCaloricBreakdown = Field(alias="caloricBreakdown")
     __properties: ClassVar[List[str]] = ["nutrients", "caloricBreakdown"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

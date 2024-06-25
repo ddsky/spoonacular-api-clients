@@ -42,5 +42,8 @@ data class ImageAnalysisByURL200Response (
     @Json(name = "recipes")
     val recipes: kotlin.collections.Set<ImageAnalysisByURL200ResponseRecipesInner>
 
-)
+) {
+
+
+}
 

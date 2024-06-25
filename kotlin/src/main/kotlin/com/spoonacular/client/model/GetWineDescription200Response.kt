@@ -31,5 +31,8 @@ data class GetWineDescription200Response (
     @Json(name = "wineDescription")
     val wineDescription: kotlin.String
 
-)
+) {
+
+
+}
 

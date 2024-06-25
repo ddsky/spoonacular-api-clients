@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spoonacular"
-version = "1.1.1"
+version = "1.1.2"
 description = "spoonacular API"
 authors = ["David Urbansky <mail@spoonacular.com>"]
 license = "spoonacular API Terms"

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,11 +39,11 @@ class SearchRestaurants200ResponseRestaurantsInnerAddress(BaseModel):
     longitude: Optional[Union[StrictFloat, StrictInt]] = None
     __properties: ClassVar[List[str]] = ["street_addr", "city", "state", "zipcode", "country", "lat", "lon", "street_addr_2", "latitude", "longitude"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

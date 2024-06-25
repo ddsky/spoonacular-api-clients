@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.generate_meal_plan200_response_nutrients import GenerateMealPlan200ResponseNutrients
@@ -34,11 +34,11 @@ class GenerateMealPlan200Response(BaseModel):
     nutrients: GenerateMealPlan200ResponseNutrients
     __properties: ClassVar[List[str]] = ["meals", "nutrients"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

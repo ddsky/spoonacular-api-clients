@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source_amount** | **f32** |  | 
+**source_amount** | **f64** |  | 
 **source_unit** | **String** |  | 
-**target_amount** | **f32** |  | 
+**target_amount** | **f64** |  | 
 **target_unit** | **String** |  | 
 **answer** | **String** |  | 
 

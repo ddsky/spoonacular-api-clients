@@ -53,5 +53,8 @@ data class GetRecipeNutritionWidgetByID200Response (
     @Json(name = "good")
     val good: kotlin.collections.Set<GetRecipeNutritionWidgetByID200ResponseGoodInner>
 
-)
+) {
+
+
+}
 

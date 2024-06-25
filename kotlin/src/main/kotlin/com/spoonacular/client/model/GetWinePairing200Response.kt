@@ -40,5 +40,8 @@ data class GetWinePairing200Response (
     @Json(name = "productMatches")
     val productMatches: kotlin.collections.Set<GetWinePairing200ResponseProductMatchesInner>
 
-)
+) {
+
+
+}
 

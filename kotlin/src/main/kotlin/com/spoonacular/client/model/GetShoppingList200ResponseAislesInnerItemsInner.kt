@@ -56,5 +56,8 @@ data class GetShoppingList200ResponseAislesInnerItemsInner (
     @Json(name = "measures")
     val measures: GetShoppingList200ResponseAislesInnerItemsInnerMeasures? = null
 
-)
+) {
+
+
+}
 

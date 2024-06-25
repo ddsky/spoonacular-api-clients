@@ -32,5 +32,8 @@ data class GetComparableProducts200Response (
     @Json(name = "comparableProducts")
     val comparableProducts: GetComparableProducts200ResponseComparableProducts
 
-)
+) {
+
+
+}
 

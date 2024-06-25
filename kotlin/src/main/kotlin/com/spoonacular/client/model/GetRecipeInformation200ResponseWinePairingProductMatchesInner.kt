@@ -63,5 +63,8 @@ data class GetRecipeInformation200ResponseWinePairingProductMatchesInner (
     @Json(name = "link")
     val link: kotlin.String
 
-)
+) {
+
+
+}
 

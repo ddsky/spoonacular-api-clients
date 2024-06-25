@@ -136,7 +136,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let query = tell; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
+let query = "tell"; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 let opts = {
   'number': 5 // Number | The number of suggestions to return (between 1 and 25).
 };
@@ -238,7 +238,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be analyzed.
+let imageUrl = "https://spoonacular.com/recipeImages/635350-240x150.jpg"; // String | The URL of the image to be analyzed.
 apiInstance.imageAnalysisByURL(imageUrl, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -289,7 +289,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let imageUrl = https://spoonacular.com/recipeImages/635350-240x150.jpg; // String | The URL of the image to be classified.
+let imageUrl = "https://spoonacular.com/recipeImages/635350-240x150.jpg"; // String | The URL of the image to be classified.
 apiInstance.imageClassificationByURL(imageUrl, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -340,7 +340,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let query = apple; // String | The search query.
+let query = "apple"; // String | The search query.
 let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -397,10 +397,10 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let username = dsky; // String | The username.
-let hash = 4b5v4398573406; // String | The private hash for the username.
+let username = "dsky"; // String | The username.
+let hash = "4b5v4398573406"; // String | The private hash for the username.
 let opts = {
-  'query': burger, // String | The (natural language) search query.
+  'query': "burger", // String | The (natural language) search query.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
@@ -459,12 +459,12 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MiscApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
-  'type': main course, // String | The type of the recipes. See a full list of supported meal types.
-  'cuisine': italian, // String | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
-  'diet': vegetarian, // String | The diet for which the recipes must be suitable. See a full list of supported diets.
-  'includeIngredients': tomato,cheese, // String | A comma-separated list of ingredients that the recipes should contain.
-  'excludeIngredients': eggs, // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+  'query': "burger", // String | The (natural language) search query.
+  'type': "main course", // String | The type of the recipes. See a full list of supported meal types.
+  'cuisine': "italian", // String | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
+  'diet': "vegetarian", // String | The diet for which the recipes must be suitable. See a full list of supported diets.
+  'includeIngredients': "tomato,cheese", // String | A comma-separated list of ingredients that the recipes should contain.
+  'excludeIngredients': "eggs", // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
   'minLength': 0, // Number | Minimum video length in seconds.
   'maxLength': 999, // Number | Maximum video length in seconds.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
@@ -529,7 +529,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let query = past; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
+let query = "past"; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 apiInstance.searchSiteContent(query, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -580,9 +580,9 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
-let text = donut recipes; // String | The request / question / answer from the user to the chatbot.
+let text = "donut recipes"; // String | The request / question / answer from the user to the chatbot.
 let opts = {
-  'contextId': 342938 // String | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
+  'contextId': "342938" // String | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
 };
 apiInstance.talkToChatbot(text, opts, (error, data, response) => {
   if (error) {

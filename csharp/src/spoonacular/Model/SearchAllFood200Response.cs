@@ -125,12 +125,12 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Query (string) minLength
             if (this.Query != null && this.Query.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Query, length must be greater than 1.", new [] { "Query" });
+                yield return new ValidationResult("Invalid value for Query, length must be greater than 1.", new [] { "Query" });
             }
 
             yield break;

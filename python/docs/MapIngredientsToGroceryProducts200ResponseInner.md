@@ -21,12 +21,12 @@ json = "{}"
 # create an instance of MapIngredientsToGroceryProducts200ResponseInner from a JSON string
 map_ingredients_to_grocery_products200_response_inner_instance = MapIngredientsToGroceryProducts200ResponseInner.from_json(json)
 # print the JSON string representation of the object
-print MapIngredientsToGroceryProducts200ResponseInner.to_json()
+print(MapIngredientsToGroceryProducts200ResponseInner.to_json())
 
 # convert the object into a dict
 map_ingredients_to_grocery_products200_response_inner_dict = map_ingredients_to_grocery_products200_response_inner_instance.to_dict()
 # create an instance of MapIngredientsToGroceryProducts200ResponseInner from a dict
-map_ingredients_to_grocery_products200_response_inner_form_dict = map_ingredients_to_grocery_products200_response_inner.from_dict(map_ingredients_to_grocery_products200_response_inner_dict)
+map_ingredients_to_grocery_products200_response_inner_from_dict = MapIngredientsToGroceryProducts200ResponseInner.from_dict(map_ingredients_to_grocery_products200_response_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

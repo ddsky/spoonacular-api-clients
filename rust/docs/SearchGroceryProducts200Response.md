@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**products** | [**Vec<crate::models::AutocompleteRecipeSearch200ResponseInner>**](autocompleteRecipeSearch_200_response_inner.md) |  | 
+**products** | [**Vec<models::AutocompleteRecipeSearch200ResponseInner>**](autocompleteRecipeSearch_200_response_inner.md) |  | 
 **total_products** | **i32** |  | 
 **r#type** | **String** |  | 
 **offset** | **i32** |  | 

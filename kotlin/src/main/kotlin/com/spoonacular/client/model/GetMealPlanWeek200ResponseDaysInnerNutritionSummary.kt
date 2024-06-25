@@ -32,5 +32,8 @@ data class GetMealPlanWeek200ResponseDaysInnerNutritionSummary (
     @Json(name = "nutrients")
     val nutrients: kotlin.collections.Set<GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner>
 
-)
+) {
+
+
+}
 

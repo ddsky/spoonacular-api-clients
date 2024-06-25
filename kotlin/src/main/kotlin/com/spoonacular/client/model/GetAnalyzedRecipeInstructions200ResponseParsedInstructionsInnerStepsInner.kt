@@ -44,5 +44,8 @@ data class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsI
     @Json(name = "equipment")
     val equipment: kotlin.collections.Set<GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner>? = null
 
-)
+) {
+
+
+}
 

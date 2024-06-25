@@ -48,5 +48,8 @@ data class ImageAnalysisByURL200ResponseNutrition (
     @Json(name = "carbs")
     val carbs: ImageAnalysisByURL200ResponseNutritionCalories
 
-)
+) {
+
+
+}
 

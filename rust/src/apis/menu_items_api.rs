@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -87,7 +87,7 @@ pub enum VisualizeMenuItemNutritionByIdError {
 
 
 /// Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
-pub async fn autocomplete_menu_item_search(configuration: &configuration::Configuration, query: &str, number: Option<f32>) -> Result<crate::models::AutocompleteMenuItemSearch200Response, Error<AutocompleteMenuItemSearchError>> {
+pub async fn autocomplete_menu_item_search(configuration: &configuration::Configuration, query: &str, number: Option<f64>) -> Result<models::AutocompleteMenuItemSearch200Response, Error<AutocompleteMenuItemSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -127,7 +127,7 @@ pub async fn autocomplete_menu_item_search(configuration: &configuration::Config
 }
 
 /// Use a menu item id to get all available information about a menu item, such as nutrition.
-pub async fn get_menu_item_information(configuration: &configuration::Configuration, id: i32) -> Result<crate::models::GetMenuItemInformation200Response, Error<GetMenuItemInformationError>> {
+pub async fn get_menu_item_information(configuration: &configuration::Configuration, id: i32) -> Result<models::GetMenuItemInformation200Response, Error<GetMenuItemInformationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -163,7 +163,7 @@ pub async fn get_menu_item_information(configuration: &configuration::Configurat
 }
 
 /// Visualize a menu item's nutritional information as HTML including CSS.
-pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Configuration, id: f32) -> Result<std::path::PathBuf, Error<MenuItemNutritionByIdImageError>> {
+pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Configuration, id: f64) -> Result<std::path::PathBuf, Error<MenuItemNutritionByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,7 +199,7 @@ pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Conf
 }
 
 /// Visualize a menu item's nutritional label information as an image.
-pub async fn menu_item_nutrition_label_image(configuration: &configuration::Configuration, id: f32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<MenuItemNutritionLabelImageError>> {
+pub async fn menu_item_nutrition_label_image(configuration: &configuration::Configuration, id: f64, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<MenuItemNutritionLabelImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,7 +244,7 @@ pub async fn menu_item_nutrition_label_image(configuration: &configuration::Conf
 }
 
 /// Visualize a menu item's nutritional label information as HTML including CSS.
-pub async fn menu_item_nutrition_label_widget(configuration: &configuration::Configuration, id: f32, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<MenuItemNutritionLabelWidgetError>> {
+pub async fn menu_item_nutrition_label_widget(configuration: &configuration::Configuration, id: f64, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<MenuItemNutritionLabelWidgetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -292,7 +292,7 @@ pub async fn menu_item_nutrition_label_widget(configuration: &configuration::Con
 }
 
 /// Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
-pub async fn search_menu_items(configuration: &configuration::Configuration, query: Option<&str>, min_calories: Option<f32>, max_calories: Option<f32>, min_carbs: Option<f32>, max_carbs: Option<f32>, min_protein: Option<f32>, max_protein: Option<f32>, min_fat: Option<f32>, max_fat: Option<f32>, add_menu_item_information: Option<bool>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchMenuItems200Response, Error<SearchMenuItemsError>> {
+pub async fn search_menu_items(configuration: &configuration::Configuration, query: Option<&str>, min_calories: Option<f64>, max_calories: Option<f64>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, add_menu_item_information: Option<bool>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchMenuItems200Response, Error<SearchMenuItemsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

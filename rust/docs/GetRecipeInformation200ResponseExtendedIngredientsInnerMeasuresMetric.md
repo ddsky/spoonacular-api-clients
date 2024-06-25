@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **f32** |  | 
+**amount** | **f64** |  | 
 **unit_long** | **String** |  | 
 **unit_short** | **String** |  | 
 

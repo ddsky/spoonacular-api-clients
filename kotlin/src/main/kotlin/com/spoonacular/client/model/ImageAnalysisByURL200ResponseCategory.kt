@@ -35,5 +35,8 @@ data class ImageAnalysisByURL200ResponseCategory (
     @Json(name = "probability")
     val probability: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

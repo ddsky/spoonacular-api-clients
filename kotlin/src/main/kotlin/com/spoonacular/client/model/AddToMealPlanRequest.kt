@@ -48,5 +48,8 @@ data class AddToMealPlanRequest (
     @Json(name = "value")
     val `value`: AddToMealPlanRequestValue
 
-)
+) {
+
+
+}
 

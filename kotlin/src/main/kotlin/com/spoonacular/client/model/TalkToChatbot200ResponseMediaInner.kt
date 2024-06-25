@@ -39,5 +39,8 @@ data class TalkToChatbot200ResponseMediaInner (
     @Json(name = "link")
     val link: kotlin.String? = null
 
-)
+) {
+
+
+}
 

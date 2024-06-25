@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getDishPairingForWine**](WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine
-[**getWineDescription**](WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description
-[**getWinePairing**](WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing
-[**getWineRecommendation**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getDishPairingForWine**](WineApi.md#getDishPairingForWine) | **GET** /food/wine/dishes | Dish Pairing for Wine |
+| [**getWineDescription**](WineApi.md#getWineDescription) | **GET** /food/wine/description | Wine Description |
+| [**getWinePairing**](WineApi.md#getWinePairing) | **GET** /food/wine/pairing | Wine Pairing |
+| [**getWineRecommendation**](WineApi.md#getWineRecommendation) | **GET** /food/wine/recommendation | Wine Recommendation |
 
 
 <a id="getDishPairingForWine"></a>
@@ -39,10 +39,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **kotlin.String**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **wine** | **kotlin.String**| The type of wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | |
 
 ### Return type
 
@@ -89,10 +88,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **kotlin.String**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **wine** | **kotlin.String**| The name of the wine that should be paired, e.g. \&quot;merlot\&quot;, \&quot;riesling\&quot;, or \&quot;malbec\&quot;. | |
 
 ### Return type
 
@@ -140,11 +138,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **food** | **kotlin.String**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). |
- **maxPrice** | **java.math.BigDecimal**| The maximum price for the specific wine recommendation in USD. | [optional]
+| **food** | **kotlin.String**| The food to get a pairing for. This can be a dish (\&quot;steak\&quot;), an ingredient (\&quot;salmon\&quot;), or a cuisine (\&quot;italian\&quot;). | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **maxPrice** | **java.math.BigDecimal**| The maximum price for the specific wine recommendation in USD. | [optional] |
 
 ### Return type
 
@@ -194,13 +191,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wine** | **kotlin.String**| The type of wine to get a specific product recommendation for. |
- **maxPrice** | **java.math.BigDecimal**| The maximum price for the specific wine recommendation in USD. | [optional]
- **minRating** | **java.math.BigDecimal**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional]
- **number** | **java.math.BigDecimal**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10]
+| **wine** | **kotlin.String**| The type of wine to get a specific product recommendation for. | |
+| **maxPrice** | **java.math.BigDecimal**| The maximum price for the specific wine recommendation in USD. | [optional] |
+| **minRating** | **java.math.BigDecimal**| The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **java.math.BigDecimal**| The number of wine recommendations expected (between 1 and 100). | [optional] [default to 10] |
 
 ### Return type
 

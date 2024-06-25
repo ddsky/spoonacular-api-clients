@@ -31,5 +31,8 @@ data class ComputeGlycemicLoadRequest (
     @Json(name = "ingredients")
     val ingredients: kotlin.collections.List<kotlin.String>
 
-)
+) {
+
+
+}
 

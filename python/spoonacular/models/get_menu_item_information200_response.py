@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.search_grocery_products_by_upc200_response_nutrition import SearchGroceryProductsByUPC200ResponseNutrition
@@ -44,11 +44,11 @@ class GetMenuItemInformation200Response(BaseModel):
     spoonacular_score: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="spoonacularScore")
     __properties: ClassVar[List[str]] = ["id", "title", "restaurantChain", "nutrition", "badges", "breadcrumbs", "generatedText", "imageType", "likes", "servings", "price", "spoonacularScore"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

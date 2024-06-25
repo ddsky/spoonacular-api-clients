@@ -93,5 +93,8 @@ data class ParseIngredients200ResponseInner (
     @Json(name = "nutrition")
     val nutrition: ParseIngredients200ResponseInnerNutrition
 
-)
+) {
+
+
+}
 

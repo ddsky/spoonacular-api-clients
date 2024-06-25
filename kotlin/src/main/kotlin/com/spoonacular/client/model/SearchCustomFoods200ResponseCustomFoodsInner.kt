@@ -47,5 +47,8 @@ data class SearchCustomFoods200ResponseCustomFoodsInner (
     @Json(name = "price")
     val price: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

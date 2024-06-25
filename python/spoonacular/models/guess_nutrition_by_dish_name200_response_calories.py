@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from spoonacular.models.guess_nutrition_by_dish_name200_response_calories_confidence_range95_percent import GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
@@ -35,11 +35,11 @@ class GuessNutritionByDishName200ResponseCalories(BaseModel):
     value: Union[StrictFloat, StrictInt]
     __properties: ClassVar[List[str]] = ["confidenceRange95Percent", "standardDeviation", "unit", "value"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -2,9 +2,9 @@
 # AddToMealPlanRequestValueIngredientsInner
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **kotlin.String** |  | 
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **name** | **kotlin.String** |  |  |
 
 
 

@@ -63,5 +63,8 @@ data class GetWineRecommendation200ResponseRecommendedWinesInner (
     @Json(name = "score")
     val score: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

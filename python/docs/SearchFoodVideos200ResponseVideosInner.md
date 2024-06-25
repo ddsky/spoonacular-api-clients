@@ -23,12 +23,12 @@ json = "{}"
 # create an instance of SearchFoodVideos200ResponseVideosInner from a JSON string
 search_food_videos200_response_videos_inner_instance = SearchFoodVideos200ResponseVideosInner.from_json(json)
 # print the JSON string representation of the object
-print SearchFoodVideos200ResponseVideosInner.to_json()
+print(SearchFoodVideos200ResponseVideosInner.to_json())
 
 # convert the object into a dict
 search_food_videos200_response_videos_inner_dict = search_food_videos200_response_videos_inner_instance.to_dict()
 # create an instance of SearchFoodVideos200ResponseVideosInner from a dict
-search_food_videos200_response_videos_inner_form_dict = search_food_videos200_response_videos_inner.from_dict(search_food_videos200_response_videos_inner_dict)
+search_food_videos200_response_videos_inner_from_dict = SearchFoodVideos200ResponseVideosInner.from_dict(search_food_videos200_response_videos_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

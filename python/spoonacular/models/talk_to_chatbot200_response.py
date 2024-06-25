@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.talk_to_chatbot200_response_media_inner import TalkToChatbot200ResponseMediaInner
@@ -33,11 +33,11 @@ class TalkToChatbot200Response(BaseModel):
     media: List[TalkToChatbot200ResponseMediaInner]
     __properties: ClassVar[List[str]] = ["answerText", "media"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

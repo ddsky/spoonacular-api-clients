@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.get_recipe_information200_response_extended_ingredients_inner_measures import GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
@@ -42,11 +42,11 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner(BaseModel):
     unit: Annotated[str, Field(min_length=0, strict=True)]
     __properties: ClassVar[List[str]] = ["aisle", "amount", "consitency", "id", "image", "measures", "meta", "name", "original", "originalName", "unit"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

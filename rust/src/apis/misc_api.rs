@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -127,7 +127,7 @@ pub enum TalkToChatbotError {
 
 
 /// Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
-pub async fn detect_food_in_text(configuration: &configuration::Configuration, text: &str) -> Result<crate::models::DetectFoodInText200Response, Error<DetectFoodInTextError>> {
+pub async fn detect_food_in_text(configuration: &configuration::Configuration, text: &str) -> Result<models::DetectFoodInText200Response, Error<DetectFoodInTextError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -166,7 +166,7 @@ pub async fn detect_food_in_text(configuration: &configuration::Configuration, t
 }
 
 /// Get a random joke that is related to food. Caution: this is an endpoint for adults!
-pub async fn get_a_random_food_joke(configuration: &configuration::Configuration, ) -> Result<crate::models::GetARandomFoodJoke200Response, Error<GetARandomFoodJokeError>> {
+pub async fn get_a_random_food_joke(configuration: &configuration::Configuration, ) -> Result<models::GetARandomFoodJoke200Response, Error<GetARandomFoodJokeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,7 +202,7 @@ pub async fn get_a_random_food_joke(configuration: &configuration::Configuration
 }
 
 /// This endpoint returns suggestions for things the user can say or ask the chatbot.
-pub async fn get_conversation_suggests(configuration: &configuration::Configuration, query: &str, number: Option<f32>) -> Result<crate::models::GetConversationSuggests200Response, Error<GetConversationSuggestsError>> {
+pub async fn get_conversation_suggests(configuration: &configuration::Configuration, query: &str, number: Option<f64>) -> Result<models::GetConversationSuggests200Response, Error<GetConversationSuggestsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -242,7 +242,7 @@ pub async fn get_conversation_suggests(configuration: &configuration::Configurat
 }
 
 /// Returns random food trivia.
-pub async fn get_random_food_trivia(configuration: &configuration::Configuration, ) -> Result<crate::models::GetRandomFoodTrivia200Response, Error<GetRandomFoodTriviaError>> {
+pub async fn get_random_food_trivia(configuration: &configuration::Configuration, ) -> Result<models::GetRandomFoodTrivia200Response, Error<GetRandomFoodTriviaError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +278,7 @@ pub async fn get_random_food_trivia(configuration: &configuration::Configuration
 }
 
 /// Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
-pub async fn image_analysis_by_url(configuration: &configuration::Configuration, image_url: &str) -> Result<crate::models::ImageAnalysisByUrl200Response, Error<ImageAnalysisByUrlError>> {
+pub async fn image_analysis_by_url(configuration: &configuration::Configuration, image_url: &str) -> Result<models::ImageAnalysisByUrl200Response, Error<ImageAnalysisByUrlError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -315,7 +315,7 @@ pub async fn image_analysis_by_url(configuration: &configuration::Configuration,
 }
 
 /// Classify a food image.
-pub async fn image_classification_by_url(configuration: &configuration::Configuration, image_url: &str) -> Result<crate::models::ImageClassificationByUrl200Response, Error<ImageClassificationByUrlError>> {
+pub async fn image_classification_by_url(configuration: &configuration::Configuration, image_url: &str) -> Result<models::ImageClassificationByUrl200Response, Error<ImageClassificationByUrlError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -352,7 +352,7 @@ pub async fn image_classification_by_url(configuration: &configuration::Configur
 }
 
 /// Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
-pub async fn search_all_food(configuration: &configuration::Configuration, query: &str, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchAllFood200Response, Error<SearchAllFoodError>> {
+pub async fn search_all_food(configuration: &configuration::Configuration, query: &str, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchAllFood200Response, Error<SearchAllFoodError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -395,7 +395,7 @@ pub async fn search_all_food(configuration: &configuration::Configuration, query
 }
 
 /// Search custom foods in a user's account.
-pub async fn search_custom_foods(configuration: &configuration::Configuration, username: &str, hash: &str, query: Option<&str>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchCustomFoods200Response, Error<SearchCustomFoodsError>> {
+pub async fn search_custom_foods(configuration: &configuration::Configuration, username: &str, hash: &str, query: Option<&str>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchCustomFoods200Response, Error<SearchCustomFoodsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -442,7 +442,7 @@ pub async fn search_custom_foods(configuration: &configuration::Configuration, u
 }
 
 /// Find recipe and other food related videos.
-pub async fn search_food_videos(configuration: &configuration::Configuration, query: Option<&str>, r#type: Option<&str>, cuisine: Option<&str>, diet: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, min_length: Option<f32>, max_length: Option<f32>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchFoodVideos200Response, Error<SearchFoodVideosError>> {
+pub async fn search_food_videos(configuration: &configuration::Configuration, query: Option<&str>, r#type: Option<&str>, cuisine: Option<&str>, diet: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, min_length: Option<f64>, max_length: Option<f64>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchFoodVideos200Response, Error<SearchFoodVideosError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -508,7 +508,7 @@ pub async fn search_food_videos(configuration: &configuration::Configuration, qu
 }
 
 /// Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
-pub async fn search_site_content(configuration: &configuration::Configuration, query: &str) -> Result<crate::models::SearchSiteContent200Response, Error<SearchSiteContentError>> {
+pub async fn search_site_content(configuration: &configuration::Configuration, query: &str) -> Result<models::SearchSiteContent200Response, Error<SearchSiteContentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -545,7 +545,7 @@ pub async fn search_site_content(configuration: &configuration::Configuration, q
 }
 
 /// This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
-pub async fn talk_to_chatbot(configuration: &configuration::Configuration, text: &str, context_id: Option<&str>) -> Result<crate::models::TalkToChatbot200Response, Error<TalkToChatbotError>> {
+pub async fn talk_to_chatbot(configuration: &configuration::Configuration, text: &str, context_id: Option<&str>) -> Result<models::TalkToChatbot200Response, Error<TalkToChatbotError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

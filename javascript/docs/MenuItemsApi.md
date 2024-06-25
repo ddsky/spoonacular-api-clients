@@ -34,7 +34,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MenuItemsApi();
-let query = chicke; // String | The (partial) search query.
+let query = "chicke"; // String | The (partial) search query.
 let opts = {
   'number': 10 // Number | The number of results to return (between 1 and 25).
 };
@@ -312,7 +312,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MenuItemsApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
+  'query': "burger", // String | The (natural language) search query.
   'minCalories': 50, // Number | The minimum amount of calories the menu item must have.
   'maxCalories': 800, // Number | The maximum amount of calories the menu item can have.
   'minCarbs': 10, // Number | The minimum amount of carbohydrates in grams the menu item must have.

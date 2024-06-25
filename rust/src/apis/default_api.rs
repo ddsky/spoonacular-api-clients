@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -47,7 +47,7 @@ pub enum SearchRestaurantsError {
 
 
 /// This endpoint allows you to send raw recipe information, such as title, servings, and ingredients, to then see what we compute (badges, diets, nutrition, and more). This is useful if you have your own recipe data and want to enrich it with our semantic analysis.
-pub async fn analyze_recipe(configuration: &configuration::Configuration, analyze_recipe_request: crate::models::AnalyzeRecipeRequest, language: Option<&str>, include_nutrition: Option<bool>, include_taste: Option<bool>) -> Result<serde_json::Value, Error<AnalyzeRecipeError>> {
+pub async fn analyze_recipe(configuration: &configuration::Configuration, analyze_recipe_request: models::AnalyzeRecipeRequest, language: Option<&str>, include_nutrition: Option<bool>, include_taste: Option<bool>) -> Result<serde_json::Value, Error<AnalyzeRecipeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -93,7 +93,7 @@ pub async fn analyze_recipe(configuration: &configuration::Configuration, analyz
 }
 
 /// Generate a recipe card for a recipe.
-pub async fn create_recipe_card_get(configuration: &configuration::Configuration, id: f32, mask: Option<&str>, background_image: Option<&str>, background_color: Option<&str>, font_color: Option<&str>) -> Result<serde_json::Value, Error<CreateRecipeCardGetError>> {
+pub async fn create_recipe_card_get(configuration: &configuration::Configuration, id: f64, mask: Option<&str>, background_image: Option<&str>, background_color: Option<&str>, font_color: Option<&str>) -> Result<serde_json::Value, Error<CreateRecipeCardGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -141,7 +141,7 @@ pub async fn create_recipe_card_get(configuration: &configuration::Configuration
 }
 
 /// Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
-pub async fn search_restaurants(configuration: &configuration::Configuration, query: Option<&str>, lat: Option<f32>, lng: Option<f32>, distance: Option<f32>, budget: Option<f32>, cuisine: Option<&str>, min_rating: Option<f32>, is_open: Option<bool>, sort: Option<&str>, page: Option<f32>) -> Result<crate::models::SearchRestaurants200Response, Error<SearchRestaurantsError>> {
+pub async fn search_restaurants(configuration: &configuration::Configuration, query: Option<&str>, lat: Option<f64>, lng: Option<f64>, distance: Option<f64>, budget: Option<f64>, cuisine: Option<&str>, min_rating: Option<f64>, is_open: Option<bool>, sort: Option<&str>, page: Option<f64>) -> Result<models::SearchRestaurants200Response, Error<SearchRestaurantsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

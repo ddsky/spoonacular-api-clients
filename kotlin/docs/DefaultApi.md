@@ -2,11 +2,11 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**analyzeRecipe**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe
-[**createRecipeCardGet**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card
-[**searchRestaurants**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**analyzeRecipe**](DefaultApi.md#analyzeRecipe) | **POST** /recipes/analyze | Analyze Recipe |
+| [**createRecipeCardGet**](DefaultApi.md#createRecipeCardGet) | **GET** /recipes/{id}/card | Create Recipe Card |
+| [**searchRestaurants**](DefaultApi.md#searchRestaurants) | **GET** /food/restaurants/search | Search Restaurants |
 
 
 <a id="analyzeRecipe"></a>
@@ -41,13 +41,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **analyzeRecipeRequest** | [**AnalyzeRecipeRequest**](AnalyzeRecipeRequest.md)| Example request body. |
- **language** | **kotlin.String**| The input language, either \&quot;en\&quot; or \&quot;de\&quot;. | [optional]
- **includeNutrition** | **kotlin.Boolean**| Whether nutrition data should be added to correctly parsed ingredients. | [optional]
- **includeTaste** | **kotlin.Boolean**| Whether taste data should be added to correctly parsed ingredients. | [optional]
+| **analyzeRecipeRequest** | [**AnalyzeRecipeRequest**](AnalyzeRecipeRequest.md)| Example request body. | |
+| **language** | **kotlin.String**| The input language, either \&quot;en\&quot; or \&quot;de\&quot;. | [optional] |
+| **includeNutrition** | **kotlin.Boolean**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **includeTaste** | **kotlin.Boolean**| Whether taste data should be added to correctly parsed ingredients. | [optional] |
 
 ### Return type
 
@@ -98,14 +97,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
- **mask** | **kotlin.String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional]
- **backgroundImage** | **kotlin.String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional]
- **backgroundColor** | **kotlin.String**| The background color for the recipe card as a hex-string. | [optional]
- **fontColor** | **kotlin.String**| The font color for the recipe card as a hex-string. | [optional]
+| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **mask** | **kotlin.String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
+| **backgroundImage** | **kotlin.String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
+| **backgroundColor** | **kotlin.String**| The background color for the recipe card as a hex-string. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fontColor** | **kotlin.String**| The font color for the recipe card as a hex-string. | [optional] |
 
 ### Return type
 
@@ -161,19 +159,18 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The search query. | [optional]
- **lat** | **java.math.BigDecimal**| The latitude of the user&#39;s location. | [optional]
- **lng** | **java.math.BigDecimal**| The longitude of the user&#39;s location.\&quot;. | [optional]
- **distance** | **java.math.BigDecimal**| The distance around the location in miles. | [optional]
- **budget** | **java.math.BigDecimal**| The user&#39;s budget for a meal in USD. | [optional]
- **cuisine** | **kotlin.String**| The cuisine of the restaurant. | [optional]
- **minRating** | **java.math.BigDecimal**| The minimum rating of the restaurant between 0 and 5. | [optional]
- **isOpen** | **kotlin.Boolean**| Whether the restaurant must be open at the time of search. | [optional]
- **sort** | **kotlin.String**| How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;. | [optional]
- **page** | **java.math.BigDecimal**| The page number of results. | [optional]
+| **query** | **kotlin.String**| The search query. | [optional] |
+| **lat** | **java.math.BigDecimal**| The latitude of the user&#39;s location. | [optional] |
+| **lng** | **java.math.BigDecimal**| The longitude of the user&#39;s location.\&quot;. | [optional] |
+| **distance** | **java.math.BigDecimal**| The distance around the location in miles. | [optional] |
+| **budget** | **java.math.BigDecimal**| The user&#39;s budget for a meal in USD. | [optional] |
+| **cuisine** | **kotlin.String**| The cuisine of the restaurant. | [optional] |
+| **minRating** | **java.math.BigDecimal**| The minimum rating of the restaurant between 0 and 5. | [optional] |
+| **isOpen** | **kotlin.Boolean**| Whether the restaurant must be open at the time of search. | [optional] |
+| **sort** | **kotlin.String**| How to sort the results, one of the following &#39;cheapest&#39;, &#39;fastest&#39;, &#39;rating&#39;, &#39;distance&#39; or the default &#39;relevance&#39;. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **java.math.BigDecimal**| The page number of results. | [optional] |
 
 ### Return type
 

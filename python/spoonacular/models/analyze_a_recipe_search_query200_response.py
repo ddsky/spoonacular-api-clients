@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.analyze_a_recipe_search_query200_response_dishes_inner import AnalyzeARecipeSearchQuery200ResponseDishesInner
@@ -36,11 +36,11 @@ class AnalyzeARecipeSearchQuery200Response(BaseModel):
     modifiers: List[StrictStr]
     __properties: ClassVar[List[str]] = ["dishes", "ingredients", "cuisines", "modifiers"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

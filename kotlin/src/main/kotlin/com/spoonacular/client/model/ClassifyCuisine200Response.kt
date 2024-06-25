@@ -39,5 +39,8 @@ data class ClassifyCuisine200Response (
     @Json(name = "confidence")
     val confidence: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

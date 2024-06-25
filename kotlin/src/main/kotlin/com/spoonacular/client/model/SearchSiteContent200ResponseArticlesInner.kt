@@ -44,5 +44,8 @@ data class SearchSiteContent200ResponseArticlesInner (
     @Json(name = "dataPoints")
     val dataPoints: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner>? = null
 
-)
+) {
+
+
+}
 

@@ -39,5 +39,8 @@ data class ParseIngredients200ResponseInnerNutritionPropertiesInner (
     @Json(name = "unit")
     val unit: kotlin.String
 
-)
+) {
+
+
+}
 

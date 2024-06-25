@@ -312,48 +312,48 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Original (string) minLength
             if (this.Original != null && this.Original.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Original, length must be greater than 1.", new [] { "Original" });
+                yield return new ValidationResult("Invalid value for Original, length must be greater than 1.", new [] { "Original" });
             }
 
             // OriginalName (string) minLength
             if (this.OriginalName != null && this.OriginalName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginalName, length must be greater than 1.", new [] { "OriginalName" });
+                yield return new ValidationResult("Invalid value for OriginalName, length must be greater than 1.", new [] { "OriginalName" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // NameClean (string) minLength
             if (this.NameClean != null && this.NameClean.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NameClean, length must be greater than 1.", new [] { "NameClean" });
+                yield return new ValidationResult("Invalid value for NameClean, length must be greater than 1.", new [] { "NameClean" });
             }
 
             // Consistency (string) minLength
             if (this.Consistency != null && this.Consistency.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Consistency, length must be greater than 1.", new [] { "Consistency" });
+                yield return new ValidationResult("Invalid value for Consistency, length must be greater than 1.", new [] { "Consistency" });
             }
 
             // Aisle (string) minLength
             if (this.Aisle != null && this.Aisle.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Aisle, length must be greater than 1.", new [] { "Aisle" });
+                yield return new ValidationResult("Invalid value for Aisle, length must be greater than 1.", new [] { "Aisle" });
             }
 
             // Image (string) minLength
             if (this.Image != null && this.Image.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
+                yield return new ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
             }
 
             yield break;

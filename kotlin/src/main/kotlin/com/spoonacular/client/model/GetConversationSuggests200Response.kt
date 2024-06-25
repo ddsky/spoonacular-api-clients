@@ -36,5 +36,8 @@ data class GetConversationSuggests200Response (
     @Json(name = "words")
     val words: kotlin.collections.List<kotlin.String>
 
-)
+) {
+
+
+}
 

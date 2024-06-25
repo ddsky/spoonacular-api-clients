@@ -2,48 +2,48 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**analyzeARecipeSearchQuery**](RecipesApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query
-[**analyzeRecipeInstructions**](RecipesApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions
-[**autocompleteRecipeSearch**](RecipesApi.md#autocompleteRecipeSearch) | **GET** /recipes/autocomplete | Autocomplete Recipe Search
-[**classifyCuisine**](RecipesApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine
-[**computeGlycemicLoad**](RecipesApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load
-[**convertAmounts**](RecipesApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts
-[**createRecipeCard**](RecipesApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card
-[**equipmentByIDImage**](RecipesApi.md#equipmentByIDImage) | **GET** /recipes/{id}/equipmentWidget.png | Equipment by ID Image
-[**extractRecipeFromWebsite**](RecipesApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website
-[**getAnalyzedRecipeInstructions**](RecipesApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions
-[**getRandomRecipes**](RecipesApi.md#getRandomRecipes) | **GET** /recipes/random | Get Random Recipes
-[**getRecipeEquipmentByID**](RecipesApi.md#getRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget.json | Equipment by ID
-[**getRecipeInformation**](RecipesApi.md#getRecipeInformation) | **GET** /recipes/{id}/information | Get Recipe Information
-[**getRecipeInformationBulk**](RecipesApi.md#getRecipeInformationBulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk
-[**getRecipeIngredientsByID**](RecipesApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Ingredients by ID
-[**getRecipeNutritionWidgetByID**](RecipesApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Nutrition by ID
-[**getRecipePriceBreakdownByID**](RecipesApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Price Breakdown by ID
-[**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID
-[**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes
-[**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name
-[**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients
-[**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image
-[**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer
-[**recipeNutritionByIDImage**](RecipesApi.md#recipeNutritionByIDImage) | **GET** /recipes/{id}/nutritionWidget.png | Recipe Nutrition by ID Image
-[**recipeNutritionLabelImage**](RecipesApi.md#recipeNutritionLabelImage) | **GET** /recipes/{id}/nutritionLabel.png | Recipe Nutrition Label Image
-[**recipeNutritionLabelWidget**](RecipesApi.md#recipeNutritionLabelWidget) | **GET** /recipes/{id}/nutritionLabel | Recipe Nutrition Label Widget
-[**recipeTasteByIDImage**](RecipesApi.md#recipeTasteByIDImage) | **GET** /recipes/{id}/tasteWidget.png | Recipe Taste by ID Image
-[**searchRecipes**](RecipesApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes
-[**searchRecipesByIngredients**](RecipesApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients
-[**searchRecipesByNutrients**](RecipesApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients
-[**summarizeRecipe**](RecipesApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe
-[**visualizeEquipment**](RecipesApi.md#visualizeEquipment) | **POST** /recipes/visualizeEquipment | Equipment Widget
-[**visualizePriceBreakdown**](RecipesApi.md#visualizePriceBreakdown) | **POST** /recipes/visualizePriceEstimator | Price Breakdown Widget
-[**visualizeRecipeEquipmentByID**](RecipesApi.md#visualizeRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget | Equipment by ID Widget
-[**visualizeRecipeIngredientsByID**](RecipesApi.md#visualizeRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget | Ingredients by ID Widget
-[**visualizeRecipeNutrition**](RecipesApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Recipe Nutrition Widget
-[**visualizeRecipeNutritionByID**](RecipesApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Recipe Nutrition by ID Widget
-[**visualizeRecipePriceBreakdownByID**](RecipesApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Price Breakdown by ID Widget
-[**visualizeRecipeTaste**](RecipesApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Recipe Taste Widget
-[**visualizeRecipeTasteByID**](RecipesApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**analyzeARecipeSearchQuery**](RecipesApi.md#analyzeARecipeSearchQuery) | **GET** /recipes/queries/analyze | Analyze a Recipe Search Query |
+| [**analyzeRecipeInstructions**](RecipesApi.md#analyzeRecipeInstructions) | **POST** /recipes/analyzeInstructions | Analyze Recipe Instructions |
+| [**autocompleteRecipeSearch**](RecipesApi.md#autocompleteRecipeSearch) | **GET** /recipes/autocomplete | Autocomplete Recipe Search |
+| [**classifyCuisine**](RecipesApi.md#classifyCuisine) | **POST** /recipes/cuisine | Classify Cuisine |
+| [**computeGlycemicLoad**](RecipesApi.md#computeGlycemicLoad) | **POST** /food/ingredients/glycemicLoad | Compute Glycemic Load |
+| [**convertAmounts**](RecipesApi.md#convertAmounts) | **GET** /recipes/convert | Convert Amounts |
+| [**createRecipeCard**](RecipesApi.md#createRecipeCard) | **POST** /recipes/visualizeRecipe | Create Recipe Card |
+| [**equipmentByIDImage**](RecipesApi.md#equipmentByIDImage) | **GET** /recipes/{id}/equipmentWidget.png | Equipment by ID Image |
+| [**extractRecipeFromWebsite**](RecipesApi.md#extractRecipeFromWebsite) | **GET** /recipes/extract | Extract Recipe from Website |
+| [**getAnalyzedRecipeInstructions**](RecipesApi.md#getAnalyzedRecipeInstructions) | **GET** /recipes/{id}/analyzedInstructions | Get Analyzed Recipe Instructions |
+| [**getRandomRecipes**](RecipesApi.md#getRandomRecipes) | **GET** /recipes/random | Get Random Recipes |
+| [**getRecipeEquipmentByID**](RecipesApi.md#getRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget.json | Equipment by ID |
+| [**getRecipeInformation**](RecipesApi.md#getRecipeInformation) | **GET** /recipes/{id}/information | Get Recipe Information |
+| [**getRecipeInformationBulk**](RecipesApi.md#getRecipeInformationBulk) | **GET** /recipes/informationBulk | Get Recipe Information Bulk |
+| [**getRecipeIngredientsByID**](RecipesApi.md#getRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget.json | Ingredients by ID |
+| [**getRecipeNutritionWidgetByID**](RecipesApi.md#getRecipeNutritionWidgetByID) | **GET** /recipes/{id}/nutritionWidget.json | Nutrition by ID |
+| [**getRecipePriceBreakdownByID**](RecipesApi.md#getRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget.json | Price Breakdown by ID |
+| [**getRecipeTasteByID**](RecipesApi.md#getRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget.json | Taste by ID |
+| [**getSimilarRecipes**](RecipesApi.md#getSimilarRecipes) | **GET** /recipes/{id}/similar | Get Similar Recipes |
+| [**guessNutritionByDishName**](RecipesApi.md#guessNutritionByDishName) | **GET** /recipes/guessNutrition | Guess Nutrition by Dish Name |
+| [**parseIngredients**](RecipesApi.md#parseIngredients) | **POST** /recipes/parseIngredients | Parse Ingredients |
+| [**priceBreakdownByIDImage**](RecipesApi.md#priceBreakdownByIDImage) | **GET** /recipes/{id}/priceBreakdownWidget.png | Price Breakdown by ID Image |
+| [**quickAnswer**](RecipesApi.md#quickAnswer) | **GET** /recipes/quickAnswer | Quick Answer |
+| [**recipeNutritionByIDImage**](RecipesApi.md#recipeNutritionByIDImage) | **GET** /recipes/{id}/nutritionWidget.png | Recipe Nutrition by ID Image |
+| [**recipeNutritionLabelImage**](RecipesApi.md#recipeNutritionLabelImage) | **GET** /recipes/{id}/nutritionLabel.png | Recipe Nutrition Label Image |
+| [**recipeNutritionLabelWidget**](RecipesApi.md#recipeNutritionLabelWidget) | **GET** /recipes/{id}/nutritionLabel | Recipe Nutrition Label Widget |
+| [**recipeTasteByIDImage**](RecipesApi.md#recipeTasteByIDImage) | **GET** /recipes/{id}/tasteWidget.png | Recipe Taste by ID Image |
+| [**searchRecipes**](RecipesApi.md#searchRecipes) | **GET** /recipes/complexSearch | Search Recipes |
+| [**searchRecipesByIngredients**](RecipesApi.md#searchRecipesByIngredients) | **GET** /recipes/findByIngredients | Search Recipes by Ingredients |
+| [**searchRecipesByNutrients**](RecipesApi.md#searchRecipesByNutrients) | **GET** /recipes/findByNutrients | Search Recipes by Nutrients |
+| [**summarizeRecipe**](RecipesApi.md#summarizeRecipe) | **GET** /recipes/{id}/summary | Summarize Recipe |
+| [**visualizeEquipment**](RecipesApi.md#visualizeEquipment) | **POST** /recipes/visualizeEquipment | Equipment Widget |
+| [**visualizePriceBreakdown**](RecipesApi.md#visualizePriceBreakdown) | **POST** /recipes/visualizePriceEstimator | Price Breakdown Widget |
+| [**visualizeRecipeEquipmentByID**](RecipesApi.md#visualizeRecipeEquipmentByID) | **GET** /recipes/{id}/equipmentWidget | Equipment by ID Widget |
+| [**visualizeRecipeIngredientsByID**](RecipesApi.md#visualizeRecipeIngredientsByID) | **GET** /recipes/{id}/ingredientWidget | Ingredients by ID Widget |
+| [**visualizeRecipeNutrition**](RecipesApi.md#visualizeRecipeNutrition) | **POST** /recipes/visualizeNutrition | Recipe Nutrition Widget |
+| [**visualizeRecipeNutritionByID**](RecipesApi.md#visualizeRecipeNutritionByID) | **GET** /recipes/{id}/nutritionWidget | Recipe Nutrition by ID Widget |
+| [**visualizeRecipePriceBreakdownByID**](RecipesApi.md#visualizeRecipePriceBreakdownByID) | **GET** /recipes/{id}/priceBreakdownWidget | Price Breakdown by ID Widget |
+| [**visualizeRecipeTaste**](RecipesApi.md#visualizeRecipeTaste) | **POST** /recipes/visualizeTaste | Recipe Taste Widget |
+| [**visualizeRecipeTasteByID**](RecipesApi.md#visualizeRecipeTasteByID) | **GET** /recipes/{id}/tasteWidget | Recipe Taste by ID Widget |
 
 
 <a id="analyzeARecipeSearchQuery"></a>
@@ -75,10 +75,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | **kotlin.String**| The recipe search query. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **q** | **kotlin.String**| The recipe search query. | |
 
 ### Return type
 
@@ -125,10 +124,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instructions** | **kotlin.String**| The recipe&#39;s instructions. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **instructions** | **kotlin.String**| The recipe&#39;s instructions. | |
 
 ### Return type
 
@@ -176,11 +174,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -229,12 +226,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **title** | **kotlin.String**| The title of the recipe. |
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+| **title** | **kotlin.String**| The title of the recipe. | |
+| **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
 
 ### Return type
 
@@ -282,11 +278,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **computeGlycemicLoadRequest** | [**ComputeGlycemicLoadRequest**](ComputeGlycemicLoadRequest.md)|  |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+| **computeGlycemicLoadRequest** | [**ComputeGlycemicLoadRequest**](ComputeGlycemicLoadRequest.md)|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
 
 ### Return type
 
@@ -336,13 +331,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientName** | **kotlin.String**| The ingredient which you want to convert. |
- **sourceAmount** | **java.math.BigDecimal**| The amount from which you want to convert, e.g. the 2.5 in \&quot;2.5 cups of flour to grams\&quot;. |
- **sourceUnit** | **kotlin.String**| The unit from which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; |
- **targetUnit** | **kotlin.String**| The unit to which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; |
+| **ingredientName** | **kotlin.String**| The ingredient which you want to convert. | |
+| **sourceAmount** | **java.math.BigDecimal**| The amount from which you want to convert, e.g. the 2.5 in \&quot;2.5 cups of flour to grams\&quot;. | |
+| **sourceUnit** | **kotlin.String**| The unit from which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **targetUnit** | **kotlin.String**| The unit to which you want to convert, e.g. the grams in \&quot;2.5 cups of flour to grams\&quot;. You can also use \&quot;piece\&quot;, e.g. \&quot;3.4 oz tomatoes to piece\&quot; | |
 
 ### Return type
 
@@ -401,22 +395,21 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **title** | **kotlin.String**| The title of the recipe. |
- **ingredients** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |
- **instructions** | **kotlin.String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). |
- **readyInMinutes** | **java.math.BigDecimal**| The number of minutes it takes to get the recipe on the table. |
- **servings** | **java.math.BigDecimal**| The number of servings the recipe makes. |
- **mask** | **kotlin.String**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | [enum: ellipseMask, diamondMask, starMask, heartMask, potMask, fishMask]
- **backgroundImage** | **kotlin.String**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | [enum: none, background1, background2]
- **image** | **java.io.File**| The binary image of the recipe as jpg. | [optional]
- **imageUrl** | **kotlin.String**| If you do not sent a binary image you can also pass the image URL. | [optional]
- **author** | **kotlin.String**| The author of the recipe. | [optional]
- **backgroundColor** | **kotlin.String**| The background color for the recipe card as a hex-string. | [optional]
- **fontColor** | **kotlin.String**| The font color for the recipe card as a hex-string. | [optional]
- **source** | **kotlin.String**| The source of the recipe. | [optional]
+| **title** | **kotlin.String**| The title of the recipe. | |
+| **ingredients** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **instructions** | **kotlin.String**| The instructions to make the recipe. One step per line (separate lines with \\\\n). | |
+| **readyInMinutes** | **java.math.BigDecimal**| The number of minutes it takes to get the recipe on the table. | |
+| **servings** | **java.math.BigDecimal**| The number of servings the recipe makes. | |
+| **mask** | **kotlin.String**| The mask to put over the recipe image (&#39;ellipseMask&#39;, &#39;diamondMask&#39;, &#39;starMask&#39;, &#39;heartMask&#39;, &#39;potMask&#39;, &#39;fishMask&#39;). | [enum: ellipseMask, diamondMask, starMask, heartMask, potMask, fishMask] |
+| **backgroundImage** | **kotlin.String**| The background image (&#39;none&#39;, &#39;background1&#39;, or &#39;background2&#39;). | [enum: none, background1, background2] |
+| **image** | **java.io.File**| The binary image of the recipe as jpg. | [optional] |
+| **imageUrl** | **kotlin.String**| If you do not sent a binary image you can also pass the image URL. | [optional] |
+| **author** | **kotlin.String**| The author of the recipe. | [optional] |
+| **backgroundColor** | **kotlin.String**| The background color for the recipe card as a hex-string. | [optional] |
+| **fontColor** | **kotlin.String**| The font color for the recipe card as a hex-string. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **source** | **kotlin.String**| The source of the recipe. | [optional] |
 
 ### Return type
 
@@ -463,10 +456,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **java.math.BigDecimal**| The recipe id. | |
 
 ### Return type
 
@@ -517,14 +509,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **url** | **kotlin.String**| The URL of the recipe page. |
- **forceExtraction** | **kotlin.Boolean**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional]
- **analyze** | **kotlin.Boolean**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional]
- **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
- **includeTaste** | **kotlin.Boolean**| Whether taste data should be added to correctly parsed ingredients. | [optional] [default to false]
+| **url** | **kotlin.String**| The URL of the recipe page. | |
+| **forceExtraction** | **kotlin.Boolean**| If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower. | [optional] |
+| **analyze** | **kotlin.Boolean**| If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. | [optional] |
+| **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **includeTaste** | **kotlin.Boolean**| Whether taste data should be added to correctly parsed ingredients. | [optional] [default to false] |
 
 ### Return type
 
@@ -572,11 +563,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **stepBreakdown** | **kotlin.Boolean**| Whether to break down the recipe steps even more. | [optional]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **stepBreakdown** | **kotlin.Boolean**| Whether to break down the recipe steps even more. | [optional] |
 
 ### Return type
 
@@ -627,14 +617,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
- **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
- **includeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional]
- **excludeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **includeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] |
+| **excludeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -681,10 +670,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -732,11 +720,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 
 ### Return type
 
@@ -784,11 +771,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | **kotlin.String**| A comma-separated list of recipe ids. |
- **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+| **ids** | **kotlin.String**| A comma-separated list of recipe ids. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 
 ### Return type
 
@@ -835,10 +821,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -885,10 +870,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -935,10 +919,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -986,11 +969,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional] [default to true] |
 
 ### Return type
 
@@ -1039,12 +1021,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -1091,10 +1072,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **title** | **kotlin.String**| The title of the dish. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **title** | **kotlin.String**| The title of the dish. | |
 
 ### Return type
 
@@ -1144,13 +1124,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
- **servings** | **java.math.BigDecimal**| The number of servings that you can make from the ingredients. |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **includeNutrition** | **kotlin.Boolean**|  | [optional]
+| **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **java.math.BigDecimal**| The number of servings that you can make from the ingredients. | |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **includeNutrition** | **kotlin.Boolean**|  | [optional] |
 
 ### Return type
 
@@ -1197,10 +1176,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **java.math.BigDecimal**| The recipe id. | |
 
 ### Return type
 
@@ -1247,10 +1225,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | **kotlin.String**| The nutrition related question. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **q** | **kotlin.String**| The nutrition related question. | |
 
 ### Return type
 
@@ -1297,10 +1274,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **java.math.BigDecimal**| The recipe id. | |
 
 ### Return type
 
@@ -1350,13 +1326,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
- **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional]
- **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional]
- **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional]
+| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
+| **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -1407,14 +1382,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional]
- **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional]
- **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional]
+| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
+| **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -1463,12 +1437,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
- **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional]
- **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional]
+| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type
 
@@ -1612,107 +1585,106 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional]
- **excludeCuisine** | **kotlin.String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional]
- **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]
- **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **equipment** | **kotlin.String**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional]
- **includeIngredients** | **kotlin.String**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional]
- **excludeIngredients** | **kotlin.String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional]
- **type** | **kotlin.String**| The type of recipe. See a full list of supported meal types. | [optional]
- **instructionsRequired** | **kotlin.Boolean**| Whether the recipes must have instructions. | [optional]
- **fillIngredients** | **kotlin.Boolean**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional]
- **addRecipeInformation** | **kotlin.Boolean**| If set to true, you get more information about the recipes returned. | [optional]
- **addRecipeNutrition** | **kotlin.Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional]
- **author** | **kotlin.String**| The username of the recipe author. | [optional]
- **tags** | **kotlin.String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional]
- **recipeBoxId** | **java.math.BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional]
- **titleMatch** | **kotlin.String**| Enter text that must be found in the title of the recipes. | [optional]
- **maxReadyTime** | **java.math.BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional]
- **minServings** | **java.math.BigDecimal**| The minimum amount of servings the recipe is for. | [optional]
- **maxServings** | **java.math.BigDecimal**| The maximum amount of servings the recipe is for. | [optional]
- **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
- **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
- **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
- **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the recipe must have. | [optional]
- **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the recipe can have. | [optional]
- **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the recipe must have. | [optional]
- **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the recipe can have. | [optional]
- **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the recipe must have. | [optional]
- **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the recipe can have. | [optional]
- **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the recipe must have. | [optional]
- **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the recipe can have. | [optional]
- **minAlcohol** | **java.math.BigDecimal**| The minimum amount of alcohol in grams the recipe must have. | [optional]
- **maxAlcohol** | **java.math.BigDecimal**| The maximum amount of alcohol in grams the recipe can have. | [optional]
- **minCaffeine** | **java.math.BigDecimal**| The minimum amount of caffeine in milligrams the recipe must have. | [optional]
- **maxCaffeine** | **java.math.BigDecimal**| The maximum amount of caffeine in milligrams the recipe can have. | [optional]
- **minCopper** | **java.math.BigDecimal**| The minimum amount of copper in milligrams the recipe must have. | [optional]
- **maxCopper** | **java.math.BigDecimal**| The maximum amount of copper in milligrams the recipe can have. | [optional]
- **minCalcium** | **java.math.BigDecimal**| The minimum amount of calcium in milligrams the recipe must have. | [optional]
- **maxCalcium** | **java.math.BigDecimal**| The maximum amount of calcium in milligrams the recipe can have. | [optional]
- **minCholine** | **java.math.BigDecimal**| The minimum amount of choline in milligrams the recipe must have. | [optional]
- **maxCholine** | **java.math.BigDecimal**| The maximum amount of choline in milligrams the recipe can have. | [optional]
- **minCholesterol** | **java.math.BigDecimal**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional]
- **maxCholesterol** | **java.math.BigDecimal**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional]
- **minFluoride** | **java.math.BigDecimal**| The minimum amount of fluoride in milligrams the recipe must have. | [optional]
- **maxFluoride** | **java.math.BigDecimal**| The maximum amount of fluoride in milligrams the recipe can have. | [optional]
- **minSaturatedFat** | **java.math.BigDecimal**| The minimum amount of saturated fat in grams the recipe must have. | [optional]
- **maxSaturatedFat** | **java.math.BigDecimal**| The maximum amount of saturated fat in grams the recipe can have. | [optional]
- **minVitaminA** | **java.math.BigDecimal**| The minimum amount of Vitamin A in IU the recipe must have. | [optional]
- **maxVitaminA** | **java.math.BigDecimal**| The maximum amount of Vitamin A in IU the recipe can have. | [optional]
- **minVitaminC** | **java.math.BigDecimal**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional]
- **maxVitaminC** | **java.math.BigDecimal**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional]
- **minVitaminD** | **java.math.BigDecimal**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional]
- **maxVitaminD** | **java.math.BigDecimal**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional]
- **minVitaminE** | **java.math.BigDecimal**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional]
- **maxVitaminE** | **java.math.BigDecimal**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional]
- **minVitaminK** | **java.math.BigDecimal**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional]
- **maxVitaminK** | **java.math.BigDecimal**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional]
- **minVitaminB1** | **java.math.BigDecimal**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional]
- **maxVitaminB1** | **java.math.BigDecimal**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional]
- **minVitaminB2** | **java.math.BigDecimal**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional]
- **maxVitaminB2** | **java.math.BigDecimal**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional]
- **minVitaminB5** | **java.math.BigDecimal**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional]
- **maxVitaminB5** | **java.math.BigDecimal**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional]
- **minVitaminB3** | **java.math.BigDecimal**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional]
- **maxVitaminB3** | **java.math.BigDecimal**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional]
- **minVitaminB6** | **java.math.BigDecimal**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional]
- **maxVitaminB6** | **java.math.BigDecimal**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional]
- **minVitaminB12** | **java.math.BigDecimal**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional]
- **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
- **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional]
- **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional]
- **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in micrograms the recipe must have. | [optional]
- **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in micrograms the recipe can have. | [optional]
- **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in micrograms the recipe must have. | [optional]
- **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in micrograms the recipe can have. | [optional]
- **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in micrograms the recipe must have. | [optional]
- **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in micrograms the recipe can have. | [optional]
- **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional]
- **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional]
- **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
- **maxMagnesium** | **java.math.BigDecimal**| The maximum amount of magnesium in milligrams the recipe can have. | [optional]
- **minManganese** | **java.math.BigDecimal**| The minimum amount of manganese in milligrams the recipe must have. | [optional]
- **maxManganese** | **java.math.BigDecimal**| The maximum amount of manganese in milligrams the recipe can have. | [optional]
- **minPhosphorus** | **java.math.BigDecimal**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional]
- **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
- **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
- **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
- **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in micrograms the recipe must have. | [optional]
- **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in micrograms the recipe can have. | [optional]
- **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
- **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
- **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional]
- **maxSugar** | **java.math.BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional]
- **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
- **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] |
+| **excludeCuisine** | **kotlin.String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] |
+| **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
+| **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| **equipment** | **kotlin.String**| The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;. | [optional] |
+| **includeIngredients** | **kotlin.String**| A comma-separated list of ingredients that should/must be used in the recipes. | [optional] |
+| **excludeIngredients** | **kotlin.String**| A comma-separated list of ingredients or ingredient types that the recipes must not contain. | [optional] |
+| **type** | **kotlin.String**| The type of recipe. See a full list of supported meal types. | [optional] |
+| **instructionsRequired** | **kotlin.Boolean**| Whether the recipes must have instructions. | [optional] |
+| **fillIngredients** | **kotlin.Boolean**| Add information about the ingredients and whether they are used or missing in relation to the query. | [optional] |
+| **addRecipeInformation** | **kotlin.Boolean**| If set to true, you get more information about the recipes returned. | [optional] |
+| **addRecipeNutrition** | **kotlin.Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional] |
+| **author** | **kotlin.String**| The username of the recipe author. | [optional] |
+| **tags** | **kotlin.String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
+| **recipeBoxId** | **java.math.BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional] |
+| **titleMatch** | **kotlin.String**| Enter text that must be found in the title of the recipes. | [optional] |
+| **maxReadyTime** | **java.math.BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
+| **minServings** | **java.math.BigDecimal**| The minimum amount of servings the recipe is for. | [optional] |
+| **maxServings** | **java.math.BigDecimal**| The maximum amount of servings the recipe is for. | [optional] |
+| **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
+| **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] |
+| **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |
+| **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] |
+| **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] |
+| **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the recipe must have. | [optional] |
+| **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the recipe can have. | [optional] |
+| **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the recipe must have. | [optional] |
+| **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the recipe can have. | [optional] |
+| **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the recipe must have. | [optional] |
+| **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the recipe can have. | [optional] |
+| **minAlcohol** | **java.math.BigDecimal**| The minimum amount of alcohol in grams the recipe must have. | [optional] |
+| **maxAlcohol** | **java.math.BigDecimal**| The maximum amount of alcohol in grams the recipe can have. | [optional] |
+| **minCaffeine** | **java.math.BigDecimal**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] |
+| **maxCaffeine** | **java.math.BigDecimal**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] |
+| **minCopper** | **java.math.BigDecimal**| The minimum amount of copper in milligrams the recipe must have. | [optional] |
+| **maxCopper** | **java.math.BigDecimal**| The maximum amount of copper in milligrams the recipe can have. | [optional] |
+| **minCalcium** | **java.math.BigDecimal**| The minimum amount of calcium in milligrams the recipe must have. | [optional] |
+| **maxCalcium** | **java.math.BigDecimal**| The maximum amount of calcium in milligrams the recipe can have. | [optional] |
+| **minCholine** | **java.math.BigDecimal**| The minimum amount of choline in milligrams the recipe must have. | [optional] |
+| **maxCholine** | **java.math.BigDecimal**| The maximum amount of choline in milligrams the recipe can have. | [optional] |
+| **minCholesterol** | **java.math.BigDecimal**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] |
+| **maxCholesterol** | **java.math.BigDecimal**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] |
+| **minFluoride** | **java.math.BigDecimal**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] |
+| **maxFluoride** | **java.math.BigDecimal**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] |
+| **minSaturatedFat** | **java.math.BigDecimal**| The minimum amount of saturated fat in grams the recipe must have. | [optional] |
+| **maxSaturatedFat** | **java.math.BigDecimal**| The maximum amount of saturated fat in grams the recipe can have. | [optional] |
+| **minVitaminA** | **java.math.BigDecimal**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] |
+| **maxVitaminA** | **java.math.BigDecimal**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] |
+| **minVitaminC** | **java.math.BigDecimal**| The minimum amount of Vitamin C milligrams the recipe must have. | [optional] |
+| **maxVitaminC** | **java.math.BigDecimal**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] |
+| **minVitaminD** | **java.math.BigDecimal**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] |
+| **maxVitaminD** | **java.math.BigDecimal**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] |
+| **minVitaminE** | **java.math.BigDecimal**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] |
+| **maxVitaminE** | **java.math.BigDecimal**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] |
+| **minVitaminK** | **java.math.BigDecimal**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] |
+| **maxVitaminK** | **java.math.BigDecimal**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] |
+| **minVitaminB1** | **java.math.BigDecimal**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB1** | **java.math.BigDecimal**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] |
+| **minVitaminB2** | **java.math.BigDecimal**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB2** | **java.math.BigDecimal**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] |
+| **minVitaminB5** | **java.math.BigDecimal**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB5** | **java.math.BigDecimal**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] |
+| **minVitaminB3** | **java.math.BigDecimal**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB3** | **java.math.BigDecimal**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] |
+| **minVitaminB6** | **java.math.BigDecimal**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB6** | **java.math.BigDecimal**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] |
+| **minVitaminB12** | **java.math.BigDecimal**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] |
+| **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] |
+| **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional] |
+| **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional] |
+| **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in micrograms the recipe must have. | [optional] |
+| **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in micrograms the recipe can have. | [optional] |
+| **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in micrograms the recipe must have. | [optional] |
+| **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in micrograms the recipe can have. | [optional] |
+| **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in micrograms the recipe must have. | [optional] |
+| **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in micrograms the recipe can have. | [optional] |
+| **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional] |
+| **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional] |
+| **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] |
+| **maxMagnesium** | **java.math.BigDecimal**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] |
+| **minManganese** | **java.math.BigDecimal**| The minimum amount of manganese in milligrams the recipe must have. | [optional] |
+| **maxManganese** | **java.math.BigDecimal**| The maximum amount of manganese in milligrams the recipe can have. | [optional] |
+| **minPhosphorus** | **java.math.BigDecimal**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] |
+| **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] |
+| **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional] |
+| **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional] |
+| **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in micrograms the recipe must have. | [optional] |
+| **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in micrograms the recipe can have. | [optional] |
+| **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional] |
+| **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional] |
+| **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional] |
+| **maxSugar** | **java.math.BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional] |
+| **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional] |
+| **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -1763,14 +1735,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
- **ranking** | **java.math.BigDecimal**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional]
- **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
+| **ingredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **ranking** | **java.math.BigDecimal**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 
 ### Return type
 
@@ -1892,85 +1863,84 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the recipe must have. | [optional]
- **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the recipe can have. | [optional]
- **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the recipe must have. | [optional]
- **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the recipe can have. | [optional]
- **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the recipe must have. | [optional]
- **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the recipe can have. | [optional]
- **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the recipe must have. | [optional]
- **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the recipe can have. | [optional]
- **minAlcohol** | **java.math.BigDecimal**| The minimum amount of alcohol in grams the recipe must have. | [optional]
- **maxAlcohol** | **java.math.BigDecimal**| The maximum amount of alcohol in grams the recipe can have. | [optional]
- **minCaffeine** | **java.math.BigDecimal**| The minimum amount of caffeine in milligrams the recipe must have. | [optional]
- **maxCaffeine** | **java.math.BigDecimal**| The maximum amount of caffeine in milligrams the recipe can have. | [optional]
- **minCopper** | **java.math.BigDecimal**| The minimum amount of copper in milligrams the recipe must have. | [optional]
- **maxCopper** | **java.math.BigDecimal**| The maximum amount of copper in milligrams the recipe can have. | [optional]
- **minCalcium** | **java.math.BigDecimal**| The minimum amount of calcium in milligrams the recipe must have. | [optional]
- **maxCalcium** | **java.math.BigDecimal**| The maximum amount of calcium in milligrams the recipe can have. | [optional]
- **minCholine** | **java.math.BigDecimal**| The minimum amount of choline in milligrams the recipe must have. | [optional]
- **maxCholine** | **java.math.BigDecimal**| The maximum amount of choline in milligrams the recipe can have. | [optional]
- **minCholesterol** | **java.math.BigDecimal**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional]
- **maxCholesterol** | **java.math.BigDecimal**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional]
- **minFluoride** | **java.math.BigDecimal**| The minimum amount of fluoride in milligrams the recipe must have. | [optional]
- **maxFluoride** | **java.math.BigDecimal**| The maximum amount of fluoride in milligrams the recipe can have. | [optional]
- **minSaturatedFat** | **java.math.BigDecimal**| The minimum amount of saturated fat in grams the recipe must have. | [optional]
- **maxSaturatedFat** | **java.math.BigDecimal**| The maximum amount of saturated fat in grams the recipe can have. | [optional]
- **minVitaminA** | **java.math.BigDecimal**| The minimum amount of Vitamin A in IU the recipe must have. | [optional]
- **maxVitaminA** | **java.math.BigDecimal**| The maximum amount of Vitamin A in IU the recipe can have. | [optional]
- **minVitaminC** | **java.math.BigDecimal**| The minimum amount of Vitamin C in milligrams the recipe must have. | [optional]
- **maxVitaminC** | **java.math.BigDecimal**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional]
- **minVitaminD** | **java.math.BigDecimal**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional]
- **maxVitaminD** | **java.math.BigDecimal**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional]
- **minVitaminE** | **java.math.BigDecimal**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional]
- **maxVitaminE** | **java.math.BigDecimal**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional]
- **minVitaminK** | **java.math.BigDecimal**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional]
- **maxVitaminK** | **java.math.BigDecimal**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional]
- **minVitaminB1** | **java.math.BigDecimal**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional]
- **maxVitaminB1** | **java.math.BigDecimal**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional]
- **minVitaminB2** | **java.math.BigDecimal**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional]
- **maxVitaminB2** | **java.math.BigDecimal**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional]
- **minVitaminB5** | **java.math.BigDecimal**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional]
- **maxVitaminB5** | **java.math.BigDecimal**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional]
- **minVitaminB3** | **java.math.BigDecimal**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional]
- **maxVitaminB3** | **java.math.BigDecimal**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional]
- **minVitaminB6** | **java.math.BigDecimal**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional]
- **maxVitaminB6** | **java.math.BigDecimal**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional]
- **minVitaminB12** | **java.math.BigDecimal**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional]
- **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional]
- **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional]
- **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional]
- **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in micrograms the recipe must have. | [optional]
- **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in micrograms the recipe can have. | [optional]
- **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in micrograms the recipe must have. | [optional]
- **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in micrograms the recipe can have. | [optional]
- **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in micrograms the recipe must have. | [optional]
- **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in micrograms the recipe can have. | [optional]
- **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional]
- **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional]
- **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional]
- **maxMagnesium** | **java.math.BigDecimal**| The maximum amount of magnesium in milligrams the recipe can have. | [optional]
- **minManganese** | **java.math.BigDecimal**| The minimum amount of manganese in milligrams the recipe must have. | [optional]
- **maxManganese** | **java.math.BigDecimal**| The maximum amount of manganese in milligrams the recipe can have. | [optional]
- **minPhosphorus** | **java.math.BigDecimal**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional]
- **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional]
- **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional]
- **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional]
- **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in micrograms the recipe must have. | [optional]
- **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in micrograms the recipe can have. | [optional]
- **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional]
- **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional]
- **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional]
- **maxSugar** | **java.math.BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional]
- **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional]
- **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **random** | **kotlin.Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional]
- **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
+| **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the recipe must have. | [optional] |
+| **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the recipe can have. | [optional] |
+| **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the recipe must have. | [optional] |
+| **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the recipe can have. | [optional] |
+| **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the recipe must have. | [optional] |
+| **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the recipe can have. | [optional] |
+| **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the recipe must have. | [optional] |
+| **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the recipe can have. | [optional] |
+| **minAlcohol** | **java.math.BigDecimal**| The minimum amount of alcohol in grams the recipe must have. | [optional] |
+| **maxAlcohol** | **java.math.BigDecimal**| The maximum amount of alcohol in grams the recipe can have. | [optional] |
+| **minCaffeine** | **java.math.BigDecimal**| The minimum amount of caffeine in milligrams the recipe must have. | [optional] |
+| **maxCaffeine** | **java.math.BigDecimal**| The maximum amount of caffeine in milligrams the recipe can have. | [optional] |
+| **minCopper** | **java.math.BigDecimal**| The minimum amount of copper in milligrams the recipe must have. | [optional] |
+| **maxCopper** | **java.math.BigDecimal**| The maximum amount of copper in milligrams the recipe can have. | [optional] |
+| **minCalcium** | **java.math.BigDecimal**| The minimum amount of calcium in milligrams the recipe must have. | [optional] |
+| **maxCalcium** | **java.math.BigDecimal**| The maximum amount of calcium in milligrams the recipe can have. | [optional] |
+| **minCholine** | **java.math.BigDecimal**| The minimum amount of choline in milligrams the recipe must have. | [optional] |
+| **maxCholine** | **java.math.BigDecimal**| The maximum amount of choline in milligrams the recipe can have. | [optional] |
+| **minCholesterol** | **java.math.BigDecimal**| The minimum amount of cholesterol in milligrams the recipe must have. | [optional] |
+| **maxCholesterol** | **java.math.BigDecimal**| The maximum amount of cholesterol in milligrams the recipe can have. | [optional] |
+| **minFluoride** | **java.math.BigDecimal**| The minimum amount of fluoride in milligrams the recipe must have. | [optional] |
+| **maxFluoride** | **java.math.BigDecimal**| The maximum amount of fluoride in milligrams the recipe can have. | [optional] |
+| **minSaturatedFat** | **java.math.BigDecimal**| The minimum amount of saturated fat in grams the recipe must have. | [optional] |
+| **maxSaturatedFat** | **java.math.BigDecimal**| The maximum amount of saturated fat in grams the recipe can have. | [optional] |
+| **minVitaminA** | **java.math.BigDecimal**| The minimum amount of Vitamin A in IU the recipe must have. | [optional] |
+| **maxVitaminA** | **java.math.BigDecimal**| The maximum amount of Vitamin A in IU the recipe can have. | [optional] |
+| **minVitaminC** | **java.math.BigDecimal**| The minimum amount of Vitamin C in milligrams the recipe must have. | [optional] |
+| **maxVitaminC** | **java.math.BigDecimal**| The maximum amount of Vitamin C in milligrams the recipe can have. | [optional] |
+| **minVitaminD** | **java.math.BigDecimal**| The minimum amount of Vitamin D in micrograms the recipe must have. | [optional] |
+| **maxVitaminD** | **java.math.BigDecimal**| The maximum amount of Vitamin D in micrograms the recipe can have. | [optional] |
+| **minVitaminE** | **java.math.BigDecimal**| The minimum amount of Vitamin E in milligrams the recipe must have. | [optional] |
+| **maxVitaminE** | **java.math.BigDecimal**| The maximum amount of Vitamin E in milligrams the recipe can have. | [optional] |
+| **minVitaminK** | **java.math.BigDecimal**| The minimum amount of Vitamin K in micrograms the recipe must have. | [optional] |
+| **maxVitaminK** | **java.math.BigDecimal**| The maximum amount of Vitamin K in micrograms the recipe can have. | [optional] |
+| **minVitaminB1** | **java.math.BigDecimal**| The minimum amount of Vitamin B1 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB1** | **java.math.BigDecimal**| The maximum amount of Vitamin B1 in milligrams the recipe can have. | [optional] |
+| **minVitaminB2** | **java.math.BigDecimal**| The minimum amount of Vitamin B2 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB2** | **java.math.BigDecimal**| The maximum amount of Vitamin B2 in milligrams the recipe can have. | [optional] |
+| **minVitaminB5** | **java.math.BigDecimal**| The minimum amount of Vitamin B5 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB5** | **java.math.BigDecimal**| The maximum amount of Vitamin B5 in milligrams the recipe can have. | [optional] |
+| **minVitaminB3** | **java.math.BigDecimal**| The minimum amount of Vitamin B3 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB3** | **java.math.BigDecimal**| The maximum amount of Vitamin B3 in milligrams the recipe can have. | [optional] |
+| **minVitaminB6** | **java.math.BigDecimal**| The minimum amount of Vitamin B6 in milligrams the recipe must have. | [optional] |
+| **maxVitaminB6** | **java.math.BigDecimal**| The maximum amount of Vitamin B6 in milligrams the recipe can have. | [optional] |
+| **minVitaminB12** | **java.math.BigDecimal**| The minimum amount of Vitamin B12 in micrograms the recipe must have. | [optional] |
+| **maxVitaminB12** | **java.math.BigDecimal**| The maximum amount of Vitamin B12 in micrograms the recipe can have. | [optional] |
+| **minFiber** | **java.math.BigDecimal**| The minimum amount of fiber in grams the recipe must have. | [optional] |
+| **maxFiber** | **java.math.BigDecimal**| The maximum amount of fiber in grams the recipe can have. | [optional] |
+| **minFolate** | **java.math.BigDecimal**| The minimum amount of folate in micrograms the recipe must have. | [optional] |
+| **maxFolate** | **java.math.BigDecimal**| The maximum amount of folate in micrograms the recipe can have. | [optional] |
+| **minFolicAcid** | **java.math.BigDecimal**| The minimum amount of folic acid in micrograms the recipe must have. | [optional] |
+| **maxFolicAcid** | **java.math.BigDecimal**| The maximum amount of folic acid in micrograms the recipe can have. | [optional] |
+| **minIodine** | **java.math.BigDecimal**| The minimum amount of iodine in micrograms the recipe must have. | [optional] |
+| **maxIodine** | **java.math.BigDecimal**| The maximum amount of iodine in micrograms the recipe can have. | [optional] |
+| **minIron** | **java.math.BigDecimal**| The minimum amount of iron in milligrams the recipe must have. | [optional] |
+| **maxIron** | **java.math.BigDecimal**| The maximum amount of iron in milligrams the recipe can have. | [optional] |
+| **minMagnesium** | **java.math.BigDecimal**| The minimum amount of magnesium in milligrams the recipe must have. | [optional] |
+| **maxMagnesium** | **java.math.BigDecimal**| The maximum amount of magnesium in milligrams the recipe can have. | [optional] |
+| **minManganese** | **java.math.BigDecimal**| The minimum amount of manganese in milligrams the recipe must have. | [optional] |
+| **maxManganese** | **java.math.BigDecimal**| The maximum amount of manganese in milligrams the recipe can have. | [optional] |
+| **minPhosphorus** | **java.math.BigDecimal**| The minimum amount of phosphorus in milligrams the recipe must have. | [optional] |
+| **maxPhosphorus** | **java.math.BigDecimal**| The maximum amount of phosphorus in milligrams the recipe can have. | [optional] |
+| **minPotassium** | **java.math.BigDecimal**| The minimum amount of potassium in milligrams the recipe must have. | [optional] |
+| **maxPotassium** | **java.math.BigDecimal**| The maximum amount of potassium in milligrams the recipe can have. | [optional] |
+| **minSelenium** | **java.math.BigDecimal**| The minimum amount of selenium in micrograms the recipe must have. | [optional] |
+| **maxSelenium** | **java.math.BigDecimal**| The maximum amount of selenium in micrograms the recipe can have. | [optional] |
+| **minSodium** | **java.math.BigDecimal**| The minimum amount of sodium in milligrams the recipe must have. | [optional] |
+| **maxSodium** | **java.math.BigDecimal**| The maximum amount of sodium in milligrams the recipe can have. | [optional] |
+| **minSugar** | **java.math.BigDecimal**| The minimum amount of sugar in grams the recipe must have. | [optional] |
+| **maxSugar** | **java.math.BigDecimal**| The maximum amount of sugar in grams the recipe can have. | [optional] |
+| **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional] |
+| **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **random** | **kotlin.Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -2017,10 +1987,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -2070,13 +2039,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instructions** | **kotlin.String**| The recipe&#39;s instructions. |
- **view** | **kotlin.String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list]
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
- **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
+| **instructions** | **kotlin.String**| The recipe&#39;s instructions. | |
+| **view** | **kotlin.String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list] |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2128,15 +2096,14 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
- **servings** | **java.math.BigDecimal**| The number of servings. |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **mode** | **java.math.BigDecimal**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional]
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
- **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
+| **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **java.math.BigDecimal**| The number of servings. | |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **mode** | **java.math.BigDecimal**| The mode in which the widget should be delivered. 1 &#x3D; separate views (compact), 2 &#x3D; all in one view (full). | [optional] |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2184,11 +2151,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 
@@ -2237,12 +2203,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **measure** | **kotlin.String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **measure** | **kotlin.String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric] |
 
 ### Return type
 
@@ -2293,14 +2258,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
- **servings** | **java.math.BigDecimal**| The number of servings. |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
- **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
+| **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. | |
+| **servings** | **java.math.BigDecimal**| The number of servings. | |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 
@@ -2348,11 +2312,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 
@@ -2400,11 +2363,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 
@@ -2454,13 +2416,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional]
- **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional]
+| **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line. | |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type
 
@@ -2509,12 +2470,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **normalize** | **kotlin.Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true]
- **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **normalize** | **kotlin.Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **rgb** | **kotlin.String**| Red, green, blue values for the chart color. | [optional] |
 
 ### Return type
 

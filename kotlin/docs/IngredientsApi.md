@@ -2,17 +2,17 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autocompleteIngredientSearch**](IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search
-[**computeIngredientAmount**](IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount
-[**getIngredientInformation**](IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information
-[**getIngredientSubstitutes**](IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes
-[**getIngredientSubstitutesByID**](IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID
-[**ingredientSearch**](IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search
-[**ingredientsByIDImage**](IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image
-[**mapIngredientsToGroceryProducts**](IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products
-[**visualizeIngredients**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**autocompleteIngredientSearch**](IngredientsApi.md#autocompleteIngredientSearch) | **GET** /food/ingredients/autocomplete | Autocomplete Ingredient Search |
+| [**computeIngredientAmount**](IngredientsApi.md#computeIngredientAmount) | **GET** /food/ingredients/{id}/amount | Compute Ingredient Amount |
+| [**getIngredientInformation**](IngredientsApi.md#getIngredientInformation) | **GET** /food/ingredients/{id}/information | Get Ingredient Information |
+| [**getIngredientSubstitutes**](IngredientsApi.md#getIngredientSubstitutes) | **GET** /food/ingredients/substitutes | Get Ingredient Substitutes |
+| [**getIngredientSubstitutesByID**](IngredientsApi.md#getIngredientSubstitutesByID) | **GET** /food/ingredients/{id}/substitutes | Get Ingredient Substitutes by ID |
+| [**ingredientSearch**](IngredientsApi.md#ingredientSearch) | **GET** /food/ingredients/search | Ingredient Search |
+| [**ingredientsByIDImage**](IngredientsApi.md#ingredientsByIDImage) | **GET** /recipes/{id}/ingredientWidget.png | Ingredients by ID Image |
+| [**mapIngredientsToGroceryProducts**](IngredientsApi.md#mapIngredientsToGroceryProducts) | **POST** /food/ingredients/map | Map Ingredients to Grocery Products |
+| [**visualizeIngredients**](IngredientsApi.md#visualizeIngredients) | **POST** /recipes/visualizeIngredients | Ingredients Widget |
 
 
 <a id="autocompleteIngredientSearch"></a>
@@ -48,14 +48,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional]
- **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional] |
+| **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
 
 ### Return type
 
@@ -105,13 +104,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The id of the ingredient you want the amount for. |
- **nutrient** | **kotlin.String**| The target nutrient. See a list of supported nutrients. |
- **target** | **java.math.BigDecimal**| The target number of the given nutrient. |
- **unit** | **kotlin.String**| The target unit. | [optional]
+| **id** | **java.math.BigDecimal**| The id of the ingredient you want the amount for. | |
+| **nutrient** | **kotlin.String**| The target nutrient. See a list of supported nutrients. | |
+| **target** | **java.math.BigDecimal**| The target number of the given nutrient. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **unit** | **kotlin.String**| The target unit. | [optional] |
 
 ### Return type
 
@@ -160,12 +158,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **amount** | **java.math.BigDecimal**| The amount of this ingredient. | [optional]
- **unit** | **kotlin.String**| The unit for the given amount. | [optional]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **amount** | **java.math.BigDecimal**| The amount of this ingredient. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **unit** | **kotlin.String**| The unit for the given amount. | [optional] |
 
 ### Return type
 
@@ -212,10 +209,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientName** | **kotlin.String**| The name of the ingredient you want to replace. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ingredientName** | **kotlin.String**| The name of the ingredient you want to replace. | |
 
 ### Return type
 
@@ -262,10 +258,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -326,24 +321,23 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **addChildren** | **kotlin.Boolean**| Whether to add children of found foods. | [optional]
- **minProteinPercent** | **java.math.BigDecimal**| The minimum percentage of protein the food must have (between 0 and 100). | [optional]
- **maxProteinPercent** | **java.math.BigDecimal**| The maximum percentage of protein the food can have (between 0 and 100). | [optional]
- **minFatPercent** | **java.math.BigDecimal**| The minimum percentage of fat the food must have (between 0 and 100). | [optional]
- **maxFatPercent** | **java.math.BigDecimal**| The maximum percentage of fat the food can have (between 0 and 100). | [optional]
- **minCarbsPercent** | **java.math.BigDecimal**| The minimum percentage of carbs the food must have (between 0 and 100). | [optional]
- **maxCarbsPercent** | **java.math.BigDecimal**| The maximum percentage of carbs the food can have (between 0 and 100). | [optional]
- **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional]
- **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]
- **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional]
- **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **addChildren** | **kotlin.Boolean**| Whether to add children of found foods. | [optional] |
+| **minProteinPercent** | **java.math.BigDecimal**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] |
+| **maxProteinPercent** | **java.math.BigDecimal**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] |
+| **minFatPercent** | **java.math.BigDecimal**| The minimum percentage of fat the food must have (between 0 and 100). | [optional] |
+| **maxFatPercent** | **java.math.BigDecimal**| The maximum percentage of fat the food can have (between 0 and 100). | [optional] |
+| **minCarbsPercent** | **java.math.BigDecimal**| The minimum percentage of carbs the food must have (between 0 and 100). | [optional] |
+| **maxCarbsPercent** | **java.math.BigDecimal**| The maximum percentage of carbs the food can have (between 0 and 100). | [optional] |
+| **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional] |
+| **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
+| **sort** | **kotlin.String**| The strategy to sort recipes by. See a full list of supported sorting options. | [optional] |
+| **sortDirection** | **kotlin.String**| The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending). | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
 
 ### Return type
 
@@ -391,11 +385,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The recipe id. |
- **measure** | **kotlin.String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric]
+| **id** | **java.math.BigDecimal**| The recipe id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **measure** | **kotlin.String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric] |
 
 ### Return type
 
@@ -442,10 +435,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mapIngredientsToGroceryProductsRequest** | [**MapIngredientsToGroceryProductsRequest**](MapIngredientsToGroceryProductsRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **mapIngredientsToGroceryProductsRequest** | [**MapIngredientsToGroceryProductsRequest**](MapIngredientsToGroceryProductsRequest.md)|  | |
 
 ### Return type
 
@@ -498,16 +490,15 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). |
- **servings** | **java.math.BigDecimal**| The number of servings. |
- **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de]
- **measure** | **kotlin.String**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] [enum: us, metric]
- **view** | **kotlin.String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list]
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional]
- **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional]
+| **ingredientList** | **kotlin.String**| The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | |
+| **servings** | **java.math.BigDecimal**| The number of servings. | |
+| **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
+| **measure** | **kotlin.String**| The original system of measurement, either &#39;metric&#39; or &#39;us&#39;. | [optional] [enum: us, metric] |
+| **view** | **kotlin.String**| How to visualize the ingredients, either &#39;grid&#39; or &#39;list&#39;. | [optional] [enum: grid, list] |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showBacklink** | **kotlin.Boolean**| Whether to show a backlink to spoonacular. If set false, this call counts against your quota. | [optional] |
 
 ### Return type
 

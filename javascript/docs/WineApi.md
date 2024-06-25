@@ -31,7 +31,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.WineApi();
-let wine = malbec; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+let wine = "malbec"; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 apiInstance.getDishPairingForWine(wine, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -82,7 +82,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.WineApi();
-let wine = merlot; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
+let wine = "merlot"; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 apiInstance.getWineDescription(wine, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -133,7 +133,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.WineApi();
-let food = steak; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
+let food = "steak"; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 let opts = {
   'maxPrice': 50 // Number | The maximum price for the specific wine recommendation in USD.
 };
@@ -188,7 +188,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.WineApi();
-let wine = merlot; // String | The type of wine to get a specific product recommendation for.
+let wine = "merlot"; // String | The type of wine to get a specific product recommendation for.
 let opts = {
   'maxPrice': 50, // Number | The maximum price for the specific wine recommendation in USD.
   'minRating': 0.7, // Number | The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.

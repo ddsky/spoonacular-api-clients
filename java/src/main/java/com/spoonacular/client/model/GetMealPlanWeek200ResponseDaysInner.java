@@ -54,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetMealPlanWeek200ResponseDaysInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetMealPlanWeek200ResponseDaysInner {
   public static final String SERIALIZED_NAME_NUTRITION_SUMMARY = "nutritionSummary";
   @SerializedName(SERIALIZED_NAME_NUTRITION_SUMMARY)
@@ -82,7 +82,7 @@ public class GetMealPlanWeek200ResponseDaysInner {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private Set<GetMealPlanWeek200ResponseDaysInnerItemsInner> items;
+  private Set<GetMealPlanWeek200ResponseDaysInnerItemsInner> items = new LinkedHashSet<>();
 
   public GetMealPlanWeek200ResponseDaysInner() {
   }

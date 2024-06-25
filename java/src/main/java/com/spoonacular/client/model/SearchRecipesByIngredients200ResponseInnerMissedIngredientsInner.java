@@ -52,7 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
   public static final String SERIALIZED_NAME_AISLE = "aisle";
   @SerializedName(SERIALIZED_NAME_AISLE)
@@ -72,7 +72,7 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
-  private List<String> meta;
+  private List<String> meta = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from spoonacular.models.search_restaurants200_response_restaurants_inner_address import SearchRestaurants200ResponseRestaurantsInnerAddress
 from spoonacular.models.search_restaurants200_response_restaurants_inner_local_hours import SearchRestaurants200ResponseRestaurantsInnerLocalHours
@@ -51,11 +51,11 @@ class SearchRestaurants200ResponseRestaurantsInner(BaseModel):
     aggregated_rating_count: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["_id", "name", "phone_number", "address", "type", "description", "local_hours", "cuisines", "food_photos", "logo_photos", "store_photos", "dollar_signs", "pickup_enabled", "delivery_enabled", "is_open", "offers_first_party_delivery", "offers_third_party_delivery", "miles", "weighted_rating_value", "aggregated_rating_count"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

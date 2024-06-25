@@ -35,5 +35,8 @@ data class ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percen
     @Json(name = "max")
     val max: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

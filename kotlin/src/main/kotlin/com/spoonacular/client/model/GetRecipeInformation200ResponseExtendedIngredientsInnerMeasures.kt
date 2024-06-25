@@ -36,5 +36,8 @@ data class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures (
     @Json(name = "us")
     val us: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
 
-)
+) {
+
+
+}
 

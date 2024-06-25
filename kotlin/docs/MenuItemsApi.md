@@ -2,15 +2,15 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autocompleteMenuItemSearch**](MenuItemsApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search
-[**getMenuItemInformation**](MenuItemsApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information
-[**menuItemNutritionByIDImage**](MenuItemsApi.md#menuItemNutritionByIDImage) | **GET** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image
-[**menuItemNutritionLabelImage**](MenuItemsApi.md#menuItemNutritionLabelImage) | **GET** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image
-[**menuItemNutritionLabelWidget**](MenuItemsApi.md#menuItemNutritionLabelWidget) | **GET** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget
-[**searchMenuItems**](MenuItemsApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items
-[**visualizeMenuItemNutritionByID**](MenuItemsApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**autocompleteMenuItemSearch**](MenuItemsApi.md#autocompleteMenuItemSearch) | **GET** /food/menuItems/suggest | Autocomplete Menu Item Search |
+| [**getMenuItemInformation**](MenuItemsApi.md#getMenuItemInformation) | **GET** /food/menuItems/{id} | Get Menu Item Information |
+| [**menuItemNutritionByIDImage**](MenuItemsApi.md#menuItemNutritionByIDImage) | **GET** /food/menuItems/{id}/nutritionWidget.png | Menu Item Nutrition by ID Image |
+| [**menuItemNutritionLabelImage**](MenuItemsApi.md#menuItemNutritionLabelImage) | **GET** /food/menuItems/{id}/nutritionLabel.png | Menu Item Nutrition Label Image |
+| [**menuItemNutritionLabelWidget**](MenuItemsApi.md#menuItemNutritionLabelWidget) | **GET** /food/menuItems/{id}/nutritionLabel | Menu Item Nutrition Label Widget |
+| [**searchMenuItems**](MenuItemsApi.md#searchMenuItems) | **GET** /food/menuItems/search | Search Menu Items |
+| [**visualizeMenuItemNutritionByID**](MenuItemsApi.md#visualizeMenuItemNutritionByID) | **GET** /food/menuItems/{id}/nutritionWidget | Menu Item Nutrition by ID Widget |
 
 
 <a id="autocompleteMenuItemSearch"></a>
@@ -43,11 +43,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (partial) search query. |
- **number** | **java.math.BigDecimal**| The number of results to return (between 1 and 25). | [optional]
+| **query** | **kotlin.String**| The (partial) search query. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **java.math.BigDecimal**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
@@ -94,10 +93,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -144,10 +142,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The menu item id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **java.math.BigDecimal**| The menu item id. | |
 
 ### Return type
 
@@ -197,13 +194,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The menu item id. |
- **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional]
- **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional]
- **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional]
+| **id** | **java.math.BigDecimal**| The menu item id. | |
+| **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
+| **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -254,14 +250,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The menu item id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional]
- **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional]
- **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional]
+| **id** | **java.math.BigDecimal**| The menu item id. | |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
+| **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -319,21 +314,20 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the menu item must have. | [optional]
- **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the menu item can have. | [optional]
- **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the menu item must have. | [optional]
- **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the menu item can have. | [optional]
- **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the menu item must have. | [optional]
- **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the menu item can have. | [optional]
- **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the menu item must have. | [optional]
- **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the menu item can have. | [optional]
- **addMenuItemInformation** | **kotlin.Boolean**| If set to true, you get more information about the menu items returned. | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the menu item must have. | [optional] |
+| **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the menu item can have. | [optional] |
+| **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] |
+| **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the menu item can have. | [optional] |
+| **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the menu item must have. | [optional] |
+| **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the menu item can have. | [optional] |
+| **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the menu item must have. | [optional] |
+| **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the menu item can have. | [optional] |
+| **addMenuItemInformation** | **kotlin.Boolean**| If set to true, you get more information about the menu items returned. | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -381,11 +375,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 

@@ -32,5 +32,8 @@ data class DetectFoodInText200Response (
     @Json(name = "annotations")
     val annotations: kotlin.collections.Set<DetectFoodInText200ResponseAnnotationsInner>
 
-)
+) {
+
+
+}
 

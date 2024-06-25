@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -107,7 +107,7 @@ pub enum VisualizeIngredientsError {
 
 
 /// Autocomplete the entry of an ingredient.
-pub async fn autocomplete_ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, number: Option<i32>, meta_information: Option<bool>, intolerances: Option<&str>, language: Option<&str>) -> Result<Vec<crate::models::AutocompleteIngredientSearch200ResponseInner>, Error<AutocompleteIngredientSearchError>> {
+pub async fn autocomplete_ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, number: Option<i32>, meta_information: Option<bool>, intolerances: Option<&str>, language: Option<&str>) -> Result<Vec<models::AutocompleteIngredientSearch200ResponseInner>, Error<AutocompleteIngredientSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -158,7 +158,7 @@ pub async fn autocomplete_ingredient_search(configuration: &configuration::Confi
 }
 
 /// Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
-pub async fn compute_ingredient_amount(configuration: &configuration::Configuration, id: f32, nutrient: &str, target: f32, unit: Option<&str>) -> Result<crate::models::ComputeIngredientAmount200Response, Error<ComputeIngredientAmountError>> {
+pub async fn compute_ingredient_amount(configuration: &configuration::Configuration, id: f64, nutrient: &str, target: f64, unit: Option<&str>) -> Result<models::ComputeIngredientAmount200Response, Error<ComputeIngredientAmountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,7 +199,7 @@ pub async fn compute_ingredient_amount(configuration: &configuration::Configurat
 }
 
 /// Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-pub async fn get_ingredient_information(configuration: &configuration::Configuration, id: i32, amount: Option<f32>, unit: Option<&str>) -> Result<crate::models::GetIngredientInformation200Response, Error<GetIngredientInformationError>> {
+pub async fn get_ingredient_information(configuration: &configuration::Configuration, id: i32, amount: Option<f64>, unit: Option<&str>) -> Result<models::GetIngredientInformation200Response, Error<GetIngredientInformationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -241,7 +241,7 @@ pub async fn get_ingredient_information(configuration: &configuration::Configura
 }
 
 /// Search for substitutes for a given ingredient.
-pub async fn get_ingredient_substitutes(configuration: &configuration::Configuration, ingredient_name: &str) -> Result<crate::models::GetIngredientSubstitutes200Response, Error<GetIngredientSubstitutesError>> {
+pub async fn get_ingredient_substitutes(configuration: &configuration::Configuration, ingredient_name: &str) -> Result<models::GetIngredientSubstitutes200Response, Error<GetIngredientSubstitutesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +278,7 @@ pub async fn get_ingredient_substitutes(configuration: &configuration::Configura
 }
 
 /// Search for substitutes for a given ingredient.
-pub async fn get_ingredient_substitutes_by_id(configuration: &configuration::Configuration, id: i32) -> Result<crate::models::GetIngredientSubstitutes200Response, Error<GetIngredientSubstitutesByIdError>> {
+pub async fn get_ingredient_substitutes_by_id(configuration: &configuration::Configuration, id: i32) -> Result<models::GetIngredientSubstitutes200Response, Error<GetIngredientSubstitutesByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -314,7 +314,7 @@ pub async fn get_ingredient_substitutes_by_id(configuration: &configuration::Con
 }
 
 /// Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-pub async fn ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, add_children: Option<bool>, min_protein_percent: Option<f32>, max_protein_percent: Option<f32>, min_fat_percent: Option<f32>, max_fat_percent: Option<f32>, min_carbs_percent: Option<f32>, max_carbs_percent: Option<f32>, meta_information: Option<bool>, intolerances: Option<&str>, sort: Option<&str>, sort_direction: Option<&str>, offset: Option<i32>, number: Option<i32>, language: Option<&str>) -> Result<crate::models::IngredientSearch200Response, Error<IngredientSearchError>> {
+pub async fn ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, add_children: Option<bool>, min_protein_percent: Option<f64>, max_protein_percent: Option<f64>, min_fat_percent: Option<f64>, max_fat_percent: Option<f64>, min_carbs_percent: Option<f64>, max_carbs_percent: Option<f64>, meta_information: Option<bool>, intolerances: Option<&str>, sort: Option<&str>, sort_direction: Option<&str>, offset: Option<i32>, number: Option<i32>, language: Option<&str>) -> Result<models::IngredientSearch200Response, Error<IngredientSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -395,7 +395,7 @@ pub async fn ingredient_search(configuration: &configuration::Configuration, que
 }
 
 /// Visualize a recipe's ingredient list.
-pub async fn ingredients_by_id_image(configuration: &configuration::Configuration, id: f32, measure: Option<&str>) -> Result<std::path::PathBuf, Error<IngredientsByIdImageError>> {
+pub async fn ingredients_by_id_image(configuration: &configuration::Configuration, id: f64, measure: Option<&str>) -> Result<std::path::PathBuf, Error<IngredientsByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -434,7 +434,7 @@ pub async fn ingredients_by_id_image(configuration: &configuration::Configuratio
 }
 
 /// Map a set of ingredients to products you can buy in the grocery store.
-pub async fn map_ingredients_to_grocery_products(configuration: &configuration::Configuration, map_ingredients_to_grocery_products_request: crate::models::MapIngredientsToGroceryProductsRequest) -> Result<Vec<crate::models::MapIngredientsToGroceryProducts200ResponseInner>, Error<MapIngredientsToGroceryProductsError>> {
+pub async fn map_ingredients_to_grocery_products(configuration: &configuration::Configuration, map_ingredients_to_grocery_products_request: models::MapIngredientsToGroceryProductsRequest) -> Result<Vec<models::MapIngredientsToGroceryProducts200ResponseInner>, Error<MapIngredientsToGroceryProductsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -471,7 +471,7 @@ pub async fn map_ingredients_to_grocery_products(configuration: &configuration::
 }
 
 /// Visualize ingredients of a recipe. You can play around with that endpoint!
-pub async fn visualize_ingredients(configuration: &configuration::Configuration, ingredient_list: &str, servings: f32, language: Option<&str>, measure: Option<&str>, view: Option<&str>, default_css: Option<bool>, show_backlink: Option<bool>) -> Result<String, Error<VisualizeIngredientsError>> {
+pub async fn visualize_ingredients(configuration: &configuration::Configuration, ingredient_list: &str, servings: f64, language: Option<&str>, measure: Option<&str>, view: Option<&str>, default_css: Option<bool>, show_backlink: Option<bool>) -> Result<String, Error<VisualizeIngredientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

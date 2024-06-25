@@ -32,7 +32,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.DefaultApi();
 let analyzeRecipeRequest = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "}; // AnalyzeRecipeRequest | Example request body.
 let opts = {
-  'language': en, // String | The input language, either \"en\" or \"de\".
+  'language': "en", // String | The input language, either \"en\" or \"de\".
   'includeNutrition': false, // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
   'includeTaste': false // Boolean | Whether taste data should be added to correctly parsed ingredients.
 };
@@ -91,10 +91,10 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.DefaultApi();
 let id = 4632; // Number | The recipe id.
 let opts = {
-  'mask': ellipseMask, // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
-  'backgroundImage': background1, // String | The background image (\"none\",\"background1\", or \"background2\").
-  'backgroundColor': ffffff, // String | The background color for the recipe card as a hex-string.
-  'fontColor': 333333 // String | The font color for the recipe card as a hex-string.
+  'mask': "ellipseMask", // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
+  'backgroundImage': "background1", // String | The background image (\"none\",\"background1\", or \"background2\").
+  'backgroundColor': "ffffff", // String | The background color for the recipe card as a hex-string.
+  'fontColor': "333333" // String | The font color for the recipe card as a hex-string.
 };
 apiInstance.createRecipeCardGet(id, opts, (error, data, response) => {
   if (error) {
@@ -151,15 +151,15 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.DefaultApi();
 let opts = {
-  'query': beach cafe, // String | The search query.
+  'query': "beach cafe", // String | The search query.
   'lat': 37.7786357, // Number | The latitude of the user's location.
   'lng': -122.3918135, // Number | The longitude of the user's location.\".
   'distance': 2, // Number | The distance around the location in miles.
   'budget': 20, // Number | The user's budget for a meal in USD.
-  'cuisine': italian, // String | The cuisine of the restaurant.
+  'cuisine': "italian", // String | The cuisine of the restaurant.
   'minRating': 4.4, // Number | The minimum rating of the restaurant between 0 and 5.
   'isOpen': true, // Boolean | Whether the restaurant must be open at the time of search.
-  'sort': distance, // String | How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.
+  'sort': "distance", // String | How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.
   'page': 0 // Number | The page number of results.
 };
 apiInstance.searchRestaurants(opts, (error, data, response) => {

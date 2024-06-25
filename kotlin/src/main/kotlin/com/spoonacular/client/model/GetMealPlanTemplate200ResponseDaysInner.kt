@@ -53,5 +53,8 @@ data class GetMealPlanTemplate200ResponseDaysInner (
     @Json(name = "items")
     val items: kotlin.collections.Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner>? = null
 
-)
+) {
+
+
+}
 

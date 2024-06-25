@@ -43,5 +43,8 @@ data class SearchRecipes200ResponseResultsInner (
     @Json(name = "imageType")
     val imageType: kotlin.String
 
-)
+) {
+
+
+}
 

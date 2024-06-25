@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.get_shopping_list200_response_aisles_inner_items_inner_measures import GetShoppingList200ResponseAislesInnerItemsInnerMeasures
@@ -38,11 +38,11 @@ class GetShoppingList200ResponseAislesInnerItemsInner(BaseModel):
     ingredient_id: StrictInt = Field(alias="ingredientId")
     __properties: ClassVar[List[str]] = ["id", "name", "measures", "pantryItem", "aisle", "cost", "ingredientId"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

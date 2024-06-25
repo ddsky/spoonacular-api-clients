@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -57,7 +57,7 @@ pub enum GetWineRecommendationError {
 
 
 /// Find a dish that goes well with a given wine.
-pub async fn get_dish_pairing_for_wine(configuration: &configuration::Configuration, wine: &str) -> Result<crate::models::GetDishPairingForWine200Response, Error<GetDishPairingForWineError>> {
+pub async fn get_dish_pairing_for_wine(configuration: &configuration::Configuration, wine: &str) -> Result<models::GetDishPairingForWine200Response, Error<GetDishPairingForWineError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -94,7 +94,7 @@ pub async fn get_dish_pairing_for_wine(configuration: &configuration::Configurat
 }
 
 /// Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\".
-pub async fn get_wine_description(configuration: &configuration::Configuration, wine: &str) -> Result<crate::models::GetWineDescription200Response, Error<GetWineDescriptionError>> {
+pub async fn get_wine_description(configuration: &configuration::Configuration, wine: &str) -> Result<models::GetWineDescription200Response, Error<GetWineDescriptionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -131,7 +131,7 @@ pub async fn get_wine_description(configuration: &configuration::Configuration, 
 }
 
 /// Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\").
-pub async fn get_wine_pairing(configuration: &configuration::Configuration, food: &str, max_price: Option<f32>) -> Result<crate::models::GetWinePairing200Response, Error<GetWinePairingError>> {
+pub async fn get_wine_pairing(configuration: &configuration::Configuration, food: &str, max_price: Option<f64>) -> Result<models::GetWinePairing200Response, Error<GetWinePairingError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -171,7 +171,7 @@ pub async fn get_wine_pairing(configuration: &configuration::Configuration, food
 }
 
 /// Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\".
-pub async fn get_wine_recommendation(configuration: &configuration::Configuration, wine: &str, max_price: Option<f32>, min_rating: Option<f32>, number: Option<f32>) -> Result<crate::models::GetWineRecommendation200Response, Error<GetWineRecommendationError>> {
+pub async fn get_wine_recommendation(configuration: &configuration::Configuration, wine: &str, max_price: Option<f64>, min_rating: Option<f64>, number: Option<f64>) -> Result<models::GetWineRecommendation200Response, Error<GetWineRecommendationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

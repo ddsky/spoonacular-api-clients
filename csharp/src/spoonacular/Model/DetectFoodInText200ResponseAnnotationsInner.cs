@@ -112,24 +112,24 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Annotation (string) minLength
             if (this.Annotation != null && this.Annotation.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Annotation, length must be greater than 1.", new [] { "Annotation" });
+                yield return new ValidationResult("Invalid value for Annotation, length must be greater than 1.", new [] { "Annotation" });
             }
 
             // Image (string) minLength
             if (this.Image != null && this.Image.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
+                yield return new ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
             }
 
             // Tag (string) minLength
             if (this.Tag != null && this.Tag.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
+                yield return new ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
             }
 
             yield break;

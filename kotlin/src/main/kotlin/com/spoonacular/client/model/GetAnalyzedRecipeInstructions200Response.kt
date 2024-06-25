@@ -41,5 +41,8 @@ data class GetAnalyzedRecipeInstructions200Response (
     @Json(name = "equipment")
     val equipment: kotlin.collections.Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>
 
-)
+) {
+
+
+}
 

@@ -44,5 +44,8 @@ data class IngredientSearch200Response (
     @Json(name = "totalResults")
     val totalResults: kotlin.Int
 
-)
+) {
+
+
+}
 

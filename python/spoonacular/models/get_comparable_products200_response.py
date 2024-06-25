@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from spoonacular.models.get_comparable_products200_response_comparable_products import GetComparableProducts200ResponseComparableProducts
 from typing import Optional, Set
@@ -31,11 +31,11 @@ class GetComparableProducts200Response(BaseModel):
     comparable_products: GetComparableProducts200ResponseComparableProducts = Field(alias="comparableProducts")
     __properties: ClassVar[List[str]] = ["comparableProducts"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

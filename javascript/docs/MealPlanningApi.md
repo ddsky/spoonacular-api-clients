@@ -41,8 +41,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
-let hash = 4b5v4398573406; // String | The private hash for the username.
+let username = "dsky"; // String | The username.
+let hash = "4b5v4398573406"; // String | The private hash for the username.
 apiInstance.addMealPlanTemplate(username, hash, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -94,7 +94,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 let addToMealPlanRequest = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}}; // AddToMealPlanRequest | 
 apiInstance.addToMealPlan(username, hash, addToMealPlanRequest, (error, data, response) => {
@@ -149,7 +149,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 let addToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true}; // AddToShoppingListRequest | 
 apiInstance.addToShoppingList(username, hash, addToShoppingListRequest, (error, data, response) => {
@@ -204,8 +204,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
-let date = 2020-06-01; // String | The date in the format yyyy-mm-dd.
+let username = "dsky"; // String | The username.
+let date = "2020-06-01"; // String | The date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.clearMealPlanDay(username, date, hash, (error, data, response) => {
   if (error) {
@@ -310,7 +310,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.deleteFromMealPlan(username, id, hash, (error, data, response) => {
@@ -365,7 +365,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let id = 1; // Number | The item's id.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.deleteFromShoppingList(username, id, hash, (error, data, response) => {
@@ -420,9 +420,9 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let id = 1; // Number | The item's id.
-let hash = 4b5v4398573406; // String | The private hash for the username.
+let hash = "4b5v4398573406"; // String | The private hash for the username.
 apiInstance.deleteMealPlanTemplate(username, id, hash, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -476,10 +476,10 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let opts = {
-  'timeFrame': day, // String | Either for one \"day\" or an entire \"week\".
+  'timeFrame': "day", // String | Either for one \"day\" or an entire \"week\".
   'targetCalories': 2000, // Number | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal.
-  'diet': vegetarian, // String | Enter a diet that the meal plan has to adhere to. See a full list of supported diets.
-  'exclude': shellfish, olives // String | A comma-separated list of allergens or ingredients that must be excluded.
+  'diet': "vegetarian", // String | Enter a diet that the meal plan has to adhere to. See a full list of supported diets.
+  'exclude': "shellfish, olives" // String | A comma-separated list of allergens or ingredients that must be excluded.
 };
 apiInstance.generateMealPlan(opts, (error, data, response) => {
   if (error) {
@@ -534,9 +534,9 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
-let startDate = 2020-06-01; // String | The start date in the format yyyy-mm-dd.
-let endDate = 2020-06-07; // String | The end date in the format yyyy-mm-dd.
+let username = "dsky"; // String | The username.
+let startDate = "2020-06-01"; // String | The start date in the format yyyy-mm-dd.
+let endDate = "2020-06-07"; // String | The end date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.generateShoppingList(username, startDate, endDate, hash, (error, data, response) => {
   if (error) {
@@ -591,7 +591,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let id = 1; // Number | The item's id.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getMealPlanTemplate(username, id, hash, (error, data, response) => {
@@ -646,7 +646,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getMealPlanTemplates(username, hash, (error, data, response) => {
   if (error) {
@@ -699,8 +699,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
-let startDate = 2020-06-01; // String | The start date of the meal planned week in the format yyyy-mm-dd.
+let username = "dsky"; // String | The username.
+let startDate = "2020-06-01"; // String | The start date of the meal planned week in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getMealPlanWeek(username, startDate, hash, (error, data, response) => {
   if (error) {
@@ -754,7 +754,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
-let username = dsky; // String | The username.
+let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getShoppingList(username, hash, (error, data, response) => {
   if (error) {

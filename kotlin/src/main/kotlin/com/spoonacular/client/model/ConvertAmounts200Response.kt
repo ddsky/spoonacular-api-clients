@@ -47,5 +47,8 @@ data class ConvertAmounts200Response (
     @Json(name = "answer")
     val answer: kotlin.String
 
-)
+) {
+
+
+}
 

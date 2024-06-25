@@ -32,5 +32,8 @@ data class GetRecipeIngredientsByID200Response (
     @Json(name = "ingredients")
     val ingredients: kotlin.collections.Set<GetRecipeIngredientsByID200ResponseIngredientsInner>
 
-)
+) {
+
+
+}
 

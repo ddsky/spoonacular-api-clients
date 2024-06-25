@@ -40,5 +40,8 @@ data class AddMealPlanTemplate200Response (
     @Json(name = "publishAsPublic")
     val publishAsPublic: kotlin.Boolean
 
-)
+) {
+
+
+}
 

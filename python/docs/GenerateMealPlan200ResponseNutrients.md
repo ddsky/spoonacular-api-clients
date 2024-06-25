@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of GenerateMealPlan200ResponseNutrients from a JSON string
 generate_meal_plan200_response_nutrients_instance = GenerateMealPlan200ResponseNutrients.from_json(json)
 # print the JSON string representation of the object
-print GenerateMealPlan200ResponseNutrients.to_json()
+print(GenerateMealPlan200ResponseNutrients.to_json())
 
 # convert the object into a dict
 generate_meal_plan200_response_nutrients_dict = generate_meal_plan200_response_nutrients_instance.to_dict()
 # create an instance of GenerateMealPlan200ResponseNutrients from a dict
-generate_meal_plan200_response_nutrients_form_dict = generate_meal_plan200_response_nutrients.from_dict(generate_meal_plan200_response_nutrients_dict)
+generate_meal_plan200_response_nutrients_from_dict = GenerateMealPlan200ResponseNutrients.from_dict(generate_meal_plan200_response_nutrients_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

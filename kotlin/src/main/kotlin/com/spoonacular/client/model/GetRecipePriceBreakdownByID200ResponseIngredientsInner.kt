@@ -44,5 +44,8 @@ data class GetRecipePriceBreakdownByID200ResponseIngredientsInner (
     @Json(name = "amount")
     val amount: GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount? = null
 
-)
+) {
+
+
+}
 

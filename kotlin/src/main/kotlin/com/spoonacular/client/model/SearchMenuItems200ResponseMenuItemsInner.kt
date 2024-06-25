@@ -52,5 +52,8 @@ data class SearchMenuItems200ResponseMenuItemsInner (
     @Json(name = "servings")
     val servings: SearchGroceryProductsByUPC200ResponseServings? = null
 
-)
+) {
+
+
+}
 

@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

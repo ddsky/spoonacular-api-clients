@@ -48,5 +48,8 @@ data class MapIngredientsToGroceryProducts200ResponseInner (
     @Json(name = "products")
     val products: kotlin.collections.Set<MapIngredientsToGroceryProducts200ResponseInnerProductsInner>
 
-)
+) {
+
+
+}
 

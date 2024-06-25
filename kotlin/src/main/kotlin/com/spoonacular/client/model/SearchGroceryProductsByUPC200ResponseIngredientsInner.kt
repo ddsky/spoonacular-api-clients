@@ -39,5 +39,8 @@ data class SearchGroceryProductsByUPC200ResponseIngredientsInner (
     @Json(name = "safety_level")
     val safetyLevel: kotlin.String? = null
 
-)
+) {
+
+
+}
 

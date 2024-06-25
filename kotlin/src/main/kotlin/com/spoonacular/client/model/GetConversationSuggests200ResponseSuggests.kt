@@ -32,5 +32,8 @@ data class GetConversationSuggests200ResponseSuggests (
     @Json(name = "_")
     val underscore: kotlin.collections.Set<GetConversationSuggests200ResponseSuggestsInner>
 
-)
+) {
+
+
+}
 

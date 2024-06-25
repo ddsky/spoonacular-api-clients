@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## detect_food_in_text
 
-> crate::models::DetectFoodInText200Response detect_food_in_text(text)
+> models::DetectFoodInText200Response detect_food_in_text(text)
 Detect Food in Text
 
 Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
@@ -34,7 +34,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DetectFoodInText200Response**](detectFoodInText_200_response.md)
+[**models::DetectFoodInText200Response**](detectFoodInText_200_response.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_a_random_food_joke
 
-> crate::models::GetARandomFoodJoke200Response get_a_random_food_joke()
+> models::GetARandomFoodJoke200Response get_a_random_food_joke()
 Random Food Joke
 
 Get a random joke that is related to food. Caution: this is an endpoint for adults!
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::GetARandomFoodJoke200Response**](getARandomFoodJoke_200_response.md)
+[**models::GetARandomFoodJoke200Response**](getARandomFoodJoke_200_response.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 
 ## get_conversation_suggests
 
-> crate::models::GetConversationSuggests200Response get_conversation_suggests(query, number)
+> models::GetConversationSuggests200Response get_conversation_suggests(query, number)
 Conversation Suggests
 
 This endpoint returns suggestions for things the user can say or ask the chatbot.
@@ -88,11 +88,11 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | **String** | A (partial) query from the user. The endpoint will return if it matches topics it can talk about. | [required] |
-**number** | Option<**f32**> | The number of suggestions to return (between 1 and 25). |  |
+**number** | Option<**f64**> | The number of suggestions to return (between 1 and 25). |  |
 
 ### Return type
 
-[**crate::models::GetConversationSuggests200Response**](getConversationSuggests_200_response.md)
+[**models::GetConversationSuggests200Response**](getConversationSuggests_200_response.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_random_food_trivia
 
-> crate::models::GetRandomFoodTrivia200Response get_random_food_trivia()
+> models::GetRandomFoodTrivia200Response get_random_food_trivia()
 Random Food Trivia
 
 Returns random food trivia.
@@ -119,7 +119,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::GetRandomFoodTrivia200Response**](getRandomFoodTrivia_200_response.md)
+[**models::GetRandomFoodTrivia200Response**](getRandomFoodTrivia_200_response.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 
 ## image_analysis_by_url
 
-> crate::models::ImageAnalysisByUrl200Response image_analysis_by_url(image_url)
+> models::ImageAnalysisByUrl200Response image_analysis_by_url(image_url)
 Image Analysis by URL
 
 Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
@@ -149,7 +149,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ImageAnalysisByUrl200Response**](imageAnalysisByURL_200_response.md)
+[**models::ImageAnalysisByUrl200Response**](imageAnalysisByURL_200_response.md)
 
 ### Authorization
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Required | Notes
 
 ## image_classification_by_url
 
-> crate::models::ImageClassificationByUrl200Response image_classification_by_url(image_url)
+> models::ImageClassificationByUrl200Response image_classification_by_url(image_url)
 Image Classification by URL
 
 Classify a food image.
@@ -179,7 +179,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ImageClassificationByUrl200Response**](imageClassificationByURL_200_response.md)
+[**models::ImageClassificationByUrl200Response**](imageClassificationByURL_200_response.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_all_food
 
-> crate::models::SearchAllFood200Response search_all_food(query, offset, number)
+> models::SearchAllFood200Response search_all_food(query, offset, number)
 Search All Food
 
 Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
@@ -211,7 +211,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SearchAllFood200Response**](searchAllFood_200_response.md)
+[**models::SearchAllFood200Response**](searchAllFood_200_response.md)
 
 ### Authorization
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_custom_foods
 
-> crate::models::SearchCustomFoods200Response search_custom_foods(username, hash, query, offset, number)
+> models::SearchCustomFoods200Response search_custom_foods(username, hash, query, offset, number)
 Search Custom Foods
 
 Search custom foods in a user's account.
@@ -245,7 +245,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SearchCustomFoods200Response**](searchCustomFoods_200_response.md)
+[**models::SearchCustomFoods200Response**](searchCustomFoods_200_response.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_food_videos
 
-> crate::models::SearchFoodVideos200Response search_food_videos(query, r#type, cuisine, diet, include_ingredients, exclude_ingredients, min_length, max_length, offset, number)
+> models::SearchFoodVideos200Response search_food_videos(query, r#type, cuisine, diet, include_ingredients, exclude_ingredients, min_length, max_length, offset, number)
 Search Food Videos
 
 Find recipe and other food related videos.
@@ -277,14 +277,14 @@ Name | Type | Description  | Required | Notes
 **diet** | Option<**String**> | The diet for which the recipes must be suitable. See a full list of supported diets. |  |
 **include_ingredients** | Option<**String**> | A comma-separated list of ingredients that the recipes should contain. |  |
 **exclude_ingredients** | Option<**String**> | A comma-separated list of ingredients or ingredient types that the recipes must not contain. |  |
-**min_length** | Option<**f32**> | Minimum video length in seconds. |  |
-**max_length** | Option<**f32**> | Maximum video length in seconds. |  |
+**min_length** | Option<**f64**> | Minimum video length in seconds. |  |
+**max_length** | Option<**f64**> | Maximum video length in seconds. |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
 
-[**crate::models::SearchFoodVideos200Response**](searchFoodVideos_200_response.md)
+[**models::SearchFoodVideos200Response**](searchFoodVideos_200_response.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_site_content
 
-> crate::models::SearchSiteContent200Response search_site_content(query)
+> models::SearchSiteContent200Response search_site_content(query)
 Search Site Content
 
 Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
@@ -314,7 +314,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SearchSiteContent200Response**](searchSiteContent_200_response.md)
+[**models::SearchSiteContent200Response**](searchSiteContent_200_response.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Required | Notes
 
 ## talk_to_chatbot
 
-> crate::models::TalkToChatbot200Response talk_to_chatbot(text, context_id)
+> models::TalkToChatbot200Response talk_to_chatbot(text, context_id)
 Talk to Chatbot
 
 This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.
@@ -345,7 +345,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::TalkToChatbot200Response**](talkToChatbot_200_response.md)
+[**models::TalkToChatbot200Response**](talkToChatbot_200_response.md)
 
 ### Authorization
 

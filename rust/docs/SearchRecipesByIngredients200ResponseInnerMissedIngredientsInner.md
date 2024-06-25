@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **String** |  | 
-**amount** | **f32** |  | 
+**amount** | **f64** |  | 
 **id** | **i32** |  | 
 **image** | **String** |  | 
 **meta** | Option<**Vec<String>**> |  | [optional]

@@ -44,5 +44,8 @@ data class SearchSiteContent200Response (
     @Json(name = "Recipes")
     val recipes: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInner>
 
-)
+) {
+
+
+}
 

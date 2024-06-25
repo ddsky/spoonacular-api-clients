@@ -35,5 +35,8 @@ data class ComputeIngredientAmount200Response (
     @Json(name = "unit")
     val unit: kotlin.String
 
-)
+) {
+
+
+}
 

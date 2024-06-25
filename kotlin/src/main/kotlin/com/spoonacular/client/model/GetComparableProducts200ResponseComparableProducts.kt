@@ -52,5 +52,8 @@ data class GetComparableProducts200ResponseComparableProducts (
     @Json(name = "sugar")
     val sugar: kotlin.collections.List<kotlin.Any>
 
-)
+) {
+
+
+}
 

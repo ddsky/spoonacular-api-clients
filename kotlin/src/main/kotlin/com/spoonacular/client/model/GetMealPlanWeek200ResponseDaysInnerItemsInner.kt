@@ -48,5 +48,8 @@ data class GetMealPlanWeek200ResponseDaysInnerItemsInner (
     @Json(name = "value")
     val `value`: GetMealPlanWeek200ResponseDaysInnerItemsInnerValue? = null
 
-)
+) {
+
+
+}
 

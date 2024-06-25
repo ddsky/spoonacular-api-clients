@@ -48,5 +48,8 @@ data class GuessNutritionByDishName200Response (
     @Json(name = "recipesUsed")
     val recipesUsed: kotlin.Int
 
-)
+) {
+
+
+}
 

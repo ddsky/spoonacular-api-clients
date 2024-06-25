@@ -48,5 +48,8 @@ data class AddMealPlanTemplate200ResponseItemsInner (
     @Json(name = "value")
     val `value`: AddMealPlanTemplate200ResponseItemsInnerValue? = null
 
-)
+) {
+
+
+}
 

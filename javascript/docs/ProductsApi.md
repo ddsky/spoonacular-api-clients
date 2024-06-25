@@ -38,7 +38,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let query = chicke; // String | The (partial) search query.
+let query = "chicke"; // String | The (partial) search query.
 let opts = {
   'number': 10 // Number | The number of results to return (between 1 and 25).
 };
@@ -95,7 +95,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.ProductsApi();
 let classifyGroceryProductRequest = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // ClassifyGroceryProductRequest | 
 let opts = {
-  'locale': en_US // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+  'locale': "en_US" // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 };
 apiInstance.classifyGroceryProduct(classifyGroceryProductRequest, opts, (error, data, response) => {
   if (error) {
@@ -150,7 +150,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.ProductsApi();
 let classifyGroceryProductBulkRequestInner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // [ClassifyGroceryProductBulkRequestInner] | 
 let opts = {
-  'locale': en_US // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+  'locale': "en_US" // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
 };
 apiInstance.classifyGroceryProductBulk(classifyGroceryProductBulkRequestInner, opts, (error, data, response) => {
   if (error) {
@@ -477,7 +477,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
+  'query': "burger", // String | The (natural language) search query.
   'minCalories': 50, // Number | The minimum amount of calories the product must have.
   'maxCalories': 800, // Number | The maximum amount of calories the product can have.
   'minCarbs': 10, // Number | The minimum amount of carbohydrates in grams the product must have.

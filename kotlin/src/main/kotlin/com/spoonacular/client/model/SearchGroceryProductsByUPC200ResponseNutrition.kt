@@ -37,5 +37,8 @@ data class SearchGroceryProductsByUPC200ResponseNutrition (
     @Json(name = "caloricBreakdown")
     val caloricBreakdown: ParseIngredients200ResponseInnerNutritionCaloricBreakdown
 
-)
+) {
+
+
+}
 

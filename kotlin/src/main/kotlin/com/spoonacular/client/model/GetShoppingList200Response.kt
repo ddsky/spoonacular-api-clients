@@ -44,5 +44,8 @@ data class GetShoppingList200Response (
     @Json(name = "endDate")
     val endDate: java.math.BigDecimal
 
-)
+) {
+
+
+}
 
