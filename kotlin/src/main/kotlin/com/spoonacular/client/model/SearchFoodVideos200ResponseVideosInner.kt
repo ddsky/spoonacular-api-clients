@@ -55,5 +55,8 @@ data class SearchFoodVideos200ResponseVideosInner (
     @Json(name = "youTubeId")
     val youTubeId: kotlin.String
 
-)
+) {
+
+
+}
 

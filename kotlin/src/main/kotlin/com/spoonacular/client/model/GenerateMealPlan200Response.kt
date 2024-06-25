@@ -37,5 +37,8 @@ data class GenerateMealPlan200Response (
     @Json(name = "nutrients")
     val nutrients: GenerateMealPlan200ResponseNutrients
 
-)
+) {
+
+
+}
 

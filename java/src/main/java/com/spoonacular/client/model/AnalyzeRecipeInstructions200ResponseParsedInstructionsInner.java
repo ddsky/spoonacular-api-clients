@@ -52,7 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * AnalyzeRecipeInstructions200ResponseParsedInstructionsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class AnalyzeRecipeInstructions200ResponseParsedInstructionsInner {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -60,7 +60,7 @@ public class AnalyzeRecipeInstructions200ResponseParsedInstructionsInner {
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  private Set<AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner> steps;
+  private Set<AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner> steps = new LinkedHashSet<>();
 
   public AnalyzeRecipeInstructions200ResponseParsedInstructionsInner() {
   }

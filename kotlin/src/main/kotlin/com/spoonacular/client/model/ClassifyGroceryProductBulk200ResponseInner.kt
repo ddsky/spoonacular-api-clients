@@ -47,5 +47,8 @@ data class ClassifyGroceryProductBulk200ResponseInner (
     @Json(name = "usdaCode")
     val usdaCode: kotlin.Int
 
-)
+) {
+
+
+}
 

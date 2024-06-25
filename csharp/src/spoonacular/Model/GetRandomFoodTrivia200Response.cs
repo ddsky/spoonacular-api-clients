@@ -84,12 +84,12 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Text (string) minLength
             if (this.Text != null && this.Text.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
+                yield return new ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
             }
 
             yield break;

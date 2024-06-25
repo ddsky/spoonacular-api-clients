@@ -47,5 +47,8 @@ data class GetIngredientInformation200ResponseNutrition (
     @Json(name = "weightPerServing")
     val weightPerServing: ParseIngredients200ResponseInnerNutritionWeightPerServing
 
-)
+) {
+
+
+}
 

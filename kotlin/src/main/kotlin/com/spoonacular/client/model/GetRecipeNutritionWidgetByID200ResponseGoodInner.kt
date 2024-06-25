@@ -43,5 +43,8 @@ data class GetRecipeNutritionWidgetByID200ResponseGoodInner (
     @Json(name = "name")
     val name: kotlin.String
 
-)
+) {
+
+
+}
 

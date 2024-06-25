@@ -36,5 +36,8 @@ data class ComputeGlycemicLoad200Response (
     @Json(name = "ingredients")
     val ingredients: kotlin.collections.Set<ComputeGlycemicLoad200ResponseIngredientsInner>
 
-)
+) {
+
+
+}
 

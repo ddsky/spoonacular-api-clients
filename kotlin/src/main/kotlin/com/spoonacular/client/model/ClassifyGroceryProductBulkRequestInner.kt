@@ -39,5 +39,8 @@ data class ClassifyGroceryProductBulkRequestInner (
     @Json(name = "plu_code")
     val pluCode: kotlin.String
 
-)
+) {
+
+
+}
 

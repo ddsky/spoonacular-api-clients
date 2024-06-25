@@ -40,5 +40,8 @@ data class GetRecipePriceBreakdownByID200Response (
     @Json(name = "totalCostPerServing")
     val totalCostPerServing: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

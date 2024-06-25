@@ -39,5 +39,8 @@ data class GetIngredientSubstitutes200Response (
     @Json(name = "message")
     val message: kotlin.String
 
-)
+) {
+
+
+}
 

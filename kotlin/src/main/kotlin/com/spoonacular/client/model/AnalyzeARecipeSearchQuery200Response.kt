@@ -45,5 +45,8 @@ data class AnalyzeARecipeSearchQuery200Response (
     @Json(name = "modifiers")
     val modifiers: kotlin.collections.List<kotlin.String>
 
-)
+) {
+
+
+}
 

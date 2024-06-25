@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -157,7 +157,7 @@ pub enum GetShoppingListError {
 
 
 /// Add a meal plan template for a user.
-pub async fn add_meal_plan_template(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<crate::models::AddMealPlanTemplate200Response, Error<AddMealPlanTemplateError>> {
+pub async fn add_meal_plan_template(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<models::AddMealPlanTemplate200Response, Error<AddMealPlanTemplateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -194,7 +194,7 @@ pub async fn add_meal_plan_template(configuration: &configuration::Configuration
 }
 
 /// Add an item to the user's meal plan.
-pub async fn add_to_meal_plan(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_meal_plan_request: crate::models::AddToMealPlanRequest) -> Result<serde_json::Value, Error<AddToMealPlanError>> {
+pub async fn add_to_meal_plan(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_meal_plan_request: models::AddToMealPlanRequest) -> Result<serde_json::Value, Error<AddToMealPlanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -232,7 +232,7 @@ pub async fn add_to_meal_plan(configuration: &configuration::Configuration, user
 }
 
 /// Add an item to the current shopping list of a user.
-pub async fn add_to_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_shopping_list_request: crate::models::AddToShoppingListRequest) -> Result<crate::models::GenerateShoppingList200Response, Error<AddToShoppingListError>> {
+pub async fn add_to_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_shopping_list_request: models::AddToShoppingListRequest) -> Result<models::GenerateShoppingList200Response, Error<AddToShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -307,7 +307,7 @@ pub async fn clear_meal_plan_day(configuration: &configuration::Configuration, u
 }
 
 /// In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
-pub async fn connect_user(configuration: &configuration::Configuration, connect_user_request: crate::models::ConnectUserRequest) -> Result<crate::models::ConnectUser200Response, Error<ConnectUserError>> {
+pub async fn connect_user(configuration: &configuration::Configuration, connect_user_request: models::ConnectUserRequest) -> Result<models::ConnectUser200Response, Error<ConnectUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -344,7 +344,7 @@ pub async fn connect_user(configuration: &configuration::Configuration, connect_
 }
 
 /// Delete an item from the user's meal plan.
-pub async fn delete_from_meal_plan(configuration: &configuration::Configuration, username: &str, id: f32, hash: &str) -> Result<serde_json::Value, Error<DeleteFromMealPlanError>> {
+pub async fn delete_from_meal_plan(configuration: &configuration::Configuration, username: &str, id: f64, hash: &str) -> Result<serde_json::Value, Error<DeleteFromMealPlanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -455,7 +455,7 @@ pub async fn delete_meal_plan_template(configuration: &configuration::Configurat
 }
 
 /// Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
-pub async fn generate_meal_plan(configuration: &configuration::Configuration, time_frame: Option<&str>, target_calories: Option<f32>, diet: Option<&str>, exclude: Option<&str>) -> Result<crate::models::GenerateMealPlan200Response, Error<GenerateMealPlanError>> {
+pub async fn generate_meal_plan(configuration: &configuration::Configuration, time_frame: Option<&str>, target_calories: Option<f64>, diet: Option<&str>, exclude: Option<&str>) -> Result<models::GenerateMealPlan200Response, Error<GenerateMealPlanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -503,7 +503,7 @@ pub async fn generate_meal_plan(configuration: &configuration::Configuration, ti
 }
 
 /// Generate the shopping list for a user from the meal planner in a given time frame.
-pub async fn generate_shopping_list(configuration: &configuration::Configuration, username: &str, start_date: &str, end_date: &str, hash: &str) -> Result<crate::models::GenerateShoppingList200Response, Error<GenerateShoppingListError>> {
+pub async fn generate_shopping_list(configuration: &configuration::Configuration, username: &str, start_date: &str, end_date: &str, hash: &str) -> Result<models::GenerateShoppingList200Response, Error<GenerateShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -540,7 +540,7 @@ pub async fn generate_shopping_list(configuration: &configuration::Configuration
 }
 
 /// Get information about a meal plan template.
-pub async fn get_meal_plan_template(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str) -> Result<crate::models::GetMealPlanTemplate200Response, Error<GetMealPlanTemplateError>> {
+pub async fn get_meal_plan_template(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str) -> Result<models::GetMealPlanTemplate200Response, Error<GetMealPlanTemplateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -577,7 +577,7 @@ pub async fn get_meal_plan_template(configuration: &configuration::Configuration
 }
 
 /// Get meal plan templates from user or public ones.
-pub async fn get_meal_plan_templates(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<crate::models::GetMealPlanTemplates200Response, Error<GetMealPlanTemplatesError>> {
+pub async fn get_meal_plan_templates(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<models::GetMealPlanTemplates200Response, Error<GetMealPlanTemplatesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -614,7 +614,7 @@ pub async fn get_meal_plan_templates(configuration: &configuration::Configuratio
 }
 
 /// Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
-pub async fn get_meal_plan_week(configuration: &configuration::Configuration, username: &str, start_date: &str, hash: &str) -> Result<crate::models::GetMealPlanWeek200Response, Error<GetMealPlanWeekError>> {
+pub async fn get_meal_plan_week(configuration: &configuration::Configuration, username: &str, start_date: &str, hash: &str) -> Result<models::GetMealPlanWeek200Response, Error<GetMealPlanWeekError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -651,7 +651,7 @@ pub async fn get_meal_plan_week(configuration: &configuration::Configuration, us
 }
 
 /// Get the current shopping list for the given user.
-pub async fn get_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<crate::models::GetShoppingList200Response, Error<GetShoppingListError>> {
+pub async fn get_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str) -> Result<models::GetShoppingList200Response, Error<GetShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

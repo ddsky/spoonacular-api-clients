@@ -35,5 +35,8 @@ data class AutocompleteProductSearch200ResponseResultsInner (
     @Json(name = "title")
     val title: kotlin.String
 
-)
+) {
+
+
+}
 

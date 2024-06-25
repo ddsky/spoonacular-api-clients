@@ -43,5 +43,8 @@ data class GetMealPlanWeek200ResponseDaysInnerItemsInnerValue (
     @Json(name = "imageType")
     val imageType: kotlin.String
 
-)
+) {
+
+
+}
 

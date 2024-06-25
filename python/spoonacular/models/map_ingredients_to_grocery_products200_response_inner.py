@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.map_ingredients_to_grocery_products200_response_inner_products_inner import MapIngredientsToGroceryProducts200ResponseInnerProductsInner
@@ -36,11 +36,11 @@ class MapIngredientsToGroceryProducts200ResponseInner(BaseModel):
     products: Annotated[List[MapIngredientsToGroceryProducts200ResponseInnerProductsInner], Field(min_length=0)]
     __properties: ClassVar[List[str]] = ["original", "originalName", "ingredientImage", "meta", "products"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

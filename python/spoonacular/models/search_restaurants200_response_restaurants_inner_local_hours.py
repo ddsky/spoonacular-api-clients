@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from spoonacular.models.search_restaurants200_response_restaurants_inner_local_hours_operational import SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
 from typing import Optional, Set
@@ -34,11 +34,11 @@ class SearchRestaurants200ResponseRestaurantsInnerLocalHours(BaseModel):
     dine_in: Optional[SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational] = None
     __properties: ClassVar[List[str]] = ["operational", "delivery", "pickup", "dine_in"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

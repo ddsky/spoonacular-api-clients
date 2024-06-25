@@ -44,5 +44,8 @@ data class SearchRestaurants200ResponseRestaurantsInnerLocalHours (
     @Json(name = "dine_in")
     val dineIn: SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational? = null
 
-)
+) {
+
+
+}
 

@@ -57,5 +57,8 @@ data class GetMealPlanWeek200ResponseDaysInner (
     @Json(name = "items")
     val items: kotlin.collections.Set<GetMealPlanWeek200ResponseDaysInnerItemsInner>? = null
 
-)
+) {
+
+
+}
 

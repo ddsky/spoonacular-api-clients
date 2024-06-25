@@ -51,7 +51,7 @@ import com.spoonacular.client.JSON;
 /**
  * AnalyzeRecipeRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class AnalyzeRecipeRequest {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -63,7 +63,7 @@ public class AnalyzeRecipeRequest {
 
   public static final String SERIALIZED_NAME_INGREDIENTS = "ingredients";
   @SerializedName(SERIALIZED_NAME_INGREDIENTS)
-  private List<String> ingredients;
+  private List<String> ingredients = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)

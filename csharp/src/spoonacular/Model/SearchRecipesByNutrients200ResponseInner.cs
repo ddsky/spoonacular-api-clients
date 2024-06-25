@@ -172,42 +172,42 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Carbs (string) minLength
             if (this.Carbs != null && this.Carbs.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Carbs, length must be greater than 1.", new [] { "Carbs" });
+                yield return new ValidationResult("Invalid value for Carbs, length must be greater than 1.", new [] { "Carbs" });
             }
 
             // Fat (string) minLength
             if (this.Fat != null && this.Fat.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Fat, length must be greater than 1.", new [] { "Fat" });
+                yield return new ValidationResult("Invalid value for Fat, length must be greater than 1.", new [] { "Fat" });
             }
 
             // Image (string) minLength
             if (this.Image != null && this.Image.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
+                yield return new ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
             }
 
             // ImageType (string) minLength
             if (this.ImageType != null && this.ImageType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
+                yield return new ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
             }
 
             // Protein (string) minLength
             if (this.Protein != null && this.Protein.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Protein, length must be greater than 1.", new [] { "Protein" });
+                yield return new ValidationResult("Invalid value for Protein, length must be greater than 1.", new [] { "Protein" });
             }
 
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             yield break;

@@ -35,5 +35,8 @@ data class GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric (
     @Json(name = "value")
     val `value`: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

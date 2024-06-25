@@ -32,5 +32,8 @@ data class GetMealPlanWeek200Response (
     @Json(name = "days")
     val days: kotlin.collections.Set<GetMealPlanWeek200ResponseDaysInner>
 
-)
+) {
+
+
+}
 

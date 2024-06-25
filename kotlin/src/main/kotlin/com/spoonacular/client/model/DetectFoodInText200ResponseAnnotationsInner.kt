@@ -39,5 +39,8 @@ data class DetectFoodInText200ResponseAnnotationsInner (
     @Json(name = "tag")
     val tag: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -493,66 +493,66 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // Image (string) minLength
             if (this.Image != null && this.Image.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
+                yield return new ValidationResult("Invalid value for Image, length must be greater than 1.", new [] { "Image" });
             }
 
             // ImageType (string) minLength
             if (this.ImageType != null && this.ImageType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
+                yield return new ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
             }
 
             // License (string) minLength
             if (this.License != null && this.License.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for License, length must be greater than 1.", new [] { "License" });
+                yield return new ValidationResult("Invalid value for License, length must be greater than 1.", new [] { "License" });
             }
 
             // SourceName (string) minLength
             if (this.SourceName != null && this.SourceName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceName, length must be greater than 1.", new [] { "SourceName" });
+                yield return new ValidationResult("Invalid value for SourceName, length must be greater than 1.", new [] { "SourceName" });
             }
 
             // SourceUrl (string) minLength
             if (this.SourceUrl != null && this.SourceUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceUrl, length must be greater than 1.", new [] { "SourceUrl" });
+                yield return new ValidationResult("Invalid value for SourceUrl, length must be greater than 1.", new [] { "SourceUrl" });
             }
 
             // SpoonacularSourceUrl (string) minLength
             if (this.SpoonacularSourceUrl != null && this.SpoonacularSourceUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SpoonacularSourceUrl, length must be greater than 1.", new [] { "SpoonacularSourceUrl" });
+                yield return new ValidationResult("Invalid value for SpoonacularSourceUrl, length must be greater than 1.", new [] { "SpoonacularSourceUrl" });
             }
 
             // CreditsText (string) minLength
             if (this.CreditsText != null && this.CreditsText.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreditsText, length must be greater than 1.", new [] { "CreditsText" });
+                yield return new ValidationResult("Invalid value for CreditsText, length must be greater than 1.", new [] { "CreditsText" });
             }
 
             // Gaps (string) minLength
             if (this.Gaps != null && this.Gaps.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Gaps, length must be greater than 1.", new [] { "Gaps" });
+                yield return new ValidationResult("Invalid value for Gaps, length must be greater than 1.", new [] { "Gaps" });
             }
 
             // Summary (string) minLength
             if (this.Summary != null && this.Summary.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Summary, length must be greater than 1.", new [] { "Summary" });
+                yield return new ValidationResult("Invalid value for Summary, length must be greater than 1.", new [] { "Summary" });
             }
 
             yield break;

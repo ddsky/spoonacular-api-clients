@@ -90,5 +90,8 @@ data class SearchGroceryProductsByUPC200Response (
     @Json(name = "ingredientCount")
     val ingredientCount: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

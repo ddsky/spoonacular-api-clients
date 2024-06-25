@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## autocomplete_menu_item_search
 
-> crate::models::AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query, number)
+> models::AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query, number)
 Autocomplete Menu Item Search
 
 Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
@@ -27,11 +27,11 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | **String** | The (partial) search query. | [required] |
-**number** | Option<**f32**> | The number of results to return (between 1 and 25). |  |
+**number** | Option<**f64**> | The number of results to return (between 1 and 25). |  |
 
 ### Return type
 
-[**crate::models::AutocompleteMenuItemSearch200Response**](autocompleteMenuItemSearch_200_response.md)
+[**models::AutocompleteMenuItemSearch200Response**](autocompleteMenuItemSearch_200_response.md)
 
 ### Authorization
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_menu_item_information
 
-> crate::models::GetMenuItemInformation200Response get_menu_item_information(id)
+> models::GetMenuItemInformation200Response get_menu_item_information(id)
 Get Menu Item Information
 
 Use a menu item id to get all available information about a menu item, such as nutrition.
@@ -61,7 +61,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetMenuItemInformation200Response**](getMenuItemInformation_200_response.md)
+[**models::GetMenuItemInformation200Response**](getMenuItemInformation_200_response.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ Visualize a menu item's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The menu item id. | [required] |
+**id** | **f64** | The menu item id. | [required] |
 
 ### Return type
 
@@ -117,7 +117,7 @@ Visualize a menu item's nutritional label information as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The menu item id. | [required] |
+**id** | **f64** | The menu item id. | [required] |
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
 **show_ingredients** | Option<**bool**> | Whether to show a list of ingredients. |  |
@@ -150,7 +150,7 @@ Visualize a menu item's nutritional label information as HTML including CSS.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The menu item id. | [required] |
+**id** | **f64** | The menu item id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
@@ -174,7 +174,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_menu_items
 
-> crate::models::SearchMenuItems200Response search_menu_items(query, min_calories, max_calories, min_carbs, max_carbs, min_protein, max_protein, min_fat, max_fat, add_menu_item_information, offset, number)
+> models::SearchMenuItems200Response search_menu_items(query, min_calories, max_calories, min_carbs, max_carbs, min_protein, max_protein, min_fat, max_fat, add_menu_item_information, offset, number)
 Search Menu Items
 
 Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
@@ -185,21 +185,21 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | Option<**String**> | The (natural language) search query. |  |
-**min_calories** | Option<**f32**> | The minimum amount of calories the menu item must have. |  |
-**max_calories** | Option<**f32**> | The maximum amount of calories the menu item can have. |  |
-**min_carbs** | Option<**f32**> | The minimum amount of carbohydrates in grams the menu item must have. |  |
-**max_carbs** | Option<**f32**> | The maximum amount of carbohydrates in grams the menu item can have. |  |
-**min_protein** | Option<**f32**> | The minimum amount of protein in grams the menu item must have. |  |
-**max_protein** | Option<**f32**> | The maximum amount of protein in grams the menu item can have. |  |
-**min_fat** | Option<**f32**> | The minimum amount of fat in grams the menu item must have. |  |
-**max_fat** | Option<**f32**> | The maximum amount of fat in grams the menu item can have. |  |
+**min_calories** | Option<**f64**> | The minimum amount of calories the menu item must have. |  |
+**max_calories** | Option<**f64**> | The maximum amount of calories the menu item can have. |  |
+**min_carbs** | Option<**f64**> | The minimum amount of carbohydrates in grams the menu item must have. |  |
+**max_carbs** | Option<**f64**> | The maximum amount of carbohydrates in grams the menu item can have. |  |
+**min_protein** | Option<**f64**> | The minimum amount of protein in grams the menu item must have. |  |
+**max_protein** | Option<**f64**> | The maximum amount of protein in grams the menu item can have. |  |
+**min_fat** | Option<**f64**> | The minimum amount of fat in grams the menu item must have. |  |
+**max_fat** | Option<**f64**> | The maximum amount of fat in grams the menu item can have. |  |
 **add_menu_item_information** | Option<**bool**> | If set to true, you get more information about the menu items returned. |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
 
-[**crate::models::SearchMenuItems200Response**](searchMenuItems_200_response.md)
+[**models::SearchMenuItems200Response**](searchMenuItems_200_response.md)
 
 ### Authorization
 

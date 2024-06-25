@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from spoonacular.models.image_analysis_by_url200_response_nutrition_calories_confidence_range95_percent import ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
@@ -35,11 +35,11 @@ class ImageAnalysisByURL200ResponseNutritionCalories(BaseModel):
     standard_deviation: Union[StrictFloat, StrictInt] = Field(alias="standardDeviation")
     __properties: ClassVar[List[str]] = ["value", "unit", "confidenceRange95Percent", "standardDeviation"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -43,5 +43,8 @@ data class ParseIngredients200ResponseInnerNutritionNutrientsInner (
     @Json(name = "percentOfDailyNeeds")
     val percentOfDailyNeeds: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

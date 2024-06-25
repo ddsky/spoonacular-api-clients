@@ -37,11 +37,11 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
+  'query': "burger", // String | The (natural language) search query.
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'metaInformation': false, // Boolean | Whether to return more meta information about the ingredients.
-  'intolerances': egg, // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'intolerances': "egg", // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+  'language': "en" // String | The language of the input. Either 'en' or 'de'.
 };
 apiInstance.autocompleteIngredientSearch(opts, (error, data, response) => {
   if (error) {
@@ -98,10 +98,10 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
 let id = 9266; // Number | The id of the ingredient you want the amount for.
-let nutrient = protein; // String | The target nutrient. See a list of supported nutrients.
+let nutrient = "protein"; // String | The target nutrient. See a list of supported nutrients.
 let target = 2; // Number | The target number of the given nutrient.
 let opts = {
-  'unit': oz // String | The target unit.
+  'unit': "oz" // String | The target unit.
 };
 apiInstance.computeIngredientAmount(id, nutrient, target, opts, (error, data, response) => {
   if (error) {
@@ -159,7 +159,7 @@ let apiInstance = new SpoonacularApi.IngredientsApi();
 let id = 1; // Number | The item's id.
 let opts = {
   'amount': 150, // Number | The amount of this ingredient.
-  'unit': grams // String | The unit for the given amount.
+  'unit': "grams" // String | The unit for the given amount.
 };
 apiInstance.getIngredientInformation(id, opts, (error, data, response) => {
   if (error) {
@@ -213,7 +213,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
-let ingredientName = butter; // String | The name of the ingredient you want to replace.
+let ingredientName = "butter"; // String | The name of the ingredient you want to replace.
 apiInstance.getIngredientSubstitutes(ingredientName, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -316,7 +316,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
+  'query': "burger", // String | The (natural language) search query.
   'addChildren': true, // Boolean | Whether to add children of found foods.
   'minProteinPercent': 10, // Number | The minimum percentage of protein the food must have (between 0 and 100).
   'maxProteinPercent': 90, // Number | The maximum percentage of protein the food can have (between 0 and 100).
@@ -325,12 +325,12 @@ let opts = {
   'minCarbsPercent': 10, // Number | The minimum percentage of carbs the food must have (between 0 and 100).
   'maxCarbsPercent': 90, // Number | The maximum percentage of carbs the food can have (between 0 and 100).
   'metaInformation': false, // Boolean | Whether to return more meta information about the ingredients.
-  'intolerances': egg, // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-  'sort': calories, // String | The strategy to sort recipes by. See a full list of supported sorting options.
-  'sortDirection': asc, // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+  'intolerances': "egg", // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+  'sort': "calories", // String | The strategy to sort recipes by. See a full list of supported sorting options.
+  'sortDirection': "asc", // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'language': "en" // String | The language of the input. Either 'en' or 'de'.
 };
 apiInstance.ingredientSearch(opts, (error, data, response) => {
   if (error) {
@@ -398,7 +398,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.IngredientsApi();
 let id = 1082038; // Number | The recipe id.
 let opts = {
-  'measure': metric // String | Whether the the measures should be 'us' or 'metric'.
+  'measure': "metric" // String | Whether the the measures should be 'us' or 'metric'.
 };
 apiInstance.ingredientsByIDImage(id, opts, (error, data, response) => {
   if (error) {
@@ -505,7 +505,7 @@ let apiInstance = new SpoonacularApi.IngredientsApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 let servings = 3.4; // Number | The number of servings.
 let opts = {
-  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'language': "en", // String | The language of the input. Either 'en' or 'de'.
   'measure': "measure_example", // String | The original system of measurement, either 'metric' or 'us'.
   'view': "view_example", // String | How to visualize the ingredients, either 'grid' or 'list'.
   'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.

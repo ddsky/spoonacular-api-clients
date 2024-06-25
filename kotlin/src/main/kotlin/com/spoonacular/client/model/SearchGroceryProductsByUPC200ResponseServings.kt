@@ -39,5 +39,8 @@ data class SearchGroceryProductsByUPC200ResponseServings (
     @Json(name = "unit")
     val unit: kotlin.String
 
-)
+) {
+
+
+}
 

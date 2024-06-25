@@ -43,5 +43,8 @@ data class ConnectUserRequest (
     @Json(name = "email")
     val email: kotlin.String
 
-)
+) {
+
+
+}
 

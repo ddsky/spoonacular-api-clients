@@ -40,5 +40,8 @@ data class GetShoppingList200ResponseAislesInnerItemsInnerMeasures (
     @Json(name = "us")
     val us: ParseIngredients200ResponseInnerNutritionWeightPerServing
 
-)
+) {
+
+
+}
 

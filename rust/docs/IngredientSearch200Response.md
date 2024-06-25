@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**Vec<crate::models::IngredientSearch200ResponseResultsInner>**](ingredientSearch_200_response_results_inner.md) |  | 
+**results** | [**Vec<models::IngredientSearch200ResponseResultsInner>**](ingredientSearch_200_response_results_inner.md) |  | 
 **offset** | **i32** |  | 
 **number** | **i32** |  | 
 **total_results** | **i32** |  | 

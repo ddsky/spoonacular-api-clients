@@ -94,5 +94,8 @@ data class GetProductInformation200Response (
     @Json(name = "generatedText")
     val generatedText: kotlin.String? = null
 
-)
+) {
+
+
+}
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calories** | **f32** |  | 
+**calories** | **f64** |  | 
 **carbs** | **String** |  | 
 **fat** | **String** |  | 
 **id** | **i32** |  | 

@@ -55,5 +55,8 @@ data class GetRecipeTasteByID200Response (
     @Json(name = "spiciness")
     val spiciness: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

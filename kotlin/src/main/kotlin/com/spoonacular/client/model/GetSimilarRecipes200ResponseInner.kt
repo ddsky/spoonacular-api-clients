@@ -51,5 +51,8 @@ data class GetSimilarRecipes200ResponseInner (
     @Json(name = "sourceUrl")
     val sourceUrl: kotlin.String
 
-)
+) {
+
+
+}
 

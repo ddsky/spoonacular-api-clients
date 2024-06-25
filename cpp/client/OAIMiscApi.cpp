@@ -416,7 +416,7 @@ void OAIMiscApi::getConversationSuggests(const QString &query, const ::OpenAPI::
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (number.hasValue())
     {
@@ -431,7 +431,7 @@ void OAIMiscApi::getConversationSuggests(const QString &query, const ::OpenAPI::
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -605,7 +605,7 @@ void OAIMiscApi::imageAnalysisByURL(const QString &image_url) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("imageUrl")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(image_url)));
+        fullPath.append(QUrl::toPercentEncoding("imageUrl")).append(querySuffix).append(QUrl::toPercentEncoding(image_url));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -700,7 +700,7 @@ void OAIMiscApi::imageClassificationByURL(const QString &image_url) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("imageUrl")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(image_url)));
+        fullPath.append(QUrl::toPercentEncoding("imageUrl")).append(querySuffix).append(QUrl::toPercentEncoding(image_url));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -795,7 +795,7 @@ void OAIMiscApi::searchAllFood(const QString &query, const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (offset.hasValue())
     {
@@ -810,7 +810,7 @@ void OAIMiscApi::searchAllFood(const QString &query, const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
     }
     if (number.hasValue())
     {
@@ -825,7 +825,7 @@ void OAIMiscApi::searchAllFood(const QString &query, const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -920,7 +920,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query.value())));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
     }
     
     {
@@ -935,7 +935,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("username")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(username)));
+        fullPath.append(QUrl::toPercentEncoding("username")).append(querySuffix).append(QUrl::toPercentEncoding(username));
     }
     
     {
@@ -950,7 +950,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(hash)));
+        fullPath.append(QUrl::toPercentEncoding("hash")).append(querySuffix).append(QUrl::toPercentEncoding(hash));
     }
     if (offset.hasValue())
     {
@@ -965,7 +965,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
     }
     if (number.hasValue())
     {
@@ -980,7 +980,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1075,7 +1075,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query.value())));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
     }
     if (type.hasValue())
     {
@@ -1090,7 +1090,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("type")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(type.value())));
+        fullPath.append(QUrl::toPercentEncoding("type")).append(querySuffix).append(QUrl::toPercentEncoding(type.stringValue()));
     }
     if (cuisine.hasValue())
     {
@@ -1105,7 +1105,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("cuisine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(cuisine.value())));
+        fullPath.append(QUrl::toPercentEncoding("cuisine")).append(querySuffix).append(QUrl::toPercentEncoding(cuisine.stringValue()));
     }
     if (diet.hasValue())
     {
@@ -1120,7 +1120,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("diet")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(diet.value())));
+        fullPath.append(QUrl::toPercentEncoding("diet")).append(querySuffix).append(QUrl::toPercentEncoding(diet.stringValue()));
     }
     if (include_ingredients.hasValue())
     {
@@ -1135,7 +1135,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(include_ingredients.stringValue()));
     }
     if (exclude_ingredients.hasValue())
     {
@@ -1150,7 +1150,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("excludeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("excludeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(exclude_ingredients.stringValue()));
     }
     if (min_length.hasValue())
     {
@@ -1165,7 +1165,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minLength")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_length.value())));
+        fullPath.append(QUrl::toPercentEncoding("minLength")).append(querySuffix).append(QUrl::toPercentEncoding(min_length.stringValue()));
     }
     if (max_length.hasValue())
     {
@@ -1180,7 +1180,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxLength")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_length.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxLength")).append(querySuffix).append(QUrl::toPercentEncoding(max_length.stringValue()));
     }
     if (offset.hasValue())
     {
@@ -1195,7 +1195,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
     }
     if (number.hasValue())
     {
@@ -1210,7 +1210,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1305,7 +1305,7 @@ void OAIMiscApi::searchSiteContent(const QString &query) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1400,7 +1400,7 @@ void OAIMiscApi::talkToChatbot(const QString &text, const ::OpenAPI::OptionalPar
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("text")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(text)));
+        fullPath.append(QUrl::toPercentEncoding("text")).append(querySuffix).append(QUrl::toPercentEncoding(text));
     }
     if (context_id.hasValue())
     {
@@ -1415,7 +1415,7 @@ void OAIMiscApi::talkToChatbot(const QString &text, const ::OpenAPI::OptionalPar
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("contextId")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(context_id.value())));
+        fullPath.append(QUrl::toPercentEncoding("contextId")).append(querySuffix).append(QUrl::toPercentEncoding(context_id.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);

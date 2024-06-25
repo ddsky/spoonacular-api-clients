@@ -48,5 +48,8 @@ data class SearchMenuItems200Response (
     @Json(name = "number")
     val number: kotlin.Int
 
-)
+) {
+
+
+}
 

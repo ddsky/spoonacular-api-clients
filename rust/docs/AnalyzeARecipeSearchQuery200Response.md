@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dishes** | [**Vec<crate::models::AnalyzeARecipeSearchQuery200ResponseDishesInner>**](analyzeARecipeSearchQuery_200_response_dishes_inner.md) |  | 
-**ingredients** | [**Vec<crate::models::AnalyzeARecipeSearchQuery200ResponseIngredientsInner>**](analyzeARecipeSearchQuery_200_response_ingredients_inner.md) |  | 
+**dishes** | [**Vec<models::AnalyzeARecipeSearchQuery200ResponseDishesInner>**](analyzeARecipeSearchQuery_200_response_dishes_inner.md) |  | 
+**ingredients** | [**Vec<models::AnalyzeARecipeSearchQuery200ResponseIngredientsInner>**](analyzeARecipeSearchQuery_200_response_ingredients_inner.md) |  | 
 **cuisines** | **Vec<String>** |  | 
 **modifiers** | **Vec<String>** |  | 
 

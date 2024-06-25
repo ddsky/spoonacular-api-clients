@@ -35,5 +35,8 @@ data class SearchSiteContent200ResponseArticlesInnerDataPointsInner (
     @Json(name = "value")
     val `value`: kotlin.String
 
-)
+) {
+
+
+}
 

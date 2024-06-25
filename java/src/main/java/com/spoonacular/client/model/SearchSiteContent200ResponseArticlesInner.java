@@ -52,11 +52,11 @@ import com.spoonacular.client.JSON;
 /**
  * SearchSiteContent200ResponseArticlesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchSiteContent200ResponseArticlesInner {
   public static final String SERIALIZED_NAME_DATA_POINTS = "dataPoints";
   @SerializedName(SERIALIZED_NAME_DATA_POINTS)
-  private Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints;
+  private Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> dataPoints = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)

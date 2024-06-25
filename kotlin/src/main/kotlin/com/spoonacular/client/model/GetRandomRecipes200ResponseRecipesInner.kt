@@ -177,5 +177,8 @@ data class GetRandomRecipes200ResponseRecipesInner (
     @Json(name = "winePairing")
     val winePairing: GetRecipeInformation200ResponseWinePairing? = null
 
-)
+) {
+
+
+}
 

@@ -32,5 +32,8 @@ data class SearchRestaurants200Response (
     @Json(name = "restaurants")
     val restaurants: kotlin.collections.List<SearchRestaurants200ResponseRestaurantsInner>? = null
 
-)
+) {
+
+
+}
 

@@ -52,7 +52,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetShoppingList200ResponseAislesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetShoppingList200ResponseAislesInner {
   public static final String SERIALIZED_NAME_AISLE = "aisle";
   @SerializedName(SERIALIZED_NAME_AISLE)
@@ -60,7 +60,7 @@ public class GetShoppingList200ResponseAislesInner {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private Set<GetShoppingList200ResponseAislesInnerItemsInner> items;
+  private Set<GetShoppingList200ResponseAislesInnerItemsInner> items = new LinkedHashSet<>();
 
   public GetShoppingList200ResponseAislesInner() {
   }

@@ -72,5 +72,8 @@ data class GetRecipeInformation200ResponseExtendedIngredientsInner (
     @Json(name = "meta")
     val meta: kotlin.collections.List<kotlin.String>? = null
 
-)
+) {
+
+
+}
 

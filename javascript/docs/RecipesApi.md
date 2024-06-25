@@ -67,7 +67,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let q = salmon with fusilli and no nuts; // String | The recipe search query.
+let q = "salmon with fusilli and no nuts"; // String | The recipe search query.
 apiInstance.analyzeARecipeSearchQuery(q, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -170,7 +170,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
+  'query': "burger", // String | The (natural language) search query.
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.autocompleteRecipeSearch(opts, (error, data, response) => {
@@ -227,7 +227,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let title = "title_example"; // String | The title of the recipe.
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 let opts = {
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'language': "en" // String | The language of the input. Either 'en' or 'de'.
 };
 apiInstance.classifyCuisine(title, ingredientList, opts, (error, data, response) => {
   if (error) {
@@ -283,7 +283,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let computeGlycemicLoadRequest = {"ingredients":["1 kiwi","2 cups rice","2 glasses of water"]}; // ComputeGlycemicLoadRequest | 
 let opts = {
-  'language': en // String | The language of the input. Either 'en' or 'de'.
+  'language': "en" // String | The language of the input. Either 'en' or 'de'.
 };
 apiInstance.computeGlycemicLoad(computeGlycemicLoadRequest, opts, (error, data, response) => {
   if (error) {
@@ -336,10 +336,10 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let ingredientName = flour; // String | The ingredient which you want to convert.
+let ingredientName = "flour"; // String | The ingredient which you want to convert.
 let sourceAmount = 2.5; // Number | The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\".
-let sourceUnit = cups; // String | The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
-let targetUnit = grams; // String | The unit to which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
+let sourceUnit = "cups"; // String | The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
+let targetUnit = "grams"; // String | The unit to which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\"
 apiInstance.convertAmounts(ingredientName, sourceAmount, sourceUnit, targetUnit, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -521,7 +521,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let url = https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies; // String | The URL of the recipe page.
+let url = "https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies"; // String | The URL of the recipe page.
 let opts = {
   'forceExtraction': true, // Boolean | If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.
   'analyze': false, // Boolean | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
@@ -640,8 +640,8 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
   'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   'includeNutrition': false, // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-  'includeTags': vegetarian,gluten, // String | A comma-separated list of tags that the random recipe(s) must adhere to.
-  'excludeTags': meat,dairy, // String | A comma-separated list of tags that the random recipe(s) must not adhere to.
+  'includeTags': "vegetarian,gluten", // String | A comma-separated list of tags that the random recipe(s) must adhere to.
+  'excludeTags': "meat,dairy", // String | A comma-separated list of tags that the random recipe(s) must not adhere to.
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.getRandomRecipes(opts, (error, data, response) => {
@@ -804,7 +804,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let ids = 715538,716429; // String | A comma-separated list of recipe ids.
+let ids = "715538,716429"; // String | A comma-separated list of recipe ids.
 let opts = {
   'includeNutrition': false // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 };
@@ -1124,7 +1124,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let title = Spaghetti Aglio et Olio; // String | The title of the dish.
+let title = "Spaghetti Aglio et Olio"; // String | The title of the dish.
 apiInstance.guessNutritionByDishName(title, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1178,7 +1178,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
 let servings = 3.4; // Number | The number of servings that you can make from the ingredients.
 let opts = {
-  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'language': "en", // String | The language of the input. Either 'en' or 'de'.
   'includeNutrition': true // Boolean | 
 };
 apiInstance.parseIngredients(ingredientList, servings, opts, (error, data, response) => {
@@ -1285,7 +1285,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let q = How much vitamin c is in 2 apples?; // String | The nutrition related question.
+let q = "How much vitamin c is in 2 apples?"; // String | The nutrition related question.
 apiInstance.quickAnswer(q, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1510,7 +1510,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let id = 69095; // Number | The recipe id.
 let opts = {
   'normalize': false, // Boolean | Normalize to the strongest taste.
-  'rgb': 75,192,192 // String | Red, green, blue values for the chart color.
+  'rgb': "75,192,192" // String | Red, green, blue values for the chart color.
 };
 apiInstance.recipeTasteByIDImage(id, opts, (error, data, response) => {
   if (error) {
@@ -1565,29 +1565,29 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
-  'query': burger, // String | The (natural language) search query.
-  'cuisine': italian, // String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-  'excludeCuisine': greek, // String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-  'diet': vegetarian, // String | The diet for which the recipes must be suitable. See a full list of supported diets.
-  'intolerances': gluten, // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-  'equipment': pan, // String | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-  'includeIngredients': tomato,cheese, // String | A comma-separated list of ingredients that should/must be used in the recipes.
-  'excludeIngredients': eggs, // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-  'type': main course, // String | The type of recipe. See a full list of supported meal types.
+  'query': "burger", // String | The (natural language) search query.
+  'cuisine': "italian", // String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+  'excludeCuisine': "greek", // String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
+  'diet': "vegetarian", // String | The diet for which the recipes must be suitable. See a full list of supported diets.
+  'intolerances': "gluten", // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+  'equipment': "pan", // String | The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+  'includeIngredients': "tomato,cheese", // String | A comma-separated list of ingredients that should/must be used in the recipes.
+  'excludeIngredients': "eggs", // String | A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+  'type': "main course", // String | The type of recipe. See a full list of supported meal types.
   'instructionsRequired': true, // Boolean | Whether the recipes must have instructions.
   'fillIngredients': false, // Boolean | Add information about the ingredients and whether they are used or missing in relation to the query.
   'addRecipeInformation': false, // Boolean | If set to true, you get more information about the recipes returned.
   'addRecipeNutrition': false, // Boolean | If set to true, you get nutritional information about each recipes returned.
-  'author': coffeebean, // String | The username of the recipe author.
+  'author': "coffeebean", // String | The username of the recipe author.
   'tags': "tags_example", // String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
   'recipeBoxId': 2468, // Number | The id of the recipe box to which the search should be limited to.
-  'titleMatch': Crock Pot, // String | Enter text that must be found in the title of the recipes.
+  'titleMatch': "Crock Pot", // String | Enter text that must be found in the title of the recipes.
   'maxReadyTime': 20, // Number | The maximum time in minutes it should take to prepare and cook the recipe.
   'minServings': 1, // Number | The minimum amount of servings the recipe is for.
   'maxServings': 8, // Number | The maximum amount of servings the recipe is for.
   'ignorePantry': false, // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
-  'sort': calories, // String | The strategy to sort recipes by. See a full list of supported sorting options.
-  'sortDirection': asc, // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+  'sort': "calories", // String | The strategy to sort recipes by. See a full list of supported sorting options.
+  'sortDirection': "asc", // String | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
   'minCarbs': 10, // Number | The minimum amount of carbohydrates in grams the recipe must have.
   'maxCarbs': 100, // Number | The maximum amount of carbohydrates in grams the recipe can have.
   'minProtein': 10, // Number | The minimum amount of protein in grams the recipe must have.
@@ -1812,7 +1812,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
-  'ingredients': carrots,tomatoes, // String | A comma-separated list of ingredients that the recipes should contain.
+  'ingredients': "carrots,tomatoes", // String | A comma-separated list of ingredients that the recipes should contain.
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   'ranking': 1, // Number | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
@@ -2188,7 +2188,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
 let servings = 3.4; // Number | The number of servings.
 let opts = {
-  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'language': "en", // String | The language of the input. Either 'en' or 'de'.
   'mode': 3.4, // Number | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full).
   'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.
   'showBacklink': true // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
@@ -2306,7 +2306,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let id = 1; // Number | The item's id.
 let opts = {
   'defaultCss': false, // Boolean | Whether the default CSS should be added to the response.
-  'measure': metric // String | Whether the the measures should be 'us' or 'metric'.
+  'measure': "metric" // String | Whether the the measures should be 'us' or 'metric'.
 };
 apiInstance.visualizeRecipeIngredientsByID(id, opts, (error, data, response) => {
   if (error) {
@@ -2363,7 +2363,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
 let servings = 3.4; // Number | The number of servings.
 let opts = {
-  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'language': "en", // String | The language of the input. Either 'en' or 'de'.
   'defaultCss': true, // Boolean | Whether the default CSS should be added to the response.
   'showBacklink': true // Boolean | Whether to show a backlink to spoonacular. If set false, this call counts against your quota.
 };
@@ -2533,7 +2533,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line.
 let opts = {
-  'language': en, // String | The language of the input. Either 'en' or 'de'.
+  'language': "en", // String | The language of the input. Either 'en' or 'de'.
   'normalize': true, // Boolean | Normalize to the strongest taste.
   'rgb': "rgb_example" // String | Red, green, blue values for the chart color.
 };
@@ -2593,7 +2593,7 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let id = 1; // Number | The item's id.
 let opts = {
   'normalize': true, // Boolean | Whether to normalize to the strongest taste.
-  'rgb': 75,192,192 // String | Red, green, blue values for the chart color.
+  'rgb': "75,192,192" // String | Red, green, blue values for the chart color.
 };
 apiInstance.visualizeRecipeTasteByID(id, opts, (error, data, response) => {
   if (error) {

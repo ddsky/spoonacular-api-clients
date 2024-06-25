@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.get_comparable_products200_response_comparable_products_protein_inner import GetComparableProducts200ResponseComparableProductsProteinInner
@@ -37,11 +37,11 @@ class GetComparableProducts200ResponseComparableProducts(BaseModel):
     sugar: List[Dict[str, Any]]
     __properties: ClassVar[List[str]] = ["calories", "likes", "price", "protein", "spoonacularScore", "sugar"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

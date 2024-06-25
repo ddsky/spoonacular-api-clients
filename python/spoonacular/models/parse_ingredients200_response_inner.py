@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from spoonacular.models.parse_ingredients200_response_inner_estimated_cost import ParseIngredients200ResponseInnerEstimatedCost
@@ -48,11 +48,11 @@ class ParseIngredients200ResponseInner(BaseModel):
     nutrition: ParseIngredients200ResponseInnerNutrition
     __properties: ClassVar[List[str]] = ["id", "original", "originalName", "name", "nameClean", "amount", "unit", "unitShort", "unitLong", "possibleUnits", "estimatedCost", "consistency", "aisle", "image", "meta", "nutrition"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

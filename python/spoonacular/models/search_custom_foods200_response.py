@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.search_custom_foods200_response_custom_foods_inner import SearchCustomFoods200ResponseCustomFoodsInner
@@ -35,11 +35,11 @@ class SearchCustomFoods200Response(BaseModel):
     number: StrictInt
     __properties: ClassVar[List[str]] = ["customFoods", "type", "offset", "number"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

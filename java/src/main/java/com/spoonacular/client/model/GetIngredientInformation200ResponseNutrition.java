@@ -55,7 +55,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetIngredientInformation200ResponseNutrition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetIngredientInformation200ResponseNutrition {
   public static final String SERIALIZED_NAME_NUTRIENTS = "nutrients";
   @SerializedName(SERIALIZED_NAME_NUTRIENTS)

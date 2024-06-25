@@ -31,5 +31,8 @@ data class GetARandomFoodJoke200Response (
     @Json(name = "text")
     val text: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -55,5 +55,8 @@ data class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational (
     @Json(name = "Sunday")
     val sunday: kotlin.String? = null
 
-)
+) {
+
+
+}
 

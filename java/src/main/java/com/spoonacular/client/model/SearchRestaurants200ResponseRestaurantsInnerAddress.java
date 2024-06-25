@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200ResponseRestaurantsInnerAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchRestaurants200ResponseRestaurantsInnerAddress {
   public static final String SERIALIZED_NAME_STREET_ADDR = "street_addr";
   @SerializedName(SERIALIZED_NAME_STREET_ADDR)

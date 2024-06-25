@@ -35,5 +35,8 @@ data class QuickAnswer200Response (
     @Json(name = "image")
     val image: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -35,5 +35,8 @@ data class GetDishPairingForWine200Response (
     @Json(name = "text")
     val text: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -240,7 +240,7 @@ void OAIWineApi::getDishPairingForWine(const QString &wine) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("wine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(wine)));
+        fullPath.append(QUrl::toPercentEncoding("wine")).append(querySuffix).append(QUrl::toPercentEncoding(wine));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -335,7 +335,7 @@ void OAIWineApi::getWineDescription(const QString &wine) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("wine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(wine)));
+        fullPath.append(QUrl::toPercentEncoding("wine")).append(querySuffix).append(QUrl::toPercentEncoding(wine));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -430,7 +430,7 @@ void OAIWineApi::getWinePairing(const QString &food, const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("food")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(food)));
+        fullPath.append(QUrl::toPercentEncoding("food")).append(querySuffix).append(QUrl::toPercentEncoding(food));
     }
     if (max_price.hasValue())
     {
@@ -445,7 +445,7 @@ void OAIWineApi::getWinePairing(const QString &food, const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxPrice")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_price.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxPrice")).append(querySuffix).append(QUrl::toPercentEncoding(max_price.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -540,7 +540,7 @@ void OAIWineApi::getWineRecommendation(const QString &wine, const ::OpenAPI::Opt
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("wine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(wine)));
+        fullPath.append(QUrl::toPercentEncoding("wine")).append(querySuffix).append(QUrl::toPercentEncoding(wine));
     }
     if (max_price.hasValue())
     {
@@ -555,7 +555,7 @@ void OAIWineApi::getWineRecommendation(const QString &wine, const ::OpenAPI::Opt
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxPrice")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_price.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxPrice")).append(querySuffix).append(QUrl::toPercentEncoding(max_price.stringValue()));
     }
     if (min_rating.hasValue())
     {
@@ -570,7 +570,7 @@ void OAIWineApi::getWineRecommendation(const QString &wine, const ::OpenAPI::Opt
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minRating")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_rating.value())));
+        fullPath.append(QUrl::toPercentEncoding("minRating")).append(querySuffix).append(QUrl::toPercentEncoding(min_rating.stringValue()));
     }
     if (number.hasValue())
     {
@@ -585,7 +585,7 @@ void OAIWineApi::getWineRecommendation(const QString &wine, const ::OpenAPI::Opt
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);

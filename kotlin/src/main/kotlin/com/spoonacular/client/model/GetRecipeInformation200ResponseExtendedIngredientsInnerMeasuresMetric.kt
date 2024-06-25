@@ -39,5 +39,8 @@ data class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
     @Json(name = "unitShort")
     val unitShort: kotlin.String
 
-)
+) {
+
+
+}
 

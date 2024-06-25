@@ -39,5 +39,8 @@ data class AutocompleteRecipeSearch200ResponseInner (
     @Json(name = "imageType")
     val imageType: kotlin.String
 
-)
+) {
+
+
+}
 

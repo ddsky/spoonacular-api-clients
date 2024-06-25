@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of GetIngredientInformation200ResponseNutrition from a JSON string
 get_ingredient_information200_response_nutrition_instance = GetIngredientInformation200ResponseNutrition.from_json(json)
 # print the JSON string representation of the object
-print GetIngredientInformation200ResponseNutrition.to_json()
+print(GetIngredientInformation200ResponseNutrition.to_json())
 
 # convert the object into a dict
 get_ingredient_information200_response_nutrition_dict = get_ingredient_information200_response_nutrition_instance.to_dict()
 # create an instance of GetIngredientInformation200ResponseNutrition from a dict
-get_ingredient_information200_response_nutrition_form_dict = get_ingredient_information200_response_nutrition.from_dict(get_ingredient_information200_response_nutrition_dict)
+get_ingredient_information200_response_nutrition_from_dict = GetIngredientInformation200ResponseNutrition.from_dict(get_ingredient_information200_response_nutrition_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

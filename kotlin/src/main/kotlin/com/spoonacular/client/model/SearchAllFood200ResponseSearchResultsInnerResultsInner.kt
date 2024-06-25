@@ -55,5 +55,8 @@ data class SearchAllFood200ResponseSearchResultsInnerResultsInner (
     @Json(name = "content")
     val content: kotlin.String?
 
-)
+) {
+
+
+}
 

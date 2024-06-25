@@ -43,5 +43,8 @@ data class GenerateMealPlan200ResponseNutrients (
     @Json(name = "protein")
     val protein: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

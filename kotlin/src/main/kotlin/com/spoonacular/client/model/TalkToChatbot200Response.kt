@@ -36,5 +36,8 @@ data class TalkToChatbot200Response (
     @Json(name = "media")
     val media: kotlin.collections.List<TalkToChatbot200ResponseMediaInner>
 
-)
+) {
+
+
+}
 

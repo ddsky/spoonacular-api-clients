@@ -51,7 +51,7 @@ import com.spoonacular.client.JSON;
 /**
  * GuessNutritionByDishName200ResponseCalories
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GuessNutritionByDishName200ResponseCalories {
   public static final String SERIALIZED_NAME_CONFIDENCE_RANGE95_PERCENT = "confidenceRange95Percent";
   @SerializedName(SERIALIZED_NAME_CONFIDENCE_RANGE95_PERCENT)

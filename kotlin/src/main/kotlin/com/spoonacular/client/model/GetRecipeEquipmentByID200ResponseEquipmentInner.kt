@@ -35,5 +35,8 @@ data class GetRecipeEquipmentByID200ResponseEquipmentInner (
     @Json(name = "name")
     val name: kotlin.String
 
-)
+) {
+
+
+}
 

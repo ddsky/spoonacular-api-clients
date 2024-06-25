@@ -35,5 +35,8 @@ data class ConnectUser200Response (
     @Json(name = "hash")
     val hash: kotlin.String
 
-)
+) {
+
+
+}
 

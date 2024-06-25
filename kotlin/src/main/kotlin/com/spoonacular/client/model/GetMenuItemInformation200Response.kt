@@ -77,5 +77,8 @@ data class GetMenuItemInformation200Response (
     @Json(name = "spoonacularScore")
     val spoonacularScore: java.math.BigDecimal? = null
 
-)
+) {
+
+
+}
 

@@ -2,22 +2,22 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addMealPlanTemplate**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template
-[**addToMealPlan**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan
-[**addToShoppingList**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List
-[**clearMealPlanDay**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day
-[**connectUser**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User
-[**deleteFromMealPlan**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan
-[**deleteFromShoppingList**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List
-[**deleteMealPlanTemplate**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template
-[**generateMealPlan**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan
-[**generateShoppingList**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List
-[**getMealPlanTemplate**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template
-[**getMealPlanTemplates**](MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates
-[**getMealPlanWeek**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week
-[**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addMealPlanTemplate**](MealPlanningApi.md#addMealPlanTemplate) | **POST** /mealplanner/{username}/templates | Add Meal Plan Template |
+| [**addToMealPlan**](MealPlanningApi.md#addToMealPlan) | **POST** /mealplanner/{username}/items | Add to Meal Plan |
+| [**addToShoppingList**](MealPlanningApi.md#addToShoppingList) | **POST** /mealplanner/{username}/shopping-list/items | Add to Shopping List |
+| [**clearMealPlanDay**](MealPlanningApi.md#clearMealPlanDay) | **DELETE** /mealplanner/{username}/day/{date} | Clear Meal Plan Day |
+| [**connectUser**](MealPlanningApi.md#connectUser) | **POST** /users/connect | Connect User |
+| [**deleteFromMealPlan**](MealPlanningApi.md#deleteFromMealPlan) | **DELETE** /mealplanner/{username}/items/{id} | Delete from Meal Plan |
+| [**deleteFromShoppingList**](MealPlanningApi.md#deleteFromShoppingList) | **DELETE** /mealplanner/{username}/shopping-list/items/{id} | Delete from Shopping List |
+| [**deleteMealPlanTemplate**](MealPlanningApi.md#deleteMealPlanTemplate) | **DELETE** /mealplanner/{username}/templates/{id} | Delete Meal Plan Template |
+| [**generateMealPlan**](MealPlanningApi.md#generateMealPlan) | **GET** /mealplanner/generate | Generate Meal Plan |
+| [**generateShoppingList**](MealPlanningApi.md#generateShoppingList) | **POST** /mealplanner/{username}/shopping-list/{start_date}/{end_date} | Generate Shopping List |
+| [**getMealPlanTemplate**](MealPlanningApi.md#getMealPlanTemplate) | **GET** /mealplanner/{username}/templates/{id} | Get Meal Plan Template |
+| [**getMealPlanTemplates**](MealPlanningApi.md#getMealPlanTemplates) | **GET** /mealplanner/{username}/templates | Get Meal Plan Templates |
+| [**getMealPlanWeek**](MealPlanningApi.md#getMealPlanWeek) | **GET** /mealplanner/{username}/week/{start_date} | Get Meal Plan Week |
+| [**getShoppingList**](MealPlanningApi.md#getShoppingList) | **GET** /mealplanner/{username}/shopping-list | Get Shopping List |
 
 
 <a id="addMealPlanTemplate"></a>
@@ -50,11 +50,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -103,12 +102,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **hash** | **kotlin.String**| The private hash for the username. |
- **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  |
+| **username** | **kotlin.String**| The username. | |
+| **hash** | **kotlin.String**| The private hash for the username. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **addToMealPlanRequest** | [**AddToMealPlanRequest**](AddToMealPlanRequest.md)|  | |
 
 ### Return type
 
@@ -157,12 +155,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **hash** | **kotlin.String**| The private hash for the username. |
- **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  |
+| **username** | **kotlin.String**| The username. | |
+| **hash** | **kotlin.String**| The private hash for the username. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **addToShoppingListRequest** | [**AddToShoppingListRequest**](AddToShoppingListRequest.md)|  | |
 
 ### Return type
 
@@ -211,12 +208,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **date** | **kotlin.String**| The date in the format yyyy-mm-dd. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **date** | **kotlin.String**| The date in the format yyyy-mm-dd. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -263,10 +259,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **connectUserRequest** | [**ConnectUserRequest**](ConnectUserRequest.md)|  | |
 
 ### Return type
 
@@ -315,12 +310,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **id** | **java.math.BigDecimal**| The shopping list item id. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **id** | **java.math.BigDecimal**| The shopping list item id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -369,12 +363,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **id** | **kotlin.Int**| The item&#39;s id. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -423,12 +416,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **id** | **kotlin.Int**| The item&#39;s id. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -478,13 +470,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **timeFrame** | **kotlin.String**| Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | [optional]
- **targetCalories** | **java.math.BigDecimal**| What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | [optional]
- **diet** | **kotlin.String**| Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | [optional]
- **exclude** | **kotlin.String**| A comma-separated list of allergens or ingredients that must be excluded. | [optional]
+| **timeFrame** | **kotlin.String**| Either for one \&quot;day\&quot; or an entire \&quot;week\&quot;. | [optional] |
+| **targetCalories** | **java.math.BigDecimal**| What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal. | [optional] |
+| **diet** | **kotlin.String**| Enter a diet that the meal plan has to adhere to. See a full list of supported diets. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **exclude** | **kotlin.String**| A comma-separated list of allergens or ingredients that must be excluded. | [optional] |
 
 ### Return type
 
@@ -534,13 +525,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **startDate** | **kotlin.String**| The start date in the format yyyy-mm-dd. |
- **endDate** | **kotlin.String**| The end date in the format yyyy-mm-dd. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **startDate** | **kotlin.String**| The start date in the format yyyy-mm-dd. | |
+| **endDate** | **kotlin.String**| The end date in the format yyyy-mm-dd. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -589,12 +579,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **id** | **kotlin.Int**| The item&#39;s id. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -642,11 +631,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -695,12 +683,11 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **startDate** | **kotlin.String**| The start date of the meal planned week in the format yyyy-mm-dd. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| **startDate** | **kotlin.String**| The start date of the meal planned week in the format yyyy-mm-dd. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 
@@ -748,11 +735,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| The username. |
- **hash** | **kotlin.String**| The private hash for the username. |
+| **username** | **kotlin.String**| The username. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hash** | **kotlin.String**| The private hash for the username. | |
 
 ### Return type
 

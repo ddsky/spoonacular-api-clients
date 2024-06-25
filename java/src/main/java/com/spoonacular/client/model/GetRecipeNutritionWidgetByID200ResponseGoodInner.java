@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeNutritionWidgetByID200ResponseGoodInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)

@@ -35,5 +35,8 @@ data class AnalyzeRecipeInstructions200ResponseIngredientsInner (
     @Json(name = "name")
     val name: kotlin.String
 
-)
+) {
+
+
+}
 

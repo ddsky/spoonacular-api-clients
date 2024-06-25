@@ -48,5 +48,8 @@ data class SearchAllFood200Response (
     @Json(name = "searchResults")
     val searchResults: kotlin.collections.Set<SearchAllFood200ResponseSearchResultsInner>
 
-)
+) {
+
+
+}
 

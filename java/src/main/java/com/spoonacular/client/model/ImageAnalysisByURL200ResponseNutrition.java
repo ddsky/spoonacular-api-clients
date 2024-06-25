@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * ImageAnalysisByURL200ResponseNutrition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class ImageAnalysisByURL200ResponseNutrition {
   public static final String SERIALIZED_NAME_RECIPES_USED = "recipesUsed";
   @SerializedName(SERIALIZED_NAME_RECIPES_USED)

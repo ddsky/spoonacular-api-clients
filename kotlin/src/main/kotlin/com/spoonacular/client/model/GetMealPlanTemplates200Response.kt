@@ -32,5 +32,8 @@ data class GetMealPlanTemplates200Response (
     @Json(name = "templates")
     val templates: kotlin.collections.Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>
 
-)
+) {
+
+
+}
 

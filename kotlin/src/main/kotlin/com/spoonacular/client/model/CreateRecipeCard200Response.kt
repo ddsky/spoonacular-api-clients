@@ -31,5 +31,8 @@ data class CreateRecipeCard200Response (
     @Json(name = "url")
     val url: kotlin.String
 
-)
+) {
+
+
+}
 

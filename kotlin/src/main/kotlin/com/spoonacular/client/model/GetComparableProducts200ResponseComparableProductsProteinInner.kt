@@ -43,5 +43,8 @@ data class GetComparableProducts200ResponseComparableProductsProteinInner (
     @Json(name = "title")
     val title: kotlin.String
 
-)
+) {
+
+
+}
 

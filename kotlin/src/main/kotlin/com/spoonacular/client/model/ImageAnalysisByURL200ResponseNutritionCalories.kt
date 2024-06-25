@@ -44,5 +44,8 @@ data class ImageAnalysisByURL200ResponseNutritionCalories (
     @Json(name = "standardDeviation")
     val standardDeviation: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

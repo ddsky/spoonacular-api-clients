@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.get_conversation_suggests200_response_suggests_inner import GetConversationSuggests200ResponseSuggestsInner
@@ -32,11 +32,11 @@ class GetConversationSuggests200ResponseSuggests(BaseModel):
     underscore: Annotated[List[GetConversationSuggests200ResponseSuggestsInner], Field(min_length=0)] = Field(alias="_")
     __properties: ClassVar[List[str]] = ["_"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

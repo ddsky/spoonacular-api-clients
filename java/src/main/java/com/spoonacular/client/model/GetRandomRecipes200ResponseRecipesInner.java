@@ -56,7 +56,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRandomRecipes200ResponseRecipesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetRandomRecipes200ResponseRecipesInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -116,7 +116,7 @@ public class GetRandomRecipes200ResponseRecipesInner {
 
   public static final String SERIALIZED_NAME_ANALYZED_INSTRUCTIONS = "analyzedInstructions";
   @SerializedName(SERIALIZED_NAME_ANALYZED_INSTRUCTIONS)
-  private List<Object> analyzedInstructions;
+  private List<Object> analyzedInstructions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CHEAP = "cheap";
   @SerializedName(SERIALIZED_NAME_CHEAP)
@@ -128,7 +128,7 @@ public class GetRandomRecipes200ResponseRecipesInner {
 
   public static final String SERIALIZED_NAME_CUISINES = "cuisines";
   @SerializedName(SERIALIZED_NAME_CUISINES)
-  private List<String> cuisines;
+  private List<String> cuisines = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DAIRY_FREE = "dairyFree";
   @SerializedName(SERIALIZED_NAME_DAIRY_FREE)
@@ -136,7 +136,7 @@ public class GetRandomRecipes200ResponseRecipesInner {
 
   public static final String SERIALIZED_NAME_DIETS = "diets";
   @SerializedName(SERIALIZED_NAME_DIETS)
-  private List<String> diets;
+  private List<String> diets = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GAPS = "gaps";
   @SerializedName(SERIALIZED_NAME_GAPS)
@@ -160,7 +160,7 @@ public class GetRandomRecipes200ResponseRecipesInner {
 
   public static final String SERIALIZED_NAME_OCCASIONS = "occasions";
   @SerializedName(SERIALIZED_NAME_OCCASIONS)
-  private List<String> occasions;
+  private List<String> occasions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUSTAINABLE = "sustainable";
   @SerializedName(SERIALIZED_NAME_SUSTAINABLE)
@@ -192,11 +192,11 @@ public class GetRandomRecipes200ResponseRecipesInner {
 
   public static final String SERIALIZED_NAME_DISH_TYPES = "dishTypes";
   @SerializedName(SERIALIZED_NAME_DISH_TYPES)
-  private List<String> dishTypes;
+  private List<String> dishTypes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTENDED_INGREDIENTS = "extendedIngredients";
   @SerializedName(SERIALIZED_NAME_EXTENDED_INGREDIENTS)
-  private Set<GetRecipeInformation200ResponseExtendedIngredientsInner> extendedIngredients;
+  private Set<GetRecipeInformation200ResponseExtendedIngredientsInner> extendedIngredients = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
   @SerializedName(SERIALIZED_NAME_SUMMARY)

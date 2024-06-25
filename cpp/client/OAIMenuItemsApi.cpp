@@ -246,7 +246,7 @@ void OAIMenuItemsApi::autocompleteMenuItemSearch(const QString &query, const ::O
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query)));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (number.hasValue())
     {
@@ -261,7 +261,7 @@ void OAIMenuItemsApi::autocompleteMenuItemSearch(const QString &query, const ::O
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -556,7 +556,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelImage(const double &id, const ::Open
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_optional_nutrients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(show_optional_nutrients.stringValue()));
     }
     if (show_zero_values.hasValue())
     {
@@ -571,7 +571,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelImage(const double &id, const ::Open
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_zero_values.value())));
+        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(show_zero_values.stringValue()));
     }
     if (show_ingredients.hasValue())
     {
@@ -586,7 +586,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelImage(const double &id, const ::Open
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(show_ingredients.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -695,7 +695,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelWidget(const double &id, const ::Ope
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     if (show_optional_nutrients.hasValue())
     {
@@ -710,7 +710,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelWidget(const double &id, const ::Ope
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_optional_nutrients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(show_optional_nutrients.stringValue()));
     }
     if (show_zero_values.hasValue())
     {
@@ -725,7 +725,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelWidget(const double &id, const ::Ope
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_zero_values.value())));
+        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(show_zero_values.stringValue()));
     }
     if (show_ingredients.hasValue())
     {
@@ -740,7 +740,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelWidget(const double &id, const ::Ope
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(show_ingredients.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -836,7 +836,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query.value())));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
     }
     if (min_calories.hasValue())
     {
@@ -851,7 +851,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCalories")).append(querySuffix).append(QUrl::toPercentEncoding(min_calories.stringValue()));
     }
     if (max_calories.hasValue())
     {
@@ -866,7 +866,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCalories")).append(querySuffix).append(QUrl::toPercentEncoding(max_calories.stringValue()));
     }
     if (min_carbs.hasValue())
     {
@@ -881,7 +881,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_carbs.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(min_carbs.stringValue()));
     }
     if (max_carbs.hasValue())
     {
@@ -896,7 +896,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_carbs.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(max_carbs.stringValue()));
     }
     if (min_protein.hasValue())
     {
@@ -911,7 +911,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minProtein")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_protein.value())));
+        fullPath.append(QUrl::toPercentEncoding("minProtein")).append(querySuffix).append(QUrl::toPercentEncoding(min_protein.stringValue()));
     }
     if (max_protein.hasValue())
     {
@@ -926,7 +926,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxProtein")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_protein.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxProtein")).append(querySuffix).append(QUrl::toPercentEncoding(max_protein.stringValue()));
     }
     if (min_fat.hasValue())
     {
@@ -941,7 +941,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFat")).append(querySuffix).append(QUrl::toPercentEncoding(min_fat.stringValue()));
     }
     if (max_fat.hasValue())
     {
@@ -956,7 +956,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFat")).append(querySuffix).append(QUrl::toPercentEncoding(max_fat.stringValue()));
     }
     if (add_menu_item_information.hasValue())
     {
@@ -971,7 +971,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("addMenuItemInformation")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(add_menu_item_information.value())));
+        fullPath.append(QUrl::toPercentEncoding("addMenuItemInformation")).append(querySuffix).append(QUrl::toPercentEncoding(add_menu_item_information.stringValue()));
     }
     if (offset.hasValue())
     {
@@ -986,7 +986,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
     }
     if (number.hasValue())
     {
@@ -1001,7 +1001,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1110,7 +1110,7 @@ void OAIMenuItemsApi::visualizeMenuItemNutritionByID(const qint32 &id, const ::O
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);

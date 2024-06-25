@@ -130,24 +130,24 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SourceUnit (string) minLength
             if (this.SourceUnit != null && this.SourceUnit.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceUnit, length must be greater than 1.", new [] { "SourceUnit" });
+                yield return new ValidationResult("Invalid value for SourceUnit, length must be greater than 1.", new [] { "SourceUnit" });
             }
 
             // TargetUnit (string) minLength
             if (this.TargetUnit != null && this.TargetUnit.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TargetUnit, length must be greater than 1.", new [] { "TargetUnit" });
+                yield return new ValidationResult("Invalid value for TargetUnit, length must be greater than 1.", new [] { "TargetUnit" });
             }
 
             // Answer (string) minLength
             if (this.Answer != null && this.Answer.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Answer, length must be greater than 1.", new [] { "Answer" });
+                yield return new ValidationResult("Invalid value for Answer, length must be greater than 1.", new [] { "Answer" });
             }
 
             yield break;

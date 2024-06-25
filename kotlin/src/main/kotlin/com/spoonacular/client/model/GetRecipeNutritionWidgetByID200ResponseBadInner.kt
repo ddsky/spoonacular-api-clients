@@ -43,5 +43,8 @@ data class GetRecipeNutritionWidgetByID200ResponseBadInner (
     @Json(name = "percentOfDailyNeeds")
     val percentOfDailyNeeds: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

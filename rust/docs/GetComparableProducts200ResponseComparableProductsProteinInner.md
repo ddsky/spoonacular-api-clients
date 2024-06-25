@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**difference** | **f32** |  | 
+**difference** | **f64** |  | 
 **id** | **i32** |  | 
 **image** | **String** |  | 
 **title** | **String** |  | 

@@ -49,7 +49,7 @@ Method | HTTP request | Description
 
 ## analyze_a_recipe_search_query
 
-> crate::models::AnalyzeARecipeSearchQuery200Response analyze_a_recipe_search_query(q)
+> models::AnalyzeARecipeSearchQuery200Response analyze_a_recipe_search_query(q)
 Analyze a Recipe Search Query
 
 Parse a recipe search query to find out its intention.
@@ -63,7 +63,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AnalyzeARecipeSearchQuery200Response**](analyzeARecipeSearchQuery_200_response.md)
+[**models::AnalyzeARecipeSearchQuery200Response**](analyzeARecipeSearchQuery_200_response.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ## analyze_recipe_instructions
 
-> crate::models::AnalyzeRecipeInstructions200Response analyze_recipe_instructions(instructions)
+> models::AnalyzeRecipeInstructions200Response analyze_recipe_instructions(instructions)
 Analyze Recipe Instructions
 
 This endpoint allows you to break down instructions into atomic steps. Furthermore, each step will contain the ingredients and equipment required. Additionally, all ingredients and equipment from the recipe's instructions will be extracted independently of the step they're used in.
@@ -93,7 +93,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AnalyzeRecipeInstructions200Response**](analyzeRecipeInstructions_200_response.md)
+[**models::AnalyzeRecipeInstructions200Response**](analyzeRecipeInstructions_200_response.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Required | Notes
 
 ## autocomplete_recipe_search
 
-> Vec<crate::models::AutocompleteRecipeSearch200ResponseInner> autocomplete_recipe_search(query, number)
+> Vec<models::AutocompleteRecipeSearch200ResponseInner> autocomplete_recipe_search(query, number)
 Autocomplete Recipe Search
 
 Autocomplete a partial input to suggest possible recipe names.
@@ -124,7 +124,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::AutocompleteRecipeSearch200ResponseInner>**](autocompleteRecipeSearch_200_response_inner.md)
+[**Vec<models::AutocompleteRecipeSearch200ResponseInner>**](autocompleteRecipeSearch_200_response_inner.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ## classify_cuisine
 
-> crate::models::ClassifyCuisine200Response classify_cuisine(title, ingredient_list, language)
+> models::ClassifyCuisine200Response classify_cuisine(title, ingredient_list, language)
 Classify Cuisine
 
 Classify the recipe's cuisine.
@@ -156,7 +156,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClassifyCuisine200Response**](classifyCuisine_200_response.md)
+[**models::ClassifyCuisine200Response**](classifyCuisine_200_response.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Required | Notes
 
 ## compute_glycemic_load
 
-> crate::models::ComputeGlycemicLoad200Response compute_glycemic_load(compute_glycemic_load_request, language)
+> models::ComputeGlycemicLoad200Response compute_glycemic_load(compute_glycemic_load_request, language)
 Compute Glycemic Load
 
 Retrieve the glycemic index for a list of ingredients and compute the individual and total glycemic load.
@@ -187,7 +187,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ComputeGlycemicLoad200Response**](computeGlycemicLoad_200_response.md)
+[**models::ComputeGlycemicLoad200Response**](computeGlycemicLoad_200_response.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Required | Notes
 
 ## convert_amounts
 
-> crate::models::ConvertAmounts200Response convert_amounts(ingredient_name, source_amount, source_unit, target_unit)
+> models::ConvertAmounts200Response convert_amounts(ingredient_name, source_amount, source_unit, target_unit)
 Convert Amounts
 
 Convert amounts like \"2 cups of flour to grams\".
@@ -214,13 +214,13 @@ Convert amounts like \"2 cups of flour to grams\".
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **ingredient_name** | **String** | The ingredient which you want to convert. | [required] |
-**source_amount** | **f32** | The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\". | [required] |
+**source_amount** | **f64** | The amount from which you want to convert, e.g. the 2.5 in \"2.5 cups of flour to grams\". | [required] |
 **source_unit** | **String** | The unit from which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\" | [required] |
 **target_unit** | **String** | The unit to which you want to convert, e.g. the grams in \"2.5 cups of flour to grams\". You can also use \"piece\", e.g. \"3.4 oz tomatoes to piece\" | [required] |
 
 ### Return type
 
-[**crate::models::ConvertAmounts200Response**](convertAmounts_200_response.md)
+[**models::ConvertAmounts200Response**](convertAmounts_200_response.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_recipe_card
 
-> crate::models::CreateRecipeCard200Response create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, image, image_url, author, background_color, font_color, source)
+> models::CreateRecipeCard200Response create_recipe_card(title, ingredients, instructions, ready_in_minutes, servings, mask, background_image, image, image_url, author, background_color, font_color, source)
 Create Recipe Card
 
 Generate a recipe card for a recipe.
@@ -249,8 +249,8 @@ Name | Type | Description  | Required | Notes
 **title** | **String** | The title of the recipe. | [required] |
 **ingredients** | **String** | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n). | [required] |
 **instructions** | **String** | The instructions to make the recipe. One step per line (separate lines with \\\\n). | [required] |
-**ready_in_minutes** | **f32** | The number of minutes it takes to get the recipe on the table. | [required] |
-**servings** | **f32** | The number of servings the recipe makes. | [required] |
+**ready_in_minutes** | **f64** | The number of minutes it takes to get the recipe on the table. | [required] |
+**servings** | **f64** | The number of servings the recipe makes. | [required] |
 **mask** | **String** | The mask to put over the recipe image ('ellipseMask', 'diamondMask', 'starMask', 'heartMask', 'potMask', 'fishMask'). | [required] |
 **background_image** | **String** | The background image ('none', 'background1', or 'background2'). | [required] |
 **image** | Option<**std::path::PathBuf**> | The binary image of the recipe as jpg. |  |
@@ -262,7 +262,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::CreateRecipeCard200Response**](createRecipeCard_200_response.md)
+[**models::CreateRecipeCard200Response**](createRecipeCard_200_response.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Visualize a recipe's equipment list as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The recipe id. | [required] |
+**id** | **f64** | The recipe id. | [required] |
 
 ### Return type
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Required | Notes
 
 ## extract_recipe_from_website
 
-> crate::models::GetRecipeInformation200Response extract_recipe_from_website(url, force_extraction, analyze, include_nutrition, include_taste)
+> models::GetRecipeInformation200Response extract_recipe_from_website(url, force_extraction, analyze, include_nutrition, include_taste)
 Extract Recipe from Website
 
 This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
@@ -326,7 +326,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipeInformation200Response**](getRecipeInformation_200_response.md)
+[**models::GetRecipeInformation200Response**](getRecipeInformation_200_response.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_analyzed_recipe_instructions
 
-> crate::models::GetAnalyzedRecipeInstructions200Response get_analyzed_recipe_instructions(id, step_breakdown)
+> models::GetAnalyzedRecipeInstructions200Response get_analyzed_recipe_instructions(id, step_breakdown)
 Get Analyzed Recipe Instructions
 
 Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
@@ -357,7 +357,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetAnalyzedRecipeInstructions200Response**](getAnalyzedRecipeInstructions_200_response.md)
+[**models::GetAnalyzedRecipeInstructions200Response**](getAnalyzedRecipeInstructions_200_response.md)
 
 ### Authorization
 
@@ -373,7 +373,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_random_recipes
 
-> crate::models::GetRandomRecipes200Response get_random_recipes(limit_license, include_nutrition, include_tags, exclude_tags, number)
+> models::GetRandomRecipes200Response get_random_recipes(limit_license, include_nutrition, include_tags, exclude_tags, number)
 Get Random Recipes
 
 Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
@@ -391,7 +391,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRandomRecipes200Response**](getRandomRecipes_200_response.md)
+[**models::GetRandomRecipes200Response**](getRandomRecipes_200_response.md)
 
 ### Authorization
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_equipment_by_id
 
-> crate::models::GetRecipeEquipmentById200Response get_recipe_equipment_by_id(id)
+> models::GetRecipeEquipmentById200Response get_recipe_equipment_by_id(id)
 Equipment by ID
 
 Get a recipe's equipment list.
@@ -421,7 +421,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipeEquipmentById200Response**](getRecipeEquipmentByID_200_response.md)
+[**models::GetRecipeEquipmentById200Response**](getRecipeEquipmentByID_200_response.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_information
 
-> crate::models::GetRecipeInformation200Response get_recipe_information(id, include_nutrition)
+> models::GetRecipeInformation200Response get_recipe_information(id, include_nutrition)
 Get Recipe Information
 
 Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
@@ -452,7 +452,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipeInformation200Response**](getRecipeInformation_200_response.md)
+[**models::GetRecipeInformation200Response**](getRecipeInformation_200_response.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_information_bulk
 
-> Vec<crate::models::GetRecipeInformationBulk200ResponseInner> get_recipe_information_bulk(ids, include_nutrition)
+> Vec<models::GetRecipeInformationBulk200ResponseInner> get_recipe_information_bulk(ids, include_nutrition)
 Get Recipe Information Bulk
 
 Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
@@ -483,7 +483,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::GetRecipeInformationBulk200ResponseInner>**](getRecipeInformationBulk_200_response_inner.md)
+[**Vec<models::GetRecipeInformationBulk200ResponseInner>**](getRecipeInformationBulk_200_response_inner.md)
 
 ### Authorization
 
@@ -499,7 +499,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_ingredients_by_id
 
-> crate::models::GetRecipeIngredientsById200Response get_recipe_ingredients_by_id(id)
+> models::GetRecipeIngredientsById200Response get_recipe_ingredients_by_id(id)
 Ingredients by ID
 
 Get a recipe's ingredient list.
@@ -513,7 +513,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipeIngredientsById200Response**](getRecipeIngredientsByID_200_response.md)
+[**models::GetRecipeIngredientsById200Response**](getRecipeIngredientsByID_200_response.md)
 
 ### Authorization
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_nutrition_widget_by_id
 
-> crate::models::GetRecipeNutritionWidgetById200Response get_recipe_nutrition_widget_by_id(id)
+> models::GetRecipeNutritionWidgetById200Response get_recipe_nutrition_widget_by_id(id)
 Nutrition by ID
 
 Get a recipe's nutrition data.
@@ -543,7 +543,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipeNutritionWidgetById200Response**](getRecipeNutritionWidgetByID_200_response.md)
+[**models::GetRecipeNutritionWidgetById200Response**](getRecipeNutritionWidgetByID_200_response.md)
 
 ### Authorization
 
@@ -559,7 +559,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_price_breakdown_by_id
 
-> crate::models::GetRecipePriceBreakdownById200Response get_recipe_price_breakdown_by_id(id)
+> models::GetRecipePriceBreakdownById200Response get_recipe_price_breakdown_by_id(id)
 Price Breakdown by ID
 
 Get a recipe's price breakdown data.
@@ -573,7 +573,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipePriceBreakdownById200Response**](getRecipePriceBreakdownByID_200_response.md)
+[**models::GetRecipePriceBreakdownById200Response**](getRecipePriceBreakdownByID_200_response.md)
 
 ### Authorization
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_taste_by_id
 
-> crate::models::GetRecipeTasteById200Response get_recipe_taste_by_id(id, normalize)
+> models::GetRecipeTasteById200Response get_recipe_taste_by_id(id, normalize)
 Taste by ID
 
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -604,7 +604,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetRecipeTasteById200Response**](getRecipeTasteByID_200_response.md)
+[**models::GetRecipeTasteById200Response**](getRecipeTasteByID_200_response.md)
 
 ### Authorization
 
@@ -620,7 +620,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_similar_recipes
 
-> Vec<crate::models::GetSimilarRecipes200ResponseInner> get_similar_recipes(id, number, limit_license)
+> Vec<models::GetSimilarRecipes200ResponseInner> get_similar_recipes(id, number, limit_license)
 Get Similar Recipes
 
 Find recipes which are similar to the given one.
@@ -636,7 +636,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::GetSimilarRecipes200ResponseInner>**](getSimilarRecipes_200_response_inner.md)
+[**Vec<models::GetSimilarRecipes200ResponseInner>**](getSimilarRecipes_200_response_inner.md)
 
 ### Authorization
 
@@ -652,7 +652,7 @@ Name | Type | Description  | Required | Notes
 
 ## guess_nutrition_by_dish_name
 
-> crate::models::GuessNutritionByDishName200Response guess_nutrition_by_dish_name(title)
+> models::GuessNutritionByDishName200Response guess_nutrition_by_dish_name(title)
 Guess Nutrition by Dish Name
 
 Estimate the macronutrients of a dish based on its title.
@@ -666,7 +666,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GuessNutritionByDishName200Response**](guessNutritionByDishName_200_response.md)
+[**models::GuessNutritionByDishName200Response**](guessNutritionByDishName_200_response.md)
 
 ### Authorization
 
@@ -682,7 +682,7 @@ Name | Type | Description  | Required | Notes
 
 ## parse_ingredients
 
-> Vec<crate::models::ParseIngredients200ResponseInner> parse_ingredients(ingredient_list, servings, language, include_nutrition)
+> Vec<models::ParseIngredients200ResponseInner> parse_ingredients(ingredient_list, servings, language, include_nutrition)
 Parse Ingredients
 
 Extract an ingredient from plain text.
@@ -693,13 +693,13 @@ Extract an ingredient from plain text.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
-**servings** | **f32** | The number of servings that you can make from the ingredients. | [required] |
+**servings** | **f64** | The number of servings that you can make from the ingredients. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
 **include_nutrition** | Option<**bool**> |  |  |
 
 ### Return type
 
-[**Vec<crate::models::ParseIngredients200ResponseInner>**](parseIngredients_200_response_inner.md)
+[**Vec<models::ParseIngredients200ResponseInner>**](parseIngredients_200_response_inner.md)
 
 ### Authorization
 
@@ -725,7 +725,7 @@ Visualize a recipe's price breakdown.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The recipe id. | [required] |
+**id** | **f64** | The recipe id. | [required] |
 
 ### Return type
 
@@ -745,7 +745,7 @@ Name | Type | Description  | Required | Notes
 
 ## quick_answer
 
-> crate::models::QuickAnswer200Response quick_answer(q)
+> models::QuickAnswer200Response quick_answer(q)
 Quick Answer
 
 Answer a nutrition related natural language question.
@@ -759,7 +759,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::QuickAnswer200Response**](quickAnswer_200_response.md)
+[**models::QuickAnswer200Response**](quickAnswer_200_response.md)
 
 ### Authorization
 
@@ -785,7 +785,7 @@ Visualize a recipe's nutritional information as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The recipe id. | [required] |
+**id** | **f64** | The recipe id. | [required] |
 
 ### Return type
 
@@ -815,7 +815,7 @@ Get a recipe's nutrition label as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The recipe id. | [required] |
+**id** | **f64** | The recipe id. | [required] |
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
 **show_ingredients** | Option<**bool**> | Whether to show a list of ingredients. |  |
@@ -848,7 +848,7 @@ Get a recipe's nutrition label as an HTML widget.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The recipe id. | [required] |
+**id** | **f64** | The recipe id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
@@ -882,7 +882,7 @@ Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, b
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f32** | The recipe id. | [required] |
+**id** | **f64** | The recipe id. | [required] |
 **normalize** | Option<**bool**> | Normalize to the strongest taste. |  |
 **rgb** | Option<**String**> | Red, green, blue values for the chart color. |  |
 
@@ -904,7 +904,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_recipes
 
-> crate::models::SearchRecipes200Response search_recipes(query, cuisine, exclude_cuisine, diet, intolerances, equipment, include_ingredients, exclude_ingredients, r#type, instructions_required, fill_ingredients, add_recipe_information, add_recipe_nutrition, author, tags, recipe_box_id, title_match, max_ready_time, min_servings, max_servings, ignore_pantry, sort, sort_direction, min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, number, limit_license)
+> models::SearchRecipes200Response search_recipes(query, cuisine, exclude_cuisine, diet, intolerances, equipment, include_ingredients, exclude_ingredients, r#type, instructions_required, fill_ingredients, add_recipe_information, add_recipe_nutrition, author, tags, recipe_box_id, title_match, max_ready_time, min_servings, max_servings, ignore_pantry, sort, sort_direction, min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, number, limit_license)
 Search Recipes
 
 Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
@@ -929,93 +929,93 @@ Name | Type | Description  | Required | Notes
 **add_recipe_nutrition** | Option<**bool**> | If set to true, you get nutritional information about each recipes returned. |  |
 **author** | Option<**String**> | The username of the recipe author. |  |
 **tags** | Option<**String**> | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. |  |
-**recipe_box_id** | Option<**f32**> | The id of the recipe box to which the search should be limited to. |  |
+**recipe_box_id** | Option<**f64**> | The id of the recipe box to which the search should be limited to. |  |
 **title_match** | Option<**String**> | Enter text that must be found in the title of the recipes. |  |
-**max_ready_time** | Option<**f32**> | The maximum time in minutes it should take to prepare and cook the recipe. |  |
-**min_servings** | Option<**f32**> | The minimum amount of servings the recipe is for. |  |
-**max_servings** | Option<**f32**> | The maximum amount of servings the recipe is for. |  |
+**max_ready_time** | Option<**f64**> | The maximum time in minutes it should take to prepare and cook the recipe. |  |
+**min_servings** | Option<**f64**> | The minimum amount of servings the recipe is for. |  |
+**max_servings** | Option<**f64**> | The maximum amount of servings the recipe is for. |  |
 **ignore_pantry** | Option<**bool**> | Whether to ignore typical pantry items, such as water, salt, flour, etc. |  |[default to false]
 **sort** | Option<**String**> | The strategy to sort recipes by. See a full list of supported sorting options. |  |
 **sort_direction** | Option<**String**> | The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending). |  |
-**min_carbs** | Option<**f32**> | The minimum amount of carbohydrates in grams the recipe must have. |  |
-**max_carbs** | Option<**f32**> | The maximum amount of carbohydrates in grams the recipe can have. |  |
-**min_protein** | Option<**f32**> | The minimum amount of protein in grams the recipe must have. |  |
-**max_protein** | Option<**f32**> | The maximum amount of protein in grams the recipe can have. |  |
-**min_calories** | Option<**f32**> | The minimum amount of calories the recipe must have. |  |
-**max_calories** | Option<**f32**> | The maximum amount of calories the recipe can have. |  |
-**min_fat** | Option<**f32**> | The minimum amount of fat in grams the recipe must have. |  |
-**max_fat** | Option<**f32**> | The maximum amount of fat in grams the recipe can have. |  |
-**min_alcohol** | Option<**f32**> | The minimum amount of alcohol in grams the recipe must have. |  |
-**max_alcohol** | Option<**f32**> | The maximum amount of alcohol in grams the recipe can have. |  |
-**min_caffeine** | Option<**f32**> | The minimum amount of caffeine in milligrams the recipe must have. |  |
-**max_caffeine** | Option<**f32**> | The maximum amount of caffeine in milligrams the recipe can have. |  |
-**min_copper** | Option<**f32**> | The minimum amount of copper in milligrams the recipe must have. |  |
-**max_copper** | Option<**f32**> | The maximum amount of copper in milligrams the recipe can have. |  |
-**min_calcium** | Option<**f32**> | The minimum amount of calcium in milligrams the recipe must have. |  |
-**max_calcium** | Option<**f32**> | The maximum amount of calcium in milligrams the recipe can have. |  |
-**min_choline** | Option<**f32**> | The minimum amount of choline in milligrams the recipe must have. |  |
-**max_choline** | Option<**f32**> | The maximum amount of choline in milligrams the recipe can have. |  |
-**min_cholesterol** | Option<**f32**> | The minimum amount of cholesterol in milligrams the recipe must have. |  |
-**max_cholesterol** | Option<**f32**> | The maximum amount of cholesterol in milligrams the recipe can have. |  |
-**min_fluoride** | Option<**f32**> | The minimum amount of fluoride in milligrams the recipe must have. |  |
-**max_fluoride** | Option<**f32**> | The maximum amount of fluoride in milligrams the recipe can have. |  |
-**min_saturated_fat** | Option<**f32**> | The minimum amount of saturated fat in grams the recipe must have. |  |
-**max_saturated_fat** | Option<**f32**> | The maximum amount of saturated fat in grams the recipe can have. |  |
-**min_vitamin_a** | Option<**f32**> | The minimum amount of Vitamin A in IU the recipe must have. |  |
-**max_vitamin_a** | Option<**f32**> | The maximum amount of Vitamin A in IU the recipe can have. |  |
-**min_vitamin_c** | Option<**f32**> | The minimum amount of Vitamin C milligrams the recipe must have. |  |
-**max_vitamin_c** | Option<**f32**> | The maximum amount of Vitamin C in milligrams the recipe can have. |  |
-**min_vitamin_d** | Option<**f32**> | The minimum amount of Vitamin D in micrograms the recipe must have. |  |
-**max_vitamin_d** | Option<**f32**> | The maximum amount of Vitamin D in micrograms the recipe can have. |  |
-**min_vitamin_e** | Option<**f32**> | The minimum amount of Vitamin E in milligrams the recipe must have. |  |
-**max_vitamin_e** | Option<**f32**> | The maximum amount of Vitamin E in milligrams the recipe can have. |  |
-**min_vitamin_k** | Option<**f32**> | The minimum amount of Vitamin K in micrograms the recipe must have. |  |
-**max_vitamin_k** | Option<**f32**> | The maximum amount of Vitamin K in micrograms the recipe can have. |  |
-**min_vitamin_b1** | Option<**f32**> | The minimum amount of Vitamin B1 in milligrams the recipe must have. |  |
-**max_vitamin_b1** | Option<**f32**> | The maximum amount of Vitamin B1 in milligrams the recipe can have. |  |
-**min_vitamin_b2** | Option<**f32**> | The minimum amount of Vitamin B2 in milligrams the recipe must have. |  |
-**max_vitamin_b2** | Option<**f32**> | The maximum amount of Vitamin B2 in milligrams the recipe can have. |  |
-**min_vitamin_b5** | Option<**f32**> | The minimum amount of Vitamin B5 in milligrams the recipe must have. |  |
-**max_vitamin_b5** | Option<**f32**> | The maximum amount of Vitamin B5 in milligrams the recipe can have. |  |
-**min_vitamin_b3** | Option<**f32**> | The minimum amount of Vitamin B3 in milligrams the recipe must have. |  |
-**max_vitamin_b3** | Option<**f32**> | The maximum amount of Vitamin B3 in milligrams the recipe can have. |  |
-**min_vitamin_b6** | Option<**f32**> | The minimum amount of Vitamin B6 in milligrams the recipe must have. |  |
-**max_vitamin_b6** | Option<**f32**> | The maximum amount of Vitamin B6 in milligrams the recipe can have. |  |
-**min_vitamin_b12** | Option<**f32**> | The minimum amount of Vitamin B12 in micrograms the recipe must have. |  |
-**max_vitamin_b12** | Option<**f32**> | The maximum amount of Vitamin B12 in micrograms the recipe can have. |  |
-**min_fiber** | Option<**f32**> | The minimum amount of fiber in grams the recipe must have. |  |
-**max_fiber** | Option<**f32**> | The maximum amount of fiber in grams the recipe can have. |  |
-**min_folate** | Option<**f32**> | The minimum amount of folate in micrograms the recipe must have. |  |
-**max_folate** | Option<**f32**> | The maximum amount of folate in micrograms the recipe can have. |  |
-**min_folic_acid** | Option<**f32**> | The minimum amount of folic acid in micrograms the recipe must have. |  |
-**max_folic_acid** | Option<**f32**> | The maximum amount of folic acid in micrograms the recipe can have. |  |
-**min_iodine** | Option<**f32**> | The minimum amount of iodine in micrograms the recipe must have. |  |
-**max_iodine** | Option<**f32**> | The maximum amount of iodine in micrograms the recipe can have. |  |
-**min_iron** | Option<**f32**> | The minimum amount of iron in milligrams the recipe must have. |  |
-**max_iron** | Option<**f32**> | The maximum amount of iron in milligrams the recipe can have. |  |
-**min_magnesium** | Option<**f32**> | The minimum amount of magnesium in milligrams the recipe must have. |  |
-**max_magnesium** | Option<**f32**> | The maximum amount of magnesium in milligrams the recipe can have. |  |
-**min_manganese** | Option<**f32**> | The minimum amount of manganese in milligrams the recipe must have. |  |
-**max_manganese** | Option<**f32**> | The maximum amount of manganese in milligrams the recipe can have. |  |
-**min_phosphorus** | Option<**f32**> | The minimum amount of phosphorus in milligrams the recipe must have. |  |
-**max_phosphorus** | Option<**f32**> | The maximum amount of phosphorus in milligrams the recipe can have. |  |
-**min_potassium** | Option<**f32**> | The minimum amount of potassium in milligrams the recipe must have. |  |
-**max_potassium** | Option<**f32**> | The maximum amount of potassium in milligrams the recipe can have. |  |
-**min_selenium** | Option<**f32**> | The minimum amount of selenium in micrograms the recipe must have. |  |
-**max_selenium** | Option<**f32**> | The maximum amount of selenium in micrograms the recipe can have. |  |
-**min_sodium** | Option<**f32**> | The minimum amount of sodium in milligrams the recipe must have. |  |
-**max_sodium** | Option<**f32**> | The maximum amount of sodium in milligrams the recipe can have. |  |
-**min_sugar** | Option<**f32**> | The minimum amount of sugar in grams the recipe must have. |  |
-**max_sugar** | Option<**f32**> | The maximum amount of sugar in grams the recipe can have. |  |
-**min_zinc** | Option<**f32**> | The minimum amount of zinc in milligrams the recipe must have. |  |
-**max_zinc** | Option<**f32**> | The maximum amount of zinc in milligrams the recipe can have. |  |
+**min_carbs** | Option<**f64**> | The minimum amount of carbohydrates in grams the recipe must have. |  |
+**max_carbs** | Option<**f64**> | The maximum amount of carbohydrates in grams the recipe can have. |  |
+**min_protein** | Option<**f64**> | The minimum amount of protein in grams the recipe must have. |  |
+**max_protein** | Option<**f64**> | The maximum amount of protein in grams the recipe can have. |  |
+**min_calories** | Option<**f64**> | The minimum amount of calories the recipe must have. |  |
+**max_calories** | Option<**f64**> | The maximum amount of calories the recipe can have. |  |
+**min_fat** | Option<**f64**> | The minimum amount of fat in grams the recipe must have. |  |
+**max_fat** | Option<**f64**> | The maximum amount of fat in grams the recipe can have. |  |
+**min_alcohol** | Option<**f64**> | The minimum amount of alcohol in grams the recipe must have. |  |
+**max_alcohol** | Option<**f64**> | The maximum amount of alcohol in grams the recipe can have. |  |
+**min_caffeine** | Option<**f64**> | The minimum amount of caffeine in milligrams the recipe must have. |  |
+**max_caffeine** | Option<**f64**> | The maximum amount of caffeine in milligrams the recipe can have. |  |
+**min_copper** | Option<**f64**> | The minimum amount of copper in milligrams the recipe must have. |  |
+**max_copper** | Option<**f64**> | The maximum amount of copper in milligrams the recipe can have. |  |
+**min_calcium** | Option<**f64**> | The minimum amount of calcium in milligrams the recipe must have. |  |
+**max_calcium** | Option<**f64**> | The maximum amount of calcium in milligrams the recipe can have. |  |
+**min_choline** | Option<**f64**> | The minimum amount of choline in milligrams the recipe must have. |  |
+**max_choline** | Option<**f64**> | The maximum amount of choline in milligrams the recipe can have. |  |
+**min_cholesterol** | Option<**f64**> | The minimum amount of cholesterol in milligrams the recipe must have. |  |
+**max_cholesterol** | Option<**f64**> | The maximum amount of cholesterol in milligrams the recipe can have. |  |
+**min_fluoride** | Option<**f64**> | The minimum amount of fluoride in milligrams the recipe must have. |  |
+**max_fluoride** | Option<**f64**> | The maximum amount of fluoride in milligrams the recipe can have. |  |
+**min_saturated_fat** | Option<**f64**> | The minimum amount of saturated fat in grams the recipe must have. |  |
+**max_saturated_fat** | Option<**f64**> | The maximum amount of saturated fat in grams the recipe can have. |  |
+**min_vitamin_a** | Option<**f64**> | The minimum amount of Vitamin A in IU the recipe must have. |  |
+**max_vitamin_a** | Option<**f64**> | The maximum amount of Vitamin A in IU the recipe can have. |  |
+**min_vitamin_c** | Option<**f64**> | The minimum amount of Vitamin C milligrams the recipe must have. |  |
+**max_vitamin_c** | Option<**f64**> | The maximum amount of Vitamin C in milligrams the recipe can have. |  |
+**min_vitamin_d** | Option<**f64**> | The minimum amount of Vitamin D in micrograms the recipe must have. |  |
+**max_vitamin_d** | Option<**f64**> | The maximum amount of Vitamin D in micrograms the recipe can have. |  |
+**min_vitamin_e** | Option<**f64**> | The minimum amount of Vitamin E in milligrams the recipe must have. |  |
+**max_vitamin_e** | Option<**f64**> | The maximum amount of Vitamin E in milligrams the recipe can have. |  |
+**min_vitamin_k** | Option<**f64**> | The minimum amount of Vitamin K in micrograms the recipe must have. |  |
+**max_vitamin_k** | Option<**f64**> | The maximum amount of Vitamin K in micrograms the recipe can have. |  |
+**min_vitamin_b1** | Option<**f64**> | The minimum amount of Vitamin B1 in milligrams the recipe must have. |  |
+**max_vitamin_b1** | Option<**f64**> | The maximum amount of Vitamin B1 in milligrams the recipe can have. |  |
+**min_vitamin_b2** | Option<**f64**> | The minimum amount of Vitamin B2 in milligrams the recipe must have. |  |
+**max_vitamin_b2** | Option<**f64**> | The maximum amount of Vitamin B2 in milligrams the recipe can have. |  |
+**min_vitamin_b5** | Option<**f64**> | The minimum amount of Vitamin B5 in milligrams the recipe must have. |  |
+**max_vitamin_b5** | Option<**f64**> | The maximum amount of Vitamin B5 in milligrams the recipe can have. |  |
+**min_vitamin_b3** | Option<**f64**> | The minimum amount of Vitamin B3 in milligrams the recipe must have. |  |
+**max_vitamin_b3** | Option<**f64**> | The maximum amount of Vitamin B3 in milligrams the recipe can have. |  |
+**min_vitamin_b6** | Option<**f64**> | The minimum amount of Vitamin B6 in milligrams the recipe must have. |  |
+**max_vitamin_b6** | Option<**f64**> | The maximum amount of Vitamin B6 in milligrams the recipe can have. |  |
+**min_vitamin_b12** | Option<**f64**> | The minimum amount of Vitamin B12 in micrograms the recipe must have. |  |
+**max_vitamin_b12** | Option<**f64**> | The maximum amount of Vitamin B12 in micrograms the recipe can have. |  |
+**min_fiber** | Option<**f64**> | The minimum amount of fiber in grams the recipe must have. |  |
+**max_fiber** | Option<**f64**> | The maximum amount of fiber in grams the recipe can have. |  |
+**min_folate** | Option<**f64**> | The minimum amount of folate in micrograms the recipe must have. |  |
+**max_folate** | Option<**f64**> | The maximum amount of folate in micrograms the recipe can have. |  |
+**min_folic_acid** | Option<**f64**> | The minimum amount of folic acid in micrograms the recipe must have. |  |
+**max_folic_acid** | Option<**f64**> | The maximum amount of folic acid in micrograms the recipe can have. |  |
+**min_iodine** | Option<**f64**> | The minimum amount of iodine in micrograms the recipe must have. |  |
+**max_iodine** | Option<**f64**> | The maximum amount of iodine in micrograms the recipe can have. |  |
+**min_iron** | Option<**f64**> | The minimum amount of iron in milligrams the recipe must have. |  |
+**max_iron** | Option<**f64**> | The maximum amount of iron in milligrams the recipe can have. |  |
+**min_magnesium** | Option<**f64**> | The minimum amount of magnesium in milligrams the recipe must have. |  |
+**max_magnesium** | Option<**f64**> | The maximum amount of magnesium in milligrams the recipe can have. |  |
+**min_manganese** | Option<**f64**> | The minimum amount of manganese in milligrams the recipe must have. |  |
+**max_manganese** | Option<**f64**> | The maximum amount of manganese in milligrams the recipe can have. |  |
+**min_phosphorus** | Option<**f64**> | The minimum amount of phosphorus in milligrams the recipe must have. |  |
+**max_phosphorus** | Option<**f64**> | The maximum amount of phosphorus in milligrams the recipe can have. |  |
+**min_potassium** | Option<**f64**> | The minimum amount of potassium in milligrams the recipe must have. |  |
+**max_potassium** | Option<**f64**> | The maximum amount of potassium in milligrams the recipe can have. |  |
+**min_selenium** | Option<**f64**> | The minimum amount of selenium in micrograms the recipe must have. |  |
+**max_selenium** | Option<**f64**> | The maximum amount of selenium in micrograms the recipe can have. |  |
+**min_sodium** | Option<**f64**> | The minimum amount of sodium in milligrams the recipe must have. |  |
+**max_sodium** | Option<**f64**> | The maximum amount of sodium in milligrams the recipe can have. |  |
+**min_sugar** | Option<**f64**> | The minimum amount of sugar in grams the recipe must have. |  |
+**max_sugar** | Option<**f64**> | The maximum amount of sugar in grams the recipe can have. |  |
+**min_zinc** | Option<**f64**> | The minimum amount of zinc in milligrams the recipe must have. |  |
+**max_zinc** | Option<**f64**> | The maximum amount of zinc in milligrams the recipe can have. |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 **limit_license** | Option<**bool**> | Whether the recipes should have an open license that allows display with proper attribution. |  |[default to true]
 
 ### Return type
 
-[**crate::models::SearchRecipes200Response**](searchRecipes_200_response.md)
+[**models::SearchRecipes200Response**](searchRecipes_200_response.md)
 
 ### Authorization
 
@@ -1031,7 +1031,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_recipes_by_ingredients
 
-> Vec<crate::models::SearchRecipesByIngredients200ResponseInner> search_recipes_by_ingredients(ingredients, number, limit_license, ranking, ignore_pantry)
+> Vec<models::SearchRecipesByIngredients200ResponseInner> search_recipes_by_ingredients(ingredients, number, limit_license, ranking, ignore_pantry)
 Search Recipes by Ingredients
 
  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
@@ -1044,12 +1044,12 @@ Name | Type | Description  | Required | Notes
 **ingredients** | Option<**String**> | A comma-separated list of ingredients that the recipes should contain. |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 **limit_license** | Option<**bool**> | Whether the recipes should have an open license that allows display with proper attribution. |  |[default to true]
-**ranking** | Option<**f32**> | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. |  |
+**ranking** | Option<**f64**> | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. |  |
 **ignore_pantry** | Option<**bool**> | Whether to ignore typical pantry items, such as water, salt, flour, etc. |  |[default to false]
 
 ### Return type
 
-[**Vec<crate::models::SearchRecipesByIngredients200ResponseInner>**](searchRecipesByIngredients_200_response_inner.md)
+[**Vec<models::SearchRecipesByIngredients200ResponseInner>**](searchRecipesByIngredients_200_response_inner.md)
 
 ### Authorization
 
@@ -1065,7 +1065,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_recipes_by_nutrients
 
-> Vec<crate::models::SearchRecipesByNutrients200ResponseInner> search_recipes_by_nutrients(min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, number, random, limit_license)
+> Vec<models::SearchRecipesByNutrients200ResponseInner> search_recipes_by_nutrients(min_carbs, max_carbs, min_protein, max_protein, min_calories, max_calories, min_fat, max_fat, min_alcohol, max_alcohol, min_caffeine, max_caffeine, min_copper, max_copper, min_calcium, max_calcium, min_choline, max_choline, min_cholesterol, max_cholesterol, min_fluoride, max_fluoride, min_saturated_fat, max_saturated_fat, min_vitamin_a, max_vitamin_a, min_vitamin_c, max_vitamin_c, min_vitamin_d, max_vitamin_d, min_vitamin_e, max_vitamin_e, min_vitamin_k, max_vitamin_k, min_vitamin_b1, max_vitamin_b1, min_vitamin_b2, max_vitamin_b2, min_vitamin_b5, max_vitamin_b5, min_vitamin_b3, max_vitamin_b3, min_vitamin_b6, max_vitamin_b6, min_vitamin_b12, max_vitamin_b12, min_fiber, max_fiber, min_folate, max_folate, min_folic_acid, max_folic_acid, min_iodine, max_iodine, min_iron, max_iron, min_magnesium, max_magnesium, min_manganese, max_manganese, min_phosphorus, max_phosphorus, min_potassium, max_potassium, min_selenium, max_selenium, min_sodium, max_sodium, min_sugar, max_sugar, min_zinc, max_zinc, offset, number, random, limit_license)
 Search Recipes by Nutrients
 
 Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
@@ -1075,78 +1075,78 @@ Find a set of recipes that adhere to the given nutritional limits. You may set l
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_carbs** | Option<**f32**> | The minimum amount of carbohydrates in grams the recipe must have. |  |
-**max_carbs** | Option<**f32**> | The maximum amount of carbohydrates in grams the recipe can have. |  |
-**min_protein** | Option<**f32**> | The minimum amount of protein in grams the recipe must have. |  |
-**max_protein** | Option<**f32**> | The maximum amount of protein in grams the recipe can have. |  |
-**min_calories** | Option<**f32**> | The minimum amount of calories the recipe must have. |  |
-**max_calories** | Option<**f32**> | The maximum amount of calories the recipe can have. |  |
-**min_fat** | Option<**f32**> | The minimum amount of fat in grams the recipe must have. |  |
-**max_fat** | Option<**f32**> | The maximum amount of fat in grams the recipe can have. |  |
-**min_alcohol** | Option<**f32**> | The minimum amount of alcohol in grams the recipe must have. |  |
-**max_alcohol** | Option<**f32**> | The maximum amount of alcohol in grams the recipe can have. |  |
-**min_caffeine** | Option<**f32**> | The minimum amount of caffeine in milligrams the recipe must have. |  |
-**max_caffeine** | Option<**f32**> | The maximum amount of caffeine in milligrams the recipe can have. |  |
-**min_copper** | Option<**f32**> | The minimum amount of copper in milligrams the recipe must have. |  |
-**max_copper** | Option<**f32**> | The maximum amount of copper in milligrams the recipe can have. |  |
-**min_calcium** | Option<**f32**> | The minimum amount of calcium in milligrams the recipe must have. |  |
-**max_calcium** | Option<**f32**> | The maximum amount of calcium in milligrams the recipe can have. |  |
-**min_choline** | Option<**f32**> | The minimum amount of choline in milligrams the recipe must have. |  |
-**max_choline** | Option<**f32**> | The maximum amount of choline in milligrams the recipe can have. |  |
-**min_cholesterol** | Option<**f32**> | The minimum amount of cholesterol in milligrams the recipe must have. |  |
-**max_cholesterol** | Option<**f32**> | The maximum amount of cholesterol in milligrams the recipe can have. |  |
-**min_fluoride** | Option<**f32**> | The minimum amount of fluoride in milligrams the recipe must have. |  |
-**max_fluoride** | Option<**f32**> | The maximum amount of fluoride in milligrams the recipe can have. |  |
-**min_saturated_fat** | Option<**f32**> | The minimum amount of saturated fat in grams the recipe must have. |  |
-**max_saturated_fat** | Option<**f32**> | The maximum amount of saturated fat in grams the recipe can have. |  |
-**min_vitamin_a** | Option<**f32**> | The minimum amount of Vitamin A in IU the recipe must have. |  |
-**max_vitamin_a** | Option<**f32**> | The maximum amount of Vitamin A in IU the recipe can have. |  |
-**min_vitamin_c** | Option<**f32**> | The minimum amount of Vitamin C in milligrams the recipe must have. |  |
-**max_vitamin_c** | Option<**f32**> | The maximum amount of Vitamin C in milligrams the recipe can have. |  |
-**min_vitamin_d** | Option<**f32**> | The minimum amount of Vitamin D in micrograms the recipe must have. |  |
-**max_vitamin_d** | Option<**f32**> | The maximum amount of Vitamin D in micrograms the recipe can have. |  |
-**min_vitamin_e** | Option<**f32**> | The minimum amount of Vitamin E in milligrams the recipe must have. |  |
-**max_vitamin_e** | Option<**f32**> | The maximum amount of Vitamin E in milligrams the recipe can have. |  |
-**min_vitamin_k** | Option<**f32**> | The minimum amount of Vitamin K in micrograms the recipe must have. |  |
-**max_vitamin_k** | Option<**f32**> | The maximum amount of Vitamin K in micrograms the recipe can have. |  |
-**min_vitamin_b1** | Option<**f32**> | The minimum amount of Vitamin B1 in milligrams the recipe must have. |  |
-**max_vitamin_b1** | Option<**f32**> | The maximum amount of Vitamin B1 in milligrams the recipe can have. |  |
-**min_vitamin_b2** | Option<**f32**> | The minimum amount of Vitamin B2 in milligrams the recipe must have. |  |
-**max_vitamin_b2** | Option<**f32**> | The maximum amount of Vitamin B2 in milligrams the recipe can have. |  |
-**min_vitamin_b5** | Option<**f32**> | The minimum amount of Vitamin B5 in milligrams the recipe must have. |  |
-**max_vitamin_b5** | Option<**f32**> | The maximum amount of Vitamin B5 in milligrams the recipe can have. |  |
-**min_vitamin_b3** | Option<**f32**> | The minimum amount of Vitamin B3 in milligrams the recipe must have. |  |
-**max_vitamin_b3** | Option<**f32**> | The maximum amount of Vitamin B3 in milligrams the recipe can have. |  |
-**min_vitamin_b6** | Option<**f32**> | The minimum amount of Vitamin B6 in milligrams the recipe must have. |  |
-**max_vitamin_b6** | Option<**f32**> | The maximum amount of Vitamin B6 in milligrams the recipe can have. |  |
-**min_vitamin_b12** | Option<**f32**> | The minimum amount of Vitamin B12 in micrograms the recipe must have. |  |
-**max_vitamin_b12** | Option<**f32**> | The maximum amount of Vitamin B12 in micrograms the recipe can have. |  |
-**min_fiber** | Option<**f32**> | The minimum amount of fiber in grams the recipe must have. |  |
-**max_fiber** | Option<**f32**> | The maximum amount of fiber in grams the recipe can have. |  |
-**min_folate** | Option<**f32**> | The minimum amount of folate in micrograms the recipe must have. |  |
-**max_folate** | Option<**f32**> | The maximum amount of folate in micrograms the recipe can have. |  |
-**min_folic_acid** | Option<**f32**> | The minimum amount of folic acid in micrograms the recipe must have. |  |
-**max_folic_acid** | Option<**f32**> | The maximum amount of folic acid in micrograms the recipe can have. |  |
-**min_iodine** | Option<**f32**> | The minimum amount of iodine in micrograms the recipe must have. |  |
-**max_iodine** | Option<**f32**> | The maximum amount of iodine in micrograms the recipe can have. |  |
-**min_iron** | Option<**f32**> | The minimum amount of iron in milligrams the recipe must have. |  |
-**max_iron** | Option<**f32**> | The maximum amount of iron in milligrams the recipe can have. |  |
-**min_magnesium** | Option<**f32**> | The minimum amount of magnesium in milligrams the recipe must have. |  |
-**max_magnesium** | Option<**f32**> | The maximum amount of magnesium in milligrams the recipe can have. |  |
-**min_manganese** | Option<**f32**> | The minimum amount of manganese in milligrams the recipe must have. |  |
-**max_manganese** | Option<**f32**> | The maximum amount of manganese in milligrams the recipe can have. |  |
-**min_phosphorus** | Option<**f32**> | The minimum amount of phosphorus in milligrams the recipe must have. |  |
-**max_phosphorus** | Option<**f32**> | The maximum amount of phosphorus in milligrams the recipe can have. |  |
-**min_potassium** | Option<**f32**> | The minimum amount of potassium in milligrams the recipe must have. |  |
-**max_potassium** | Option<**f32**> | The maximum amount of potassium in milligrams the recipe can have. |  |
-**min_selenium** | Option<**f32**> | The minimum amount of selenium in micrograms the recipe must have. |  |
-**max_selenium** | Option<**f32**> | The maximum amount of selenium in micrograms the recipe can have. |  |
-**min_sodium** | Option<**f32**> | The minimum amount of sodium in milligrams the recipe must have. |  |
-**max_sodium** | Option<**f32**> | The maximum amount of sodium in milligrams the recipe can have. |  |
-**min_sugar** | Option<**f32**> | The minimum amount of sugar in grams the recipe must have. |  |
-**max_sugar** | Option<**f32**> | The maximum amount of sugar in grams the recipe can have. |  |
-**min_zinc** | Option<**f32**> | The minimum amount of zinc in milligrams the recipe must have. |  |
-**max_zinc** | Option<**f32**> | The maximum amount of zinc in milligrams the recipe can have. |  |
+**min_carbs** | Option<**f64**> | The minimum amount of carbohydrates in grams the recipe must have. |  |
+**max_carbs** | Option<**f64**> | The maximum amount of carbohydrates in grams the recipe can have. |  |
+**min_protein** | Option<**f64**> | The minimum amount of protein in grams the recipe must have. |  |
+**max_protein** | Option<**f64**> | The maximum amount of protein in grams the recipe can have. |  |
+**min_calories** | Option<**f64**> | The minimum amount of calories the recipe must have. |  |
+**max_calories** | Option<**f64**> | The maximum amount of calories the recipe can have. |  |
+**min_fat** | Option<**f64**> | The minimum amount of fat in grams the recipe must have. |  |
+**max_fat** | Option<**f64**> | The maximum amount of fat in grams the recipe can have. |  |
+**min_alcohol** | Option<**f64**> | The minimum amount of alcohol in grams the recipe must have. |  |
+**max_alcohol** | Option<**f64**> | The maximum amount of alcohol in grams the recipe can have. |  |
+**min_caffeine** | Option<**f64**> | The minimum amount of caffeine in milligrams the recipe must have. |  |
+**max_caffeine** | Option<**f64**> | The maximum amount of caffeine in milligrams the recipe can have. |  |
+**min_copper** | Option<**f64**> | The minimum amount of copper in milligrams the recipe must have. |  |
+**max_copper** | Option<**f64**> | The maximum amount of copper in milligrams the recipe can have. |  |
+**min_calcium** | Option<**f64**> | The minimum amount of calcium in milligrams the recipe must have. |  |
+**max_calcium** | Option<**f64**> | The maximum amount of calcium in milligrams the recipe can have. |  |
+**min_choline** | Option<**f64**> | The minimum amount of choline in milligrams the recipe must have. |  |
+**max_choline** | Option<**f64**> | The maximum amount of choline in milligrams the recipe can have. |  |
+**min_cholesterol** | Option<**f64**> | The minimum amount of cholesterol in milligrams the recipe must have. |  |
+**max_cholesterol** | Option<**f64**> | The maximum amount of cholesterol in milligrams the recipe can have. |  |
+**min_fluoride** | Option<**f64**> | The minimum amount of fluoride in milligrams the recipe must have. |  |
+**max_fluoride** | Option<**f64**> | The maximum amount of fluoride in milligrams the recipe can have. |  |
+**min_saturated_fat** | Option<**f64**> | The minimum amount of saturated fat in grams the recipe must have. |  |
+**max_saturated_fat** | Option<**f64**> | The maximum amount of saturated fat in grams the recipe can have. |  |
+**min_vitamin_a** | Option<**f64**> | The minimum amount of Vitamin A in IU the recipe must have. |  |
+**max_vitamin_a** | Option<**f64**> | The maximum amount of Vitamin A in IU the recipe can have. |  |
+**min_vitamin_c** | Option<**f64**> | The minimum amount of Vitamin C in milligrams the recipe must have. |  |
+**max_vitamin_c** | Option<**f64**> | The maximum amount of Vitamin C in milligrams the recipe can have. |  |
+**min_vitamin_d** | Option<**f64**> | The minimum amount of Vitamin D in micrograms the recipe must have. |  |
+**max_vitamin_d** | Option<**f64**> | The maximum amount of Vitamin D in micrograms the recipe can have. |  |
+**min_vitamin_e** | Option<**f64**> | The minimum amount of Vitamin E in milligrams the recipe must have. |  |
+**max_vitamin_e** | Option<**f64**> | The maximum amount of Vitamin E in milligrams the recipe can have. |  |
+**min_vitamin_k** | Option<**f64**> | The minimum amount of Vitamin K in micrograms the recipe must have. |  |
+**max_vitamin_k** | Option<**f64**> | The maximum amount of Vitamin K in micrograms the recipe can have. |  |
+**min_vitamin_b1** | Option<**f64**> | The minimum amount of Vitamin B1 in milligrams the recipe must have. |  |
+**max_vitamin_b1** | Option<**f64**> | The maximum amount of Vitamin B1 in milligrams the recipe can have. |  |
+**min_vitamin_b2** | Option<**f64**> | The minimum amount of Vitamin B2 in milligrams the recipe must have. |  |
+**max_vitamin_b2** | Option<**f64**> | The maximum amount of Vitamin B2 in milligrams the recipe can have. |  |
+**min_vitamin_b5** | Option<**f64**> | The minimum amount of Vitamin B5 in milligrams the recipe must have. |  |
+**max_vitamin_b5** | Option<**f64**> | The maximum amount of Vitamin B5 in milligrams the recipe can have. |  |
+**min_vitamin_b3** | Option<**f64**> | The minimum amount of Vitamin B3 in milligrams the recipe must have. |  |
+**max_vitamin_b3** | Option<**f64**> | The maximum amount of Vitamin B3 in milligrams the recipe can have. |  |
+**min_vitamin_b6** | Option<**f64**> | The minimum amount of Vitamin B6 in milligrams the recipe must have. |  |
+**max_vitamin_b6** | Option<**f64**> | The maximum amount of Vitamin B6 in milligrams the recipe can have. |  |
+**min_vitamin_b12** | Option<**f64**> | The minimum amount of Vitamin B12 in micrograms the recipe must have. |  |
+**max_vitamin_b12** | Option<**f64**> | The maximum amount of Vitamin B12 in micrograms the recipe can have. |  |
+**min_fiber** | Option<**f64**> | The minimum amount of fiber in grams the recipe must have. |  |
+**max_fiber** | Option<**f64**> | The maximum amount of fiber in grams the recipe can have. |  |
+**min_folate** | Option<**f64**> | The minimum amount of folate in micrograms the recipe must have. |  |
+**max_folate** | Option<**f64**> | The maximum amount of folate in micrograms the recipe can have. |  |
+**min_folic_acid** | Option<**f64**> | The minimum amount of folic acid in micrograms the recipe must have. |  |
+**max_folic_acid** | Option<**f64**> | The maximum amount of folic acid in micrograms the recipe can have. |  |
+**min_iodine** | Option<**f64**> | The minimum amount of iodine in micrograms the recipe must have. |  |
+**max_iodine** | Option<**f64**> | The maximum amount of iodine in micrograms the recipe can have. |  |
+**min_iron** | Option<**f64**> | The minimum amount of iron in milligrams the recipe must have. |  |
+**max_iron** | Option<**f64**> | The maximum amount of iron in milligrams the recipe can have. |  |
+**min_magnesium** | Option<**f64**> | The minimum amount of magnesium in milligrams the recipe must have. |  |
+**max_magnesium** | Option<**f64**> | The maximum amount of magnesium in milligrams the recipe can have. |  |
+**min_manganese** | Option<**f64**> | The minimum amount of manganese in milligrams the recipe must have. |  |
+**max_manganese** | Option<**f64**> | The maximum amount of manganese in milligrams the recipe can have. |  |
+**min_phosphorus** | Option<**f64**> | The minimum amount of phosphorus in milligrams the recipe must have. |  |
+**max_phosphorus** | Option<**f64**> | The maximum amount of phosphorus in milligrams the recipe can have. |  |
+**min_potassium** | Option<**f64**> | The minimum amount of potassium in milligrams the recipe must have. |  |
+**max_potassium** | Option<**f64**> | The maximum amount of potassium in milligrams the recipe can have. |  |
+**min_selenium** | Option<**f64**> | The minimum amount of selenium in micrograms the recipe must have. |  |
+**max_selenium** | Option<**f64**> | The maximum amount of selenium in micrograms the recipe can have. |  |
+**min_sodium** | Option<**f64**> | The minimum amount of sodium in milligrams the recipe must have. |  |
+**max_sodium** | Option<**f64**> | The maximum amount of sodium in milligrams the recipe can have. |  |
+**min_sugar** | Option<**f64**> | The minimum amount of sugar in grams the recipe must have. |  |
+**max_sugar** | Option<**f64**> | The maximum amount of sugar in grams the recipe can have. |  |
+**min_zinc** | Option<**f64**> | The minimum amount of zinc in milligrams the recipe must have. |  |
+**max_zinc** | Option<**f64**> | The maximum amount of zinc in milligrams the recipe can have. |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 **random** | Option<**bool**> | If true, every request will give you a random set of recipes within the requested limits. |  |
@@ -1154,7 +1154,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::SearchRecipesByNutrients200ResponseInner>**](searchRecipesByNutrients_200_response_inner.md)
+[**Vec<models::SearchRecipesByNutrients200ResponseInner>**](searchRecipesByNutrients_200_response_inner.md)
 
 ### Authorization
 
@@ -1170,7 +1170,7 @@ Name | Type | Description  | Required | Notes
 
 ## summarize_recipe
 
-> crate::models::SummarizeRecipe200Response summarize_recipe(id)
+> models::SummarizeRecipe200Response summarize_recipe(id)
 Summarize Recipe
 
 Automatically generate a short description that summarizes key information about the recipe.
@@ -1184,7 +1184,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SummarizeRecipe200Response**](summarizeRecipe_200_response.md)
+[**models::SummarizeRecipe200Response**](summarizeRecipe_200_response.md)
 
 ### Authorization
 
@@ -1244,9 +1244,9 @@ Visualize the price breakdown of a recipe.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
-**servings** | **f32** | The number of servings. | [required] |
+**servings** | **f64** | The number of servings. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
-**mode** | Option<**f32**> | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). |  |
+**mode** | Option<**f64**> | The mode in which the widget should be delivered. 1 = separate views (compact), 2 = all in one view (full). |  |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |
 **show_backlink** | Option<**bool**> | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  |
 
@@ -1342,7 +1342,7 @@ Visualize a recipe's nutritional information as HTML including CSS.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
-**servings** | **f32** | The number of servings. | [required] |
+**servings** | **f64** | The number of servings. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |
 **show_backlink** | Option<**bool**> | Whether to show a backlink to spoonacular. If set false, this call counts against your quota. |  |

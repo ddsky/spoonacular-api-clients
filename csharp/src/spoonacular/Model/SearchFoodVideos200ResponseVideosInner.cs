@@ -153,30 +153,30 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // ShortTitle (string) minLength
             if (this.ShortTitle != null && this.ShortTitle.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortTitle, length must be greater than 1.", new [] { "ShortTitle" });
+                yield return new ValidationResult("Invalid value for ShortTitle, length must be greater than 1.", new [] { "ShortTitle" });
             }
 
             // Thumbnail (string) minLength
             if (this.Thumbnail != null && this.Thumbnail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Thumbnail, length must be greater than 1.", new [] { "Thumbnail" });
+                yield return new ValidationResult("Invalid value for Thumbnail, length must be greater than 1.", new [] { "Thumbnail" });
             }
 
             // YouTubeId (string) minLength
             if (this.YouTubeId != null && this.YouTubeId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for YouTubeId, length must be greater than 1.", new [] { "YouTubeId" });
+                yield return new ValidationResult("Invalid value for YouTubeId, length must be greater than 1.", new [] { "YouTubeId" });
             }
 
             yield break;

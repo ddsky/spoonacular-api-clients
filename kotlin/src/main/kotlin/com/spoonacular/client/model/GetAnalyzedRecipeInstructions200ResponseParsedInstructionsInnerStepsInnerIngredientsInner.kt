@@ -43,5 +43,8 @@ data class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsI
     @Json(name = "image")
     val image: kotlin.String
 
-)
+) {
+
+
+}
 

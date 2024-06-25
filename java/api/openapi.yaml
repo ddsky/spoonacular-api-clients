@@ -1093,7 +1093,8 @@ paths:
       summary: Search Recipes
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/findByIngredients:
     get:
       deprecated: false
@@ -1444,7 +1445,8 @@ paths:
       summary: Search Recipes by Ingredients
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/findByNutrients:
     get:
       deprecated: false
@@ -2243,7 +2245,8 @@ paths:
       summary: Search Recipes by Nutrients
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/information:
     get:
       deprecated: false
@@ -2605,7 +2608,8 @@ paths:
       summary: Get Recipe Information
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/informationBulk:
     get:
       deprecated: false
@@ -3598,7 +3602,8 @@ paths:
       summary: Get Recipe Information Bulk
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/similar:
     get:
       deprecated: false
@@ -3691,7 +3696,8 @@ paths:
       summary: Get Similar Recipes
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/random:
     get:
       deprecated: false
@@ -4091,7 +4097,8 @@ paths:
       summary: Get Random Recipes
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/autocomplete:
     get:
       deprecated: false
@@ -4173,7 +4180,8 @@ paths:
       summary: Autocomplete Recipe Search
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/tasteWidget.json:
     get:
       deprecated: false
@@ -4229,7 +4237,8 @@ paths:
       summary: Taste by ID
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/tasteWidget.png:
     get:
       deprecated: false
@@ -4284,7 +4293,8 @@ paths:
       summary: Recipe Taste by ID Image
       tags:
       - recipes
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /recipes/{id}/equipmentWidget.json:
     get:
       deprecated: false
@@ -4331,7 +4341,8 @@ paths:
       summary: Equipment by ID
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/equipmentWidget.png:
     get:
       deprecated: false
@@ -4367,7 +4378,8 @@ paths:
       summary: Equipment by ID Image
       tags:
       - recipes
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /recipes/{id}/priceBreakdownWidget.json:
     get:
       deprecated: false
@@ -4508,7 +4520,8 @@ paths:
       summary: Price Breakdown by ID
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/priceBreakdownWidget.png:
     get:
       deprecated: false
@@ -4544,7 +4557,8 @@ paths:
       summary: Price Breakdown by ID Image
       tags:
       - recipes
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /recipes/{id}/ingredientWidget.json:
     get:
       deprecated: false
@@ -4682,7 +4696,8 @@ paths:
       summary: Ingredients by ID
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/ingredientWidget.png:
     get:
       deprecated: false
@@ -4730,7 +4745,8 @@ paths:
       summary: Ingredients by ID Image
       tags:
       - ingredients
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /recipes/{id}/nutritionWidget.json:
     get:
       deprecated: false
@@ -4886,7 +4902,8 @@ paths:
       summary: Nutrition by ID
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/nutritionWidget.png:
     get:
       deprecated: false
@@ -4922,7 +4939,8 @@ paths:
       summary: Recipe Nutrition by ID Image
       tags:
       - recipes
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /recipes/{id}/nutritionLabel:
     get:
       deprecated: false
@@ -4994,7 +5012,8 @@ paths:
       summary: Recipe Nutrition Label Widget
       tags:
       - recipes
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/{id}/nutritionLabel.png:
     get:
       deprecated: false
@@ -5057,7 +5076,8 @@ paths:
       summary: Recipe Nutrition Label Image
       tags:
       - recipes
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /recipes/{id}/analyzedInstructions:
     get:
       deprecated: false
@@ -5148,7 +5168,8 @@ paths:
       summary: Get Analyzed Recipe Instructions
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/extract:
     get:
       deprecated: false
@@ -5539,7 +5560,8 @@ paths:
       summary: Extract Recipe from Website
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/ingredientWidget:
     get:
       deprecated: false
@@ -5596,7 +5618,8 @@ paths:
       summary: Ingredients by ID Widget
       tags:
       - recipes
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/{id}/tasteWidget:
     get:
       deprecated: false
@@ -5651,7 +5674,8 @@ paths:
       summary: Recipe Taste by ID Widget
       tags:
       - recipes
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/{id}/equipmentWidget:
     get:
       deprecated: false
@@ -5697,7 +5721,8 @@ paths:
       summary: Equipment by ID Widget
       tags:
       - recipes
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/{id}/priceBreakdownWidget:
     get:
       deprecated: false
@@ -5742,7 +5767,8 @@ paths:
       summary: Price Breakdown by ID Widget
       tags:
       - recipes
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/visualizeTaste:
     post:
       deprecated: false
@@ -5791,7 +5817,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/visualizeNutrition:
     post:
       deprecated: false
@@ -5840,7 +5867,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/visualizePriceEstimator:
     post:
       deprecated: false
@@ -5888,7 +5916,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/visualizeEquipment:
     post:
       deprecated: false
@@ -5923,7 +5952,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/analyze:
     post:
       deprecated: false
@@ -5999,7 +6029,8 @@ paths:
           description: Not Found
       summary: Analyze Recipe
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/summary:
     get:
       deprecated: false
@@ -6057,7 +6088,8 @@ paths:
       summary: Summarize Recipe
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/card:
     get:
       deprecated: false
@@ -6129,7 +6161,8 @@ paths:
         "404":
           description: Not Found
       summary: Create Recipe Card
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/visualizeRecipe:
     post:
       deprecated: false
@@ -6174,7 +6207,8 @@ paths:
       tags:
       - recipes
       x-content-type: multipart/form-data
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/analyzeInstructions:
     post:
       deprecated: false
@@ -6259,7 +6293,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/cuisine:
     post:
       deprecated: false
@@ -6316,7 +6351,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/queries/analyze:
     get:
       deprecated: false
@@ -6366,7 +6402,8 @@ paths:
       summary: Analyze a Recipe Search Query
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/convert:
     get:
       deprecated: false
@@ -6441,7 +6478,8 @@ paths:
       summary: Convert Amounts
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/parseIngredients:
     post:
       deprecated: false
@@ -6861,7 +6899,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/{id}/nutritionWidget:
     get:
       deprecated: false
@@ -6907,7 +6946,8 @@ paths:
       summary: Recipe Nutrition by ID Widget
       tags:
       - recipes
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/visualizeIngredients:
     post:
       deprecated: false
@@ -6956,7 +6996,8 @@ paths:
       tags:
       - ingredients
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /recipes/guessNutrition:
     get:
       deprecated: false
@@ -7023,7 +7064,8 @@ paths:
       summary: Guess Nutrition by Dish Name
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/{id}/information:
     get:
       deprecated: false
@@ -7241,7 +7283,8 @@ paths:
       summary: Get Ingredient Information
       tags:
       - ingredients
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/{id}/amount:
     get:
       deprecated: false
@@ -7310,7 +7353,8 @@ paths:
       summary: Compute Ingredient Amount
       tags:
       - ingredients
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/glycemicLoad:
     post:
       deprecated: false
@@ -7380,7 +7424,8 @@ paths:
       tags:
       - recipes
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/autocomplete:
     get:
       deprecated: false
@@ -7600,7 +7645,8 @@ paths:
       summary: Autocomplete Ingredient Search
       tags:
       - ingredients
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/search:
     get:
       deprecated: false
@@ -7793,7 +7839,8 @@ paths:
       summary: Ingredient Search
       tags:
       - ingredients
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/substitutes:
     get:
       deprecated: false
@@ -7838,7 +7885,8 @@ paths:
       summary: Get Ingredient Substitutes
       tags:
       - ingredients
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/{id}/substitutes:
     get:
       deprecated: false
@@ -7883,7 +7931,8 @@ paths:
       summary: Get Ingredient Substitutes by ID
       tags:
       - ingredients
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/search:
     get:
       deprecated: false
@@ -8039,7 +8088,8 @@ paths:
       summary: Search Grocery Products
       tags:
       - products
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/upc/{upc}:
     get:
       deprecated: false
@@ -8149,7 +8199,8 @@ paths:
       summary: Search Grocery Products by UPC
       tags:
       - products
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/customFoods/search:
     get:
       deprecated: false
@@ -8237,7 +8288,8 @@ paths:
       summary: Search Custom Foods
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/{id}:
     get:
       deprecated: false
@@ -8549,7 +8601,8 @@ paths:
       summary: Get Product Information
       tags:
       - products
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/upc/{upc}/comparable:
     get:
       deprecated: false
@@ -8627,7 +8680,8 @@ paths:
       summary: Get Comparable Products
       tags:
       - products
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/suggest:
     get:
       deprecated: false
@@ -8682,7 +8736,8 @@ paths:
       summary: Autocomplete Product Search
       tags:
       - products
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/{id}/nutritionWidget:
     get:
       deprecated: false
@@ -8731,7 +8786,8 @@ paths:
       summary: Product Nutrition by ID Widget
       tags:
       - products
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /food/products/{id}/nutritionWidget.png:
     get:
       deprecated: false
@@ -8767,7 +8823,8 @@ paths:
       summary: Product Nutrition by ID Image
       tags:
       - products
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /food/products/{id}/nutritionLabel:
     get:
       deprecated: false
@@ -8839,7 +8896,8 @@ paths:
       summary: Product Nutrition Label Widget
       tags:
       - products
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /food/products/{id}/nutritionLabel.png:
     get:
       deprecated: false
@@ -8902,7 +8960,8 @@ paths:
       summary: Product Nutrition Label Image
       tags:
       - products
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /food/products/classify:
     post:
       deprecated: false
@@ -8967,7 +9026,8 @@ paths:
       tags:
       - products
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/products/classifyBatch:
     post:
       deprecated: false
@@ -9054,7 +9114,8 @@ paths:
       tags:
       - products
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/ingredients/map:
     post:
       deprecated: false
@@ -9173,7 +9234,8 @@ paths:
       tags:
       - ingredients
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/menuItems/suggest:
     get:
       deprecated: false
@@ -9229,7 +9291,8 @@ paths:
       summary: Autocomplete Menu Item Search
       tags:
       - menu items
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/menuItems/search:
     get:
       deprecated: false
@@ -9398,7 +9461,8 @@ paths:
       summary: Search Menu Items
       tags:
       - menu items
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/menuItems/{id}:
     get:
       deprecated: false
@@ -9476,7 +9540,8 @@ paths:
       summary: Get Menu Item Information
       tags:
       - menu items
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/menuItems/{id}/nutritionWidget:
     get:
       deprecated: false
@@ -9522,7 +9587,8 @@ paths:
       summary: Menu Item Nutrition by ID Widget
       tags:
       - menu items
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /food/menuItems/{id}/nutritionWidget.png:
     get:
       deprecated: false
@@ -9559,7 +9625,8 @@ paths:
       summary: Menu Item Nutrition by ID Image
       tags:
       - menu items
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /food/menuItems/{id}/nutritionLabel:
     get:
       deprecated: false
@@ -9632,7 +9699,8 @@ paths:
       summary: Menu Item Nutrition Label Widget
       tags:
       - menu items
-      x-accepts: text/html
+      x-accepts:
+      - text/html
   /food/menuItems/{id}/nutritionLabel.png:
     get:
       deprecated: false
@@ -9695,7 +9763,8 @@ paths:
       summary: Menu Item Nutrition Label Image
       tags:
       - menu items
-      x-accepts: image/png
+      x-accepts:
+      - image/png
   /mealplanner/generate:
     get:
       deprecated: false
@@ -9788,7 +9857,8 @@ paths:
       summary: Generate Meal Plan
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/week/{start_date}:
     get:
       deprecated: false
@@ -10119,7 +10189,8 @@ paths:
       summary: Get Meal Plan Week
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/day/{date}:
     delete:
       deprecated: false
@@ -10172,7 +10243,8 @@ paths:
       summary: Clear Meal Plan Day
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/items:
     post:
       deprecated: false
@@ -10243,7 +10315,8 @@ paths:
       tags:
       - meal planning
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/items/{id}:
     delete:
       deprecated: false
@@ -10295,7 +10368,8 @@ paths:
       summary: Delete from Meal Plan
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/templates:
     get:
       deprecated: false
@@ -10352,7 +10426,8 @@ paths:
       summary: Get Meal Plan Templates
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
       deprecated: false
       description: Add a meal plan template for a user.
@@ -10448,7 +10523,8 @@ paths:
       summary: Add Meal Plan Template
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/templates/{id}:
     delete:
       deprecated: false
@@ -10501,7 +10577,8 @@ paths:
       summary: Delete Meal Plan Template
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     get:
       deprecated: false
       description: Get information about a meal plan template.
@@ -11464,7 +11541,8 @@ paths:
       summary: Get Meal Plan Template
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/shopping-list:
     get:
       deprecated: false
@@ -11532,7 +11610,8 @@ paths:
       summary: Get Shopping List
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/shopping-list/{start_date}/{end_date}:
     post:
       deprecated: false
@@ -11619,7 +11698,8 @@ paths:
       summary: Generate Shopping List
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /users/connect:
     post:
       deprecated: false
@@ -11665,7 +11745,8 @@ paths:
       tags:
       - meal planning
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/shopping-list/items:
     post:
       deprecated: false
@@ -11746,7 +11827,8 @@ paths:
       tags:
       - meal planning
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /mealplanner/{username}/shopping-list/items/{id}:
     delete:
       deprecated: false
@@ -11798,7 +11880,8 @@ paths:
       summary: Delete from Shopping List
       tags:
       - meal planning
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/restaurants/search:
     get:
       deprecated: false
@@ -11914,7 +11997,8 @@ paths:
         "404":
           description: Not Found
       summary: Search Restaurants
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/wine/dishes:
     get:
       deprecated: false
@@ -11961,7 +12045,8 @@ paths:
       summary: Dish Pairing for Wine
       tags:
       - wine
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/wine/pairing:
     get:
       deprecated: false
@@ -12032,7 +12117,8 @@ paths:
       summary: Wine Pairing
       tags:
       - wine
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/wine/description:
     get:
       deprecated: false
@@ -12074,7 +12160,8 @@ paths:
       summary: Wine Description
       tags:
       - wine
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/wine/recommendation:
     get:
       deprecated: false
@@ -12171,7 +12258,8 @@ paths:
       summary: Wine Recommendation
       tags:
       - wine
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/images/classify:
     get:
       deprecated: false
@@ -12211,7 +12299,8 @@ paths:
       summary: Image Classification by URL
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/images/analyze:
     get:
       deprecated: false
@@ -12323,7 +12412,8 @@ paths:
       summary: Image Analysis by URL
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /recipes/quickAnswer:
     get:
       deprecated: false
@@ -12364,7 +12454,8 @@ paths:
       summary: Quick Answer
       tags:
       - recipes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/detect:
     post:
       deprecated: false
@@ -12429,7 +12520,8 @@ paths:
       tags:
       - misc
       x-content-type: application/x-www-form-urlencoded
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/site/search:
     get:
       deprecated: false
@@ -12577,7 +12669,8 @@ paths:
       summary: Search Site Content
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/search:
     get:
       deprecated: false
@@ -12751,7 +12844,8 @@ paths:
       summary: Search All Food
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/videos/search:
     get:
       deprecated: false
@@ -12896,7 +12990,8 @@ paths:
       summary: Search Food Videos
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/jokes/random:
     get:
       deprecated: false
@@ -12927,7 +13022,8 @@ paths:
       summary: Random Food Joke
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/trivia/random:
     get:
       deprecated: false
@@ -12958,7 +13054,8 @@ paths:
       summary: Random Food Trivia
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/converse:
     get:
       deprecated: false
@@ -13011,7 +13108,8 @@ paths:
       summary: Talk to Chatbot
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /food/converse/suggest:
     get:
       deprecated: false
@@ -13068,7 +13166,8 @@ paths:
       summary: Conversation Suggests
       tags:
       - misc
-      x-accepts: application/json
+      x-accepts:
+      - application/json
 components:
   parameters:
     ingredients:

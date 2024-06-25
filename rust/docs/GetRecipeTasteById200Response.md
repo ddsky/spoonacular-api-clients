@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sweetness** | **f32** |  | 
-**saltiness** | **f32** |  | 
-**sourness** | **f32** |  | 
-**bitterness** | **f32** |  | 
-**savoriness** | **f32** |  | 
-**fattiness** | **f32** |  | 
-**spiciness** | **f32** |  | 
+**sweetness** | **f64** |  | 
+**saltiness** | **f64** |  | 
+**sourness** | **f64** |  | 
+**bitterness** | **f64** |  | 
+**savoriness** | **f64** |  | 
+**fattiness** | **f64** |  | 
+**spiciness** | **f64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

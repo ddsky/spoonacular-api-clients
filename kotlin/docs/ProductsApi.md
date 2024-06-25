@@ -2,19 +2,19 @@
 
 All URIs are relative to *https://api.spoonacular.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autocompleteProductSearch**](ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search
-[**classifyGroceryProduct**](ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product
-[**classifyGroceryProductBulk**](ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk
-[**getComparableProducts**](ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products
-[**getProductInformation**](ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information
-[**productNutritionByIDImage**](ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image
-[**productNutritionLabelImage**](ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image
-[**productNutritionLabelWidget**](ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget
-[**searchGroceryProducts**](ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products
-[**searchGroceryProductsByUPC**](ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC
-[**visualizeProductNutritionByID**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**autocompleteProductSearch**](ProductsApi.md#autocompleteProductSearch) | **GET** /food/products/suggest | Autocomplete Product Search |
+| [**classifyGroceryProduct**](ProductsApi.md#classifyGroceryProduct) | **POST** /food/products/classify | Classify Grocery Product |
+| [**classifyGroceryProductBulk**](ProductsApi.md#classifyGroceryProductBulk) | **POST** /food/products/classifyBatch | Classify Grocery Product Bulk |
+| [**getComparableProducts**](ProductsApi.md#getComparableProducts) | **GET** /food/products/upc/{upc}/comparable | Get Comparable Products |
+| [**getProductInformation**](ProductsApi.md#getProductInformation) | **GET** /food/products/{id} | Get Product Information |
+| [**productNutritionByIDImage**](ProductsApi.md#productNutritionByIDImage) | **GET** /food/products/{id}/nutritionWidget.png | Product Nutrition by ID Image |
+| [**productNutritionLabelImage**](ProductsApi.md#productNutritionLabelImage) | **GET** /food/products/{id}/nutritionLabel.png | Product Nutrition Label Image |
+| [**productNutritionLabelWidget**](ProductsApi.md#productNutritionLabelWidget) | **GET** /food/products/{id}/nutritionLabel | Product Nutrition Label Widget |
+| [**searchGroceryProducts**](ProductsApi.md#searchGroceryProducts) | **GET** /food/products/search | Search Grocery Products |
+| [**searchGroceryProductsByUPC**](ProductsApi.md#searchGroceryProductsByUPC) | **GET** /food/products/upc/{upc} | Search Grocery Products by UPC |
+| [**visualizeProductNutritionByID**](ProductsApi.md#visualizeProductNutritionByID) | **GET** /food/products/{id}/nutritionWidget | Product Nutrition by ID Widget |
 
 
 <a id="autocompleteProductSearch"></a>
@@ -47,11 +47,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (partial) search query. |
- **number** | **kotlin.Int**| The number of results to return (between 1 and 25). | [optional]
+| **query** | **kotlin.String**| The (partial) search query. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
@@ -99,11 +98,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **classifyGroceryProductRequest** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  |
- **locale** | **kotlin.String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] [enum: en_US, en_GB]
+| **classifyGroceryProductRequest** | [**ClassifyGroceryProductRequest**](ClassifyGroceryProductRequest.md)|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **locale** | **kotlin.String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] [enum: en_US, en_GB] |
 
 ### Return type
 
@@ -151,11 +149,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **classifyGroceryProductBulkRequestInner** | [**kotlin.collections.Set&lt;ClassifyGroceryProductBulkRequestInner&gt;**](ClassifyGroceryProductBulkRequestInner.md)|  |
- **locale** | **kotlin.String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional]
+| **classifyGroceryProductBulkRequestInner** | [**kotlin.collections.Set&lt;ClassifyGroceryProductBulkRequestInner&gt;**](ClassifyGroceryProductBulkRequestInner.md)|  | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **locale** | **kotlin.String**| The display name of the returned category, supported is en_US (for American English) and en_GB (for British English). | [optional] |
 
 ### Return type
 
@@ -202,10 +199,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upc** | **java.math.BigDecimal**| The UPC of the product for which you want to find comparable products. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **upc** | **java.math.BigDecimal**| The UPC of the product for which you want to find comparable products. | |
 
 ### Return type
 
@@ -252,10 +248,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**| The item&#39;s id. | |
 
 ### Return type
 
@@ -302,10 +297,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The id of the product. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **java.math.BigDecimal**| The id of the product. | |
 
 ### Return type
 
@@ -355,13 +349,12 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The product id. |
- **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional]
- **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional]
- **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional]
+| **id** | **java.math.BigDecimal**| The product id. | |
+| **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
+| **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -412,14 +405,13 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **java.math.BigDecimal**| The product id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
- **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional]
- **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional]
- **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional]
+| **id** | **java.math.BigDecimal**| The product id. | |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
+| **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
+| **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **showIngredients** | **kotlin.Boolean**| Whether to show a list of ingredients. | [optional] |
 
 ### Return type
 
@@ -477,21 +469,20 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**| The (natural language) search query. | [optional]
- **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the product must have. | [optional]
- **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the product can have. | [optional]
- **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the product must have. | [optional]
- **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the product can have. | [optional]
- **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the product must have. | [optional]
- **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the product can have. | [optional]
- **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the product must have. | [optional]
- **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the product can have. | [optional]
- **addProductInformation** | **kotlin.Boolean**| If set to true, you get more information about the products returned. | [optional]
- **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional]
- **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
+| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the product must have. | [optional] |
+| **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the product can have. | [optional] |
+| **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the product must have. | [optional] |
+| **maxCarbs** | **java.math.BigDecimal**| The maximum amount of carbohydrates in grams the product can have. | [optional] |
+| **minProtein** | **java.math.BigDecimal**| The minimum amount of protein in grams the product must have. | [optional] |
+| **maxProtein** | **java.math.BigDecimal**| The maximum amount of protein in grams the product can have. | [optional] |
+| **minFat** | **java.math.BigDecimal**| The minimum amount of fat in grams the product must have. | [optional] |
+| **maxFat** | **java.math.BigDecimal**| The maximum amount of fat in grams the product can have. | [optional] |
+| **addProductInformation** | **kotlin.Boolean**| If set to true, you get more information about the products returned. | [optional] |
+| **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -538,10 +529,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upc** | **java.math.BigDecimal**| The product&#39;s UPC. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **upc** | **java.math.BigDecimal**| The product&#39;s UPC. | |
 
 ### Return type
 
@@ -589,11 +579,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| The item&#39;s id. |
- **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
+| **id** | **kotlin.Int**| The item&#39;s id. | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
 

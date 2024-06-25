@@ -43,5 +43,8 @@ data class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner (
     @Json(name = "percentDailyNeeds")
     val percentDailyNeeds: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

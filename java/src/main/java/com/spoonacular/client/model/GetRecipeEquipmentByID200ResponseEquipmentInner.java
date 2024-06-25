@@ -49,7 +49,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeEquipmentByID200ResponseEquipmentInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class GetRecipeEquipmentByID200ResponseEquipmentInner {
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)

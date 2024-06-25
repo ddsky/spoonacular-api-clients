@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | Option<[**Vec<crate::models::SearchSiteContent200ResponseArticlesInnerDataPointsInner>**](searchSiteContent_200_response_Articles_inner_dataPoints_inner.md)> |  | [optional]
+**data_points** | Option<[**Vec<models::SearchSiteContent200ResponseArticlesInnerDataPointsInner>**](searchSiteContent_200_response_Articles_inner_dataPoints_inner.md)> |  | [optional]
 **image** | **String** |  | 
 **link** | **String** |  | 
 **name** | **String** |  | 

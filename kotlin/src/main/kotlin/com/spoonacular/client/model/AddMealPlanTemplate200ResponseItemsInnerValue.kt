@@ -43,5 +43,8 @@ data class AddMealPlanTemplate200ResponseItemsInnerValue (
     @Json(name = "imageType")
     val imageType: kotlin.String? = null
 
-)
+) {
+
+
+}
 

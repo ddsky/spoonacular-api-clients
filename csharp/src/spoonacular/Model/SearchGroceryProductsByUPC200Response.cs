@@ -255,30 +255,30 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // GeneratedText (string) minLength
             if (this.GeneratedText != null && this.GeneratedText.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneratedText, length must be greater than 1.", new [] { "GeneratedText" });
+                yield return new ValidationResult("Invalid value for GeneratedText, length must be greater than 1.", new [] { "GeneratedText" });
             }
 
             // ImageType (string) minLength
             if (this.ImageType != null && this.ImageType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
+                yield return new ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
             }
 
             // IngredientList (string) minLength
             if (this.IngredientList != null && this.IngredientList.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IngredientList, length must be greater than 1.", new [] { "IngredientList" });
+                yield return new ValidationResult("Invalid value for IngredientList, length must be greater than 1.", new [] { "IngredientList" });
             }
 
             yield break;

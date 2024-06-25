@@ -52,11 +52,11 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchRestaurants200Response {
   public static final String SERIALIZED_NAME_RESTAURANTS = "restaurants";
   @SerializedName(SERIALIZED_NAME_RESTAURANTS)
-  private List<SearchRestaurants200ResponseRestaurantsInner> restaurants;
+  private List<SearchRestaurants200ResponseRestaurantsInner> restaurants = new ArrayList<>();
 
   public SearchRestaurants200Response() {
   }

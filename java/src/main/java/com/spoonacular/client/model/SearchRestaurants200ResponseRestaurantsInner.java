@@ -54,7 +54,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchRestaurants200ResponseRestaurantsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchRestaurants200ResponseRestaurantsInner {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -86,19 +86,19 @@ public class SearchRestaurants200ResponseRestaurantsInner {
 
   public static final String SERIALIZED_NAME_CUISINES = "cuisines";
   @SerializedName(SERIALIZED_NAME_CUISINES)
-  private List<String> cuisines;
+  private List<String> cuisines = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_FOOD_PHOTOS = "food_photos";
   @SerializedName(SERIALIZED_NAME_FOOD_PHOTOS)
-  private List<String> foodPhotos;
+  private List<String> foodPhotos = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LOGO_PHOTOS = "logo_photos";
   @SerializedName(SERIALIZED_NAME_LOGO_PHOTOS)
-  private List<String> logoPhotos;
+  private List<String> logoPhotos = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STORE_PHOTOS = "store_photos";
   @SerializedName(SERIALIZED_NAME_STORE_PHOTOS)
-  private List<String> storePhotos;
+  private List<String> storePhotos = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DOLLAR_SIGNS = "dollar_signs";
   @SerializedName(SERIALIZED_NAME_DOLLAR_SIGNS)

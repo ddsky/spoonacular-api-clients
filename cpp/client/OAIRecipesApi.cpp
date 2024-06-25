@@ -312,7 +312,7 @@ void OAIRecipesApi::analyzeARecipeSearchQuery(const QString &q) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("q")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(q)));
+        fullPath.append(QUrl::toPercentEncoding("q")).append(querySuffix).append(QUrl::toPercentEncoding(q));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -490,7 +490,7 @@ void OAIRecipesApi::autocompleteRecipeSearch(const ::OpenAPI::OptionalParam<QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query.value())));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
     }
     if (number.hasValue())
     {
@@ -505,7 +505,7 @@ void OAIRecipesApi::autocompleteRecipeSearch(const ::OpenAPI::OptionalParam<QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -609,7 +609,7 @@ void OAIRecipesApi::classifyCuisine(const QString &title, const QString &ingredi
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(language.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -712,7 +712,7 @@ void OAIRecipesApi::computeGlycemicLoad(const OAIComputeGlycemicLoad_request &oa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(language.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -812,7 +812,7 @@ void OAIRecipesApi::convertAmounts(const QString &ingredient_name, const double 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("ingredientName")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ingredient_name)));
+        fullPath.append(QUrl::toPercentEncoding("ingredientName")).append(querySuffix).append(QUrl::toPercentEncoding(ingredient_name));
     }
     
     {
@@ -827,7 +827,7 @@ void OAIRecipesApi::convertAmounts(const QString &ingredient_name, const double 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sourceAmount")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(source_amount)));
+        fullPath.append(QUrl::toPercentEncoding("sourceAmount")).append(querySuffix).append(QUrl::toPercentEncoding(source_amount));
     }
     
     {
@@ -842,7 +842,7 @@ void OAIRecipesApi::convertAmounts(const QString &ingredient_name, const double 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sourceUnit")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(source_unit)));
+        fullPath.append(QUrl::toPercentEncoding("sourceUnit")).append(querySuffix).append(QUrl::toPercentEncoding(source_unit));
     }
     
     {
@@ -857,7 +857,7 @@ void OAIRecipesApi::convertAmounts(const QString &ingredient_name, const double 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("targetUnit")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(target_unit)));
+        fullPath.append(QUrl::toPercentEncoding("targetUnit")).append(querySuffix).append(QUrl::toPercentEncoding(target_unit));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1176,7 +1176,7 @@ void OAIRecipesApi::extractRecipeFromWebsite(const QString &url, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("url")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(url)));
+        fullPath.append(QUrl::toPercentEncoding("url")).append(querySuffix).append(QUrl::toPercentEncoding(url));
     }
     if (force_extraction.hasValue())
     {
@@ -1191,7 +1191,7 @@ void OAIRecipesApi::extractRecipeFromWebsite(const QString &url, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("forceExtraction")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(force_extraction.value())));
+        fullPath.append(QUrl::toPercentEncoding("forceExtraction")).append(querySuffix).append(QUrl::toPercentEncoding(force_extraction.stringValue()));
     }
     if (analyze.hasValue())
     {
@@ -1206,7 +1206,7 @@ void OAIRecipesApi::extractRecipeFromWebsite(const QString &url, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("analyze")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(analyze.value())));
+        fullPath.append(QUrl::toPercentEncoding("analyze")).append(querySuffix).append(QUrl::toPercentEncoding(analyze.stringValue()));
     }
     if (include_nutrition.hasValue())
     {
@@ -1221,7 +1221,7 @@ void OAIRecipesApi::extractRecipeFromWebsite(const QString &url, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_nutrition.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(include_nutrition.stringValue()));
     }
     if (include_taste.hasValue())
     {
@@ -1236,7 +1236,7 @@ void OAIRecipesApi::extractRecipeFromWebsite(const QString &url, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeTaste")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_taste.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeTaste")).append(querySuffix).append(QUrl::toPercentEncoding(include_taste.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1345,7 +1345,7 @@ void OAIRecipesApi::getAnalyzedRecipeInstructions(const qint32 &id, const ::Open
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("stepBreakdown")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(step_breakdown.value())));
+        fullPath.append(QUrl::toPercentEncoding("stepBreakdown")).append(querySuffix).append(QUrl::toPercentEncoding(step_breakdown.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1440,7 +1440,7 @@ void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license.value())));
+        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(limit_license.stringValue()));
     }
     if (include_nutrition.hasValue())
     {
@@ -1455,7 +1455,7 @@ void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_nutrition.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(include_nutrition.stringValue()));
     }
     if (include_tags.hasValue())
     {
@@ -1470,7 +1470,7 @@ void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("include-tags")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_tags.value())));
+        fullPath.append(QUrl::toPercentEncoding("include-tags")).append(querySuffix).append(QUrl::toPercentEncoding(include_tags.stringValue()));
     }
     if (exclude_tags.hasValue())
     {
@@ -1485,7 +1485,7 @@ void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("exclude-tags")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude_tags.value())));
+        fullPath.append(QUrl::toPercentEncoding("exclude-tags")).append(querySuffix).append(QUrl::toPercentEncoding(exclude_tags.stringValue()));
     }
     if (number.hasValue())
     {
@@ -1500,7 +1500,7 @@ void OAIRecipesApi::getRandomRecipes(const ::OpenAPI::OptionalParam<bool> &limit
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1702,7 +1702,7 @@ void OAIRecipesApi::getRecipeInformation(const qint32 &id, const ::OpenAPI::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_nutrition.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(include_nutrition.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1797,7 +1797,7 @@ void OAIRecipesApi::getRecipeInformationBulk(const QString &ids, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("ids")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ids)));
+        fullPath.append(QUrl::toPercentEncoding("ids")).append(querySuffix).append(QUrl::toPercentEncoding(ids));
     }
     if (include_nutrition.hasValue())
     {
@@ -1812,7 +1812,7 @@ void OAIRecipesApi::getRecipeInformationBulk(const QString &ids, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_nutrition.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(include_nutrition.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2209,7 +2209,7 @@ void OAIRecipesApi::getRecipeTasteByID(const qint32 &id, const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(normalize.value())));
+        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(normalize.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2318,7 +2318,7 @@ void OAIRecipesApi::getSimilarRecipes(const qint32 &id, const ::OpenAPI::Optiona
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     if (limit_license.hasValue())
     {
@@ -2333,7 +2333,7 @@ void OAIRecipesApi::getSimilarRecipes(const qint32 &id, const ::OpenAPI::Optiona
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license.value())));
+        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(limit_license.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2437,7 +2437,7 @@ void OAIRecipesApi::guessNutritionByDishName(const QString &title) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("title")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(title)));
+        fullPath.append(QUrl::toPercentEncoding("title")).append(querySuffix).append(QUrl::toPercentEncoding(title));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2532,7 +2532,7 @@ void OAIRecipesApi::parseIngredients(const QString &ingredient_list, const doubl
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(language.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2741,7 +2741,7 @@ void OAIRecipesApi::quickAnswer(const QString &q) {
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("q")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(q)));
+        fullPath.append(QUrl::toPercentEncoding("q")).append(querySuffix).append(QUrl::toPercentEncoding(q));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2943,7 +2943,7 @@ void OAIRecipesApi::recipeNutritionLabelImage(const double &id, const ::OpenAPI:
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_optional_nutrients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(show_optional_nutrients.stringValue()));
     }
     if (show_zero_values.hasValue())
     {
@@ -2958,7 +2958,7 @@ void OAIRecipesApi::recipeNutritionLabelImage(const double &id, const ::OpenAPI:
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_zero_values.value())));
+        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(show_zero_values.stringValue()));
     }
     if (show_ingredients.hasValue())
     {
@@ -2973,7 +2973,7 @@ void OAIRecipesApi::recipeNutritionLabelImage(const double &id, const ::OpenAPI:
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(show_ingredients.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -3082,7 +3082,7 @@ void OAIRecipesApi::recipeNutritionLabelWidget(const double &id, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     if (show_optional_nutrients.hasValue())
     {
@@ -3097,7 +3097,7 @@ void OAIRecipesApi::recipeNutritionLabelWidget(const double &id, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_optional_nutrients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showOptionalNutrients")).append(querySuffix).append(QUrl::toPercentEncoding(show_optional_nutrients.stringValue()));
     }
     if (show_zero_values.hasValue())
     {
@@ -3112,7 +3112,7 @@ void OAIRecipesApi::recipeNutritionLabelWidget(const double &id, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_zero_values.value())));
+        fullPath.append(QUrl::toPercentEncoding("showZeroValues")).append(querySuffix).append(QUrl::toPercentEncoding(show_zero_values.stringValue()));
     }
     if (show_ingredients.hasValue())
     {
@@ -3127,7 +3127,7 @@ void OAIRecipesApi::recipeNutritionLabelWidget(const double &id, const ::OpenAPI
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(show_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("showIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(show_ingredients.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -3237,7 +3237,7 @@ void OAIRecipesApi::recipeTasteByIDImage(const double &id, const ::OpenAPI::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(normalize.value())));
+        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(normalize.stringValue()));
     }
     if (rgb.hasValue())
     {
@@ -3252,7 +3252,7 @@ void OAIRecipesApi::recipeTasteByIDImage(const double &id, const ::OpenAPI::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("rgb")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(rgb.value())));
+        fullPath.append(QUrl::toPercentEncoding("rgb")).append(querySuffix).append(QUrl::toPercentEncoding(rgb.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -3347,7 +3347,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(query.value())));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
     }
     if (cuisine.hasValue())
     {
@@ -3362,7 +3362,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("cuisine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(cuisine.value())));
+        fullPath.append(QUrl::toPercentEncoding("cuisine")).append(querySuffix).append(QUrl::toPercentEncoding(cuisine.stringValue()));
     }
     if (exclude_cuisine.hasValue())
     {
@@ -3377,7 +3377,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("excludeCuisine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude_cuisine.value())));
+        fullPath.append(QUrl::toPercentEncoding("excludeCuisine")).append(querySuffix).append(QUrl::toPercentEncoding(exclude_cuisine.stringValue()));
     }
     if (diet.hasValue())
     {
@@ -3392,7 +3392,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("diet")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(diet.value())));
+        fullPath.append(QUrl::toPercentEncoding("diet")).append(querySuffix).append(QUrl::toPercentEncoding(diet.stringValue()));
     }
     if (intolerances.hasValue())
     {
@@ -3407,7 +3407,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("intolerances")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(intolerances.value())));
+        fullPath.append(QUrl::toPercentEncoding("intolerances")).append(querySuffix).append(QUrl::toPercentEncoding(intolerances.stringValue()));
     }
     if (equipment.hasValue())
     {
@@ -3422,7 +3422,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("equipment")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(equipment.value())));
+        fullPath.append(QUrl::toPercentEncoding("equipment")).append(querySuffix).append(QUrl::toPercentEncoding(equipment.stringValue()));
     }
     if (include_ingredients.hasValue())
     {
@@ -3437,7 +3437,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("includeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(include_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("includeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(include_ingredients.stringValue()));
     }
     if (exclude_ingredients.hasValue())
     {
@@ -3452,7 +3452,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("excludeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(exclude_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("excludeIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(exclude_ingredients.stringValue()));
     }
     if (type.hasValue())
     {
@@ -3467,7 +3467,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("type")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(type.value())));
+        fullPath.append(QUrl::toPercentEncoding("type")).append(querySuffix).append(QUrl::toPercentEncoding(type.stringValue()));
     }
     if (instructions_required.hasValue())
     {
@@ -3482,7 +3482,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("instructionsRequired")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(instructions_required.value())));
+        fullPath.append(QUrl::toPercentEncoding("instructionsRequired")).append(querySuffix).append(QUrl::toPercentEncoding(instructions_required.stringValue()));
     }
     if (fill_ingredients.hasValue())
     {
@@ -3497,7 +3497,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("fillIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(fill_ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("fillIngredients")).append(querySuffix).append(QUrl::toPercentEncoding(fill_ingredients.stringValue()));
     }
     if (add_recipe_information.hasValue())
     {
@@ -3512,7 +3512,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("addRecipeInformation")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(add_recipe_information.value())));
+        fullPath.append(QUrl::toPercentEncoding("addRecipeInformation")).append(querySuffix).append(QUrl::toPercentEncoding(add_recipe_information.stringValue()));
     }
     if (add_recipe_nutrition.hasValue())
     {
@@ -3527,7 +3527,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("addRecipeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(add_recipe_nutrition.value())));
+        fullPath.append(QUrl::toPercentEncoding("addRecipeNutrition")).append(querySuffix).append(QUrl::toPercentEncoding(add_recipe_nutrition.stringValue()));
     }
     if (author.hasValue())
     {
@@ -3542,7 +3542,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("author")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(author.value())));
+        fullPath.append(QUrl::toPercentEncoding("author")).append(querySuffix).append(QUrl::toPercentEncoding(author.stringValue()));
     }
     if (tags.hasValue())
     {
@@ -3557,7 +3557,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("tags")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(tags.value())));
+        fullPath.append(QUrl::toPercentEncoding("tags")).append(querySuffix).append(QUrl::toPercentEncoding(tags.stringValue()));
     }
     if (recipe_box_id.hasValue())
     {
@@ -3572,7 +3572,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("recipeBoxId")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(recipe_box_id.value())));
+        fullPath.append(QUrl::toPercentEncoding("recipeBoxId")).append(querySuffix).append(QUrl::toPercentEncoding(recipe_box_id.stringValue()));
     }
     if (title_match.hasValue())
     {
@@ -3587,7 +3587,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("titleMatch")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(title_match.value())));
+        fullPath.append(QUrl::toPercentEncoding("titleMatch")).append(querySuffix).append(QUrl::toPercentEncoding(title_match.stringValue()));
     }
     if (max_ready_time.hasValue())
     {
@@ -3602,7 +3602,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxReadyTime")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_ready_time.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxReadyTime")).append(querySuffix).append(QUrl::toPercentEncoding(max_ready_time.stringValue()));
     }
     if (min_servings.hasValue())
     {
@@ -3617,7 +3617,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minServings")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_servings.value())));
+        fullPath.append(QUrl::toPercentEncoding("minServings")).append(querySuffix).append(QUrl::toPercentEncoding(min_servings.stringValue()));
     }
     if (max_servings.hasValue())
     {
@@ -3632,7 +3632,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxServings")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_servings.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxServings")).append(querySuffix).append(QUrl::toPercentEncoding(max_servings.stringValue()));
     }
     if (ignore_pantry.hasValue())
     {
@@ -3647,7 +3647,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("ignorePantry")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ignore_pantry.value())));
+        fullPath.append(QUrl::toPercentEncoding("ignorePantry")).append(querySuffix).append(QUrl::toPercentEncoding(ignore_pantry.stringValue()));
     }
     if (sort.hasValue())
     {
@@ -3662,7 +3662,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sort")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(sort.value())));
+        fullPath.append(QUrl::toPercentEncoding("sort")).append(querySuffix).append(QUrl::toPercentEncoding(sort.stringValue()));
     }
     if (sort_direction.hasValue())
     {
@@ -3677,7 +3677,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sortDirection")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(sort_direction.value())));
+        fullPath.append(QUrl::toPercentEncoding("sortDirection")).append(querySuffix).append(QUrl::toPercentEncoding(sort_direction.stringValue()));
     }
     if (min_carbs.hasValue())
     {
@@ -3692,7 +3692,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_carbs.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(min_carbs.stringValue()));
     }
     if (max_carbs.hasValue())
     {
@@ -3707,7 +3707,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_carbs.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(max_carbs.stringValue()));
     }
     if (min_protein.hasValue())
     {
@@ -3722,7 +3722,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minProtein")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_protein.value())));
+        fullPath.append(QUrl::toPercentEncoding("minProtein")).append(querySuffix).append(QUrl::toPercentEncoding(min_protein.stringValue()));
     }
     if (max_protein.hasValue())
     {
@@ -3737,7 +3737,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxProtein")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_protein.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxProtein")).append(querySuffix).append(QUrl::toPercentEncoding(max_protein.stringValue()));
     }
     if (min_calories.hasValue())
     {
@@ -3752,7 +3752,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCalories")).append(querySuffix).append(QUrl::toPercentEncoding(min_calories.stringValue()));
     }
     if (max_calories.hasValue())
     {
@@ -3767,7 +3767,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCalories")).append(querySuffix).append(QUrl::toPercentEncoding(max_calories.stringValue()));
     }
     if (min_fat.hasValue())
     {
@@ -3782,7 +3782,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFat")).append(querySuffix).append(QUrl::toPercentEncoding(min_fat.stringValue()));
     }
     if (max_fat.hasValue())
     {
@@ -3797,7 +3797,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFat")).append(querySuffix).append(QUrl::toPercentEncoding(max_fat.stringValue()));
     }
     if (min_alcohol.hasValue())
     {
@@ -3812,7 +3812,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_alcohol.value())));
+        fullPath.append(QUrl::toPercentEncoding("minAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(min_alcohol.stringValue()));
     }
     if (max_alcohol.hasValue())
     {
@@ -3827,7 +3827,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_alcohol.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(max_alcohol.stringValue()));
     }
     if (min_caffeine.hasValue())
     {
@@ -3842,7 +3842,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_caffeine.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(min_caffeine.stringValue()));
     }
     if (max_caffeine.hasValue())
     {
@@ -3857,7 +3857,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_caffeine.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(max_caffeine.stringValue()));
     }
     if (min_copper.hasValue())
     {
@@ -3872,7 +3872,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCopper")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_copper.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCopper")).append(querySuffix).append(QUrl::toPercentEncoding(min_copper.stringValue()));
     }
     if (max_copper.hasValue())
     {
@@ -3887,7 +3887,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCopper")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_copper.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCopper")).append(querySuffix).append(QUrl::toPercentEncoding(max_copper.stringValue()));
     }
     if (min_calcium.hasValue())
     {
@@ -3902,7 +3902,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calcium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(min_calcium.stringValue()));
     }
     if (max_calcium.hasValue())
     {
@@ -3917,7 +3917,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calcium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(max_calcium.stringValue()));
     }
     if (min_choline.hasValue())
     {
@@ -3932,7 +3932,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCholine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_choline.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCholine")).append(querySuffix).append(QUrl::toPercentEncoding(min_choline.stringValue()));
     }
     if (max_choline.hasValue())
     {
@@ -3947,7 +3947,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCholine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_choline.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCholine")).append(querySuffix).append(QUrl::toPercentEncoding(max_choline.stringValue()));
     }
     if (min_cholesterol.hasValue())
     {
@@ -3962,7 +3962,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_cholesterol.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(min_cholesterol.stringValue()));
     }
     if (max_cholesterol.hasValue())
     {
@@ -3977,7 +3977,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_cholesterol.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(max_cholesterol.stringValue()));
     }
     if (min_fluoride.hasValue())
     {
@@ -3992,7 +3992,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fluoride.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(min_fluoride.stringValue()));
     }
     if (max_fluoride.hasValue())
     {
@@ -4007,7 +4007,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fluoride.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(max_fluoride.stringValue()));
     }
     if (min_saturated_fat.hasValue())
     {
@@ -4022,7 +4022,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_saturated_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(min_saturated_fat.stringValue()));
     }
     if (max_saturated_fat.hasValue())
     {
@@ -4037,7 +4037,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_saturated_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(max_saturated_fat.stringValue()));
     }
     if (min_vitamin_a.hasValue())
     {
@@ -4052,7 +4052,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_a.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_a.stringValue()));
     }
     if (max_vitamin_a.hasValue())
     {
@@ -4067,7 +4067,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_a.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_a.stringValue()));
     }
     if (min_vitamin_c.hasValue())
     {
@@ -4082,7 +4082,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_c.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_c.stringValue()));
     }
     if (max_vitamin_c.hasValue())
     {
@@ -4097,7 +4097,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_c.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_c.stringValue()));
     }
     if (min_vitamin_d.hasValue())
     {
@@ -4112,7 +4112,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_d.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_d.stringValue()));
     }
     if (max_vitamin_d.hasValue())
     {
@@ -4127,7 +4127,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_d.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_d.stringValue()));
     }
     if (min_vitamin_e.hasValue())
     {
@@ -4142,7 +4142,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_e.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_e.stringValue()));
     }
     if (max_vitamin_e.hasValue())
     {
@@ -4157,7 +4157,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_e.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_e.stringValue()));
     }
     if (min_vitamin_k.hasValue())
     {
@@ -4172,7 +4172,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_k.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_k.stringValue()));
     }
     if (max_vitamin_k.hasValue())
     {
@@ -4187,7 +4187,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_k.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_k.stringValue()));
     }
     if (min_vitamin_b1.hasValue())
     {
@@ -4202,7 +4202,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b1.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b1.stringValue()));
     }
     if (max_vitamin_b1.hasValue())
     {
@@ -4217,7 +4217,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b1.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b1.stringValue()));
     }
     if (min_vitamin_b2.hasValue())
     {
@@ -4232,7 +4232,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b2.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b2.stringValue()));
     }
     if (max_vitamin_b2.hasValue())
     {
@@ -4247,7 +4247,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b2.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b2.stringValue()));
     }
     if (min_vitamin_b5.hasValue())
     {
@@ -4262,7 +4262,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b5.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b5.stringValue()));
     }
     if (max_vitamin_b5.hasValue())
     {
@@ -4277,7 +4277,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b5.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b5.stringValue()));
     }
     if (min_vitamin_b3.hasValue())
     {
@@ -4292,7 +4292,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b3.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b3.stringValue()));
     }
     if (max_vitamin_b3.hasValue())
     {
@@ -4307,7 +4307,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b3.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b3.stringValue()));
     }
     if (min_vitamin_b6.hasValue())
     {
@@ -4322,7 +4322,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b6.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b6.stringValue()));
     }
     if (max_vitamin_b6.hasValue())
     {
@@ -4337,7 +4337,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b6.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b6.stringValue()));
     }
     if (min_vitamin_b12.hasValue())
     {
@@ -4352,7 +4352,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b12.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b12.stringValue()));
     }
     if (max_vitamin_b12.hasValue())
     {
@@ -4367,7 +4367,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b12.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b12.stringValue()));
     }
     if (min_fiber.hasValue())
     {
@@ -4382,7 +4382,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFiber")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fiber.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFiber")).append(querySuffix).append(QUrl::toPercentEncoding(min_fiber.stringValue()));
     }
     if (max_fiber.hasValue())
     {
@@ -4397,7 +4397,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFiber")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fiber.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFiber")).append(querySuffix).append(QUrl::toPercentEncoding(max_fiber.stringValue()));
     }
     if (min_folate.hasValue())
     {
@@ -4412,7 +4412,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFolate")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folate.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFolate")).append(querySuffix).append(QUrl::toPercentEncoding(min_folate.stringValue()));
     }
     if (max_folate.hasValue())
     {
@@ -4427,7 +4427,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFolate")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folate.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFolate")).append(querySuffix).append(QUrl::toPercentEncoding(max_folate.stringValue()));
     }
     if (min_folic_acid.hasValue())
     {
@@ -4442,7 +4442,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folic_acid.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(min_folic_acid.stringValue()));
     }
     if (max_folic_acid.hasValue())
     {
@@ -4457,7 +4457,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folic_acid.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(max_folic_acid.stringValue()));
     }
     if (min_iodine.hasValue())
     {
@@ -4472,7 +4472,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minIodine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iodine.value())));
+        fullPath.append(QUrl::toPercentEncoding("minIodine")).append(querySuffix).append(QUrl::toPercentEncoding(min_iodine.stringValue()));
     }
     if (max_iodine.hasValue())
     {
@@ -4487,7 +4487,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxIodine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iodine.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxIodine")).append(querySuffix).append(QUrl::toPercentEncoding(max_iodine.stringValue()));
     }
     if (min_iron.hasValue())
     {
@@ -4502,7 +4502,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minIron")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iron.value())));
+        fullPath.append(QUrl::toPercentEncoding("minIron")).append(querySuffix).append(QUrl::toPercentEncoding(min_iron.stringValue()));
     }
     if (max_iron.hasValue())
     {
@@ -4517,7 +4517,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxIron")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iron.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxIron")).append(querySuffix).append(QUrl::toPercentEncoding(max_iron.stringValue()));
     }
     if (min_magnesium.hasValue())
     {
@@ -4532,7 +4532,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_magnesium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(min_magnesium.stringValue()));
     }
     if (max_magnesium.hasValue())
     {
@@ -4547,7 +4547,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_magnesium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(max_magnesium.stringValue()));
     }
     if (min_manganese.hasValue())
     {
@@ -4562,7 +4562,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minManganese")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_manganese.value())));
+        fullPath.append(QUrl::toPercentEncoding("minManganese")).append(querySuffix).append(QUrl::toPercentEncoding(min_manganese.stringValue()));
     }
     if (max_manganese.hasValue())
     {
@@ -4577,7 +4577,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxManganese")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_manganese.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxManganese")).append(querySuffix).append(QUrl::toPercentEncoding(max_manganese.stringValue()));
     }
     if (min_phosphorus.hasValue())
     {
@@ -4592,7 +4592,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_phosphorus.value())));
+        fullPath.append(QUrl::toPercentEncoding("minPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(min_phosphorus.stringValue()));
     }
     if (max_phosphorus.hasValue())
     {
@@ -4607,7 +4607,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_phosphorus.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(max_phosphorus.stringValue()));
     }
     if (min_potassium.hasValue())
     {
@@ -4622,7 +4622,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_potassium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(min_potassium.stringValue()));
     }
     if (max_potassium.hasValue())
     {
@@ -4637,7 +4637,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_potassium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(max_potassium.stringValue()));
     }
     if (min_selenium.hasValue())
     {
@@ -4652,7 +4652,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_selenium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(min_selenium.stringValue()));
     }
     if (max_selenium.hasValue())
     {
@@ -4667,7 +4667,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_selenium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(max_selenium.stringValue()));
     }
     if (min_sodium.hasValue())
     {
@@ -4682,7 +4682,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSodium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sodium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSodium")).append(querySuffix).append(QUrl::toPercentEncoding(min_sodium.stringValue()));
     }
     if (max_sodium.hasValue())
     {
@@ -4697,7 +4697,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSodium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sodium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSodium")).append(querySuffix).append(QUrl::toPercentEncoding(max_sodium.stringValue()));
     }
     if (min_sugar.hasValue())
     {
@@ -4712,7 +4712,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSugar")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sugar.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSugar")).append(querySuffix).append(QUrl::toPercentEncoding(min_sugar.stringValue()));
     }
     if (max_sugar.hasValue())
     {
@@ -4727,7 +4727,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSugar")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sugar.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSugar")).append(querySuffix).append(QUrl::toPercentEncoding(max_sugar.stringValue()));
     }
     if (min_zinc.hasValue())
     {
@@ -4742,7 +4742,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minZinc")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_zinc.value())));
+        fullPath.append(QUrl::toPercentEncoding("minZinc")).append(querySuffix).append(QUrl::toPercentEncoding(min_zinc.stringValue()));
     }
     if (max_zinc.hasValue())
     {
@@ -4757,7 +4757,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxZinc")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_zinc.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxZinc")).append(querySuffix).append(QUrl::toPercentEncoding(max_zinc.stringValue()));
     }
     if (offset.hasValue())
     {
@@ -4772,7 +4772,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
     }
     if (number.hasValue())
     {
@@ -4787,7 +4787,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     if (limit_license.hasValue())
     {
@@ -4802,7 +4802,7 @@ void OAIRecipesApi::searchRecipes(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license.value())));
+        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(limit_license.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -4897,7 +4897,7 @@ void OAIRecipesApi::searchRecipesByIngredients(const ::OpenAPI::OptionalParam<QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("ingredients")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ingredients.value())));
+        fullPath.append(QUrl::toPercentEncoding("ingredients")).append(querySuffix).append(QUrl::toPercentEncoding(ingredients.stringValue()));
     }
     if (number.hasValue())
     {
@@ -4912,7 +4912,7 @@ void OAIRecipesApi::searchRecipesByIngredients(const ::OpenAPI::OptionalParam<QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     if (limit_license.hasValue())
     {
@@ -4927,7 +4927,7 @@ void OAIRecipesApi::searchRecipesByIngredients(const ::OpenAPI::OptionalParam<QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license.value())));
+        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(limit_license.stringValue()));
     }
     if (ranking.hasValue())
     {
@@ -4942,7 +4942,7 @@ void OAIRecipesApi::searchRecipesByIngredients(const ::OpenAPI::OptionalParam<QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("ranking")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ranking.value())));
+        fullPath.append(QUrl::toPercentEncoding("ranking")).append(querySuffix).append(QUrl::toPercentEncoding(ranking.stringValue()));
     }
     if (ignore_pantry.hasValue())
     {
@@ -4957,7 +4957,7 @@ void OAIRecipesApi::searchRecipesByIngredients(const ::OpenAPI::OptionalParam<QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("ignorePantry")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(ignore_pantry.value())));
+        fullPath.append(QUrl::toPercentEncoding("ignorePantry")).append(querySuffix).append(QUrl::toPercentEncoding(ignore_pantry.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -5061,7 +5061,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_carbs.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(min_carbs.stringValue()));
     }
     if (max_carbs.hasValue())
     {
@@ -5076,7 +5076,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_carbs.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCarbs")).append(querySuffix).append(QUrl::toPercentEncoding(max_carbs.stringValue()));
     }
     if (min_protein.hasValue())
     {
@@ -5091,7 +5091,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minProtein")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_protein.value())));
+        fullPath.append(QUrl::toPercentEncoding("minProtein")).append(querySuffix).append(QUrl::toPercentEncoding(min_protein.stringValue()));
     }
     if (max_protein.hasValue())
     {
@@ -5106,7 +5106,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxProtein")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_protein.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxProtein")).append(querySuffix).append(QUrl::toPercentEncoding(max_protein.stringValue()));
     }
     if (min_calories.hasValue())
     {
@@ -5121,7 +5121,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCalories")).append(querySuffix).append(QUrl::toPercentEncoding(min_calories.stringValue()));
     }
     if (max_calories.hasValue())
     {
@@ -5136,7 +5136,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCalories")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calories.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCalories")).append(querySuffix).append(QUrl::toPercentEncoding(max_calories.stringValue()));
     }
     if (min_fat.hasValue())
     {
@@ -5151,7 +5151,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFat")).append(querySuffix).append(QUrl::toPercentEncoding(min_fat.stringValue()));
     }
     if (max_fat.hasValue())
     {
@@ -5166,7 +5166,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFat")).append(querySuffix).append(QUrl::toPercentEncoding(max_fat.stringValue()));
     }
     if (min_alcohol.hasValue())
     {
@@ -5181,7 +5181,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_alcohol.value())));
+        fullPath.append(QUrl::toPercentEncoding("minAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(min_alcohol.stringValue()));
     }
     if (max_alcohol.hasValue())
     {
@@ -5196,7 +5196,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_alcohol.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxAlcohol")).append(querySuffix).append(QUrl::toPercentEncoding(max_alcohol.stringValue()));
     }
     if (min_caffeine.hasValue())
     {
@@ -5211,7 +5211,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_caffeine.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(min_caffeine.stringValue()));
     }
     if (max_caffeine.hasValue())
     {
@@ -5226,7 +5226,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_caffeine.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCaffeine")).append(querySuffix).append(QUrl::toPercentEncoding(max_caffeine.stringValue()));
     }
     if (min_copper.hasValue())
     {
@@ -5241,7 +5241,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCopper")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_copper.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCopper")).append(querySuffix).append(QUrl::toPercentEncoding(min_copper.stringValue()));
     }
     if (max_copper.hasValue())
     {
@@ -5256,7 +5256,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCopper")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_copper.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCopper")).append(querySuffix).append(QUrl::toPercentEncoding(max_copper.stringValue()));
     }
     if (min_calcium.hasValue())
     {
@@ -5271,7 +5271,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_calcium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(min_calcium.stringValue()));
     }
     if (max_calcium.hasValue())
     {
@@ -5286,7 +5286,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_calcium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCalcium")).append(querySuffix).append(QUrl::toPercentEncoding(max_calcium.stringValue()));
     }
     if (min_choline.hasValue())
     {
@@ -5301,7 +5301,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCholine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_choline.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCholine")).append(querySuffix).append(QUrl::toPercentEncoding(min_choline.stringValue()));
     }
     if (max_choline.hasValue())
     {
@@ -5316,7 +5316,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCholine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_choline.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCholine")).append(querySuffix).append(QUrl::toPercentEncoding(max_choline.stringValue()));
     }
     if (min_cholesterol.hasValue())
     {
@@ -5331,7 +5331,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_cholesterol.value())));
+        fullPath.append(QUrl::toPercentEncoding("minCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(min_cholesterol.stringValue()));
     }
     if (max_cholesterol.hasValue())
     {
@@ -5346,7 +5346,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_cholesterol.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxCholesterol")).append(querySuffix).append(QUrl::toPercentEncoding(max_cholesterol.stringValue()));
     }
     if (min_fluoride.hasValue())
     {
@@ -5361,7 +5361,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fluoride.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(min_fluoride.stringValue()));
     }
     if (max_fluoride.hasValue())
     {
@@ -5376,7 +5376,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fluoride.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFluoride")).append(querySuffix).append(QUrl::toPercentEncoding(max_fluoride.stringValue()));
     }
     if (min_saturated_fat.hasValue())
     {
@@ -5391,7 +5391,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_saturated_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(min_saturated_fat.stringValue()));
     }
     if (max_saturated_fat.hasValue())
     {
@@ -5406,7 +5406,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_saturated_fat.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSaturatedFat")).append(querySuffix).append(QUrl::toPercentEncoding(max_saturated_fat.stringValue()));
     }
     if (min_vitamin_a.hasValue())
     {
@@ -5421,7 +5421,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_a.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_a.stringValue()));
     }
     if (max_vitamin_a.hasValue())
     {
@@ -5436,7 +5436,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_a.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminA")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_a.stringValue()));
     }
     if (min_vitamin_c.hasValue())
     {
@@ -5451,7 +5451,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_c.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_c.stringValue()));
     }
     if (max_vitamin_c.hasValue())
     {
@@ -5466,7 +5466,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_c.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminC")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_c.stringValue()));
     }
     if (min_vitamin_d.hasValue())
     {
@@ -5481,7 +5481,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_d.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_d.stringValue()));
     }
     if (max_vitamin_d.hasValue())
     {
@@ -5496,7 +5496,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_d.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminD")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_d.stringValue()));
     }
     if (min_vitamin_e.hasValue())
     {
@@ -5511,7 +5511,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_e.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_e.stringValue()));
     }
     if (max_vitamin_e.hasValue())
     {
@@ -5526,7 +5526,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_e.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminE")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_e.stringValue()));
     }
     if (min_vitamin_k.hasValue())
     {
@@ -5541,7 +5541,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_k.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_k.stringValue()));
     }
     if (max_vitamin_k.hasValue())
     {
@@ -5556,7 +5556,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_k.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminK")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_k.stringValue()));
     }
     if (min_vitamin_b1.hasValue())
     {
@@ -5571,7 +5571,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b1.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b1.stringValue()));
     }
     if (max_vitamin_b1.hasValue())
     {
@@ -5586,7 +5586,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b1.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB1")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b1.stringValue()));
     }
     if (min_vitamin_b2.hasValue())
     {
@@ -5601,7 +5601,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b2.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b2.stringValue()));
     }
     if (max_vitamin_b2.hasValue())
     {
@@ -5616,7 +5616,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b2.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB2")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b2.stringValue()));
     }
     if (min_vitamin_b5.hasValue())
     {
@@ -5631,7 +5631,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b5.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b5.stringValue()));
     }
     if (max_vitamin_b5.hasValue())
     {
@@ -5646,7 +5646,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b5.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB5")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b5.stringValue()));
     }
     if (min_vitamin_b3.hasValue())
     {
@@ -5661,7 +5661,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b3.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b3.stringValue()));
     }
     if (max_vitamin_b3.hasValue())
     {
@@ -5676,7 +5676,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b3.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB3")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b3.stringValue()));
     }
     if (min_vitamin_b6.hasValue())
     {
@@ -5691,7 +5691,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b6.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b6.stringValue()));
     }
     if (max_vitamin_b6.hasValue())
     {
@@ -5706,7 +5706,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b6.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB6")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b6.stringValue()));
     }
     if (min_vitamin_b12.hasValue())
     {
@@ -5721,7 +5721,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_vitamin_b12.value())));
+        fullPath.append(QUrl::toPercentEncoding("minVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(min_vitamin_b12.stringValue()));
     }
     if (max_vitamin_b12.hasValue())
     {
@@ -5736,7 +5736,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_vitamin_b12.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxVitaminB12")).append(querySuffix).append(QUrl::toPercentEncoding(max_vitamin_b12.stringValue()));
     }
     if (min_fiber.hasValue())
     {
@@ -5751,7 +5751,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFiber")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_fiber.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFiber")).append(querySuffix).append(QUrl::toPercentEncoding(min_fiber.stringValue()));
     }
     if (max_fiber.hasValue())
     {
@@ -5766,7 +5766,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFiber")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_fiber.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFiber")).append(querySuffix).append(QUrl::toPercentEncoding(max_fiber.stringValue()));
     }
     if (min_folate.hasValue())
     {
@@ -5781,7 +5781,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFolate")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folate.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFolate")).append(querySuffix).append(QUrl::toPercentEncoding(min_folate.stringValue()));
     }
     if (max_folate.hasValue())
     {
@@ -5796,7 +5796,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFolate")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folate.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFolate")).append(querySuffix).append(QUrl::toPercentEncoding(max_folate.stringValue()));
     }
     if (min_folic_acid.hasValue())
     {
@@ -5811,7 +5811,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_folic_acid.value())));
+        fullPath.append(QUrl::toPercentEncoding("minFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(min_folic_acid.stringValue()));
     }
     if (max_folic_acid.hasValue())
     {
@@ -5826,7 +5826,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_folic_acid.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxFolicAcid")).append(querySuffix).append(QUrl::toPercentEncoding(max_folic_acid.stringValue()));
     }
     if (min_iodine.hasValue())
     {
@@ -5841,7 +5841,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minIodine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iodine.value())));
+        fullPath.append(QUrl::toPercentEncoding("minIodine")).append(querySuffix).append(QUrl::toPercentEncoding(min_iodine.stringValue()));
     }
     if (max_iodine.hasValue())
     {
@@ -5856,7 +5856,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxIodine")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iodine.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxIodine")).append(querySuffix).append(QUrl::toPercentEncoding(max_iodine.stringValue()));
     }
     if (min_iron.hasValue())
     {
@@ -5871,7 +5871,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minIron")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_iron.value())));
+        fullPath.append(QUrl::toPercentEncoding("minIron")).append(querySuffix).append(QUrl::toPercentEncoding(min_iron.stringValue()));
     }
     if (max_iron.hasValue())
     {
@@ -5886,7 +5886,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxIron")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_iron.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxIron")).append(querySuffix).append(QUrl::toPercentEncoding(max_iron.stringValue()));
     }
     if (min_magnesium.hasValue())
     {
@@ -5901,7 +5901,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_magnesium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(min_magnesium.stringValue()));
     }
     if (max_magnesium.hasValue())
     {
@@ -5916,7 +5916,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_magnesium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxMagnesium")).append(querySuffix).append(QUrl::toPercentEncoding(max_magnesium.stringValue()));
     }
     if (min_manganese.hasValue())
     {
@@ -5931,7 +5931,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minManganese")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_manganese.value())));
+        fullPath.append(QUrl::toPercentEncoding("minManganese")).append(querySuffix).append(QUrl::toPercentEncoding(min_manganese.stringValue()));
     }
     if (max_manganese.hasValue())
     {
@@ -5946,7 +5946,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxManganese")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_manganese.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxManganese")).append(querySuffix).append(QUrl::toPercentEncoding(max_manganese.stringValue()));
     }
     if (min_phosphorus.hasValue())
     {
@@ -5961,7 +5961,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_phosphorus.value())));
+        fullPath.append(QUrl::toPercentEncoding("minPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(min_phosphorus.stringValue()));
     }
     if (max_phosphorus.hasValue())
     {
@@ -5976,7 +5976,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_phosphorus.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxPhosphorus")).append(querySuffix).append(QUrl::toPercentEncoding(max_phosphorus.stringValue()));
     }
     if (min_potassium.hasValue())
     {
@@ -5991,7 +5991,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_potassium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(min_potassium.stringValue()));
     }
     if (max_potassium.hasValue())
     {
@@ -6006,7 +6006,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_potassium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxPotassium")).append(querySuffix).append(QUrl::toPercentEncoding(max_potassium.stringValue()));
     }
     if (min_selenium.hasValue())
     {
@@ -6021,7 +6021,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_selenium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(min_selenium.stringValue()));
     }
     if (max_selenium.hasValue())
     {
@@ -6036,7 +6036,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_selenium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSelenium")).append(querySuffix).append(QUrl::toPercentEncoding(max_selenium.stringValue()));
     }
     if (min_sodium.hasValue())
     {
@@ -6051,7 +6051,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSodium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sodium.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSodium")).append(querySuffix).append(QUrl::toPercentEncoding(min_sodium.stringValue()));
     }
     if (max_sodium.hasValue())
     {
@@ -6066,7 +6066,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSodium")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sodium.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSodium")).append(querySuffix).append(QUrl::toPercentEncoding(max_sodium.stringValue()));
     }
     if (min_sugar.hasValue())
     {
@@ -6081,7 +6081,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minSugar")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_sugar.value())));
+        fullPath.append(QUrl::toPercentEncoding("minSugar")).append(querySuffix).append(QUrl::toPercentEncoding(min_sugar.stringValue()));
     }
     if (max_sugar.hasValue())
     {
@@ -6096,7 +6096,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxSugar")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_sugar.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxSugar")).append(querySuffix).append(QUrl::toPercentEncoding(max_sugar.stringValue()));
     }
     if (min_zinc.hasValue())
     {
@@ -6111,7 +6111,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("minZinc")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(min_zinc.value())));
+        fullPath.append(QUrl::toPercentEncoding("minZinc")).append(querySuffix).append(QUrl::toPercentEncoding(min_zinc.stringValue()));
     }
     if (max_zinc.hasValue())
     {
@@ -6126,7 +6126,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("maxZinc")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(max_zinc.value())));
+        fullPath.append(QUrl::toPercentEncoding("maxZinc")).append(querySuffix).append(QUrl::toPercentEncoding(max_zinc.stringValue()));
     }
     if (offset.hasValue())
     {
@@ -6141,7 +6141,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
     }
     if (number.hasValue())
     {
@@ -6156,7 +6156,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(number.value())));
+        fullPath.append(QUrl::toPercentEncoding("number")).append(querySuffix).append(QUrl::toPercentEncoding(number.stringValue()));
     }
     if (random.hasValue())
     {
@@ -6171,7 +6171,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("random")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(random.value())));
+        fullPath.append(QUrl::toPercentEncoding("random")).append(querySuffix).append(QUrl::toPercentEncoding(random.stringValue()));
     }
     if (limit_license.hasValue())
     {
@@ -6186,7 +6186,7 @@ void OAIRecipesApi::searchRecipesByNutrients(const ::OpenAPI::OptionalParam<doub
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit_license.value())));
+        fullPath.append(QUrl::toPercentEncoding("limitLicense")).append(querySuffix).append(QUrl::toPercentEncoding(limit_license.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -6479,7 +6479,7 @@ void OAIRecipesApi::visualizePriceBreakdown(const QString &ingredient_list, cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(language.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -6609,7 +6609,7 @@ void OAIRecipesApi::visualizeRecipeEquipmentByID(const qint32 &id, const ::OpenA
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -6719,7 +6719,7 @@ void OAIRecipesApi::visualizeRecipeIngredientsByID(const qint32 &id, const ::Ope
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     if (measure.hasValue())
     {
@@ -6734,7 +6734,7 @@ void OAIRecipesApi::visualizeRecipeIngredientsByID(const qint32 &id, const ::Ope
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("measure")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(measure.value())));
+        fullPath.append(QUrl::toPercentEncoding("measure")).append(querySuffix).append(QUrl::toPercentEncoding(measure.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -6830,7 +6830,7 @@ void OAIRecipesApi::visualizeRecipeNutrition(const QString &ingredient_list, con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(language.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -6956,7 +6956,7 @@ void OAIRecipesApi::visualizeRecipeNutritionByID(const qint32 &id, const ::OpenA
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -7066,7 +7066,7 @@ void OAIRecipesApi::visualizeRecipePriceBreakdownByID(const qint32 &id, const ::
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(default_css.value())));
+        fullPath.append(QUrl::toPercentEncoding("defaultCss")).append(querySuffix).append(QUrl::toPercentEncoding(default_css.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -7162,7 +7162,7 @@ void OAIRecipesApi::visualizeRecipeTaste(const QString &ingredient_list, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(language.value())));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(language.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -7284,7 +7284,7 @@ void OAIRecipesApi::visualizeRecipeTasteByID(const qint32 &id, const ::OpenAPI::
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(normalize.value())));
+        fullPath.append(QUrl::toPercentEncoding("normalize")).append(querySuffix).append(QUrl::toPercentEncoding(normalize.stringValue()));
     }
     if (rgb.hasValue())
     {
@@ -7299,7 +7299,7 @@ void OAIRecipesApi::visualizeRecipeTasteByID(const qint32 &id, const ::OpenAPI::
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("rgb")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(rgb.value())));
+        fullPath.append(QUrl::toPercentEncoding("rgb")).append(querySuffix).append(QUrl::toPercentEncoding(rgb.stringValue()));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);

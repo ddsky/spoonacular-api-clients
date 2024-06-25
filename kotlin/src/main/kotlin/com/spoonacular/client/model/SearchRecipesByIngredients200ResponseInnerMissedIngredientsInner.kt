@@ -75,5 +75,8 @@ data class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner (
     @Json(name = "extendedName")
     val extendedName: kotlin.String? = null
 
-)
+) {
+
+
+}
 

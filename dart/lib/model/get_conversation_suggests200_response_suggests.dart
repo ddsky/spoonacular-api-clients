@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,26 +13,26 @@ part of openapi.api;
 class GetConversationSuggests200ResponseSuggests {
   /// Returns a new [GetConversationSuggests200ResponseSuggests] instance.
   GetConversationSuggests200ResponseSuggests({
-    this. = const {},
+    this.underscore = const {},
   });
 
-  Set<GetConversationSuggests200ResponseSuggestsInner> ;
+  Set<GetConversationSuggests200ResponseSuggestsInner> underscore;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetConversationSuggests200ResponseSuggests &&
-    _deepEquality.equals(other., );
+    _deepEquality.equals(other.underscore, underscore);
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (.hashCode);
+    (underscore.hashCode);
 
   @override
-  String toString() => 'GetConversationSuggests200ResponseSuggests[=$]';
+  String toString() => 'GetConversationSuggests200ResponseSuggests[underscore=$underscore]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'_'] = this..toList(growable: false);
+      json[r'_'] = this.underscore.toList(growable: false);
     return json;
   }
 
@@ -55,7 +55,7 @@ class GetConversationSuggests200ResponseSuggests {
       }());
 
       return GetConversationSuggests200ResponseSuggests(
-        : GetConversationSuggests200ResponseSuggestsInner.listFromJson(json[r'_']).toSet(),
+        underscore: GetConversationSuggests200ResponseSuggestsInner.listFromJson(json[r'_']).toSet(),
       );
     }
     return null;

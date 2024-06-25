@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** |  | 
 **length** | **i32** |  | 
-**rating** | **f32** |  | 
+**rating** | **f64** |  | 
 **short_title** | **String** |  | 
 **thumbnail** | **String** |  | 
 **views** | **i32** |  | 

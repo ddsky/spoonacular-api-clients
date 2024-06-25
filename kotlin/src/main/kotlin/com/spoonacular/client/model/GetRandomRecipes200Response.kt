@@ -32,5 +32,8 @@ data class GetRandomRecipes200Response (
     @Json(name = "recipes")
     val recipes: kotlin.collections.Set<GetRandomRecipes200ResponseRecipesInner>
 
-)
+) {
+
+
+}
 

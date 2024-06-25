@@ -36,12 +36,12 @@ json = "{}"
 # create an instance of SearchRestaurants200ResponseRestaurantsInner from a JSON string
 search_restaurants200_response_restaurants_inner_instance = SearchRestaurants200ResponseRestaurantsInner.from_json(json)
 # print the JSON string representation of the object
-print SearchRestaurants200ResponseRestaurantsInner.to_json()
+print(SearchRestaurants200ResponseRestaurantsInner.to_json())
 
 # convert the object into a dict
 search_restaurants200_response_restaurants_inner_dict = search_restaurants200_response_restaurants_inner_instance.to_dict()
 # create an instance of SearchRestaurants200ResponseRestaurantsInner from a dict
-search_restaurants200_response_restaurants_inner_form_dict = search_restaurants200_response_restaurants_inner.from_dict(search_restaurants200_response_restaurants_inner_dict)
+search_restaurants200_response_restaurants_inner_from_dict = SearchRestaurants200ResponseRestaurantsInner.from_dict(search_restaurants200_response_restaurants_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

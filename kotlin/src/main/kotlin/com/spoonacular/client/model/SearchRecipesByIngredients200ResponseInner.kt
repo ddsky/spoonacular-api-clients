@@ -68,5 +68,8 @@ data class SearchRecipesByIngredients200ResponseInner (
     @Json(name = "usedIngredients")
     val usedIngredients: kotlin.collections.Set<SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner>
 
-)
+) {
+
+
+}
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from spoonacular.models.image_analysis_by_url200_response_category import ImageAnalysisByURL200ResponseCategory
@@ -36,11 +36,11 @@ class ImageAnalysisByURL200Response(BaseModel):
     recipes: Annotated[List[ImageAnalysisByURL200ResponseRecipesInner], Field(min_length=0)]
     __properties: ClassVar[List[str]] = ["nutrition", "category", "recipes"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

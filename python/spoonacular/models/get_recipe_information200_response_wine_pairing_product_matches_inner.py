@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -39,11 +39,11 @@ class GetRecipeInformation200ResponseWinePairingProductMatchesInner(BaseModel):
     link: Annotated[str, Field(min_length=1, strict=True)]
     __properties: ClassVar[List[str]] = ["id", "title", "description", "price", "imageUrl", "averageRating", "ratingCount", "score", "link"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

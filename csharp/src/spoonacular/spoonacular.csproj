@@ -12,12 +12,13 @@
     <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>spoonacular</RootNamespace>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\spoonacular.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/ddsky/spoonacular-api-clients/tree/master/csharp/.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <Nullable>annotations</Nullable>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,9 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web" />
   </ItemGroup>
 </Project>

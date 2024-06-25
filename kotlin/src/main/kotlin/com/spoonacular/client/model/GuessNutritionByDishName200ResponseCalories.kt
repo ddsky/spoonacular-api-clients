@@ -44,5 +44,8 @@ data class GuessNutritionByDishName200ResponseCalories (
     @Json(name = "value")
     val `value`: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

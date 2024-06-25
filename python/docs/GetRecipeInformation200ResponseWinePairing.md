@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of GetRecipeInformation200ResponseWinePairing from a JSON string
 get_recipe_information200_response_wine_pairing_instance = GetRecipeInformation200ResponseWinePairing.from_json(json)
 # print the JSON string representation of the object
-print GetRecipeInformation200ResponseWinePairing.to_json()
+print(GetRecipeInformation200ResponseWinePairing.to_json())
 
 # convert the object into a dict
 get_recipe_information200_response_wine_pairing_dict = get_recipe_information200_response_wine_pairing_instance.to_dict()
 # create an instance of GetRecipeInformation200ResponseWinePairing from a dict
-get_recipe_information200_response_wine_pairing_form_dict = get_recipe_information200_response_wine_pairing.from_dict(get_recipe_information200_response_wine_pairing_dict)
+get_recipe_information200_response_wine_pairing_from_dict = GetRecipeInformation200ResponseWinePairing.from_dict(get_recipe_information200_response_wine_pairing_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

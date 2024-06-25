@@ -137,8 +137,8 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * enum for parameter locale
      */
      enum class LocaleClassifyGroceryProduct(val value: kotlin.String) {
-         @Json(name = "en_US") uS("en_US"),
-         @Json(name = "en_GB") gB("en_GB")
+         @Json(name = "en_US") US("en_US"),
+         @Json(name = "en_GB") GB("en_GB")
      }
 
     /**

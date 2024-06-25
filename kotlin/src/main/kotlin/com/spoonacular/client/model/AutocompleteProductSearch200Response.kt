@@ -32,5 +32,8 @@ data class AutocompleteProductSearch200Response (
     @Json(name = "results")
     val results: kotlin.collections.Set<AutocompleteProductSearch200ResponseResultsInner>
 
-)
+) {
+
+
+}
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | Option<[**crate::models::GetRecipePriceBreakdownById200ResponseIngredientsInnerAmount**](getRecipePriceBreakdownByID_200_response_ingredients_inner_amount.md)> |  | [optional]
+**amount** | Option<[**models::GetRecipePriceBreakdownById200ResponseIngredientsInnerAmount**](getRecipePriceBreakdownByID_200_response_ingredients_inner_amount.md)> |  | [optional]
 **image** | **String** |  | 
 **name** | **String** |  | 
 

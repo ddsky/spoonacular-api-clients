@@ -98,18 +98,18 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Username (string) minLength
             if (this.Username != null && this.Username.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be greater than 1.", new [] { "Username" });
+                yield return new ValidationResult("Invalid value for Username, length must be greater than 1.", new [] { "Username" });
             }
 
             // Hash (string) minLength
             if (this.Hash != null && this.Hash.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
+                yield return new ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
             }
 
             yield break;

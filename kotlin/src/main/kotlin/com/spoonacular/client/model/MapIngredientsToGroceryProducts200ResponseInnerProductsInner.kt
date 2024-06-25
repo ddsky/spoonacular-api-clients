@@ -39,5 +39,8 @@ data class MapIngredientsToGroceryProducts200ResponseInnerProductsInner (
     @Json(name = "upc")
     val upc: kotlin.String
 
-)
+) {
+
+
+}
 

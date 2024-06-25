@@ -49,7 +49,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchSiteContent200ResponseArticlesInnerDataPointsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchSiteContent200ResponseArticlesInnerDataPointsInner {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

@@ -126,30 +126,30 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Username (string) minLength
             if (this.Username != null && this.Username.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be greater than 1.", new [] { "Username" });
+                yield return new ValidationResult("Invalid value for Username, length must be greater than 1.", new [] { "Username" });
             }
 
             // FirstName (string) minLength
             if (this.FirstName != null && this.FirstName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be greater than 1.", new [] { "FirstName" });
+                yield return new ValidationResult("Invalid value for FirstName, length must be greater than 1.", new [] { "FirstName" });
             }
 
             // LastName (string) minLength
             if (this.LastName != null && this.LastName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be greater than 1.", new [] { "LastName" });
+                yield return new ValidationResult("Invalid value for LastName, length must be greater than 1.", new [] { "LastName" });
             }
 
             // Email (string) minLength
             if (this.Email != null && this.Email.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be greater than 1.", new [] { "Email" });
+                yield return new ValidationResult("Invalid value for Email, length must be greater than 1.", new [] { "Email" });
             }
 
             yield break;

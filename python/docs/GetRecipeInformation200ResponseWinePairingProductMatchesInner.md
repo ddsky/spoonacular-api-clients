@@ -25,12 +25,12 @@ json = "{}"
 # create an instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner from a JSON string
 get_recipe_information200_response_wine_pairing_product_matches_inner_instance = GetRecipeInformation200ResponseWinePairingProductMatchesInner.from_json(json)
 # print the JSON string representation of the object
-print GetRecipeInformation200ResponseWinePairingProductMatchesInner.to_json()
+print(GetRecipeInformation200ResponseWinePairingProductMatchesInner.to_json())
 
 # convert the object into a dict
 get_recipe_information200_response_wine_pairing_product_matches_inner_dict = get_recipe_information200_response_wine_pairing_product_matches_inner_instance.to_dict()
 # create an instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner from a dict
-get_recipe_information200_response_wine_pairing_product_matches_inner_form_dict = get_recipe_information200_response_wine_pairing_product_matches_inner.from_dict(get_recipe_information200_response_wine_pairing_product_matches_inner_dict)
+get_recipe_information200_response_wine_pairing_product_matches_inner_from_dict = GetRecipeInformation200ResponseWinePairingProductMatchesInner.from_dict(get_recipe_information200_response_wine_pairing_product_matches_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -39,5 +39,8 @@ data class AddToShoppingListRequest (
     @Json(name = "parse")
     val parse: kotlin.Boolean
 
-)
+) {
+
+
+}
 

@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchAllFood200ResponseSearchResultsInnerResultsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
 public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

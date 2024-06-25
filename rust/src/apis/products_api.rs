@@ -10,8 +10,8 @@
 
 
 use reqwest;
-
-use crate::apis::ResponseContent;
+use serde::{Deserialize, Serialize};
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -127,7 +127,7 @@ pub enum VisualizeProductNutritionByIdError {
 
 
 /// Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
-pub async fn autocomplete_product_search(configuration: &configuration::Configuration, query: &str, number: Option<i32>) -> Result<crate::models::AutocompleteProductSearch200Response, Error<AutocompleteProductSearchError>> {
+pub async fn autocomplete_product_search(configuration: &configuration::Configuration, query: &str, number: Option<i32>) -> Result<models::AutocompleteProductSearch200Response, Error<AutocompleteProductSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -167,7 +167,7 @@ pub async fn autocomplete_product_search(configuration: &configuration::Configur
 }
 
 /// This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
-pub async fn classify_grocery_product(configuration: &configuration::Configuration, classify_grocery_product_request: crate::models::ClassifyGroceryProductRequest, locale: Option<&str>) -> Result<crate::models::ClassifyGroceryProduct200Response, Error<ClassifyGroceryProductError>> {
+pub async fn classify_grocery_product(configuration: &configuration::Configuration, classify_grocery_product_request: models::ClassifyGroceryProductRequest, locale: Option<&str>) -> Result<models::ClassifyGroceryProduct200Response, Error<ClassifyGroceryProductError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -207,7 +207,7 @@ pub async fn classify_grocery_product(configuration: &configuration::Configurati
 }
 
 /// Provide a set of product jsons, get back classified products.
-pub async fn classify_grocery_product_bulk(configuration: &configuration::Configuration, classify_grocery_product_bulk_request_inner: Vec<crate::models::ClassifyGroceryProductBulkRequestInner>, locale: Option<&str>) -> Result<Vec<crate::models::ClassifyGroceryProductBulk200ResponseInner>, Error<ClassifyGroceryProductBulkError>> {
+pub async fn classify_grocery_product_bulk(configuration: &configuration::Configuration, classify_grocery_product_bulk_request_inner: Vec<models::ClassifyGroceryProductBulkRequestInner>, locale: Option<&str>) -> Result<Vec<models::ClassifyGroceryProductBulk200ResponseInner>, Error<ClassifyGroceryProductBulkError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -247,7 +247,7 @@ pub async fn classify_grocery_product_bulk(configuration: &configuration::Config
 }
 
 /// Find comparable products to the given one.
-pub async fn get_comparable_products(configuration: &configuration::Configuration, upc: f32) -> Result<crate::models::GetComparableProducts200Response, Error<GetComparableProductsError>> {
+pub async fn get_comparable_products(configuration: &configuration::Configuration, upc: f64) -> Result<models::GetComparableProducts200Response, Error<GetComparableProductsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -283,7 +283,7 @@ pub async fn get_comparable_products(configuration: &configuration::Configuratio
 }
 
 /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-pub async fn get_product_information(configuration: &configuration::Configuration, id: i32) -> Result<crate::models::GetProductInformation200Response, Error<GetProductInformationError>> {
+pub async fn get_product_information(configuration: &configuration::Configuration, id: i32) -> Result<models::GetProductInformation200Response, Error<GetProductInformationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -319,7 +319,7 @@ pub async fn get_product_information(configuration: &configuration::Configuratio
 }
 
 /// Visualize a product's nutritional information as an image.
-pub async fn product_nutrition_by_id_image(configuration: &configuration::Configuration, id: f32) -> Result<std::path::PathBuf, Error<ProductNutritionByIdImageError>> {
+pub async fn product_nutrition_by_id_image(configuration: &configuration::Configuration, id: f64) -> Result<std::path::PathBuf, Error<ProductNutritionByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -355,7 +355,7 @@ pub async fn product_nutrition_by_id_image(configuration: &configuration::Config
 }
 
 /// Get a product's nutrition label as an image.
-pub async fn product_nutrition_label_image(configuration: &configuration::Configuration, id: f32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<ProductNutritionLabelImageError>> {
+pub async fn product_nutrition_label_image(configuration: &configuration::Configuration, id: f64, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<ProductNutritionLabelImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -400,7 +400,7 @@ pub async fn product_nutrition_label_image(configuration: &configuration::Config
 }
 
 /// Get a product's nutrition label as an HTML widget.
-pub async fn product_nutrition_label_widget(configuration: &configuration::Configuration, id: f32, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<ProductNutritionLabelWidgetError>> {
+pub async fn product_nutrition_label_widget(configuration: &configuration::Configuration, id: f64, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<ProductNutritionLabelWidgetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -448,7 +448,7 @@ pub async fn product_nutrition_label_widget(configuration: &configuration::Confi
 }
 
 /// Search packaged food products, such as frozen pizza or Greek yogurt.
-pub async fn search_grocery_products(configuration: &configuration::Configuration, query: Option<&str>, min_calories: Option<f32>, max_calories: Option<f32>, min_carbs: Option<f32>, max_carbs: Option<f32>, min_protein: Option<f32>, max_protein: Option<f32>, min_fat: Option<f32>, max_fat: Option<f32>, add_product_information: Option<bool>, offset: Option<i32>, number: Option<i32>) -> Result<crate::models::SearchGroceryProducts200Response, Error<SearchGroceryProductsError>> {
+pub async fn search_grocery_products(configuration: &configuration::Configuration, query: Option<&str>, min_calories: Option<f64>, max_calories: Option<f64>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, add_product_information: Option<bool>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchGroceryProducts200Response, Error<SearchGroceryProductsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -520,7 +520,7 @@ pub async fn search_grocery_products(configuration: &configuration::Configuratio
 }
 
 /// Get information about a packaged food using its UPC.
-pub async fn search_grocery_products_by_upc(configuration: &configuration::Configuration, upc: f32) -> Result<crate::models::SearchGroceryProductsByUpc200Response, Error<SearchGroceryProductsByUpcError>> {
+pub async fn search_grocery_products_by_upc(configuration: &configuration::Configuration, upc: f64) -> Result<models::SearchGroceryProductsByUpc200Response, Error<SearchGroceryProductsByUpcError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

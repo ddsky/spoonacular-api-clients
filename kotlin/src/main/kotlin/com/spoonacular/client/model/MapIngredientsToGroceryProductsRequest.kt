@@ -35,5 +35,8 @@ data class MapIngredientsToGroceryProductsRequest (
     @Json(name = "servings")
     val servings: java.math.BigDecimal
 
-)
+) {
+
+
+}
 

@@ -167,6 +167,7 @@ docs/Model/SummarizeRecipe200Response.md
 docs/Model/TalkToChatbot200Response.md
 docs/Model/TalkToChatbot200ResponseMediaInner.md
 git_push.sh
+lib/ApiException.php
 lib/Api/DefaultApi.php
 lib/Api/IngredientsApi.php
 lib/Api/MealPlanningApi.php
@@ -175,7 +176,6 @@ lib/Api/MiscApi.php
 lib/Api/ProductsApi.php
 lib/Api/RecipesApi.php
 lib/Api/WineApi.php
-lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AddMealPlanTemplate200Response.php

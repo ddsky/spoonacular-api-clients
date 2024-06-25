@@ -199,7 +199,7 @@ public class ApiInvoker {
 
   public static void initializeInstance(Cache cache, Network network, int threadPoolSize, ResponseDelivery delivery, int connectionTimeout) {
     INSTANCE = new ApiInvoker(cache, network, threadPoolSize, delivery, connectionTimeout);
-    setUserAgent("OpenAPI-Generator/1.1.1/android");
+    setUserAgent("OpenAPI-Generator/1.1.2/android");
 
     // Setup authentications (key: authentication name, value: authentication).
     INSTANCE.authentications = new HashMap<String, Authentication>();

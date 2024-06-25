@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**servings** | **f32** |  | 
-**id** | **f32** |  | 
+**servings** | **f64** |  | 
+**id** | **f64** |  | 
 **title** | **String** |  | 
 **image_type** | **String** |  | 
 

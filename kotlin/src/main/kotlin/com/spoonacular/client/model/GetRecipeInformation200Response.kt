@@ -177,5 +177,8 @@ data class GetRecipeInformation200Response (
     @Json(name = "winePairing")
     val winePairing: GetRecipeInformation200ResponseWinePairing
 
-)
+) {
+
+
+}
 

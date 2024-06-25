@@ -36,5 +36,8 @@ data class GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount (
     @Json(name = "us")
     val us: GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
 
-)
+) {
+
+
+}
 

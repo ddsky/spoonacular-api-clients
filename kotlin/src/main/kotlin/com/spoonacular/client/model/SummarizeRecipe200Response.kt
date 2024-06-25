@@ -39,5 +39,8 @@ data class SummarizeRecipe200Response (
     @Json(name = "title")
     val title: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
 from spoonacular.models.get_conversation_suggests200_response_suggests import GetConversationSuggests200ResponseSuggests
 from typing import Optional, Set
@@ -32,11 +32,11 @@ class GetConversationSuggests200Response(BaseModel):
     words: List[StrictStr]
     __properties: ClassVar[List[str]] = ["suggests", "words"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
