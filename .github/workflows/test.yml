@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -50,6 +52,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -61,6 +65,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -75,6 +81,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
