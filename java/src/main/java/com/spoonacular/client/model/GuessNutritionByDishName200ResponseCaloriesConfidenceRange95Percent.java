@@ -68,10 +68,10 @@ public class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
     return this;
   }
 
-   /**
+  /**
    * Get max
    * @return max
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getMax() {
     return max;
@@ -87,10 +87,10 @@ public class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
     return this;
   }
 
-   /**
+  /**
    * Get min
    * @return min
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getMin() {
     return min;
@@ -157,12 +157,12 @@ public class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
     openapiRequiredFields.add("min");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +216,22 @@ public class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
     }
   }
 
- /**
-  * Create an instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
-  * @throws IOException if the JSON string is invalid with respect to GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
-  */
+  /**
+   * Create an instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+   * @throws IOException if the JSON string is invalid with respect to GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+   */
   public static GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent.class);
   }
 
- /**
-  * Convert an instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

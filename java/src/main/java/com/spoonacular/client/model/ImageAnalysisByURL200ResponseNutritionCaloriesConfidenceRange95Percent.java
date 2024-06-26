@@ -68,10 +68,10 @@ public class ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Perc
     return this;
   }
 
-   /**
+  /**
    * Get min
    * @return min
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getMin() {
     return min;
@@ -87,10 +87,10 @@ public class ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Perc
     return this;
   }
 
-   /**
+  /**
    * Get max
    * @return max
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getMax() {
     return max;
@@ -157,12 +157,12 @@ public class ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Perc
     openapiRequiredFields.add("max");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -216,22 +216,22 @@ public class ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Perc
     }
   }
 
- /**
-  * Create an instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
-  * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
-  */
+  /**
+   * Create an instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+   * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+   */
   public static ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent.class);
   }
 
- /**
-  * Convert an instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -74,10 +74,10 @@ public class GetRecipeEquipmentByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get equipment
    * @return equipment
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetRecipeEquipmentByID200ResponseEquipmentInner> getEquipment() {
     return equipment;
@@ -140,12 +140,12 @@ public class GetRecipeEquipmentByID200Response {
     openapiRequiredFields.add("equipment");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeEquipmentByID200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeEquipmentByID200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeEquipmentByID200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class GetRecipeEquipmentByID200Response {
     }
   }
 
- /**
-  * Create an instance of GetRecipeEquipmentByID200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeEquipmentByID200Response
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeEquipmentByID200Response
-  */
+  /**
+   * Create an instance of GetRecipeEquipmentByID200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeEquipmentByID200Response
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeEquipmentByID200Response
+   */
   public static GetRecipeEquipmentByID200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeEquipmentByID200Response.class);
   }
 
- /**
-  * Convert an instance of GetRecipeEquipmentByID200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeEquipmentByID200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -63,10 +63,10 @@ public class GetRandomFoodTrivia200Response {
     return this;
   }
 
-   /**
+  /**
    * Get text
    * @return text
-  **/
+   */
   @javax.annotation.Nonnull
   public String getText() {
     return text;
@@ -129,12 +129,12 @@ public class GetRandomFoodTrivia200Response {
     openapiRequiredFields.add("text");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRandomFoodTrivia200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRandomFoodTrivia200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRandomFoodTrivia200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -191,22 +191,22 @@ public class GetRandomFoodTrivia200Response {
     }
   }
 
- /**
-  * Create an instance of GetRandomFoodTrivia200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRandomFoodTrivia200Response
-  * @throws IOException if the JSON string is invalid with respect to GetRandomFoodTrivia200Response
-  */
+  /**
+   * Create an instance of GetRandomFoodTrivia200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRandomFoodTrivia200Response
+   * @throws IOException if the JSON string is invalid with respect to GetRandomFoodTrivia200Response
+   */
   public static GetRandomFoodTrivia200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRandomFoodTrivia200Response.class);
   }
 
- /**
-  * Convert an instance of GetRandomFoodTrivia200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRandomFoodTrivia200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

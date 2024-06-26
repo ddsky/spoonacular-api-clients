@@ -2533,7 +2533,7 @@ mkGetConversationSuggests200Response getConversationSuggests200ResponseSuggests 
 -- ** GetConversationSuggests200ResponseSuggests
 -- | GetConversationSuggests200ResponseSuggests
 data GetConversationSuggests200ResponseSuggests = GetConversationSuggests200ResponseSuggests
-  { getConversationSuggests200ResponseSuggests :: !([GetConversationSuggests200ResponseSuggestsInner]) -- ^ /Required/ "_"
+  { getConversationSuggests200ResponseSuggestsUnderscore :: !([GetConversationSuggests200ResponseSuggestsInner]) -- ^ /Required/ "_"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetConversationSuggests200ResponseSuggests
@@ -2546,17 +2546,17 @@ instance A.FromJSON GetConversationSuggests200ResponseSuggests where
 instance A.ToJSON GetConversationSuggests200ResponseSuggests where
   toJSON GetConversationSuggests200ResponseSuggests {..} =
    _omitNulls
-      [ "_" .= getConversationSuggests200ResponseSuggests
+      [ "_" .= getConversationSuggests200ResponseSuggestsUnderscore
       ]
 
 
 -- | Construct a value of type 'GetConversationSuggests200ResponseSuggests' (by applying it's required fields, if any)
 mkGetConversationSuggests200ResponseSuggests
-  :: [GetConversationSuggests200ResponseSuggestsInner] -- ^ 'getConversationSuggests200ResponseSuggests' 
+  :: [GetConversationSuggests200ResponseSuggestsInner] -- ^ 'getConversationSuggests200ResponseSuggestsUnderscore' 
   -> GetConversationSuggests200ResponseSuggests
-mkGetConversationSuggests200ResponseSuggests getConversationSuggests200ResponseSuggests =
+mkGetConversationSuggests200ResponseSuggests getConversationSuggests200ResponseSuggestsUnderscore =
   GetConversationSuggests200ResponseSuggests
-  { getConversationSuggests200ResponseSuggests
+  { getConversationSuggests200ResponseSuggestsUnderscore
   }
 
 -- ** GetConversationSuggests200ResponseSuggestsInner

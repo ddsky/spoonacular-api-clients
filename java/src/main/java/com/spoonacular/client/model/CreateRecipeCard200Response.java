@@ -63,10 +63,10 @@ public class CreateRecipeCard200Response {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUrl() {
     return url;
@@ -129,12 +129,12 @@ public class CreateRecipeCard200Response {
     openapiRequiredFields.add("url");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CreateRecipeCard200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CreateRecipeCard200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateRecipeCard200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -191,22 +191,22 @@ public class CreateRecipeCard200Response {
     }
   }
 
- /**
-  * Create an instance of CreateRecipeCard200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateRecipeCard200Response
-  * @throws IOException if the JSON string is invalid with respect to CreateRecipeCard200Response
-  */
+  /**
+   * Create an instance of CreateRecipeCard200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CreateRecipeCard200Response
+   * @throws IOException if the JSON string is invalid with respect to CreateRecipeCard200Response
+   */
   public static CreateRecipeCard200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CreateRecipeCard200Response.class);
   }
 
- /**
-  * Convert an instance of CreateRecipeCard200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CreateRecipeCard200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

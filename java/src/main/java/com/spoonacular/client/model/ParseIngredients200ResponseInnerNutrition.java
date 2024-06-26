@@ -93,10 +93,10 @@ public class ParseIngredients200ResponseInnerNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get nutrients
    * @return nutrients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> getNutrients() {
     return nutrients;
@@ -120,10 +120,10 @@ public class ParseIngredients200ResponseInnerNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get properties
    * @return properties
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<ParseIngredients200ResponseInnerNutritionPropertiesInner> getProperties() {
     return properties;
@@ -147,10 +147,10 @@ public class ParseIngredients200ResponseInnerNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get flavonoids
    * @return flavonoids
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<ParseIngredients200ResponseInnerNutritionPropertiesInner> getFlavonoids() {
     return flavonoids;
@@ -166,10 +166,10 @@ public class ParseIngredients200ResponseInnerNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get caloricBreakdown
    * @return caloricBreakdown
-  **/
+   */
   @javax.annotation.Nonnull
   public ParseIngredients200ResponseInnerNutritionCaloricBreakdown getCaloricBreakdown() {
     return caloricBreakdown;
@@ -185,10 +185,10 @@ public class ParseIngredients200ResponseInnerNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get weightPerServing
    * @return weightPerServing
-  **/
+   */
   @javax.annotation.Nonnull
   public ParseIngredients200ResponseInnerNutritionWeightPerServing getWeightPerServing() {
     return weightPerServing;
@@ -267,12 +267,12 @@ public class ParseIngredients200ResponseInnerNutrition {
     openapiRequiredFields.add("weightPerServing");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerNutrition
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerNutrition
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ParseIngredients200ResponseInnerNutrition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -360,22 +360,22 @@ public class ParseIngredients200ResponseInnerNutrition {
     }
   }
 
- /**
-  * Create an instance of ParseIngredients200ResponseInnerNutrition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ParseIngredients200ResponseInnerNutrition
-  * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerNutrition
-  */
+  /**
+   * Create an instance of ParseIngredients200ResponseInnerNutrition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ParseIngredients200ResponseInnerNutrition
+   * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerNutrition
+   */
   public static ParseIngredients200ResponseInnerNutrition fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ParseIngredients200ResponseInnerNutrition.class);
   }
 
- /**
-  * Convert an instance of ParseIngredients200ResponseInnerNutrition to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ParseIngredients200ResponseInnerNutrition to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

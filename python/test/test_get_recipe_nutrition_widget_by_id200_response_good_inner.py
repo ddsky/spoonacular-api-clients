@@ -28,7 +28,7 @@ class TestGetRecipeNutritionWidgetByID200ResponseGoodInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> GetRecipeNutritionWidgetByID200ResponseGoodInner:
         """Test GetRecipeNutritionWidgetByID200ResponseGoodInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetRecipeNutritionWidgetByID200ResponseGoodInner`

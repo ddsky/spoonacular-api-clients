@@ -71,10 +71,10 @@ public class AutocompleteRecipeSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -90,10 +90,10 @@ public class AutocompleteRecipeSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -109,10 +109,10 @@ public class AutocompleteRecipeSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -183,12 +183,12 @@ public class AutocompleteRecipeSearch200ResponseInner {
     openapiRequiredFields.add("imageType");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutocompleteRecipeSearch200ResponseInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutocompleteRecipeSearch200ResponseInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AutocompleteRecipeSearch200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -248,22 +248,22 @@ public class AutocompleteRecipeSearch200ResponseInner {
     }
   }
 
- /**
-  * Create an instance of AutocompleteRecipeSearch200ResponseInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutocompleteRecipeSearch200ResponseInner
-  * @throws IOException if the JSON string is invalid with respect to AutocompleteRecipeSearch200ResponseInner
-  */
+  /**
+   * Create an instance of AutocompleteRecipeSearch200ResponseInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutocompleteRecipeSearch200ResponseInner
+   * @throws IOException if the JSON string is invalid with respect to AutocompleteRecipeSearch200ResponseInner
+   */
   public static AutocompleteRecipeSearch200ResponseInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutocompleteRecipeSearch200ResponseInner.class);
   }
 
- /**
-  * Convert an instance of AutocompleteRecipeSearch200ResponseInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutocompleteRecipeSearch200ResponseInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

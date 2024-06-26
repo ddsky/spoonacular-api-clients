@@ -144,10 +144,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
@@ -163,10 +163,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   public String getName() {
     return name;
@@ -182,10 +182,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get phoneNumber
    * @return phoneNumber
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getPhoneNumber() {
     return phoneNumber;
@@ -201,10 +201,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @javax.annotation.Nullable
   public SearchRestaurants200ResponseRestaurantsInnerAddress getAddress() {
     return address;
@@ -220,10 +220,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   public String getType() {
     return type;
@@ -239,10 +239,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
@@ -258,10 +258,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get localHours
    * @return localHours
-  **/
+   */
   @javax.annotation.Nullable
   public SearchRestaurants200ResponseRestaurantsInnerLocalHours getLocalHours() {
     return localHours;
@@ -285,10 +285,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get cuisines
    * @return cuisines
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getCuisines() {
     return cuisines;
@@ -312,10 +312,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get foodPhotos
    * @return foodPhotos
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getFoodPhotos() {
     return foodPhotos;
@@ -339,10 +339,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get logoPhotos
    * @return logoPhotos
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getLogoPhotos() {
     return logoPhotos;
@@ -366,10 +366,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get storePhotos
    * @return storePhotos
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getStorePhotos() {
     return storePhotos;
@@ -385,10 +385,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get dollarSigns
    * @return dollarSigns
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getDollarSigns() {
     return dollarSigns;
@@ -404,10 +404,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get pickupEnabled
    * @return pickupEnabled
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getPickupEnabled() {
     return pickupEnabled;
@@ -423,10 +423,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get deliveryEnabled
    * @return deliveryEnabled
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDeliveryEnabled() {
     return deliveryEnabled;
@@ -442,10 +442,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get isOpen
    * @return isOpen
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsOpen() {
     return isOpen;
@@ -461,10 +461,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get offersFirstPartyDelivery
    * @return offersFirstPartyDelivery
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getOffersFirstPartyDelivery() {
     return offersFirstPartyDelivery;
@@ -480,10 +480,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get offersThirdPartyDelivery
    * @return offersThirdPartyDelivery
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getOffersThirdPartyDelivery() {
     return offersThirdPartyDelivery;
@@ -499,10 +499,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get miles
    * @return miles
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getMiles() {
     return miles;
@@ -518,10 +518,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get weightedRatingValue
    * @return weightedRatingValue
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getWeightedRatingValue() {
     return weightedRatingValue;
@@ -537,10 +537,10 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     return this;
   }
 
-   /**
+  /**
    * Get aggregatedRatingCount
    * @return aggregatedRatingCount
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getAggregatedRatingCount() {
     return aggregatedRatingCount;
@@ -659,12 +659,12 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRestaurants200ResponseRestaurantsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -747,22 +747,22 @@ public class SearchRestaurants200ResponseRestaurantsInner {
     }
   }
 
- /**
-  * Create an instance of SearchRestaurants200ResponseRestaurantsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRestaurants200ResponseRestaurantsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInner
-  */
+  /**
+   * Create an instance of SearchRestaurants200ResponseRestaurantsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRestaurants200ResponseRestaurantsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInner
+   */
   public static SearchRestaurants200ResponseRestaurantsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRestaurants200ResponseRestaurantsInner.class);
   }
 
- /**
-  * Convert an instance of SearchRestaurants200ResponseRestaurantsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRestaurants200ResponseRestaurantsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

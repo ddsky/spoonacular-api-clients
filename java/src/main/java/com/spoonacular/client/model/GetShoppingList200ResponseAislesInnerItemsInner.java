@@ -89,10 +89,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -108,10 +108,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -127,10 +127,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get measures
    * @return measures
-  **/
+   */
   @javax.annotation.Nullable
   public GetShoppingList200ResponseAislesInnerItemsInnerMeasures getMeasures() {
     return measures;
@@ -146,10 +146,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get pantryItem
    * @return pantryItem
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getPantryItem() {
     return pantryItem;
@@ -165,10 +165,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAisle() {
     return aisle;
@@ -184,10 +184,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get cost
    * @return cost
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getCost() {
     return cost;
@@ -203,10 +203,10 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get ingredientId
    * @return ingredientId
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getIngredientId() {
     return ingredientId;
@@ -292,12 +292,12 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     openapiRequiredFields.add("ingredientId");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetShoppingList200ResponseAislesInnerItemsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetShoppingList200ResponseAislesInnerItemsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetShoppingList200ResponseAislesInnerItemsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -361,22 +361,22 @@ public class GetShoppingList200ResponseAislesInnerItemsInner {
     }
   }
 
- /**
-  * Create an instance of GetShoppingList200ResponseAislesInnerItemsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetShoppingList200ResponseAislesInnerItemsInner
-  * @throws IOException if the JSON string is invalid with respect to GetShoppingList200ResponseAislesInnerItemsInner
-  */
+  /**
+   * Create an instance of GetShoppingList200ResponseAislesInnerItemsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetShoppingList200ResponseAislesInnerItemsInner
+   * @throws IOException if the JSON string is invalid with respect to GetShoppingList200ResponseAislesInnerItemsInner
+   */
   public static GetShoppingList200ResponseAislesInnerItemsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetShoppingList200ResponseAislesInnerItemsInner.class);
   }
 
- /**
-  * Convert an instance of GetShoppingList200ResponseAislesInnerItemsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetShoppingList200ResponseAislesInnerItemsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

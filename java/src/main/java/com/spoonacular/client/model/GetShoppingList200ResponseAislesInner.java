@@ -70,10 +70,10 @@ public class GetShoppingList200ResponseAislesInner {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAisle() {
     return aisle;
@@ -97,10 +97,10 @@ public class GetShoppingList200ResponseAislesInner {
     return this;
   }
 
-   /**
+  /**
    * Get items
    * @return items
-  **/
+   */
   @javax.annotation.Nullable
   public Set<GetShoppingList200ResponseAislesInnerItemsInner> getItems() {
     return items;
@@ -166,12 +166,12 @@ public class GetShoppingList200ResponseAislesInner {
     openapiRequiredFields.add("aisle");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetShoppingList200ResponseAislesInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetShoppingList200ResponseAislesInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetShoppingList200ResponseAislesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -242,22 +242,22 @@ public class GetShoppingList200ResponseAislesInner {
     }
   }
 
- /**
-  * Create an instance of GetShoppingList200ResponseAislesInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetShoppingList200ResponseAislesInner
-  * @throws IOException if the JSON string is invalid with respect to GetShoppingList200ResponseAislesInner
-  */
+  /**
+   * Create an instance of GetShoppingList200ResponseAislesInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetShoppingList200ResponseAislesInner
+   * @throws IOException if the JSON string is invalid with respect to GetShoppingList200ResponseAislesInner
+   */
   public static GetShoppingList200ResponseAislesInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetShoppingList200ResponseAislesInner.class);
   }
 
- /**
-  * Convert an instance of GetShoppingList200ResponseAislesInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetShoppingList200ResponseAislesInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -80,10 +80,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -99,10 +99,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get slot
    * @return slot
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getSlot() {
     return slot;
@@ -118,10 +118,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get position
    * @return position
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getPosition() {
     return position;
@@ -137,10 +137,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public String getType() {
     return type;
@@ -156,10 +156,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue getValue() {
     return value;
@@ -237,12 +237,12 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanTemplate200ResponseDaysInnerItemsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -303,22 +303,22 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInner {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanTemplate200ResponseDaysInnerItemsInner
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInner
-  */
+  /**
+   * Create an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanTemplate200ResponseDaysInnerItemsInner
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInner
+   */
   public static GetMealPlanTemplate200ResponseDaysInnerItemsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanTemplate200ResponseDaysInnerItemsInner.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

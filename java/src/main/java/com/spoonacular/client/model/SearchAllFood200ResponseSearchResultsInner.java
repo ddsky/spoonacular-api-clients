@@ -74,10 +74,10 @@ public class SearchAllFood200ResponseSearchResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -93,10 +93,10 @@ public class SearchAllFood200ResponseSearchResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get totalResults
    * @return totalResults
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getTotalResults() {
     return totalResults;
@@ -120,10 +120,10 @@ public class SearchAllFood200ResponseSearchResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get results
    * @return results
-  **/
+   */
   @javax.annotation.Nullable
   public Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> getResults() {
     return results;
@@ -193,12 +193,12 @@ public class SearchAllFood200ResponseSearchResultsInner {
     openapiRequiredFields.add("totalResults");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200ResponseSearchResultsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200ResponseSearchResultsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchAllFood200ResponseSearchResultsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -269,22 +269,22 @@ public class SearchAllFood200ResponseSearchResultsInner {
     }
   }
 
- /**
-  * Create an instance of SearchAllFood200ResponseSearchResultsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchAllFood200ResponseSearchResultsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchAllFood200ResponseSearchResultsInner
-  */
+  /**
+   * Create an instance of SearchAllFood200ResponseSearchResultsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchAllFood200ResponseSearchResultsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchAllFood200ResponseSearchResultsInner
+   */
   public static SearchAllFood200ResponseSearchResultsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchAllFood200ResponseSearchResultsInner.class);
   }
 
- /**
-  * Convert an instance of SearchAllFood200ResponseSearchResultsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchAllFood200ResponseSearchResultsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

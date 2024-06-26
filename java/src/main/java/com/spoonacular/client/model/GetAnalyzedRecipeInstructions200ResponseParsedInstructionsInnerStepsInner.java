@@ -79,10 +79,10 @@ public class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStep
     return this;
   }
 
-   /**
+  /**
    * Get number
    * @return number
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getNumber() {
     return number;
@@ -98,10 +98,10 @@ public class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStep
     return this;
   }
 
-   /**
+  /**
    * Get step
    * @return step
-  **/
+   */
   @javax.annotation.Nonnull
   public String getStep() {
     return step;
@@ -125,10 +125,10 @@ public class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStep
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nullable
   public Set<GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner> getIngredients() {
     return ingredients;
@@ -152,10 +152,10 @@ public class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStep
     return this;
   }
 
-   /**
+  /**
    * Get equipment
    * @return equipment
-  **/
+   */
   @javax.annotation.Nullable
   public Set<GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner> getEquipment() {
     return equipment;
@@ -228,12 +228,12 @@ public class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStep
     openapiRequiredFields.add("step");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -318,22 +318,22 @@ public class GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStep
     }
   }
 
- /**
-  * Create an instance of GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-  * @throws IOException if the JSON string is invalid with respect to GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-  */
+  /**
+   * Create an instance of GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+   * @throws IOException if the JSON string is invalid with respect to GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+   */
   public static GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.class);
   }
 
- /**
-  * Convert an instance of GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

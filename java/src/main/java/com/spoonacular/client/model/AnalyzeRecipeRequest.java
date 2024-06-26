@@ -77,10 +77,10 @@ public class AnalyzeRecipeRequest {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
@@ -96,10 +96,10 @@ public class AnalyzeRecipeRequest {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getServings() {
     return servings;
@@ -123,10 +123,10 @@ public class AnalyzeRecipeRequest {
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getIngredients() {
     return ingredients;
@@ -142,10 +142,10 @@ public class AnalyzeRecipeRequest {
     return this;
   }
 
-   /**
+  /**
    * Get instructions
    * @return instructions
-  **/
+   */
   @javax.annotation.Nullable
   public String getInstructions() {
     return instructions;
@@ -216,12 +216,12 @@ public class AnalyzeRecipeRequest {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AnalyzeRecipeRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AnalyzeRecipeRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalyzeRecipeRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -278,22 +278,22 @@ public class AnalyzeRecipeRequest {
     }
   }
 
- /**
-  * Create an instance of AnalyzeRecipeRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AnalyzeRecipeRequest
-  * @throws IOException if the JSON string is invalid with respect to AnalyzeRecipeRequest
-  */
+  /**
+   * Create an instance of AnalyzeRecipeRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AnalyzeRecipeRequest
+   * @throws IOException if the JSON string is invalid with respect to AnalyzeRecipeRequest
+   */
   public static AnalyzeRecipeRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AnalyzeRecipeRequest.class);
   }
 
- /**
-  * Convert an instance of AnalyzeRecipeRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AnalyzeRecipeRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

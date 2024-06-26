@@ -67,10 +67,10 @@ public class ConnectUser200Response {
     return this;
   }
 
-   /**
+  /**
    * Get username
    * @return username
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUsername() {
     return username;
@@ -86,10 +86,10 @@ public class ConnectUser200Response {
     return this;
   }
 
-   /**
+  /**
    * Get hash
    * @return hash
-  **/
+   */
   @javax.annotation.Nonnull
   public String getHash() {
     return hash;
@@ -156,12 +156,12 @@ public class ConnectUser200Response {
     openapiRequiredFields.add("hash");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ConnectUser200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ConnectUser200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ConnectUser200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -221,22 +221,22 @@ public class ConnectUser200Response {
     }
   }
 
- /**
-  * Create an instance of ConnectUser200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConnectUser200Response
-  * @throws IOException if the JSON string is invalid with respect to ConnectUser200Response
-  */
+  /**
+   * Create an instance of ConnectUser200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ConnectUser200Response
+   * @throws IOException if the JSON string is invalid with respect to ConnectUser200Response
+   */
   public static ConnectUser200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConnectUser200Response.class);
   }
 
- /**
-  * Convert an instance of ConnectUser200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ConnectUser200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

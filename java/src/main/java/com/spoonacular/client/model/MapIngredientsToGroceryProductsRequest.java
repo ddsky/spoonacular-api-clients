@@ -78,10 +78,10 @@ public class MapIngredientsToGroceryProductsRequest {
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getIngredients() {
     return ingredients;
@@ -97,10 +97,10 @@ public class MapIngredientsToGroceryProductsRequest {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getServings() {
     return servings;
@@ -167,12 +167,12 @@ public class MapIngredientsToGroceryProductsRequest {
     openapiRequiredFields.add("servings");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to MapIngredientsToGroceryProductsRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to MapIngredientsToGroceryProductsRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MapIngredientsToGroceryProductsRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -232,22 +232,22 @@ public class MapIngredientsToGroceryProductsRequest {
     }
   }
 
- /**
-  * Create an instance of MapIngredientsToGroceryProductsRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MapIngredientsToGroceryProductsRequest
-  * @throws IOException if the JSON string is invalid with respect to MapIngredientsToGroceryProductsRequest
-  */
+  /**
+   * Create an instance of MapIngredientsToGroceryProductsRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MapIngredientsToGroceryProductsRequest
+   * @throws IOException if the JSON string is invalid with respect to MapIngredientsToGroceryProductsRequest
+   */
   public static MapIngredientsToGroceryProductsRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, MapIngredientsToGroceryProductsRequest.class);
   }
 
- /**
-  * Convert an instance of MapIngredientsToGroceryProductsRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of MapIngredientsToGroceryProductsRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -68,10 +68,10 @@ public class ParseIngredients200ResponseInnerEstimatedCost {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getValue() {
     return value;
@@ -87,10 +87,10 @@ public class ParseIngredients200ResponseInnerEstimatedCost {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -157,12 +157,12 @@ public class ParseIngredients200ResponseInnerEstimatedCost {
     openapiRequiredFields.add("unit");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerEstimatedCost
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerEstimatedCost
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ParseIngredients200ResponseInnerEstimatedCost.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -219,22 +219,22 @@ public class ParseIngredients200ResponseInnerEstimatedCost {
     }
   }
 
- /**
-  * Create an instance of ParseIngredients200ResponseInnerEstimatedCost given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ParseIngredients200ResponseInnerEstimatedCost
-  * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerEstimatedCost
-  */
+  /**
+   * Create an instance of ParseIngredients200ResponseInnerEstimatedCost given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ParseIngredients200ResponseInnerEstimatedCost
+   * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerEstimatedCost
+   */
   public static ParseIngredients200ResponseInnerEstimatedCost fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ParseIngredients200ResponseInnerEstimatedCost.class);
   }
 
- /**
-  * Convert an instance of ParseIngredients200ResponseInnerEstimatedCost to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ParseIngredients200ResponseInnerEstimatedCost to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -84,10 +84,10 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get original
    * @return original
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginal() {
     return original;
@@ -103,10 +103,10 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get originalName
    * @return originalName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginalName() {
     return originalName;
@@ -122,10 +122,10 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get ingredientImage
    * @return ingredientImage
-  **/
+   */
   @javax.annotation.Nonnull
   public String getIngredientImage() {
     return ingredientImage;
@@ -149,10 +149,10 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getMeta() {
     return meta;
@@ -176,10 +176,10 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get products
    * @return products
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<MapIngredientsToGroceryProducts200ResponseInnerProductsInner> getProducts() {
     return products;
@@ -258,12 +258,12 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     openapiRequiredFields.add("products");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to MapIngredientsToGroceryProducts200ResponseInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to MapIngredientsToGroceryProducts200ResponseInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MapIngredientsToGroceryProducts200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -342,22 +342,22 @@ public class MapIngredientsToGroceryProducts200ResponseInner {
     }
   }
 
- /**
-  * Create an instance of MapIngredientsToGroceryProducts200ResponseInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MapIngredientsToGroceryProducts200ResponseInner
-  * @throws IOException if the JSON string is invalid with respect to MapIngredientsToGroceryProducts200ResponseInner
-  */
+  /**
+   * Create an instance of MapIngredientsToGroceryProducts200ResponseInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MapIngredientsToGroceryProducts200ResponseInner
+   * @throws IOException if the JSON string is invalid with respect to MapIngredientsToGroceryProducts200ResponseInner
+   */
   public static MapIngredientsToGroceryProducts200ResponseInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, MapIngredientsToGroceryProducts200ResponseInner.class);
   }
 
- /**
-  * Convert an instance of MapIngredientsToGroceryProducts200ResponseInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of MapIngredientsToGroceryProducts200ResponseInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

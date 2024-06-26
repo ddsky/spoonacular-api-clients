@@ -74,10 +74,10 @@ public class DetectFoodInText200Response {
     return this;
   }
 
-   /**
+  /**
    * Get annotations
    * @return annotations
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<DetectFoodInText200ResponseAnnotationsInner> getAnnotations() {
     return annotations;
@@ -140,12 +140,12 @@ public class DetectFoodInText200Response {
     openapiRequiredFields.add("annotations");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to DetectFoodInText200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DetectFoodInText200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DetectFoodInText200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class DetectFoodInText200Response {
     }
   }
 
- /**
-  * Create an instance of DetectFoodInText200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DetectFoodInText200Response
-  * @throws IOException if the JSON string is invalid with respect to DetectFoodInText200Response
-  */
+  /**
+   * Create an instance of DetectFoodInText200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DetectFoodInText200Response
+   * @throws IOException if the JSON string is invalid with respect to DetectFoodInText200Response
+   */
   public static DetectFoodInText200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DetectFoodInText200Response.class);
   }
 
- /**
-  * Convert an instance of DetectFoodInText200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DetectFoodInText200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

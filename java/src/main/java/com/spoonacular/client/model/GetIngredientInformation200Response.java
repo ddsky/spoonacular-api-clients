@@ -136,10 +136,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -155,10 +155,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get original
    * @return original
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginal() {
     return original;
@@ -174,10 +174,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get originalName
    * @return originalName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginalName() {
     return originalName;
@@ -193,10 +193,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -212,10 +212,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get nameClean
    * @return nameClean
-  **/
+   */
   @javax.annotation.Nonnull
   public String getNameClean() {
     return nameClean;
@@ -231,10 +231,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAmount() {
     return amount;
@@ -250,10 +250,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -269,10 +269,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get unitShort
    * @return unitShort
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnitShort() {
     return unitShort;
@@ -288,10 +288,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get unitLong
    * @return unitLong
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnitLong() {
     return unitLong;
@@ -315,10 +315,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get possibleUnits
    * @return possibleUnits
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getPossibleUnits() {
     return possibleUnits;
@@ -334,10 +334,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get estimatedCost
    * @return estimatedCost
-  **/
+   */
   @javax.annotation.Nonnull
   public ParseIngredients200ResponseInnerEstimatedCost getEstimatedCost() {
     return estimatedCost;
@@ -353,10 +353,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get consistency
    * @return consistency
-  **/
+   */
   @javax.annotation.Nonnull
   public String getConsistency() {
     return consistency;
@@ -380,10 +380,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get shoppingListUnits
    * @return shoppingListUnits
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getShoppingListUnits() {
     return shoppingListUnits;
@@ -399,10 +399,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAisle() {
     return aisle;
@@ -418,10 +418,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -445,10 +445,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Object> getMeta() {
     return meta;
@@ -464,10 +464,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get nutrition
    * @return nutrition
-  **/
+   */
   @javax.annotation.Nonnull
   public GetIngredientInformation200ResponseNutrition getNutrition() {
     return nutrition;
@@ -491,10 +491,10 @@ public class GetIngredientInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get categoryPath
    * @return categoryPath
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getCategoryPath() {
     return categoryPath;
@@ -625,12 +625,12 @@ public class GetIngredientInformation200Response {
     openapiRequiredFields.add("categoryPath");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetIngredientInformation200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetIngredientInformation200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetIngredientInformation200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -742,22 +742,22 @@ public class GetIngredientInformation200Response {
     }
   }
 
- /**
-  * Create an instance of GetIngredientInformation200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetIngredientInformation200Response
-  * @throws IOException if the JSON string is invalid with respect to GetIngredientInformation200Response
-  */
+  /**
+   * Create an instance of GetIngredientInformation200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetIngredientInformation200Response
+   * @throws IOException if the JSON string is invalid with respect to GetIngredientInformation200Response
+   */
   public static GetIngredientInformation200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetIngredientInformation200Response.class);
   }
 
- /**
-  * Convert an instance of GetIngredientInformation200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetIngredientInformation200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

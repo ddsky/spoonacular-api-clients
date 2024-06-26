@@ -64,10 +64,10 @@ public class GetComparableProducts200Response {
     return this;
   }
 
-   /**
+  /**
    * Get comparableProducts
    * @return comparableProducts
-  **/
+   */
   @javax.annotation.Nonnull
   public GetComparableProducts200ResponseComparableProducts getComparableProducts() {
     return comparableProducts;
@@ -130,12 +130,12 @@ public class GetComparableProducts200Response {
     openapiRequiredFields.add("comparableProducts");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetComparableProducts200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -191,22 +191,22 @@ public class GetComparableProducts200Response {
     }
   }
 
- /**
-  * Create an instance of GetComparableProducts200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetComparableProducts200Response
-  * @throws IOException if the JSON string is invalid with respect to GetComparableProducts200Response
-  */
+  /**
+   * Create an instance of GetComparableProducts200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetComparableProducts200Response
+   * @throws IOException if the JSON string is invalid with respect to GetComparableProducts200Response
+   */
   public static GetComparableProducts200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetComparableProducts200Response.class);
   }
 
- /**
-  * Convert an instance of GetComparableProducts200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetComparableProducts200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

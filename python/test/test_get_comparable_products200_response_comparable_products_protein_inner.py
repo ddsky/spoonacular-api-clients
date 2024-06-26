@@ -28,7 +28,7 @@ class TestGetComparableProducts200ResponseComparableProductsProteinInner(unittes
 
     def make_instance(self, include_optional) -> GetComparableProducts200ResponseComparableProductsProteinInner:
         """Test GetComparableProducts200ResponseComparableProductsProteinInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `GetComparableProducts200ResponseComparableProductsProteinInner`

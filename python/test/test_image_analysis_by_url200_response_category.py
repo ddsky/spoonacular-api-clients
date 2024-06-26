@@ -28,7 +28,7 @@ class TestImageAnalysisByURL200ResponseCategory(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ImageAnalysisByURL200ResponseCategory:
         """Test ImageAnalysisByURL200ResponseCategory
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ImageAnalysisByURL200ResponseCategory`

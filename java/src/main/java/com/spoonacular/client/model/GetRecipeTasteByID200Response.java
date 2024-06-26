@@ -88,10 +88,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get sweetness
    * @return sweetness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSweetness() {
     return sweetness;
@@ -107,10 +107,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get saltiness
    * @return saltiness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSaltiness() {
     return saltiness;
@@ -126,10 +126,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get sourness
    * @return sourness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSourness() {
     return sourness;
@@ -145,10 +145,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get bitterness
    * @return bitterness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getBitterness() {
     return bitterness;
@@ -164,10 +164,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get savoriness
    * @return savoriness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSavoriness() {
     return savoriness;
@@ -183,10 +183,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get fattiness
    * @return fattiness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getFattiness() {
     return fattiness;
@@ -202,10 +202,10 @@ public class GetRecipeTasteByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get spiciness
    * @return spiciness
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSpiciness() {
     return spiciness;
@@ -292,12 +292,12 @@ public class GetRecipeTasteByID200Response {
     openapiRequiredFields.add("spiciness");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeTasteByID200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeTasteByID200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeTasteByID200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -351,22 +351,22 @@ public class GetRecipeTasteByID200Response {
     }
   }
 
- /**
-  * Create an instance of GetRecipeTasteByID200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeTasteByID200Response
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeTasteByID200Response
-  */
+  /**
+   * Create an instance of GetRecipeTasteByID200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeTasteByID200Response
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeTasteByID200Response
+   */
   public static GetRecipeTasteByID200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeTasteByID200Response.class);
   }
 
- /**
-  * Convert an instance of GetRecipeTasteByID200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeTasteByID200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

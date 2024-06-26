@@ -87,10 +87,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get monday
    * @return monday
-  **/
+   */
   @javax.annotation.Nullable
   public String getMonday() {
     return monday;
@@ -106,10 +106,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get tuesday
    * @return tuesday
-  **/
+   */
   @javax.annotation.Nullable
   public String getTuesday() {
     return tuesday;
@@ -125,10 +125,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get wednesday
    * @return wednesday
-  **/
+   */
   @javax.annotation.Nullable
   public String getWednesday() {
     return wednesday;
@@ -144,10 +144,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get thursday
    * @return thursday
-  **/
+   */
   @javax.annotation.Nullable
   public String getThursday() {
     return thursday;
@@ -163,10 +163,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get friday
    * @return friday
-  **/
+   */
   @javax.annotation.Nullable
   public String getFriday() {
     return friday;
@@ -182,10 +182,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get saturday
    * @return saturday
-  **/
+   */
   @javax.annotation.Nullable
   public String getSaturday() {
     return saturday;
@@ -201,10 +201,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     return this;
   }
 
-   /**
+  /**
    * Get sunday
    * @return sunday
-  **/
+   */
   @javax.annotation.Nullable
   public String getSunday() {
     return sunday;
@@ -284,12 +284,12 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -357,22 +357,22 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational {
     }
   }
 
- /**
-  * Create an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
-  * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
-  */
+  /**
+   * Create an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+   * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+   */
   public static SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.class);
   }
 
- /**
-  * Convert an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
