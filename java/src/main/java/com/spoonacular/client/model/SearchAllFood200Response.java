@@ -82,10 +82,10 @@ public class SearchAllFood200Response {
     return this;
   }
 
-   /**
+  /**
    * Get query
    * @return query
-  **/
+   */
   @javax.annotation.Nonnull
   public String getQuery() {
     return query;
@@ -101,10 +101,10 @@ public class SearchAllFood200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalResults
    * @return totalResults
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getTotalResults() {
     return totalResults;
@@ -120,10 +120,10 @@ public class SearchAllFood200Response {
     return this;
   }
 
-   /**
+  /**
    * Get limit
    * @return limit
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getLimit() {
     return limit;
@@ -139,10 +139,10 @@ public class SearchAllFood200Response {
     return this;
   }
 
-   /**
+  /**
    * Get offset
    * @return offset
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getOffset() {
     return offset;
@@ -166,10 +166,10 @@ public class SearchAllFood200Response {
     return this;
   }
 
-   /**
+  /**
    * Get searchResults
    * @return searchResults
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<SearchAllFood200ResponseSearchResultsInner> getSearchResults() {
     return searchResults;
@@ -248,12 +248,12 @@ public class SearchAllFood200Response {
     openapiRequiredFields.add("searchResults");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchAllFood200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -320,22 +320,22 @@ public class SearchAllFood200Response {
     }
   }
 
- /**
-  * Create an instance of SearchAllFood200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchAllFood200Response
-  * @throws IOException if the JSON string is invalid with respect to SearchAllFood200Response
-  */
+  /**
+   * Create an instance of SearchAllFood200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchAllFood200Response
+   * @throws IOException if the JSON string is invalid with respect to SearchAllFood200Response
+   */
   public static SearchAllFood200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchAllFood200Response.class);
   }
 
- /**
-  * Convert an instance of SearchAllFood200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchAllFood200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

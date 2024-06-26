@@ -74,10 +74,10 @@ public class GetMealPlanWeek200Response {
     return this;
   }
 
-   /**
+  /**
    * Get days
    * @return days
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetMealPlanWeek200ResponseDaysInner> getDays() {
     return days;
@@ -140,12 +140,12 @@ public class GetMealPlanWeek200Response {
     openapiRequiredFields.add("days");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanWeek200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class GetMealPlanWeek200Response {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanWeek200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanWeek200Response
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200Response
-  */
+  /**
+   * Create an instance of GetMealPlanWeek200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanWeek200Response
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200Response
+   */
   public static GetMealPlanWeek200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanWeek200Response.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanWeek200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanWeek200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

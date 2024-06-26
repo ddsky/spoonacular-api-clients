@@ -84,10 +84,10 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -103,10 +103,10 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -122,10 +122,10 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get restaurantChain
    * @return restaurantChain
-  **/
+   */
   @javax.annotation.Nonnull
   public String getRestaurantChain() {
     return restaurantChain;
@@ -141,10 +141,10 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -160,10 +160,10 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -179,10 +179,10 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nullable
   public SearchGroceryProductsByUPC200ResponseServings getServings() {
     return servings;
@@ -264,12 +264,12 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     openapiRequiredFields.add("imageType");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchMenuItems200ResponseMenuItemsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchMenuItems200ResponseMenuItemsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchMenuItems200ResponseMenuItemsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -339,22 +339,22 @@ public class SearchMenuItems200ResponseMenuItemsInner {
     }
   }
 
- /**
-  * Create an instance of SearchMenuItems200ResponseMenuItemsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchMenuItems200ResponseMenuItemsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchMenuItems200ResponseMenuItemsInner
-  */
+  /**
+   * Create an instance of SearchMenuItems200ResponseMenuItemsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchMenuItems200ResponseMenuItemsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchMenuItems200ResponseMenuItemsInner
+   */
   public static SearchMenuItems200ResponseMenuItemsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchMenuItems200ResponseMenuItemsInner.class);
   }
 
- /**
-  * Convert an instance of SearchMenuItems200ResponseMenuItemsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchMenuItems200ResponseMenuItemsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

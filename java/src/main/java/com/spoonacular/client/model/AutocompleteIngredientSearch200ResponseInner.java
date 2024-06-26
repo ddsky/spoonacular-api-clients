@@ -81,10 +81,10 @@ public class AutocompleteIngredientSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -100,10 +100,10 @@ public class AutocompleteIngredientSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -119,10 +119,10 @@ public class AutocompleteIngredientSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getId() {
     return id;
@@ -138,10 +138,10 @@ public class AutocompleteIngredientSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nullable
   public String getAisle() {
     return aisle;
@@ -165,10 +165,10 @@ public class AutocompleteIngredientSearch200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get possibleUnits
    * @return possibleUnits
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getPossibleUnits() {
     return possibleUnits;
@@ -244,12 +244,12 @@ public class AutocompleteIngredientSearch200ResponseInner {
     openapiRequiredFields.add("image");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutocompleteIngredientSearch200ResponseInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutocompleteIngredientSearch200ResponseInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AutocompleteIngredientSearch200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -316,22 +316,22 @@ public class AutocompleteIngredientSearch200ResponseInner {
     }
   }
 
- /**
-  * Create an instance of AutocompleteIngredientSearch200ResponseInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutocompleteIngredientSearch200ResponseInner
-  * @throws IOException if the JSON string is invalid with respect to AutocompleteIngredientSearch200ResponseInner
-  */
+  /**
+   * Create an instance of AutocompleteIngredientSearch200ResponseInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutocompleteIngredientSearch200ResponseInner
+   * @throws IOException if the JSON string is invalid with respect to AutocompleteIngredientSearch200ResponseInner
+   */
   public static AutocompleteIngredientSearch200ResponseInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutocompleteIngredientSearch200ResponseInner.class);
   }
 
- /**
-  * Convert an instance of AutocompleteIngredientSearch200ResponseInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutocompleteIngredientSearch200ResponseInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -74,10 +74,10 @@ public class GetMealPlanTemplates200Response {
     return this;
   }
 
-   /**
+  /**
    * Get templates
    * @return templates
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> getTemplates() {
     return templates;
@@ -140,12 +140,12 @@ public class GetMealPlanTemplates200Response {
     openapiRequiredFields.add("templates");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplates200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplates200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanTemplates200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class GetMealPlanTemplates200Response {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanTemplates200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanTemplates200Response
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplates200Response
-  */
+  /**
+   * Create an instance of GetMealPlanTemplates200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanTemplates200Response
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplates200Response
+   */
   public static GetMealPlanTemplates200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanTemplates200Response.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanTemplates200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanTemplates200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

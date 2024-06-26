@@ -92,10 +92,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummary
    * @return nutritionSummary
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummary() {
     return nutritionSummary;
@@ -111,10 +111,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummaryBreakfast
    * @return nutritionSummaryBreakfast
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryBreakfast() {
     return nutritionSummaryBreakfast;
@@ -130,10 +130,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummaryLunch
    * @return nutritionSummaryLunch
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryLunch() {
     return nutritionSummaryLunch;
@@ -149,10 +149,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummaryDinner
    * @return nutritionSummaryDinner
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryDinner() {
     return nutritionSummaryDinner;
@@ -168,10 +168,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get date
    * @return date
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getDate() {
     return date;
@@ -187,10 +187,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get day
    * @return day
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDay() {
     return day;
@@ -214,10 +214,10 @@ public class GetMealPlanWeek200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get items
    * @return items
-  **/
+   */
   @javax.annotation.Nullable
   public Set<GetMealPlanWeek200ResponseDaysInnerItemsInner> getItems() {
     return items;
@@ -299,12 +299,12 @@ public class GetMealPlanWeek200ResponseDaysInner {
     openapiRequiredFields.add("day");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200ResponseDaysInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200ResponseDaysInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanWeek200ResponseDaysInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -391,22 +391,22 @@ public class GetMealPlanWeek200ResponseDaysInner {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanWeek200ResponseDaysInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanWeek200ResponseDaysInner
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200ResponseDaysInner
-  */
+  /**
+   * Create an instance of GetMealPlanWeek200ResponseDaysInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanWeek200ResponseDaysInner
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200ResponseDaysInner
+   */
   public static GetMealPlanWeek200ResponseDaysInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanWeek200ResponseDaysInner.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanWeek200ResponseDaysInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanWeek200ResponseDaysInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

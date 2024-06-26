@@ -88,10 +88,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public String getId() {
     return id;
@@ -107,10 +107,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -126,10 +126,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nullable
   public String getImage() {
     return image;
@@ -145,10 +145,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get link
    * @return link
-  **/
+   */
   @javax.annotation.Nullable
   public String getLink() {
     return link;
@@ -164,10 +164,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public String getType() {
     return type;
@@ -183,10 +183,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get relevance
    * @return relevance
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getRelevance() {
     return relevance;
@@ -202,10 +202,10 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get content
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   public String getContent() {
     return content;
@@ -292,12 +292,12 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     openapiRequiredFields.add("content");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200ResponseSearchResultsInnerResultsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchAllFood200ResponseSearchResultsInnerResultsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchAllFood200ResponseSearchResultsInnerResultsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -369,22 +369,22 @@ public class SearchAllFood200ResponseSearchResultsInnerResultsInner {
     }
   }
 
- /**
-  * Create an instance of SearchAllFood200ResponseSearchResultsInnerResultsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchAllFood200ResponseSearchResultsInnerResultsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchAllFood200ResponseSearchResultsInnerResultsInner
-  */
+  /**
+   * Create an instance of SearchAllFood200ResponseSearchResultsInnerResultsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchAllFood200ResponseSearchResultsInnerResultsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchAllFood200ResponseSearchResultsInnerResultsInner
+   */
   public static SearchAllFood200ResponseSearchResultsInnerResultsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchAllFood200ResponseSearchResultsInnerResultsInner.class);
   }
 
- /**
-  * Convert an instance of SearchAllFood200ResponseSearchResultsInnerResultsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchAllFood200ResponseSearchResultsInnerResultsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

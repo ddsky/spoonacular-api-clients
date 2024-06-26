@@ -74,10 +74,10 @@ public class GetRandomRecipes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get recipes
    * @return recipes
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetRandomRecipes200ResponseRecipesInner> getRecipes() {
     return recipes;
@@ -140,12 +140,12 @@ public class GetRandomRecipes200Response {
     openapiRequiredFields.add("recipes");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRandomRecipes200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRandomRecipes200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRandomRecipes200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class GetRandomRecipes200Response {
     }
   }
 
- /**
-  * Create an instance of GetRandomRecipes200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRandomRecipes200Response
-  * @throws IOException if the JSON string is invalid with respect to GetRandomRecipes200Response
-  */
+  /**
+   * Create an instance of GetRandomRecipes200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRandomRecipes200Response
+   * @throws IOException if the JSON string is invalid with respect to GetRandomRecipes200Response
+   */
   public static GetRandomRecipes200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRandomRecipes200Response.class);
   }
 
- /**
-  * Convert an instance of GetRandomRecipes200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRandomRecipes200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -71,10 +71,10 @@ public class AnalyzeARecipeSearchQuery200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -90,10 +90,10 @@ public class AnalyzeARecipeSearchQuery200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get include
    * @return include
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getInclude() {
     return include;
@@ -109,10 +109,10 @@ public class AnalyzeARecipeSearchQuery200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -183,12 +183,12 @@ public class AnalyzeARecipeSearchQuery200ResponseIngredientsInner {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AnalyzeARecipeSearchQuery200ResponseIngredientsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AnalyzeARecipeSearchQuery200ResponseIngredientsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalyzeARecipeSearchQuery200ResponseIngredientsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -248,22 +248,22 @@ public class AnalyzeARecipeSearchQuery200ResponseIngredientsInner {
     }
   }
 
- /**
-  * Create an instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner
-  * @throws IOException if the JSON string is invalid with respect to AnalyzeARecipeSearchQuery200ResponseIngredientsInner
-  */
+  /**
+   * Create an instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner
+   * @throws IOException if the JSON string is invalid with respect to AnalyzeARecipeSearchQuery200ResponseIngredientsInner
+   */
   public static AnalyzeARecipeSearchQuery200ResponseIngredientsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AnalyzeARecipeSearchQuery200ResponseIngredientsInner.class);
   }
 
- /**
-  * Convert an instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

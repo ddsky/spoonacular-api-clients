@@ -86,10 +86,10 @@ public class SearchCustomFoods200Response {
     return this;
   }
 
-   /**
+  /**
    * Get customFoods
    * @return customFoods
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<SearchCustomFoods200ResponseCustomFoodsInner> getCustomFoods() {
     return customFoods;
@@ -105,10 +105,10 @@ public class SearchCustomFoods200Response {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public String getType() {
     return type;
@@ -124,10 +124,10 @@ public class SearchCustomFoods200Response {
     return this;
   }
 
-   /**
+  /**
    * Get offset
    * @return offset
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getOffset() {
     return offset;
@@ -143,10 +143,10 @@ public class SearchCustomFoods200Response {
     return this;
   }
 
-   /**
+  /**
    * Get number
    * @return number
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getNumber() {
     return number;
@@ -221,12 +221,12 @@ public class SearchCustomFoods200Response {
     openapiRequiredFields.add("number");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchCustomFoods200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchCustomFoods200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchCustomFoods200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -293,22 +293,22 @@ public class SearchCustomFoods200Response {
     }
   }
 
- /**
-  * Create an instance of SearchCustomFoods200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchCustomFoods200Response
-  * @throws IOException if the JSON string is invalid with respect to SearchCustomFoods200Response
-  */
+  /**
+   * Create an instance of SearchCustomFoods200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchCustomFoods200Response
+   * @throws IOException if the JSON string is invalid with respect to SearchCustomFoods200Response
+   */
   public static SearchCustomFoods200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchCustomFoods200Response.class);
   }
 
- /**
-  * Convert an instance of SearchCustomFoods200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchCustomFoods200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -76,10 +76,10 @@ public class ImageAnalysisByURL200Response {
     return this;
   }
 
-   /**
+  /**
    * Get nutrition
    * @return nutrition
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseNutrition getNutrition() {
     return nutrition;
@@ -95,10 +95,10 @@ public class ImageAnalysisByURL200Response {
     return this;
   }
 
-   /**
+  /**
    * Get category
    * @return category
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseCategory getCategory() {
     return category;
@@ -122,10 +122,10 @@ public class ImageAnalysisByURL200Response {
     return this;
   }
 
-   /**
+  /**
    * Get recipes
    * @return recipes
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<ImageAnalysisByURL200ResponseRecipesInner> getRecipes() {
     return recipes;
@@ -196,12 +196,12 @@ public class ImageAnalysisByURL200Response {
     openapiRequiredFields.add("recipes");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ImageAnalysisByURL200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -269,22 +269,22 @@ public class ImageAnalysisByURL200Response {
     }
   }
 
- /**
-  * Create an instance of ImageAnalysisByURL200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageAnalysisByURL200Response
-  * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200Response
-  */
+  /**
+   * Create an instance of ImageAnalysisByURL200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageAnalysisByURL200Response
+   * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200Response
+   */
   public static ImageAnalysisByURL200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageAnalysisByURL200Response.class);
   }
 
- /**
-  * Convert an instance of ImageAnalysisByURL200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageAnalysisByURL200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -83,10 +83,10 @@ public class GetRecipePriceBreakdownByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetRecipePriceBreakdownByID200ResponseIngredientsInner> getIngredients() {
     return ingredients;
@@ -102,10 +102,10 @@ public class GetRecipePriceBreakdownByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalCost
    * @return totalCost
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getTotalCost() {
     return totalCost;
@@ -121,10 +121,10 @@ public class GetRecipePriceBreakdownByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalCostPerServing
    * @return totalCostPerServing
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getTotalCostPerServing() {
     return totalCostPerServing;
@@ -195,12 +195,12 @@ public class GetRecipePriceBreakdownByID200Response {
     openapiRequiredFields.add("totalCostPerServing");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipePriceBreakdownByID200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipePriceBreakdownByID200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipePriceBreakdownByID200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -264,22 +264,22 @@ public class GetRecipePriceBreakdownByID200Response {
     }
   }
 
- /**
-  * Create an instance of GetRecipePriceBreakdownByID200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipePriceBreakdownByID200Response
-  * @throws IOException if the JSON string is invalid with respect to GetRecipePriceBreakdownByID200Response
-  */
+  /**
+   * Create an instance of GetRecipePriceBreakdownByID200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipePriceBreakdownByID200Response
+   * @throws IOException if the JSON string is invalid with respect to GetRecipePriceBreakdownByID200Response
+   */
   public static GetRecipePriceBreakdownByID200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipePriceBreakdownByID200Response.class);
   }
 
- /**
-  * Convert an instance of GetRecipePriceBreakdownByID200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipePriceBreakdownByID200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -3742,7 +3742,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     fun visualizeEquipmentRequestConfig(instructions: kotlin.String, view: ViewVisualizeEquipment?, defaultCss: kotlin.Boolean?, showBacklink: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
             "instructions" to PartConfig(body = instructions, headers = mutableMapOf()),
-            "view" to PartConfig(body = view.value, headers = mutableMapOf()),
+            "view" to PartConfig(body = view?.value, headers = mutableMapOf()),
             "defaultCss" to PartConfig(body = defaultCss, headers = mutableMapOf()),
             "showBacklink" to PartConfig(body = showBacklink, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()

@@ -86,10 +86,10 @@ public class SearchSiteContent200ResponseArticlesInner {
     return this;
   }
 
-   /**
+  /**
    * Get dataPoints
    * @return dataPoints
-  **/
+   */
   @javax.annotation.Nullable
   public Set<SearchSiteContent200ResponseArticlesInnerDataPointsInner> getDataPoints() {
     return dataPoints;
@@ -105,10 +105,10 @@ public class SearchSiteContent200ResponseArticlesInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -124,10 +124,10 @@ public class SearchSiteContent200ResponseArticlesInner {
     return this;
   }
 
-   /**
+  /**
    * Get link
    * @return link
-  **/
+   */
   @javax.annotation.Nonnull
   public String getLink() {
     return link;
@@ -143,10 +143,10 @@ public class SearchSiteContent200ResponseArticlesInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -220,12 +220,12 @@ public class SearchSiteContent200ResponseArticlesInner {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchSiteContent200ResponseArticlesInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchSiteContent200ResponseArticlesInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchSiteContent200ResponseArticlesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -302,22 +302,22 @@ public class SearchSiteContent200ResponseArticlesInner {
     }
   }
 
- /**
-  * Create an instance of SearchSiteContent200ResponseArticlesInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchSiteContent200ResponseArticlesInner
-  * @throws IOException if the JSON string is invalid with respect to SearchSiteContent200ResponseArticlesInner
-  */
+  /**
+   * Create an instance of SearchSiteContent200ResponseArticlesInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchSiteContent200ResponseArticlesInner
+   * @throws IOException if the JSON string is invalid with respect to SearchSiteContent200ResponseArticlesInner
+   */
   public static SearchSiteContent200ResponseArticlesInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchSiteContent200ResponseArticlesInner.class);
   }
 
- /**
-  * Convert an instance of SearchSiteContent200ResponseArticlesInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchSiteContent200ResponseArticlesInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

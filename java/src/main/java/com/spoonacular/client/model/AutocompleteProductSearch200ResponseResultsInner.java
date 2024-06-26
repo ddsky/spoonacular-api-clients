@@ -67,10 +67,10 @@ public class AutocompleteProductSearch200ResponseResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -86,10 +86,10 @@ public class AutocompleteProductSearch200ResponseResultsInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -156,12 +156,12 @@ public class AutocompleteProductSearch200ResponseResultsInner {
     openapiRequiredFields.add("title");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutocompleteProductSearch200ResponseResultsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutocompleteProductSearch200ResponseResultsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AutocompleteProductSearch200ResponseResultsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -218,22 +218,22 @@ public class AutocompleteProductSearch200ResponseResultsInner {
     }
   }
 
- /**
-  * Create an instance of AutocompleteProductSearch200ResponseResultsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutocompleteProductSearch200ResponseResultsInner
-  * @throws IOException if the JSON string is invalid with respect to AutocompleteProductSearch200ResponseResultsInner
-  */
+  /**
+   * Create an instance of AutocompleteProductSearch200ResponseResultsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutocompleteProductSearch200ResponseResultsInner
+   * @throws IOException if the JSON string is invalid with respect to AutocompleteProductSearch200ResponseResultsInner
+   */
   public static AutocompleteProductSearch200ResponseResultsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutocompleteProductSearch200ResponseResultsInner.class);
   }
 
- /**
-  * Convert an instance of AutocompleteProductSearch200ResponseResultsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutocompleteProductSearch200ResponseResultsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

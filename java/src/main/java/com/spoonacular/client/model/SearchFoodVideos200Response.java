@@ -78,10 +78,10 @@ public class SearchFoodVideos200Response {
     return this;
   }
 
-   /**
+  /**
    * Get videos
    * @return videos
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<SearchFoodVideos200ResponseVideosInner> getVideos() {
     return videos;
@@ -97,10 +97,10 @@ public class SearchFoodVideos200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalResults
    * @return totalResults
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getTotalResults() {
     return totalResults;
@@ -167,12 +167,12 @@ public class SearchFoodVideos200Response {
     openapiRequiredFields.add("totalResults");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchFoodVideos200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchFoodVideos200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchFoodVideos200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -236,22 +236,22 @@ public class SearchFoodVideos200Response {
     }
   }
 
- /**
-  * Create an instance of SearchFoodVideos200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchFoodVideos200Response
-  * @throws IOException if the JSON string is invalid with respect to SearchFoodVideos200Response
-  */
+  /**
+   * Create an instance of SearchFoodVideos200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchFoodVideos200Response
+   * @throws IOException if the JSON string is invalid with respect to SearchFoodVideos200Response
+   */
   public static SearchFoodVideos200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchFoodVideos200Response.class);
   }
 
- /**
-  * Convert an instance of SearchFoodVideos200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchFoodVideos200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

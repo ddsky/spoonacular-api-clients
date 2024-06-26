@@ -92,10 +92,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get calories
    * @return calories
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getCalories() {
     return calories;
@@ -111,10 +111,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get carbs
    * @return carbs
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCarbs() {
     return carbs;
@@ -130,10 +130,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get fat
    * @return fat
-  **/
+   */
   @javax.annotation.Nonnull
   public String getFat() {
     return fat;
@@ -149,10 +149,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -168,10 +168,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -187,10 +187,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -206,10 +206,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get protein
    * @return protein
-  **/
+   */
   @javax.annotation.Nonnull
   public String getProtein() {
     return protein;
@@ -225,10 +225,10 @@ public class SearchRecipesByNutrients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -319,12 +319,12 @@ public class SearchRecipesByNutrients200ResponseInner {
     openapiRequiredFields.add("title");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRecipesByNutrients200ResponseInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRecipesByNutrients200ResponseInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRecipesByNutrients200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -396,22 +396,22 @@ public class SearchRecipesByNutrients200ResponseInner {
     }
   }
 
- /**
-  * Create an instance of SearchRecipesByNutrients200ResponseInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRecipesByNutrients200ResponseInner
-  * @throws IOException if the JSON string is invalid with respect to SearchRecipesByNutrients200ResponseInner
-  */
+  /**
+   * Create an instance of SearchRecipesByNutrients200ResponseInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRecipesByNutrients200ResponseInner
+   * @throws IOException if the JSON string is invalid with respect to SearchRecipesByNutrients200ResponseInner
+   */
   public static SearchRecipesByNutrients200ResponseInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRecipesByNutrients200ResponseInner.class);
   }
 
- /**
-  * Convert an instance of SearchRecipesByNutrients200ResponseInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRecipesByNutrients200ResponseInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

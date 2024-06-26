@@ -74,10 +74,10 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummary {
     return this;
   }
 
-   /**
+  /**
    * Get nutrients
    * @return nutrients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner> getNutrients() {
     return nutrients;
@@ -140,12 +140,12 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummary {
     openapiRequiredFields.add("nutrients");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummary
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanWeek200ResponseDaysInnerNutritionSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummary {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummary
-  */
+  /**
+   * Create an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummary
+   */
   public static GetMealPlanWeek200ResponseDaysInnerNutritionSummary fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanWeek200ResponseDaysInnerNutritionSummary.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

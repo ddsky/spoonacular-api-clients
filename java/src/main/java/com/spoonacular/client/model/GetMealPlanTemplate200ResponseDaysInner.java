@@ -87,10 +87,10 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummary
    * @return nutritionSummary
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummary() {
     return nutritionSummary;
@@ -106,10 +106,10 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummaryBreakfast
    * @return nutritionSummaryBreakfast
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryBreakfast() {
     return nutritionSummaryBreakfast;
@@ -125,10 +125,10 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummaryLunch
    * @return nutritionSummaryLunch
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryLunch() {
     return nutritionSummaryLunch;
@@ -144,10 +144,10 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get nutritionSummaryDinner
    * @return nutritionSummaryDinner
-  **/
+   */
   @javax.annotation.Nullable
   public GetMealPlanWeek200ResponseDaysInnerNutritionSummary getNutritionSummaryDinner() {
     return nutritionSummaryDinner;
@@ -163,10 +163,10 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get day
    * @return day
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDay() {
     return day;
@@ -190,10 +190,10 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     return this;
   }
 
-   /**
+  /**
    * Get items
    * @return items
-  **/
+   */
   @javax.annotation.Nullable
   public Set<GetMealPlanTemplate200ResponseDaysInnerItemsInner> getItems() {
     return items;
@@ -271,12 +271,12 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     openapiRequiredFields.add("day");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanTemplate200ResponseDaysInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -363,22 +363,22 @@ public class GetMealPlanTemplate200ResponseDaysInner {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanTemplate200ResponseDaysInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanTemplate200ResponseDaysInner
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200ResponseDaysInner
-  */
+  /**
+   * Create an instance of GetMealPlanTemplate200ResponseDaysInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanTemplate200ResponseDaysInner
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200ResponseDaysInner
+   */
   public static GetMealPlanTemplate200ResponseDaysInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanTemplate200ResponseDaysInner.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanTemplate200ResponseDaysInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanTemplate200ResponseDaysInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

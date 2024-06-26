@@ -80,10 +80,10 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -99,10 +99,10 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -118,10 +118,10 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getServings() {
     return servings;
@@ -137,10 +137,10 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageUrl
    * @return imageUrl
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageUrl() {
     return imageUrl;
@@ -156,10 +156,10 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPrice() {
     return price;
@@ -238,12 +238,12 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     openapiRequiredFields.add("price");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchCustomFoods200ResponseCustomFoodsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchCustomFoods200ResponseCustomFoodsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchCustomFoods200ResponseCustomFoodsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -303,22 +303,22 @@ public class SearchCustomFoods200ResponseCustomFoodsInner {
     }
   }
 
- /**
-  * Create an instance of SearchCustomFoods200ResponseCustomFoodsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchCustomFoods200ResponseCustomFoodsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchCustomFoods200ResponseCustomFoodsInner
-  */
+  /**
+   * Create an instance of SearchCustomFoods200ResponseCustomFoodsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchCustomFoods200ResponseCustomFoodsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchCustomFoods200ResponseCustomFoodsInner
+   */
   public static SearchCustomFoods200ResponseCustomFoodsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchCustomFoods200ResponseCustomFoodsInner.class);
   }
 
- /**
-  * Convert an instance of SearchCustomFoods200ResponseCustomFoodsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchCustomFoods200ResponseCustomFoodsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -76,10 +76,10 @@ public class AddMealPlanTemplate200ResponseItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public Integer getId() {
     return id;
@@ -95,10 +95,10 @@ public class AddMealPlanTemplate200ResponseItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getServings() {
     return servings;
@@ -114,10 +114,10 @@ public class AddMealPlanTemplate200ResponseItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
@@ -133,10 +133,10 @@ public class AddMealPlanTemplate200ResponseItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nullable
   public String getImageType() {
     return imageType;
@@ -207,12 +207,12 @@ public class AddMealPlanTemplate200ResponseItemsInnerValue {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AddMealPlanTemplate200ResponseItemsInnerValue
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AddMealPlanTemplate200ResponseItemsInnerValue
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddMealPlanTemplate200ResponseItemsInnerValue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -265,22 +265,22 @@ public class AddMealPlanTemplate200ResponseItemsInnerValue {
     }
   }
 
- /**
-  * Create an instance of AddMealPlanTemplate200ResponseItemsInnerValue given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AddMealPlanTemplate200ResponseItemsInnerValue
-  * @throws IOException if the JSON string is invalid with respect to AddMealPlanTemplate200ResponseItemsInnerValue
-  */
+  /**
+   * Create an instance of AddMealPlanTemplate200ResponseItemsInnerValue given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AddMealPlanTemplate200ResponseItemsInnerValue
+   * @throws IOException if the JSON string is invalid with respect to AddMealPlanTemplate200ResponseItemsInnerValue
+   */
   public static AddMealPlanTemplate200ResponseItemsInnerValue fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AddMealPlanTemplate200ResponseItemsInnerValue.class);
   }
 
- /**
-  * Convert an instance of AddMealPlanTemplate200ResponseItemsInnerValue to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AddMealPlanTemplate200ResponseItemsInnerValue to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

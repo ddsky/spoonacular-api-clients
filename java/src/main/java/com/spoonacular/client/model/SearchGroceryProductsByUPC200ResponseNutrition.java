@@ -79,10 +79,10 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get nutrients
    * @return nutrients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> getNutrients() {
     return nutrients;
@@ -98,10 +98,10 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get caloricBreakdown
    * @return caloricBreakdown
-  **/
+   */
   @javax.annotation.Nonnull
   public ParseIngredients200ResponseInnerNutritionCaloricBreakdown getCaloricBreakdown() {
     return caloricBreakdown;
@@ -168,12 +168,12 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
     openapiRequiredFields.add("caloricBreakdown");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchGroceryProductsByUPC200ResponseNutrition
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchGroceryProductsByUPC200ResponseNutrition
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchGroceryProductsByUPC200ResponseNutrition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -239,22 +239,22 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
     }
   }
 
- /**
-  * Create an instance of SearchGroceryProductsByUPC200ResponseNutrition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchGroceryProductsByUPC200ResponseNutrition
-  * @throws IOException if the JSON string is invalid with respect to SearchGroceryProductsByUPC200ResponseNutrition
-  */
+  /**
+   * Create an instance of SearchGroceryProductsByUPC200ResponseNutrition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchGroceryProductsByUPC200ResponseNutrition
+   * @throws IOException if the JSON string is invalid with respect to SearchGroceryProductsByUPC200ResponseNutrition
+   */
   public static SearchGroceryProductsByUPC200ResponseNutrition fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchGroceryProductsByUPC200ResponseNutrition.class);
   }
 
- /**
-  * Convert an instance of SearchGroceryProductsByUPC200ResponseNutrition to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchGroceryProductsByUPC200ResponseNutrition to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

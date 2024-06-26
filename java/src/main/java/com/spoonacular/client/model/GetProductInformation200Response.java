@@ -129,10 +129,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -148,10 +148,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -175,10 +175,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get breadcrumbs
    * @return breadcrumbs
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getBreadcrumbs() {
     return breadcrumbs;
@@ -194,10 +194,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -221,10 +221,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get badges
    * @return badges
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getBadges() {
     return badges;
@@ -248,10 +248,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get importantBadges
    * @return importantBadges
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getImportantBadges() {
     return importantBadges;
@@ -267,10 +267,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredientCount
    * @return ingredientCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getIngredientCount() {
     return ingredientCount;
@@ -286,10 +286,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get generatedText
    * @return generatedText
-  **/
+   */
   @javax.annotation.Nullable
   public String getGeneratedText() {
     return generatedText;
@@ -305,10 +305,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredientList
    * @return ingredientList
-  **/
+   */
   @javax.annotation.Nonnull
   public String getIngredientList() {
     return ingredientList;
@@ -332,10 +332,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nonnull
   public List<GetProductInformation200ResponseIngredientsInner> getIngredients() {
     return ingredients;
@@ -351,10 +351,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get likes
    * @return likes
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getLikes() {
     return likes;
@@ -370,10 +370,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAisle() {
     return aisle;
@@ -389,10 +389,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get nutrition
    * @return nutrition
-  **/
+   */
   @javax.annotation.Nonnull
   public SearchGroceryProductsByUPC200ResponseNutrition getNutrition() {
     return nutrition;
@@ -408,10 +408,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPrice() {
     return price;
@@ -427,10 +427,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nonnull
   public SearchGroceryProductsByUPC200ResponseServings getServings() {
     return servings;
@@ -446,10 +446,10 @@ public class GetProductInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get spoonacularScore
    * @return spoonacularScore
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSpoonacularScore() {
     return spoonacularScore;
@@ -571,12 +571,12 @@ public class GetProductInformation200Response {
     openapiRequiredFields.add("spoonacularScore");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetProductInformation200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetProductInformation200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetProductInformation200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -677,22 +677,22 @@ public class GetProductInformation200Response {
     }
   }
 
- /**
-  * Create an instance of GetProductInformation200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetProductInformation200Response
-  * @throws IOException if the JSON string is invalid with respect to GetProductInformation200Response
-  */
+  /**
+   * Create an instance of GetProductInformation200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetProductInformation200Response
+   * @throws IOException if the JSON string is invalid with respect to GetProductInformation200Response
+   */
   public static GetProductInformation200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetProductInformation200Response.class);
   }
 
- /**
-  * Convert an instance of GetProductInformation200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetProductInformation200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

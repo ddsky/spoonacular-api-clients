@@ -74,10 +74,10 @@ public class ClassifyCuisine200Response {
     return this;
   }
 
-   /**
+  /**
    * Get cuisine
    * @return cuisine
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCuisine() {
     return cuisine;
@@ -101,10 +101,10 @@ public class ClassifyCuisine200Response {
     return this;
   }
 
-   /**
+  /**
    * Get cuisines
    * @return cuisines
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getCuisines() {
     return cuisines;
@@ -120,10 +120,10 @@ public class ClassifyCuisine200Response {
     return this;
   }
 
-   /**
+  /**
    * Get confidence
    * @return confidence
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getConfidence() {
     return confidence;
@@ -194,12 +194,12 @@ public class ClassifyCuisine200Response {
     openapiRequiredFields.add("confidence");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ClassifyCuisine200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ClassifyCuisine200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ClassifyCuisine200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -262,22 +262,22 @@ public class ClassifyCuisine200Response {
     }
   }
 
- /**
-  * Create an instance of ClassifyCuisine200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ClassifyCuisine200Response
-  * @throws IOException if the JSON string is invalid with respect to ClassifyCuisine200Response
-  */
+  /**
+   * Create an instance of ClassifyCuisine200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ClassifyCuisine200Response
+   * @throws IOException if the JSON string is invalid with respect to ClassifyCuisine200Response
+   */
   public static ClassifyCuisine200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ClassifyCuisine200Response.class);
   }
 
- /**
-  * Convert an instance of ClassifyCuisine200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ClassifyCuisine200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

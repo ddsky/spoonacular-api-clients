@@ -75,10 +75,10 @@ public class ConnectUserRequest {
     return this;
   }
 
-   /**
+  /**
    * Get username
    * @return username
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUsername() {
     return username;
@@ -94,10 +94,10 @@ public class ConnectUserRequest {
     return this;
   }
 
-   /**
+  /**
    * Get firstName
    * @return firstName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getFirstName() {
     return firstName;
@@ -113,10 +113,10 @@ public class ConnectUserRequest {
     return this;
   }
 
-   /**
+  /**
    * Get lastName
    * @return lastName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getLastName() {
     return lastName;
@@ -132,10 +132,10 @@ public class ConnectUserRequest {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @javax.annotation.Nonnull
   public String getEmail() {
     return email;
@@ -210,12 +210,12 @@ public class ConnectUserRequest {
     openapiRequiredFields.add("email");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ConnectUserRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ConnectUserRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ConnectUserRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -281,22 +281,22 @@ public class ConnectUserRequest {
     }
   }
 
- /**
-  * Create an instance of ConnectUserRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConnectUserRequest
-  * @throws IOException if the JSON string is invalid with respect to ConnectUserRequest
-  */
+  /**
+   * Create an instance of ConnectUserRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ConnectUserRequest
+   * @throws IOException if the JSON string is invalid with respect to ConnectUserRequest
+   */
   public static ConnectUserRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConnectUserRequest.class);
   }
 
- /**
-  * Convert an instance of ConnectUserRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ConnectUserRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

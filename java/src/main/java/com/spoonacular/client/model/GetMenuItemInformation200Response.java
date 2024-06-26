@@ -112,10 +112,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -131,10 +131,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -150,10 +150,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get restaurantChain
    * @return restaurantChain
-  **/
+   */
   @javax.annotation.Nonnull
   public String getRestaurantChain() {
     return restaurantChain;
@@ -169,10 +169,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get nutrition
    * @return nutrition
-  **/
+   */
   @javax.annotation.Nonnull
   public SearchGroceryProductsByUPC200ResponseNutrition getNutrition() {
     return nutrition;
@@ -196,10 +196,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get badges
    * @return badges
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getBadges() {
     return badges;
@@ -223,10 +223,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get breadcrumbs
    * @return breadcrumbs
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getBreadcrumbs() {
     return breadcrumbs;
@@ -242,10 +242,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get generatedText
    * @return generatedText
-  **/
+   */
   @javax.annotation.Nullable
   public String getGeneratedText() {
     return generatedText;
@@ -261,10 +261,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -280,10 +280,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get likes
    * @return likes
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getLikes() {
     return likes;
@@ -299,10 +299,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nonnull
   public SearchGroceryProductsByUPC200ResponseServings getServings() {
     return servings;
@@ -318,10 +318,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getPrice() {
     return price;
@@ -337,10 +337,10 @@ public class GetMenuItemInformation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get spoonacularScore
    * @return spoonacularScore
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getSpoonacularScore() {
     return spoonacularScore;
@@ -444,12 +444,12 @@ public class GetMenuItemInformation200Response {
     openapiRequiredFields.add("servings");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMenuItemInformation200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMenuItemInformation200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMenuItemInformation200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -531,22 +531,22 @@ public class GetMenuItemInformation200Response {
     }
   }
 
- /**
-  * Create an instance of GetMenuItemInformation200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMenuItemInformation200Response
-  * @throws IOException if the JSON string is invalid with respect to GetMenuItemInformation200Response
-  */
+  /**
+   * Create an instance of GetMenuItemInformation200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMenuItemInformation200Response
+   * @throws IOException if the JSON string is invalid with respect to GetMenuItemInformation200Response
+   */
   public static GetMenuItemInformation200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMenuItemInformation200Response.class);
   }
 
- /**
-  * Convert an instance of GetMenuItemInformation200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMenuItemInformation200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

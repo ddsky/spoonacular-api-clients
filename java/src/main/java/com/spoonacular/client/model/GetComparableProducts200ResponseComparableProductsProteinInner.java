@@ -76,10 +76,10 @@ public class GetComparableProducts200ResponseComparableProductsProteinInner {
     return this;
   }
 
-   /**
+  /**
    * Get difference
    * @return difference
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getDifference() {
     return difference;
@@ -95,10 +95,10 @@ public class GetComparableProducts200ResponseComparableProductsProteinInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -114,10 +114,10 @@ public class GetComparableProducts200ResponseComparableProductsProteinInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -133,10 +133,10 @@ public class GetComparableProducts200ResponseComparableProductsProteinInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -211,12 +211,12 @@ public class GetComparableProducts200ResponseComparableProductsProteinInner {
     openapiRequiredFields.add("title");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200ResponseComparableProductsProteinInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200ResponseComparableProductsProteinInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetComparableProducts200ResponseComparableProductsProteinInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +276,22 @@ public class GetComparableProducts200ResponseComparableProductsProteinInner {
     }
   }
 
- /**
-  * Create an instance of GetComparableProducts200ResponseComparableProductsProteinInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetComparableProducts200ResponseComparableProductsProteinInner
-  * @throws IOException if the JSON string is invalid with respect to GetComparableProducts200ResponseComparableProductsProteinInner
-  */
+  /**
+   * Create an instance of GetComparableProducts200ResponseComparableProductsProteinInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetComparableProducts200ResponseComparableProductsProteinInner
+   * @throws IOException if the JSON string is invalid with respect to GetComparableProducts200ResponseComparableProductsProteinInner
+   */
   public static GetComparableProducts200ResponseComparableProductsProteinInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetComparableProducts200ResponseComparableProductsProteinInner.class);
   }
 
- /**
-  * Convert an instance of GetComparableProducts200ResponseComparableProductsProteinInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetComparableProducts200ResponseComparableProductsProteinInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

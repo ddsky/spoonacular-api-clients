@@ -79,10 +79,10 @@ public class GenerateMealPlan200Response {
     return this;
   }
 
-   /**
+  /**
    * Get meals
    * @return meals
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetSimilarRecipes200ResponseInner> getMeals() {
     return meals;
@@ -98,10 +98,10 @@ public class GenerateMealPlan200Response {
     return this;
   }
 
-   /**
+  /**
    * Get nutrients
    * @return nutrients
-  **/
+   */
   @javax.annotation.Nonnull
   public GenerateMealPlan200ResponseNutrients getNutrients() {
     return nutrients;
@@ -168,12 +168,12 @@ public class GenerateMealPlan200Response {
     openapiRequiredFields.add("nutrients");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GenerateMealPlan200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GenerateMealPlan200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GenerateMealPlan200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -239,22 +239,22 @@ public class GenerateMealPlan200Response {
     }
   }
 
- /**
-  * Create an instance of GenerateMealPlan200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GenerateMealPlan200Response
-  * @throws IOException if the JSON string is invalid with respect to GenerateMealPlan200Response
-  */
+  /**
+   * Create an instance of GenerateMealPlan200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GenerateMealPlan200Response
+   * @throws IOException if the JSON string is invalid with respect to GenerateMealPlan200Response
+   */
   public static GenerateMealPlan200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GenerateMealPlan200Response.class);
   }
 
- /**
-  * Convert an instance of GenerateMealPlan200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GenerateMealPlan200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

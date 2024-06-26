@@ -77,10 +77,10 @@ public class GetRecipePriceBreakdownByID200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   public GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount getAmount() {
     return amount;
@@ -96,10 +96,10 @@ public class GetRecipePriceBreakdownByID200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -115,10 +115,10 @@ public class GetRecipePriceBreakdownByID200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -134,10 +134,10 @@ public class GetRecipePriceBreakdownByID200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPrice() {
     return price;
@@ -211,12 +211,12 @@ public class GetRecipePriceBreakdownByID200ResponseIngredientsInner {
     openapiRequiredFields.add("price");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipePriceBreakdownByID200ResponseIngredientsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipePriceBreakdownByID200ResponseIngredientsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipePriceBreakdownByID200ResponseIngredientsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -280,22 +280,22 @@ public class GetRecipePriceBreakdownByID200ResponseIngredientsInner {
     }
   }
 
- /**
-  * Create an instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner
-  * @throws IOException if the JSON string is invalid with respect to GetRecipePriceBreakdownByID200ResponseIngredientsInner
-  */
+  /**
+   * Create an instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner
+   * @throws IOException if the JSON string is invalid with respect to GetRecipePriceBreakdownByID200ResponseIngredientsInner
+   */
   public static GetRecipePriceBreakdownByID200ResponseIngredientsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipePriceBreakdownByID200ResponseIngredientsInner.class);
   }
 
- /**
-  * Convert an instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -77,10 +77,10 @@ public class GetDishPairingForWine200Response {
     return this;
   }
 
-   /**
+  /**
    * Get pairings
    * @return pairings
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getPairings() {
     return pairings;
@@ -96,10 +96,10 @@ public class GetDishPairingForWine200Response {
     return this;
   }
 
-   /**
+  /**
    * Get text
    * @return text
-  **/
+   */
   @javax.annotation.Nonnull
   public String getText() {
     return text;
@@ -166,12 +166,12 @@ public class GetDishPairingForWine200Response {
     openapiRequiredFields.add("text");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetDishPairingForWine200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetDishPairingForWine200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetDishPairingForWine200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -234,22 +234,22 @@ public class GetDishPairingForWine200Response {
     }
   }
 
- /**
-  * Create an instance of GetDishPairingForWine200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetDishPairingForWine200Response
-  * @throws IOException if the JSON string is invalid with respect to GetDishPairingForWine200Response
-  */
+  /**
+   * Create an instance of GetDishPairingForWine200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetDishPairingForWine200Response
+   * @throws IOException if the JSON string is invalid with respect to GetDishPairingForWine200Response
+   */
   public static GetDishPairingForWine200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetDishPairingForWine200Response.class);
   }
 
- /**
-  * Convert an instance of GetDishPairingForWine200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetDishPairingForWine200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

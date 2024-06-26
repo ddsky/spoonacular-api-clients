@@ -80,10 +80,10 @@ public class ImageAnalysisByURL200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get recipesUsed
    * @return recipesUsed
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getRecipesUsed() {
     return recipesUsed;
@@ -99,10 +99,10 @@ public class ImageAnalysisByURL200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get calories
    * @return calories
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseNutritionCalories getCalories() {
     return calories;
@@ -118,10 +118,10 @@ public class ImageAnalysisByURL200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get fat
    * @return fat
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseNutritionCalories getFat() {
     return fat;
@@ -137,10 +137,10 @@ public class ImageAnalysisByURL200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get protein
    * @return protein
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseNutritionCalories getProtein() {
     return protein;
@@ -156,10 +156,10 @@ public class ImageAnalysisByURL200ResponseNutrition {
     return this;
   }
 
-   /**
+  /**
    * Get carbs
    * @return carbs
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseNutritionCalories getCarbs() {
     return carbs;
@@ -238,12 +238,12 @@ public class ImageAnalysisByURL200ResponseNutrition {
     openapiRequiredFields.add("carbs");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutrition
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutrition
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ImageAnalysisByURL200ResponseNutrition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -305,22 +305,22 @@ public class ImageAnalysisByURL200ResponseNutrition {
     }
   }
 
- /**
-  * Create an instance of ImageAnalysisByURL200ResponseNutrition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageAnalysisByURL200ResponseNutrition
-  * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200ResponseNutrition
-  */
+  /**
+   * Create an instance of ImageAnalysisByURL200ResponseNutrition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageAnalysisByURL200ResponseNutrition
+   * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200ResponseNutrition
+   */
   public static ImageAnalysisByURL200ResponseNutrition fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageAnalysisByURL200ResponseNutrition.class);
   }
 
- /**
-  * Convert an instance of ImageAnalysisByURL200ResponseNutrition to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageAnalysisByURL200ResponseNutrition to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

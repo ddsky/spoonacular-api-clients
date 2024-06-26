@@ -80,10 +80,10 @@ public class ConvertAmounts200Response {
     return this;
   }
 
-   /**
+  /**
    * Get sourceAmount
    * @return sourceAmount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSourceAmount() {
     return sourceAmount;
@@ -99,10 +99,10 @@ public class ConvertAmounts200Response {
     return this;
   }
 
-   /**
+  /**
    * Get sourceUnit
    * @return sourceUnit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getSourceUnit() {
     return sourceUnit;
@@ -118,10 +118,10 @@ public class ConvertAmounts200Response {
     return this;
   }
 
-   /**
+  /**
    * Get targetAmount
    * @return targetAmount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getTargetAmount() {
     return targetAmount;
@@ -137,10 +137,10 @@ public class ConvertAmounts200Response {
     return this;
   }
 
-   /**
+  /**
    * Get targetUnit
    * @return targetUnit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTargetUnit() {
     return targetUnit;
@@ -156,10 +156,10 @@ public class ConvertAmounts200Response {
     return this;
   }
 
-   /**
+  /**
    * Get answer
    * @return answer
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAnswer() {
     return answer;
@@ -238,12 +238,12 @@ public class ConvertAmounts200Response {
     openapiRequiredFields.add("answer");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ConvertAmounts200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ConvertAmounts200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ConvertAmounts200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -306,22 +306,22 @@ public class ConvertAmounts200Response {
     }
   }
 
- /**
-  * Create an instance of ConvertAmounts200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConvertAmounts200Response
-  * @throws IOException if the JSON string is invalid with respect to ConvertAmounts200Response
-  */
+  /**
+   * Create an instance of ConvertAmounts200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ConvertAmounts200Response
+   * @throws IOException if the JSON string is invalid with respect to ConvertAmounts200Response
+   */
   public static ConvertAmounts200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConvertAmounts200Response.class);
   }
 
- /**
-  * Convert an instance of ConvertAmounts200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ConvertAmounts200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

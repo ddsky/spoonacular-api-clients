@@ -89,10 +89,10 @@ public class AnalyzeARecipeSearchQuery200Response {
     return this;
   }
 
-   /**
+  /**
    * Get dishes
    * @return dishes
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<AnalyzeARecipeSearchQuery200ResponseDishesInner> getDishes() {
     return dishes;
@@ -116,10 +116,10 @@ public class AnalyzeARecipeSearchQuery200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<AnalyzeARecipeSearchQuery200ResponseIngredientsInner> getIngredients() {
     return ingredients;
@@ -143,10 +143,10 @@ public class AnalyzeARecipeSearchQuery200Response {
     return this;
   }
 
-   /**
+  /**
    * Get cuisines
    * @return cuisines
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getCuisines() {
     return cuisines;
@@ -170,10 +170,10 @@ public class AnalyzeARecipeSearchQuery200Response {
     return this;
   }
 
-   /**
+  /**
    * Get modifiers
    * @return modifiers
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getModifiers() {
     return modifiers;
@@ -248,12 +248,12 @@ public class AnalyzeARecipeSearchQuery200Response {
     openapiRequiredFields.add("modifiers");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AnalyzeARecipeSearchQuery200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AnalyzeARecipeSearchQuery200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalyzeARecipeSearchQuery200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -339,22 +339,22 @@ public class AnalyzeARecipeSearchQuery200Response {
     }
   }
 
- /**
-  * Create an instance of AnalyzeARecipeSearchQuery200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AnalyzeARecipeSearchQuery200Response
-  * @throws IOException if the JSON string is invalid with respect to AnalyzeARecipeSearchQuery200Response
-  */
+  /**
+   * Create an instance of AnalyzeARecipeSearchQuery200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AnalyzeARecipeSearchQuery200Response
+   * @throws IOException if the JSON string is invalid with respect to AnalyzeARecipeSearchQuery200Response
+   */
   public static AnalyzeARecipeSearchQuery200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AnalyzeARecipeSearchQuery200Response.class);
   }
 
- /**
-  * Convert an instance of AnalyzeARecipeSearchQuery200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AnalyzeARecipeSearchQuery200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

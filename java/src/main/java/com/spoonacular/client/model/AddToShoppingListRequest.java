@@ -71,10 +71,10 @@ public class AddToShoppingListRequest {
     return this;
   }
 
-   /**
+  /**
    * Get item
    * @return item
-  **/
+   */
   @javax.annotation.Nonnull
   public String getItem() {
     return item;
@@ -90,10 +90,10 @@ public class AddToShoppingListRequest {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAisle() {
     return aisle;
@@ -109,10 +109,10 @@ public class AddToShoppingListRequest {
     return this;
   }
 
-   /**
+  /**
    * Get parse
    * @return parse
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getParse() {
     return parse;
@@ -183,12 +183,12 @@ public class AddToShoppingListRequest {
     openapiRequiredFields.add("parse");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AddToShoppingListRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AddToShoppingListRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddToShoppingListRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -248,22 +248,22 @@ public class AddToShoppingListRequest {
     }
   }
 
- /**
-  * Create an instance of AddToShoppingListRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AddToShoppingListRequest
-  * @throws IOException if the JSON string is invalid with respect to AddToShoppingListRequest
-  */
+  /**
+   * Create an instance of AddToShoppingListRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AddToShoppingListRequest
+   * @throws IOException if the JSON string is invalid with respect to AddToShoppingListRequest
+   */
   public static AddToShoppingListRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AddToShoppingListRequest.class);
   }
 
- /**
-  * Convert an instance of AddToShoppingListRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AddToShoppingListRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

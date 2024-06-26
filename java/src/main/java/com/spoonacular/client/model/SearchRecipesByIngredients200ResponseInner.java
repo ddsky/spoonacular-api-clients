@@ -105,10 +105,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -124,10 +124,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -143,10 +143,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -162,10 +162,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get likes
    * @return likes
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getLikes() {
     return likes;
@@ -181,10 +181,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get missedIngredientCount
    * @return missedIngredientCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getMissedIngredientCount() {
     return missedIngredientCount;
@@ -208,10 +208,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get missedIngredients
    * @return missedIngredients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner> getMissedIngredients() {
     return missedIngredients;
@@ -227,10 +227,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -254,10 +254,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get unusedIngredients
    * @return unusedIngredients
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Object> getUnusedIngredients() {
     return unusedIngredients;
@@ -273,10 +273,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get usedIngredientCount
    * @return usedIngredientCount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getUsedIngredientCount() {
     return usedIngredientCount;
@@ -300,10 +300,10 @@ public class SearchRecipesByIngredients200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get usedIngredients
    * @return usedIngredients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner> getUsedIngredients() {
     return usedIngredients;
@@ -402,12 +402,12 @@ public class SearchRecipesByIngredients200ResponseInner {
     openapiRequiredFields.add("usedIngredients");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRecipesByIngredients200ResponseInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRecipesByIngredients200ResponseInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRecipesByIngredients200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -496,22 +496,22 @@ public class SearchRecipesByIngredients200ResponseInner {
     }
   }
 
- /**
-  * Create an instance of SearchRecipesByIngredients200ResponseInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRecipesByIngredients200ResponseInner
-  * @throws IOException if the JSON string is invalid with respect to SearchRecipesByIngredients200ResponseInner
-  */
+  /**
+   * Create an instance of SearchRecipesByIngredients200ResponseInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRecipesByIngredients200ResponseInner
+   * @throws IOException if the JSON string is invalid with respect to SearchRecipesByIngredients200ResponseInner
+   */
   public static SearchRecipesByIngredients200ResponseInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRecipesByIngredients200ResponseInner.class);
   }
 
- /**
-  * Convert an instance of SearchRecipesByIngredients200ResponseInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRecipesByIngredients200ResponseInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

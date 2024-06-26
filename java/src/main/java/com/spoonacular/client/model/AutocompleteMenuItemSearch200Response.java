@@ -74,10 +74,10 @@ public class AutocompleteMenuItemSearch200Response {
     return this;
   }
 
-   /**
+  /**
    * Get results
    * @return results
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<AutocompleteProductSearch200ResponseResultsInner> getResults() {
     return results;
@@ -140,12 +140,12 @@ public class AutocompleteMenuItemSearch200Response {
     openapiRequiredFields.add("results");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutocompleteMenuItemSearch200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutocompleteMenuItemSearch200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AutocompleteMenuItemSearch200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class AutocompleteMenuItemSearch200Response {
     }
   }
 
- /**
-  * Create an instance of AutocompleteMenuItemSearch200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutocompleteMenuItemSearch200Response
-  * @throws IOException if the JSON string is invalid with respect to AutocompleteMenuItemSearch200Response
-  */
+  /**
+   * Create an instance of AutocompleteMenuItemSearch200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutocompleteMenuItemSearch200Response
+   * @throws IOException if the JSON string is invalid with respect to AutocompleteMenuItemSearch200Response
+   */
   public static AutocompleteMenuItemSearch200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutocompleteMenuItemSearch200Response.class);
   }
 
- /**
-  * Convert an instance of AutocompleteMenuItemSearch200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutocompleteMenuItemSearch200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

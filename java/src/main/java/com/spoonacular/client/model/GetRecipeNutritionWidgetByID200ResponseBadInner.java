@@ -76,10 +76,10 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -95,10 +95,10 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAmount() {
     return amount;
@@ -114,10 +114,10 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     return this;
   }
 
-   /**
+  /**
    * Get indented
    * @return indented
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIndented() {
     return indented;
@@ -133,10 +133,10 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     return this;
   }
 
-   /**
+  /**
    * Get percentOfDailyNeeds
    * @return percentOfDailyNeeds
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPercentOfDailyNeeds() {
     return percentOfDailyNeeds;
@@ -211,12 +211,12 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     openapiRequiredFields.add("percentOfDailyNeeds");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeNutritionWidgetByID200ResponseBadInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeNutritionWidgetByID200ResponseBadInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeNutritionWidgetByID200ResponseBadInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +276,22 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     }
   }
 
- /**
-  * Create an instance of GetRecipeNutritionWidgetByID200ResponseBadInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeNutritionWidgetByID200ResponseBadInner
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeNutritionWidgetByID200ResponseBadInner
-  */
+  /**
+   * Create an instance of GetRecipeNutritionWidgetByID200ResponseBadInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeNutritionWidgetByID200ResponseBadInner
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeNutritionWidgetByID200ResponseBadInner
+   */
   public static GetRecipeNutritionWidgetByID200ResponseBadInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeNutritionWidgetByID200ResponseBadInner.class);
   }
 
- /**
-  * Convert an instance of GetRecipeNutritionWidgetByID200ResponseBadInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeNutritionWidgetByID200ResponseBadInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

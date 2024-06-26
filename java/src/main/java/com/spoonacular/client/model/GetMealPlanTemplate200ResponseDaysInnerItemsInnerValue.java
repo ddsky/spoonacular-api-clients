@@ -72,10 +72,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getId() {
     return id;
@@ -91,10 +91,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -110,10 +110,10 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -184,12 +184,12 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue {
     openapiRequiredFields.add("imageType");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -249,22 +249,22 @@ public class GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
-  */
+  /**
+   * Create an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
+   */
   public static GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

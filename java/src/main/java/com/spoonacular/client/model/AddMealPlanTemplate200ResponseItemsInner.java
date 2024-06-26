@@ -80,10 +80,10 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get day
    * @return day
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getDay() {
     return day;
@@ -99,10 +99,10 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get slot
    * @return slot
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getSlot() {
     return slot;
@@ -118,10 +118,10 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get position
    * @return position
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getPosition() {
     return position;
@@ -137,10 +137,10 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public String getType() {
     return type;
@@ -156,10 +156,10 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   public AddMealPlanTemplate200ResponseItemsInnerValue getValue() {
     return value;
@@ -237,12 +237,12 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     openapiRequiredFields.add("type");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AddMealPlanTemplate200ResponseItemsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AddMealPlanTemplate200ResponseItemsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddMealPlanTemplate200ResponseItemsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -303,22 +303,22 @@ public class AddMealPlanTemplate200ResponseItemsInner {
     }
   }
 
- /**
-  * Create an instance of AddMealPlanTemplate200ResponseItemsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AddMealPlanTemplate200ResponseItemsInner
-  * @throws IOException if the JSON string is invalid with respect to AddMealPlanTemplate200ResponseItemsInner
-  */
+  /**
+   * Create an instance of AddMealPlanTemplate200ResponseItemsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AddMealPlanTemplate200ResponseItemsInner
+   * @throws IOException if the JSON string is invalid with respect to AddMealPlanTemplate200ResponseItemsInner
+   */
   public static AddMealPlanTemplate200ResponseItemsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AddMealPlanTemplate200ResponseItemsInner.class);
   }
 
- /**
-  * Convert an instance of AddMealPlanTemplate200ResponseItemsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AddMealPlanTemplate200ResponseItemsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

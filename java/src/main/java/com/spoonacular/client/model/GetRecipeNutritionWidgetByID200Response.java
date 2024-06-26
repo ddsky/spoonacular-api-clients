@@ -87,10 +87,10 @@ public class GetRecipeNutritionWidgetByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get calories
    * @return calories
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCalories() {
     return calories;
@@ -106,10 +106,10 @@ public class GetRecipeNutritionWidgetByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get carbs
    * @return carbs
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCarbs() {
     return carbs;
@@ -125,10 +125,10 @@ public class GetRecipeNutritionWidgetByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get fat
    * @return fat
-  **/
+   */
   @javax.annotation.Nonnull
   public String getFat() {
     return fat;
@@ -144,10 +144,10 @@ public class GetRecipeNutritionWidgetByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get protein
    * @return protein
-  **/
+   */
   @javax.annotation.Nonnull
   public String getProtein() {
     return protein;
@@ -171,10 +171,10 @@ public class GetRecipeNutritionWidgetByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get bad
    * @return bad
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetRecipeNutritionWidgetByID200ResponseBadInner> getBad() {
     return bad;
@@ -198,10 +198,10 @@ public class GetRecipeNutritionWidgetByID200Response {
     return this;
   }
 
-   /**
+  /**
    * Get good
    * @return good
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetRecipeNutritionWidgetByID200ResponseGoodInner> getGood() {
     return good;
@@ -284,12 +284,12 @@ public class GetRecipeNutritionWidgetByID200Response {
     openapiRequiredFields.add("good");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeNutritionWidgetByID200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeNutritionWidgetByID200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeNutritionWidgetByID200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -375,22 +375,22 @@ public class GetRecipeNutritionWidgetByID200Response {
     }
   }
 
- /**
-  * Create an instance of GetRecipeNutritionWidgetByID200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeNutritionWidgetByID200Response
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeNutritionWidgetByID200Response
-  */
+  /**
+   * Create an instance of GetRecipeNutritionWidgetByID200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeNutritionWidgetByID200Response
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeNutritionWidgetByID200Response
+   */
   public static GetRecipeNutritionWidgetByID200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeNutritionWidgetByID200Response.class);
   }
 
- /**
-  * Convert an instance of GetRecipeNutritionWidgetByID200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeNutritionWidgetByID200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

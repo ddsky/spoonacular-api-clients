@@ -71,10 +71,10 @@ public class ClassifyGroceryProductRequest {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -90,10 +90,10 @@ public class ClassifyGroceryProductRequest {
     return this;
   }
 
-   /**
+  /**
    * Get upc
    * @return upc
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUpc() {
     return upc;
@@ -109,10 +109,10 @@ public class ClassifyGroceryProductRequest {
     return this;
   }
 
-   /**
+  /**
    * Get pluCode
    * @return pluCode
-  **/
+   */
   @javax.annotation.Nonnull
   public String getPluCode() {
     return pluCode;
@@ -183,12 +183,12 @@ public class ClassifyGroceryProductRequest {
     openapiRequiredFields.add("plu_code");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProductRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProductRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ClassifyGroceryProductRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -251,22 +251,22 @@ public class ClassifyGroceryProductRequest {
     }
   }
 
- /**
-  * Create an instance of ClassifyGroceryProductRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ClassifyGroceryProductRequest
-  * @throws IOException if the JSON string is invalid with respect to ClassifyGroceryProductRequest
-  */
+  /**
+   * Create an instance of ClassifyGroceryProductRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ClassifyGroceryProductRequest
+   * @throws IOException if the JSON string is invalid with respect to ClassifyGroceryProductRequest
+   */
   public static ClassifyGroceryProductRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ClassifyGroceryProductRequest.class);
   }
 
- /**
-  * Convert an instance of ClassifyGroceryProductRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ClassifyGroceryProductRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -76,10 +76,10 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -95,10 +95,10 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAmount() {
     return amount;
@@ -114,10 +114,10 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -133,10 +133,10 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get percentDailyNeeds
    * @return percentDailyNeeds
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPercentDailyNeeds() {
     return percentDailyNeeds;
@@ -211,12 +211,12 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
     openapiRequiredFields.add("percentDailyNeeds");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +276,22 @@ public class GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
-  */
+  /**
+   * Create an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
+   */
   public static GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
