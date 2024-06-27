@@ -76,10 +76,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     return this;
   }
 
-   /**
+  /**
    * Get operational
    * @return operational
-  **/
+   */
   @javax.annotation.Nullable
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getOperational() {
     return operational;
@@ -95,10 +95,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     return this;
   }
 
-   /**
+  /**
    * Get delivery
    * @return delivery
-  **/
+   */
   @javax.annotation.Nullable
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getDelivery() {
     return delivery;
@@ -114,10 +114,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     return this;
   }
 
-   /**
+  /**
    * Get pickup
    * @return pickup
-  **/
+   */
   @javax.annotation.Nullable
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getPickup() {
     return pickup;
@@ -133,10 +133,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     return this;
   }
 
-   /**
+  /**
    * Get dineIn
    * @return dineIn
-  **/
+   */
   @javax.annotation.Nullable
   public SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational getDineIn() {
     return dineIn;
@@ -207,12 +207,12 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHours
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHours
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRestaurants200ResponseRestaurantsInnerLocalHours.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -275,22 +275,22 @@ public class SearchRestaurants200ResponseRestaurantsInnerLocalHours {
     }
   }
 
- /**
-  * Create an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours
-  * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHours
-  */
+  /**
+   * Create an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours
+   * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerLocalHours
+   */
   public static SearchRestaurants200ResponseRestaurantsInnerLocalHours fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRestaurants200ResponseRestaurantsInnerLocalHours.class);
   }
 
- /**
-  * Convert an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

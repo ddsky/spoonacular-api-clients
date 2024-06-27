@@ -903,8 +903,8 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
         val localVariableBody = mapOf(
             "ingredientList" to PartConfig(body = ingredientList, headers = mutableMapOf()),
             "servings" to PartConfig(body = servings, headers = mutableMapOf()),
-            "measure" to PartConfig(body = measure.value, headers = mutableMapOf()),
-            "view" to PartConfig(body = view.value, headers = mutableMapOf()),
+            "measure" to PartConfig(body = measure?.value, headers = mutableMapOf()),
+            "view" to PartConfig(body = view?.value, headers = mutableMapOf()),
             "defaultCss" to PartConfig(body = defaultCss, headers = mutableMapOf()),
             "showBacklink" to PartConfig(body = showBacklink, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()

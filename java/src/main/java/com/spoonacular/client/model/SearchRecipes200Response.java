@@ -78,10 +78,10 @@ public class SearchRecipes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get offset
    * @return offset
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getOffset() {
     return offset;
@@ -97,10 +97,10 @@ public class SearchRecipes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get number
    * @return number
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getNumber() {
     return number;
@@ -124,10 +124,10 @@ public class SearchRecipes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get results
    * @return results
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<SearchRecipes200ResponseResultsInner> getResults() {
     return results;
@@ -143,10 +143,10 @@ public class SearchRecipes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalResults
    * @return totalResults
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getTotalResults() {
     return totalResults;
@@ -221,12 +221,12 @@ public class SearchRecipes200Response {
     openapiRequiredFields.add("totalResults");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRecipes200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRecipes200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRecipes200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -290,22 +290,22 @@ public class SearchRecipes200Response {
     }
   }
 
- /**
-  * Create an instance of SearchRecipes200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRecipes200Response
-  * @throws IOException if the JSON string is invalid with respect to SearchRecipes200Response
-  */
+  /**
+   * Create an instance of SearchRecipes200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRecipes200Response
+   * @throws IOException if the JSON string is invalid with respect to SearchRecipes200Response
+   */
   public static SearchRecipes200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRecipes200Response.class);
   }
 
- /**
-  * Convert an instance of SearchRecipes200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRecipes200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

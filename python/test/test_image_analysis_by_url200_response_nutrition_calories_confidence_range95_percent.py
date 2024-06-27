@@ -28,7 +28,7 @@ class TestImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
 
     def make_instance(self, include_optional) -> ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent:
         """Test ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent`

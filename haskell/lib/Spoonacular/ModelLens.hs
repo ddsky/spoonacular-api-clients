@@ -960,10 +960,10 @@ getConversationSuggests200ResponseWordsL f GetConversationSuggests200Response{..
 
 -- * GetConversationSuggests200ResponseSuggests
 
--- | 'getConversationSuggests200ResponseSuggests' Lens
-getConversationSuggests200ResponseSuggestsL :: Lens_' GetConversationSuggests200ResponseSuggests ([GetConversationSuggests200ResponseSuggestsInner])
-getConversationSuggests200ResponseSuggestsL f GetConversationSuggests200ResponseSuggests{..} = (\getConversationSuggests200ResponseSuggests -> GetConversationSuggests200ResponseSuggests { getConversationSuggests200ResponseSuggests, ..} ) <$> f getConversationSuggests200ResponseSuggests
-{-# INLINE getConversationSuggests200ResponseSuggestsL #-}
+-- | 'getConversationSuggests200ResponseSuggestsUnderscore' Lens
+getConversationSuggests200ResponseSuggestsUnderscoreL :: Lens_' GetConversationSuggests200ResponseSuggests ([GetConversationSuggests200ResponseSuggestsInner])
+getConversationSuggests200ResponseSuggestsUnderscoreL f GetConversationSuggests200ResponseSuggests{..} = (\getConversationSuggests200ResponseSuggestsUnderscore -> GetConversationSuggests200ResponseSuggests { getConversationSuggests200ResponseSuggestsUnderscore, ..} ) <$> f getConversationSuggests200ResponseSuggestsUnderscore
+{-# INLINE getConversationSuggests200ResponseSuggestsUnderscoreL #-}
 
 
 

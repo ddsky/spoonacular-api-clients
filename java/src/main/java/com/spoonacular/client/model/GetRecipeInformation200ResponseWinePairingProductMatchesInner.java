@@ -96,10 +96,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -115,10 +115,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -134,10 +134,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDescription() {
     return description;
@@ -153,10 +153,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nonnull
   public String getPrice() {
     return price;
@@ -172,10 +172,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageUrl
    * @return imageUrl
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageUrl() {
     return imageUrl;
@@ -191,10 +191,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get averageRating
    * @return averageRating
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAverageRating() {
     return averageRating;
@@ -210,10 +210,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get ratingCount
    * @return ratingCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getRatingCount() {
     return ratingCount;
@@ -229,10 +229,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getScore() {
     return score;
@@ -248,10 +248,10 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get link
    * @return link
-  **/
+   */
   @javax.annotation.Nonnull
   public String getLink() {
     return link;
@@ -346,12 +346,12 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     openapiRequiredFields.add("link");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseWinePairingProductMatchesInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseWinePairingProductMatchesInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeInformation200ResponseWinePairingProductMatchesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -420,22 +420,22 @@ public class GetRecipeInformation200ResponseWinePairingProductMatchesInner {
     }
   }
 
- /**
-  * Create an instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeInformation200ResponseWinePairingProductMatchesInner
-  */
+  /**
+   * Create an instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeInformation200ResponseWinePairingProductMatchesInner
+   */
   public static GetRecipeInformation200ResponseWinePairingProductMatchesInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeInformation200ResponseWinePairingProductMatchesInner.class);
   }
 
- /**
-  * Convert an instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeInformation200ResponseWinePairingProductMatchesInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

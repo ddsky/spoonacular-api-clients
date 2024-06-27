@@ -76,10 +76,10 @@ public class GenerateMealPlan200ResponseNutrients {
     return this;
   }
 
-   /**
+  /**
    * Get calories
    * @return calories
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getCalories() {
     return calories;
@@ -95,10 +95,10 @@ public class GenerateMealPlan200ResponseNutrients {
     return this;
   }
 
-   /**
+  /**
    * Get carbohydrates
    * @return carbohydrates
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getCarbohydrates() {
     return carbohydrates;
@@ -114,10 +114,10 @@ public class GenerateMealPlan200ResponseNutrients {
     return this;
   }
 
-   /**
+  /**
    * Get fat
    * @return fat
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getFat() {
     return fat;
@@ -133,10 +133,10 @@ public class GenerateMealPlan200ResponseNutrients {
     return this;
   }
 
-   /**
+  /**
    * Get protein
    * @return protein
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getProtein() {
     return protein;
@@ -211,12 +211,12 @@ public class GenerateMealPlan200ResponseNutrients {
     openapiRequiredFields.add("protein");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GenerateMealPlan200ResponseNutrients
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GenerateMealPlan200ResponseNutrients
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GenerateMealPlan200ResponseNutrients.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -270,22 +270,22 @@ public class GenerateMealPlan200ResponseNutrients {
     }
   }
 
- /**
-  * Create an instance of GenerateMealPlan200ResponseNutrients given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GenerateMealPlan200ResponseNutrients
-  * @throws IOException if the JSON string is invalid with respect to GenerateMealPlan200ResponseNutrients
-  */
+  /**
+   * Create an instance of GenerateMealPlan200ResponseNutrients given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GenerateMealPlan200ResponseNutrients
+   * @throws IOException if the JSON string is invalid with respect to GenerateMealPlan200ResponseNutrients
+   */
   public static GenerateMealPlan200ResponseNutrients fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GenerateMealPlan200ResponseNutrients.class);
   }
 
- /**
-  * Convert an instance of GenerateMealPlan200ResponseNutrients to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GenerateMealPlan200ResponseNutrients to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

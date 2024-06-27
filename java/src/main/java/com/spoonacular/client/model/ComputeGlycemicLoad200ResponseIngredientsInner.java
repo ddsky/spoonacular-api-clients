@@ -76,10 +76,10 @@ public class ComputeGlycemicLoad200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -95,10 +95,10 @@ public class ComputeGlycemicLoad200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get original
    * @return original
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginal() {
     return original;
@@ -114,10 +114,10 @@ public class ComputeGlycemicLoad200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get glycemicIndex
    * @return glycemicIndex
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getGlycemicIndex() {
     return glycemicIndex;
@@ -133,10 +133,10 @@ public class ComputeGlycemicLoad200ResponseIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get glycemicLoad
    * @return glycemicLoad
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getGlycemicLoad() {
     return glycemicLoad;
@@ -211,12 +211,12 @@ public class ComputeGlycemicLoad200ResponseIngredientsInner {
     openapiRequiredFields.add("glycemicLoad");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ComputeGlycemicLoad200ResponseIngredientsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ComputeGlycemicLoad200ResponseIngredientsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ComputeGlycemicLoad200ResponseIngredientsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -273,22 +273,22 @@ public class ComputeGlycemicLoad200ResponseIngredientsInner {
     }
   }
 
- /**
-  * Create an instance of ComputeGlycemicLoad200ResponseIngredientsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ComputeGlycemicLoad200ResponseIngredientsInner
-  * @throws IOException if the JSON string is invalid with respect to ComputeGlycemicLoad200ResponseIngredientsInner
-  */
+  /**
+   * Create an instance of ComputeGlycemicLoad200ResponseIngredientsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ComputeGlycemicLoad200ResponseIngredientsInner
+   * @throws IOException if the JSON string is invalid with respect to ComputeGlycemicLoad200ResponseIngredientsInner
+   */
   public static ComputeGlycemicLoad200ResponseIngredientsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ComputeGlycemicLoad200ResponseIngredientsInner.class);
   }
 
- /**
-  * Convert an instance of ComputeGlycemicLoad200ResponseIngredientsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ComputeGlycemicLoad200ResponseIngredientsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

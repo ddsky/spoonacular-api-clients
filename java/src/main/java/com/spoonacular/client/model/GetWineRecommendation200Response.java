@@ -78,10 +78,10 @@ public class GetWineRecommendation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get recommendedWines
    * @return recommendedWines
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetWineRecommendation200ResponseRecommendedWinesInner> getRecommendedWines() {
     return recommendedWines;
@@ -97,10 +97,10 @@ public class GetWineRecommendation200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalFound
    * @return totalFound
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getTotalFound() {
     return totalFound;
@@ -167,12 +167,12 @@ public class GetWineRecommendation200Response {
     openapiRequiredFields.add("totalFound");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetWineRecommendation200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetWineRecommendation200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetWineRecommendation200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -236,22 +236,22 @@ public class GetWineRecommendation200Response {
     }
   }
 
- /**
-  * Create an instance of GetWineRecommendation200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetWineRecommendation200Response
-  * @throws IOException if the JSON string is invalid with respect to GetWineRecommendation200Response
-  */
+  /**
+   * Create an instance of GetWineRecommendation200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetWineRecommendation200Response
+   * @throws IOException if the JSON string is invalid with respect to GetWineRecommendation200Response
+   */
   public static GetWineRecommendation200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetWineRecommendation200Response.class);
   }
 
- /**
-  * Convert an instance of GetWineRecommendation200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetWineRecommendation200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

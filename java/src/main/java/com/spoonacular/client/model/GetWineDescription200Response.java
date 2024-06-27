@@ -63,10 +63,10 @@ public class GetWineDescription200Response {
     return this;
   }
 
-   /**
+  /**
    * Get wineDescription
    * @return wineDescription
-  **/
+   */
   @javax.annotation.Nonnull
   public String getWineDescription() {
     return wineDescription;
@@ -129,12 +129,12 @@ public class GetWineDescription200Response {
     openapiRequiredFields.add("wineDescription");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetWineDescription200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetWineDescription200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetWineDescription200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -191,22 +191,22 @@ public class GetWineDescription200Response {
     }
   }
 
- /**
-  * Create an instance of GetWineDescription200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetWineDescription200Response
-  * @throws IOException if the JSON string is invalid with respect to GetWineDescription200Response
-  */
+  /**
+   * Create an instance of GetWineDescription200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetWineDescription200Response
+   * @throws IOException if the JSON string is invalid with respect to GetWineDescription200Response
+   */
   public static GetWineDescription200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetWineDescription200Response.class);
   }
 
- /**
-  * Convert an instance of GetWineDescription200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetWineDescription200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

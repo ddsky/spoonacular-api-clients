@@ -607,7 +607,7 @@ instance Arbitrary GetConversationSuggests200ResponseSuggests where
 genGetConversationSuggests200ResponseSuggests :: Int -> Gen GetConversationSuggests200ResponseSuggests
 genGetConversationSuggests200ResponseSuggests n =
   GetConversationSuggests200ResponseSuggests
-    <$> arbitraryReduced n -- getConversationSuggests200ResponseSuggests :: [GetConversationSuggests200ResponseSuggestsInner]
+    <$> arbitraryReduced n -- getConversationSuggests200ResponseSuggestsUnderscore :: [GetConversationSuggests200ResponseSuggestsInner]
   
 instance Arbitrary GetConversationSuggests200ResponseSuggestsInner where
   arbitrary = sized genGetConversationSuggests200ResponseSuggestsInner

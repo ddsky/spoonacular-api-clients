@@ -72,10 +72,10 @@ public class ParseIngredients200ResponseInnerNutritionCaloricBreakdown {
     return this;
   }
 
-   /**
+  /**
    * Get percentProtein
    * @return percentProtein
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPercentProtein() {
     return percentProtein;
@@ -91,10 +91,10 @@ public class ParseIngredients200ResponseInnerNutritionCaloricBreakdown {
     return this;
   }
 
-   /**
+  /**
    * Get percentFat
    * @return percentFat
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPercentFat() {
     return percentFat;
@@ -110,10 +110,10 @@ public class ParseIngredients200ResponseInnerNutritionCaloricBreakdown {
     return this;
   }
 
-   /**
+  /**
    * Get percentCarbs
    * @return percentCarbs
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPercentCarbs() {
     return percentCarbs;
@@ -184,12 +184,12 @@ public class ParseIngredients200ResponseInnerNutritionCaloricBreakdown {
     openapiRequiredFields.add("percentCarbs");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ParseIngredients200ResponseInnerNutritionCaloricBreakdown.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -243,22 +243,22 @@ public class ParseIngredients200ResponseInnerNutritionCaloricBreakdown {
     }
   }
 
- /**
-  * Create an instance of ParseIngredients200ResponseInnerNutritionCaloricBreakdown given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-  * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-  */
+  /**
+   * Create an instance of ParseIngredients200ResponseInnerNutritionCaloricBreakdown given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+   * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+   */
   public static ParseIngredients200ResponseInnerNutritionCaloricBreakdown fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ParseIngredients200ResponseInnerNutritionCaloricBreakdown.class);
   }
 
- /**
-  * Convert an instance of ParseIngredients200ResponseInnerNutritionCaloricBreakdown to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ParseIngredients200ResponseInnerNutritionCaloricBreakdown to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

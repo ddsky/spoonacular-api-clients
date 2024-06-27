@@ -77,10 +77,10 @@ public class GuessNutritionByDishName200ResponseCalories {
     return this;
   }
 
-   /**
+  /**
    * Get confidenceRange95Percent
    * @return confidenceRange95Percent
-  **/
+   */
   @javax.annotation.Nonnull
   public GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent getConfidenceRange95Percent() {
     return confidenceRange95Percent;
@@ -96,10 +96,10 @@ public class GuessNutritionByDishName200ResponseCalories {
     return this;
   }
 
-   /**
+  /**
    * Get standardDeviation
    * @return standardDeviation
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getStandardDeviation() {
     return standardDeviation;
@@ -115,10 +115,10 @@ public class GuessNutritionByDishName200ResponseCalories {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -134,10 +134,10 @@ public class GuessNutritionByDishName200ResponseCalories {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getValue() {
     return value;
@@ -212,12 +212,12 @@ public class GuessNutritionByDishName200ResponseCalories {
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GuessNutritionByDishName200ResponseCalories
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GuessNutritionByDishName200ResponseCalories
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GuessNutritionByDishName200ResponseCalories.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +276,22 @@ public class GuessNutritionByDishName200ResponseCalories {
     }
   }
 
- /**
-  * Create an instance of GuessNutritionByDishName200ResponseCalories given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GuessNutritionByDishName200ResponseCalories
-  * @throws IOException if the JSON string is invalid with respect to GuessNutritionByDishName200ResponseCalories
-  */
+  /**
+   * Create an instance of GuessNutritionByDishName200ResponseCalories given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GuessNutritionByDishName200ResponseCalories
+   * @throws IOException if the JSON string is invalid with respect to GuessNutritionByDishName200ResponseCalories
+   */
   public static GuessNutritionByDishName200ResponseCalories fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GuessNutritionByDishName200ResponseCalories.class);
   }
 
- /**
-  * Convert an instance of GuessNutritionByDishName200ResponseCalories to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GuessNutritionByDishName200ResponseCalories to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

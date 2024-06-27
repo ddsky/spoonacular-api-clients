@@ -72,10 +72,10 @@ public class SearchGroceryProductsByUPC200ResponseServings {
     return this;
   }
 
-   /**
+  /**
    * Get number
    * @return number
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getNumber() {
     return number;
@@ -91,10 +91,10 @@ public class SearchGroceryProductsByUPC200ResponseServings {
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSize() {
     return size;
@@ -110,10 +110,10 @@ public class SearchGroceryProductsByUPC200ResponseServings {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -184,12 +184,12 @@ public class SearchGroceryProductsByUPC200ResponseServings {
     openapiRequiredFields.add("unit");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchGroceryProductsByUPC200ResponseServings
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchGroceryProductsByUPC200ResponseServings
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchGroceryProductsByUPC200ResponseServings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -246,22 +246,22 @@ public class SearchGroceryProductsByUPC200ResponseServings {
     }
   }
 
- /**
-  * Create an instance of SearchGroceryProductsByUPC200ResponseServings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchGroceryProductsByUPC200ResponseServings
-  * @throws IOException if the JSON string is invalid with respect to SearchGroceryProductsByUPC200ResponseServings
-  */
+  /**
+   * Create an instance of SearchGroceryProductsByUPC200ResponseServings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchGroceryProductsByUPC200ResponseServings
+   * @throws IOException if the JSON string is invalid with respect to SearchGroceryProductsByUPC200ResponseServings
+   */
   public static SearchGroceryProductsByUPC200ResponseServings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchGroceryProductsByUPC200ResponseServings.class);
   }
 
- /**
-  * Convert an instance of SearchGroceryProductsByUPC200ResponseServings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchGroceryProductsByUPC200ResponseServings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

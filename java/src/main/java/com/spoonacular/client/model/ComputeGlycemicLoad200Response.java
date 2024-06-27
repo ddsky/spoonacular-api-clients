@@ -71,10 +71,10 @@ public class ComputeGlycemicLoad200Response {
     return this;
   }
 
-   /**
+  /**
    * Get totalGlycemicLoad
    * @return totalGlycemicLoad
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getTotalGlycemicLoad() {
     return totalGlycemicLoad;
@@ -98,10 +98,10 @@ public class ComputeGlycemicLoad200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredients
    * @return ingredients
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<ComputeGlycemicLoad200ResponseIngredientsInner> getIngredients() {
     return ingredients;
@@ -168,12 +168,12 @@ public class ComputeGlycemicLoad200Response {
     openapiRequiredFields.add("ingredients");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ComputeGlycemicLoad200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ComputeGlycemicLoad200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ComputeGlycemicLoad200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -237,22 +237,22 @@ public class ComputeGlycemicLoad200Response {
     }
   }
 
- /**
-  * Create an instance of ComputeGlycemicLoad200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ComputeGlycemicLoad200Response
-  * @throws IOException if the JSON string is invalid with respect to ComputeGlycemicLoad200Response
-  */
+  /**
+   * Create an instance of ComputeGlycemicLoad200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ComputeGlycemicLoad200Response
+   * @throws IOException if the JSON string is invalid with respect to ComputeGlycemicLoad200Response
+   */
   public static ComputeGlycemicLoad200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ComputeGlycemicLoad200Response.class);
   }
 
- /**
-  * Convert an instance of ComputeGlycemicLoad200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ComputeGlycemicLoad200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -74,10 +74,10 @@ public class AutocompleteProductSearch200Response {
     return this;
   }
 
-   /**
+  /**
    * Get results
    * @return results
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<AutocompleteProductSearch200ResponseResultsInner> getResults() {
     return results;
@@ -140,12 +140,12 @@ public class AutocompleteProductSearch200Response {
     openapiRequiredFields.add("results");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AutocompleteProductSearch200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AutocompleteProductSearch200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AutocompleteProductSearch200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class AutocompleteProductSearch200Response {
     }
   }
 
- /**
-  * Create an instance of AutocompleteProductSearch200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutocompleteProductSearch200Response
-  * @throws IOException if the JSON string is invalid with respect to AutocompleteProductSearch200Response
-  */
+  /**
+   * Create an instance of AutocompleteProductSearch200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AutocompleteProductSearch200Response
+   * @throws IOException if the JSON string is invalid with respect to AutocompleteProductSearch200Response
+   */
   public static AutocompleteProductSearch200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AutocompleteProductSearch200Response.class);
   }
 
- /**
-  * Convert an instance of AutocompleteProductSearch200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AutocompleteProductSearch200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -96,10 +96,10 @@ public class GetComparableProducts200ResponseComparableProducts {
     return this;
   }
 
-   /**
+  /**
    * Get calories
    * @return calories
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Object> getCalories() {
     return calories;
@@ -123,10 +123,10 @@ public class GetComparableProducts200ResponseComparableProducts {
     return this;
   }
 
-   /**
+  /**
    * Get likes
    * @return likes
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Object> getLikes() {
     return likes;
@@ -150,10 +150,10 @@ public class GetComparableProducts200ResponseComparableProducts {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Object> getPrice() {
     return price;
@@ -177,10 +177,10 @@ public class GetComparableProducts200ResponseComparableProducts {
     return this;
   }
 
-   /**
+  /**
    * Get protein
    * @return protein
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getProtein() {
     return protein;
@@ -204,10 +204,10 @@ public class GetComparableProducts200ResponseComparableProducts {
     return this;
   }
 
-   /**
+  /**
    * Get spoonacularScore
    * @return spoonacularScore
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getSpoonacularScore() {
     return spoonacularScore;
@@ -231,10 +231,10 @@ public class GetComparableProducts200ResponseComparableProducts {
     return this;
   }
 
-   /**
+  /**
    * Get sugar
    * @return sugar
-  **/
+   */
   @javax.annotation.Nonnull
   public List<Object> getSugar() {
     return sugar;
@@ -317,12 +317,12 @@ public class GetComparableProducts200ResponseComparableProducts {
     openapiRequiredFields.add("sugar");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200ResponseComparableProducts
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetComparableProducts200ResponseComparableProducts
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetComparableProducts200ResponseComparableProducts.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -420,22 +420,22 @@ public class GetComparableProducts200ResponseComparableProducts {
     }
   }
 
- /**
-  * Create an instance of GetComparableProducts200ResponseComparableProducts given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetComparableProducts200ResponseComparableProducts
-  * @throws IOException if the JSON string is invalid with respect to GetComparableProducts200ResponseComparableProducts
-  */
+  /**
+   * Create an instance of GetComparableProducts200ResponseComparableProducts given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetComparableProducts200ResponseComparableProducts
+   * @throws IOException if the JSON string is invalid with respect to GetComparableProducts200ResponseComparableProducts
+   */
   public static GetComparableProducts200ResponseComparableProducts fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetComparableProducts200ResponseComparableProducts.class);
   }
 
- /**
-  * Convert an instance of GetComparableProducts200ResponseComparableProducts to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetComparableProducts200ResponseComparableProducts to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

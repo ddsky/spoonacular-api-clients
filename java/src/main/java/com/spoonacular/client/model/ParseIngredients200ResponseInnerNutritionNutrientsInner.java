@@ -76,10 +76,10 @@ public class ParseIngredients200ResponseInnerNutritionNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -95,10 +95,10 @@ public class ParseIngredients200ResponseInnerNutritionNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAmount() {
     return amount;
@@ -114,10 +114,10 @@ public class ParseIngredients200ResponseInnerNutritionNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -133,10 +133,10 @@ public class ParseIngredients200ResponseInnerNutritionNutrientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get percentOfDailyNeeds
    * @return percentOfDailyNeeds
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPercentOfDailyNeeds() {
     return percentOfDailyNeeds;
@@ -211,12 +211,12 @@ public class ParseIngredients200ResponseInnerNutritionNutrientsInner {
     openapiRequiredFields.add("percentOfDailyNeeds");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerNutritionNutrientsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ParseIngredients200ResponseInnerNutritionNutrientsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ParseIngredients200ResponseInnerNutritionNutrientsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +276,22 @@ public class ParseIngredients200ResponseInnerNutritionNutrientsInner {
     }
   }
 
- /**
-  * Create an instance of ParseIngredients200ResponseInnerNutritionNutrientsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ParseIngredients200ResponseInnerNutritionNutrientsInner
-  * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerNutritionNutrientsInner
-  */
+  /**
+   * Create an instance of ParseIngredients200ResponseInnerNutritionNutrientsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ParseIngredients200ResponseInnerNutritionNutrientsInner
+   * @throws IOException if the JSON string is invalid with respect to ParseIngredients200ResponseInnerNutritionNutrientsInner
+   */
   public static ParseIngredients200ResponseInnerNutritionNutrientsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ParseIngredients200ResponseInnerNutritionNutrientsInner.class);
   }
 
- /**
-  * Convert an instance of ParseIngredients200ResponseInnerNutritionNutrientsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ParseIngredients200ResponseInnerNutritionNutrientsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

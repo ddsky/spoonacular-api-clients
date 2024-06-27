@@ -170,6 +170,7 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 pom.xml
+settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/com/spoonacular/DefaultApi.java
 src/main/java/com/spoonacular/IngredientsApi.java

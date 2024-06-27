@@ -88,10 +88,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -107,10 +107,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get length
    * @return length
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getLength() {
     return length;
@@ -126,10 +126,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get rating
    * @return rating
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getRating() {
     return rating;
@@ -145,10 +145,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get shortTitle
    * @return shortTitle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getShortTitle() {
     return shortTitle;
@@ -164,10 +164,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get thumbnail
    * @return thumbnail
-  **/
+   */
   @javax.annotation.Nonnull
   public String getThumbnail() {
     return thumbnail;
@@ -183,10 +183,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get views
    * @return views
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getViews() {
     return views;
@@ -202,10 +202,10 @@ public class SearchFoodVideos200ResponseVideosInner {
     return this;
   }
 
-   /**
+  /**
    * Get youTubeId
    * @return youTubeId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getYouTubeId() {
     return youTubeId;
@@ -292,12 +292,12 @@ public class SearchFoodVideos200ResponseVideosInner {
     openapiRequiredFields.add("youTubeId");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchFoodVideos200ResponseVideosInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchFoodVideos200ResponseVideosInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchFoodVideos200ResponseVideosInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -363,22 +363,22 @@ public class SearchFoodVideos200ResponseVideosInner {
     }
   }
 
- /**
-  * Create an instance of SearchFoodVideos200ResponseVideosInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchFoodVideos200ResponseVideosInner
-  * @throws IOException if the JSON string is invalid with respect to SearchFoodVideos200ResponseVideosInner
-  */
+  /**
+   * Create an instance of SearchFoodVideos200ResponseVideosInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchFoodVideos200ResponseVideosInner
+   * @throws IOException if the JSON string is invalid with respect to SearchFoodVideos200ResponseVideosInner
+   */
   public static SearchFoodVideos200ResponseVideosInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchFoodVideos200ResponseVideosInner.class);
   }
 
- /**
-  * Convert an instance of SearchFoodVideos200ResponseVideosInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchFoodVideos200ResponseVideosInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -63,10 +63,10 @@ public class GetARandomFoodJoke200Response {
     return this;
   }
 
-   /**
+  /**
    * Get text
    * @return text
-  **/
+   */
   @javax.annotation.Nonnull
   public String getText() {
     return text;
@@ -129,12 +129,12 @@ public class GetARandomFoodJoke200Response {
     openapiRequiredFields.add("text");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetARandomFoodJoke200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetARandomFoodJoke200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetARandomFoodJoke200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -191,22 +191,22 @@ public class GetARandomFoodJoke200Response {
     }
   }
 
- /**
-  * Create an instance of GetARandomFoodJoke200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetARandomFoodJoke200Response
-  * @throws IOException if the JSON string is invalid with respect to GetARandomFoodJoke200Response
-  */
+  /**
+   * Create an instance of GetARandomFoodJoke200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetARandomFoodJoke200Response
+   * @throws IOException if the JSON string is invalid with respect to GetARandomFoodJoke200Response
+   */
   public static GetARandomFoodJoke200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetARandomFoodJoke200Response.class);
   }
 
- /**
-  * Convert an instance of GetARandomFoodJoke200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetARandomFoodJoke200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

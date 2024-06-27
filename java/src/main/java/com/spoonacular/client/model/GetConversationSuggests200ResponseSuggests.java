@@ -74,10 +74,10 @@ public class GetConversationSuggests200ResponseSuggests {
     return this;
   }
 
-   /**
+  /**
    * Get u
    * @return u
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetConversationSuggests200ResponseSuggestsInner> getU() {
     return u;
@@ -140,12 +140,12 @@ public class GetConversationSuggests200ResponseSuggests {
     openapiRequiredFields.add("_");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetConversationSuggests200ResponseSuggests
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetConversationSuggests200ResponseSuggests
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetConversationSuggests200ResponseSuggests.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -209,22 +209,22 @@ public class GetConversationSuggests200ResponseSuggests {
     }
   }
 
- /**
-  * Create an instance of GetConversationSuggests200ResponseSuggests given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetConversationSuggests200ResponseSuggests
-  * @throws IOException if the JSON string is invalid with respect to GetConversationSuggests200ResponseSuggests
-  */
+  /**
+   * Create an instance of GetConversationSuggests200ResponseSuggests given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetConversationSuggests200ResponseSuggests
+   * @throws IOException if the JSON string is invalid with respect to GetConversationSuggests200ResponseSuggests
+   */
   public static GetConversationSuggests200ResponseSuggests fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetConversationSuggests200ResponseSuggests.class);
   }
 
- /**
-  * Convert an instance of GetConversationSuggests200ResponseSuggests to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetConversationSuggests200ResponseSuggests to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

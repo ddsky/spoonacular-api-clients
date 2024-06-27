@@ -74,10 +74,10 @@ public class SearchRestaurants200Response {
     return this;
   }
 
-   /**
+  /**
    * Get restaurants
    * @return restaurants
-  **/
+   */
   @javax.annotation.Nullable
   public List<SearchRestaurants200ResponseRestaurantsInner> getRestaurants() {
     return restaurants;
@@ -139,12 +139,12 @@ public class SearchRestaurants200Response {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRestaurants200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -205,22 +205,22 @@ public class SearchRestaurants200Response {
     }
   }
 
- /**
-  * Create an instance of SearchRestaurants200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRestaurants200Response
-  * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200Response
-  */
+  /**
+   * Create an instance of SearchRestaurants200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRestaurants200Response
+   * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200Response
+   */
   public static SearchRestaurants200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRestaurants200Response.class);
   }
 
- /**
-  * Convert an instance of SearchRestaurants200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRestaurants200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

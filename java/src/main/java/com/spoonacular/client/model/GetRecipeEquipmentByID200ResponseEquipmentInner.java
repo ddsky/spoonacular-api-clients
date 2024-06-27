@@ -67,10 +67,10 @@ public class GetRecipeEquipmentByID200ResponseEquipmentInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -86,10 +86,10 @@ public class GetRecipeEquipmentByID200ResponseEquipmentInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -156,12 +156,12 @@ public class GetRecipeEquipmentByID200ResponseEquipmentInner {
     openapiRequiredFields.add("name");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeEquipmentByID200ResponseEquipmentInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeEquipmentByID200ResponseEquipmentInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeEquipmentByID200ResponseEquipmentInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -221,22 +221,22 @@ public class GetRecipeEquipmentByID200ResponseEquipmentInner {
     }
   }
 
- /**
-  * Create an instance of GetRecipeEquipmentByID200ResponseEquipmentInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeEquipmentByID200ResponseEquipmentInner
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeEquipmentByID200ResponseEquipmentInner
-  */
+  /**
+   * Create an instance of GetRecipeEquipmentByID200ResponseEquipmentInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeEquipmentByID200ResponseEquipmentInner
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeEquipmentByID200ResponseEquipmentInner
+   */
   public static GetRecipeEquipmentByID200ResponseEquipmentInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeEquipmentByID200ResponseEquipmentInner.class);
   }
 
- /**
-  * Convert an instance of GetRecipeEquipmentByID200ResponseEquipmentInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeEquipmentByID200ResponseEquipmentInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

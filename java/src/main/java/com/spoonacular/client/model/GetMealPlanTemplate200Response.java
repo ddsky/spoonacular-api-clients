@@ -74,10 +74,10 @@ public class GetMealPlanTemplate200Response {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -93,10 +93,10 @@ public class GetMealPlanTemplate200Response {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -120,10 +120,10 @@ public class GetMealPlanTemplate200Response {
     return this;
   }
 
-   /**
+  /**
    * Get days
    * @return days
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetMealPlanTemplate200ResponseDaysInner> getDays() {
     return days;
@@ -194,12 +194,12 @@ public class GetMealPlanTemplate200Response {
     openapiRequiredFields.add("days");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetMealPlanTemplate200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetMealPlanTemplate200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -266,22 +266,22 @@ public class GetMealPlanTemplate200Response {
     }
   }
 
- /**
-  * Create an instance of GetMealPlanTemplate200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetMealPlanTemplate200Response
-  * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200Response
-  */
+  /**
+   * Create an instance of GetMealPlanTemplate200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetMealPlanTemplate200Response
+   * @throws IOException if the JSON string is invalid with respect to GetMealPlanTemplate200Response
+   */
   public static GetMealPlanTemplate200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetMealPlanTemplate200Response.class);
   }
 
- /**
-  * Convert an instance of GetMealPlanTemplate200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetMealPlanTemplate200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

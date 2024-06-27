@@ -28,7 +28,7 @@ class TestSearchSiteContent200ResponseArticlesInnerDataPointsInner(unittest.Test
 
     def make_instance(self, include_optional) -> SearchSiteContent200ResponseArticlesInnerDataPointsInner:
         """Test SearchSiteContent200ResponseArticlesInnerDataPointsInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SearchSiteContent200ResponseArticlesInnerDataPointsInner`

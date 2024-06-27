@@ -73,10 +73,10 @@ public class GetIngredientSubstitutes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get ingredient
    * @return ingredient
-  **/
+   */
   @javax.annotation.Nonnull
   public String getIngredient() {
     return ingredient;
@@ -100,10 +100,10 @@ public class GetIngredientSubstitutes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get substitutes
    * @return substitutes
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getSubstitutes() {
     return substitutes;
@@ -119,10 +119,10 @@ public class GetIngredientSubstitutes200Response {
     return this;
   }
 
-   /**
+  /**
    * Get message
    * @return message
-  **/
+   */
   @javax.annotation.Nonnull
   public String getMessage() {
     return message;
@@ -193,12 +193,12 @@ public class GetIngredientSubstitutes200Response {
     openapiRequiredFields.add("message");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetIngredientSubstitutes200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetIngredientSubstitutes200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetIngredientSubstitutes200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -264,22 +264,22 @@ public class GetIngredientSubstitutes200Response {
     }
   }
 
- /**
-  * Create an instance of GetIngredientSubstitutes200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetIngredientSubstitutes200Response
-  * @throws IOException if the JSON string is invalid with respect to GetIngredientSubstitutes200Response
-  */
+  /**
+   * Create an instance of GetIngredientSubstitutes200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetIngredientSubstitutes200Response
+   * @throws IOException if the JSON string is invalid with respect to GetIngredientSubstitutes200Response
+   */
   public static GetIngredientSubstitutes200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetIngredientSubstitutes200Response.class);
   }
 
- /**
-  * Convert an instance of GetIngredientSubstitutes200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetIngredientSubstitutes200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

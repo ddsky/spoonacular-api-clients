@@ -110,10 +110,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get aisle
    * @return aisle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAisle() {
     return aisle;
@@ -129,10 +129,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAmount() {
     return amount;
@@ -148,10 +148,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -167,10 +167,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -194,10 +194,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getMeta() {
     return meta;
@@ -213,10 +213,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   public String getName() {
     return name;
@@ -232,10 +232,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get extendedName
    * @return extendedName
-  **/
+   */
   @javax.annotation.Nullable
   public String getExtendedName() {
     return extendedName;
@@ -251,10 +251,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get original
    * @return original
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginal() {
     return original;
@@ -270,10 +270,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get originalName
    * @return originalName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getOriginalName() {
     return originalName;
@@ -289,10 +289,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -308,10 +308,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get unitLong
    * @return unitLong
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnitLong() {
     return unitLong;
@@ -327,10 +327,10 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     return this;
   }
 
-   /**
+  /**
    * Get unitShort
    * @return unitShort
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnitShort() {
     return unitShort;
@@ -435,12 +435,12 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     openapiRequiredFields.add("unitShort");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -525,22 +525,22 @@ public class SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner {
     }
   }
 
- /**
-  * Create an instance of SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
-  */
+  /**
+   * Create an instance of SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner
+   */
   public static SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner.class);
   }
 
- /**
-  * Convert an instance of SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRecipesByIngredients200ResponseInnerMissedIngredientsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

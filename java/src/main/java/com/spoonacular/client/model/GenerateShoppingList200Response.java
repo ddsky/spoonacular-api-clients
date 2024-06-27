@@ -87,10 +87,10 @@ public class GenerateShoppingList200Response {
     return this;
   }
 
-   /**
+  /**
    * Get aisles
    * @return aisles
-  **/
+   */
   @javax.annotation.Nonnull
   public Set<GetShoppingList200ResponseAislesInner> getAisles() {
     return aisles;
@@ -106,10 +106,10 @@ public class GenerateShoppingList200Response {
     return this;
   }
 
-   /**
+  /**
    * Get cost
    * @return cost
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getCost() {
     return cost;
@@ -125,10 +125,10 @@ public class GenerateShoppingList200Response {
     return this;
   }
 
-   /**
+  /**
    * Get startDate
    * @return startDate
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getStartDate() {
     return startDate;
@@ -144,10 +144,10 @@ public class GenerateShoppingList200Response {
     return this;
   }
 
-   /**
+  /**
    * Get endDate
    * @return endDate
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getEndDate() {
     return endDate;
@@ -222,12 +222,12 @@ public class GenerateShoppingList200Response {
     openapiRequiredFields.add("endDate");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GenerateShoppingList200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GenerateShoppingList200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GenerateShoppingList200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -291,22 +291,22 @@ public class GenerateShoppingList200Response {
     }
   }
 
- /**
-  * Create an instance of GenerateShoppingList200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GenerateShoppingList200Response
-  * @throws IOException if the JSON string is invalid with respect to GenerateShoppingList200Response
-  */
+  /**
+   * Create an instance of GenerateShoppingList200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GenerateShoppingList200Response
+   * @throws IOException if the JSON string is invalid with respect to GenerateShoppingList200Response
+   */
   public static GenerateShoppingList200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GenerateShoppingList200Response.class);
   }
 
- /**
-  * Convert an instance of GenerateShoppingList200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GenerateShoppingList200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

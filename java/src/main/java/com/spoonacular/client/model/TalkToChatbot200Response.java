@@ -70,10 +70,10 @@ public class TalkToChatbot200Response {
     return this;
   }
 
-   /**
+  /**
    * Get answerText
    * @return answerText
-  **/
+   */
   @javax.annotation.Nonnull
   public String getAnswerText() {
     return answerText;
@@ -97,10 +97,10 @@ public class TalkToChatbot200Response {
     return this;
   }
 
-   /**
+  /**
    * Get media
    * @return media
-  **/
+   */
   @javax.annotation.Nonnull
   public List<TalkToChatbot200ResponseMediaInner> getMedia() {
     return media;
@@ -167,12 +167,12 @@ public class TalkToChatbot200Response {
     openapiRequiredFields.add("media");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TalkToChatbot200Response
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TalkToChatbot200Response
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TalkToChatbot200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -239,22 +239,22 @@ public class TalkToChatbot200Response {
     }
   }
 
- /**
-  * Create an instance of TalkToChatbot200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TalkToChatbot200Response
-  * @throws IOException if the JSON string is invalid with respect to TalkToChatbot200Response
-  */
+  /**
+   * Create an instance of TalkToChatbot200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TalkToChatbot200Response
+   * @throws IOException if the JSON string is invalid with respect to TalkToChatbot200Response
+   */
   public static TalkToChatbot200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TalkToChatbot200Response.class);
   }
 
- /**
-  * Convert an instance of TalkToChatbot200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TalkToChatbot200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

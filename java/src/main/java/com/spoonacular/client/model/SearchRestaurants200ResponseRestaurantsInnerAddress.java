@@ -100,10 +100,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get streetAddr
    * @return streetAddr
-  **/
+   */
   @javax.annotation.Nullable
   public String getStreetAddr() {
     return streetAddr;
@@ -119,10 +119,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get city
    * @return city
-  **/
+   */
   @javax.annotation.Nullable
   public String getCity() {
     return city;
@@ -138,10 +138,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   public String getState() {
     return state;
@@ -157,10 +157,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get zipcode
    * @return zipcode
-  **/
+   */
   @javax.annotation.Nullable
   public String getZipcode() {
     return zipcode;
@@ -176,10 +176,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get country
    * @return country
-  **/
+   */
   @javax.annotation.Nullable
   public String getCountry() {
     return country;
@@ -195,10 +195,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get lat
    * @return lat
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getLat() {
     return lat;
@@ -214,10 +214,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get lon
    * @return lon
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getLon() {
     return lon;
@@ -233,10 +233,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get streetAddr2
    * @return streetAddr2
-  **/
+   */
   @javax.annotation.Nullable
   public String getStreetAddr2() {
     return streetAddr2;
@@ -252,10 +252,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get latitude
    * @return latitude
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getLatitude() {
     return latitude;
@@ -271,10 +271,10 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     return this;
   }
 
-   /**
+  /**
    * Get longitude
    * @return longitude
-  **/
+   */
   @javax.annotation.Nullable
   public BigDecimal getLongitude() {
     return longitude;
@@ -363,12 +363,12 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerAddress
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerAddress
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchRestaurants200ResponseRestaurantsInnerAddress.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -433,22 +433,22 @@ public class SearchRestaurants200ResponseRestaurantsInnerAddress {
     }
   }
 
- /**
-  * Create an instance of SearchRestaurants200ResponseRestaurantsInnerAddress given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchRestaurants200ResponseRestaurantsInnerAddress
-  * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerAddress
-  */
+  /**
+   * Create an instance of SearchRestaurants200ResponseRestaurantsInnerAddress given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchRestaurants200ResponseRestaurantsInnerAddress
+   * @throws IOException if the JSON string is invalid with respect to SearchRestaurants200ResponseRestaurantsInnerAddress
+   */
   public static SearchRestaurants200ResponseRestaurantsInnerAddress fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchRestaurants200ResponseRestaurantsInnerAddress.class);
   }
 
- /**
-  * Convert an instance of SearchRestaurants200ResponseRestaurantsInnerAddress to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchRestaurants200ResponseRestaurantsInnerAddress to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

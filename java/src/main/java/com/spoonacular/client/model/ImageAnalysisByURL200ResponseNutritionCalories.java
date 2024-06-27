@@ -77,10 +77,10 @@ public class ImageAnalysisByURL200ResponseNutritionCalories {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getValue() {
     return value;
@@ -96,10 +96,10 @@ public class ImageAnalysisByURL200ResponseNutritionCalories {
     return this;
   }
 
-   /**
+  /**
    * Get unit
    * @return unit
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUnit() {
     return unit;
@@ -115,10 +115,10 @@ public class ImageAnalysisByURL200ResponseNutritionCalories {
     return this;
   }
 
-   /**
+  /**
    * Get confidenceRange95Percent
    * @return confidenceRange95Percent
-  **/
+   */
   @javax.annotation.Nonnull
   public ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent getConfidenceRange95Percent() {
     return confidenceRange95Percent;
@@ -134,10 +134,10 @@ public class ImageAnalysisByURL200ResponseNutritionCalories {
     return this;
   }
 
-   /**
+  /**
    * Get standardDeviation
    * @return standardDeviation
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getStandardDeviation() {
     return standardDeviation;
@@ -212,12 +212,12 @@ public class ImageAnalysisByURL200ResponseNutritionCalories {
     openapiRequiredFields.add("standardDeviation");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutritionCalories
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageAnalysisByURL200ResponseNutritionCalories
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ImageAnalysisByURL200ResponseNutritionCalories.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -276,22 +276,22 @@ public class ImageAnalysisByURL200ResponseNutritionCalories {
     }
   }
 
- /**
-  * Create an instance of ImageAnalysisByURL200ResponseNutritionCalories given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageAnalysisByURL200ResponseNutritionCalories
-  * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200ResponseNutritionCalories
-  */
+  /**
+   * Create an instance of ImageAnalysisByURL200ResponseNutritionCalories given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageAnalysisByURL200ResponseNutritionCalories
+   * @throws IOException if the JSON string is invalid with respect to ImageAnalysisByURL200ResponseNutritionCalories
+   */
   public static ImageAnalysisByURL200ResponseNutritionCalories fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageAnalysisByURL200ResponseNutritionCalories.class);
   }
 
- /**
-  * Convert an instance of ImageAnalysisByURL200ResponseNutritionCalories to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageAnalysisByURL200ResponseNutritionCalories to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

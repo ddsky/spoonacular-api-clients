@@ -214,10 +214,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -233,10 +233,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -252,10 +252,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -271,10 +271,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageType
    * @return imageType
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageType() {
     return imageType;
@@ -290,10 +290,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get servings
    * @return servings
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getServings() {
     return servings;
@@ -309,10 +309,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get readyInMinutes
    * @return readyInMinutes
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getReadyInMinutes() {
     return readyInMinutes;
@@ -328,10 +328,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get license
    * @return license
-  **/
+   */
   @javax.annotation.Nonnull
   public String getLicense() {
     return license;
@@ -347,10 +347,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get sourceName
    * @return sourceName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getSourceName() {
     return sourceName;
@@ -366,10 +366,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get sourceUrl
    * @return sourceUrl
-  **/
+   */
   @javax.annotation.Nonnull
   public String getSourceUrl() {
     return sourceUrl;
@@ -385,10 +385,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get spoonacularSourceUrl
    * @return spoonacularSourceUrl
-  **/
+   */
   @javax.annotation.Nonnull
   public String getSpoonacularSourceUrl() {
     return spoonacularSourceUrl;
@@ -404,10 +404,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get aggregateLikes
    * @return aggregateLikes
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAggregateLikes() {
     return aggregateLikes;
@@ -423,10 +423,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get healthScore
    * @return healthScore
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getHealthScore() {
     return healthScore;
@@ -442,10 +442,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get spoonacularScore
    * @return spoonacularScore
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getSpoonacularScore() {
     return spoonacularScore;
@@ -461,10 +461,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get pricePerServing
    * @return pricePerServing
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getPricePerServing() {
     return pricePerServing;
@@ -488,10 +488,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get analyzedInstructions
    * @return analyzedInstructions
-  **/
+   */
   @javax.annotation.Nullable
   public List<Object> getAnalyzedInstructions() {
     return analyzedInstructions;
@@ -507,10 +507,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get cheap
    * @return cheap
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getCheap() {
     return cheap;
@@ -526,10 +526,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get creditsText
    * @return creditsText
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCreditsText() {
     return creditsText;
@@ -553,10 +553,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get cuisines
    * @return cuisines
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getCuisines() {
     return cuisines;
@@ -572,10 +572,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get dairyFree
    * @return dairyFree
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getDairyFree() {
     return dairyFree;
@@ -599,10 +599,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get diets
    * @return diets
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getDiets() {
     return diets;
@@ -618,10 +618,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get gaps
    * @return gaps
-  **/
+   */
   @javax.annotation.Nonnull
   public String getGaps() {
     return gaps;
@@ -637,10 +637,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get glutenFree
    * @return glutenFree
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getGlutenFree() {
     return glutenFree;
@@ -656,10 +656,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get instructions
    * @return instructions
-  **/
+   */
   @javax.annotation.Nonnull
   public String getInstructions() {
     return instructions;
@@ -675,10 +675,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get ketogenic
    * @return ketogenic
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getKetogenic() {
     return ketogenic;
@@ -694,10 +694,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get lowFodmap
    * @return lowFodmap
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getLowFodmap() {
     return lowFodmap;
@@ -721,10 +721,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get occasions
    * @return occasions
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getOccasions() {
     return occasions;
@@ -740,10 +740,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get sustainable
    * @return sustainable
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getSustainable() {
     return sustainable;
@@ -759,10 +759,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get vegan
    * @return vegan
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getVegan() {
     return vegan;
@@ -778,10 +778,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get vegetarian
    * @return vegetarian
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getVegetarian() {
     return vegetarian;
@@ -797,10 +797,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get veryHealthy
    * @return veryHealthy
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getVeryHealthy() {
     return veryHealthy;
@@ -816,10 +816,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get veryPopular
    * @return veryPopular
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getVeryPopular() {
     return veryPopular;
@@ -835,10 +835,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get whole30
    * @return whole30
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getWhole30() {
     return whole30;
@@ -854,10 +854,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get weightWatcherSmartPoints
    * @return weightWatcherSmartPoints
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getWeightWatcherSmartPoints() {
     return weightWatcherSmartPoints;
@@ -881,10 +881,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get dishTypes
    * @return dishTypes
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getDishTypes() {
     return dishTypes;
@@ -908,10 +908,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get extendedIngredients
    * @return extendedIngredients
-  **/
+   */
   @javax.annotation.Nullable
   public Set<GetRecipeInformation200ResponseExtendedIngredientsInner> getExtendedIngredients() {
     return extendedIngredients;
@@ -927,10 +927,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get summary
    * @return summary
-  **/
+   */
   @javax.annotation.Nonnull
   public String getSummary() {
     return summary;
@@ -946,10 +946,10 @@ public class GetRandomRecipes200ResponseRecipesInner {
     return this;
   }
 
-   /**
+  /**
    * Get winePairing
    * @return winePairing
-  **/
+   */
   @javax.annotation.Nullable
   public GetRecipeInformation200ResponseWinePairing getWinePairing() {
     return winePairing;
@@ -1149,12 +1149,12 @@ public class GetRandomRecipes200ResponseRecipesInner {
     openapiRequiredFields.add("summary");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRandomRecipes200ResponseRecipesInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRandomRecipes200ResponseRecipesInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRandomRecipes200ResponseRecipesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -1279,22 +1279,22 @@ public class GetRandomRecipes200ResponseRecipesInner {
     }
   }
 
- /**
-  * Create an instance of GetRandomRecipes200ResponseRecipesInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRandomRecipes200ResponseRecipesInner
-  * @throws IOException if the JSON string is invalid with respect to GetRandomRecipes200ResponseRecipesInner
-  */
+  /**
+   * Create an instance of GetRandomRecipes200ResponseRecipesInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRandomRecipes200ResponseRecipesInner
+   * @throws IOException if the JSON string is invalid with respect to GetRandomRecipes200ResponseRecipesInner
+   */
   public static GetRandomRecipes200ResponseRecipesInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRandomRecipes200ResponseRecipesInner.class);
   }
 
- /**
-  * Convert an instance of GetRandomRecipes200ResponseRecipesInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRandomRecipes200ResponseRecipesInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

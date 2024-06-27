@@ -71,10 +71,10 @@ public class ClassifyGroceryProductBulkRequestInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -90,10 +90,10 @@ public class ClassifyGroceryProductBulkRequestInner {
     return this;
   }
 
-   /**
+  /**
    * Get upc
    * @return upc
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUpc() {
     return upc;
@@ -109,10 +109,10 @@ public class ClassifyGroceryProductBulkRequestInner {
     return this;
   }
 
-   /**
+  /**
    * Get pluCode
    * @return pluCode
-  **/
+   */
   @javax.annotation.Nonnull
   public String getPluCode() {
     return pluCode;
@@ -183,12 +183,12 @@ public class ClassifyGroceryProductBulkRequestInner {
     openapiRequiredFields.add("plu_code");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProductBulkRequestInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProductBulkRequestInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ClassifyGroceryProductBulkRequestInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -251,22 +251,22 @@ public class ClassifyGroceryProductBulkRequestInner {
     }
   }
 
- /**
-  * Create an instance of ClassifyGroceryProductBulkRequestInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ClassifyGroceryProductBulkRequestInner
-  * @throws IOException if the JSON string is invalid with respect to ClassifyGroceryProductBulkRequestInner
-  */
+  /**
+   * Create an instance of ClassifyGroceryProductBulkRequestInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ClassifyGroceryProductBulkRequestInner
+   * @throws IOException if the JSON string is invalid with respect to ClassifyGroceryProductBulkRequestInner
+   */
   public static ClassifyGroceryProductBulkRequestInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ClassifyGroceryProductBulkRequestInner.class);
   }
 
- /**
-  * Convert an instance of ClassifyGroceryProductBulkRequestInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ClassifyGroceryProductBulkRequestInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

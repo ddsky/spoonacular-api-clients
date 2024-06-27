@@ -68,10 +68,10 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
     return this;
   }
 
-   /**
+  /**
    * Get metric
    * @return metric
-  **/
+   */
   @javax.annotation.Nonnull
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric getMetric() {
     return metric;
@@ -87,10 +87,10 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
     return this;
   }
 
-   /**
+  /**
    * Get us
    * @return us
-  **/
+   */
   @javax.annotation.Nonnull
   public GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric getUs() {
     return us;
@@ -157,12 +157,12 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
     openapiRequiredFields.add("us");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -220,22 +220,22 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {
     }
   }
 
- /**
-  * Create an instance of GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-  * @throws IOException if the JSON string is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-  */
+  /**
+   * Create an instance of GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+   * @throws IOException if the JSON string is invalid with respect to GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
+   */
   public static GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.class);
   }
 
- /**
-  * Convert an instance of GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

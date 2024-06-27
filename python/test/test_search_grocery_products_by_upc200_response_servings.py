@@ -28,7 +28,7 @@ class TestSearchGroceryProductsByUPC200ResponseServings(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SearchGroceryProductsByUPC200ResponseServings:
         """Test SearchGroceryProductsByUPC200ResponseServings
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SearchGroceryProductsByUPC200ResponseServings`

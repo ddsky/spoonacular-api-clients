@@ -81,10 +81,10 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get cleanTitle
    * @return cleanTitle
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCleanTitle() {
     return cleanTitle;
@@ -100,10 +100,10 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImage() {
     return image;
@@ -119,10 +119,10 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get category
    * @return category
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCategory() {
     return category;
@@ -146,10 +146,10 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get breadcrumbs
    * @return breadcrumbs
-  **/
+   */
   @javax.annotation.Nonnull
   public List<String> getBreadcrumbs() {
     return breadcrumbs;
@@ -165,10 +165,10 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     return this;
   }
 
-   /**
+  /**
    * Get usdaCode
    * @return usdaCode
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getUsdaCode() {
     return usdaCode;
@@ -247,12 +247,12 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     openapiRequiredFields.add("usdaCode");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProductBulk200ResponseInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ClassifyGroceryProductBulk200ResponseInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ClassifyGroceryProductBulk200ResponseInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -321,22 +321,22 @@ public class ClassifyGroceryProductBulk200ResponseInner {
     }
   }
 
- /**
-  * Create an instance of ClassifyGroceryProductBulk200ResponseInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ClassifyGroceryProductBulk200ResponseInner
-  * @throws IOException if the JSON string is invalid with respect to ClassifyGroceryProductBulk200ResponseInner
-  */
+  /**
+   * Create an instance of ClassifyGroceryProductBulk200ResponseInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ClassifyGroceryProductBulk200ResponseInner
+   * @throws IOException if the JSON string is invalid with respect to ClassifyGroceryProductBulk200ResponseInner
+   */
   public static ClassifyGroceryProductBulk200ResponseInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ClassifyGroceryProductBulk200ResponseInner.class);
   }
 
- /**
-  * Convert an instance of ClassifyGroceryProductBulk200ResponseInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ClassifyGroceryProductBulk200ResponseInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

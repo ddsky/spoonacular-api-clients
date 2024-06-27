@@ -71,10 +71,10 @@ public class TalkToChatbot200ResponseMediaInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   public String getTitle() {
     return title;
@@ -90,10 +90,10 @@ public class TalkToChatbot200ResponseMediaInner {
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
+   */
   @javax.annotation.Nullable
   public String getImage() {
     return image;
@@ -109,10 +109,10 @@ public class TalkToChatbot200ResponseMediaInner {
     return this;
   }
 
-   /**
+  /**
    * Get link
    * @return link
-  **/
+   */
   @javax.annotation.Nullable
   public String getLink() {
     return link;
@@ -180,12 +180,12 @@ public class TalkToChatbot200ResponseMediaInner {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TalkToChatbot200ResponseMediaInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TalkToChatbot200ResponseMediaInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TalkToChatbot200ResponseMediaInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -241,22 +241,22 @@ public class TalkToChatbot200ResponseMediaInner {
     }
   }
 
- /**
-  * Create an instance of TalkToChatbot200ResponseMediaInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TalkToChatbot200ResponseMediaInner
-  * @throws IOException if the JSON string is invalid with respect to TalkToChatbot200ResponseMediaInner
-  */
+  /**
+   * Create an instance of TalkToChatbot200ResponseMediaInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TalkToChatbot200ResponseMediaInner
+   * @throws IOException if the JSON string is invalid with respect to TalkToChatbot200ResponseMediaInner
+   */
   public static TalkToChatbot200ResponseMediaInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TalkToChatbot200ResponseMediaInner.class);
   }
 
- /**
-  * Convert an instance of TalkToChatbot200ResponseMediaInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TalkToChatbot200ResponseMediaInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

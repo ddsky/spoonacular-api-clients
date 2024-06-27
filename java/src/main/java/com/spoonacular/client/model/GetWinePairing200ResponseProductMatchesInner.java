@@ -96,10 +96,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getId() {
     return id;
@@ -115,10 +115,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTitle() {
     return title;
@@ -134,10 +134,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get averageRating
    * @return averageRating
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getAverageRating() {
     return averageRating;
@@ -153,10 +153,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
@@ -172,10 +172,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get imageUrl
    * @return imageUrl
-  **/
+   */
   @javax.annotation.Nonnull
   public String getImageUrl() {
     return imageUrl;
@@ -191,10 +191,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get link
    * @return link
-  **/
+   */
   @javax.annotation.Nonnull
   public String getLink() {
     return link;
@@ -210,10 +210,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nonnull
   public String getPrice() {
     return price;
@@ -229,10 +229,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get ratingCount
    * @return ratingCount
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getRatingCount() {
     return ratingCount;
@@ -248,10 +248,10 @@ public class GetWinePairing200ResponseProductMatchesInner {
     return this;
   }
 
-   /**
+  /**
    * Get score
    * @return score
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getScore() {
     return score;
@@ -345,12 +345,12 @@ public class GetWinePairing200ResponseProductMatchesInner {
     openapiRequiredFields.add("score");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetWinePairing200ResponseProductMatchesInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetWinePairing200ResponseProductMatchesInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetWinePairing200ResponseProductMatchesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -419,22 +419,22 @@ public class GetWinePairing200ResponseProductMatchesInner {
     }
   }
 
- /**
-  * Create an instance of GetWinePairing200ResponseProductMatchesInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetWinePairing200ResponseProductMatchesInner
-  * @throws IOException if the JSON string is invalid with respect to GetWinePairing200ResponseProductMatchesInner
-  */
+  /**
+   * Create an instance of GetWinePairing200ResponseProductMatchesInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetWinePairing200ResponseProductMatchesInner
+   * @throws IOException if the JSON string is invalid with respect to GetWinePairing200ResponseProductMatchesInner
+   */
   public static GetWinePairing200ResponseProductMatchesInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetWinePairing200ResponseProductMatchesInner.class);
   }
 
- /**
-  * Convert an instance of GetWinePairing200ResponseProductMatchesInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetWinePairing200ResponseProductMatchesInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

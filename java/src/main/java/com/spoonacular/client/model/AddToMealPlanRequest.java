@@ -81,10 +81,10 @@ public class AddToMealPlanRequest {
     return this;
   }
 
-   /**
+  /**
    * Get date
    * @return date
-  **/
+   */
   @javax.annotation.Nonnull
   public BigDecimal getDate() {
     return date;
@@ -100,10 +100,10 @@ public class AddToMealPlanRequest {
     return this;
   }
 
-   /**
+  /**
    * Get slot
    * @return slot
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getSlot() {
     return slot;
@@ -119,10 +119,10 @@ public class AddToMealPlanRequest {
     return this;
   }
 
-   /**
+  /**
    * Get position
    * @return position
-  **/
+   */
   @javax.annotation.Nonnull
   public Integer getPosition() {
     return position;
@@ -138,10 +138,10 @@ public class AddToMealPlanRequest {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public String getType() {
     return type;
@@ -157,10 +157,10 @@ public class AddToMealPlanRequest {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   public AddToMealPlanRequestValue getValue() {
     return value;
@@ -239,12 +239,12 @@ public class AddToMealPlanRequest {
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AddToMealPlanRequest
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AddToMealPlanRequest
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddToMealPlanRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -303,22 +303,22 @@ public class AddToMealPlanRequest {
     }
   }
 
- /**
-  * Create an instance of AddToMealPlanRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AddToMealPlanRequest
-  * @throws IOException if the JSON string is invalid with respect to AddToMealPlanRequest
-  */
+  /**
+   * Create an instance of AddToMealPlanRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AddToMealPlanRequest
+   * @throws IOException if the JSON string is invalid with respect to AddToMealPlanRequest
+   */
   public static AddToMealPlanRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AddToMealPlanRequest.class);
   }
 
- /**
-  * Convert an instance of AddToMealPlanRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AddToMealPlanRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

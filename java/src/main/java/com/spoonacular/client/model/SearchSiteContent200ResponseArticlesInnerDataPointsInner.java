@@ -67,10 +67,10 @@ public class SearchSiteContent200ResponseArticlesInnerDataPointsInner {
     return this;
   }
 
-   /**
+  /**
    * Get key
    * @return key
-  **/
+   */
   @javax.annotation.Nonnull
   public String getKey() {
     return key;
@@ -86,10 +86,10 @@ public class SearchSiteContent200ResponseArticlesInnerDataPointsInner {
     return this;
   }
 
-   /**
+  /**
    * Get value
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   public String getValue() {
     return value;
@@ -156,12 +156,12 @@ public class SearchSiteContent200ResponseArticlesInnerDataPointsInner {
     openapiRequiredFields.add("value");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SearchSiteContent200ResponseArticlesInnerDataPointsInner
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SearchSiteContent200ResponseArticlesInnerDataPointsInner
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SearchSiteContent200ResponseArticlesInnerDataPointsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -221,22 +221,22 @@ public class SearchSiteContent200ResponseArticlesInnerDataPointsInner {
     }
   }
 
- /**
-  * Create an instance of SearchSiteContent200ResponseArticlesInnerDataPointsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SearchSiteContent200ResponseArticlesInnerDataPointsInner
-  * @throws IOException if the JSON string is invalid with respect to SearchSiteContent200ResponseArticlesInnerDataPointsInner
-  */
+  /**
+   * Create an instance of SearchSiteContent200ResponseArticlesInnerDataPointsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SearchSiteContent200ResponseArticlesInnerDataPointsInner
+   * @throws IOException if the JSON string is invalid with respect to SearchSiteContent200ResponseArticlesInnerDataPointsInner
+   */
   public static SearchSiteContent200ResponseArticlesInnerDataPointsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchSiteContent200ResponseArticlesInnerDataPointsInner.class);
   }
 
- /**
-  * Convert an instance of SearchSiteContent200ResponseArticlesInnerDataPointsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SearchSiteContent200ResponseArticlesInnerDataPointsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
