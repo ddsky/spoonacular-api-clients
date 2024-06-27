@@ -1354,9 +1354,6 @@
           },
           {
             "$ref": "#/components/parameters/number"
-          },
-          {
-            "$ref": "#/components/parameters/limitLicense"
           }
         ],
         "externalDocs": {
@@ -1911,9 +1908,6 @@
           },
           {
             "$ref": "#/components/parameters/number"
-          },
-          {
-            "$ref": "#/components/parameters/limitLicense"
           },
           {
             "name": "ranking",
@@ -2948,9 +2942,6 @@
             "style": "form",
             "explode": false,
             "in": "query"
-          },
-          {
-            "$ref": "#/components/parameters/limitLicense"
           }
         ],
         "externalDocs": {
@@ -5692,10 +5683,7 @@
           },
           {
             "$ref": "#/components/parameters/number"
-          },
-          {
-            "$ref": "#/components/parameters/limitLicense"
-          }
+          }          
         ],
         "externalDocs": {
           "description": "Read entire docs",
@@ -6821,9 +6809,6 @@
           }
         },
         "parameters": [
-          {
-            "$ref": "#/components/parameters/limitLicense"
-          },
           {
             "$ref": "#/components/parameters/includeNutrition"
           },
@@ -29357,18 +29342,7 @@
           "example": false
         },
         "description": "Whether to ignore typical pantry items, such as water, salt, flour, etc."
-      },
-      "limitLicense": {
-        "name": "limitLicense",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "boolean",
-          "default": true,
-          "example": true
-        },
-        "description": "Whether the recipes should have an open license that allows display with proper attribution."
-      },
+      },      
       "query": {
         "name": "query",
         "in": "query",
