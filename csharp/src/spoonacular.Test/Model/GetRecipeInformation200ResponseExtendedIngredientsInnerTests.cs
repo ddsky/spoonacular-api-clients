@@ -74,12 +74,12 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Consitency'
+        /// Test the property 'Consistency'
         /// </summary>
         [Fact]
-        public void ConsitencyTest()
+        public void ConsistencyTest()
         {
-            // TODO unit test for the property 'Consitency'
+            // TODO unit test for the property 'Consistency'
         }
 
         /// <summary>

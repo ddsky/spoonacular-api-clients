@@ -839,7 +839,6 @@ end
 
 api_instance = OpenapiClient::RecipesApi.new
 opts = {
-  limit_license: true, # Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   include_nutrition: true, # Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
   include_tags: 'vegetarian,gluten', # String | A comma-separated list of tags that the random recipe(s) must adhere to.
   exclude_tags: 'meat,dairy', # String | A comma-separated list of tags that the random recipe(s) must not adhere to.
@@ -877,7 +876,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit_license** | **Boolean** | Whether the recipes should have an open license that allows display with proper attribution. | [optional][default to true] |
 | **include_nutrition** | **Boolean** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional][default to false] |
 | **include_tags** | **String** | A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] |
 | **exclude_tags** | **String** | A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] |
@@ -1430,8 +1428,7 @@ end
 api_instance = OpenapiClient::RecipesApi.new
 id = 1 # Integer | The item's id.
 opts = {
-  number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  limit_license: true # Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+  number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }
 
 begin
@@ -1467,7 +1464,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** | The item&#39;s id. |  |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
-| **limit_license** | **Boolean** | Whether the recipes should have an open license that allows display with proper attribution. | [optional][default to true] |
 
 ### Return type
 
@@ -2202,8 +2198,7 @@ opts = {
   min_zinc: 0, # Float | The minimum amount of zinc in milligrams the recipe must have.
   max_zinc: 100, # Float | The maximum amount of zinc in milligrams the recipe can have.
   offset: 56, # Integer | The number of results to skip (between 0 and 900).
-  number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  limit_license: true # Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+  number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }
 
 begin
@@ -2334,7 +2329,6 @@ end
 | **max_zinc** | **Float** | The maximum amount of zinc in milligrams the recipe can have. | [optional] |
 | **offset** | **Integer** | The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
-| **limit_license** | **Boolean** | Whether the recipes should have an open license that allows display with proper attribution. | [optional][default to true] |
 
 ### Return type
 
@@ -2375,7 +2369,6 @@ api_instance = OpenapiClient::RecipesApi.new
 opts = {
   ingredients: 'carrots,tomatoes', # String | A comma-separated list of ingredients that the recipes should contain.
   number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  limit_license: true, # Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   ranking: 1, # Float | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   ignore_pantry: false # Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 }
@@ -2413,7 +2406,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **ingredients** | **String** | A comma-separated list of ingredients that the recipes should contain. | [optional] |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
-| **limit_license** | **Boolean** | Whether the recipes should have an open license that allows display with proper attribution. | [optional][default to true] |
 | **ranking** | **Float** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
 | **ignore_pantry** | **Boolean** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional][default to false] |
 
@@ -2528,8 +2520,7 @@ opts = {
   max_zinc: 100, # Float | The maximum amount of zinc in milligrams the recipe can have.
   offset: 56, # Integer | The number of results to skip (between 0 and 900).
   number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  random: false, # Boolean | If true, every request will give you a random set of recipes within the requested limits.
-  limit_license: true # Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+  random: false # Boolean | If true, every request will give you a random set of recipes within the requested limits.
 }
 
 begin
@@ -2638,7 +2629,6 @@ end
 | **offset** | **Integer** | The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 | **random** | **Boolean** | If true, every request will give you a random set of recipes within the requested limits. | [optional] |
-| **limit_license** | **Boolean** | Whether the recipes should have an open license that allows display with proper attribution. | [optional][default to true] |
 
 ### Return type
 

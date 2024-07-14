@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **String** |  | 
 **amount** | **f64** |  | 
-**consitency** | **String** |  | 
+**consistency** | **String** |  | 
 **id** | **i32** |  | 
 **image** | **String** |  | 
 **measures** | Option<[**models::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](getRecipeInformation_200_response_extendedIngredients_inner_measures.md)> |  | [optional]

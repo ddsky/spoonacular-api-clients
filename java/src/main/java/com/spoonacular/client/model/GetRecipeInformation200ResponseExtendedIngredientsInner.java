@@ -53,7 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipeInformation200ResponseExtendedIngredientsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class GetRecipeInformation200ResponseExtendedIngredientsInner {
   public static final String SERIALIZED_NAME_AISLE = "aisle";
   @SerializedName(SERIALIZED_NAME_AISLE)
@@ -63,9 +63,9 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private BigDecimal amount;
 
-  public static final String SERIALIZED_NAME_CONSITENCY = "consitency";
-  @SerializedName(SERIALIZED_NAME_CONSITENCY)
-  private String consitency;
+  public static final String SERIALIZED_NAME_CONSISTENCY = "consistency";
+  @SerializedName(SERIALIZED_NAME_CONSISTENCY)
+  private String consistency;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -140,22 +140,22 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
   }
 
 
-  public GetRecipeInformation200ResponseExtendedIngredientsInner consitency(String consitency) {
-    this.consitency = consitency;
+  public GetRecipeInformation200ResponseExtendedIngredientsInner consistency(String consistency) {
+    this.consistency = consistency;
     return this;
   }
 
   /**
-   * Get consitency
-   * @return consitency
+   * Get consistency
+   * @return consistency
    */
   @javax.annotation.Nonnull
-  public String getConsitency() {
-    return consitency;
+  public String getConsistency() {
+    return consistency;
   }
 
-  public void setConsitency(String consitency) {
-    this.consitency = consitency;
+  public void setConsistency(String consistency) {
+    this.consistency = consistency;
   }
 
 
@@ -331,7 +331,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     GetRecipeInformation200ResponseExtendedIngredientsInner getRecipeInformation200ResponseExtendedIngredientsInner = (GetRecipeInformation200ResponseExtendedIngredientsInner) o;
     return Objects.equals(this.aisle, getRecipeInformation200ResponseExtendedIngredientsInner.aisle) &&
         Objects.equals(this.amount, getRecipeInformation200ResponseExtendedIngredientsInner.amount) &&
-        Objects.equals(this.consitency, getRecipeInformation200ResponseExtendedIngredientsInner.consitency) &&
+        Objects.equals(this.consistency, getRecipeInformation200ResponseExtendedIngredientsInner.consistency) &&
         Objects.equals(this.id, getRecipeInformation200ResponseExtendedIngredientsInner.id) &&
         Objects.equals(this.image, getRecipeInformation200ResponseExtendedIngredientsInner.image) &&
         Objects.equals(this.measures, getRecipeInformation200ResponseExtendedIngredientsInner.measures) &&
@@ -344,7 +344,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aisle, amount, consitency, id, image, measures, meta, name, original, originalName, unit);
+    return Objects.hash(aisle, amount, consistency, id, image, measures, meta, name, original, originalName, unit);
   }
 
   @Override
@@ -353,7 +353,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     sb.append("class GetRecipeInformation200ResponseExtendedIngredientsInner {\n");
     sb.append("    aisle: ").append(toIndentedString(aisle)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    consitency: ").append(toIndentedString(consitency)).append("\n");
+    sb.append("    consistency: ").append(toIndentedString(consistency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    measures: ").append(toIndentedString(measures)).append("\n");
@@ -386,7 +386,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("aisle");
     openapiFields.add("amount");
-    openapiFields.add("consitency");
+    openapiFields.add("consistency");
     openapiFields.add("id");
     openapiFields.add("image");
     openapiFields.add("measures");
@@ -400,7 +400,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("aisle");
     openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("consitency");
+    openapiRequiredFields.add("consistency");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("image");
     openapiRequiredFields.add("name");
@@ -440,8 +440,8 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
       if (!jsonObj.get("aisle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aisle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aisle").toString()));
       }
-      if (!jsonObj.get("consitency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `consitency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("consitency").toString()));
+      if (!jsonObj.get("consistency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `consistency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("consistency").toString()));
       }
       if (!jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));

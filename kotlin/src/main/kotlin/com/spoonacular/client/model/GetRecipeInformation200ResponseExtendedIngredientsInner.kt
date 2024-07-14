@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param aisle 
  * @param amount 
- * @param consitency 
+ * @param consistency 
  * @param id 
  * @param image 
  * @param name 
@@ -45,8 +45,8 @@ data class GetRecipeInformation200ResponseExtendedIngredientsInner (
     @Json(name = "amount")
     val amount: java.math.BigDecimal,
 
-    @Json(name = "consitency")
-    val consitency: kotlin.String,
+    @Json(name = "consistency")
+    val consistency: kotlin.String,
 
     @Json(name = "id")
     val id: kotlin.Int,

@@ -19,11 +19,11 @@ local function cast_get_recipe_information_200_response_extended_ingredients_inn
 	return setmetatable(t, get_recipe_information_200_response_extended_ingredients_inner_mt)
 end
 
-local function new_get_recipe_information_200_response_extended_ingredients_inner(aisle, amount, consitency, id, image, measures, meta, name, original, original_name, unit)
+local function new_get_recipe_information_200_response_extended_ingredients_inner(aisle, amount, consistency, id, image, measures, meta, name, original, original_name, unit)
 	return cast_get_recipe_information_200_response_extended_ingredients_inner({
 		["aisle"] = aisle;
 		["amount"] = amount;
-		["consitency"] = consitency;
+		["consistency"] = consistency;
 		["id"] = id;
 		["image"] = image;
 		["measures"] = measures;

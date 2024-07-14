@@ -234,9 +234,9 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'consitency' => {
+    'consistency' => {
         datatype => 'string',
-        base_name => 'consitency',
+        base_name => 'consistency',
         description => '',
         format => '',
         read_only => '',
@@ -302,7 +302,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'aisle' => 'string',
     'amount' => 'double',
-    'consitency' => 'string',
+    'consistency' => 'string',
     'id' => 'int',
     'image' => 'string',
     'measures' => 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures',
@@ -316,7 +316,7 @@ __PACKAGE__->openapi_types( {
 __PACKAGE__->attribute_map( {
     'aisle' => 'aisle',
     'amount' => 'amount',
-    'consitency' => 'consitency',
+    'consistency' => 'consistency',
     'id' => 'id',
     'image' => 'image',
     'measures' => 'measures',

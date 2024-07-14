@@ -17,8 +17,8 @@ pub struct GetRecipeInformation200ResponseExtendedIngredientsInner {
     pub aisle: String,
     #[serde(rename = "amount")]
     pub amount: f64,
-    #[serde(rename = "consitency")]
-    pub consitency: String,
+    #[serde(rename = "consistency")]
+    pub consistency: String,
     #[serde(rename = "id")]
     pub id: i32,
     #[serde(rename = "image")]
@@ -38,11 +38,11 @@ pub struct GetRecipeInformation200ResponseExtendedIngredientsInner {
 }
 
 impl GetRecipeInformation200ResponseExtendedIngredientsInner {
-    pub fn new(aisle: String, amount: f64, consitency: String, id: i32, image: String, name: String, original: String, original_name: String, unit: String) -> GetRecipeInformation200ResponseExtendedIngredientsInner {
+    pub fn new(aisle: String, amount: f64, consistency: String, id: i32, image: String, name: String, original: String, original_name: String, unit: String) -> GetRecipeInformation200ResponseExtendedIngredientsInner {
         GetRecipeInformation200ResponseExtendedIngredientsInner {
             aisle,
             amount,
-            consitency,
+            consistency,
             id,
             image,
             measures: None,

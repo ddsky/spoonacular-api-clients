@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **string** |  | 
 **amount** | **double** |  | 
-**consitency** | **string** |  | 
+**consistency** | **string** |  | 
 **id** | **int** |  | 
 **image** | **string** |  | 
 **measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional] 

@@ -1042,17 +1042,6 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: Whether the recipes should have an open license that allows display
-          with proper attribution.
-        explode: true
-        in: query
-        name: limitLicense
-        required: false
-        schema:
-          default: true
-          example: true
-          type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -1130,17 +1119,6 @@ paths:
           maximum: 100
           minimum: 1
           type: integer
-        style: form
-      - description: Whether the recipes should have an open license that allows display
-          with proper attribution.
-        explode: true
-        in: query
-        name: limitLicense
-        required: false
-        schema:
-          default: true
-          example: true
-          type: boolean
         style: form
       - description: Whether to maximize used ingredients (1) or minimize missing
           ingredients (2) first.
@@ -2176,17 +2154,6 @@ paths:
           example: false
           type: boolean
         style: form
-      - description: Whether the recipes should have an open license that allows display
-          with proper attribution.
-        explode: true
-        in: query
-        name: limitLicense
-        required: false
-        schema:
-          default: true
-          example: true
-          type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -2325,7 +2292,7 @@ paths:
                     extendedIngredients:
                     - aisle: "Milk, Eggs, Other Dairy"
                       amount: 1
-                      consitency: solid
+                      consistency: solid
                       id: 1001
                       image: butter-sliced.jpg
                       measures:
@@ -2344,7 +2311,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 10011135
                       image: cauliflower.jpg
                       measures:
@@ -2368,7 +2335,7 @@ paths:
                       unit: cups
                     - aisle: Cheese
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1041009
                       image: cheddar-cheese.png
                       measures:
@@ -2389,7 +2356,7 @@ paths:
                       unit: tbsp
                     - aisle: "Oil, Vinegar, Salad Dressing"
                       amount: 1
-                      consitency: liquid
+                      consistency: liquid
                       id: 1034053
                       image: olive-oil.jpg
                       measures:
@@ -2408,7 +2375,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 5
-                      consitency: solid
+                      consistency: solid
                       id: 11215
                       image: garlic.jpg
                       measures:
@@ -2427,7 +2394,7 @@ paths:
                       unit: cloves
                     - aisle: Pasta and Rice
                       amount: 6
-                      consitency: solid
+                      consistency: solid
                       id: 20420
                       image: fusilli.jpg
                       measures:
@@ -2447,7 +2414,7 @@ paths:
                       unit: ounces
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1032009
                       image: red-pepper-flakes.jpg
                       measures:
@@ -2467,7 +2434,7 @@ paths:
                       unit: pinches
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1102047
                       image: salt-and-pepper.jpg
                       measures:
@@ -2487,7 +2454,7 @@ paths:
                       unit: servings
                     - aisle: Produce
                       amount: 3
-                      consitency: solid
+                      consistency: solid
                       id: 11291
                       image: spring-onions.jpg
                       measures:
@@ -2510,7 +2477,7 @@ paths:
                       unit: ""
                     - aisle: Alcoholic Beverages
                       amount: 2
-                      consitency: liquid
+                      consistency: liquid
                       id: 14106
                       image: white-wine.jpg
                       measures:
@@ -2530,7 +2497,7 @@ paths:
                       unit: tbsp
                     - aisle: Pasta and Rice
                       amount: 0.25
-                      consitency: solid
+                      consistency: solid
                       id: 99025
                       image: breadcrumbs.jpg
                       measures:
@@ -2688,7 +2655,7 @@ paths:
                     extendedIngredients:
                     - aisle: "Milk, Eggs, Other Dairy"
                       amount: 1
-                      consitency: solid
+                      consistency: solid
                       id: 1001
                       image: butter-sliced.jpg
                       measures:
@@ -2707,7 +2674,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 10011135
                       image: cauliflower.jpg
                       measures:
@@ -2731,7 +2698,7 @@ paths:
                       unit: cups
                     - aisle: Cheese
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1041009
                       image: cheddar-cheese.png
                       measures:
@@ -2752,7 +2719,7 @@ paths:
                       unit: tbsp
                     - aisle: "Oil, Vinegar, Salad Dressing"
                       amount: 1
-                      consitency: liquid
+                      consistency: liquid
                       id: 1034053
                       image: olive-oil.jpg
                       measures:
@@ -2771,7 +2738,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 5
-                      consitency: solid
+                      consistency: solid
                       id: 11215
                       image: garlic.jpg
                       measures:
@@ -2790,7 +2757,7 @@ paths:
                       unit: cloves
                     - aisle: Pasta and Rice
                       amount: 6
-                      consitency: solid
+                      consistency: solid
                       id: 20420
                       image: fusilli.jpg
                       measures:
@@ -2810,7 +2777,7 @@ paths:
                       unit: ounces
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1032009
                       image: red-pepper-flakes.jpg
                       measures:
@@ -2830,7 +2797,7 @@ paths:
                       unit: pinches
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1102047
                       image: salt-and-pepper.jpg
                       measures:
@@ -2850,7 +2817,7 @@ paths:
                       unit: servings
                     - aisle: Produce
                       amount: 3
-                      consitency: solid
+                      consistency: solid
                       id: 11291
                       image: spring-onions.jpg
                       measures:
@@ -2873,7 +2840,7 @@ paths:
                       unit: ""
                     - aisle: Alcoholic Beverages
                       amount: 2
-                      consitency: liquid
+                      consistency: liquid
                       id: 14106
                       image: white-wine.jpg
                       measures:
@@ -2893,7 +2860,7 @@ paths:
                       unit: tbsp
                     - aisle: Pasta and Rice
                       amount: 0.25
-                      consitency: solid
+                      consistency: solid
                       id: 99025
                       image: breadcrumbs.jpg
                       measures:
@@ -3009,7 +2976,7 @@ paths:
                     extendedIngredients:
                     - aisle: "Milk, Eggs, Other Dairy"
                       amount: 1
-                      consitency: solid
+                      consistency: solid
                       id: 1001
                       image: butter-sliced.jpg
                       measures:
@@ -3028,7 +2995,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 10011135
                       image: cauliflower.jpg
                       measures:
@@ -3052,7 +3019,7 @@ paths:
                       unit: cups
                     - aisle: Cheese
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1041009
                       image: cheddar-cheese.png
                       measures:
@@ -3073,7 +3040,7 @@ paths:
                       unit: tbsp
                     - aisle: "Oil, Vinegar, Salad Dressing"
                       amount: 1
-                      consitency: liquid
+                      consistency: liquid
                       id: 1034053
                       image: olive-oil.jpg
                       measures:
@@ -3092,7 +3059,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 5
-                      consitency: solid
+                      consistency: solid
                       id: 11215
                       image: garlic.jpg
                       measures:
@@ -3111,7 +3078,7 @@ paths:
                       unit: cloves
                     - aisle: Pasta and Rice
                       amount: 6
-                      consitency: solid
+                      consistency: solid
                       id: 20420
                       image: fusilli.jpg
                       measures:
@@ -3131,7 +3098,7 @@ paths:
                       unit: ounces
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1032009
                       image: red-pepper-flakes.jpg
                       measures:
@@ -3151,7 +3118,7 @@ paths:
                       unit: pinches
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1102047
                       image: salt-and-pepper.jpg
                       measures:
@@ -3171,7 +3138,7 @@ paths:
                       unit: servings
                     - aisle: Produce
                       amount: 3
-                      consitency: solid
+                      consistency: solid
                       id: 11291
                       image: spring-onions.jpg
                       measures:
@@ -3194,7 +3161,7 @@ paths:
                       unit: ""
                     - aisle: Alcoholic Beverages
                       amount: 2
-                      consitency: liquid
+                      consistency: liquid
                       id: 14106
                       image: white-wine.jpg
                       measures:
@@ -3214,7 +3181,7 @@ paths:
                       unit: tbsp
                     - aisle: Pasta and Rice
                       amount: 0.25
-                      consitency: solid
+                      consistency: solid
                       id: 99025
                       image: breadcrumbs.jpg
                       measures:
@@ -3321,7 +3288,7 @@ paths:
                     extendedIngredients:
                     - aisle: "Milk, Eggs, Other Dairy"
                       amount: 1
-                      consitency: solid
+                      consistency: solid
                       id: 1001
                       image: butter-sliced.jpg
                       measures:
@@ -3340,7 +3307,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 10011135
                       image: cauliflower.jpg
                       measures:
@@ -3364,7 +3331,7 @@ paths:
                       unit: cups
                     - aisle: Cheese
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1041009
                       image: cheddar-cheese.png
                       measures:
@@ -3385,7 +3352,7 @@ paths:
                       unit: tbsp
                     - aisle: "Oil, Vinegar, Salad Dressing"
                       amount: 1
-                      consitency: liquid
+                      consistency: liquid
                       id: 1034053
                       image: olive-oil.jpg
                       measures:
@@ -3404,7 +3371,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 5
-                      consitency: solid
+                      consistency: solid
                       id: 11215
                       image: garlic.jpg
                       measures:
@@ -3423,7 +3390,7 @@ paths:
                       unit: cloves
                     - aisle: Pasta and Rice
                       amount: 6
-                      consitency: solid
+                      consistency: solid
                       id: 20420
                       image: fusilli.jpg
                       measures:
@@ -3443,7 +3410,7 @@ paths:
                       unit: ounces
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1032009
                       image: red-pepper-flakes.jpg
                       measures:
@@ -3463,7 +3430,7 @@ paths:
                       unit: pinches
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1102047
                       image: salt-and-pepper.jpg
                       measures:
@@ -3483,7 +3450,7 @@ paths:
                       unit: servings
                     - aisle: Produce
                       amount: 3
-                      consitency: solid
+                      consistency: solid
                       id: 11291
                       image: spring-onions.jpg
                       measures:
@@ -3506,7 +3473,7 @@ paths:
                       unit: ""
                     - aisle: Alcoholic Beverages
                       amount: 2
-                      consitency: liquid
+                      consistency: liquid
                       id: 14106
                       image: white-wine.jpg
                       measures:
@@ -3526,7 +3493,7 @@ paths:
                       unit: tbsp
                     - aisle: Pasta and Rice
                       amount: 0.25
-                      consitency: solid
+                      consistency: solid
                       id: 99025
                       image: breadcrumbs.jpg
                       measures:
@@ -3635,17 +3602,6 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: Whether the recipes should have an open license that allows display
-          with proper attribution.
-        explode: true
-        in: query
-        name: limitLicense
-        required: false
-        schema:
-          default: true
-          example: true
-          type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -3709,17 +3665,6 @@ paths:
         url: https://spoonacular.com/food-api/docs#Get-Random-Recipes
       operationId: getRandomRecipes
       parameters:
-      - description: Whether the recipes should have an open license that allows display
-          with proper attribution.
-        explode: true
-        in: query
-        name: limitLicense
-        required: false
-        schema:
-          default: true
-          example: true
-          type: boolean
-        style: form
       - description: "Include nutrition data in the recipe information. Nutrition\
           \ data is per serving. If you want the nutrition data for the entire recipe,\
           \ just multiply by the number of servings."
@@ -3813,7 +3758,7 @@ paths:
                       extendedIngredients:
                       - aisle: "Milk, Eggs, Other Dairy"
                         amount: 1
-                        consitency: solid
+                        consistency: solid
                         id: 1001
                         image: butter-sliced.jpg
                         measures:
@@ -3832,7 +3777,7 @@ paths:
                         unit: tbsp
                       - aisle: Produce
                         amount: 2
-                        consitency: solid
+                        consistency: solid
                         id: 10011135
                         image: cauliflower.jpg
                         measures:
@@ -3856,7 +3801,7 @@ paths:
                         unit: cups
                       - aisle: Cheese
                         amount: 2
-                        consitency: solid
+                        consistency: solid
                         id: 1041009
                         image: cheddar-cheese.png
                         measures:
@@ -3877,7 +3822,7 @@ paths:
                         unit: tbsp
                       - aisle: "Oil, Vinegar, Salad Dressing"
                         amount: 1
-                        consitency: liquid
+                        consistency: liquid
                         id: 1034053
                         image: olive-oil.jpg
                         measures:
@@ -3896,7 +3841,7 @@ paths:
                         unit: tbsp
                       - aisle: Produce
                         amount: 5
-                        consitency: solid
+                        consistency: solid
                         id: 11215
                         image: garlic.jpg
                         measures:
@@ -3915,7 +3860,7 @@ paths:
                         unit: cloves
                       - aisle: Pasta and Rice
                         amount: 6
-                        consitency: solid
+                        consistency: solid
                         id: 20420
                         image: fusilli.jpg
                         measures:
@@ -3935,7 +3880,7 @@ paths:
                         unit: ounces
                       - aisle: Spices and Seasonings
                         amount: 2
-                        consitency: solid
+                        consistency: solid
                         id: 1032009
                         image: red-pepper-flakes.jpg
                         measures:
@@ -3955,7 +3900,7 @@ paths:
                         unit: pinches
                       - aisle: Spices and Seasonings
                         amount: 2
-                        consitency: solid
+                        consistency: solid
                         id: 1102047
                         image: salt-and-pepper.jpg
                         measures:
@@ -3975,7 +3920,7 @@ paths:
                         unit: servings
                       - aisle: Produce
                         amount: 3
-                        consitency: solid
+                        consistency: solid
                         id: 11291
                         image: spring-onions.jpg
                         measures:
@@ -3998,7 +3943,7 @@ paths:
                         unit: ""
                       - aisle: Alcoholic Beverages
                         amount: 2
-                        consitency: liquid
+                        consistency: liquid
                         id: 14106
                         image: white-wine.jpg
                         measures:
@@ -4018,7 +3963,7 @@ paths:
                         unit: tbsp
                       - aisle: Pasta and Rice
                         amount: 0.25
-                        consitency: solid
+                        consistency: solid
                         id: 99025
                         image: breadcrumbs.jpg
                         measures:
@@ -5279,7 +5224,7 @@ paths:
                     extendedIngredients:
                     - aisle: "Milk, Eggs, Other Dairy"
                       amount: 1
-                      consitency: solid
+                      consistency: solid
                       id: 1001
                       image: butter-sliced.jpg
                       measures:
@@ -5298,7 +5243,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 10011135
                       image: cauliflower.jpg
                       measures:
@@ -5322,7 +5267,7 @@ paths:
                       unit: cups
                     - aisle: Cheese
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1041009
                       image: cheddar-cheese.png
                       measures:
@@ -5343,7 +5288,7 @@ paths:
                       unit: tbsp
                     - aisle: "Oil, Vinegar, Salad Dressing"
                       amount: 1
-                      consitency: liquid
+                      consistency: liquid
                       id: 1034053
                       image: olive-oil.jpg
                       measures:
@@ -5362,7 +5307,7 @@ paths:
                       unit: tbsp
                     - aisle: Produce
                       amount: 5
-                      consitency: solid
+                      consistency: solid
                       id: 11215
                       image: garlic.jpg
                       measures:
@@ -5381,7 +5326,7 @@ paths:
                       unit: cloves
                     - aisle: Pasta and Rice
                       amount: 6
-                      consitency: solid
+                      consistency: solid
                       id: 20420
                       image: fusilli.jpg
                       measures:
@@ -5401,7 +5346,7 @@ paths:
                       unit: ounces
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1032009
                       image: red-pepper-flakes.jpg
                       measures:
@@ -5421,7 +5366,7 @@ paths:
                       unit: pinches
                     - aisle: Spices and Seasonings
                       amount: 2
-                      consitency: solid
+                      consistency: solid
                       id: 1102047
                       image: salt-and-pepper.jpg
                       measures:
@@ -5441,7 +5386,7 @@ paths:
                       unit: servings
                     - aisle: Produce
                       amount: 3
-                      consitency: solid
+                      consistency: solid
                       id: 11291
                       image: spring-onions.jpg
                       measures:
@@ -5464,7 +5409,7 @@ paths:
                       unit: ""
                     - aisle: Alcoholic Beverages
                       amount: 2
-                      consitency: liquid
+                      consistency: liquid
                       id: 14106
                       image: white-wine.jpg
                       measures:
@@ -5484,7 +5429,7 @@ paths:
                       unit: tbsp
                     - aisle: Pasta and Rice
                       amount: 0.25
-                      consitency: solid
+                      consistency: solid
                       id: 99025
                       image: breadcrumbs.jpg
                       measures:
@@ -13206,18 +13151,6 @@ components:
         example: false
         type: boolean
       style: form
-    limitLicense:
-      description: Whether the recipes should have an open license that allows display
-        with proper attribution.
-      explode: true
-      in: query
-      name: limitLicense
-      required: false
-      schema:
-        default: true
-        example: true
-        type: boolean
-      style: form
     query:
       description: The (natural language) search query.
       explode: true
@@ -13694,20 +13627,20 @@ components:
             unitLong: unitLong
         unit: unit
         original: original
-        consitency: consitency
         meta:
         - meta
         - meta
         name: name
         id: 2
         aisle: aisle
+        consistency: consistency
       properties:
         aisle:
           minLength: 1
           type: string
         amount:
           type: number
-        consitency:
+        consistency:
           minLength: 1
           type: string
         id:
@@ -13736,7 +13669,7 @@ components:
       required:
       - aisle
       - amount
-      - consitency
+      - consistency
       - id
       - image
       - name
@@ -13906,13 +13839,13 @@ components:
               unitLong: unitLong
           unit: unit
           original: original
-          consitency: consitency
           meta:
           - meta
           - meta
           name: name
           id: 2
           aisle: aisle
+          consistency: consistency
         - originalName: originalName
           image: image
           amount: 3.616076749251911
@@ -13927,13 +13860,13 @@ components:
               unitLong: unitLong
           unit: unit
           original: original
-          consitency: consitency
           meta:
           - meta
           - meta
           name: name
           id: 2
           aisle: aisle
+          consistency: consistency
         gaps: gaps
         cuisines:
         - cuisines
@@ -14130,7 +14063,7 @@ components:
           extendedIngredients:
           - aisle: "Milk, Eggs, Other Dairy"
             amount: 1
-            consitency: solid
+            consistency: solid
             id: 1001
             image: butter-sliced.jpg
             measures:
@@ -14149,7 +14082,7 @@ components:
             unit: tbsp
           - aisle: Produce
             amount: 2
-            consitency: solid
+            consistency: solid
             id: 10011135
             image: cauliflower.jpg
             measures:
@@ -14173,7 +14106,7 @@ components:
             unit: cups
           - aisle: Cheese
             amount: 2
-            consitency: solid
+            consistency: solid
             id: 1041009
             image: cheddar-cheese.png
             measures:
@@ -14194,7 +14127,7 @@ components:
             unit: tbsp
           - aisle: "Oil, Vinegar, Salad Dressing"
             amount: 1
-            consitency: liquid
+            consistency: liquid
             id: 1034053
             image: olive-oil.jpg
             measures:
@@ -14213,7 +14146,7 @@ components:
             unit: tbsp
           - aisle: Produce
             amount: 5
-            consitency: solid
+            consistency: solid
             id: 11215
             image: garlic.jpg
             measures:
@@ -14232,7 +14165,7 @@ components:
             unit: cloves
           - aisle: Pasta and Rice
             amount: 6
-            consitency: solid
+            consistency: solid
             id: 20420
             image: fusilli.jpg
             measures:
@@ -14252,7 +14185,7 @@ components:
             unit: ounces
           - aisle: Spices and Seasonings
             amount: 2
-            consitency: solid
+            consistency: solid
             id: 1032009
             image: red-pepper-flakes.jpg
             measures:
@@ -14272,7 +14205,7 @@ components:
             unit: pinches
           - aisle: Spices and Seasonings
             amount: 2
-            consitency: solid
+            consistency: solid
             id: 1102047
             image: salt-and-pepper.jpg
             measures:
@@ -14292,7 +14225,7 @@ components:
             unit: servings
           - aisle: Produce
             amount: 3
-            consitency: solid
+            consistency: solid
             id: 11291
             image: spring-onions.jpg
             measures:
@@ -14315,7 +14248,7 @@ components:
             unit: ""
           - aisle: Alcoholic Beverages
             amount: 2
-            consitency: liquid
+            consistency: liquid
             id: 14106
             image: white-wine.jpg
             measures:
@@ -14335,7 +14268,7 @@ components:
             unit: tbsp
           - aisle: Pasta and Rice
             amount: 0.25
-            consitency: solid
+            consistency: solid
             id: 99025
             image: breadcrumbs.jpg
             measures:
@@ -14464,13 +14397,13 @@ components:
               unitLong: unitLong
           unit: unit
           original: original
-          consitency: consitency
           meta:
           - meta
           - meta
           name: name
           id: 2
           aisle: aisle
+          consistency: consistency
         - originalName: originalName
           image: image
           amount: 3.616076749251911
@@ -14485,13 +14418,13 @@ components:
               unitLong: unitLong
           unit: unit
           original: original
-          consitency: consitency
           meta:
           - meta
           - meta
           name: name
           id: 2
           aisle: aisle
+          consistency: consistency
         gaps: gaps
         cuisines:
         - cuisines
@@ -14748,13 +14681,13 @@ components:
               unitLong: unitLong
           unit: unit
           original: original
-          consitency: consitency
           meta:
           - meta
           - meta
           name: name
           id: 2
           aisle: aisle
+          consistency: consistency
         - originalName: originalName
           image: image
           amount: 3.616076749251911
@@ -14769,13 +14702,13 @@ components:
               unitLong: unitLong
           unit: unit
           original: original
-          consitency: consitency
           meta:
           - meta
           - meta
           name: name
           id: 2
           aisle: aisle
+          consistency: consistency
         gaps: gaps
         cuisines:
         - cuisines
@@ -14995,13 +14928,13 @@ components:
                 unitLong: unitLong
             unit: unit
             original: original
-            consitency: consitency
             meta:
             - meta
             - meta
             name: name
             id: 2
             aisle: aisle
+            consistency: consistency
           - originalName: originalName
             image: image
             amount: 3.616076749251911
@@ -15016,13 +14949,13 @@ components:
                 unitLong: unitLong
             unit: unit
             original: original
-            consitency: consitency
             meta:
             - meta
             - meta
             name: name
             id: 2
             aisle: aisle
+            consistency: consistency
           gaps: gaps
           cuisines:
           - cuisines
@@ -15107,13 +15040,13 @@ components:
                 unitLong: unitLong
             unit: unit
             original: original
-            consitency: consitency
             meta:
             - meta
             - meta
             name: name
             id: 2
             aisle: aisle
+            consistency: consistency
           - originalName: originalName
             image: image
             amount: 3.616076749251911
@@ -15128,13 +15061,13 @@ components:
                 unitLong: unitLong
             unit: unit
             original: original
-            consitency: consitency
             meta:
             - meta
             - meta
             name: name
             id: 2
             aisle: aisle
+            consistency: consistency
           gaps: gaps
           cuisines:
           - cuisines
@@ -15204,7 +15137,7 @@ components:
             extendedIngredients:
             - aisle: "Milk, Eggs, Other Dairy"
               amount: 1
-              consitency: solid
+              consistency: solid
               id: 1001
               image: butter-sliced.jpg
               measures:
@@ -15223,7 +15156,7 @@ components:
               unit: tbsp
             - aisle: Produce
               amount: 2
-              consitency: solid
+              consistency: solid
               id: 10011135
               image: cauliflower.jpg
               measures:
@@ -15247,7 +15180,7 @@ components:
               unit: cups
             - aisle: Cheese
               amount: 2
-              consitency: solid
+              consistency: solid
               id: 1041009
               image: cheddar-cheese.png
               measures:
@@ -15268,7 +15201,7 @@ components:
               unit: tbsp
             - aisle: "Oil, Vinegar, Salad Dressing"
               amount: 1
-              consitency: liquid
+              consistency: liquid
               id: 1034053
               image: olive-oil.jpg
               measures:
@@ -15287,7 +15220,7 @@ components:
               unit: tbsp
             - aisle: Produce
               amount: 5
-              consitency: solid
+              consistency: solid
               id: 11215
               image: garlic.jpg
               measures:
@@ -15306,7 +15239,7 @@ components:
               unit: cloves
             - aisle: Pasta and Rice
               amount: 6
-              consitency: solid
+              consistency: solid
               id: 20420
               image: fusilli.jpg
               measures:
@@ -15326,7 +15259,7 @@ components:
               unit: ounces
             - aisle: Spices and Seasonings
               amount: 2
-              consitency: solid
+              consistency: solid
               id: 1032009
               image: red-pepper-flakes.jpg
               measures:
@@ -15346,7 +15279,7 @@ components:
               unit: pinches
             - aisle: Spices and Seasonings
               amount: 2
-              consitency: solid
+              consistency: solid
               id: 1102047
               image: salt-and-pepper.jpg
               measures:
@@ -15366,7 +15299,7 @@ components:
               unit: servings
             - aisle: Produce
               amount: 3
-              consitency: solid
+              consistency: solid
               id: 11291
               image: spring-onions.jpg
               measures:
@@ -15389,7 +15322,7 @@ components:
               unit: ""
             - aisle: Alcoholic Beverages
               amount: 2
-              consitency: liquid
+              consistency: liquid
               id: 14106
               image: white-wine.jpg
               measures:
@@ -15409,7 +15342,7 @@ components:
               unit: tbsp
             - aisle: Pasta and Rice
               amount: 0.25
-              consitency: solid
+              consistency: solid
               id: 99025
               image: breadcrumbs.jpg
               measures:

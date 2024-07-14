@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 export class GetRecipeInformation200ResponseExtendedIngredientsInner {
     'aisle': string;
     'amount': number;
-    'consitency': string;
+    'consistency': string;
     'id': number;
     'image': string;
     'measures'?: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures;
@@ -42,8 +42,8 @@ export class GetRecipeInformation200ResponseExtendedIngredientsInner {
             "format": ""
         },
         {
-            "name": "consitency",
-            "baseName": "consitency",
+            "name": "consistency",
+            "baseName": "consistency",
             "type": "string",
             "format": ""
         },

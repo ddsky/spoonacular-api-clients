@@ -42,7 +42,7 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="aisle">aisle (required).</param>
         /// <param name="amount">amount (required).</param>
-        /// <param name="consitency">consitency (required).</param>
+        /// <param name="consistency">consistency (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="image">image (required).</param>
         /// <param name="measures">measures.</param>
@@ -51,7 +51,7 @@ namespace spoonacular.Model
         /// <param name="original">original (required).</param>
         /// <param name="originalName">originalName (required).</param>
         /// <param name="unit">unit (required).</param>
-        public GetRecipeInformation200ResponseExtendedIngredientsInner(string aisle = default(string), decimal amount = default(decimal), string consitency = default(string), int id = default(int), string image = default(string), GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures measures = default(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures), List<string> meta = default(List<string>), string name = default(string), string original = default(string), string originalName = default(string), string unit = default(string))
+        public GetRecipeInformation200ResponseExtendedIngredientsInner(string aisle = default(string), decimal amount = default(decimal), string consistency = default(string), int id = default(int), string image = default(string), GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures measures = default(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures), List<string> meta = default(List<string>), string name = default(string), string original = default(string), string originalName = default(string), string unit = default(string))
         {
             // to ensure "aisle" is required (not null)
             if (aisle == null)
@@ -60,12 +60,12 @@ namespace spoonacular.Model
             }
             this.Aisle = aisle;
             this.Amount = amount;
-            // to ensure "consitency" is required (not null)
-            if (consitency == null)
+            // to ensure "consistency" is required (not null)
+            if (consistency == null)
             {
-                throw new ArgumentNullException("consitency is a required property for GetRecipeInformation200ResponseExtendedIngredientsInner and cannot be null");
+                throw new ArgumentNullException("consistency is a required property for GetRecipeInformation200ResponseExtendedIngredientsInner and cannot be null");
             }
-            this.Consitency = consitency;
+            this.Consistency = consistency;
             this.Id = id;
             // to ensure "image" is required (not null)
             if (image == null)
@@ -114,10 +114,10 @@ namespace spoonacular.Model
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Consitency
+        /// Gets or Sets Consistency
         /// </summary>
-        [DataMember(Name = "consitency", IsRequired = true, EmitDefaultValue = true)]
-        public string Consitency { get; set; }
+        [DataMember(Name = "consistency", IsRequired = true, EmitDefaultValue = true)]
+        public string Consistency { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -177,7 +177,7 @@ namespace spoonacular.Model
             sb.Append("class GetRecipeInformation200ResponseExtendedIngredientsInner {\n");
             sb.Append("  Aisle: ").Append(Aisle).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Consitency: ").Append(Consitency).Append("\n");
+            sb.Append("  Consistency: ").Append(Consistency).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Measures: ").Append(Measures).Append("\n");
@@ -212,10 +212,10 @@ namespace spoonacular.Model
                 yield return new ValidationResult("Invalid value for Aisle, length must be greater than 1.", new [] { "Aisle" });
             }
 
-            // Consitency (string) minLength
-            if (this.Consitency != null && this.Consitency.Length < 1)
+            // Consistency (string) minLength
+            if (this.Consistency != null && this.Consistency.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Consitency, length must be greater than 1.", new [] { "Consitency" });
+                yield return new ValidationResult("Invalid value for Consistency, length must be greater than 1.", new [] { "Consistency" });
             }
 
             // Image (string) minLength

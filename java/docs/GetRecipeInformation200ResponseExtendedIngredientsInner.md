@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**aisle** | **String** |  |  |
 |**amount** | **BigDecimal** |  |  |
-|**consitency** | **String** |  |  |
+|**consistency** | **String** |  |  |
 |**id** | **Integer** |  |  |
 |**image** | **String** |  |  |
 |**measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  |  [optional] |

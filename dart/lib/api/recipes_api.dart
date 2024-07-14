@@ -858,9 +858,6 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  ///
   /// * [bool] includeNutrition:
   ///   Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
   ///
@@ -872,7 +869,7 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> getRandomRecipesWithHttpInfo({ bool? limitLicense, bool? includeNutrition, String? includeTags, String? excludeTags, int? number, }) async {
+  Future<Response> getRandomRecipesWithHttpInfo({ bool? includeNutrition, String? includeTags, String? excludeTags, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/random';
 
@@ -883,9 +880,6 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (limitLicense != null) {
-      queryParams.addAll(_queryParams('', 'limitLicense', limitLicense));
-    }
     if (includeNutrition != null) {
       queryParams.addAll(_queryParams('', 'includeNutrition', includeNutrition));
     }
@@ -919,9 +913,6 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  ///
   /// * [bool] includeNutrition:
   ///   Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
   ///
@@ -933,8 +924,8 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<GetRandomRecipes200Response?> getRandomRecipes({ bool? limitLicense, bool? includeNutrition, String? includeTags, String? excludeTags, int? number, }) async {
-    final response = await getRandomRecipesWithHttpInfo( limitLicense: limitLicense, includeNutrition: includeNutrition, includeTags: includeTags, excludeTags: excludeTags, number: number, );
+  Future<GetRandomRecipes200Response?> getRandomRecipes({ bool? includeNutrition, String? includeTags, String? excludeTags, int? number, }) async {
+    final response = await getRandomRecipesWithHttpInfo( includeNutrition: includeNutrition, includeTags: includeTags, excludeTags: excludeTags, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1407,10 +1398,7 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  Future<Response> getSimilarRecipesWithHttpInfo(int id, { int? number, bool? limitLicense, }) async {
+  Future<Response> getSimilarRecipesWithHttpInfo(int id, { int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/similar'
       .replaceAll('{id}', id.toString());
@@ -1424,9 +1412,6 @@ class RecipesApi {
 
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
-    }
-    if (limitLicense != null) {
-      queryParams.addAll(_queryParams('', 'limitLicense', limitLicense));
     }
 
     const contentTypes = <String>[];
@@ -1454,11 +1439,8 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  Future<Set<GetSimilarRecipes200ResponseInner>?> getSimilarRecipes(int id, { int? number, bool? limitLicense, }) async {
-    final response = await getSimilarRecipesWithHttpInfo(id,  number: number, limitLicense: limitLicense, );
+  Future<Set<GetSimilarRecipes200ResponseInner>?> getSimilarRecipes(int id, { int? number, }) async {
+    final response = await getSimilarRecipesWithHttpInfo(id,  number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2362,10 +2344,7 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  Future<Response> searchRecipesWithHttpInfo({ String? query, String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, num? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, bool? limitLicense, }) async {
+  Future<Response> searchRecipesWithHttpInfo({ String? query, String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, num? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/complexSearch';
 
@@ -2666,9 +2645,6 @@ class RecipesApi {
     }
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
-    }
-    if (limitLicense != null) {
-      queryParams.addAll(_queryParams('', 'limitLicense', limitLicense));
     }
 
     const contentTypes = <String>[];
@@ -2981,11 +2957,8 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  Future<SearchRecipes200Response?> searchRecipes({ String? query, String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, num? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, bool? limitLicense, }) async {
-    final response = await searchRecipesWithHttpInfo( query: query, cuisine: cuisine, excludeCuisine: excludeCuisine, diet: diet, intolerances: intolerances, equipment: equipment, includeIngredients: includeIngredients, excludeIngredients: excludeIngredients, type: type, instructionsRequired: instructionsRequired, fillIngredients: fillIngredients, addRecipeInformation: addRecipeInformation, addRecipeNutrition: addRecipeNutrition, author: author, tags: tags, recipeBoxId: recipeBoxId, titleMatch: titleMatch, maxReadyTime: maxReadyTime, minServings: minServings, maxServings: maxServings, ignorePantry: ignorePantry, sort: sort, sortDirection: sortDirection, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minCalories: minCalories, maxCalories: maxCalories, minFat: minFat, maxFat: maxFat, minAlcohol: minAlcohol, maxAlcohol: maxAlcohol, minCaffeine: minCaffeine, maxCaffeine: maxCaffeine, minCopper: minCopper, maxCopper: maxCopper, minCalcium: minCalcium, maxCalcium: maxCalcium, minCholine: minCholine, maxCholine: maxCholine, minCholesterol: minCholesterol, maxCholesterol: maxCholesterol, minFluoride: minFluoride, maxFluoride: maxFluoride, minSaturatedFat: minSaturatedFat, maxSaturatedFat: maxSaturatedFat, minVitaminA: minVitaminA, maxVitaminA: maxVitaminA, minVitaminC: minVitaminC, maxVitaminC: maxVitaminC, minVitaminD: minVitaminD, maxVitaminD: maxVitaminD, minVitaminE: minVitaminE, maxVitaminE: maxVitaminE, minVitaminK: minVitaminK, maxVitaminK: maxVitaminK, minVitaminB1: minVitaminB1, maxVitaminB1: maxVitaminB1, minVitaminB2: minVitaminB2, maxVitaminB2: maxVitaminB2, minVitaminB5: minVitaminB5, maxVitaminB5: maxVitaminB5, minVitaminB3: minVitaminB3, maxVitaminB3: maxVitaminB3, minVitaminB6: minVitaminB6, maxVitaminB6: maxVitaminB6, minVitaminB12: minVitaminB12, maxVitaminB12: maxVitaminB12, minFiber: minFiber, maxFiber: maxFiber, minFolate: minFolate, maxFolate: maxFolate, minFolicAcid: minFolicAcid, maxFolicAcid: maxFolicAcid, minIodine: minIodine, maxIodine: maxIodine, minIron: minIron, maxIron: maxIron, minMagnesium: minMagnesium, maxMagnesium: maxMagnesium, minManganese: minManganese, maxManganese: maxManganese, minPhosphorus: minPhosphorus, maxPhosphorus: maxPhosphorus, minPotassium: minPotassium, maxPotassium: maxPotassium, minSelenium: minSelenium, maxSelenium: maxSelenium, minSodium: minSodium, maxSodium: maxSodium, minSugar: minSugar, maxSugar: maxSugar, minZinc: minZinc, maxZinc: maxZinc, offset: offset, number: number, limitLicense: limitLicense, );
+  Future<SearchRecipes200Response?> searchRecipes({ String? query, String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, num? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, }) async {
+    final response = await searchRecipesWithHttpInfo( query: query, cuisine: cuisine, excludeCuisine: excludeCuisine, diet: diet, intolerances: intolerances, equipment: equipment, includeIngredients: includeIngredients, excludeIngredients: excludeIngredients, type: type, instructionsRequired: instructionsRequired, fillIngredients: fillIngredients, addRecipeInformation: addRecipeInformation, addRecipeNutrition: addRecipeNutrition, author: author, tags: tags, recipeBoxId: recipeBoxId, titleMatch: titleMatch, maxReadyTime: maxReadyTime, minServings: minServings, maxServings: maxServings, ignorePantry: ignorePantry, sort: sort, sortDirection: sortDirection, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minCalories: minCalories, maxCalories: maxCalories, minFat: minFat, maxFat: maxFat, minAlcohol: minAlcohol, maxAlcohol: maxAlcohol, minCaffeine: minCaffeine, maxCaffeine: maxCaffeine, minCopper: minCopper, maxCopper: maxCopper, minCalcium: minCalcium, maxCalcium: maxCalcium, minCholine: minCholine, maxCholine: maxCholine, minCholesterol: minCholesterol, maxCholesterol: maxCholesterol, minFluoride: minFluoride, maxFluoride: maxFluoride, minSaturatedFat: minSaturatedFat, maxSaturatedFat: maxSaturatedFat, minVitaminA: minVitaminA, maxVitaminA: maxVitaminA, minVitaminC: minVitaminC, maxVitaminC: maxVitaminC, minVitaminD: minVitaminD, maxVitaminD: maxVitaminD, minVitaminE: minVitaminE, maxVitaminE: maxVitaminE, minVitaminK: minVitaminK, maxVitaminK: maxVitaminK, minVitaminB1: minVitaminB1, maxVitaminB1: maxVitaminB1, minVitaminB2: minVitaminB2, maxVitaminB2: maxVitaminB2, minVitaminB5: minVitaminB5, maxVitaminB5: maxVitaminB5, minVitaminB3: minVitaminB3, maxVitaminB3: maxVitaminB3, minVitaminB6: minVitaminB6, maxVitaminB6: maxVitaminB6, minVitaminB12: minVitaminB12, maxVitaminB12: maxVitaminB12, minFiber: minFiber, maxFiber: maxFiber, minFolate: minFolate, maxFolate: maxFolate, minFolicAcid: minFolicAcid, maxFolicAcid: maxFolicAcid, minIodine: minIodine, maxIodine: maxIodine, minIron: minIron, maxIron: maxIron, minMagnesium: minMagnesium, maxMagnesium: maxMagnesium, minManganese: minManganese, maxManganese: maxManganese, minPhosphorus: minPhosphorus, maxPhosphorus: maxPhosphorus, minPotassium: minPotassium, maxPotassium: maxPotassium, minSelenium: minSelenium, maxSelenium: maxSelenium, minSodium: minSodium, maxSodium: maxSodium, minSugar: minSugar, maxSugar: maxSugar, minZinc: minZinc, maxZinc: maxZinc, offset: offset, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3013,15 +2986,12 @@ class RecipesApi {
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
   ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  ///
   /// * [num] ranking:
   ///   Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   ///
   /// * [bool] ignorePantry:
   ///   Whether to ignore typical pantry items, such as water, salt, flour, etc.
-  Future<Response> searchRecipesByIngredientsWithHttpInfo({ String? ingredients, int? number, bool? limitLicense, num? ranking, bool? ignorePantry, }) async {
+  Future<Response> searchRecipesByIngredientsWithHttpInfo({ String? ingredients, int? number, num? ranking, bool? ignorePantry, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/findByIngredients';
 
@@ -3037,9 +3007,6 @@ class RecipesApi {
     }
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
-    }
-    if (limitLicense != null) {
-      queryParams.addAll(_queryParams('', 'limitLicense', limitLicense));
     }
     if (ranking != null) {
       queryParams.addAll(_queryParams('', 'ranking', ranking));
@@ -3074,16 +3041,13 @@ class RecipesApi {
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
   ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  ///
   /// * [num] ranking:
   ///   Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   ///
   /// * [bool] ignorePantry:
   ///   Whether to ignore typical pantry items, such as water, salt, flour, etc.
-  Future<Set<SearchRecipesByIngredients200ResponseInner>?> searchRecipesByIngredients({ String? ingredients, int? number, bool? limitLicense, num? ranking, bool? ignorePantry, }) async {
-    final response = await searchRecipesByIngredientsWithHttpInfo( ingredients: ingredients, number: number, limitLicense: limitLicense, ranking: ranking, ignorePantry: ignorePantry, );
+  Future<Set<SearchRecipesByIngredients200ResponseInner>?> searchRecipesByIngredients({ String? ingredients, int? number, num? ranking, bool? ignorePantry, }) async {
+    final response = await searchRecipesByIngredientsWithHttpInfo( ingredients: ingredients, number: number, ranking: ranking, ignorePantry: ignorePantry, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3332,10 +3296,7 @@ class RecipesApi {
   ///
   /// * [bool] random:
   ///   If true, every request will give you a random set of recipes within the requested limits.
-  ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  Future<Response> searchRecipesByNutrientsWithHttpInfo({ num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, bool? random, bool? limitLicense, }) async {
+  Future<Response> searchRecipesByNutrientsWithHttpInfo({ num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, bool? random, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/findByNutrients';
 
@@ -3570,9 +3531,6 @@ class RecipesApi {
     }
     if (random != null) {
       queryParams.addAll(_queryParams('', 'random', random));
-    }
-    if (limitLicense != null) {
-      queryParams.addAll(_queryParams('', 'limitLicense', limitLicense));
     }
 
     const contentTypes = <String>[];
@@ -3819,11 +3777,8 @@ class RecipesApi {
   ///
   /// * [bool] random:
   ///   If true, every request will give you a random set of recipes within the requested limits.
-  ///
-  /// * [bool] limitLicense:
-  ///   Whether the recipes should have an open license that allows display with proper attribution.
-  Future<Set<SearchRecipesByNutrients200ResponseInner>?> searchRecipesByNutrients({ num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, bool? random, bool? limitLicense, }) async {
-    final response = await searchRecipesByNutrientsWithHttpInfo( minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minCalories: minCalories, maxCalories: maxCalories, minFat: minFat, maxFat: maxFat, minAlcohol: minAlcohol, maxAlcohol: maxAlcohol, minCaffeine: minCaffeine, maxCaffeine: maxCaffeine, minCopper: minCopper, maxCopper: maxCopper, minCalcium: minCalcium, maxCalcium: maxCalcium, minCholine: minCholine, maxCholine: maxCholine, minCholesterol: minCholesterol, maxCholesterol: maxCholesterol, minFluoride: minFluoride, maxFluoride: maxFluoride, minSaturatedFat: minSaturatedFat, maxSaturatedFat: maxSaturatedFat, minVitaminA: minVitaminA, maxVitaminA: maxVitaminA, minVitaminC: minVitaminC, maxVitaminC: maxVitaminC, minVitaminD: minVitaminD, maxVitaminD: maxVitaminD, minVitaminE: minVitaminE, maxVitaminE: maxVitaminE, minVitaminK: minVitaminK, maxVitaminK: maxVitaminK, minVitaminB1: minVitaminB1, maxVitaminB1: maxVitaminB1, minVitaminB2: minVitaminB2, maxVitaminB2: maxVitaminB2, minVitaminB5: minVitaminB5, maxVitaminB5: maxVitaminB5, minVitaminB3: minVitaminB3, maxVitaminB3: maxVitaminB3, minVitaminB6: minVitaminB6, maxVitaminB6: maxVitaminB6, minVitaminB12: minVitaminB12, maxVitaminB12: maxVitaminB12, minFiber: minFiber, maxFiber: maxFiber, minFolate: minFolate, maxFolate: maxFolate, minFolicAcid: minFolicAcid, maxFolicAcid: maxFolicAcid, minIodine: minIodine, maxIodine: maxIodine, minIron: minIron, maxIron: maxIron, minMagnesium: minMagnesium, maxMagnesium: maxMagnesium, minManganese: minManganese, maxManganese: maxManganese, minPhosphorus: minPhosphorus, maxPhosphorus: maxPhosphorus, minPotassium: minPotassium, maxPotassium: maxPotassium, minSelenium: minSelenium, maxSelenium: maxSelenium, minSodium: minSodium, maxSodium: maxSodium, minSugar: minSugar, maxSugar: maxSugar, minZinc: minZinc, maxZinc: maxZinc, offset: offset, number: number, random: random, limitLicense: limitLicense, );
+  Future<Set<SearchRecipesByNutrients200ResponseInner>?> searchRecipesByNutrients({ num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, bool? random, }) async {
+    final response = await searchRecipesByNutrientsWithHttpInfo( minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minCalories: minCalories, maxCalories: maxCalories, minFat: minFat, maxFat: maxFat, minAlcohol: minAlcohol, maxAlcohol: maxAlcohol, minCaffeine: minCaffeine, maxCaffeine: maxCaffeine, minCopper: minCopper, maxCopper: maxCopper, minCalcium: minCalcium, maxCalcium: maxCalcium, minCholine: minCholine, maxCholine: maxCholine, minCholesterol: minCholesterol, maxCholesterol: maxCholesterol, minFluoride: minFluoride, maxFluoride: maxFluoride, minSaturatedFat: minSaturatedFat, maxSaturatedFat: maxSaturatedFat, minVitaminA: minVitaminA, maxVitaminA: maxVitaminA, minVitaminC: minVitaminC, maxVitaminC: maxVitaminC, minVitaminD: minVitaminD, maxVitaminD: maxVitaminD, minVitaminE: minVitaminE, maxVitaminE: maxVitaminE, minVitaminK: minVitaminK, maxVitaminK: maxVitaminK, minVitaminB1: minVitaminB1, maxVitaminB1: maxVitaminB1, minVitaminB2: minVitaminB2, maxVitaminB2: maxVitaminB2, minVitaminB5: minVitaminB5, maxVitaminB5: maxVitaminB5, minVitaminB3: minVitaminB3, maxVitaminB3: maxVitaminB3, minVitaminB6: minVitaminB6, maxVitaminB6: maxVitaminB6, minVitaminB12: minVitaminB12, maxVitaminB12: maxVitaminB12, minFiber: minFiber, maxFiber: maxFiber, minFolate: minFolate, maxFolate: maxFolate, minFolicAcid: minFolicAcid, maxFolicAcid: maxFolicAcid, minIodine: minIodine, maxIodine: maxIodine, minIron: minIron, maxIron: maxIron, minMagnesium: minMagnesium, maxMagnesium: maxMagnesium, minManganese: minManganese, maxManganese: maxManganese, minPhosphorus: minPhosphorus, maxPhosphorus: maxPhosphorus, minPotassium: minPotassium, maxPotassium: maxPotassium, minSelenium: minSelenium, maxSelenium: maxSelenium, minSodium: minSodium, maxSodium: maxSodium, minSugar: minSugar, maxSugar: maxSugar, minZinc: minZinc, maxZinc: maxZinc, offset: offset, number: number, random: random, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

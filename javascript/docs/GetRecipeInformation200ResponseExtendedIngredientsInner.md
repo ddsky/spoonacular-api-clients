@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **String** |  | 
 **amount** | **Number** |  | 
-**consitency** | **String** |  | 
+**consistency** | **String** |  | 
 **id** | **Number** |  | 
 **image** | **String** |  | 
 **measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional] 

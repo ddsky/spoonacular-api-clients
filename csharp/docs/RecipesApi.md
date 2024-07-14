@@ -1085,7 +1085,7 @@ catch (ApiException e)
 
 <a id="getrandomrecipes"></a>
 # **GetRandomRecipes**
-> GetRandomRecipes200Response GetRandomRecipes (bool? limitLicense = null, bool? includeNutrition = null, string? includeTags = null, string? excludeTags = null, int? number = null)
+> GetRandomRecipes200Response GetRandomRecipes (bool? includeNutrition = null, string? includeTags = null, string? excludeTags = null, int? number = null)
 
 Get Random Recipes
 
@@ -1113,7 +1113,6 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional)  (default to true)
             var includeNutrition = false;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
             var includeTags = vegetarian,gluten;  // string? | A comma-separated list of tags that the random recipe(s) must adhere to. (optional) 
             var excludeTags = meat,dairy;  // string? | A comma-separated list of tags that the random recipe(s) must not adhere to. (optional) 
@@ -1122,7 +1121,7 @@ namespace Example
             try
             {
                 // Get Random Recipes
-                GetRandomRecipes200Response result = apiInstance.GetRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number);
+                GetRandomRecipes200Response result = apiInstance.GetRandomRecipes(includeNutrition, includeTags, excludeTags, number);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1143,7 +1142,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Random Recipes
-    ApiResponse<GetRandomRecipes200Response> response = apiInstance.GetRandomRecipesWithHttpInfo(limitLicense, includeNutrition, includeTags, excludeTags, number);
+    ApiResponse<GetRandomRecipes200Response> response = apiInstance.GetRandomRecipesWithHttpInfo(includeNutrition, includeTags, excludeTags, number);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1160,7 +1159,6 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limitLicense** | **bool?** | Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 | **includeNutrition** | **bool?** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 | **includeTags** | **string?** | A comma-separated list of tags that the random recipe(s) must adhere to. | [optional]  |
 | **excludeTags** | **string?** | A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional]  |
@@ -1891,7 +1889,7 @@ catch (ApiException e)
 
 <a id="getsimilarrecipes"></a>
 # **GetSimilarRecipes**
-> List&lt;GetSimilarRecipes200ResponseInner&gt; GetSimilarRecipes (int id, int? number = null, bool? limitLicense = null)
+> List&lt;GetSimilarRecipes200ResponseInner&gt; GetSimilarRecipes (int id, int? number = null)
 
 Get Similar Recipes
 
@@ -1921,12 +1919,11 @@ namespace Example
             var apiInstance = new RecipesApi(config);
             var id = 1;  // int | The item's id.
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
-            var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional)  (default to true)
 
             try
             {
                 // Get Similar Recipes
-                List<GetSimilarRecipes200ResponseInner> result = apiInstance.GetSimilarRecipes(id, number, limitLicense);
+                List<GetSimilarRecipes200ResponseInner> result = apiInstance.GetSimilarRecipes(id, number);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1947,7 +1944,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Similar Recipes
-    ApiResponse<List<GetSimilarRecipes200ResponseInner>> response = apiInstance.GetSimilarRecipesWithHttpInfo(id, number, limitLicense);
+    ApiResponse<List<GetSimilarRecipes200ResponseInner>> response = apiInstance.GetSimilarRecipesWithHttpInfo(id, number);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1966,7 +1963,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **int** | The item&#39;s id. |  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limitLicense** | **bool?** | Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -2810,7 +2806,7 @@ catch (ApiException e)
 
 <a id="searchrecipes"></a>
 # **SearchRecipes**
-> SearchRecipes200Response SearchRecipes (string? query = null, string? cuisine = null, string? excludeCuisine = null, string? diet = null, string? intolerances = null, string? equipment = null, string? includeIngredients = null, string? excludeIngredients = null, string? type = null, bool? instructionsRequired = null, bool? fillIngredients = null, bool? addRecipeInformation = null, bool? addRecipeNutrition = null, string? author = null, string? tags = null, decimal? recipeBoxId = null, string? titleMatch = null, decimal? maxReadyTime = null, decimal? minServings = null, decimal? maxServings = null, bool? ignorePantry = null, string? sort = null, string? sortDirection = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minFat = null, decimal? maxFat = null, decimal? minAlcohol = null, decimal? maxAlcohol = null, decimal? minCaffeine = null, decimal? maxCaffeine = null, decimal? minCopper = null, decimal? maxCopper = null, decimal? minCalcium = null, decimal? maxCalcium = null, decimal? minCholine = null, decimal? maxCholine = null, decimal? minCholesterol = null, decimal? maxCholesterol = null, decimal? minFluoride = null, decimal? maxFluoride = null, decimal? minSaturatedFat = null, decimal? maxSaturatedFat = null, decimal? minVitaminA = null, decimal? maxVitaminA = null, decimal? minVitaminC = null, decimal? maxVitaminC = null, decimal? minVitaminD = null, decimal? maxVitaminD = null, decimal? minVitaminE = null, decimal? maxVitaminE = null, decimal? minVitaminK = null, decimal? maxVitaminK = null, decimal? minVitaminB1 = null, decimal? maxVitaminB1 = null, decimal? minVitaminB2 = null, decimal? maxVitaminB2 = null, decimal? minVitaminB5 = null, decimal? maxVitaminB5 = null, decimal? minVitaminB3 = null, decimal? maxVitaminB3 = null, decimal? minVitaminB6 = null, decimal? maxVitaminB6 = null, decimal? minVitaminB12 = null, decimal? maxVitaminB12 = null, decimal? minFiber = null, decimal? maxFiber = null, decimal? minFolate = null, decimal? maxFolate = null, decimal? minFolicAcid = null, decimal? maxFolicAcid = null, decimal? minIodine = null, decimal? maxIodine = null, decimal? minIron = null, decimal? maxIron = null, decimal? minMagnesium = null, decimal? maxMagnesium = null, decimal? minManganese = null, decimal? maxManganese = null, decimal? minPhosphorus = null, decimal? maxPhosphorus = null, decimal? minPotassium = null, decimal? maxPotassium = null, decimal? minSelenium = null, decimal? maxSelenium = null, decimal? minSodium = null, decimal? maxSodium = null, decimal? minSugar = null, decimal? maxSugar = null, decimal? minZinc = null, decimal? maxZinc = null, int? offset = null, int? number = null, bool? limitLicense = null)
+> SearchRecipes200Response SearchRecipes (string? query = null, string? cuisine = null, string? excludeCuisine = null, string? diet = null, string? intolerances = null, string? equipment = null, string? includeIngredients = null, string? excludeIngredients = null, string? type = null, bool? instructionsRequired = null, bool? fillIngredients = null, bool? addRecipeInformation = null, bool? addRecipeNutrition = null, string? author = null, string? tags = null, decimal? recipeBoxId = null, string? titleMatch = null, decimal? maxReadyTime = null, decimal? minServings = null, decimal? maxServings = null, bool? ignorePantry = null, string? sort = null, string? sortDirection = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minFat = null, decimal? maxFat = null, decimal? minAlcohol = null, decimal? maxAlcohol = null, decimal? minCaffeine = null, decimal? maxCaffeine = null, decimal? minCopper = null, decimal? maxCopper = null, decimal? minCalcium = null, decimal? maxCalcium = null, decimal? minCholine = null, decimal? maxCholine = null, decimal? minCholesterol = null, decimal? maxCholesterol = null, decimal? minFluoride = null, decimal? maxFluoride = null, decimal? minSaturatedFat = null, decimal? maxSaturatedFat = null, decimal? minVitaminA = null, decimal? maxVitaminA = null, decimal? minVitaminC = null, decimal? maxVitaminC = null, decimal? minVitaminD = null, decimal? maxVitaminD = null, decimal? minVitaminE = null, decimal? maxVitaminE = null, decimal? minVitaminK = null, decimal? maxVitaminK = null, decimal? minVitaminB1 = null, decimal? maxVitaminB1 = null, decimal? minVitaminB2 = null, decimal? maxVitaminB2 = null, decimal? minVitaminB5 = null, decimal? maxVitaminB5 = null, decimal? minVitaminB3 = null, decimal? maxVitaminB3 = null, decimal? minVitaminB6 = null, decimal? maxVitaminB6 = null, decimal? minVitaminB12 = null, decimal? maxVitaminB12 = null, decimal? minFiber = null, decimal? maxFiber = null, decimal? minFolate = null, decimal? maxFolate = null, decimal? minFolicAcid = null, decimal? maxFolicAcid = null, decimal? minIodine = null, decimal? maxIodine = null, decimal? minIron = null, decimal? maxIron = null, decimal? minMagnesium = null, decimal? maxMagnesium = null, decimal? minManganese = null, decimal? maxManganese = null, decimal? minPhosphorus = null, decimal? maxPhosphorus = null, decimal? minPotassium = null, decimal? maxPotassium = null, decimal? minSelenium = null, decimal? maxSelenium = null, decimal? minSodium = null, decimal? maxSodium = null, decimal? minSugar = null, decimal? maxSugar = null, decimal? minZinc = null, decimal? maxZinc = null, int? offset = null, int? number = null)
 
 Search Recipes
 
@@ -2935,12 +2931,11 @@ namespace Example
             var maxZinc = 100;  // decimal? | The maximum amount of zinc in milligrams the recipe can have. (optional) 
             var offset = 56;  // int? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
-            var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional)  (default to true)
 
             try
             {
                 // Search Recipes
-                SearchRecipes200Response result = apiInstance.SearchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+                SearchRecipes200Response result = apiInstance.SearchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2961,7 +2956,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Recipes
-    ApiResponse<SearchRecipes200Response> response = apiInstance.SearchRecipesWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    ApiResponse<SearchRecipes200Response> response = apiInstance.SearchRecipesWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3075,7 +3070,6 @@ catch (ApiException e)
 | **maxZinc** | **decimal?** | The maximum amount of zinc in milligrams the recipe can have. | [optional]  |
 | **offset** | **int?** | The number of results to skip (between 0 and 900). | [optional]  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limitLicense** | **bool?** | Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -3103,7 +3097,7 @@ catch (ApiException e)
 
 <a id="searchrecipesbyingredients"></a>
 # **SearchRecipesByIngredients**
-> List&lt;SearchRecipesByIngredients200ResponseInner&gt; SearchRecipesByIngredients (string? ingredients = null, int? number = null, bool? limitLicense = null, decimal? ranking = null, bool? ignorePantry = null)
+> List&lt;SearchRecipesByIngredients200ResponseInner&gt; SearchRecipesByIngredients (string? ingredients = null, int? number = null, decimal? ranking = null, bool? ignorePantry = null)
 
 Search Recipes by Ingredients
 
@@ -3133,14 +3127,13 @@ namespace Example
             var apiInstance = new RecipesApi(config);
             var ingredients = carrots,tomatoes;  // string? | A comma-separated list of ingredients that the recipes should contain. (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
-            var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional)  (default to true)
             var ranking = 1;  // decimal? | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional) 
             var ignorePantry = false;  // bool? | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)  (default to false)
 
             try
             {
                 // Search Recipes by Ingredients
-                List<SearchRecipesByIngredients200ResponseInner> result = apiInstance.SearchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
+                List<SearchRecipesByIngredients200ResponseInner> result = apiInstance.SearchRecipesByIngredients(ingredients, number, ranking, ignorePantry);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3161,7 +3154,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Recipes by Ingredients
-    ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> response = apiInstance.SearchRecipesByIngredientsWithHttpInfo(ingredients, number, limitLicense, ranking, ignorePantry);
+    ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> response = apiInstance.SearchRecipesByIngredientsWithHttpInfo(ingredients, number, ranking, ignorePantry);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3180,7 +3173,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **ingredients** | **string?** | A comma-separated list of ingredients that the recipes should contain. | [optional]  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limitLicense** | **bool?** | Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 | **ranking** | **decimal?** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional]  |
 | **ignorePantry** | **bool?** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 
@@ -3210,7 +3202,7 @@ catch (ApiException e)
 
 <a id="searchrecipesbynutrients"></a>
 # **SearchRecipesByNutrients**
-> List&lt;SearchRecipesByNutrients200ResponseInner&gt; SearchRecipesByNutrients (decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minFat = null, decimal? maxFat = null, decimal? minAlcohol = null, decimal? maxAlcohol = null, decimal? minCaffeine = null, decimal? maxCaffeine = null, decimal? minCopper = null, decimal? maxCopper = null, decimal? minCalcium = null, decimal? maxCalcium = null, decimal? minCholine = null, decimal? maxCholine = null, decimal? minCholesterol = null, decimal? maxCholesterol = null, decimal? minFluoride = null, decimal? maxFluoride = null, decimal? minSaturatedFat = null, decimal? maxSaturatedFat = null, decimal? minVitaminA = null, decimal? maxVitaminA = null, decimal? minVitaminC = null, decimal? maxVitaminC = null, decimal? minVitaminD = null, decimal? maxVitaminD = null, decimal? minVitaminE = null, decimal? maxVitaminE = null, decimal? minVitaminK = null, decimal? maxVitaminK = null, decimal? minVitaminB1 = null, decimal? maxVitaminB1 = null, decimal? minVitaminB2 = null, decimal? maxVitaminB2 = null, decimal? minVitaminB5 = null, decimal? maxVitaminB5 = null, decimal? minVitaminB3 = null, decimal? maxVitaminB3 = null, decimal? minVitaminB6 = null, decimal? maxVitaminB6 = null, decimal? minVitaminB12 = null, decimal? maxVitaminB12 = null, decimal? minFiber = null, decimal? maxFiber = null, decimal? minFolate = null, decimal? maxFolate = null, decimal? minFolicAcid = null, decimal? maxFolicAcid = null, decimal? minIodine = null, decimal? maxIodine = null, decimal? minIron = null, decimal? maxIron = null, decimal? minMagnesium = null, decimal? maxMagnesium = null, decimal? minManganese = null, decimal? maxManganese = null, decimal? minPhosphorus = null, decimal? maxPhosphorus = null, decimal? minPotassium = null, decimal? maxPotassium = null, decimal? minSelenium = null, decimal? maxSelenium = null, decimal? minSodium = null, decimal? maxSodium = null, decimal? minSugar = null, decimal? maxSugar = null, decimal? minZinc = null, decimal? maxZinc = null, int? offset = null, int? number = null, bool? random = null, bool? limitLicense = null)
+> List&lt;SearchRecipesByNutrients200ResponseInner&gt; SearchRecipesByNutrients (decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minFat = null, decimal? maxFat = null, decimal? minAlcohol = null, decimal? maxAlcohol = null, decimal? minCaffeine = null, decimal? maxCaffeine = null, decimal? minCopper = null, decimal? maxCopper = null, decimal? minCalcium = null, decimal? maxCalcium = null, decimal? minCholine = null, decimal? maxCholine = null, decimal? minCholesterol = null, decimal? maxCholesterol = null, decimal? minFluoride = null, decimal? maxFluoride = null, decimal? minSaturatedFat = null, decimal? maxSaturatedFat = null, decimal? minVitaminA = null, decimal? maxVitaminA = null, decimal? minVitaminC = null, decimal? maxVitaminC = null, decimal? minVitaminD = null, decimal? maxVitaminD = null, decimal? minVitaminE = null, decimal? maxVitaminE = null, decimal? minVitaminK = null, decimal? maxVitaminK = null, decimal? minVitaminB1 = null, decimal? maxVitaminB1 = null, decimal? minVitaminB2 = null, decimal? maxVitaminB2 = null, decimal? minVitaminB5 = null, decimal? maxVitaminB5 = null, decimal? minVitaminB3 = null, decimal? maxVitaminB3 = null, decimal? minVitaminB6 = null, decimal? maxVitaminB6 = null, decimal? minVitaminB12 = null, decimal? maxVitaminB12 = null, decimal? minFiber = null, decimal? maxFiber = null, decimal? minFolate = null, decimal? maxFolate = null, decimal? minFolicAcid = null, decimal? maxFolicAcid = null, decimal? minIodine = null, decimal? maxIodine = null, decimal? minIron = null, decimal? maxIron = null, decimal? minMagnesium = null, decimal? maxMagnesium = null, decimal? minManganese = null, decimal? maxManganese = null, decimal? minPhosphorus = null, decimal? maxPhosphorus = null, decimal? minPotassium = null, decimal? maxPotassium = null, decimal? minSelenium = null, decimal? maxSelenium = null, decimal? minSodium = null, decimal? maxSodium = null, decimal? minSugar = null, decimal? maxSugar = null, decimal? minZinc = null, decimal? maxZinc = null, int? offset = null, int? number = null, bool? random = null)
 
 Search Recipes by Nutrients
 
@@ -3313,12 +3305,11 @@ namespace Example
             var offset = 56;  // int? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
             var random = false;  // bool? | If true, every request will give you a random set of recipes within the requested limits. (optional) 
-            var limitLicense = true;  // bool? | Whether the recipes should have an open license that allows display with proper attribution. (optional)  (default to true)
 
             try
             {
                 // Search Recipes by Nutrients
-                List<SearchRecipesByNutrients200ResponseInner> result = apiInstance.SearchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+                List<SearchRecipesByNutrients200ResponseInner> result = apiInstance.SearchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3339,7 +3330,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Recipes by Nutrients
-    ApiResponse<List<SearchRecipesByNutrients200ResponseInner>> response = apiInstance.SearchRecipesByNutrientsWithHttpInfo(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+    ApiResponse<List<SearchRecipesByNutrients200ResponseInner>> response = apiInstance.SearchRecipesByNutrientsWithHttpInfo(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3431,7 +3422,6 @@ catch (ApiException e)
 | **offset** | **int?** | The number of results to skip (between 0 and 900). | [optional]  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | **random** | **bool?** | If true, every request will give you a random set of recipes within the requested limits. | [optional]  |
-| **limitLicense** | **bool?** | Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 

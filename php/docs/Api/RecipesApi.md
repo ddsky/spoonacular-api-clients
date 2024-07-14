@@ -717,7 +717,7 @@ try {
 ## `getRandomRecipes()`
 
 ```php
-getRandomRecipes($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number): \OpenAPI\Client\Model\GetRandomRecipes200Response
+getRandomRecipes($include_nutrition, $include_tags, $exclude_tags, $number): \OpenAPI\Client\Model\GetRandomRecipes200Response
 ```
 
 Get Random Recipes
@@ -743,14 +743,13 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 $include_nutrition = false; // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 $include_tags = vegetarian,gluten; // string | A comma-separated list of tags that the random recipe(s) must adhere to.
 $exclude_tags = meat,dairy; // string | A comma-separated list of tags that the random recipe(s) must not adhere to.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
-    $result = $apiInstance->getRandomRecipes($limit_license, $include_nutrition, $include_tags, $exclude_tags, $number);
+    $result = $apiInstance->getRandomRecipes($include_nutrition, $include_tags, $exclude_tags, $number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->getRandomRecipes: ', $e->getMessage(), PHP_EOL;
@@ -761,7 +760,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 | **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 | **include_tags** | **string**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] |
 | **exclude_tags** | **string**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] |
@@ -1227,7 +1225,7 @@ try {
 ## `getSimilarRecipes()`
 
 ```php
-getSimilarRecipes($id, $number, $limit_license): \OpenAPI\Client\Model\GetSimilarRecipes200ResponseInner[]
+getSimilarRecipes($id, $number): \OpenAPI\Client\Model\GetSimilarRecipes200ResponseInner[]
 ```
 
 Get Similar Recipes
@@ -1255,10 +1253,9 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
 );
 $id = 1; // int | The item's id.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-$limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    $result = $apiInstance->getSimilarRecipes($id, $number, $limit_license);
+    $result = $apiInstance->getSimilarRecipes($id, $number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->getSimilarRecipes: ', $e->getMessage(), PHP_EOL;
@@ -1271,7 +1268,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| The item&#39;s id. | |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -1813,7 +1809,7 @@ try {
 ## `searchRecipes()`
 
 ```php
-searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license): \OpenAPI\Client\Model\SearchRecipes200Response
+searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number): \OpenAPI\Client\Model\SearchRecipes200Response
 ```
 
 Search Recipes
@@ -1936,10 +1932,9 @@ $min_zinc = 0; // float | The minimum amount of zinc in milligrams the recipe mu
 $max_zinc = 100; // float | The maximum amount of zinc in milligrams the recipe can have.
 $offset = 56; // int | The number of results to skip (between 0 and 900).
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-$limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    $result = $apiInstance->searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $limit_license);
+    $result = $apiInstance->searchRecipes($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->searchRecipes: ', $e->getMessage(), PHP_EOL;
@@ -2047,7 +2042,6 @@ try {
 | **max_zinc** | **float**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
 | **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 
@@ -2069,7 +2063,7 @@ try {
 ## `searchRecipesByIngredients()`
 
 ```php
-searchRecipesByIngredients($ingredients, $number, $limit_license, $ranking, $ignore_pantry): \OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[]
+searchRecipesByIngredients($ingredients, $number, $ranking, $ignore_pantry): \OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[]
 ```
 
 Search Recipes by Ingredients
@@ -2097,12 +2091,11 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
 );
 $ingredients = carrots,tomatoes; // string | A comma-separated list of ingredients that the recipes should contain.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-$limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 $ranking = 1; // float | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 $ignore_pantry = false; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
 try {
-    $result = $apiInstance->searchRecipesByIngredients($ingredients, $number, $limit_license, $ranking, $ignore_pantry);
+    $result = $apiInstance->searchRecipesByIngredients($ingredients, $number, $ranking, $ignore_pantry);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->searchRecipesByIngredients: ', $e->getMessage(), PHP_EOL;
@@ -2115,7 +2108,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 | **ranking** | **float**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
 | **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 
@@ -2139,7 +2131,7 @@ try {
 ## `searchRecipesByNutrients()`
 
 ```php
-searchRecipesByNutrients($min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $random, $limit_license): \OpenAPI\Client\Model\SearchRecipesByNutrients200ResponseInner[]
+searchRecipesByNutrients($min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $random): \OpenAPI\Client\Model\SearchRecipesByNutrients200ResponseInner[]
 ```
 
 Search Recipes by Nutrients
@@ -2240,10 +2232,9 @@ $max_zinc = 100; // float | The maximum amount of zinc in milligrams the recipe 
 $offset = 56; // int | The number of results to skip (between 0 and 900).
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 $random = false; // bool | If true, every request will give you a random set of recipes within the requested limits.
-$limit_license = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    $result = $apiInstance->searchRecipesByNutrients($min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $random, $limit_license);
+    $result = $apiInstance->searchRecipesByNutrients($min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $random);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->searchRecipesByNutrients: ', $e->getMessage(), PHP_EOL;
@@ -2329,7 +2320,6 @@ try {
 | **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional] |
-| **limit_license** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 
 ### Return type
 

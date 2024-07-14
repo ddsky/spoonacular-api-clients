@@ -38,7 +38,7 @@ class TestGetRecipeInformation200ResponseExtendedIngredientsInner(unittest.TestC
             return GetRecipeInformation200ResponseExtendedIngredientsInner(
                 aisle = '0',
                 amount = 1.337,
-                consitency = '0',
+                consistency = '0',
                 id = 56,
                 image = '0',
                 measures = spoonacular.models.get_recipe_information_200_response_extended_ingredients_inner_measures.getRecipeInformation_200_response_extendedIngredients_inner_measures(
@@ -62,7 +62,7 @@ class TestGetRecipeInformation200ResponseExtendedIngredientsInner(unittest.TestC
             return GetRecipeInformation200ResponseExtendedIngredientsInner(
                 aisle = '0',
                 amount = 1.337,
-                consitency = '0',
+                consistency = '0',
                 id = 56,
                 image = '0',
                 name = '0',

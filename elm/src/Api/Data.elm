@@ -1187,7 +1187,7 @@ type alias GetRecipeInformation200Response =
 type alias GetRecipeInformation200ResponseExtendedIngredientsInner =
     { aisle : String
     , amount : Float
-    , consitency : String
+    , consistency : String
     , id : Int
     , image : String
     , measures : Maybe GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
@@ -3720,7 +3720,7 @@ encodeGetRecipeInformation200ResponseExtendedIngredientsInnerPairs model =
         pairs =
             [ encode "aisle" Json.Encode.string model.aisle
             , encode "amount" Json.Encode.float model.amount
-            , encode "consitency" Json.Encode.string model.consitency
+            , encode "consistency" Json.Encode.string model.consistency
             , encode "id" Json.Encode.int model.id
             , encode "image" Json.Encode.string model.image
             , maybeEncode "measures" encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures model.measures
@@ -6316,7 +6316,7 @@ getRecipeInformation200ResponseExtendedIngredientsInnerDecoder =
     Json.Decode.succeed GetRecipeInformation200ResponseExtendedIngredientsInner
         |> decode "aisle" Json.Decode.string 
         |> decode "amount" Json.Decode.float 
-        |> decode "consitency" Json.Decode.string 
+        |> decode "consistency" Json.Decode.string 
         |> decode "id" Json.Decode.int 
         |> decode "image" Json.Decode.string 
         |> maybeDecode "measures" getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresDecoder Nothing

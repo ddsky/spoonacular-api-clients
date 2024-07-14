@@ -586,7 +586,7 @@ Configure apiKeyScheme:
 
 <a id="getRandomRecipes"></a>
 # **getRandomRecipes**
-> GetRandomRecipes200Response getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number)
+> GetRandomRecipes200Response getRandomRecipes(includeNutrition, includeTags, excludeTags, number)
 
 Get Random Recipes
 
@@ -599,13 +599,12 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 val includeTags : kotlin.String = vegetarian,gluten // kotlin.String | A comma-separated list of tags that the random recipe(s) must adhere to.
 val excludeTags : kotlin.String = meat,dairy // kotlin.String | A comma-separated list of tags that the random recipe(s) must not adhere to.
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : GetRandomRecipes200Response = apiInstance.getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number)
+    val result : GetRandomRecipes200Response = apiInstance.getRandomRecipes(includeNutrition, includeTags, excludeTags, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getRandomRecipes")
@@ -617,7 +616,6 @@ try {
 ```
 
 ### Parameters
-| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 | **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
 | **includeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] |
 | **excludeTags** | **kotlin.String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] |
@@ -992,7 +990,7 @@ Configure apiKeyScheme:
 
 <a id="getSimilarRecipes"></a>
 # **getSimilarRecipes**
-> kotlin.collections.Set&lt;GetSimilarRecipes200ResponseInner&gt; getSimilarRecipes(id, number, limitLicense)
+> kotlin.collections.Set&lt;GetSimilarRecipes200ResponseInner&gt; getSimilarRecipes(id, number)
 
 Get Similar Recipes
 
@@ -1007,9 +1005,8 @@ Find recipes which are similar to the given one.
 val apiInstance = RecipesApi()
 val id : kotlin.Int = 1 // kotlin.Int | The item's id.
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    val result : kotlin.collections.Set<GetSimilarRecipes200ResponseInner> = apiInstance.getSimilarRecipes(id, number, limitLicense)
+    val result : kotlin.collections.Set<GetSimilarRecipes200ResponseInner> = apiInstance.getSimilarRecipes(id, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getSimilarRecipes")
@@ -1022,10 +1019,9 @@ try {
 
 ### Parameters
 | **id** | **kotlin.Int**| The item&#39;s id. | |
-| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -1461,7 +1457,7 @@ Configure apiKeyScheme:
 
 <a id="searchRecipes"></a>
 # **searchRecipes**
-> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number)
 
 Search Recipes
 
@@ -1571,9 +1567,8 @@ val minZinc : java.math.BigDecimal = 0 // java.math.BigDecimal | The minimum amo
 val maxZinc : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum amount of zinc in milligrams the recipe can have.
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    val result : SearchRecipes200Response = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+    val result : SearchRecipes200Response = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#searchRecipes")
@@ -1681,10 +1676,9 @@ try {
 | **minZinc** | **java.math.BigDecimal**| The minimum amount of zinc in milligrams the recipe must have. | [optional] |
 | **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
 | **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
-| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
 
@@ -1704,7 +1698,7 @@ Configure apiKeyScheme:
 
 <a id="searchRecipesByIngredients"></a>
 # **searchRecipesByIngredients**
-> kotlin.collections.Set&lt;SearchRecipesByIngredients200ResponseInner&gt; searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
+> kotlin.collections.Set&lt;SearchRecipesByIngredients200ResponseInner&gt; searchRecipesByIngredients(ingredients, number, ranking, ignorePantry)
 
 Search Recipes by Ingredients
 
@@ -1719,11 +1713,10 @@ Search Recipes by Ingredients
 val apiInstance = RecipesApi()
 val ingredients : kotlin.String = carrots,tomatoes // kotlin.String | A comma-separated list of ingredients that the recipes should contain.
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 val ranking : java.math.BigDecimal = 1 // java.math.BigDecimal | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 val ignorePantry : kotlin.Boolean = false // kotlin.Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 try {
-    val result : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> = apiInstance.searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
+    val result : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> = apiInstance.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#searchRecipesByIngredients")
@@ -1737,7 +1730,6 @@ try {
 ### Parameters
 | **ingredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
 | **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
 | **ranking** | **java.math.BigDecimal**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1761,7 +1753,7 @@ Configure apiKeyScheme:
 
 <a id="searchRecipesByNutrients"></a>
 # **searchRecipesByNutrients**
-> kotlin.collections.Set&lt;SearchRecipesByNutrients200ResponseInner&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
+> kotlin.collections.Set&lt;SearchRecipesByNutrients200ResponseInner&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random)
 
 Search Recipes by Nutrients
 
@@ -1849,9 +1841,8 @@ val maxZinc : java.math.BigDecimal = 100 // java.math.BigDecimal | The maximum a
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 val random : kotlin.Boolean = false // kotlin.Boolean | If true, every request will give you a random set of recipes within the requested limits.
-val limitLicense : kotlin.Boolean = true // kotlin.Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    val result : kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner> = apiInstance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
+    val result : kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner> = apiInstance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#searchRecipesByNutrients")
@@ -1937,10 +1928,9 @@ try {
 | **maxZinc** | **java.math.BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional] |
 | **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **random** | **kotlin.Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limitLicense** | **kotlin.Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true] |
+| **random** | **kotlin.Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] |
 
 ### Return type
 

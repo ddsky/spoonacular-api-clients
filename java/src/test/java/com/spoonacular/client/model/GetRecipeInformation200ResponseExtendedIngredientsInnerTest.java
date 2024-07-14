@@ -58,11 +58,11 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInnerTest {
     }
 
     /**
-     * Test the property 'consitency'
+     * Test the property 'consistency'
      */
     @Test
-    public void consitencyTest() {
-        // TODO: test consitency
+    public void consistencyTest() {
+        // TODO: test consistency
     }
 
     /**

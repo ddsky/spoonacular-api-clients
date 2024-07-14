@@ -215,9 +215,6 @@ newtype LanguageText = LanguageText { unLanguageText :: Text } deriving (P.Eq, P
 -- ** Lat
 newtype Lat = Lat { unLat :: Double } deriving (P.Eq, P.Show)
 
--- ** LimitLicense
-newtype LimitLicense = LimitLicense { unLimitLicense :: Bool } deriving (P.Eq, P.Show)
-
 -- ** Lng
 newtype Lng = Lng { unLng :: Double } deriving (P.Eq, P.Show)
 
@@ -4041,7 +4038,7 @@ mkGetRecipeInformation200Response getRecipeInformation200ResponseId getRecipeInf
 data GetRecipeInformation200ResponseExtendedIngredientsInner = GetRecipeInformation200ResponseExtendedIngredientsInner
   { getRecipeInformation200ResponseExtendedIngredientsInnerAisle :: !(Text) -- ^ /Required/ "aisle"
   , getRecipeInformation200ResponseExtendedIngredientsInnerAmount :: !(Double) -- ^ /Required/ "amount"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerConsitency :: !(Text) -- ^ /Required/ "consitency"
+  , getRecipeInformation200ResponseExtendedIngredientsInnerConsistency :: !(Text) -- ^ /Required/ "consistency"
   , getRecipeInformation200ResponseExtendedIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
   , getRecipeInformation200ResponseExtendedIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
   , getRecipeInformation200ResponseExtendedIngredientsInnerMeasures :: !(Maybe GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures) -- ^ "measures"
@@ -4058,7 +4055,7 @@ instance A.FromJSON GetRecipeInformation200ResponseExtendedIngredientsInner wher
     GetRecipeInformation200ResponseExtendedIngredientsInner
       <$> (o .:  "aisle")
       <*> (o .:  "amount")
-      <*> (o .:  "consitency")
+      <*> (o .:  "consistency")
       <*> (o .:  "id")
       <*> (o .:  "image")
       <*> (o .:? "measures")
@@ -4074,7 +4071,7 @@ instance A.ToJSON GetRecipeInformation200ResponseExtendedIngredientsInner where
    _omitNulls
       [ "aisle" .= getRecipeInformation200ResponseExtendedIngredientsInnerAisle
       , "amount" .= getRecipeInformation200ResponseExtendedIngredientsInnerAmount
-      , "consitency" .= getRecipeInformation200ResponseExtendedIngredientsInnerConsitency
+      , "consistency" .= getRecipeInformation200ResponseExtendedIngredientsInnerConsistency
       , "id" .= getRecipeInformation200ResponseExtendedIngredientsInnerId
       , "image" .= getRecipeInformation200ResponseExtendedIngredientsInnerImage
       , "measures" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasures
@@ -4090,7 +4087,7 @@ instance A.ToJSON GetRecipeInformation200ResponseExtendedIngredientsInner where
 mkGetRecipeInformation200ResponseExtendedIngredientsInner
   :: Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerAisle' 
   -> Double -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerAmount' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerConsitency' 
+  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerConsistency' 
   -> Int -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerId' 
   -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerImage' 
   -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerName' 
@@ -4098,11 +4095,11 @@ mkGetRecipeInformation200ResponseExtendedIngredientsInner
   -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName' 
   -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerUnit' 
   -> GetRecipeInformation200ResponseExtendedIngredientsInner
-mkGetRecipeInformation200ResponseExtendedIngredientsInner getRecipeInformation200ResponseExtendedIngredientsInnerAisle getRecipeInformation200ResponseExtendedIngredientsInnerAmount getRecipeInformation200ResponseExtendedIngredientsInnerConsitency getRecipeInformation200ResponseExtendedIngredientsInnerId getRecipeInformation200ResponseExtendedIngredientsInnerImage getRecipeInformation200ResponseExtendedIngredientsInnerName getRecipeInformation200ResponseExtendedIngredientsInnerOriginal getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName getRecipeInformation200ResponseExtendedIngredientsInnerUnit =
+mkGetRecipeInformation200ResponseExtendedIngredientsInner getRecipeInformation200ResponseExtendedIngredientsInnerAisle getRecipeInformation200ResponseExtendedIngredientsInnerAmount getRecipeInformation200ResponseExtendedIngredientsInnerConsistency getRecipeInformation200ResponseExtendedIngredientsInnerId getRecipeInformation200ResponseExtendedIngredientsInnerImage getRecipeInformation200ResponseExtendedIngredientsInnerName getRecipeInformation200ResponseExtendedIngredientsInnerOriginal getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName getRecipeInformation200ResponseExtendedIngredientsInnerUnit =
   GetRecipeInformation200ResponseExtendedIngredientsInner
   { getRecipeInformation200ResponseExtendedIngredientsInnerAisle
   , getRecipeInformation200ResponseExtendedIngredientsInnerAmount
-  , getRecipeInformation200ResponseExtendedIngredientsInnerConsitency
+  , getRecipeInformation200ResponseExtendedIngredientsInnerConsistency
   , getRecipeInformation200ResponseExtendedIngredientsInnerId
   , getRecipeInformation200ResponseExtendedIngredientsInnerImage
   , getRecipeInformation200ResponseExtendedIngredientsInnerMeasures = Nothing

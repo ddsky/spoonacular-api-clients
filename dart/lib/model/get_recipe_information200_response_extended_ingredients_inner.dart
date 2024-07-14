@@ -15,7 +15,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
   GetRecipeInformation200ResponseExtendedIngredientsInner({
     required this.aisle,
     required this.amount,
-    required this.consitency,
+    required this.consistency,
     required this.id,
     required this.image,
     this.measures,
@@ -30,7 +30,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
 
   num amount;
 
-  String consitency;
+  String consistency;
 
   int id;
 
@@ -58,7 +58,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
   bool operator ==(Object other) => identical(this, other) || other is GetRecipeInformation200ResponseExtendedIngredientsInner &&
     other.aisle == aisle &&
     other.amount == amount &&
-    other.consitency == consitency &&
+    other.consistency == consistency &&
     other.id == id &&
     other.image == image &&
     other.measures == measures &&
@@ -73,7 +73,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
     // ignore: unnecessary_parenthesis
     (aisle.hashCode) +
     (amount.hashCode) +
-    (consitency.hashCode) +
+    (consistency.hashCode) +
     (id.hashCode) +
     (image.hashCode) +
     (measures == null ? 0 : measures!.hashCode) +
@@ -84,13 +84,13 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
     (unit.hashCode);
 
   @override
-  String toString() => 'GetRecipeInformation200ResponseExtendedIngredientsInner[aisle=$aisle, amount=$amount, consitency=$consitency, id=$id, image=$image, measures=$measures, meta=$meta, name=$name, original=$original, originalName=$originalName, unit=$unit]';
+  String toString() => 'GetRecipeInformation200ResponseExtendedIngredientsInner[aisle=$aisle, amount=$amount, consistency=$consistency, id=$id, image=$image, measures=$measures, meta=$meta, name=$name, original=$original, originalName=$originalName, unit=$unit]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'aisle'] = this.aisle;
       json[r'amount'] = this.amount;
-      json[r'consitency'] = this.consitency;
+      json[r'consistency'] = this.consistency;
       json[r'id'] = this.id;
       json[r'image'] = this.image;
     if (this.measures != null) {
@@ -127,7 +127,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
       return GetRecipeInformation200ResponseExtendedIngredientsInner(
         aisle: mapValueOfType<String>(json, r'aisle')!,
         amount: num.parse('${json[r'amount']}'),
-        consitency: mapValueOfType<String>(json, r'consitency')!,
+        consistency: mapValueOfType<String>(json, r'consistency')!,
         id: mapValueOfType<int>(json, r'id')!,
         image: mapValueOfType<String>(json, r'image')!,
         measures: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.fromJson(json[r'measures']),
@@ -187,7 +187,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
   static const requiredKeys = <String>{
     'aisle',
     'amount',
-    'consitency',
+    'consistency',
     'id',
     'image',
     'name',

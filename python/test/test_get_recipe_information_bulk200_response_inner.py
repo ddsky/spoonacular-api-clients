@@ -84,7 +84,7 @@ class TestGetRecipeInformationBulk200ResponseInner(unittest.TestCase):
                     spoonacular.models.get_recipe_information_200_response_extended_ingredients_inner.getRecipeInformation_200_response_extendedIngredients_inner(
                         aisle = '0', 
                         amount = 1.337, 
-                        consitency = '0', 
+                        consistency = '0', 
                         id = 56, 
                         image = '0', 
                         measures = spoonacular.models.get_recipe_information_200_response_extended_ingredients_inner_measures.getRecipeInformation_200_response_extendedIngredients_inner_measures(
@@ -173,7 +173,7 @@ class TestGetRecipeInformationBulk200ResponseInner(unittest.TestCase):
                     spoonacular.models.get_recipe_information_200_response_extended_ingredients_inner.getRecipeInformation_200_response_extendedIngredients_inner(
                         aisle = '0', 
                         amount = 1.337, 
-                        consitency = '0', 
+                        consistency = '0', 
                         id = 56, 
                         image = '0', 
                         measures = spoonacular.models.get_recipe_information_200_response_extended_ingredients_inner_measures.getRecipeInformation_200_response_extendedIngredients_inner_measures(

@@ -30,8 +30,8 @@ describe("get_recipe_information_200_response_extended_ingredients_inner", funct
     end)
   end)
 
-  -- unit tests for the property 'consitency'
-  describe("property consitency test", function()
+  -- unit tests for the property 'consistency'
+  describe("property consistency test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

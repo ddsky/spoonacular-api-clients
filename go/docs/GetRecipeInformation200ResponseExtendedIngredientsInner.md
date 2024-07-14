@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aisle** | **string** |  | 
 **Amount** | **float32** |  | 
-**Consitency** | **string** |  | 
+**Consistency** | **string** |  | 
 **Id** | **int32** |  | 
 **Image** | **string** |  | 
 **Measures** | Pointer to [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewGetRecipeInformation200ResponseExtendedIngredientsInner
 
-`func NewGetRecipeInformation200ResponseExtendedIngredientsInner(aisle string, amount float32, consitency string, id int32, image string, name string, original string, originalName string, unit string, ) *GetRecipeInformation200ResponseExtendedIngredientsInner`
+`func NewGetRecipeInformation200ResponseExtendedIngredientsInner(aisle string, amount float32, consistency string, id int32, image string, name string, original string, originalName string, unit string, ) *GetRecipeInformation200ResponseExtendedIngredientsInner`
 
 NewGetRecipeInformation200ResponseExtendedIngredientsInner instantiates a new GetRecipeInformation200ResponseExtendedIngredientsInner object
 This constructor will assign default values to properties that have it defined,
@@ -75,24 +75,24 @@ and a boolean to check if the value has been set.
 SetAmount sets Amount field to given value.
 
 
-### GetConsitency
+### GetConsistency
 
-`func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsitency() string`
+`func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsistency() string`
 
-GetConsitency returns the Consitency field if non-nil, zero value otherwise.
+GetConsistency returns the Consistency field if non-nil, zero value otherwise.
 
-### GetConsitencyOk
+### GetConsistencyOk
 
-`func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsitencyOk() (*string, bool)`
+`func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsistencyOk() (*string, bool)`
 
-GetConsitencyOk returns a tuple with the Consitency field if it's non-nil, zero value otherwise
+GetConsistencyOk returns a tuple with the Consistency field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConsitency
+### SetConsistency
 
-`func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) SetConsitency(v string)`
+`func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) SetConsistency(v string)`
 
-SetConsitency sets Consitency field to given value.
+SetConsistency sets Consistency field to given value.
 
 
 ### GetId

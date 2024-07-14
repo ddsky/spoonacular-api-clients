@@ -53,7 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * SearchGroceryProductsByUPC200ResponseNutrition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class SearchGroceryProductsByUPC200ResponseNutrition {
   public static final String SERIALIZED_NAME_NUTRIENTS = "nutrients";
   @SerializedName(SERIALIZED_NAME_NUTRIENTS)

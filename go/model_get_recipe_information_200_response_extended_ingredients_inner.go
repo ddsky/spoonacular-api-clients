@@ -24,7 +24,7 @@ var _ MappedNullable = &GetRecipeInformation200ResponseExtendedIngredientsInner{
 type GetRecipeInformation200ResponseExtendedIngredientsInner struct {
 	Aisle string `json:"aisle"`
 	Amount float32 `json:"amount"`
-	Consitency string `json:"consitency"`
+	Consistency string `json:"consistency"`
 	Id int32 `json:"id"`
 	Image string `json:"image"`
 	Measures *GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures `json:"measures,omitempty"`
@@ -41,11 +41,11 @@ type _GetRecipeInformation200ResponseExtendedIngredientsInner GetRecipeInformati
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetRecipeInformation200ResponseExtendedIngredientsInner(aisle string, amount float32, consitency string, id int32, image string, name string, original string, originalName string, unit string) *GetRecipeInformation200ResponseExtendedIngredientsInner {
+func NewGetRecipeInformation200ResponseExtendedIngredientsInner(aisle string, amount float32, consistency string, id int32, image string, name string, original string, originalName string, unit string) *GetRecipeInformation200ResponseExtendedIngredientsInner {
 	this := GetRecipeInformation200ResponseExtendedIngredientsInner{}
 	this.Aisle = aisle
 	this.Amount = amount
-	this.Consitency = consitency
+	this.Consistency = consistency
 	this.Id = id
 	this.Image = image
 	this.Name = name
@@ -111,28 +111,28 @@ func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) SetAmount(v fl
 	o.Amount = v
 }
 
-// GetConsitency returns the Consitency field value
-func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsitency() string {
+// GetConsistency returns the Consistency field value
+func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsistency() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Consitency
+	return o.Consistency
 }
 
-// GetConsitencyOk returns a tuple with the Consitency field value
+// GetConsistencyOk returns a tuple with the Consistency field value
 // and a boolean to check if the value has been set.
-func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsitencyOk() (*string, bool) {
+func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) GetConsistencyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Consitency, true
+	return &o.Consistency, true
 }
 
-// SetConsitency sets field value
-func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) SetConsitency(v string) {
-	o.Consitency = v
+// SetConsistency sets field value
+func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) SetConsistency(v string) {
+	o.Consistency = v
 }
 
 // GetId returns the Id field value
@@ -355,7 +355,7 @@ func (o GetRecipeInformation200ResponseExtendedIngredientsInner) ToMap() (map[st
 	toSerialize := map[string]interface{}{}
 	toSerialize["aisle"] = o.Aisle
 	toSerialize["amount"] = o.Amount
-	toSerialize["consitency"] = o.Consitency
+	toSerialize["consistency"] = o.Consistency
 	toSerialize["id"] = o.Id
 	toSerialize["image"] = o.Image
 	if !IsNil(o.Measures) {
@@ -378,7 +378,7 @@ func (o *GetRecipeInformation200ResponseExtendedIngredientsInner) UnmarshalJSON(
 	requiredProperties := []string{
 		"aisle",
 		"amount",
-		"consitency",
+		"consistency",
 		"id",
 		"image",
 		"name",

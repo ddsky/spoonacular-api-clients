@@ -1524,17 +1524,10 @@ func (a *RecipesAPIService) GetAnalyzedRecipeInstructionsExecute(r ApiGetAnalyze
 type ApiGetRandomRecipesRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	limitLicense *bool
 	includeNutrition *bool
 	includeTags *string
 	excludeTags *string
 	number *int32
-}
-
-// Whether the recipes should have an open license that allows display with proper attribution.
-func (r ApiGetRandomRecipesRequest) LimitLicense(limitLicense bool) ApiGetRandomRecipesRequest {
-	r.limitLicense = &limitLicense
-	return r
 }
 
 // Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
@@ -1601,12 +1594,6 @@ func (a *RecipesAPIService) GetRandomRecipesExecute(r ApiGetRandomRecipesRequest
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.limitLicense != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limitLicense", r.limitLicense, "")
-	} else {
-		var defaultValue bool = true
-		r.limitLicense = &defaultValue
-	}
 	if r.includeNutrition != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeNutrition", r.includeNutrition, "")
 	} else {
@@ -2563,18 +2550,11 @@ type ApiGetSimilarRecipesRequest struct {
 	ApiService *RecipesAPIService
 	id int32
 	number *int32
-	limitLicense *bool
 }
 
 // The maximum number of items to return (between 1 and 100). Defaults to 10.
 func (r ApiGetSimilarRecipesRequest) Number(number int32) ApiGetSimilarRecipesRequest {
 	r.number = &number
-	return r
-}
-
-// Whether the recipes should have an open license that allows display with proper attribution.
-func (r ApiGetSimilarRecipesRequest) LimitLicense(limitLicense bool) ApiGetSimilarRecipesRequest {
-	r.limitLicense = &limitLicense
 	return r
 }
 
@@ -2626,12 +2606,6 @@ func (a *RecipesAPIService) GetSimilarRecipesExecute(r ApiGetSimilarRecipesReque
 	} else {
 		var defaultValue int32 = 10
 		r.number = &defaultValue
-	}
-	if r.limitLicense != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limitLicense", r.limitLicense, "")
-	} else {
-		var defaultValue bool = true
-		r.limitLicense = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3881,7 +3855,6 @@ type ApiSearchRecipesRequest struct {
 	maxZinc *float32
 	offset *int32
 	number *int32
-	limitLicense *bool
 }
 
 // The (natural language) search query.
@@ -4466,12 +4439,6 @@ func (r ApiSearchRecipesRequest) Number(number int32) ApiSearchRecipesRequest {
 	return r
 }
 
-// Whether the recipes should have an open license that allows display with proper attribution.
-func (r ApiSearchRecipesRequest) LimitLicense(limitLicense bool) ApiSearchRecipesRequest {
-	r.limitLicense = &limitLicense
-	return r
-}
-
 func (r ApiSearchRecipesRequest) Execute() (*SearchRecipes200Response, *http.Response, error) {
 	return r.ApiService.SearchRecipesExecute(r)
 }
@@ -4809,12 +4776,6 @@ func (a *RecipesAPIService) SearchRecipesExecute(r ApiSearchRecipesRequest) (*Se
 		var defaultValue int32 = 10
 		r.number = &defaultValue
 	}
-	if r.limitLicense != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limitLicense", r.limitLicense, "")
-	} else {
-		var defaultValue bool = true
-		r.limitLicense = &defaultValue
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -4888,7 +4849,6 @@ type ApiSearchRecipesByIngredientsRequest struct {
 	ApiService *RecipesAPIService
 	ingredients *string
 	number *int32
-	limitLicense *bool
 	ranking *float32
 	ignorePantry *bool
 }
@@ -4902,12 +4862,6 @@ func (r ApiSearchRecipesByIngredientsRequest) Ingredients(ingredients string) Ap
 // The maximum number of items to return (between 1 and 100). Defaults to 10.
 func (r ApiSearchRecipesByIngredientsRequest) Number(number int32) ApiSearchRecipesByIngredientsRequest {
 	r.number = &number
-	return r
-}
-
-// Whether the recipes should have an open license that allows display with proper attribution.
-func (r ApiSearchRecipesByIngredientsRequest) LimitLicense(limitLicense bool) ApiSearchRecipesByIngredientsRequest {
-	r.limitLicense = &limitLicense
 	return r
 }
 
@@ -4973,12 +4927,6 @@ func (a *RecipesAPIService) SearchRecipesByIngredientsExecute(r ApiSearchRecipes
 	} else {
 		var defaultValue int32 = 10
 		r.number = &defaultValue
-	}
-	if r.limitLicense != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limitLicense", r.limitLicense, "")
-	} else {
-		var defaultValue bool = true
-		r.limitLicense = &defaultValue
 	}
 	if r.ranking != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ranking", r.ranking, "")
@@ -5135,7 +5083,6 @@ type ApiSearchRecipesByNutrientsRequest struct {
 	offset *int32
 	number *int32
 	random *bool
-	limitLicense *bool
 }
 
 // The minimum amount of carbohydrates in grams the recipe must have.
@@ -5588,12 +5535,6 @@ func (r ApiSearchRecipesByNutrientsRequest) Random(random bool) ApiSearchRecipes
 	return r
 }
 
-// Whether the recipes should have an open license that allows display with proper attribution.
-func (r ApiSearchRecipesByNutrientsRequest) LimitLicense(limitLicense bool) ApiSearchRecipesByNutrientsRequest {
-	r.limitLicense = &limitLicense
-	return r
-}
-
 func (r ApiSearchRecipesByNutrientsRequest) Execute() ([]SearchRecipesByNutrients200ResponseInner, *http.Response, error) {
 	return r.ApiService.SearchRecipesByNutrientsExecute(r)
 }
@@ -5861,12 +5802,6 @@ func (a *RecipesAPIService) SearchRecipesByNutrientsExecute(r ApiSearchRecipesBy
 	}
 	if r.random != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "random", r.random, "")
-	}
-	if r.limitLicense != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limitLicense", r.limitLicense, "")
-	} else {
-		var defaultValue bool = true
-		r.limitLicense = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -26,8 +26,8 @@ void main() {
       // TODO
     });
 
-    // String consitency
-    test('to test the property `consitency`', () async {
+    // String consistency
+    test('to test the property `consistency`', () async {
       // TODO
     });
 

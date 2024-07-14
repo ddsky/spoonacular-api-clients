@@ -138,7 +138,16 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
      enum class LocaleClassifyGroceryProduct(val value: kotlin.String) {
          @Json(name = "en_US") US("en_US"),
-         @Json(name = "en_GB") GB("en_GB")
+         @Json(name = "en_GB") GB("en_GB");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**

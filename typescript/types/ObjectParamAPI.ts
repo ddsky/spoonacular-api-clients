@@ -2720,12 +2720,6 @@ export interface RecipesApiGetAnalyzedRecipeInstructionsRequest {
 
 export interface RecipesApiGetRandomRecipesRequest {
     /**
-     * Whether the recipes should have an open license that allows display with proper attribution.
-     * @type boolean
-     * @memberof RecipesApigetRandomRecipes
-     */
-    limitLicense?: boolean
-    /**
      * Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @type boolean
      * @memberof RecipesApigetRandomRecipes
@@ -2845,12 +2839,6 @@ export interface RecipesApiGetSimilarRecipesRequest {
      * @memberof RecipesApigetSimilarRecipes
      */
     number?: number
-    /**
-     * Whether the recipes should have an open license that allows display with proper attribution.
-     * @type boolean
-     * @memberof RecipesApigetSimilarRecipes
-     */
-    limitLicense?: boolean
 }
 
 export interface RecipesApiGuessNutritionByDishNameRequest {
@@ -3580,12 +3568,6 @@ export interface RecipesApiSearchRecipesRequest {
      * @memberof RecipesApisearchRecipes
      */
     number?: number
-    /**
-     * Whether the recipes should have an open license that allows display with proper attribution.
-     * @type boolean
-     * @memberof RecipesApisearchRecipes
-     */
-    limitLicense?: boolean
 }
 
 export interface RecipesApiSearchRecipesByIngredientsRequest {
@@ -3601,12 +3583,6 @@ export interface RecipesApiSearchRecipesByIngredientsRequest {
      * @memberof RecipesApisearchRecipesByIngredients
      */
     number?: number
-    /**
-     * Whether the recipes should have an open license that allows display with proper attribution.
-     * @type boolean
-     * @memberof RecipesApisearchRecipesByIngredients
-     */
-    limitLicense?: boolean
     /**
      * Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @type number
@@ -4072,12 +4048,6 @@ export interface RecipesApiSearchRecipesByNutrientsRequest {
      * @memberof RecipesApisearchRecipesByNutrients
      */
     random?: boolean
-    /**
-     * Whether the recipes should have an open license that allows display with proper attribution.
-     * @type boolean
-     * @memberof RecipesApisearchRecipesByNutrients
-     */
-    limitLicense?: boolean
 }
 
 export interface RecipesApiSummarizeRecipeRequest {
@@ -4495,7 +4465,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public getRandomRecipesWithHttpInfo(param: RecipesApiGetRandomRecipesRequest = {}, options?: Configuration): Promise<HttpInfo<GetRandomRecipes200Response>> {
-        return this.api.getRandomRecipesWithHttpInfo(param.limitLicense, param.includeNutrition, param.includeTags, param.excludeTags, param.number,  options).toPromise();
+        return this.api.getRandomRecipesWithHttpInfo(param.includeNutrition, param.includeTags, param.excludeTags, param.number,  options).toPromise();
     }
 
     /**
@@ -4504,7 +4474,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public getRandomRecipes(param: RecipesApiGetRandomRecipesRequest = {}, options?: Configuration): Promise<GetRandomRecipes200Response> {
-        return this.api.getRandomRecipes(param.limitLicense, param.includeNutrition, param.includeTags, param.excludeTags, param.number,  options).toPromise();
+        return this.api.getRandomRecipes(param.includeNutrition, param.includeTags, param.excludeTags, param.number,  options).toPromise();
     }
 
     /**
@@ -4639,7 +4609,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public getSimilarRecipesWithHttpInfo(param: RecipesApiGetSimilarRecipesRequest, options?: Configuration): Promise<HttpInfo<Set<GetSimilarRecipes200ResponseInner>>> {
-        return this.api.getSimilarRecipesWithHttpInfo(param.id, param.number, param.limitLicense,  options).toPromise();
+        return this.api.getSimilarRecipesWithHttpInfo(param.id, param.number,  options).toPromise();
     }
 
     /**
@@ -4648,7 +4618,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public getSimilarRecipes(param: RecipesApiGetSimilarRecipesRequest, options?: Configuration): Promise<Set<GetSimilarRecipes200ResponseInner>> {
-        return this.api.getSimilarRecipes(param.id, param.number, param.limitLicense,  options).toPromise();
+        return this.api.getSimilarRecipes(param.id, param.number,  options).toPromise();
     }
 
     /**
@@ -4801,7 +4771,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public searchRecipesWithHttpInfo(param: RecipesApiSearchRecipesRequest = {}, options?: Configuration): Promise<HttpInfo<SearchRecipes200Response>> {
-        return this.api.searchRecipesWithHttpInfo(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.minServings, param.maxServings, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.limitLicense,  options).toPromise();
+        return this.api.searchRecipesWithHttpInfo(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.minServings, param.maxServings, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number,  options).toPromise();
     }
 
     /**
@@ -4810,7 +4780,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public searchRecipes(param: RecipesApiSearchRecipesRequest = {}, options?: Configuration): Promise<SearchRecipes200Response> {
-        return this.api.searchRecipes(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.minServings, param.maxServings, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.limitLicense,  options).toPromise();
+        return this.api.searchRecipes(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.minServings, param.maxServings, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number,  options).toPromise();
     }
 
     /**
@@ -4819,7 +4789,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public searchRecipesByIngredientsWithHttpInfo(param: RecipesApiSearchRecipesByIngredientsRequest = {}, options?: Configuration): Promise<HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>> {
-        return this.api.searchRecipesByIngredientsWithHttpInfo(param.ingredients, param.number, param.limitLicense, param.ranking, param.ignorePantry,  options).toPromise();
+        return this.api.searchRecipesByIngredientsWithHttpInfo(param.ingredients, param.number, param.ranking, param.ignorePantry,  options).toPromise();
     }
 
     /**
@@ -4828,7 +4798,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public searchRecipesByIngredients(param: RecipesApiSearchRecipesByIngredientsRequest = {}, options?: Configuration): Promise<Set<SearchRecipesByIngredients200ResponseInner>> {
-        return this.api.searchRecipesByIngredients(param.ingredients, param.number, param.limitLicense, param.ranking, param.ignorePantry,  options).toPromise();
+        return this.api.searchRecipesByIngredients(param.ingredients, param.number, param.ranking, param.ignorePantry,  options).toPromise();
     }
 
     /**
@@ -4837,7 +4807,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public searchRecipesByNutrientsWithHttpInfo(param: RecipesApiSearchRecipesByNutrientsRequest = {}, options?: Configuration): Promise<HttpInfo<Set<SearchRecipesByNutrients200ResponseInner>>> {
-        return this.api.searchRecipesByNutrientsWithHttpInfo(param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.random, param.limitLicense,  options).toPromise();
+        return this.api.searchRecipesByNutrientsWithHttpInfo(param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.random,  options).toPromise();
     }
 
     /**
@@ -4846,7 +4816,7 @@ export class ObjectRecipesApi {
      * @param param the request object
      */
     public searchRecipesByNutrients(param: RecipesApiSearchRecipesByNutrientsRequest = {}, options?: Configuration): Promise<Set<SearchRecipesByNutrients200ResponseInner>> {
-        return this.api.searchRecipesByNutrients(param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.random, param.limitLicense,  options).toPromise();
+        return this.api.searchRecipesByNutrients(param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number, param.random,  options).toPromise();
     }
 
     /**

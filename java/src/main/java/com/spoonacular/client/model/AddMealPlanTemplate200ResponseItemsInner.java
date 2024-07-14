@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * AddMealPlanTemplate200ResponseItemsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class AddMealPlanTemplate200ResponseItemsInner {
   public static final String SERIALIZED_NAME_DAY = "day";
   @SerializedName(SERIALIZED_NAME_DAY)

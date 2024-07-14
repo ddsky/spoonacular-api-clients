@@ -7,7 +7,7 @@
 -type spoonacular_get_recipe_information_200_response_extended_ingredients_inner() ::
     #{ 'aisle' := binary(),
        'amount' := integer(),
-       'consitency' := binary(),
+       'consistency' := binary(),
        'id' := integer(),
        'image' := binary(),
        'measures' => spoonacular_get_recipe_information_200_response_extended_ingredients_inner_measures:spoonacular_get_recipe_information_200_response_extended_ingredients_inner_measures(),
@@ -20,7 +20,7 @@
 
 encode(#{ 'aisle' := Aisle,
           'amount' := Amount,
-          'consitency' := Consitency,
+          'consistency' := Consistency,
           'id' := Id,
           'image' := Image,
           'measures' := Measures,
@@ -32,7 +32,7 @@ encode(#{ 'aisle' := Aisle,
         }) ->
     #{ 'aisle' => Aisle,
        'amount' => Amount,
-       'consitency' => Consitency,
+       'consistency' => Consistency,
        'id' => Id,
        'image' => Image,
        'measures' => Measures,
