@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetShoppingList200ResponseAislesInnerItemsInnerMeasures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
   public static final String SERIALIZED_NAME_ORIGINAL = "original";
   @SerializedName(SERIALIZED_NAME_ORIGINAL)

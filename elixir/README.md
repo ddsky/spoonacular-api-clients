@@ -18,7 +18,7 @@ your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:spoonacular, "~> 1.1"}]
+  [{:spoonacular, "~> 1.1.2"}]
 end
 ```
 

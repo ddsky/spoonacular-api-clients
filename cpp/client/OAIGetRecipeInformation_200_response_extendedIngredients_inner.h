@@ -52,10 +52,10 @@ public:
     bool is_amount_Set() const;
     bool is_amount_Valid() const;
 
-    QString getConsitency() const;
-    void setConsitency(const QString &consitency);
-    bool is_consitency_Set() const;
-    bool is_consitency_Valid() const;
+    QString getConsistency() const;
+    void setConsistency(const QString &consistency);
+    bool is_consistency_Set() const;
+    bool is_consistency_Valid() const;
 
     qint32 getId() const;
     void setId(const qint32 &id);
@@ -111,9 +111,9 @@ private:
     bool m_amount_isSet;
     bool m_amount_isValid;
 
-    QString m_consitency;
-    bool m_consitency_isSet;
-    bool m_consitency_isValid;
+    QString m_consistency;
+    bool m_consistency_isSet;
+    bool m_consistency_isValid;
 
     qint32 m_id;
     bool m_id_isSet;

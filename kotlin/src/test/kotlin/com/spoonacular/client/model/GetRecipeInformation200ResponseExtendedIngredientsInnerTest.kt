@@ -38,10 +38,10 @@ class GetRecipeInformation200ResponseExtendedIngredientsInnerTest : ShouldSpec()
             //modelInstance.amount shouldBe ("TODO")
         }
 
-        // to test the property `consitency`
-        should("test consitency") {
+        // to test the property `consistency`
+        should("test consistency") {
             // uncomment below to test the property
-            //modelInstance.consitency shouldBe ("TODO")
+            //modelInstance.consistency shouldBe ("TODO")
         }
 
         // to test the property `id`

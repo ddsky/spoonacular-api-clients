@@ -56,7 +56,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
      enum class LanguageAutocompleteIngredientSearch(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -481,7 +490,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
      enum class LanguageIngredientSearch(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -649,7 +667,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
      enum class MeasureIngredientsByIDImage(val value: kotlin.String) {
          @Json(name = "us") us("us"),
-         @Json(name = "metric") metric("metric")
+         @Json(name = "metric") metric("metric");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -807,7 +834,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
      enum class LanguageVisualizeIngredients(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -815,7 +851,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
      enum class MeasureVisualizeIngredients(val value: kotlin.String) {
          @Json(name = "us") us("us"),
-         @Json(name = "metric") metric("metric")
+         @Json(name = "metric") metric("metric");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -823,7 +868,16 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
      enum class ViewVisualizeIngredients(val value: kotlin.String) {
          @Json(name = "grid") grid("grid"),
-         @Json(name = "list") list("list")
+         @Json(name = "list") list("list");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**

@@ -638,7 +638,6 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
-  'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   'includeNutrition': false, // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
   'includeTags': "vegetarian,gluten", // String | A comma-separated list of tags that the random recipe(s) must adhere to.
   'excludeTags': "meat,dairy", // String | A comma-separated list of tags that the random recipe(s) must not adhere to.
@@ -658,7 +657,6 @@ apiInstance.getRandomRecipes(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **includeNutrition** | **Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
  **includeTags** | **String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] 
  **excludeTags** | **String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] 
@@ -1069,8 +1067,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 let apiInstance = new SpoonacularApi.RecipesApi();
 let id = 1; // Number | The item's id.
 let opts = {
-  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  'limitLicense': true // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.getSimilarRecipes(id, opts, (error, data, response) => {
   if (error) {
@@ -1088,7 +1085,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The item&#39;s id. | 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
@@ -1661,8 +1657,7 @@ let opts = {
   'minZinc': 0, // Number | The minimum amount of zinc in milligrams the recipe must have.
   'maxZinc': 100, // Number | The maximum amount of zinc in milligrams the recipe can have.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
-  'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  'limitLicense': true // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+  'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
 apiInstance.searchRecipes(opts, (error, data, response) => {
   if (error) {
@@ -1775,7 +1770,6 @@ Name | Type | Description  | Notes
  **maxZinc** | **Number**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
@@ -1814,7 +1808,6 @@ let apiInstance = new SpoonacularApi.RecipesApi();
 let opts = {
   'ingredients': "carrots,tomatoes", // String | A comma-separated list of ingredients that the recipes should contain.
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  'limitLicense': true, // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
   'ranking': 1, // Number | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   'ignorePantry': false // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 };
@@ -1834,7 +1827,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **ranking** | **Number**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
@@ -1947,8 +1939,7 @@ let opts = {
   'maxZinc': 100, // Number | The maximum amount of zinc in milligrams the recipe can have.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  'random': false, // Boolean | If true, every request will give you a random set of recipes within the requested limits.
-  'limitLicense': true // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
+  'random': false // Boolean | If true, every request will give you a random set of recipes within the requested limits.
 };
 apiInstance.searchRecipesByNutrients(opts, (error, data, response) => {
   if (error) {
@@ -2039,7 +2030,6 @@ Name | Type | Description  | Notes
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **random** | **Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 

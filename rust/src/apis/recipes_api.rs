@@ -843,7 +843,7 @@ pub async fn get_analyzed_recipe_instructions(configuration: &configuration::Con
 }
 
 /// Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
-pub async fn get_random_recipes(configuration: &configuration::Configuration, limit_license: Option<bool>, include_nutrition: Option<bool>, include_tags: Option<&str>, exclude_tags: Option<&str>, number: Option<i32>) -> Result<models::GetRandomRecipes200Response, Error<GetRandomRecipesError>> {
+pub async fn get_random_recipes(configuration: &configuration::Configuration, include_nutrition: Option<bool>, include_tags: Option<&str>, exclude_tags: Option<&str>, number: Option<i32>) -> Result<models::GetRandomRecipes200Response, Error<GetRandomRecipesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -851,9 +851,6 @@ pub async fn get_random_recipes(configuration: &configuration::Configuration, li
     let local_var_uri_str = format!("{}/recipes/random", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = limit_license {
-        local_var_req_builder = local_var_req_builder.query(&[("limitLicense", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = include_nutrition {
         local_var_req_builder = local_var_req_builder.query(&[("includeNutrition", &local_var_str.to_string())]);
     }
@@ -1156,7 +1153,7 @@ pub async fn get_recipe_taste_by_id(configuration: &configuration::Configuration
 }
 
 /// Find recipes which are similar to the given one.
-pub async fn get_similar_recipes(configuration: &configuration::Configuration, id: i32, number: Option<i32>, limit_license: Option<bool>) -> Result<Vec<models::GetSimilarRecipes200ResponseInner>, Error<GetSimilarRecipesError>> {
+pub async fn get_similar_recipes(configuration: &configuration::Configuration, id: i32, number: Option<i32>) -> Result<Vec<models::GetSimilarRecipes200ResponseInner>, Error<GetSimilarRecipesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1166,9 +1163,6 @@ pub async fn get_similar_recipes(configuration: &configuration::Configuration, i
 
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit_license {
-        local_var_req_builder = local_var_req_builder.query(&[("limitLicense", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1525,7 +1519,7 @@ pub async fn recipe_taste_by_id_image(configuration: &configuration::Configurati
 }
 
 /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-pub async fn search_recipes(configuration: &configuration::Configuration, query: Option<&str>, cuisine: Option<&str>, exclude_cuisine: Option<&str>, diet: Option<&str>, intolerances: Option<&str>, equipment: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, r#type: Option<&str>, instructions_required: Option<bool>, fill_ingredients: Option<bool>, add_recipe_information: Option<bool>, add_recipe_nutrition: Option<bool>, author: Option<&str>, tags: Option<&str>, recipe_box_id: Option<f64>, title_match: Option<&str>, max_ready_time: Option<f64>, min_servings: Option<f64>, max_servings: Option<f64>, ignore_pantry: Option<bool>, sort: Option<&str>, sort_direction: Option<&str>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_calories: Option<f64>, max_calories: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, min_alcohol: Option<f64>, max_alcohol: Option<f64>, min_caffeine: Option<f64>, max_caffeine: Option<f64>, min_copper: Option<f64>, max_copper: Option<f64>, min_calcium: Option<f64>, max_calcium: Option<f64>, min_choline: Option<f64>, max_choline: Option<f64>, min_cholesterol: Option<f64>, max_cholesterol: Option<f64>, min_fluoride: Option<f64>, max_fluoride: Option<f64>, min_saturated_fat: Option<f64>, max_saturated_fat: Option<f64>, min_vitamin_a: Option<f64>, max_vitamin_a: Option<f64>, min_vitamin_c: Option<f64>, max_vitamin_c: Option<f64>, min_vitamin_d: Option<f64>, max_vitamin_d: Option<f64>, min_vitamin_e: Option<f64>, max_vitamin_e: Option<f64>, min_vitamin_k: Option<f64>, max_vitamin_k: Option<f64>, min_vitamin_b1: Option<f64>, max_vitamin_b1: Option<f64>, min_vitamin_b2: Option<f64>, max_vitamin_b2: Option<f64>, min_vitamin_b5: Option<f64>, max_vitamin_b5: Option<f64>, min_vitamin_b3: Option<f64>, max_vitamin_b3: Option<f64>, min_vitamin_b6: Option<f64>, max_vitamin_b6: Option<f64>, min_vitamin_b12: Option<f64>, max_vitamin_b12: Option<f64>, min_fiber: Option<f64>, max_fiber: Option<f64>, min_folate: Option<f64>, max_folate: Option<f64>, min_folic_acid: Option<f64>, max_folic_acid: Option<f64>, min_iodine: Option<f64>, max_iodine: Option<f64>, min_iron: Option<f64>, max_iron: Option<f64>, min_magnesium: Option<f64>, max_magnesium: Option<f64>, min_manganese: Option<f64>, max_manganese: Option<f64>, min_phosphorus: Option<f64>, max_phosphorus: Option<f64>, min_potassium: Option<f64>, max_potassium: Option<f64>, min_selenium: Option<f64>, max_selenium: Option<f64>, min_sodium: Option<f64>, max_sodium: Option<f64>, min_sugar: Option<f64>, max_sugar: Option<f64>, min_zinc: Option<f64>, max_zinc: Option<f64>, offset: Option<i32>, number: Option<i32>, limit_license: Option<bool>) -> Result<models::SearchRecipes200Response, Error<SearchRecipesError>> {
+pub async fn search_recipes(configuration: &configuration::Configuration, query: Option<&str>, cuisine: Option<&str>, exclude_cuisine: Option<&str>, diet: Option<&str>, intolerances: Option<&str>, equipment: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, r#type: Option<&str>, instructions_required: Option<bool>, fill_ingredients: Option<bool>, add_recipe_information: Option<bool>, add_recipe_nutrition: Option<bool>, author: Option<&str>, tags: Option<&str>, recipe_box_id: Option<f64>, title_match: Option<&str>, max_ready_time: Option<f64>, min_servings: Option<f64>, max_servings: Option<f64>, ignore_pantry: Option<bool>, sort: Option<&str>, sort_direction: Option<&str>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_calories: Option<f64>, max_calories: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, min_alcohol: Option<f64>, max_alcohol: Option<f64>, min_caffeine: Option<f64>, max_caffeine: Option<f64>, min_copper: Option<f64>, max_copper: Option<f64>, min_calcium: Option<f64>, max_calcium: Option<f64>, min_choline: Option<f64>, max_choline: Option<f64>, min_cholesterol: Option<f64>, max_cholesterol: Option<f64>, min_fluoride: Option<f64>, max_fluoride: Option<f64>, min_saturated_fat: Option<f64>, max_saturated_fat: Option<f64>, min_vitamin_a: Option<f64>, max_vitamin_a: Option<f64>, min_vitamin_c: Option<f64>, max_vitamin_c: Option<f64>, min_vitamin_d: Option<f64>, max_vitamin_d: Option<f64>, min_vitamin_e: Option<f64>, max_vitamin_e: Option<f64>, min_vitamin_k: Option<f64>, max_vitamin_k: Option<f64>, min_vitamin_b1: Option<f64>, max_vitamin_b1: Option<f64>, min_vitamin_b2: Option<f64>, max_vitamin_b2: Option<f64>, min_vitamin_b5: Option<f64>, max_vitamin_b5: Option<f64>, min_vitamin_b3: Option<f64>, max_vitamin_b3: Option<f64>, min_vitamin_b6: Option<f64>, max_vitamin_b6: Option<f64>, min_vitamin_b12: Option<f64>, max_vitamin_b12: Option<f64>, min_fiber: Option<f64>, max_fiber: Option<f64>, min_folate: Option<f64>, max_folate: Option<f64>, min_folic_acid: Option<f64>, max_folic_acid: Option<f64>, min_iodine: Option<f64>, max_iodine: Option<f64>, min_iron: Option<f64>, max_iron: Option<f64>, min_magnesium: Option<f64>, max_magnesium: Option<f64>, min_manganese: Option<f64>, max_manganese: Option<f64>, min_phosphorus: Option<f64>, max_phosphorus: Option<f64>, min_potassium: Option<f64>, max_potassium: Option<f64>, min_selenium: Option<f64>, max_selenium: Option<f64>, min_sodium: Option<f64>, max_sodium: Option<f64>, min_sugar: Option<f64>, max_sugar: Option<f64>, min_zinc: Option<f64>, max_zinc: Option<f64>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchRecipes200Response, Error<SearchRecipesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1824,9 +1818,6 @@ pub async fn search_recipes(configuration: &configuration::Configuration, query:
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_str) = limit_license {
-        local_var_req_builder = local_var_req_builder.query(&[("limitLicense", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -1855,7 +1846,7 @@ pub async fn search_recipes(configuration: &configuration::Configuration, query:
 }
 
 ///  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
-pub async fn search_recipes_by_ingredients(configuration: &configuration::Configuration, ingredients: Option<&str>, number: Option<i32>, limit_license: Option<bool>, ranking: Option<f64>, ignore_pantry: Option<bool>) -> Result<Vec<models::SearchRecipesByIngredients200ResponseInner>, Error<SearchRecipesByIngredientsError>> {
+pub async fn search_recipes_by_ingredients(configuration: &configuration::Configuration, ingredients: Option<&str>, number: Option<i32>, ranking: Option<f64>, ignore_pantry: Option<bool>) -> Result<Vec<models::SearchRecipesByIngredients200ResponseInner>, Error<SearchRecipesByIngredientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1868,9 +1859,6 @@ pub async fn search_recipes_by_ingredients(configuration: &configuration::Config
     }
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit_license {
-        local_var_req_builder = local_var_req_builder.query(&[("limitLicense", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = ranking {
         local_var_req_builder = local_var_req_builder.query(&[("ranking", &local_var_str.to_string())]);
@@ -1906,7 +1894,7 @@ pub async fn search_recipes_by_ingredients(configuration: &configuration::Config
 }
 
 /// Find a set of recipes that adhere to the given nutritional limits. You may set limits for macronutrients (calories, protein, fat, and carbohydrate) and/or many micronutrients.
-pub async fn search_recipes_by_nutrients(configuration: &configuration::Configuration, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_calories: Option<f64>, max_calories: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, min_alcohol: Option<f64>, max_alcohol: Option<f64>, min_caffeine: Option<f64>, max_caffeine: Option<f64>, min_copper: Option<f64>, max_copper: Option<f64>, min_calcium: Option<f64>, max_calcium: Option<f64>, min_choline: Option<f64>, max_choline: Option<f64>, min_cholesterol: Option<f64>, max_cholesterol: Option<f64>, min_fluoride: Option<f64>, max_fluoride: Option<f64>, min_saturated_fat: Option<f64>, max_saturated_fat: Option<f64>, min_vitamin_a: Option<f64>, max_vitamin_a: Option<f64>, min_vitamin_c: Option<f64>, max_vitamin_c: Option<f64>, min_vitamin_d: Option<f64>, max_vitamin_d: Option<f64>, min_vitamin_e: Option<f64>, max_vitamin_e: Option<f64>, min_vitamin_k: Option<f64>, max_vitamin_k: Option<f64>, min_vitamin_b1: Option<f64>, max_vitamin_b1: Option<f64>, min_vitamin_b2: Option<f64>, max_vitamin_b2: Option<f64>, min_vitamin_b5: Option<f64>, max_vitamin_b5: Option<f64>, min_vitamin_b3: Option<f64>, max_vitamin_b3: Option<f64>, min_vitamin_b6: Option<f64>, max_vitamin_b6: Option<f64>, min_vitamin_b12: Option<f64>, max_vitamin_b12: Option<f64>, min_fiber: Option<f64>, max_fiber: Option<f64>, min_folate: Option<f64>, max_folate: Option<f64>, min_folic_acid: Option<f64>, max_folic_acid: Option<f64>, min_iodine: Option<f64>, max_iodine: Option<f64>, min_iron: Option<f64>, max_iron: Option<f64>, min_magnesium: Option<f64>, max_magnesium: Option<f64>, min_manganese: Option<f64>, max_manganese: Option<f64>, min_phosphorus: Option<f64>, max_phosphorus: Option<f64>, min_potassium: Option<f64>, max_potassium: Option<f64>, min_selenium: Option<f64>, max_selenium: Option<f64>, min_sodium: Option<f64>, max_sodium: Option<f64>, min_sugar: Option<f64>, max_sugar: Option<f64>, min_zinc: Option<f64>, max_zinc: Option<f64>, offset: Option<i32>, number: Option<i32>, random: Option<bool>, limit_license: Option<bool>) -> Result<Vec<models::SearchRecipesByNutrients200ResponseInner>, Error<SearchRecipesByNutrientsError>> {
+pub async fn search_recipes_by_nutrients(configuration: &configuration::Configuration, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_calories: Option<f64>, max_calories: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, min_alcohol: Option<f64>, max_alcohol: Option<f64>, min_caffeine: Option<f64>, max_caffeine: Option<f64>, min_copper: Option<f64>, max_copper: Option<f64>, min_calcium: Option<f64>, max_calcium: Option<f64>, min_choline: Option<f64>, max_choline: Option<f64>, min_cholesterol: Option<f64>, max_cholesterol: Option<f64>, min_fluoride: Option<f64>, max_fluoride: Option<f64>, min_saturated_fat: Option<f64>, max_saturated_fat: Option<f64>, min_vitamin_a: Option<f64>, max_vitamin_a: Option<f64>, min_vitamin_c: Option<f64>, max_vitamin_c: Option<f64>, min_vitamin_d: Option<f64>, max_vitamin_d: Option<f64>, min_vitamin_e: Option<f64>, max_vitamin_e: Option<f64>, min_vitamin_k: Option<f64>, max_vitamin_k: Option<f64>, min_vitamin_b1: Option<f64>, max_vitamin_b1: Option<f64>, min_vitamin_b2: Option<f64>, max_vitamin_b2: Option<f64>, min_vitamin_b5: Option<f64>, max_vitamin_b5: Option<f64>, min_vitamin_b3: Option<f64>, max_vitamin_b3: Option<f64>, min_vitamin_b6: Option<f64>, max_vitamin_b6: Option<f64>, min_vitamin_b12: Option<f64>, max_vitamin_b12: Option<f64>, min_fiber: Option<f64>, max_fiber: Option<f64>, min_folate: Option<f64>, max_folate: Option<f64>, min_folic_acid: Option<f64>, max_folic_acid: Option<f64>, min_iodine: Option<f64>, max_iodine: Option<f64>, min_iron: Option<f64>, max_iron: Option<f64>, min_magnesium: Option<f64>, max_magnesium: Option<f64>, min_manganese: Option<f64>, max_manganese: Option<f64>, min_phosphorus: Option<f64>, max_phosphorus: Option<f64>, min_potassium: Option<f64>, max_potassium: Option<f64>, min_selenium: Option<f64>, max_selenium: Option<f64>, min_sodium: Option<f64>, max_sodium: Option<f64>, min_sugar: Option<f64>, max_sugar: Option<f64>, min_zinc: Option<f64>, max_zinc: Option<f64>, offset: Option<i32>, number: Option<i32>, random: Option<bool>) -> Result<Vec<models::SearchRecipesByNutrients200ResponseInner>, Error<SearchRecipesByNutrientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2138,9 +2126,6 @@ pub async fn search_recipes_by_nutrients(configuration: &configuration::Configur
     }
     if let Some(ref local_var_str) = random {
         local_var_req_builder = local_var_req_builder.query(&[("random", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit_license {
-        local_var_req_builder = local_var_req_builder.query(&[("limitLicense", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

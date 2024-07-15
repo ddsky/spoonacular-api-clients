@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
 
 ## getRandomRecipes
 
-> GetRandomRecipes200Response getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number)
+> GetRandomRecipes200Response getRandomRecipes(includeNutrition, includeTags, excludeTags, number)
 
 Get Random Recipes
 
@@ -570,13 +570,12 @@ Find random (popular) recipes. If you need to filter recipes by diet, nutrition 
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 String includeTags = vegetarian,gluten; // String | A comma-separated list of tags that the random recipe(s) must adhere to.
 String excludeTags = meat,dairy; // String | A comma-separated list of tags that the random recipe(s) must not adhere to.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    GetRandomRecipes200Response result = apiInstance.getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number);
+    GetRandomRecipes200Response result = apiInstance.getRandomRecipes(includeNutrition, includeTags, excludeTags, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRandomRecipes");
@@ -589,7 +588,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **includeNutrition** | **Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
  **includeTags** | **String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] [default to null]
  **excludeTags** | **String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] [default to null]
@@ -939,7 +937,7 @@ Name | Type | Description  | Notes
 
 ## getSimilarRecipes
 
-> Set&lt;GetSimilarRecipes200ResponseInner&gt; getSimilarRecipes(id, number, limitLicense)
+> Set&lt;GetSimilarRecipes200ResponseInner&gt; getSimilarRecipes(id, number)
 
 Get Similar Recipes
 
@@ -954,9 +952,8 @@ Find recipes which are similar to the given one.
 RecipesApi apiInstance = new RecipesApi();
 Integer id = 1; // Integer | The item's id.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    Set<GetSimilarRecipes200ResponseInner> result = apiInstance.getSimilarRecipes(id, number, limitLicense);
+    Set<GetSimilarRecipes200ResponseInner> result = apiInstance.getSimilarRecipes(id, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getSimilarRecipes");
@@ -971,7 +968,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The item&#39;s id. | [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
@@ -1381,7 +1377,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipes
 
-> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number)
 
 Search Recipes
 
@@ -1491,9 +1487,8 @@ BigDecimal minZinc = 0; // BigDecimal | The minimum amount of zinc in milligrams
 BigDecimal maxZinc = 100; // BigDecimal | The maximum amount of zinc in milligrams the recipe can have.
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    SearchRecipes200Response result = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    SearchRecipes200Response result = apiInstance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#searchRecipes");
@@ -1603,7 +1598,6 @@ Name | Type | Description  | Notes
  **maxZinc** | **BigDecimal**| The maximum amount of zinc in milligrams the recipe can have. | [optional] [default to null]
  **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
@@ -1621,7 +1615,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByIngredients
 
-> Set&lt;SearchRecipesByIngredients200ResponseInner&gt; searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
+> Set&lt;SearchRecipesByIngredients200ResponseInner&gt; searchRecipesByIngredients(ingredients, number, ranking, ignorePantry)
 
 Search Recipes by Ingredients
 
@@ -1636,11 +1630,10 @@ Search Recipes by Ingredients
 RecipesApi apiInstance = new RecipesApi();
 String ingredients = carrots,tomatoes; // String | A comma-separated list of ingredients that the recipes should contain.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 BigDecimal ranking = 1; // BigDecimal | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 Boolean ignorePantry = false; // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 try {
-    Set<SearchRecipesByIngredients200ResponseInner> result = apiInstance.searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
+    Set<SearchRecipesByIngredients200ResponseInner> result = apiInstance.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#searchRecipesByIngredients");
@@ -1655,7 +1648,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **ranking** | **BigDecimal**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] [default to null]
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
@@ -1675,7 +1667,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByNutrients
 
-> Set&lt;SearchRecipesByNutrients200ResponseInner&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
+> Set&lt;SearchRecipesByNutrients200ResponseInner&gt; searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random)
 
 Search Recipes by Nutrients
 
@@ -1763,9 +1755,8 @@ BigDecimal maxZinc = 100; // BigDecimal | The maximum amount of zinc in milligra
 Integer offset = null; // Integer | The number of results to skip (between 0 and 900).
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 Boolean random = false; // Boolean | If true, every request will give you a random set of recipes within the requested limits.
-Boolean limitLicense = true; // Boolean | Whether the recipes should have an open license that allows display with proper attribution.
 try {
-    Set<SearchRecipesByNutrients200ResponseInner> result = apiInstance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+    Set<SearchRecipesByNutrients200ResponseInner> result = apiInstance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#searchRecipesByNutrients");
@@ -1853,7 +1844,6 @@ Name | Type | Description  | Notes
  **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **random** | **Boolean**| If true, every request will give you a random set of recipes within the requested limits. | [optional] [default to null]
- **limitLicense** | **Boolean**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 

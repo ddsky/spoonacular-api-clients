@@ -40,8 +40,8 @@ void OAIGetRecipeInformation_200_response_extendedIngredients_inner::initializeM
     m_amount_isSet = false;
     m_amount_isValid = false;
 
-    m_consitency_isSet = false;
-    m_consitency_isValid = false;
+    m_consistency_isSet = false;
+    m_consistency_isValid = false;
 
     m_id_isSet = false;
     m_id_isValid = false;
@@ -83,8 +83,8 @@ void OAIGetRecipeInformation_200_response_extendedIngredients_inner::fromJsonObj
     m_amount_isValid = ::OpenAPI::fromJsonValue(m_amount, json[QString("amount")]);
     m_amount_isSet = !json[QString("amount")].isNull() && m_amount_isValid;
 
-    m_consitency_isValid = ::OpenAPI::fromJsonValue(m_consitency, json[QString("consitency")]);
-    m_consitency_isSet = !json[QString("consitency")].isNull() && m_consitency_isValid;
+    m_consistency_isValid = ::OpenAPI::fromJsonValue(m_consistency, json[QString("consistency")]);
+    m_consistency_isSet = !json[QString("consistency")].isNull() && m_consistency_isValid;
 
     m_id_isValid = ::OpenAPI::fromJsonValue(m_id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
@@ -126,8 +126,8 @@ QJsonObject OAIGetRecipeInformation_200_response_extendedIngredients_inner::asJs
     if (m_amount_isSet) {
         obj.insert(QString("amount"), ::OpenAPI::toJsonValue(m_amount));
     }
-    if (m_consitency_isSet) {
-        obj.insert(QString("consitency"), ::OpenAPI::toJsonValue(m_consitency));
+    if (m_consistency_isSet) {
+        obj.insert(QString("consistency"), ::OpenAPI::toJsonValue(m_consistency));
     }
     if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(m_id));
@@ -188,20 +188,20 @@ bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::is_amount_V
     return m_amount_isValid;
 }
 
-QString OAIGetRecipeInformation_200_response_extendedIngredients_inner::getConsitency() const {
-    return m_consitency;
+QString OAIGetRecipeInformation_200_response_extendedIngredients_inner::getConsistency() const {
+    return m_consistency;
 }
-void OAIGetRecipeInformation_200_response_extendedIngredients_inner::setConsitency(const QString &consitency) {
-    m_consitency = consitency;
-    m_consitency_isSet = true;
-}
-
-bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::is_consitency_Set() const{
-    return m_consitency_isSet;
+void OAIGetRecipeInformation_200_response_extendedIngredients_inner::setConsistency(const QString &consistency) {
+    m_consistency = consistency;
+    m_consistency_isSet = true;
 }
 
-bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::is_consitency_Valid() const{
-    return m_consitency_isValid;
+bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::is_consistency_Set() const{
+    return m_consistency_isSet;
+}
+
+bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::is_consistency_Valid() const{
+    return m_consistency_isValid;
 }
 
 qint32 OAIGetRecipeInformation_200_response_extendedIngredients_inner::getId() const {
@@ -345,7 +345,7 @@ bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::isSet() con
             break;
         }
 
-        if (m_consitency_isSet) {
+        if (m_consistency_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -395,7 +395,7 @@ bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::isSet() con
 
 bool OAIGetRecipeInformation_200_response_extendedIngredients_inner::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_aisle_isValid && m_amount_isValid && m_consitency_isValid && m_id_isValid && m_image_isValid && m_name_isValid && m_original_isValid && m_original_name_isValid && m_unit_isValid && true;
+    return m_aisle_isValid && m_amount_isValid && m_consistency_isValid && m_id_isValid && m_image_isValid && m_name_isValid && m_original_isValid && m_original_name_isValid && m_unit_isValid && true;
 }
 
 } // namespace OpenAPI

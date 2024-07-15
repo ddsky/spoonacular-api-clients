@@ -418,11 +418,6 @@ getRandomRecipes =
 
 data GetRandomRecipes  
 
--- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
-instance HasOptionalParam GetRandomRecipes LimitLicense where
-  applyOptionalParam req (LimitLicense xs) =
-    req `addQuery` toQuery ("limitLicense", Just xs)
-
 -- | /Optional Param/ "includeNutrition" - Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 instance HasOptionalParam GetRandomRecipes IncludeNutrition where
   applyOptionalParam req (IncludeNutrition xs) =
@@ -639,11 +634,6 @@ data GetSimilarRecipes
 instance HasOptionalParam GetSimilarRecipes Number where
   applyOptionalParam req (Number xs) =
     req `addQuery` toQuery ("number", Just xs)
-
--- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
-instance HasOptionalParam GetSimilarRecipes LimitLicense where
-  applyOptionalParam req (LimitLicense xs) =
-    req `addQuery` toQuery ("limitLicense", Just xs)
 -- | @application/json@
 instance Produces GetSimilarRecipes MimeJSON
 
@@ -1389,11 +1379,6 @@ instance HasOptionalParam SearchRecipes Offset where
 instance HasOptionalParam SearchRecipes Number where
   applyOptionalParam req (Number xs) =
     req `addQuery` toQuery ("number", Just xs)
-
--- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
-instance HasOptionalParam SearchRecipes LimitLicense where
-  applyOptionalParam req (LimitLicense xs) =
-    req `addQuery` toQuery ("limitLicense", Just xs)
 -- | @application/json@
 instance Produces SearchRecipes MimeJSON
 
@@ -1425,11 +1410,6 @@ instance HasOptionalParam SearchRecipesByIngredients Ingredients where
 instance HasOptionalParam SearchRecipesByIngredients Number where
   applyOptionalParam req (Number xs) =
     req `addQuery` toQuery ("number", Just xs)
-
--- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
-instance HasOptionalParam SearchRecipesByIngredients LimitLicense where
-  applyOptionalParam req (LimitLicense xs) =
-    req `addQuery` toQuery ("limitLicense", Just xs)
 
 -- | /Optional Param/ "ranking" - Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 instance HasOptionalParam SearchRecipesByIngredients Ranking where
@@ -1836,11 +1816,6 @@ instance HasOptionalParam SearchRecipesByNutrients Number where
 instance HasOptionalParam SearchRecipesByNutrients Random where
   applyOptionalParam req (Random xs) =
     req `addQuery` toQuery ("random", Just xs)
-
--- | /Optional Param/ "limitLicense" - Whether the recipes should have an open license that allows display with proper attribution.
-instance HasOptionalParam SearchRecipesByNutrients LimitLicense where
-  applyOptionalParam req (LimitLicense xs) =
-    req `addQuery` toQuery ("limitLicense", Just xs)
 -- | @application/json@
 instance Produces SearchRecipesByNutrients MimeJSON
 

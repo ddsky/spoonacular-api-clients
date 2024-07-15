@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **aisle** | **String** |  |  |
 | **amount** | **Float** |  |  |
-| **consitency** | **String** |  |  |
+| **consistency** | **String** |  |  |
 | **id** | **Integer** |  |  |
 | **image** | **String** |  |  |
 | **measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional] |
@@ -24,7 +24,7 @@ require 'openapi_client'
 instance = OpenapiClient::GetRecipeInformation200ResponseExtendedIngredientsInner.new(
   aisle: null,
   amount: null,
-  consitency: null,
+  consistency: null,
   id: null,
   image: null,
   measures: null,

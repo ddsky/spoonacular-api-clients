@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric {
   public static final String SERIALIZED_NAME_UNIT = "unit";
   @SerializedName(SERIALIZED_NAME_UNIT)

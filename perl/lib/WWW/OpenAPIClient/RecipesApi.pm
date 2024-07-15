@@ -1017,18 +1017,12 @@ sub get_analyzed_recipe_instructions {
 #
 # Get Random Recipes
 #
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
 # @param boolean $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
 # @param string $include_tags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
 # @param string $exclude_tags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 {
     my $params = {
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
-        required => '0',
-    },
     'include_nutrition' => {
         data_type => 'boolean',
         description => 'Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.',
@@ -1075,11 +1069,6 @@ sub get_random_recipes {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
-    }
 
     # query params
     if ( exists $args{'include_nutrition'}) {
@@ -1623,7 +1612,6 @@ sub get_recipe_taste_by_id {
 #
 # @param int $id The item&#39;s id. (required)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
 {
     my $params = {
     'id' => {
@@ -1634,11 +1622,6 @@ sub get_recipe_taste_by_id {
     'number' => {
         data_type => 'int',
         description => 'The maximum number of items to return (between 1 and 100). Defaults to 10.',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     };
@@ -1676,11 +1659,6 @@ sub get_similar_recipes {
     # query params
     if ( exists $args{'number'}) {
         $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
-    }
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
     }
 
     # path params
@@ -2474,7 +2452,6 @@ sub recipe_taste_by_id_image {
 # @param double $max_zinc The maximum amount of zinc in milligrams the recipe can have. (optional)
 # @param int $offset The number of results to skip (between 0 and 900). (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
 {
     my $params = {
     'query' => {
@@ -2960,11 +2937,6 @@ sub recipe_taste_by_id_image {
     'number' => {
         data_type => 'int',
         description => 'The maximum number of items to return (between 1 and 100). Defaults to 10.',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     };
@@ -3479,11 +3451,6 @@ sub search_recipes {
         $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
     }
 
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw(apiKeyScheme )];
@@ -3506,7 +3473,6 @@ sub search_recipes {
 #
 # @param string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
 # @param double $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
 # @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
 {
@@ -3519,11 +3485,6 @@ sub search_recipes {
     'number' => {
         data_type => 'int',
         description => 'The maximum number of items to return (between 1 and 100). Defaults to 10.',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     'ranking' => {
@@ -3571,11 +3532,6 @@ sub search_recipes_by_ingredients {
     # query params
     if ( exists $args{'number'}) {
         $query_params->{'number'} = $self->{api_client}->to_query_value($args{'number'});
-    }
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
     }
 
     # query params
@@ -3683,7 +3639,6 @@ sub search_recipes_by_ingredients {
 # @param int $offset The number of results to skip (between 0 and 900). (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 # @param boolean $random If true, every request will give you a random set of recipes within the requested limits. (optional)
-# @param boolean $limit_license Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
 {
     my $params = {
     'min_carbs' => {
@@ -4059,11 +4014,6 @@ sub search_recipes_by_ingredients {
     'random' => {
         data_type => 'boolean',
         description => 'If true, every request will give you a random set of recipes within the requested limits.',
-        required => '0',
-    },
-    'limit_license' => {
-        data_type => 'boolean',
-        description => 'Whether the recipes should have an open license that allows display with proper attribution.',
         required => '0',
     },
     };
@@ -4466,11 +4416,6 @@ sub search_recipes_by_nutrients {
     # query params
     if ( exists $args{'random'}) {
         $query_params->{'random'} = $self->{api_client}->to_query_value($args{'random'});
-    }
-
-    # query params
-    if ( exists $args{'limit_license'}) {
-        $query_params->{'limitLicense'} = $self->{api_client}->to_query_value($args{'limit_license'});
     }
 
     my $_body_data;

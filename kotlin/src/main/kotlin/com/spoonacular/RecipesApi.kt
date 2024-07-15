@@ -302,7 +302,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class LanguageClassifyCuisine(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -394,7 +403,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class LanguageComputeGlycemicLoad(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -572,7 +590,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
          @Json(name = "starMask") starMask("starMask"),
          @Json(name = "heartMask") heartMask("heartMask"),
          @Json(name = "potMask") potMask("potMask"),
-         @Json(name = "fishMask") fishMask("fishMask")
+         @Json(name = "fishMask") fishMask("fishMask");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -581,7 +608,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      enum class BackgroundImageCreateRecipeCard(val value: kotlin.String) {
          @Json(name = "none") none("none"),
          @Json(name = "background1") background1("background1"),
-         @Json(name = "background2") background2("background2")
+         @Json(name = "background2") background2("background2");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -954,7 +990,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Random Recipes
      * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
      * @param excludeTags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
@@ -968,8 +1003,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRandomRecipes(limitLicense: kotlin.Boolean? = true, includeNutrition: kotlin.Boolean? = false, includeTags: kotlin.String? = null, excludeTags: kotlin.String? = null, number: kotlin.Int? = 10) : GetRandomRecipes200Response {
-        val localVarResponse = getRandomRecipesWithHttpInfo(limitLicense = limitLicense, includeNutrition = includeNutrition, includeTags = includeTags, excludeTags = excludeTags, number = number)
+    fun getRandomRecipes(includeNutrition: kotlin.Boolean? = false, includeTags: kotlin.String? = null, excludeTags: kotlin.String? = null, number: kotlin.Int? = 10) : GetRandomRecipes200Response {
+        val localVarResponse = getRandomRecipesWithHttpInfo(includeNutrition = includeNutrition, includeTags = includeTags, excludeTags = excludeTags, number = number)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GetRandomRecipes200Response
@@ -989,7 +1024,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Random Recipes
      * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
      * @param excludeTags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
@@ -1000,8 +1034,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRandomRecipesWithHttpInfo(limitLicense: kotlin.Boolean?, includeNutrition: kotlin.Boolean?, includeTags: kotlin.String?, excludeTags: kotlin.String?, number: kotlin.Int?) : ApiResponse<GetRandomRecipes200Response?> {
-        val localVariableConfig = getRandomRecipesRequestConfig(limitLicense = limitLicense, includeNutrition = includeNutrition, includeTags = includeTags, excludeTags = excludeTags, number = number)
+    fun getRandomRecipesWithHttpInfo(includeNutrition: kotlin.Boolean?, includeTags: kotlin.String?, excludeTags: kotlin.String?, number: kotlin.Int?) : ApiResponse<GetRandomRecipes200Response?> {
+        val localVariableConfig = getRandomRecipesRequestConfig(includeNutrition = includeNutrition, includeTags = includeTags, excludeTags = excludeTags, number = number)
 
         return request<Unit, GetRandomRecipes200Response>(
             localVariableConfig
@@ -1011,20 +1045,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRandomRecipes
      *
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTags A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
      * @param excludeTags A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun getRandomRecipesRequestConfig(limitLicense: kotlin.Boolean?, includeNutrition: kotlin.Boolean?, includeTags: kotlin.String?, excludeTags: kotlin.String?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun getRandomRecipesRequestConfig(includeNutrition: kotlin.Boolean?, includeTags: kotlin.String?, excludeTags: kotlin.String?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (limitLicense != null) {
-                    put("limitLicense", listOf(limitLicense.toString()))
-                }
                 if (includeNutrition != null) {
                     put("includeNutrition", listOf(includeNutrition.toString()))
                 }
@@ -1578,7 +1608,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Find recipes which are similar to the given one.
      * @param id The item&#39;s id.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return kotlin.collections.Set<GetSimilarRecipes200ResponseInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1588,8 +1617,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSimilarRecipes(id: kotlin.Int, number: kotlin.Int? = 10, limitLicense: kotlin.Boolean? = true) : kotlin.collections.Set<GetSimilarRecipes200ResponseInner> {
-        val localVarResponse = getSimilarRecipesWithHttpInfo(id = id, number = number, limitLicense = limitLicense)
+    fun getSimilarRecipes(id: kotlin.Int, number: kotlin.Int? = 10) : kotlin.collections.Set<GetSimilarRecipes200ResponseInner> {
+        val localVarResponse = getSimilarRecipesWithHttpInfo(id = id, number = number)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<GetSimilarRecipes200ResponseInner>
@@ -1611,15 +1640,14 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Find recipes which are similar to the given one.
      * @param id The item&#39;s id.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return ApiResponse<kotlin.collections.Set<GetSimilarRecipes200ResponseInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSimilarRecipesWithHttpInfo(id: kotlin.Int, number: kotlin.Int?, limitLicense: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<GetSimilarRecipes200ResponseInner>?> {
-        val localVariableConfig = getSimilarRecipesRequestConfig(id = id, number = number, limitLicense = limitLicense)
+    fun getSimilarRecipesWithHttpInfo(id: kotlin.Int, number: kotlin.Int?) : ApiResponse<kotlin.collections.Set<GetSimilarRecipes200ResponseInner>?> {
+        val localVariableConfig = getSimilarRecipesRequestConfig(id = id, number = number)
 
         return request<Unit, kotlin.collections.Set<GetSimilarRecipes200ResponseInner>>(
             localVariableConfig
@@ -1631,18 +1659,14 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      *
      * @param id The item&#39;s id.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return RequestConfig
      */
-    fun getSimilarRecipesRequestConfig(id: kotlin.Int, number: kotlin.Int?, limitLicense: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getSimilarRecipesRequestConfig(id: kotlin.Int, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (number != null) {
                     put("number", listOf(number.toString()))
-                }
-                if (limitLicense != null) {
-                    put("limitLicense", listOf(limitLicense.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -1737,7 +1761,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class LanguageParseIngredients(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -2412,7 +2445,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return SearchRecipes200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2422,8 +2454,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipes(query: kotlin.String? = null, cuisine: kotlin.String? = null, excludeCuisine: kotlin.String? = null, diet: kotlin.String? = null, intolerances: kotlin.String? = null, equipment: kotlin.String? = null, includeIngredients: kotlin.String? = null, excludeIngredients: kotlin.String? = null, type: kotlin.String? = null, instructionsRequired: kotlin.Boolean? = null, fillIngredients: kotlin.Boolean? = null, addRecipeInformation: kotlin.Boolean? = null, addRecipeNutrition: kotlin.Boolean? = null, author: kotlin.String? = null, tags: kotlin.String? = null, recipeBoxId: java.math.BigDecimal? = null, titleMatch: kotlin.String? = null, maxReadyTime: java.math.BigDecimal? = null, minServings: java.math.BigDecimal? = null, maxServings: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false, sort: kotlin.String? = null, sortDirection: kotlin.String? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, minAlcohol: java.math.BigDecimal? = null, maxAlcohol: java.math.BigDecimal? = null, minCaffeine: java.math.BigDecimal? = null, maxCaffeine: java.math.BigDecimal? = null, minCopper: java.math.BigDecimal? = null, maxCopper: java.math.BigDecimal? = null, minCalcium: java.math.BigDecimal? = null, maxCalcium: java.math.BigDecimal? = null, minCholine: java.math.BigDecimal? = null, maxCholine: java.math.BigDecimal? = null, minCholesterol: java.math.BigDecimal? = null, maxCholesterol: java.math.BigDecimal? = null, minFluoride: java.math.BigDecimal? = null, maxFluoride: java.math.BigDecimal? = null, minSaturatedFat: java.math.BigDecimal? = null, maxSaturatedFat: java.math.BigDecimal? = null, minVitaminA: java.math.BigDecimal? = null, maxVitaminA: java.math.BigDecimal? = null, minVitaminC: java.math.BigDecimal? = null, maxVitaminC: java.math.BigDecimal? = null, minVitaminD: java.math.BigDecimal? = null, maxVitaminD: java.math.BigDecimal? = null, minVitaminE: java.math.BigDecimal? = null, maxVitaminE: java.math.BigDecimal? = null, minVitaminK: java.math.BigDecimal? = null, maxVitaminK: java.math.BigDecimal? = null, minVitaminB1: java.math.BigDecimal? = null, maxVitaminB1: java.math.BigDecimal? = null, minVitaminB2: java.math.BigDecimal? = null, maxVitaminB2: java.math.BigDecimal? = null, minVitaminB5: java.math.BigDecimal? = null, maxVitaminB5: java.math.BigDecimal? = null, minVitaminB3: java.math.BigDecimal? = null, maxVitaminB3: java.math.BigDecimal? = null, minVitaminB6: java.math.BigDecimal? = null, maxVitaminB6: java.math.BigDecimal? = null, minVitaminB12: java.math.BigDecimal? = null, maxVitaminB12: java.math.BigDecimal? = null, minFiber: java.math.BigDecimal? = null, maxFiber: java.math.BigDecimal? = null, minFolate: java.math.BigDecimal? = null, maxFolate: java.math.BigDecimal? = null, minFolicAcid: java.math.BigDecimal? = null, maxFolicAcid: java.math.BigDecimal? = null, minIodine: java.math.BigDecimal? = null, maxIodine: java.math.BigDecimal? = null, minIron: java.math.BigDecimal? = null, maxIron: java.math.BigDecimal? = null, minMagnesium: java.math.BigDecimal? = null, maxMagnesium: java.math.BigDecimal? = null, minManganese: java.math.BigDecimal? = null, maxManganese: java.math.BigDecimal? = null, minPhosphorus: java.math.BigDecimal? = null, maxPhosphorus: java.math.BigDecimal? = null, minPotassium: java.math.BigDecimal? = null, maxPotassium: java.math.BigDecimal? = null, minSelenium: java.math.BigDecimal? = null, maxSelenium: java.math.BigDecimal? = null, minSodium: java.math.BigDecimal? = null, maxSodium: java.math.BigDecimal? = null, minSugar: java.math.BigDecimal? = null, maxSugar: java.math.BigDecimal? = null, minZinc: java.math.BigDecimal? = null, maxZinc: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10, limitLicense: kotlin.Boolean? = true) : SearchRecipes200Response {
-        val localVarResponse = searchRecipesWithHttpInfo(query = query, cuisine = cuisine, excludeCuisine = excludeCuisine, diet = diet, intolerances = intolerances, equipment = equipment, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, type = type, instructionsRequired = instructionsRequired, fillIngredients = fillIngredients, addRecipeInformation = addRecipeInformation, addRecipeNutrition = addRecipeNutrition, author = author, tags = tags, recipeBoxId = recipeBoxId, titleMatch = titleMatch, maxReadyTime = maxReadyTime, minServings = minServings, maxServings = maxServings, ignorePantry = ignorePantry, sort = sort, sortDirection = sortDirection, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number, limitLicense = limitLicense)
+    fun searchRecipes(query: kotlin.String? = null, cuisine: kotlin.String? = null, excludeCuisine: kotlin.String? = null, diet: kotlin.String? = null, intolerances: kotlin.String? = null, equipment: kotlin.String? = null, includeIngredients: kotlin.String? = null, excludeIngredients: kotlin.String? = null, type: kotlin.String? = null, instructionsRequired: kotlin.Boolean? = null, fillIngredients: kotlin.Boolean? = null, addRecipeInformation: kotlin.Boolean? = null, addRecipeNutrition: kotlin.Boolean? = null, author: kotlin.String? = null, tags: kotlin.String? = null, recipeBoxId: java.math.BigDecimal? = null, titleMatch: kotlin.String? = null, maxReadyTime: java.math.BigDecimal? = null, minServings: java.math.BigDecimal? = null, maxServings: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false, sort: kotlin.String? = null, sortDirection: kotlin.String? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, minAlcohol: java.math.BigDecimal? = null, maxAlcohol: java.math.BigDecimal? = null, minCaffeine: java.math.BigDecimal? = null, maxCaffeine: java.math.BigDecimal? = null, minCopper: java.math.BigDecimal? = null, maxCopper: java.math.BigDecimal? = null, minCalcium: java.math.BigDecimal? = null, maxCalcium: java.math.BigDecimal? = null, minCholine: java.math.BigDecimal? = null, maxCholine: java.math.BigDecimal? = null, minCholesterol: java.math.BigDecimal? = null, maxCholesterol: java.math.BigDecimal? = null, minFluoride: java.math.BigDecimal? = null, maxFluoride: java.math.BigDecimal? = null, minSaturatedFat: java.math.BigDecimal? = null, maxSaturatedFat: java.math.BigDecimal? = null, minVitaminA: java.math.BigDecimal? = null, maxVitaminA: java.math.BigDecimal? = null, minVitaminC: java.math.BigDecimal? = null, maxVitaminC: java.math.BigDecimal? = null, minVitaminD: java.math.BigDecimal? = null, maxVitaminD: java.math.BigDecimal? = null, minVitaminE: java.math.BigDecimal? = null, maxVitaminE: java.math.BigDecimal? = null, minVitaminK: java.math.BigDecimal? = null, maxVitaminK: java.math.BigDecimal? = null, minVitaminB1: java.math.BigDecimal? = null, maxVitaminB1: java.math.BigDecimal? = null, minVitaminB2: java.math.BigDecimal? = null, maxVitaminB2: java.math.BigDecimal? = null, minVitaminB5: java.math.BigDecimal? = null, maxVitaminB5: java.math.BigDecimal? = null, minVitaminB3: java.math.BigDecimal? = null, maxVitaminB3: java.math.BigDecimal? = null, minVitaminB6: java.math.BigDecimal? = null, maxVitaminB6: java.math.BigDecimal? = null, minVitaminB12: java.math.BigDecimal? = null, maxVitaminB12: java.math.BigDecimal? = null, minFiber: java.math.BigDecimal? = null, maxFiber: java.math.BigDecimal? = null, minFolate: java.math.BigDecimal? = null, maxFolate: java.math.BigDecimal? = null, minFolicAcid: java.math.BigDecimal? = null, maxFolicAcid: java.math.BigDecimal? = null, minIodine: java.math.BigDecimal? = null, maxIodine: java.math.BigDecimal? = null, minIron: java.math.BigDecimal? = null, maxIron: java.math.BigDecimal? = null, minMagnesium: java.math.BigDecimal? = null, maxMagnesium: java.math.BigDecimal? = null, minManganese: java.math.BigDecimal? = null, maxManganese: java.math.BigDecimal? = null, minPhosphorus: java.math.BigDecimal? = null, maxPhosphorus: java.math.BigDecimal? = null, minPotassium: java.math.BigDecimal? = null, maxPotassium: java.math.BigDecimal? = null, minSelenium: java.math.BigDecimal? = null, maxSelenium: java.math.BigDecimal? = null, minSodium: java.math.BigDecimal? = null, maxSodium: java.math.BigDecimal? = null, minSugar: java.math.BigDecimal? = null, maxSugar: java.math.BigDecimal? = null, minZinc: java.math.BigDecimal? = null, maxZinc: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchRecipes200Response {
+        val localVarResponse = searchRecipesWithHttpInfo(query = query, cuisine = cuisine, excludeCuisine = excludeCuisine, diet = diet, intolerances = intolerances, equipment = equipment, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, type = type, instructionsRequired = instructionsRequired, fillIngredients = fillIngredients, addRecipeInformation = addRecipeInformation, addRecipeNutrition = addRecipeNutrition, author = author, tags = tags, recipeBoxId = recipeBoxId, titleMatch = titleMatch, maxReadyTime = maxReadyTime, minServings = minServings, maxServings = maxServings, ignorePantry = ignorePantry, sort = sort, sortDirection = sortDirection, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SearchRecipes200Response
@@ -2540,15 +2572,14 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return ApiResponse<SearchRecipes200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipesWithHttpInfo(query: kotlin.String?, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?, limitLicense: kotlin.Boolean?) : ApiResponse<SearchRecipes200Response?> {
-        val localVariableConfig = searchRecipesRequestConfig(query = query, cuisine = cuisine, excludeCuisine = excludeCuisine, diet = diet, intolerances = intolerances, equipment = equipment, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, type = type, instructionsRequired = instructionsRequired, fillIngredients = fillIngredients, addRecipeInformation = addRecipeInformation, addRecipeNutrition = addRecipeNutrition, author = author, tags = tags, recipeBoxId = recipeBoxId, titleMatch = titleMatch, maxReadyTime = maxReadyTime, minServings = minServings, maxServings = maxServings, ignorePantry = ignorePantry, sort = sort, sortDirection = sortDirection, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number, limitLicense = limitLicense)
+    fun searchRecipesWithHttpInfo(query: kotlin.String?, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchRecipes200Response?> {
+        val localVariableConfig = searchRecipesRequestConfig(query = query, cuisine = cuisine, excludeCuisine = excludeCuisine, diet = diet, intolerances = intolerances, equipment = equipment, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, type = type, instructionsRequired = instructionsRequired, fillIngredients = fillIngredients, addRecipeInformation = addRecipeInformation, addRecipeNutrition = addRecipeNutrition, author = author, tags = tags, recipeBoxId = recipeBoxId, titleMatch = titleMatch, maxReadyTime = maxReadyTime, minServings = minServings, maxServings = maxServings, ignorePantry = ignorePantry, sort = sort, sortDirection = sortDirection, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number)
 
         return request<Unit, SearchRecipes200Response>(
             localVariableConfig
@@ -2655,10 +2686,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return RequestConfig
      */
-    fun searchRecipesRequestConfig(query: kotlin.String?, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?, limitLicense: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRecipesRequestConfig(query: kotlin.String?, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2953,9 +2983,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
                 if (number != null) {
                     put("number", listOf(number.toString()))
                 }
-                if (limitLicense != null) {
-                    put("limitLicense", listOf(limitLicense.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
@@ -2975,7 +3002,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
      * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @return kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>
@@ -2987,8 +3013,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipesByIngredients(ingredients: kotlin.String? = null, number: kotlin.Int? = 10, limitLicense: kotlin.Boolean? = true, ranking: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false) : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> {
-        val localVarResponse = searchRecipesByIngredientsWithHttpInfo(ingredients = ingredients, number = number, limitLicense = limitLicense, ranking = ranking, ignorePantry = ignorePantry)
+    fun searchRecipesByIngredients(ingredients: kotlin.String? = null, number: kotlin.Int? = 10, ranking: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false) : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> {
+        val localVarResponse = searchRecipesByIngredientsWithHttpInfo(ingredients = ingredients, number = number, ranking = ranking, ignorePantry = ignorePantry)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>
@@ -3010,7 +3036,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
      * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @return ApiResponse<kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>?>
@@ -3019,8 +3044,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipesByIngredientsWithHttpInfo(ingredients: kotlin.String?, number: kotlin.Int?, limitLicense: kotlin.Boolean?, ranking: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>?> {
-        val localVariableConfig = searchRecipesByIngredientsRequestConfig(ingredients = ingredients, number = number, limitLicense = limitLicense, ranking = ranking, ignorePantry = ignorePantry)
+    fun searchRecipesByIngredientsWithHttpInfo(ingredients: kotlin.String?, number: kotlin.Int?, ranking: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>?> {
+        val localVariableConfig = searchRecipesByIngredientsRequestConfig(ingredients = ingredients, number = number, ranking = ranking, ignorePantry = ignorePantry)
 
         return request<Unit, kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>>(
             localVariableConfig
@@ -3032,12 +3057,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      *
      * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @return RequestConfig
      */
-    fun searchRecipesByIngredientsRequestConfig(ingredients: kotlin.String?, number: kotlin.Int?, limitLicense: kotlin.Boolean?, ranking: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRecipesByIngredientsRequestConfig(ingredients: kotlin.String?, number: kotlin.Int?, ranking: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3046,9 +3070,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
                 }
                 if (number != null) {
                     put("number", listOf(number.toString()))
-                }
-                if (limitLicense != null) {
-                    put("limitLicense", listOf(limitLicense.toString()))
                 }
                 if (ranking != null) {
                     put("ranking", listOf(ranking.toString()))
@@ -3148,7 +3169,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3158,8 +3178,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipesByNutrients(minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, minAlcohol: java.math.BigDecimal? = null, maxAlcohol: java.math.BigDecimal? = null, minCaffeine: java.math.BigDecimal? = null, maxCaffeine: java.math.BigDecimal? = null, minCopper: java.math.BigDecimal? = null, maxCopper: java.math.BigDecimal? = null, minCalcium: java.math.BigDecimal? = null, maxCalcium: java.math.BigDecimal? = null, minCholine: java.math.BigDecimal? = null, maxCholine: java.math.BigDecimal? = null, minCholesterol: java.math.BigDecimal? = null, maxCholesterol: java.math.BigDecimal? = null, minFluoride: java.math.BigDecimal? = null, maxFluoride: java.math.BigDecimal? = null, minSaturatedFat: java.math.BigDecimal? = null, maxSaturatedFat: java.math.BigDecimal? = null, minVitaminA: java.math.BigDecimal? = null, maxVitaminA: java.math.BigDecimal? = null, minVitaminC: java.math.BigDecimal? = null, maxVitaminC: java.math.BigDecimal? = null, minVitaminD: java.math.BigDecimal? = null, maxVitaminD: java.math.BigDecimal? = null, minVitaminE: java.math.BigDecimal? = null, maxVitaminE: java.math.BigDecimal? = null, minVitaminK: java.math.BigDecimal? = null, maxVitaminK: java.math.BigDecimal? = null, minVitaminB1: java.math.BigDecimal? = null, maxVitaminB1: java.math.BigDecimal? = null, minVitaminB2: java.math.BigDecimal? = null, maxVitaminB2: java.math.BigDecimal? = null, minVitaminB5: java.math.BigDecimal? = null, maxVitaminB5: java.math.BigDecimal? = null, minVitaminB3: java.math.BigDecimal? = null, maxVitaminB3: java.math.BigDecimal? = null, minVitaminB6: java.math.BigDecimal? = null, maxVitaminB6: java.math.BigDecimal? = null, minVitaminB12: java.math.BigDecimal? = null, maxVitaminB12: java.math.BigDecimal? = null, minFiber: java.math.BigDecimal? = null, maxFiber: java.math.BigDecimal? = null, minFolate: java.math.BigDecimal? = null, maxFolate: java.math.BigDecimal? = null, minFolicAcid: java.math.BigDecimal? = null, maxFolicAcid: java.math.BigDecimal? = null, minIodine: java.math.BigDecimal? = null, maxIodine: java.math.BigDecimal? = null, minIron: java.math.BigDecimal? = null, maxIron: java.math.BigDecimal? = null, minMagnesium: java.math.BigDecimal? = null, maxMagnesium: java.math.BigDecimal? = null, minManganese: java.math.BigDecimal? = null, maxManganese: java.math.BigDecimal? = null, minPhosphorus: java.math.BigDecimal? = null, maxPhosphorus: java.math.BigDecimal? = null, minPotassium: java.math.BigDecimal? = null, maxPotassium: java.math.BigDecimal? = null, minSelenium: java.math.BigDecimal? = null, maxSelenium: java.math.BigDecimal? = null, minSodium: java.math.BigDecimal? = null, maxSodium: java.math.BigDecimal? = null, minSugar: java.math.BigDecimal? = null, maxSugar: java.math.BigDecimal? = null, minZinc: java.math.BigDecimal? = null, maxZinc: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10, random: kotlin.Boolean? = null, limitLicense: kotlin.Boolean? = true) : kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner> {
-        val localVarResponse = searchRecipesByNutrientsWithHttpInfo(minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number, random = random, limitLicense = limitLicense)
+    fun searchRecipesByNutrients(minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, minAlcohol: java.math.BigDecimal? = null, maxAlcohol: java.math.BigDecimal? = null, minCaffeine: java.math.BigDecimal? = null, maxCaffeine: java.math.BigDecimal? = null, minCopper: java.math.BigDecimal? = null, maxCopper: java.math.BigDecimal? = null, minCalcium: java.math.BigDecimal? = null, maxCalcium: java.math.BigDecimal? = null, minCholine: java.math.BigDecimal? = null, maxCholine: java.math.BigDecimal? = null, minCholesterol: java.math.BigDecimal? = null, maxCholesterol: java.math.BigDecimal? = null, minFluoride: java.math.BigDecimal? = null, maxFluoride: java.math.BigDecimal? = null, minSaturatedFat: java.math.BigDecimal? = null, maxSaturatedFat: java.math.BigDecimal? = null, minVitaminA: java.math.BigDecimal? = null, maxVitaminA: java.math.BigDecimal? = null, minVitaminC: java.math.BigDecimal? = null, maxVitaminC: java.math.BigDecimal? = null, minVitaminD: java.math.BigDecimal? = null, maxVitaminD: java.math.BigDecimal? = null, minVitaminE: java.math.BigDecimal? = null, maxVitaminE: java.math.BigDecimal? = null, minVitaminK: java.math.BigDecimal? = null, maxVitaminK: java.math.BigDecimal? = null, minVitaminB1: java.math.BigDecimal? = null, maxVitaminB1: java.math.BigDecimal? = null, minVitaminB2: java.math.BigDecimal? = null, maxVitaminB2: java.math.BigDecimal? = null, minVitaminB5: java.math.BigDecimal? = null, maxVitaminB5: java.math.BigDecimal? = null, minVitaminB3: java.math.BigDecimal? = null, maxVitaminB3: java.math.BigDecimal? = null, minVitaminB6: java.math.BigDecimal? = null, maxVitaminB6: java.math.BigDecimal? = null, minVitaminB12: java.math.BigDecimal? = null, maxVitaminB12: java.math.BigDecimal? = null, minFiber: java.math.BigDecimal? = null, maxFiber: java.math.BigDecimal? = null, minFolate: java.math.BigDecimal? = null, maxFolate: java.math.BigDecimal? = null, minFolicAcid: java.math.BigDecimal? = null, maxFolicAcid: java.math.BigDecimal? = null, minIodine: java.math.BigDecimal? = null, maxIodine: java.math.BigDecimal? = null, minIron: java.math.BigDecimal? = null, maxIron: java.math.BigDecimal? = null, minMagnesium: java.math.BigDecimal? = null, maxMagnesium: java.math.BigDecimal? = null, minManganese: java.math.BigDecimal? = null, maxManganese: java.math.BigDecimal? = null, minPhosphorus: java.math.BigDecimal? = null, maxPhosphorus: java.math.BigDecimal? = null, minPotassium: java.math.BigDecimal? = null, maxPotassium: java.math.BigDecimal? = null, minSelenium: java.math.BigDecimal? = null, maxSelenium: java.math.BigDecimal? = null, minSodium: java.math.BigDecimal? = null, maxSodium: java.math.BigDecimal? = null, minSugar: java.math.BigDecimal? = null, maxSugar: java.math.BigDecimal? = null, minZinc: java.math.BigDecimal? = null, maxZinc: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10, random: kotlin.Boolean? = null) : kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner> {
+        val localVarResponse = searchRecipesByNutrientsWithHttpInfo(minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number, random = random)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner>
@@ -3254,15 +3274,14 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return ApiResponse<kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipesByNutrientsWithHttpInfo(minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?, random: kotlin.Boolean?, limitLicense: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner>?> {
-        val localVariableConfig = searchRecipesByNutrientsRequestConfig(minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number, random = random, limitLicense = limitLicense)
+    fun searchRecipesByNutrientsWithHttpInfo(minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?, random: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner>?> {
+        val localVariableConfig = searchRecipesByNutrientsRequestConfig(minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number, random = random)
 
         return request<Unit, kotlin.collections.Set<SearchRecipesByNutrients200ResponseInner>>(
             localVariableConfig
@@ -3347,10 +3366,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param random If true, every request will give you a random set of recipes within the requested limits. (optional)
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution. (optional, default to true)
      * @return RequestConfig
      */
-    fun searchRecipesByNutrientsRequestConfig(minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?, random: kotlin.Boolean?, limitLicense: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRecipesByNutrientsRequestConfig(minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?, random: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3579,9 +3597,6 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
                 if (random != null) {
                     put("random", listOf(random.toString()))
                 }
-                if (limitLicense != null) {
-                    put("limitLicense", listOf(limitLicense.toString()))
-                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
@@ -3672,7 +3687,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class ViewVisualizeEquipment(val value: kotlin.String) {
          @Json(name = "grid") grid("grid"),
-         @Json(name = "list") list("list")
+         @Json(name = "list") list("list");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -3763,7 +3787,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class LanguageVisualizePriceBreakdown(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -3944,7 +3977,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class MeasureVisualizeRecipeIngredientsByID(val value: kotlin.String) {
          @Json(name = "us") us("us"),
-         @Json(name = "metric") metric("metric")
+         @Json(name = "metric") metric("metric");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -4036,7 +4078,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class LanguageVisualizeRecipeNutrition(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**
@@ -4291,7 +4342,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
      enum class LanguageVisualizeRecipeTaste(val value: kotlin.String) {
          @Json(name = "en") en("en"),
-         @Json(name = "de") de("de")
+         @Json(name = "de") de("de");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
      }
 
     /**

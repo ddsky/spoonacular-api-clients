@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **String** |  | 
 **amount** | [**BigDecimal**](BigDecimal.md) |  | 
-**consitency** | **String** |  | 
+**consistency** | **String** |  | 
 **id** | **Integer** |  | 
 **image** | **String** |  | 
 **measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  |  [optional]

@@ -10,7 +10,7 @@
   {
    (ds/req :aisle) string?
    (ds/req :amount) float?
-   (ds/req :consitency) string?
+   (ds/req :consistency) string?
    (ds/req :id) int?
    (ds/req :image) string?
    (ds/opt :measures) get-recipe-information-200-response-extended-ingredients-inner-measures-spec

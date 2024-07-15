@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent {
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)

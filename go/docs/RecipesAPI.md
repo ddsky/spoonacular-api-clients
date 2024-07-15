@@ -765,7 +765,7 @@ Name | Type | Description  | Notes
 
 ## GetRandomRecipes
 
-> GetRandomRecipes200Response GetRandomRecipes(ctx).LimitLicense(limitLicense).IncludeNutrition(includeNutrition).IncludeTags(includeTags).ExcludeTags(excludeTags).Number(number).Execute()
+> GetRandomRecipes200Response GetRandomRecipes(ctx).IncludeNutrition(includeNutrition).IncludeTags(includeTags).ExcludeTags(excludeTags).Number(number).Execute()
 
 Get Random Recipes
 
@@ -784,7 +784,6 @@ import (
 )
 
 func main() {
-	limitLicense := true // bool | Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to true)
 	includeNutrition := true // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) (default to false)
 	includeTags := "vegetarian,gluten" // string | A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
 	excludeTags := "meat,dairy" // string | A comma-separated list of tags that the random recipe(s) must not adhere to. (optional)
@@ -792,7 +791,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.GetRandomRecipes(context.Background()).LimitLicense(limitLicense).IncludeNutrition(includeNutrition).IncludeTags(includeTags).ExcludeTags(excludeTags).Number(number).Execute()
+	resp, r, err := apiClient.RecipesAPI.GetRandomRecipes(context.Background()).IncludeNutrition(includeNutrition).IncludeTags(includeTags).ExcludeTags(excludeTags).Number(number).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.GetRandomRecipes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -813,7 +812,6 @@ Other parameters are passed through a pointer to a apiGetRandomRecipesRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limitLicense** | **bool** | Whether the recipes should have an open license that allows display with proper attribution. | [default to true]
  **includeNutrition** | **bool** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [default to false]
  **includeTags** | **string** | A comma-separated list of tags that the random recipe(s) must adhere to. | 
  **excludeTags** | **string** | A comma-separated list of tags that the random recipe(s) must not adhere to. | 
@@ -1331,7 +1329,7 @@ Name | Type | Description  | Notes
 
 ## GetSimilarRecipes
 
-> []GetSimilarRecipes200ResponseInner GetSimilarRecipes(ctx, id).Number(number).LimitLicense(limitLicense).Execute()
+> []GetSimilarRecipes200ResponseInner GetSimilarRecipes(ctx, id).Number(number).Execute()
 
 Get Similar Recipes
 
@@ -1352,11 +1350,10 @@ import (
 func main() {
 	id := int32(1) // int32 | The item's id.
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-	limitLicense := true // bool | Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.GetSimilarRecipes(context.Background(), id).Number(number).LimitLicense(limitLicense).Execute()
+	resp, r, err := apiClient.RecipesAPI.GetSimilarRecipes(context.Background(), id).Number(number).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.GetSimilarRecipes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1383,7 +1380,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
- **limitLicense** | **bool** | Whether the recipes should have an open license that allows display with proper attribution. | [default to true]
 
 ### Return type
 
@@ -1977,7 +1973,7 @@ Name | Type | Description  | Notes
 
 ## SearchRecipes
 
-> SearchRecipes200Response SearchRecipes(ctx).Query(query).Cuisine(cuisine).ExcludeCuisine(excludeCuisine).Diet(diet).Intolerances(intolerances).Equipment(equipment).IncludeIngredients(includeIngredients).ExcludeIngredients(excludeIngredients).Type_(type_).InstructionsRequired(instructionsRequired).FillIngredients(fillIngredients).AddRecipeInformation(addRecipeInformation).AddRecipeNutrition(addRecipeNutrition).Author(author).Tags(tags).RecipeBoxId(recipeBoxId).TitleMatch(titleMatch).MaxReadyTime(maxReadyTime).MinServings(minServings).MaxServings(maxServings).IgnorePantry(ignorePantry).Sort(sort).SortDirection(sortDirection).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).LimitLicense(limitLicense).Execute()
+> SearchRecipes200Response SearchRecipes(ctx).Query(query).Cuisine(cuisine).ExcludeCuisine(excludeCuisine).Diet(diet).Intolerances(intolerances).Equipment(equipment).IncludeIngredients(includeIngredients).ExcludeIngredients(excludeIngredients).Type_(type_).InstructionsRequired(instructionsRequired).FillIngredients(fillIngredients).AddRecipeInformation(addRecipeInformation).AddRecipeNutrition(addRecipeNutrition).Author(author).Tags(tags).RecipeBoxId(recipeBoxId).TitleMatch(titleMatch).MaxReadyTime(maxReadyTime).MinServings(minServings).MaxServings(maxServings).IgnorePantry(ignorePantry).Sort(sort).SortDirection(sortDirection).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).Execute()
 
 Search Recipes
 
@@ -2093,11 +2089,10 @@ func main() {
 	maxZinc := float32(100) // float32 | The maximum amount of zinc in milligrams the recipe can have. (optional)
 	offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-	limitLicense := true // bool | Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.SearchRecipes(context.Background()).Query(query).Cuisine(cuisine).ExcludeCuisine(excludeCuisine).Diet(diet).Intolerances(intolerances).Equipment(equipment).IncludeIngredients(includeIngredients).ExcludeIngredients(excludeIngredients).Type_(type_).InstructionsRequired(instructionsRequired).FillIngredients(fillIngredients).AddRecipeInformation(addRecipeInformation).AddRecipeNutrition(addRecipeNutrition).Author(author).Tags(tags).RecipeBoxId(recipeBoxId).TitleMatch(titleMatch).MaxReadyTime(maxReadyTime).MinServings(minServings).MaxServings(maxServings).IgnorePantry(ignorePantry).Sort(sort).SortDirection(sortDirection).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).LimitLicense(limitLicense).Execute()
+	resp, r, err := apiClient.RecipesAPI.SearchRecipes(context.Background()).Query(query).Cuisine(cuisine).ExcludeCuisine(excludeCuisine).Diet(diet).Intolerances(intolerances).Equipment(equipment).IncludeIngredients(includeIngredients).ExcludeIngredients(excludeIngredients).Type_(type_).InstructionsRequired(instructionsRequired).FillIngredients(fillIngredients).AddRecipeInformation(addRecipeInformation).AddRecipeNutrition(addRecipeNutrition).Author(author).Tags(tags).RecipeBoxId(recipeBoxId).TitleMatch(titleMatch).MaxReadyTime(maxReadyTime).MinServings(minServings).MaxServings(maxServings).IgnorePantry(ignorePantry).Sort(sort).SortDirection(sortDirection).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.SearchRecipes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2215,7 +2210,6 @@ Name | Type | Description  | Notes
  **maxZinc** | **float32** | The maximum amount of zinc in milligrams the recipe can have. | 
  **offset** | **int32** | The number of results to skip (between 0 and 900). | 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
- **limitLicense** | **bool** | Whether the recipes should have an open license that allows display with proper attribution. | [default to true]
 
 ### Return type
 
@@ -2237,7 +2231,7 @@ Name | Type | Description  | Notes
 
 ## SearchRecipesByIngredients
 
-> []SearchRecipesByIngredients200ResponseInner SearchRecipesByIngredients(ctx).Ingredients(ingredients).Number(number).LimitLicense(limitLicense).Ranking(ranking).IgnorePantry(ignorePantry).Execute()
+> []SearchRecipesByIngredients200ResponseInner SearchRecipesByIngredients(ctx).Ingredients(ingredients).Number(number).Ranking(ranking).IgnorePantry(ignorePantry).Execute()
 
 Search Recipes by Ingredients
 
@@ -2258,13 +2252,12 @@ import (
 func main() {
 	ingredients := "carrots,tomatoes" // string | A comma-separated list of ingredients that the recipes should contain. (optional)
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-	limitLicense := true // bool | Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to true)
 	ranking := float32(1) // float32 | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
 	ignorePantry := false // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.SearchRecipesByIngredients(context.Background()).Ingredients(ingredients).Number(number).LimitLicense(limitLicense).Ranking(ranking).IgnorePantry(ignorePantry).Execute()
+	resp, r, err := apiClient.RecipesAPI.SearchRecipesByIngredients(context.Background()).Ingredients(ingredients).Number(number).Ranking(ranking).IgnorePantry(ignorePantry).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.SearchRecipesByIngredients``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2287,7 +2280,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **string** | A comma-separated list of ingredients that the recipes should contain. | 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
- **limitLicense** | **bool** | Whether the recipes should have an open license that allows display with proper attribution. | [default to true]
  **ranking** | **float32** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | 
  **ignorePantry** | **bool** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [default to false]
 
@@ -2311,7 +2303,7 @@ Name | Type | Description  | Notes
 
 ## SearchRecipesByNutrients
 
-> []SearchRecipesByNutrients200ResponseInner SearchRecipesByNutrients(ctx).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).Random(random).LimitLicense(limitLicense).Execute()
+> []SearchRecipesByNutrients200ResponseInner SearchRecipesByNutrients(ctx).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).Random(random).Execute()
 
 Search Recipes by Nutrients
 
@@ -2405,11 +2397,10 @@ func main() {
 	offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 	random := false // bool | If true, every request will give you a random set of recipes within the requested limits. (optional)
-	limitLicense := true // bool | Whether the recipes should have an open license that allows display with proper attribution. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.SearchRecipesByNutrients(context.Background()).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).Random(random).LimitLicense(limitLicense).Execute()
+	resp, r, err := apiClient.RecipesAPI.SearchRecipesByNutrients(context.Background()).MinCarbs(minCarbs).MaxCarbs(maxCarbs).MinProtein(minProtein).MaxProtein(maxProtein).MinCalories(minCalories).MaxCalories(maxCalories).MinFat(minFat).MaxFat(maxFat).MinAlcohol(minAlcohol).MaxAlcohol(maxAlcohol).MinCaffeine(minCaffeine).MaxCaffeine(maxCaffeine).MinCopper(minCopper).MaxCopper(maxCopper).MinCalcium(minCalcium).MaxCalcium(maxCalcium).MinCholine(minCholine).MaxCholine(maxCholine).MinCholesterol(minCholesterol).MaxCholesterol(maxCholesterol).MinFluoride(minFluoride).MaxFluoride(maxFluoride).MinSaturatedFat(minSaturatedFat).MaxSaturatedFat(maxSaturatedFat).MinVitaminA(minVitaminA).MaxVitaminA(maxVitaminA).MinVitaminC(minVitaminC).MaxVitaminC(maxVitaminC).MinVitaminD(minVitaminD).MaxVitaminD(maxVitaminD).MinVitaminE(minVitaminE).MaxVitaminE(maxVitaminE).MinVitaminK(minVitaminK).MaxVitaminK(maxVitaminK).MinVitaminB1(minVitaminB1).MaxVitaminB1(maxVitaminB1).MinVitaminB2(minVitaminB2).MaxVitaminB2(maxVitaminB2).MinVitaminB5(minVitaminB5).MaxVitaminB5(maxVitaminB5).MinVitaminB3(minVitaminB3).MaxVitaminB3(maxVitaminB3).MinVitaminB6(minVitaminB6).MaxVitaminB6(maxVitaminB6).MinVitaminB12(minVitaminB12).MaxVitaminB12(maxVitaminB12).MinFiber(minFiber).MaxFiber(maxFiber).MinFolate(minFolate).MaxFolate(maxFolate).MinFolicAcid(minFolicAcid).MaxFolicAcid(maxFolicAcid).MinIodine(minIodine).MaxIodine(maxIodine).MinIron(minIron).MaxIron(maxIron).MinMagnesium(minMagnesium).MaxMagnesium(maxMagnesium).MinManganese(minManganese).MaxManganese(maxManganese).MinPhosphorus(minPhosphorus).MaxPhosphorus(maxPhosphorus).MinPotassium(minPotassium).MaxPotassium(maxPotassium).MinSelenium(minSelenium).MaxSelenium(maxSelenium).MinSodium(minSodium).MaxSodium(maxSodium).MinSugar(minSugar).MaxSugar(maxSugar).MinZinc(minZinc).MaxZinc(maxZinc).Offset(offset).Number(number).Random(random).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.SearchRecipesByNutrients``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2505,7 +2496,6 @@ Name | Type | Description  | Notes
  **offset** | **int32** | The number of results to skip (between 0 and 900). | 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
  **random** | **bool** | If true, every request will give you a random set of recipes within the requested limits. | 
- **limitLicense** | **bool** | Whether the recipes should have an open license that allows display with proper attribution. | [default to true]
 
 ### Return type
 

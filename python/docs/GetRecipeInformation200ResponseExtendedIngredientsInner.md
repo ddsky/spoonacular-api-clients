@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **str** |  | 
 **amount** | **float** |  | 
-**consitency** | **str** |  | 
+**consistency** | **str** |  | 
 **id** | **int** |  | 
 **image** | **str** |  | 
 **measures** | [**GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional] 

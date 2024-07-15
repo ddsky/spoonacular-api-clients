@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **aisle** | **kotlin.String** |  |  |
 | **amount** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
-| **consitency** | **kotlin.String** |  |  |
+| **consistency** | **kotlin.String** |  |  |
 | **id** | **kotlin.Int** |  |  |
 | **image** | **kotlin.String** |  |  |
 | **name** | **kotlin.String** |  |  |

@@ -66,8 +66,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property consitency (base name: "consitency")', function() {
-      // uncomment below and update the code to test the property consitency
+    it('should have the property consistency (base name: "consistency")', function() {
+      // uncomment below and update the code to test the property consistency
       //var instance = new SpoonacularApi.GetRecipeInformation200ResponseExtendedIngredientsInner();
       //expect(instance).to.be();
     });

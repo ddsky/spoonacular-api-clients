@@ -595,7 +595,6 @@ export default class RecipesApi {
      * Get Random Recipes
      * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
      * @param {Object} opts Optional parameters
-     * @param {Boolean} [limitLicense = true)] Whether the recipes should have an open license that allows display with proper attribution.
      * @param {Boolean} [includeNutrition = false)] Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @param {String} [includeTags] A comma-separated list of tags that the random recipe(s) must adhere to.
      * @param {String} [excludeTags] A comma-separated list of tags that the random recipe(s) must not adhere to.
@@ -610,7 +609,6 @@ export default class RecipesApi {
       let pathParams = {
       };
       let queryParams = {
-        'limitLicense': opts['limitLicense'],
         'includeNutrition': opts['includeNutrition'],
         'include-tags': opts['includeTags'],
         'exclude-tags': opts['excludeTags'],
@@ -959,7 +957,6 @@ export default class RecipesApi {
      * @param {Number} id The item's id.
      * @param {Object} opts Optional parameters
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
-     * @param {Boolean} [limitLicense = true)] Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:api/RecipesApi~getSimilarRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/GetSimilarRecipes200ResponseInner>}
      */
@@ -975,8 +972,7 @@ export default class RecipesApi {
         'id': id
       };
       let queryParams = {
-        'number': opts['number'],
-        'limitLicense': opts['limitLicense']
+        'number': opts['number']
       };
       let headerParams = {
       };
@@ -1483,7 +1479,6 @@ export default class RecipesApi {
      * @param {Number} [maxZinc] The maximum amount of zinc in milligrams the recipe can have.
      * @param {Number} [offset] The number of results to skip (between 0 and 900).
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
-     * @param {Boolean} [limitLicense = true)] Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:api/RecipesApi~searchRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchRecipes200Response}
      */
@@ -1590,8 +1585,7 @@ export default class RecipesApi {
         'minZinc': opts['minZinc'],
         'maxZinc': opts['maxZinc'],
         'offset': opts['offset'],
-        'number': opts['number'],
-        'limitLicense': opts['limitLicense']
+        'number': opts['number']
       };
       let headerParams = {
       };
@@ -1623,7 +1617,6 @@ export default class RecipesApi {
      * @param {Object} opts Optional parameters
      * @param {String} [ingredients] A comma-separated list of ingredients that the recipes should contain.
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
-     * @param {Boolean} [limitLicense = true)] Whether the recipes should have an open license that allows display with proper attribution.
      * @param {Number} [ranking] Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @param {Boolean} [ignorePantry = false)] Whether to ignore typical pantry items, such as water, salt, flour, etc.
      * @param {module:api/RecipesApi~searchRecipesByIngredientsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -1638,7 +1631,6 @@ export default class RecipesApi {
       let queryParams = {
         'ingredients': opts['ingredients'],
         'number': opts['number'],
-        'limitLicense': opts['limitLicense'],
         'ranking': opts['ranking'],
         'ignorePantry': opts['ignorePantry']
       };
@@ -1745,7 +1737,6 @@ export default class RecipesApi {
      * @param {Number} [offset] The number of results to skip (between 0 and 900).
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {Boolean} [random] If true, every request will give you a random set of recipes within the requested limits.
-     * @param {Boolean} [limitLicense = true)] Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:api/RecipesApi~searchRecipesByNutrientsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SearchRecipesByNutrients200ResponseInner>}
      */
@@ -1830,8 +1821,7 @@ export default class RecipesApi {
         'maxZinc': opts['maxZinc'],
         'offset': opts['offset'],
         'number': opts['number'],
-        'random': opts['random'],
-        'limitLicense': opts['limitLicense']
+        'random': opts['random']
       };
       let headerParams = {
       };

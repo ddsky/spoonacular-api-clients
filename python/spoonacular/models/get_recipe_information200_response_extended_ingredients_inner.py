@@ -31,7 +31,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner(BaseModel):
     """ # noqa: E501
     aisle: Annotated[str, Field(min_length=1, strict=True)]
     amount: Union[StrictFloat, StrictInt]
-    consitency: Annotated[str, Field(min_length=1, strict=True)]
+    consistency: Annotated[str, Field(min_length=1, strict=True)]
     id: StrictInt
     image: Annotated[str, Field(min_length=1, strict=True)]
     measures: Optional[GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures] = None
@@ -40,7 +40,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner(BaseModel):
     original: Annotated[str, Field(min_length=1, strict=True)]
     original_name: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="originalName")
     unit: Annotated[str, Field(min_length=0, strict=True)]
-    __properties: ClassVar[List[str]] = ["aisle", "amount", "consitency", "id", "image", "measures", "meta", "name", "original", "originalName", "unit"]
+    __properties: ClassVar[List[str]] = ["aisle", "amount", "consistency", "id", "image", "measures", "meta", "name", "original", "originalName", "unit"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,7 +98,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner(BaseModel):
         _obj = cls.model_validate({
             "aisle": obj.get("aisle"),
             "amount": obj.get("amount"),
-            "consitency": obj.get("consitency"),
+            "consistency": obj.get("consistency"),
             "id": obj.get("id"),
             "image": obj.get("image"),
             "measures": GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.from_dict(obj["measures"]) if obj.get("measures") is not None else None,

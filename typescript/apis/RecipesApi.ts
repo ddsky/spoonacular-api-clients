@@ -722,15 +722,13 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
      * Get Random Recipes
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @param includeTags A comma-separated list of tags that the random recipe(s) must adhere to.
      * @param excludeTags A comma-separated list of tags that the random recipe(s) must not adhere to.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async getRandomRecipes(limitLicense?: boolean, includeNutrition?: boolean, includeTags?: string, excludeTags?: string, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async getRandomRecipes(includeNutrition?: boolean, includeTags?: string, excludeTags?: string, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
 
 
 
@@ -742,11 +740,6 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (limitLicense !== undefined) {
-            requestContext.setQueryParam("limitLicense", ObjectSerializer.serialize(limitLicense, "boolean", ""));
-        }
 
         // Query Params
         if (includeNutrition !== undefined) {
@@ -1080,16 +1073,14 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * Get Similar Recipes
      * @param id The item\&#39;s id.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      */
-    public async getSimilarRecipes(id: number, number?: number, limitLicense?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async getSimilarRecipes(id: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("RecipesApi", "getSimilarRecipes", "id");
         }
-
 
 
 
@@ -1104,11 +1095,6 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (number !== undefined) {
             requestContext.setQueryParam("number", ObjectSerializer.serialize(number, "number", ""));
-        }
-
-        // Query Params
-        if (limitLicense !== undefined) {
-            requestContext.setQueryParam("limitLicense", ObjectSerializer.serialize(limitLicense, "boolean", ""));
         }
 
 
@@ -1650,11 +1636,9 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * @param maxZinc The maximum amount of zinc in milligrams the recipe can have.
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      */
-    public async searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, limitLicense?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
 
 
 
@@ -2245,11 +2229,6 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("number", ObjectSerializer.serialize(number, "number", ""));
         }
 
-        // Query Params
-        if (limitLicense !== undefined) {
-            requestContext.setQueryParam("limitLicense", ObjectSerializer.serialize(limitLicense, "boolean", ""));
-        }
-
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -2271,13 +2250,11 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * Search Recipes by Ingredients
      * @param ingredients A comma-separated list of ingredients that the recipes should contain.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
      */
-    public async searchRecipesByIngredients(ingredients?: string, number?: number, limitLicense?: boolean, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
 
 
 
@@ -2298,11 +2275,6 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (number !== undefined) {
             requestContext.setQueryParam("number", ObjectSerializer.serialize(number, "number", ""));
-        }
-
-        // Query Params
-        if (limitLicense !== undefined) {
-            requestContext.setQueryParam("limitLicense", ObjectSerializer.serialize(limitLicense, "boolean", ""));
         }
 
         // Query Params
@@ -2409,11 +2381,9 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param random If true, every request will give you a random set of recipes within the requested limits.
-     * @param limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      */
-    public async searchRecipesByNutrients(minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, random?: boolean, limitLicense?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async searchRecipesByNutrients(minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, random?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
 
 
 
@@ -2870,11 +2840,6 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (random !== undefined) {
             requestContext.setQueryParam("random", ObjectSerializer.serialize(random, "boolean", ""));
-        }
-
-        // Query Params
-        if (limitLicense !== undefined) {
-            requestContext.setQueryParam("limitLicense", ObjectSerializer.serialize(limitLicense, "boolean", ""));
         }
 
 

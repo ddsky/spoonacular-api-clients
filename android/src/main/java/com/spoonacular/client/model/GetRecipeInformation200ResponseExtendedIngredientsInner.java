@@ -25,8 +25,8 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
   private String aisle = null;
   @SerializedName("amount")
   private BigDecimal amount = null;
-  @SerializedName("consitency")
-  private String consitency = null;
+  @SerializedName("consistency")
+  private String consistency = null;
   @SerializedName("id")
   private Integer id = null;
   @SerializedName("image")
@@ -67,11 +67,11 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getConsitency() {
-    return consitency;
+  public String getConsistency() {
+    return consistency;
   }
-  public void setConsitency(String consitency) {
-    this.consitency = consitency;
+  public void setConsistency(String consistency) {
+    this.consistency = consistency;
   }
 
   /**
@@ -166,7 +166,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     GetRecipeInformation200ResponseExtendedIngredientsInner getRecipeInformation200ResponseExtendedIngredientsInner = (GetRecipeInformation200ResponseExtendedIngredientsInner) o;
     return (this.aisle == null ? getRecipeInformation200ResponseExtendedIngredientsInner.aisle == null : this.aisle.equals(getRecipeInformation200ResponseExtendedIngredientsInner.aisle)) &&
         (this.amount == null ? getRecipeInformation200ResponseExtendedIngredientsInner.amount == null : this.amount.equals(getRecipeInformation200ResponseExtendedIngredientsInner.amount)) &&
-        (this.consitency == null ? getRecipeInformation200ResponseExtendedIngredientsInner.consitency == null : this.consitency.equals(getRecipeInformation200ResponseExtendedIngredientsInner.consitency)) &&
+        (this.consistency == null ? getRecipeInformation200ResponseExtendedIngredientsInner.consistency == null : this.consistency.equals(getRecipeInformation200ResponseExtendedIngredientsInner.consistency)) &&
         (this.id == null ? getRecipeInformation200ResponseExtendedIngredientsInner.id == null : this.id.equals(getRecipeInformation200ResponseExtendedIngredientsInner.id)) &&
         (this.image == null ? getRecipeInformation200ResponseExtendedIngredientsInner.image == null : this.image.equals(getRecipeInformation200ResponseExtendedIngredientsInner.image)) &&
         (this.measures == null ? getRecipeInformation200ResponseExtendedIngredientsInner.measures == null : this.measures.equals(getRecipeInformation200ResponseExtendedIngredientsInner.measures)) &&
@@ -182,7 +182,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     int result = 17;
     result = 31 * result + (this.aisle == null ? 0: this.aisle.hashCode());
     result = 31 * result + (this.amount == null ? 0: this.amount.hashCode());
-    result = 31 * result + (this.consitency == null ? 0: this.consitency.hashCode());
+    result = 31 * result + (this.consistency == null ? 0: this.consistency.hashCode());
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.image == null ? 0: this.image.hashCode());
     result = 31 * result + (this.measures == null ? 0: this.measures.hashCode());
@@ -201,7 +201,7 @@ public class GetRecipeInformation200ResponseExtendedIngredientsInner {
     
     sb.append("  aisle: ").append(aisle).append("\n");
     sb.append("  amount: ").append(amount).append("\n");
-    sb.append("  consitency: ").append(consitency).append("\n");
+    sb.append("  consistency: ").append(consistency).append("\n");
     sb.append("  id: ").append(id).append("\n");
     sb.append("  image: ").append(image).append("\n");
     sb.append("  measures: ").append(measures).append("\n");

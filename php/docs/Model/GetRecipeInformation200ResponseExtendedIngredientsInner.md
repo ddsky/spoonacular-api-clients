@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aisle** | **string** |  |
 **amount** | **float** |  |
-**consitency** | **string** |  |
+**consistency** | **string** |  |
 **id** | **int** |  |
 **image** | **string** |  |
 **measures** | [**\OpenAPI\Client\Model\GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures**](GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md) |  | [optional]

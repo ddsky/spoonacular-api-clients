@@ -708,8 +708,6 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRandomRecipesRequest = {
-  // boolean | Whether the recipes should have an open license that allows display with proper attribution. (optional)
-  limitLicense: true,
   // boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
   includeNutrition: false,
   // string | A comma-separated list of tags that the random recipe(s) must adhere to. (optional)
@@ -730,7 +728,6 @@ apiInstance.getRandomRecipes(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limitLicense** | [**boolean**] | Whether the recipes should have an open license that allows display with proper attribution. | (optional) defaults to true
  **includeNutrition** | [**boolean**] | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | (optional) defaults to false
  **includeTags** | [**string**] | A comma-separated list of tags that the random recipe(s) must adhere to. | (optional) defaults to undefined
  **excludeTags** | [**string**] | A comma-separated list of tags that the random recipe(s) must not adhere to. | (optional) defaults to undefined
@@ -1189,8 +1186,6 @@ let body:.RecipesApiGetSimilarRecipesRequest = {
   id: 1,
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
-  // boolean | Whether the recipes should have an open license that allows display with proper attribution. (optional)
-  limitLicense: true,
 };
 
 apiInstance.getSimilarRecipes(body).then((data:any) => {
@@ -1205,7 +1200,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**number**] | The item\&#39;s id. | defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
- **limitLicense** | [**boolean**] | Whether the recipes should have an open license that allows display with proper attribution. | (optional) defaults to true
 
 
 ### Return type
@@ -1934,8 +1928,6 @@ let body:.RecipesApiSearchRecipesRequest = {
   offset: 0,
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
-  // boolean | Whether the recipes should have an open license that allows display with proper attribution. (optional)
-  limitLicense: true,
 };
 
 apiInstance.searchRecipes(body).then((data:any) => {
@@ -2045,7 +2037,6 @@ Name | Type | Description  | Notes
  **maxZinc** | [**number**] | The maximum amount of zinc in milligrams the recipe can have. | (optional) defaults to undefined
  **offset** | [**number**] | The number of results to skip (between 0 and 900). | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
- **limitLicense** | [**boolean**] | Whether the recipes should have an open license that allows display with proper attribution. | (optional) defaults to true
 
 
 ### Return type
@@ -2092,8 +2083,6 @@ let body:.RecipesApiSearchRecipesByIngredientsRequest = {
   ingredients: "carrots,tomatoes",
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
-  // boolean | Whether the recipes should have an open license that allows display with proper attribution. (optional)
-  limitLicense: true,
   // number | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
   ranking: 1,
   // boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)
@@ -2112,7 +2101,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | [**string**] | A comma-separated list of ingredients that the recipes should contain. | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
- **limitLicense** | [**boolean**] | Whether the recipes should have an open license that allows display with proper attribution. | (optional) defaults to true
  **ranking** | [**number**] | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | (optional) defaults to undefined
  **ignorePantry** | [**boolean**] | Whether to ignore typical pantry items, such as water, salt, flour, etc. | (optional) defaults to false
 
@@ -2307,8 +2295,6 @@ let body:.RecipesApiSearchRecipesByNutrientsRequest = {
   number: 10,
   // boolean | If true, every request will give you a random set of recipes within the requested limits. (optional)
   random: false,
-  // boolean | Whether the recipes should have an open license that allows display with proper attribution. (optional)
-  limitLicense: true,
 };
 
 apiInstance.searchRecipesByNutrients(body).then((data:any) => {
@@ -2396,7 +2382,6 @@ Name | Type | Description  | Notes
  **offset** | [**number**] | The number of results to skip (between 0 and 900). | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
  **random** | [**boolean**] | If true, every request will give you a random set of recipes within the requested limits. | (optional) defaults to undefined
- **limitLicense** | [**boolean**] | Whether the recipes should have an open license that allows display with proper attribution. | (optional) defaults to true
 
 
 ### Return type

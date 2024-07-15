@@ -970,7 +970,7 @@ genGetRecipeInformation200ResponseExtendedIngredientsInner n =
   GetRecipeInformation200ResponseExtendedIngredientsInner
     <$> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerAisle :: Text
     <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerAmount :: Double
-    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerConsitency :: Text
+    <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerConsistency :: Text
     <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerId :: Int
     <*> arbitrary -- getRecipeInformation200ResponseExtendedIngredientsInnerImage :: Text
     <*> arbitraryReducedMaybe n -- getRecipeInformation200ResponseExtendedIngredientsInnerMeasures :: Maybe GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures

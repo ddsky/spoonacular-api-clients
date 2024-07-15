@@ -50,7 +50,7 @@ import com.spoonacular.client.JSON;
 /**
  * GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent {
   public static final String SERIALIZED_NAME_MAX = "max";
   @SerializedName(SERIALIZED_NAME_MAX)

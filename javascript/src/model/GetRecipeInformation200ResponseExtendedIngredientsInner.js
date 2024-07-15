@@ -25,7 +25,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
      * @alias module:model/GetRecipeInformation200ResponseExtendedIngredientsInner
      * @param aisle {String} 
      * @param amount {Number} 
-     * @param consitency {String} 
+     * @param consistency {String} 
      * @param id {Number} 
      * @param image {String} 
      * @param name {String} 
@@ -33,9 +33,9 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
      * @param originalName {String} 
      * @param unit {String} 
      */
-    constructor(aisle, amount, consitency, id, image, name, original, originalName, unit) { 
+    constructor(aisle, amount, consistency, id, image, name, original, originalName, unit) { 
         
-        GetRecipeInformation200ResponseExtendedIngredientsInner.initialize(this, aisle, amount, consitency, id, image, name, original, originalName, unit);
+        GetRecipeInformation200ResponseExtendedIngredientsInner.initialize(this, aisle, amount, consistency, id, image, name, original, originalName, unit);
     }
 
     /**
@@ -43,10 +43,10 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, aisle, amount, consitency, id, image, name, original, originalName, unit) { 
+    static initialize(obj, aisle, amount, consistency, id, image, name, original, originalName, unit) { 
         obj['aisle'] = aisle;
         obj['amount'] = amount;
-        obj['consitency'] = consitency;
+        obj['consistency'] = consistency;
         obj['id'] = id;
         obj['image'] = image;
         obj['name'] = name;
@@ -72,8 +72,8 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
-            if (data.hasOwnProperty('consitency')) {
-                obj['consitency'] = ApiClient.convertToType(data['consitency'], 'String');
+            if (data.hasOwnProperty('consistency')) {
+                obj['consistency'] = ApiClient.convertToType(data['consistency'], 'String');
             }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
@@ -120,8 +120,8 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
             throw new Error("Expected the field `aisle` to be a primitive type in the JSON string but got " + data['aisle']);
         }
         // ensure the json data is a string
-        if (data['consitency'] && !(typeof data['consitency'] === 'string' || data['consitency'] instanceof String)) {
-            throw new Error("Expected the field `consitency` to be a primitive type in the JSON string but got " + data['consitency']);
+        if (data['consistency'] && !(typeof data['consistency'] === 'string' || data['consistency'] instanceof String)) {
+            throw new Error("Expected the field `consistency` to be a primitive type in the JSON string but got " + data['consistency']);
         }
         // ensure the json data is a string
         if (data['image'] && !(typeof data['image'] === 'string' || data['image'] instanceof String)) {
@@ -158,7 +158,7 @@ class GetRecipeInformation200ResponseExtendedIngredientsInner {
 
 }
 
-GetRecipeInformation200ResponseExtendedIngredientsInner.RequiredProperties = ["aisle", "amount", "consitency", "id", "image", "name", "original", "originalName", "unit"];
+GetRecipeInformation200ResponseExtendedIngredientsInner.RequiredProperties = ["aisle", "amount", "consistency", "id", "image", "name", "original", "originalName", "unit"];
 
 /**
  * @member {String} aisle
@@ -171,9 +171,9 @@ GetRecipeInformation200ResponseExtendedIngredientsInner.prototype['aisle'] = und
 GetRecipeInformation200ResponseExtendedIngredientsInner.prototype['amount'] = undefined;
 
 /**
- * @member {String} consitency
+ * @member {String} consistency
  */
-GetRecipeInformation200ResponseExtendedIngredientsInner.prototype['consitency'] = undefined;
+GetRecipeInformation200ResponseExtendedIngredientsInner.prototype['consistency'] = undefined;
 
 /**
  * @member {Number} id

@@ -15,7 +15,7 @@ import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures } from 
 export interface GetRecipeInformation200ResponseExtendedIngredientsInner { 
     aisle: string;
     amount: number;
-    consitency: string;
+    consistency: string;
     id: number;
     image: string;
     measures?: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures;

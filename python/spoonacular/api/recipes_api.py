@@ -303,11 +303,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -570,11 +571,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -869,11 +871,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1168,11 +1171,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1465,11 +1469,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1798,11 +1803,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -2245,11 +2251,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -2525,11 +2532,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'image/png'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'image/png'
+                ]
+            )
 
 
         # authentication setting
@@ -2862,11 +2870,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -3146,11 +3155,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -3179,7 +3189,6 @@ class RecipesApi:
     @validate_call
     def get_random_recipes(
         self,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
         include_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must adhere to.")] = None,
         exclude_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must not adhere to.")] = None,
@@ -3201,8 +3210,6 @@ class RecipesApi:
 
         Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
         :type include_nutrition: bool
         :param include_tags: A comma-separated list of tags that the random recipe(s) must adhere to.
@@ -3234,7 +3241,6 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._get_random_recipes_serialize(
-            limit_license=limit_license,
             include_nutrition=include_nutrition,
             include_tags=include_tags,
             exclude_tags=exclude_tags,
@@ -3265,7 +3271,6 @@ class RecipesApi:
     @validate_call
     def get_random_recipes_with_http_info(
         self,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
         include_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must adhere to.")] = None,
         exclude_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must not adhere to.")] = None,
@@ -3287,8 +3292,6 @@ class RecipesApi:
 
         Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
         :type include_nutrition: bool
         :param include_tags: A comma-separated list of tags that the random recipe(s) must adhere to.
@@ -3320,7 +3323,6 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._get_random_recipes_serialize(
-            limit_license=limit_license,
             include_nutrition=include_nutrition,
             include_tags=include_tags,
             exclude_tags=exclude_tags,
@@ -3351,7 +3353,6 @@ class RecipesApi:
     @validate_call
     def get_random_recipes_without_preload_content(
         self,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
         include_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must adhere to.")] = None,
         exclude_tags: Annotated[Optional[StrictStr], Field(description="A comma-separated list of tags that the random recipe(s) must not adhere to.")] = None,
@@ -3373,8 +3374,6 @@ class RecipesApi:
 
         Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
 
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
         :type include_nutrition: bool
         :param include_tags: A comma-separated list of tags that the random recipe(s) must adhere to.
@@ -3406,7 +3405,6 @@ class RecipesApi:
         """ # noqa: E501
 
         _param = self._get_random_recipes_serialize(
-            limit_license=limit_license,
             include_nutrition=include_nutrition,
             include_tags=include_tags,
             exclude_tags=exclude_tags,
@@ -3432,7 +3430,6 @@ class RecipesApi:
 
     def _get_random_recipes_serialize(
         self,
-        limit_license,
         include_nutrition,
         include_tags,
         exclude_tags,
@@ -3457,10 +3454,6 @@ class RecipesApi:
 
         # process the path parameters
         # process the query parameters
-        if limit_license is not None:
-            
-            _query_params.append(('limitLicense', limit_license))
-            
         if include_nutrition is not None:
             
             _query_params.append(('includeNutrition', include_nutrition))
@@ -3483,11 +3476,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -3750,11 +3744,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -4034,11 +4029,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -4320,11 +4316,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -4587,11 +4584,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -4854,11 +4852,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -5121,11 +5120,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -5405,11 +5405,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -5440,7 +5441,6 @@ class RecipesApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5462,8 +5462,6 @@ class RecipesApi:
         :type id: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5489,7 +5487,6 @@ class RecipesApi:
         _param = self._get_similar_recipes_serialize(
             id=id,
             number=number,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5518,7 +5515,6 @@ class RecipesApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5540,8 +5536,6 @@ class RecipesApi:
         :type id: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5567,7 +5561,6 @@ class RecipesApi:
         _param = self._get_similar_recipes_serialize(
             id=id,
             number=number,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5596,7 +5589,6 @@ class RecipesApi:
         self,
         id: Annotated[StrictInt, Field(description="The item's id.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5618,8 +5610,6 @@ class RecipesApi:
         :type id: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5645,7 +5635,6 @@ class RecipesApi:
         _param = self._get_similar_recipes_serialize(
             id=id,
             number=number,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5669,7 +5658,6 @@ class RecipesApi:
         self,
         id,
         number,
-        limit_license,
         _request_auth,
         _content_type,
         _headers,
@@ -5696,21 +5684,18 @@ class RecipesApi:
             
             _query_params.append(('number', number))
             
-        if limit_license is not None:
-            
-            _query_params.append(('limitLicense', limit_license))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -5975,11 +5960,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -6289,11 +6275,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -6569,11 +6556,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'image/png'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'image/png'
+                ]
+            )
 
 
         # authentication setting
@@ -6838,11 +6826,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -7105,11 +7094,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'image/png'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'image/png'
+                ]
+            )
 
 
         # authentication setting
@@ -7423,11 +7413,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'image/png'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'image/png'
+                ]
+            )
 
 
         # authentication setting
@@ -7758,11 +7749,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
 
         # authentication setting
@@ -8059,11 +8051,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'image/png'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'image/png'
+                ]
+            )
 
 
         # authentication setting
@@ -8189,7 +8182,6 @@ class RecipesApi:
         max_zinc: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of zinc in milligrams the recipe can have.")] = None,
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8401,8 +8393,6 @@ class RecipesApi:
         :type offset: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8523,7 +8513,6 @@ class RecipesApi:
             max_zinc=max_zinc,
             offset=offset,
             number=number,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8647,7 +8636,6 @@ class RecipesApi:
         max_zinc: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of zinc in milligrams the recipe can have.")] = None,
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8859,8 +8847,6 @@ class RecipesApi:
         :type offset: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8981,7 +8967,6 @@ class RecipesApi:
             max_zinc=max_zinc,
             offset=offset,
             number=number,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9105,7 +9090,6 @@ class RecipesApi:
         max_zinc: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of zinc in milligrams the recipe can have.")] = None,
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9317,8 +9301,6 @@ class RecipesApi:
         :type offset: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9439,7 +9421,6 @@ class RecipesApi:
             max_zinc=max_zinc,
             offset=offset,
             number=number,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9558,7 +9539,6 @@ class RecipesApi:
         max_zinc,
         offset,
         number,
-        limit_license,
         _request_auth,
         _content_type,
         _headers,
@@ -9967,21 +9947,18 @@ class RecipesApi:
             
             _query_params.append(('number', number))
             
-        if limit_license is not None:
-            
-            _query_params.append(('limitLicense', limit_license))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -10012,7 +9989,6 @@ class RecipesApi:
         self,
         ingredients: Annotated[Optional[StrictStr], Field(description="A comma-separated list of ingredients that the recipes should contain.")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         ranking: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         _request_timeout: Union[
@@ -10036,8 +10012,6 @@ class RecipesApi:
         :type ingredients: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
         :type ranking: float
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -10067,7 +10041,6 @@ class RecipesApi:
         _param = self._search_recipes_by_ingredients_serialize(
             ingredients=ingredients,
             number=number,
-            limit_license=limit_license,
             ranking=ranking,
             ignore_pantry=ignore_pantry,
             _request_auth=_request_auth,
@@ -10098,7 +10071,6 @@ class RecipesApi:
         self,
         ingredients: Annotated[Optional[StrictStr], Field(description="A comma-separated list of ingredients that the recipes should contain.")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         ranking: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         _request_timeout: Union[
@@ -10122,8 +10094,6 @@ class RecipesApi:
         :type ingredients: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
         :type ranking: float
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -10153,7 +10123,6 @@ class RecipesApi:
         _param = self._search_recipes_by_ingredients_serialize(
             ingredients=ingredients,
             number=number,
-            limit_license=limit_license,
             ranking=ranking,
             ignore_pantry=ignore_pantry,
             _request_auth=_request_auth,
@@ -10184,7 +10153,6 @@ class RecipesApi:
         self,
         ingredients: Annotated[Optional[StrictStr], Field(description="A comma-separated list of ingredients that the recipes should contain.")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         ranking: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         _request_timeout: Union[
@@ -10208,8 +10176,6 @@ class RecipesApi:
         :type ingredients: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
         :type ranking: float
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
@@ -10239,7 +10205,6 @@ class RecipesApi:
         _param = self._search_recipes_by_ingredients_serialize(
             ingredients=ingredients,
             number=number,
-            limit_license=limit_license,
             ranking=ranking,
             ignore_pantry=ignore_pantry,
             _request_auth=_request_auth,
@@ -10265,7 +10230,6 @@ class RecipesApi:
         self,
         ingredients,
         number,
-        limit_license,
         ranking,
         ignore_pantry,
         _request_auth,
@@ -10296,10 +10260,6 @@ class RecipesApi:
             
             _query_params.append(('number', number))
             
-        if limit_license is not None:
-            
-            _query_params.append(('limitLicense', limit_license))
-            
         if ranking is not None:
             
             _query_params.append(('ranking', ranking))
@@ -10314,11 +10274,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -10422,7 +10383,6 @@ class RecipesApi:
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         random: Annotated[Optional[StrictBool], Field(description="If true, every request will give you a random set of recipes within the requested limits.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10590,8 +10550,6 @@ class RecipesApi:
         :type number: int
         :param random: If true, every request will give you a random set of recipes within the requested limits.
         :type random: bool
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10690,7 +10648,6 @@ class RecipesApi:
             offset=offset,
             number=number,
             random=random,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10792,7 +10749,6 @@ class RecipesApi:
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         random: Annotated[Optional[StrictBool], Field(description="If true, every request will give you a random set of recipes within the requested limits.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10960,8 +10916,6 @@ class RecipesApi:
         :type number: int
         :param random: If true, every request will give you a random set of recipes within the requested limits.
         :type random: bool
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11060,7 +11014,6 @@ class RecipesApi:
             offset=offset,
             number=number,
             random=random,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11162,7 +11115,6 @@ class RecipesApi:
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         random: Annotated[Optional[StrictBool], Field(description="If true, every request will give you a random set of recipes within the requested limits.")] = None,
-        limit_license: Annotated[Optional[StrictBool], Field(description="Whether the recipes should have an open license that allows display with proper attribution.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11330,8 +11282,6 @@ class RecipesApi:
         :type number: int
         :param random: If true, every request will give you a random set of recipes within the requested limits.
         :type random: bool
-        :param limit_license: Whether the recipes should have an open license that allows display with proper attribution.
-        :type limit_license: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11430,7 +11380,6 @@ class RecipesApi:
             offset=offset,
             number=number,
             random=random,
-            limit_license=limit_license,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11527,7 +11476,6 @@ class RecipesApi:
         offset,
         number,
         random,
-        limit_license,
         _request_auth,
         _content_type,
         _headers,
@@ -11848,21 +11796,18 @@ class RecipesApi:
             
             _query_params.append(('random', random))
             
-        if limit_license is not None:
-            
-            _query_params.append(('limitLicense', limit_license))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -12125,11 +12070,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -12437,11 +12383,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -12794,11 +12741,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -13091,11 +13039,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
 
         # authentication setting
@@ -13392,11 +13341,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
 
         # authentication setting
@@ -13721,11 +13671,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -14018,11 +13969,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
 
         # authentication setting
@@ -14302,11 +14254,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
 
         # authentication setting
@@ -14616,11 +14569,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -14930,11 +14884,12 @@ class RecipesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/html'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/html'
+                ]
+            )
 
 
         # authentication setting

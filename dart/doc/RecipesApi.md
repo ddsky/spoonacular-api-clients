@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRandomRecipes**
-> GetRandomRecipes200Response getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number)
+> GetRandomRecipes200Response getRandomRecipes(includeNutrition, includeTags, excludeTags, number)
 
 Get Random Recipes
 
@@ -585,14 +585,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 final includeNutrition = true; // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 final includeTags = vegetarian,gluten; // String | A comma-separated list of tags that the random recipe(s) must adhere to.
 final excludeTags = meat,dairy; // String | A comma-separated list of tags that the random recipe(s) must not adhere to.
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
-    final result = api_instance.getRandomRecipes(limitLicense, includeNutrition, includeTags, excludeTags, number);
+    final result = api_instance.getRandomRecipes(includeNutrition, includeTags, excludeTags, number);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->getRandomRecipes: $e\n');
@@ -603,7 +602,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **includeNutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
  **includeTags** | **String**| A comma-separated list of tags that the random recipe(s) must adhere to. | [optional] 
  **excludeTags** | **String**| A comma-separated list of tags that the random recipe(s) must not adhere to. | [optional] 
@@ -960,7 +958,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSimilarRecipes**
-> Set<GetSimilarRecipes200ResponseInner> getSimilarRecipes(id, number, limitLicense)
+> Set<GetSimilarRecipes200ResponseInner> getSimilarRecipes(id, number)
 
 Get Similar Recipes
 
@@ -977,10 +975,9 @@ import 'package:openapi/api.dart';
 final api_instance = RecipesApi();
 final id = 1; // int | The item's id.
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-final limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    final result = api_instance.getSimilarRecipes(id, number, limitLicense);
+    final result = api_instance.getSimilarRecipes(id, number);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->getSimilarRecipes: $e\n');
@@ -993,7 +990,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The item's id. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
@@ -1411,7 +1407,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchRecipes**
-> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense)
+> SearchRecipes200Response searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number)
 
 Search Recipes
 
@@ -1523,10 +1519,9 @@ final minZinc = 0; // num | The minimum amount of zinc in milligrams the recipe 
 final maxZinc = 100; // num | The maximum amount of zinc in milligrams the recipe can have.
 final offset = 56; // int | The number of results to skip (between 0 and 900).
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-final limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    final result = api_instance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, limitLicense);
+    final result = api_instance.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->searchRecipes: $e\n');
@@ -1634,7 +1629,6 @@ Name | Type | Description  | Notes
  **maxZinc** | **num**| The maximum amount of zinc in milligrams the recipe can have. | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 
@@ -1652,7 +1646,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchRecipesByIngredients**
-> Set<SearchRecipesByIngredients200ResponseInner> searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry)
+> Set<SearchRecipesByIngredients200ResponseInner> searchRecipesByIngredients(ingredients, number, ranking, ignorePantry)
 
 Search Recipes by Ingredients
 
@@ -1669,12 +1663,11 @@ import 'package:openapi/api.dart';
 final api_instance = RecipesApi();
 final ingredients = carrots,tomatoes; // String | A comma-separated list of ingredients that the recipes should contain.
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-final limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 final ranking = 1; // num | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 final ignorePantry = false; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
 try {
-    final result = api_instance.searchRecipesByIngredients(ingredients, number, limitLicense, ranking, ignorePantry);
+    final result = api_instance.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->searchRecipesByIngredients: $e\n');
@@ -1687,7 +1680,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
  **ranking** | **num**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignorePantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
@@ -1707,7 +1699,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchRecipesByNutrients**
-> Set<SearchRecipesByNutrients200ResponseInner> searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense)
+> Set<SearchRecipesByNutrients200ResponseInner> searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random)
 
 Search Recipes by Nutrients
 
@@ -1797,10 +1789,9 @@ final maxZinc = 100; // num | The maximum amount of zinc in milligrams the recip
 final offset = 56; // int | The number of results to skip (between 0 and 900).
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 final random = false; // bool | If true, every request will give you a random set of recipes within the requested limits.
-final limitLicense = true; // bool | Whether the recipes should have an open license that allows display with proper attribution.
 
 try {
-    final result = api_instance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random, limitLicense);
+    final result = api_instance.searchRecipesByNutrients(minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, random);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->searchRecipesByNutrients: $e\n');
@@ -1886,7 +1877,6 @@ Name | Type | Description  | Notes
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **random** | **bool**| If true, every request will give you a random set of recipes within the requested limits. | [optional] 
- **limitLicense** | **bool**| Whether the recipes should have an open license that allows display with proper attribution. | [optional] [default to true]
 
 ### Return type
 

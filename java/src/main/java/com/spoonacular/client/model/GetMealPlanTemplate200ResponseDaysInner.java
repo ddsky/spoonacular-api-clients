@@ -53,7 +53,7 @@ import com.spoonacular.client.JSON;
 /**
  * GetMealPlanTemplate200ResponseDaysInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class GetMealPlanTemplate200ResponseDaysInner {
   public static final String SERIALIZED_NAME_NUTRITION_SUMMARY = "nutritionSummary";
   @SerializedName(SERIALIZED_NAME_NUTRITION_SUMMARY)
